@@ -12,7 +12,6 @@
     <File fileId="8" filename="$dataS/character/animals/domesticated/cow/holstein/cattleHolstein_normal.png"/>
     <File fileId="9" filename="$dataS/character/animals/domesticated/cow/holstein/cattleHolstein_specular.png"/>
     <File fileId="4" filename="../../bullRing.i3d"/>
-    <File fileId="5" filename="../../bumId.i3d"/>
     <File fileId="1" filename="../../earTags.i3d"/>
     <File fileId="3" filename="../../earTagsRight.i3d"/>
     <File fileId="2" filename="../../monitor.i3d"/>
@@ -132,7 +131,6 @@
           </TransformGroup>
           <TransformGroup name="cow_udder_R_skin_jnt" translation="0.06875 -0.583851 0.069258" rotation="0 90 0" nodeId="82"/>
           <TransformGroup name="cow_udder_L_skin_jnt" translation="0.068751 -0.583851 -0.069258" rotation="0 90 0" nodeId="83"/>
-          <ReferenceNode name="bumId" translation="-0.207106 0.0704122 0.0423419" rotation="-179.669 -3.87791 -177.846" referenceId="5" nodeId="92"/>
           <ReferenceNode name="sprayedMarker" translation="0.173698 0.457282 -0.00109261" rotation="-0 90 0" scale="0.171093 0.171093 0.171093" referenceId="6" nodeId="100"/>
         </TransformGroup>
       </TransformGroup>

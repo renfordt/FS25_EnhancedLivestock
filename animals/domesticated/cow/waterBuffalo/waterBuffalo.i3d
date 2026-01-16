@@ -16,7 +16,6 @@
     <File fileId="8" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffalo/waterBuffalo_normal.png"/>
     <File fileId="9" filename="$dataS/character/animals/domesticated/waterBuffalo/waterBuffalo/waterBuffalo_specular.png"/>
     <File fileId="4" filename="../../bullRing.i3d"/>
-    <File fileId="5" filename="../../bumId.i3d"/>
     <File fileId="1" filename="../../earTags.i3d"/>
     <File fileId="3" filename="../../earTagsRight.i3d"/>
     <File fileId="2" filename="../../monitor.i3d"/>
@@ -142,7 +141,6 @@
           </TransformGroup>
           <TransformGroup name="cow_udder_L_skin_jnt" translation="0.129329 -0.471939 -0.069258" rotation="0 90 0" nodeId="192"/>
           <TransformGroup name="cow_udder_R_skin_jnt" translation="0.129329 -0.471939 0.069258" rotation="0 90 0" nodeId="193"/>
-          <ReferenceNode name="bumId" translation="-0.226568 0.0696802 0.0436621" rotation="-179.593 -3.87073 -178.963" referenceId="5" nodeId="202"/>
           <ReferenceNode name="sprayedMarker" translation="0.194299 0.468937 -0.00109261" rotation="-0 90 0" scale="0.171093 0.171093 0.171093" referenceId="6" nodeId="210"/>
         </TransformGroup>
       </TransformGroup>

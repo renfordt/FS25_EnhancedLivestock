@@ -11,7 +11,6 @@
     <File fileId="9" filename="$dataS/character/animals/domesticated/cow/angus/cattleAngus_specular.png"/>
     <File fileId="12" filename="$dataS/character/animals/domesticated/cow/cattle_alpha.png"/>
     <File fileId="4" filename="../../bullRing.i3d"/>
-    <File fileId="5" filename="../../bumId.i3d"/>
     <File fileId="7" filename="cattleAngus_diffuse.png"/>
     <File fileId="1" filename="../../earTags.i3d"/>
     <File fileId="3" filename="../../earTagsRight.i3d"/>
@@ -128,7 +127,6 @@
           </TransformGroup>
           <TransformGroup name="cow_udder_R_skin_jnt" translation="0.06875 -0.583851 0.069258" rotation="0 90 0" nodeId="175"/>
           <TransformGroup name="cow_udder_L_skin_jnt" translation="0.068751 -0.583851 -0.069258" rotation="0 90 0" nodeId="176"/>
-          <ReferenceNode name="bumId" translation="-0.218794 0.137984 0.0328862" rotation="-178.66 -2.67887 166.878" referenceId="5" nodeId="185"/>
           <ReferenceNode name="sprayedMarker" translation="0.307737 0.450656 -0.00109262" rotation="4.45738 90 0" scale="0.171093 0.171093 0.171093" referenceId="6" nodeId="193"/>
         </TransformGroup>
       </TransformGroup>
