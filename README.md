@@ -115,13 +115,7 @@ Completely reimagined purchasing experience:
 
 <div align="center">
 
-![Animal Identification Tags](https://github.com/user-attachments/assets/724f08c2-ce0a-48b7-9056-50a8622f5742)
 
-![Animal Details Screen](https://github.com/user-attachments/assets/333ffa00-1041-457c-b406-2efe4127d5a4)
-
-![Detailed Information](https://github.com/user-attachments/assets/3731d7e0-6bae-411d-957f-5b4496a1607f)
-
-![Increased Visual Animals](https://github.com/user-attachments/assets/cee43caf-9401-421d-8ada-745d4fa41c7a)
 
 </div>
 
