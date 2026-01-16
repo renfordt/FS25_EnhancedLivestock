@@ -1,0 +1,424 @@
+<modDesc descVersion="105">
+    <author>renfordt (based on original work of Arrow)</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Enhanced Livestock</en>
+        <de>Verbesserter Viehbestand</de>
+        <fr>Bétail Réaliste</fr>
+    </title>
+    <description>
+        <en>
+    <![CDATA[A comprehensive livestock overhaul for Farming Simulator 25.
+
+This mod is based on the FS25 Realistic Livestock mod by Arrow-kb.
+
+GitHub: https://github.com/renfordt/FS25_EnhancedLivestock
+
+Features:
+
+Male Animals
+- Higher market value compared to females
+- Essential for reproduction - realistic breeding requirements
+- Uses vanilla models
+
+Visual Animals
+- Increased capacity from 25 (vanilla) up to 200 visual animals per husbandry
+- Adjustable limit via in-game slider for performance optimization
+
+Individual Animals
+- 100% individual animals - archaic cluster system completely removed
+- Unique identifiers based on the UK's cattle identification system
+- Birthday and country of origin for each animal
+- Customizable names for your livestock
+- Ear tags on left and right ears displaying country, farm ID, animal ID, name, and birthday
+- Partial identifier marking on hindquarters
+- Nose rings on supported animals
+
+Enhanced Pregnancy System
+- Species-specific litter sizes (e.g., cows can have 0-3 calves)
+- Conception at impregnation - offspring created when mother is impregnated, not at birth
+- Pregnancy tracking - view expected offspring count and due dates
+- Individual gestation periods - reproduction duration varies by animal, not by species
+
+Genetics System
+- Five genetic traits: Health, Fertility, Metabolism, Productivity, and Meat Quality
+- Inheritance mechanics - offspring inherit traits from parents
+- Economic impact - genetics directly affect sale value and profitability
+
+Weight System
+- Individual weight tracking for every animal
+- Daily weight fluctuations based on food and water consumption
+- Ideal weight targets influenced by metabolism genetics
+- Health consequences - unhealthy weight affects health and can lead to death
+- Vulnerable young animals - juveniles especially susceptible to weight-related health issues
+- Sale value impact - weight directly affects market price
+
+Enhanced UI
+- Family tree viewer - track lineage and breeding lines
+- Detailed animal screens - extensive stats and information
+- Enhanced info boxes - quick access to vital animal data
+
+Enhanced Production
+- Cow milk production: Only produce milk when lactating, yield rises and falls based on lactation curve
+- Sheep wool production: Seasonal wool growth, only produce wool during warm months
+- Production affected by genetics and health
+
+Death and Aging
+- No age limits - animals can live beyond 5 years
+- Species-specific lifespans - each animal type has realistic expected lifespan
+- Progressive mortality - increasing death chance with age, but can live past expectancy
+- Multiple death causes: Old age, poor health, random accidents, pregnancy complications
+
+Enhanced Animal Dealer
+- Global farm network - hundreds of unique farms across supported countries
+- Farm specialization - each farm produces up to 3 animal types
+- Daily deliveries - farms send animals to dealer each day
+- Time-limited availability - animals eventually disappear if not purchased
+- Dynamic inventory - continuous rotation with new animals
+- Local and imported stock - mostly local animals with occasional imports
+- Unique genetics - every animal has individual traits affecting price
+- Pregnant animals available - chance to purchase pregnant stock
+- Quality-based pricing - farm quality affects animal traits and cost
+ ]]>
+</en>
+<de>
+    <![CDATA[Eine umfassende Viehbestand-Überarbeitung für Farming Simulator 25.
+
+Diese Mod basiert auf der FS25 Realistic Livestock Mod von Arrow-kb.
+
+GitHub: https://github.com/renfordt/FS25_EnhancedLivestock
+
+Funktionen:
+
+Männliche Tiere
+- Höherer Marktwert im Vergleich zu Weibchen
+- Erforderlich für Fortpflanzung - realistische Zuchtanforderungen
+- Verwendet Vanilla-Modelle
+
+Visuelle Tiere
+- Erhöhte Kapazität von 25 (Vanilla) auf bis zu 200 visuelle Tiere pro Tierhaltung
+- Anpassbare Grenze über In-Game-Schieberegler zur Leistungsoptimierung
+
+Individuelle Tiere
+- 100% individuelle Tiere - archaisches Clustersystem vollständig entfernt
+- Eindeutige Kennungen basierend auf dem britischen Rinderkennzeichnungssystem
+- Geburtstag und Herkunftsland für jedes Tier
+- Anpassbare Namen für Ihre Tiere
+- Ohrmarken an linkem und rechtem Ohr mit Land, Farm-ID, Tier-ID, Name und Geburtstag
+- Teilweise Kennzeichnung am Hinterteil
+- Nasenringe bei unterstützten Tieren
+
+Verbessertes Trächtigkeitssystem
+- Artspezifische Wurfgrößen (z.B. Kühe können 0-3 Kälber haben)
+- Empfängnis bei Befruchtung - Nachkommen werden bei Befruchtung erzeugt, nicht bei Geburt
+- Trächtigkeitsverfolgung - erwartete Nachkommenzahl und Geburtstermine einsehen
+- Individuelle Tragezeiten - Reproduktionsdauer variiert je nach Tier, nicht nach Art
+
+Genetiksystem
+- Fünf genetische Merkmale: Gesundheit, Fruchtbarkeit, Stoffwechsel, Produktivität und Fleischqualität
+- Vererbungsmechanik - Nachkommen erben Merkmale von Eltern
+- Wirtschaftliche Auswirkung - Genetik beeinflusst direkt Verkaufswert und Rentabilität
+
+Gewichtssystem
+- Individuelle Gewichtsverfolgung für jedes Tier
+- Tägliche Gewichtsschwankungen basierend auf Futter- und Wasseraufnahme
+- Idealgewichtsziele beeinflusst durch Stoffwechselgenetik
+- Gesundheitsfolgen - ungesundes Gewicht beeinflusst Gesundheit und kann zum Tod führen
+- Gefährdete Jungtiere - Jungtiere besonders anfällig für gewichtsbedingte Gesundheitsprobleme
+- Verkaufswert-Einfluss - Gewicht beeinflusst direkt den Marktpreis
+
+Verbessertes UI
+- Stammbaum-Anzeige - Abstammung und Zuchtlinien verfolgen
+- Detaillierte Tierbildschirme - umfangreiche Statistiken und Informationen
+- Verbesserte Info-Boxen - schneller Zugriff auf wichtige Tierdaten
+
+Verbesserte Produktion
+- Kuh-Milchproduktion: Nur Milch während der Laktation, Ertrag steigt und fällt basierend auf Laktationskurve
+- Schaf-Wollproduktion: Saisonales Wollwachstum, nur Wolle in warmen Monaten
+- Produktion beeinflusst durch Genetik und Gesundheit
+
+Tod und Alterung
+- Keine Altersgrenzen - Tiere können über 5 Jahre hinaus leben
+- Artspezifische Lebensspannen - jede Tierart hat realistische erwartete Lebensspanne
+- Progressive Sterblichkeit - steigende Todeswahrscheinlichkeit mit Alter, kann aber über Erwartung hinaus leben
+- Mehrere Todesursachen: Alter, schlechte Gesundheit, zufällige Unfälle, Schwangerschaftskomplikationen
+
+Verbesserter Tierhändler
+- Globales Farmnetzwerk - Hunderte einzigartige Farmen in unterstützten Ländern
+- Farm-Spezialisierung - jede Farm produziert bis zu 3 Tierarten
+- Tägliche Lieferungen - Farmen senden täglich Tiere zum Händler
+- Zeitlich begrenzte Verfügbarkeit - Tiere verschwinden wenn nicht gekauft
+- Dynamisches Inventar - kontinuierliche Rotation mit neuen Tieren
+- Lokale und importierte Tiere - meist lokale Tiere mit gelegentlichen Importen
+- Einzigartige Genetik - jedes Tier hat individuelle Merkmale die den Preis beeinflussen
+- Trächtige Tiere verfügbar - Chance auf Kauf trächtiger Tiere
+- Qualitätsbasierte Preise - Farmqualität beeinflusst Tiermerkmale und Kosten
+]]>
+</de>
+<fr>
+    <![CDATA[Une refonte complete de l'elevage pour Farming Simulator 25.
+
+Ce mod est base sur le mod FS25 Realistic Livestock de Arrow-kb.
+
+GitHub: https://github.com/renfordt/FS25_EnhancedLivestock
+
+Fonctionnalites:
+
+Animaux males
+- Valeur marchande plus elevee par rapport aux femelles
+- Essentiels pour la reproduction - exigences d'elevage realistes
+- Utilise les modeles vanilla
+
+Animaux visuels
+- Capacite augmentee de 25 (vanilla) jusqu'a 200 animaux visuels par elevage
+- Limite ajustable via curseur en jeu pour l'optimisation des performances
+
+Animaux individuels
+- 100% animaux individuels - systeme de clusters archaique completement supprime
+- Identifiants uniques bases sur le systeme d'identification du betail britannique
+- Date de naissance et pays d'origine pour chaque animal
+- Noms personnalisables pour votre betail
+- Etiquettes auriculaires sur les oreilles gauche et droite affichant pays, ID ferme, ID animal, nom et anniversaire
+- Marquage d'identification partiel sur l'arriere-train
+- Anneaux de nez sur les animaux compatibles
+
+Systeme de gestation ameliore
+- Tailles de portee specifiques a l'espece (ex: les vaches peuvent avoir 0-3 veaux)
+- Conception a l'insemination - progeniture creee quand la mere est fecondee, pas a la naissance
+- Suivi de grossesse - voir le nombre de descendants attendus et les dates prevues
+- Periodes de gestation individuelles - la duree de reproduction varie par animal, pas par espece
+
+Systeme genetique
+- Cinq traits genetiques: Sante, Fertilite, Metabolisme, Productivite et Qualite de viande
+- Mecaniques d'heredite - les descendants heritent des traits des parents
+- Impact economique - la genetique affecte directement la valeur de vente et la rentabilite
+
+Systeme de poids
+- Suivi de poids individuel pour chaque animal
+- Fluctuations de poids quotidiennes basees sur la consommation de nourriture et d'eau
+- Objectifs de poids ideal influences par la genetique du metabolisme
+- Consequences sur la sante - un poids malsain affecte la sante et peut entrainer la mort
+- Jeunes animaux vulnerables - les juveniles particulierement sensibles aux problemes de sante lies au poids
+- Impact sur la valeur de vente - le poids affecte directement le prix du marche
+
+Interface utilisateur amelioree
+- Visualiseur d'arbre genealogique - suivre la lignee et les lignes d'elevage
+- Ecrans d'animaux detailles - statistiques et informations completes
+- Boites d'info ameliorees - acces rapide aux donnees vitales des animaux
+
+Production amelioree
+- Production de lait de vache: Produisent du lait uniquement en lactation, le rendement augmente et diminue selon la courbe de lactation
+- Production de laine de mouton: Croissance saisonniere de la laine, produisent de la laine uniquement pendant les mois chauds
+- Production affectee par la genetique et la sante
+
+Mort et vieillissement
+- Pas de limites d'age - les animaux peuvent vivre au-dela de 5 ans
+- Durees de vie specifiques a l'espece - chaque type d'animal a une esperance de vie realiste
+- Mortalite progressive - risque de mort croissant avec l'age, mais peut vivre au-dela de l'esperance
+- Causes de mort multiples: Vieillesse, mauvaise sante, accidents aleatoires, complications de grossesse
+
+Marchand d'animaux ameliore
+- Reseau de fermes mondial - des centaines de fermes uniques dans les pays supportes
+- Specialisation des fermes - chaque ferme produit jusqu'a 3 types d'animaux
+- Livraisons quotidiennes - les fermes envoient des animaux au marchand chaque jour
+- Disponibilite limitee dans le temps - les animaux disparaissent s'ils ne sont pas achetes
+- Inventaire dynamique - rotation continue avec de nouveaux animaux
+- Stock local et importe - principalement des animaux locaux avec des importations occasionnelles
+- Genetique unique - chaque animal a des traits individuels affectant le prix
+- Animaux gestants disponibles - chance d'acheter du betail gestant
+- Prix bases sur la qualite - la qualite de la ferme affecte les traits et le cout des animaux
+]]>
+</fr>
+    </description>
+    <iconFilename>icon_EnhancedLivestock.dds</iconFilename>
+    <multiplayer supported="true"/>
+    <extraSourceFiles>
+		<sourceFile filename="src/gui/MPLoadingScreen.lua"/>
+        <sourceFile filename="src/animals/husbandry/cluster/EnhancedLivestock_AnimalCluster.lua"/>
+        <sourceFile filename="src/animals/husbandry/cluster/EnhancedLivestock_AnimalClusterHusbandry.lua"/>
+        <sourceFile filename="src/animals/husbandry/cluster/EnhancedLivestock_AnimalClusterSystem.lua"/>
+        <sourceFile filename="src/animals/husbandry/cluster/VisualAnimal.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandry.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandryLiquidManure.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandryStraw.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/PlaceableHusbandryWater.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/EnhancedLivestock_PlaceableHusbandryAnimals.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/EnhancedLivestock_PlaceableHusbandryMilk.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/EnhancedLivestock_PlaceableHusbandryFood.lua"/>
+        <sourceFile filename="src/animals/husbandry/placeables/EnhancedLivestock_PlaceableHusbandryPallets.lua"/>
+        <sourceFile filename="src/animals/husbandry/AnimalSystemStateEvent.lua"/>
+        <sourceFile filename="src/animals/husbandry/EnhancedLivestock_HusbandrySystem.lua"/>
+        <sourceFile filename="src/animals/husbandry/EnhancedLivestock_AnimalNameSystem.lua"/>
+        <sourceFile filename="src/animals/husbandry/EnhancedLivestock_AnimalSystem.lua"/>
+        <sourceFile filename="src/animals/shop/controllers/AnimalScreenBase.lua"/>
+        <sourceFile filename="src/animals/shop/controllers/AnimalScreenDealer.lua"/>
+        <sourceFile filename="src/animals/shop/controllers/AnimalScreenDealerFarm.lua"/>
+        <sourceFile filename="src/animals/shop/controllers/AnimalScreenDealerTrailer.lua"/>
+        <sourceFile filename="src/animals/shop/controllers/AnimalScreenTrailer.lua"/>
+        <sourceFile filename="src/animals/shop/controllers/AnimalScreenTrailerFarm.lua"/>
+        <sourceFile filename="src/animals/shop/events/AIAnimalBuyEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AIAnimalInseminationEvent.lua"/>
+		<sourceFile filename="src/animals/shop/events/AIAnimalSellEvent.lua"/>
+		<sourceFile filename="src/animals/shop/events/AIBulkMessageEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AnimalBuyEvent.lua"/>
+		<sourceFile filename="src/animals/shop/events/AnimalInseminationEvent.lua"/>
+		<sourceFile filename="src/animals/shop/events/AnimalInseminationResultEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AnimalMoveEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AnimalSellEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/SemenBuyEvent.lua"/>
+        <sourceFile filename="src/animals/shop/AnimalItemNew.lua"/>
+        <sourceFile filename="src/animals/shop/EnhancedLivestock_AnimalItemStock.lua"/>
+        <sourceFile filename="src/events/DewarManagerStateEvent.lua"/>
+        <sourceFile filename="src/events/HusbandryMessageStateEvent.lua"/>
+        <sourceFile filename="src/events/ReturnStrawEvent.lua"/>
+        <sourceFile filename="src/farms/FarmManager.lua"/>
+        <sourceFile filename="src/farms/EnhancedLivestock_FarmStats.lua"/>
+        <sourceFile filename="src/fillTypes/EnhancedLivestock_FillTypeManager.lua"/>
+		<sourceFile filename="src/gui/elements/DoubleOptionSliderElement.lua"/>
+        <sourceFile filename="src/gui/elements/RenderElement.lua"/>
+        <sourceFile filename="src/gui/elements/TripleOptionElement.lua"/>
+        <sourceFile filename="src/gui/EnhancedLivestock_AnimalScreen.lua"/>
+        <sourceFile filename="src/gui/VisualAnimalsDialog.lua"/>
+        <sourceFile filename="src/gui/NameInputDialog.lua"/>
+        <sourceFile filename="src/gui/EnhancedLivestockFrame.lua"/>
+        <sourceFile filename="src/gui/AnimalAIDialog.lua"/>
+        <sourceFile filename="src/gui/AnimalFilterDialog.lua"/>
+        <sourceFile filename="src/gui/AnimalInfoDialog.lua"/>
+        <sourceFile filename="src/gui/DiseaseDialog.lua"/>
+        <sourceFile filename="src/gui/EarTagColourPickerDialog.lua"/>
+		<sourceFile filename="src/gui/FileExplorerDialog.lua"/>
+		<sourceFile filename="src/gui/InGameMenuSettingsFrame.lua"/>
+		<sourceFile filename="src/gui/ProfileDialog.lua"/>
+        <sourceFile filename="src/gui/EL_InfoDisplayKeyValueBox.lua"/>
+        <sourceFile filename="src/gui/EnhancedLivestock_InGameMenuAnimalsFrame.lua"/>
+        <sourceFile filename="src/handTools/specializations/HandToolHorseBrush.lua"/>
+        <sourceFile filename="src/handTools/HandTool.lua"/>
+        <sourceFile filename="src/handTools/HandToolSystem.lua"/>
+        <sourceFile filename="src/handTools/ELHandTools.lua"/>
+        <sourceFile filename="src/objects/Dewar.lua"/>
+        <sourceFile filename="src/placeables/EnhancedLivestock_PlaceableSystem.lua"/>
+        <sourceFile filename="src/player/EnhancedLivestock_PlayerHUDUpdater.lua"/>
+        <sourceFile filename="src/player/EnhancedLivestock_PlayerInputComponent.lua"/>
+        <sourceFile filename="src/vehicles/specializations/EnhancedLivestock_LivestockTrailer.lua"/>
+        <sourceFile filename="src/vehicles/specializations/Rideable.lua"/>
+        <sourceFile filename="src/vehicles/EnhancedLivestock_VehicleSystem.lua"/>
+        <sourceFile filename="src/AIAnimalManager.lua"/>
+        <sourceFile filename="src/AIStrawUpdater.lua"/>
+        <sourceFile filename="src/AnimalBirthEvent.lua"/>
+        <sourceFile filename="src/AnimalDeathEvent.lua"/>
+        <sourceFile filename="src/AnimalMonitorEvent.lua"/>
+        <sourceFile filename="src/AnimalNameChangeEvent.lua"/>
+        <sourceFile filename="src/AnimalPregnancyEvent.lua"/>
+        <sourceFile filename="src/AnimalUpdateEvent.lua"/>
+        <sourceFile filename="src/DewarManager.lua"/>
+        <sourceFile filename="src/Disease.lua"/>
+        <sourceFile filename="src/DiseaseManager.lua"/>
+        <sourceFile filename="src/FSCareerMissionInfo.lua"/>
+        <sourceFile filename="src/I18N.lua"/>
+        <sourceFile filename="src/EnhancedLivestock.lua"/>
+        <sourceFile filename="src/EnhancedLivestock_Animal.lua"/>
+		<sourceFile filename="src/EnhancedLivestock_FSBaseMission.lua"/>
+		<sourceFile filename="src/ELConsoleCommandManager.lua"/>
+        <sourceFile filename="src/ELMessage.lua"/>
+        <sourceFile filename="src/ELSettings.lua"/>
+        <sourceFile filename="src/EL_BroadcastSettingsEvent.lua"/>
+    </extraSourceFiles>
+    <l10n filenamePrefix="translations/translation"/>
+    <inputBinding>
+        <actionBinding action="VisualAnimalsDialog">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_t"/>
+        </actionBinding>
+    </inputBinding>
+    <actions>
+        <action name="VisualAnimalsDialog"/>
+    </actions>
+	<helpLines>
+
+		<category title="$l10n_el_settings">
+
+			<page title="$l10n_el_help_monitors_title" iconSliceId="elHelpIcons.monitor">
+
+				<paragraph>
+					<text text="$l10n_el_help_monitors_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_monitors_2"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_monitors_3"/>
+				</paragraph>
+				
+			</page>
+
+			<page title="$l10n_el_help_pregnancy_title" iconSliceId="elHelpIcons.pregnancy">
+
+				<paragraph>
+					<text text="$l10n_el_help_pregnancy_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_pregnancy_2"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_pregnancy_3"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_pregnancy_4"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_pregnancy_5"/>
+				</paragraph>
+				
+			</page>
+
+			<page title="$l10n_el_help_production_title" iconSliceId="elHelpIcons.production">
+
+				<paragraph>
+					<text text="$l10n_el_help_production_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_production_2"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_production_3"/>
+				</paragraph>
+				
+			</page>
+
+			<page title="$l10n_el_help_weight_title" iconSliceId="gui.storeAttribute_maxLoadCapacity">
+
+				<paragraph>
+					<text text="$l10n_el_help_weight_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_weight_2"/>
+				</paragraph>
+
+			</page>
+
+			<page title="$l10n_el_help_genetics_title" iconSliceId="elHelpIcons.genetics">
+
+				<paragraph>
+					<text text="$l10n_el_help_genetics_1"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_genetics_2"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_genetics_3"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_genetics_4"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_genetics_5"/>
+				</paragraph>
+				<paragraph>
+					<text text="$l10n_el_help_genetics_6"/>
+				</paragraph>
+				
+			</page>
+			
+		</category>
+		
+	</helpLines>
+</modDesc>
