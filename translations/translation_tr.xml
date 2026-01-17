@@ -626,6 +626,10 @@
 		<text name="el_death_health" text="düşük sağlık"/>
 		<text name="el_death_age" text="yaşlılık"/>
 		<text name="el_death_accident" text="bir kaza"/>
-		
+
+		<!-- EPP BUTCHER INTEGRATION -->
+
+		<text name="el_epp_butcher_processed" text="Hayvan kasapta işlendi: %s kg %s"/>
+
 	</texts>
 </l10n>

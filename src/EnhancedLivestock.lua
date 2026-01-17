@@ -200,7 +200,7 @@ table.insert(FinanceStats.statNames, "medicine")
 FinanceStats.statNameToIndex["medicine"] = #FinanceStats.statNames
 
 function EnhancedLivestock.loadMap()
-    
+
     EnhancedLivestock.mapAreaCode = EnhancedLivestock.MAP_TO_AREA_CODE[g_currentMission.missionInfo.mapTitle] or 1
 	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "rlHelpIcons")
     g_overlayManager:addTextureConfigFile(modDirectory .. "gui/icons.xml", "enhanced_livestock")
@@ -216,6 +216,11 @@ function EnhancedLivestock.loadMap()
 
     MoneyType.MEDICINE = MoneyType.register("medicine", "el_ui_medicine")
     MoneyType.LAST_ID = MoneyType.LAST_ID + 1
+
+    -- Initialize EPP butcher integration (for mods like FS25_Meat_Production)
+    EL_EPPButcherIntegration.initialize()
+
+    Logging.info("[EnhancedLivestock] Mod initialized")
 
 end
 
