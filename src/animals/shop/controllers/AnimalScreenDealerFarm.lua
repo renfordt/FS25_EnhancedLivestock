@@ -82,7 +82,7 @@ function EL_AnimalScreenDealerFarm:applySource(_, animalTypeIndex, animalIndex)
 
     --self.sourceActionFinished(nil, "Animal bought successfully")
 
-    self.husbandry:addRLMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(price + transportationFee), 2, true, true) })
+    self.husbandry:addELMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(price + transportationFee), 2, true, true) })
 
     return true
 
@@ -142,7 +142,7 @@ function EL_AnimalScreenDealerFarm:applyTarget(_, animalTypeIndex, animalIndex)
 
     --self.targetActionFinished(nil, "Animal sold successfully")
 
-    self.husbandry:addRLMessage("SOLD_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(price + transportationFee, 2, true, true) })
+    self.husbandry:addELMessage("SOLD_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(price + transportationFee, 2, true, true) })
 
     return true
 
@@ -231,9 +231,9 @@ function AnimalScreenDealerFarm:applySourceBulk(animalTypeIndex, items)
     g_client:getServerConnection():sendEvent(AnimalBuyEvent.new(husbandry, self.sourceAnimals, totalPrice, totalTransportPrice))
 
     if totalBoughtAnimals == 1 then
-        self.husbandry:addRLMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(totalPrice + totalTransportPrice), 2, true, true) })
+        self.husbandry:addELMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(totalPrice + totalTransportPrice), 2, true, true) })
     elseif totalBoughtAnimals > 0 then
-        self.husbandry:addRLMessage("BOUGHT_ANIMALS_MULTIPLE", nil, { totalBoughtAnimals, g_i18n:formatMoney(math.abs(totalPrice + totalTransportPrice), 2, true, true) })
+        self.husbandry:addELMessage("BOUGHT_ANIMALS_MULTIPLE", nil, { totalBoughtAnimals, g_i18n:formatMoney(math.abs(totalPrice + totalTransportPrice), 2, true, true) })
     end
     
 end
@@ -297,9 +297,9 @@ function AnimalScreenDealerFarm:applyTargetBulk(animalTypeIndex, items)
 	g_client:getServerConnection():sendEvent(AnimalSellEvent.new(husbandry, self.targetAnimals, totalPrice, totalTransportPrice))
 
     if totalSoldAnimals == 1 then
-        self.husbandry:addRLMessage("SOLD_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(totalPrice + totalTransportPrice, 2, true, true) })
+        self.husbandry:addELMessage("SOLD_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(totalPrice + totalTransportPrice, 2, true, true) })
     elseif totalSoldAnimals > 0 then
-        self.husbandry:addRLMessage("SOLD_ANIMALS_MULTIPLE", nil, { totalSoldAnimals, g_i18n:formatMoney(totalPrice + totalTransportPrice, 2, true, true) })
+        self.husbandry:addELMessage("SOLD_ANIMALS_MULTIPLE", nil, { totalSoldAnimals, g_i18n:formatMoney(totalPrice + totalTransportPrice, 2, true, true) })
     end
 
 end

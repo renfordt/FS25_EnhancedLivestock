@@ -56,7 +56,7 @@ function AnimalInseminationResultEvent:run(connection)
 
 		if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 					
-			animal:addRLMessage(string.format("INSEMINATION_%s", self.success and "SUCCESS" or "FAIL"))
+			animal:addELMessage(string.format("INSEMINATION_%s", self.success and "SUCCESS" or "FAIL"))
 			return
 
 		end

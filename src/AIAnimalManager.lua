@@ -480,10 +480,10 @@ function AIAnimalManager:onDayChanged()
 				g_server:broadcastEvent(AIAnimalSellEvent.new(self.husbandry, soldAnimals, amountGained), true)
 
 				if #soldAnimals == 1 then
-					self.husbandry:addRLMessage("AI_MANAGER_SOLD_SINGLE", nil, { g_i18n:formatMoney(amountGained, 2, true, true) })
+					self.husbandry:addELMessage("AI_MANAGER_SOLD_SINGLE", nil, { g_i18n:formatMoney(amountGained, 2, true, true) })
 					table.insert(messages, { ["id"] = "AI_MANAGER_SOLD_SINGLE", ["args"] = { g_i18n:formatMoney(amountGained, 2, true, true) } })
 				else
-					self.husbandry:addRLMessage("AI_MANAGER_SOLD_MULTIPLE", nil, { #soldAnimals, g_i18n:formatMoney(amountGained, 2, true, true) })
+					self.husbandry:addELMessage("AI_MANAGER_SOLD_MULTIPLE", nil, { #soldAnimals, g_i18n:formatMoney(amountGained, 2, true, true) })
 					table.insert(messages, { ["id"] = "AI_MANAGER_SOLD_MULTIPLE", ["args"] = { #soldAnimals, g_i18n:formatMoney(amountGained, 2, true, true) } })
 				end
 
@@ -492,10 +492,10 @@ function AIAnimalManager:onDayChanged()
 		elseif #soldAnimals > 0 then
 
 			if #soldAnimals == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_SELL_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_MARK_SELL_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_SELL_SINGLE" })
 			else
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_SELL_MULTIPLE", nil, { #soldAnimals })
+				self.husbandry:addELMessage("AI_MANAGER_MARK_SELL_MULTIPLE", nil, { #soldAnimals })
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_SELL_MULTIPLE", ["args"] = { #soldAnimals }})
 			end
 
@@ -577,10 +577,10 @@ function AIAnimalManager:onDayChanged()
 					g_server:broadcastEvent(AIAnimalBuyEvent.new(self.husbandry, boughtAnimals, amountSpent), true)
 
 					if #boughtAnimals == 1 then
-						self.husbandry:addRLMessage("AI_MANAGER_BOUGHT_SINGLE", nil, { g_i18n:formatMoney(amountSpent, 2, true, true) })
+						self.husbandry:addELMessage("AI_MANAGER_BOUGHT_SINGLE", nil, { g_i18n:formatMoney(amountSpent, 2, true, true) })
 						table.insert(messages, { ["id"] = "AI_MANAGER_BOUGHT_SINGLE", ["args"] = { g_i18n:formatMoney(amountSpent, 2, true, true) } })
 					else
-						self.husbandry:addRLMessage("AI_MANAGER_BOUGHT_MULTIPLE", nil, { #boughtAnimals, g_i18n:formatMoney(amountSpent, 2, true, true) })
+						self.husbandry:addELMessage("AI_MANAGER_BOUGHT_MULTIPLE", nil, { #boughtAnimals, g_i18n:formatMoney(amountSpent, 2, true, true) })
 						table.insert(messages, { ["id"] = "AI_MANAGER_BOUGHT_MULTIPLE", ["args"] = { #boughtAnimals, g_i18n:formatMoney(amountSpent, 2, true, true) } })
 					end
 
@@ -643,18 +643,18 @@ function AIAnimalManager:onDayChanged()
 
 		if castrate.mark then
 			if numCastrated == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_MARK_CASTRATE_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_SINGLE" })
 			elseif numCastrated > 0 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_MULTIPLE", nil, { numCastrated })
+				self.husbandry:addELMessage("AI_MANAGER_MARK_CASTRATE_MULTIPLE", nil, { numCastrated })
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_MULTIPLE", ["args"] = { numCastrated } })
 			end
 		else
 			if numCastrated == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_MARK_CASTRATE_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_SINGLE" })
 			elseif numCastrated > 0 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_MULTIPLE", nil, { numCastrated })
+				self.husbandry:addELMessage("AI_MANAGER_MARK_CASTRATE_MULTIPLE", nil, { numCastrated })
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_MULTIPLE", ["args"] = { numCastrated } })
 			end
 		end
@@ -712,10 +712,10 @@ function AIAnimalManager:onDayChanged()
 		end
 
 		if numNamed == 1 then
-			self.husbandry:addRLMessage("AI_MANAGER_NAMED_SINGLE")
+			self.husbandry:addELMessage("AI_MANAGER_NAMED_SINGLE")
 			table.insert(messages, { ["id"] = "AI_MANAGER_NAMED_SINGLE" })
 		elseif numNamed > 0 then
-			self.husbandry:addRLMessage("AI_MANAGER_NAMED_MULTIPLE", nil, { numNamed })
+			self.husbandry:addELMessage("AI_MANAGER_NAMED_MULTIPLE", nil, { numNamed })
 			table.insert(messages, { ["id"] = "AI_MANAGER_NAMED_MULTIPLE", ["args"] = { numNamed } })
 		end
 
@@ -828,20 +828,20 @@ function AIAnimalManager:onDayChanged()
 			g_server:broadcastEvent(AIAnimalInseminationEvent.new(self.husbandry, inseminatedAnimals), true)
 
 			if #inseminatedAnimals == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_INSEMINATED_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_INSEMINATED_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_INSEMINATED_SINGLE" })
 			else
-				self.husbandry:addRLMessage("AI_MANAGER_INSEMINATED_MULTIPLE", nil, { #inseminatedAnimals })
+				self.husbandry:addELMessage("AI_MANAGER_INSEMINATED_MULTIPLE", nil, { #inseminatedAnimals })
 				table.insert(messages, { ["id"] = "AI_MANAGER_INSEMINATED_MULTIPLE", ["args"] = { #inseminatedAnimals } })
 			end
 
 		elseif #inseminatedAnimals > 0 then
 
 			if #inseminatedAnimals == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_INSEMINATED_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_MARK_INSEMINATED_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_INSEMINATED_SINGLE" })
 			else
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_INSEMINATED_MULTIPLE", nil, { #inseminatedAnimals })
+				self.husbandry:addELMessage("AI_MANAGER_MARK_INSEMINATED_MULTIPLE", nil, { #inseminatedAnimals })
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_INSEMINATED_MULTIPLE", ["args"] = { #inseminatedAnimals } })
 			end
 

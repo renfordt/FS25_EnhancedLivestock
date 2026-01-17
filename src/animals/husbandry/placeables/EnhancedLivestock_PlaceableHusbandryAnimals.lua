@@ -2,41 +2,41 @@ EnhancedLivestock_PlaceableHusbandryAnimals = {}
 
 
 function EnhancedLivestock_PlaceableHusbandryAnimals.registerFunctions(placeable)
-	SpecializationUtil.registerFunction(placeable, "setHasUnreadRLMessages", PlaceableHusbandryAnimals.setHasUnreadRLMessages)
-	SpecializationUtil.registerFunction(placeable, "getHasUnreadRLMessages", PlaceableHusbandryAnimals.getHasUnreadRLMessages)
-	SpecializationUtil.registerFunction(placeable, "getRLMessages", PlaceableHusbandryAnimals.getRLMessages)
-	SpecializationUtil.registerFunction(placeable, "addRLMessage", PlaceableHusbandryAnimals.addRLMessage)
-	SpecializationUtil.registerFunction(placeable, "deleteRLMessage", PlaceableHusbandryAnimals.deleteRLMessage)
-	SpecializationUtil.registerFunction(placeable, "getNextRLMessageUniqueId", PlaceableHusbandryAnimals.getNextRLMessageUniqueId)
-	SpecializationUtil.registerFunction(placeable, "setNextRLMessageUniqueId", PlaceableHusbandryAnimals.setNextRLMessageUniqueId)
+	SpecializationUtil.registerFunction(placeable, "setHasUnreadELMessages", PlaceableHusbandryAnimals.setHasUnreadELMessages)
+	SpecializationUtil.registerFunction(placeable, "getHasUnreadELMessages", PlaceableHusbandryAnimals.getHasUnreadELMessages)
+	SpecializationUtil.registerFunction(placeable, "getELMessages", PlaceableHusbandryAnimals.getELMessages)
+	SpecializationUtil.registerFunction(placeable, "addELMessage", PlaceableHusbandryAnimals.addELMessage)
+	SpecializationUtil.registerFunction(placeable, "deleteELMessage", PlaceableHusbandryAnimals.deleteELMessage)
+	SpecializationUtil.registerFunction(placeable, "getNextELMessageUniqueId", PlaceableHusbandryAnimals.getNextELMessageUniqueId)
+	SpecializationUtil.registerFunction(placeable, "setNextELMessageUniqueId", PlaceableHusbandryAnimals.setNextELMessageUniqueId)
 	SpecializationUtil.registerFunction(placeable, "getAIManager", PlaceableHusbandryAnimals.getAIManager)
 end
 
 PlaceableHusbandryAnimals.registerFunctions = Utils.appendedFunction(PlaceableHusbandryAnimals.registerFunctions, EnhancedLivestock_PlaceableHusbandryAnimals.registerFunctions)
 
 
-function PlaceableHusbandryAnimals:setHasUnreadRLMessages(hasUnreadMessages)
+function PlaceableHusbandryAnimals:setHasUnreadELMessages(hasUnreadMessages)
     
     self.spec_husbandryAnimals.unreadMessages = hasUnreadMessages
 
 end
 
 
-function PlaceableHusbandryAnimals:getHasUnreadRLMessages()
+function PlaceableHusbandryAnimals:getHasUnreadELMessages()
     
     return self.spec_husbandryAnimals.unreadMessages or false
 
 end
 
 
-function PlaceableHusbandryAnimals:getRLMessages()
+function PlaceableHusbandryAnimals:getELMessages()
 
     return self.spec_husbandryAnimals.messages or {}
 
 end
 
 
-function PlaceableHusbandryAnimals:addRLMessage(id, animal, args, date, uniqueId, isLoading)
+function PlaceableHusbandryAnimals:addELMessage(id, animal, args, date, uniqueId, isLoading)
 
     local spec = self.spec_husbandryAnimals
 
@@ -65,7 +65,7 @@ function PlaceableHusbandryAnimals:addRLMessage(id, animal, args, date, uniqueId
         ["animal"] = animal,
         ["args"] = args or {},
         ["date"] = date,
-        ["uniqueId"] = uniqueId or spec:getNextRLMessageUniqueId()
+        ["uniqueId"] = uniqueId or spec:getNextELMessageUniqueId()
     })
 
     if not isLoading and #spec.messages > PlaceableHusbandryAnimals.maxNumMessages then table.remove(spec.messages, 1) end
@@ -75,7 +75,7 @@ function PlaceableHusbandryAnimals:addRLMessage(id, animal, args, date, uniqueId
 end
 
 
-function PlaceableHusbandryAnimals:deleteRLMessage(uniqueId)
+function PlaceableHusbandryAnimals:deleteELMessage(uniqueId)
 
     local spec = self.spec_husbandryAnimals
 
@@ -91,14 +91,14 @@ function PlaceableHusbandryAnimals:deleteRLMessage(uniqueId)
 end
 
 
-function PlaceableHusbandryAnimals:setNextRLMessageUniqueId(nextUniqueId)
+function PlaceableHusbandryAnimals:setNextELMessageUniqueId(nextUniqueId)
 
     self.spec_husbandryAnimals.rlMessageUniqueId = nextUniqueId or 0
 
 end
 
 
-function PlaceableHusbandryAnimals:getNextRLMessageUniqueId()
+function PlaceableHusbandryAnimals:getNextELMessageUniqueId()
 
     local spec = self.spec_husbandryAnimals
 
@@ -162,7 +162,7 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:loadFromXMLFile(xmlFile, ke
 
         end)
         
-        self:addRLMessage(id, animal, args, date, uniqueId, true)
+        self:addELMessage(id, animal, args, date, uniqueId, true)
     
     end)
 
@@ -329,7 +329,7 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onDayChanged()
 
     self:raiseActive()
 
-    if self:getHasUnreadRLMessages() and g_localPlayer ~= nil and g_localPlayer.farmId == self:getOwnerFarmId() then
+    if self:getHasUnreadELMessages() and g_localPlayer ~= nil and g_localPlayer.farmId == self:getOwnerFarmId() then
 
         g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, string.format(g_i18n:getText("el_ui_unreadMessages"), self:getName()))
 

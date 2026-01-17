@@ -106,9 +106,9 @@ function AnimalBuyEvent:run(connection)
 	if g_server ~= nil and not g_server.netIsRunning then return end
 
 	if #self.animals == 1 then
-        self.object:addRLMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(self.buyPrice + self.transportPrice), 2, true, true) })
+        self.object:addELMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(self.buyPrice + self.transportPrice), 2, true, true) })
     elseif #self.animals > 0 then
-        self.object:addRLMessage("BOUGHT_ANIMALS_MULTIPLE", nil, { #self.animals, g_i18n:formatMoney(math.abs(self.buyPrice + self.transportPrice), 2, true, true) })
+        self.object:addELMessage("BOUGHT_ANIMALS_MULTIPLE", nil, { #self.animals, g_i18n:formatMoney(math.abs(self.buyPrice + self.transportPrice), 2, true, true) })
     end
 
 end

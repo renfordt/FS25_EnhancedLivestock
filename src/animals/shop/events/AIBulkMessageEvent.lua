@@ -77,7 +77,7 @@ function AIBulkMessageEvent:run(connection)
 	for i = 1, #self.messages do
 
 		local message = self.messages[i]
-		self.object:addRLMessage(message.id, nil, message.args)
+		self.object:addELMessage(message.id, nil, message.args)
 
 	end
 

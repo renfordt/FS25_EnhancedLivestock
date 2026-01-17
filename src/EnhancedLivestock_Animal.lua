@@ -3312,9 +3312,9 @@ end
 
 function Animal:addMessage(id, args)
 
-    if self.clusterSystem == nil or self.clusterSystem.owner == nil or self.clusterSystem.owner.addRLMessage == nil then return end
+    if self.clusterSystem == nil or self.clusterSystem.owner == nil or self.clusterSystem.owner.addELMessage == nil then return end
 
-    self.clusterSystem.owner:addRLMessage(id, self:getIdentifiers(), args)
+    self.clusterSystem.owner:addELMessage(id, self:getIdentifiers(), args)
 
 end
 

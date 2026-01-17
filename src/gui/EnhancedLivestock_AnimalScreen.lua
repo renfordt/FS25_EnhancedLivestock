@@ -45,7 +45,7 @@ AnimalScreen.show = EnhancedLivestock_AnimalScreen.show
 
 function EnhancedLivestock_AnimalScreen:setController(_, husbandry, vehicle, isDealer)
 
-    --if husbandry ~= nil then self.tabLogButton:setImageSlice(nil, "enhanced_livestock.messages" .. (husbandry:getHasUnreadRLMessages() and "_new" or "")) end
+    --if husbandry ~= nil then self.tabLogButton:setImageSlice(nil, "enhanced_livestock.messages" .. (husbandry:getHasUnreadELMessages() and "_new" or "")) end
 
     self.isTrailer = husbandry == nil and vehicle ~= nil and not isDealer
     self.isDirectFarm = husbandry ~= nil and vehicle == nil
@@ -296,7 +296,7 @@ function AnimalScreen:onClickDeleteMessage()
 
     if message == nil then return end
 
-    self.husbandry:deleteRLMessage(message.uniqueId)
+    self.husbandry:deleteELMessage(message.uniqueId)
 
     local currentMessagePage = self.currentMessagePage
 
@@ -653,7 +653,7 @@ function AnimalScreen:onClickLogMode()
     self.tabHerdsman:setSelected(false)
     self.tabAI:setSelected(false)
 
-    local allMessages = self.husbandry:getRLMessages()
+    local allMessages = self.husbandry:getELMessages()
     local messages = { {} }
 
     for i = #allMessages, 1, -1 do
@@ -670,7 +670,7 @@ function AnimalScreen:onClickLogMode()
 
     self:updateLog()
 
-    self.husbandry:setHasUnreadRLMessages(false)
+    self.husbandry:setHasUnreadELMessages(false)
     self.buttonsPanel:invalidateLayout()
 
 end

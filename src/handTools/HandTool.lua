@@ -19,7 +19,7 @@ HandTool.load = Utils.overwrittenFunction(HandTool.load, EL_HandTool.load)
 
 function HandTool:loadNonStoreItem(data, xmlFile)
 
-	self.isRL = true
+	self.isEL = true
 
 	local handToolSystem = g_currentMission.handToolSystem
 

@@ -33,8 +33,8 @@ function HusbandryMessageStateEvent:readStream(streamId, connection)
 
 		local hasUnreadMessages = streamReadBool(streamId)
 		local nextUniqueId = streamReadUInt16(streamId)
-		husbandry:setHasUnreadRLMessages(hasUnreadMessages)
-		husbandry:setNextRLMessageUniqueId(nextUniqueId)
+		husbandry:setHasUnreadELMessages(hasUnreadMessages)
+		husbandry:setNextELMessageUniqueId(nextUniqueId)
 
 		local numMessages = streamReadUInt16(streamId)
 		local messages = {}
@@ -77,10 +77,10 @@ function HusbandryMessageStateEvent:writeStream(streamId, connection)
 	for _, husbandry in pairs(self.husbandries) do
 
 		NetworkUtil.writeNodeObject(streamId, husbandry)
-		streamWriteBool(streamId, husbandry:getHasUnreadRLMessages())
-		streamWriteUInt16(streamId, husbandry:getNextRLMessageUniqueId())
+		streamWriteBool(streamId, husbandry:getHasUnreadELMessages())
+		streamWriteUInt16(streamId, husbandry:getNextELMessageUniqueId())
 
-		local messages = husbandry:getRLMessages()
+		local messages = husbandry:getELMessages()
 		streamWriteUInt16(streamId, #messages)
 
 		for i = 1, #messages do
