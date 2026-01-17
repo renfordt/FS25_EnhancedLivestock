@@ -37,9 +37,6 @@ Every animal is truly unique with comprehensive individual tracking:
 - **Unique identifiers** based on the UK's cattle identification system
 - **Birthday and country of origin** for each animal
 - **Customizable names** for your livestock
-- **Physical identification tags**:
-    - Ear tags on left and right ears displaying country, farm ID, animal ID, name, and birthday
-    - Partial identifier marking on hindquarters
 - **Nose rings** on supported animals
 
 ### 🤰 Enhanced Pregnancy System
@@ -110,6 +107,40 @@ Completely reimagined purchasing experience:
 - **Pregnant animals available** - chance to purchase pregnant stock
 - **Quality-based pricing** - farm quality affects animal traits and cost
 
+### 🦠 Disease System
+Comprehensive health management with realistic disease mechanics:
+- **Multiple disease types** - Various conditions affecting different animal species
+- **Transmission mechanics** - Diseases can spread between animals in the same husbandry
+- **Treatment options** - Pay for veterinary care to cure sick animals
+- **Immunity periods** - Animals gain temporary immunity after recovery
+- **Production impact** - Diseases affect milk, wool, and other outputs
+- **Fatality risk** - Untreated conditions can be fatal over time
+
+### 🤖 AI Herdsman
+Automated animal management system:
+- **Automated buying** - Purchase animals matching your criteria
+- **Automated selling** - Sell animals based on configurable filters
+- **Castration management** - Automatic castration based on rules
+- **Naming service** - Auto-naming for new animals
+- **Insemination service** - Automated breeding management
+- **Monthly wage system** - Pay wages based on services and animal count
+- **Configurable filters** - Set criteria for age, genetics, gender, health, and more
+
+### 💉 Artificial Insemination
+Advanced breeding with pedigree genetics:
+- **Dewar storage** - Store and manage pedigree semen
+- **Hand tool system** - Manual insemination with specialized equipment
+- **Genetic selection** - Choose specific genetics for offspring
+- **Shop integration** - Purchase semen from various sources
+
+### 📝 Message Log
+Event tracking for your husbandries:
+- **Birth notifications** - Track new arrivals
+- **Death records** - Log animal deaths with causes
+- **Transaction history** - Record purchases and sales
+- **Health events** - Disease outbreaks and recoveries
+- **AI Herdsman actions** - Log automated management decisions
+
 ### 🥩 Butcher Integration
 Seamless integration with EPP Butcher mod:
 - **Direct slaughter** - send animals to butcher directly from the animal screen
@@ -131,18 +162,9 @@ Seamless integration with EPP Butcher mod:
 
 ---
 
-## 🚧 In Development
-
-The following features are currently being developed:
-
-- 🦠 **Disease System** - Animal health conditions and treatments
-- 📝 **Message Log** - Event tracking and history for husbandries
-
----
-
 ## 💬 Support & Feedback
 
-Found a bug or have a suggestion? Please [open an issue](https://github.com/Arrow-kb/FS25_EnhancedLivestock/issues) on GitHub.
+Found a bug or have a suggestion? Please [open an issue](https://github.com/renfordt/FS25_EnhancedLivestock/issues) on GitHub.
 
 ---
 
