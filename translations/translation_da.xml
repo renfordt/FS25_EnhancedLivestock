@@ -660,6 +660,9 @@
 		<text name="el_death_age" text="Alderdom"/>
 		<text name="el_death_accident" text="Ulykke"/>
 
+		<!-- EPP BUTCHER INTEGRATION -->
+
+		<text name="el_epp_butcher_processed" text="Dyr behandlet hos slagter: %s kg %s"/>
 
 	</texts>
 </l10n>

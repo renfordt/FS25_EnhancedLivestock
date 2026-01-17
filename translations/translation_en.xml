@@ -633,7 +633,11 @@
 		<text name="el_death_health" text="low health"/>
 		<text name="el_death_age" text="old age"/>
 		<text name="el_death_accident" text="an accident"/>
-		
-		
+
+		<!-- EPP BUTCHER INTEGRATION -->
+
+		<text name="el_epp_butcher_processed" text="Animal processed at butcher: %s kg of %s"/>
+
+
 	</texts>
 </l10n>

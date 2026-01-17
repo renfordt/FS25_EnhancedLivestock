@@ -600,5 +600,10 @@
 		<text name="el_death_health" text="low health"/>
 		<text name="el_death_age" text="old age"/>
 		<text name="el_death_accident" text="an accident"/>
+
+		<!-- EPP BUTCHER INTEGRATION -->
+
+		<text name="el_epp_butcher_processed" text="Тварина оброблена на бійні: %s кг %s"/>
+
 	</texts>
 </l10n>

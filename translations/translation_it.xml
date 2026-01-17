@@ -614,5 +614,10 @@
 		<text name="el_ui_dependencies_missing" text="RealisticLivestock richiede le seguenti dipendenze:"/>
 		<text name="el_ui_dependency_missing_notInstalled" text="- %s (Non installata)"/>
 		<text name="el_ui_dependency_missing_installed" text="- %s (Installata: %s, Minima richiesta: %s)"/>
+
+		<!-- EPP BUTCHER INTEGRATION -->
+
+		<text name="el_epp_butcher_processed" text="Animale processato dal macellaio: %s kg di %s"/>
+
 	</texts>
 </l10n>

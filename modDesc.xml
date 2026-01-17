@@ -322,6 +322,9 @@ Marchand d'animaux ameliore
         <sourceFile filename="src/ELMessage.lua"/>
         <sourceFile filename="src/ELSettings.lua"/>
         <sourceFile filename="src/EL_BroadcastSettingsEvent.lua"/>
+        <sourceFile filename="src/integrations/events/EPPButcherProcessEvent.lua"/>
+        <sourceFile filename="src/integrations/events/EPPButcherResultEvent.lua"/>
+        <sourceFile filename="src/integrations/EPPButcherIntegration.lua"/>
     </extraSourceFiles>
     <l10n filenamePrefix="translations/translation"/>
     <inputBinding>

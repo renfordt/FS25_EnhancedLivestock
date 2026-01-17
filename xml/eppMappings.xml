@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eppMappings>
+    <!--
+        EPP Butcher Integration Configuration
+
+        This file configures how Enhanced Livestock animals are processed
+        at ExtendedProductionPoint (EPP) butchers.
+
+        When an EL animal is delivered to a butcher, the integration:
+        1. Calculates an "animal equivalent" based on weight, quality, and health
+        2. Stores this as the INTERMEDIATE fill type (e.g., BEEF, PIGS)
+        3. The butcher's production chain then converts this to final meat
+
+        This allows EL's variable animal values to integrate naturally with
+        EPP's production system while remaining compatible with vanilla FS25.
+    -->
+
+    <!--
+        Meat yield percentages (0.0 - 1.0) representing carcass yield
+
+        NOTE: These are currently kept for reference/backward compatibility
+        but are not used in the animal equivalent calculation. The animal
+        equivalent is based on weight vs. reference weight, not meat yield.
+    -->
+    <yields>
+        <yield animalType="COW" percentage="0.60"/>      <!-- 60% carcass yield for cattle -->
+        <yield animalType="PIG" percentage="0.72"/>      <!-- 72% carcass yield for pigs -->
+        <yield animalType="SHEEP" percentage="0.50"/>    <!-- 50% carcass yield for sheep -->
+        <yield animalType="CHICKEN" percentage="0.65"/> <!-- 65% carcass yield for chickens -->
+        <yield animalType="HORSE" percentage="0.55"/>    <!-- 55% carcass yield for horses -->
+    </yields>
+
+    <!--
+        Reference weights for "standard" animals (in kg)
+
+        These represent the weight of a typical adult animal of average quality.
+        The animal equivalent is calculated as:
+            (actual_weight / reference_weight) * quality_factor * health_factor
+
+        For example, a 600kg cow with quality 1.0 and 100% health:
+            (600 / 500) * 1.0 * 1.0 = 1.2 animal equivalents
+
+        This means the butcher will receive 1.2x the normal amount of the
+        intermediate fill type (BEEF), which then produces 1.2x the normal meat.
+    -->
+    <referenceWeights>
+        <weight animalType="COW" kg="500"/>      <!-- 500 kg standard cow -->
+        <weight animalType="PIG" kg="110"/>      <!-- 110 kg standard pig -->
+        <weight animalType="SHEEP" kg="45"/>     <!-- 45 kg standard sheep -->
+        <weight animalType="CHICKEN" kg="2.5"/>  <!-- 2.5 kg standard chicken -->
+        <weight animalType="HORSE" kg="500"/>    <!-- 500 kg standard horse -->
+    </referenceWeights>
+
+    <!--
+        Animal type to INTERMEDIATE fill type name mapping (fallback)
+
+        These are the INPUT fill types that EPP uses before the production
+        chain converts them to final meat. For example:
+        - BEEF (input) -> Production -> MEAT (output)
+        - PIGS (input) -> Production -> JAMBON (output)
+
+        The integration will first try to use EPP's animalSubTypeToFillType
+        or animalTypeToFillType mappings. These are only used as fallbacks
+        if the butcher doesn't provide its own mappings.
+
+        Common intermediate fill types used by butcher mods:
+        - The Butcher mod: BEEF, PIGS, SHEEPGOAT, POULTRY
+        - Other mods may use different names
+    -->
+    <fillTypes>
+        <fillType animalType="COW" name="BEEF"/>
+        <fillType animalType="PIG" name="PIGS"/>
+        <fillType animalType="SHEEP" name="SHEEPGOAT"/>
+        <fillType animalType="CHICKEN" name="POULTRY"/>
+        <fillType animalType="HORSE" name="HORSEMEAT"/>
+    </fillTypes>
+</eppMappings>
