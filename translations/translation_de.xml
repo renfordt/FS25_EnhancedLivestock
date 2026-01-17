@@ -624,5 +624,9 @@
 		<text name="el_death_age" text="Alter"/>
 		<text name="el_death_accident" text="ein Unfall"/>
 
+		<!-- EPP BUTCHER INTEGRATION -->
+
+		<text name="el_epp_butcher_processed" text="Tier beim Metzger verarbeitet: %s kg %s"/>
+
 	</texts>
 </l10n>
