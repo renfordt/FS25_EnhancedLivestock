@@ -630,6 +630,7 @@
 		<!-- EPP BUTCHER INTEGRATION -->
 
 		<text name="el_epp_butcher_processed" text="Hayvan kasapta işlendi: %s kg %s"/>
+		<text name="el_epp_butcher_delivered" text="%s kasaba teslim edildi (%.2fx %s)"/>
 
 	</texts>
 </l10n>

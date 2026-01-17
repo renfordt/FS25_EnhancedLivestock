@@ -621,6 +621,7 @@
 		<!-- EPP BUTCHER INTEGRATION -->
 
 		<text name="el_epp_butcher_processed" text="Животное обработано на бойне: %s кг %s"/>
+		<text name="el_epp_butcher_delivered" text="%s доставлено на бойню (%.2fx %s)"/>
 
 	</texts>
 </l10n>

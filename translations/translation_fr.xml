@@ -623,6 +623,7 @@
 		<!-- EPP BUTCHER INTEGRATION -->
 
 		<text name="el_epp_butcher_processed" text="Animal transformé à la boucherie: %s kg de %s"/>
+		<text name="el_epp_butcher_delivered" text="%s livré à la boucherie (%.2fx %s)"/>
 
 	</texts>
 </l10n>
