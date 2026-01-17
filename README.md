@@ -24,6 +24,7 @@ Transform your breeding program with the addition of male animals:
 - **Higher market value** compared to females
 - **Essential for reproduction** - realistic breeding requirements
 - Uses vanilla models (no custom 3D models required)
+- **Highland Cattle bull** now available as a male variant
 
 ### 👀 Visual Animals
 Enhanced animal visualization system:
@@ -109,6 +110,11 @@ Completely reimagined purchasing experience:
 - **Pregnant animals available** - chance to purchase pregnant stock
 - **Quality-based pricing** - farm quality affects animal traits and cost
 
+### 🥩 Butcher Integration
+Seamless integration with EPP Butcher mod:
+- **Direct slaughter** - send animals to butcher directly from the animal screen
+- **Automatic processing** - works with installed EPP Butcher placeables
+
 ---
 
 ## 📸 Screenshots
@@ -127,11 +133,6 @@ The following features are currently being developed:
 
 - 🦠 **Disease System** - Animal health conditions and treatments
 - 📝 **Message Log** - Event tracking and history for husbandries
-
----
-
-## 📝 Planned Features
-- 🥩 **Butcher Integration** - allow animals to be slaughtered directly from the animal screen
 
 ---
 
