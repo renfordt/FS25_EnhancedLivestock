@@ -98,15 +98,27 @@ end
 function EL_EPPButcherIntegration.initialize()
     Logging.info("[EL-EPP] Initializing EPP butcher integration...")
 
-    -- Always hook Placeable.onFinalizePlacement globally as a fallback for non-global EPP classes
-    -- and to allow lazy detection when a placeable is finalized.
+    -- Hook Placeable.finalizePlacement (not onFinalizePlacement!) to detect when placeables are placed.
+    -- FS25's specialization system calls event listeners directly via SpecializationUtil.raiseEvent,
+    -- bypassing the base class onFinalizePlacement method. So we hook finalizePlacement() which is
+    -- the actual function that triggers the event system.
     if not EL_EPPButcherIntegration.globalPlaceableHooked then
-        Placeable.onFinalizePlacement = Utils.appendedFunction(
-            Placeable.onFinalizePlacement,
-            EL_EPPButcherIntegration.onPlaceableFinalized
-        )
-        EL_EPPButcherIntegration.globalPlaceableHooked = true
-        Logging.info("[EL-EPP] Hooked Placeable.onFinalizePlacement for lazy EPP detection")
+        if Placeable.finalizePlacement ~= nil then
+            Placeable.finalizePlacement = Utils.appendedFunction(
+                Placeable.finalizePlacement,
+                EL_EPPButcherIntegration.onPlaceableFinalized
+            )
+            EL_EPPButcherIntegration.globalPlaceableHooked = true
+            Logging.info("[EL-EPP] Hooked Placeable.finalizePlacement for EPP detection")
+        else
+            -- Fallback: try onFinalizePlacement (may not work for all placeables)
+            Placeable.onFinalizePlacement = Utils.appendedFunction(
+                Placeable.onFinalizePlacement,
+                EL_EPPButcherIntegration.onPlaceableFinalized
+            )
+            EL_EPPButcherIntegration.globalPlaceableHooked = true
+            Logging.info("[EL-EPP] Hooked Placeable.onFinalizePlacement for EPP detection (fallback)")
+        end
     end
 
     -- Try to initialize now (may fail if EPP mod isn't loaded yet)
@@ -437,6 +449,10 @@ function EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
     if placeable == nil then
         return
     end
+
+    -- Debug: Log all placeable finalizations to verify hook is working
+    local placeableNameDebug = placeable.getName and placeable:getName() or placeable.configFileName or "unknown"
+    Logging.info("[EL-EPP] onPlaceableFinalized triggered for: %s", placeableNameDebug)
 
     -- Find all EPP-related specs on this placeable
     local foundEPPSpecs = {}
