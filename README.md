@@ -121,7 +121,11 @@ Seamless integration with EPP Butcher mod:
 
 <div align="center">
 
-
+![screenshot0](https://github.com/user-attachments/assets/be96a430-3c2f-4ae1-b5a6-5ece2ac1f35a)
+![screenshot1](https://github.com/user-attachments/assets/86690e7b-883a-402b-9552-b2f1fb41db19)
+![screenshot2](https://github.com/user-attachments/assets/bfc68990-5369-4812-8b6d-e64c28245c15)
+![screenshot3](https://github.com/user-attachments/assets/5a1bdcb7-c145-4460-8146-08b3dc44e2e0)
+![screenshot4](https://github.com/user-attachments/assets/6e296acb-c65a-4e6e-836b-f65fe13e69eb)
 
 </div>
 
