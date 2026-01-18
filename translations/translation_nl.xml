@@ -71,6 +71,9 @@
 		<text name="el_button_random" text="Wilekeurig"/>
 		<text name="el_dialog_title" text="Kies maximaal aantal visuele dieren"/>
 
+		<text name="el_ui_dependency_missing" text="Afhankelijkheid ontbreekt"/>
+		<text name="el_ui_dependency_missing_installed" text="Ontbrekende afhankelijkheid geïnstalleerd"/>
+
 		<text name="el_ui_unhealthy" text="Te ongezond"/>
 		<text name="el_ui_unhealthyBracketed" text="Nee (te ongezond)"/>
 		<text name="el_ui_noMaleAnimal" text="Geen geschikt mannelijk dier"/>
@@ -120,6 +123,9 @@
 		<text name="el_ui_eggs" text="Eieren productie"/>
 		<text name="el_ui_metabolism" text="Metabolisme"/>
 		<text name="el_ui_meat" text="Kwaliteit"/>
+		<text name="el_ui_meat_github" text="Vleeskwaliteit"/>
+		<text name="el_ui_quality" text="Kwaliteit"/>
+		<text name="el_ui_quality_github" text="Vleeskwaliteit"/>
 		<text name="el_ui_health" text="Gezondheid"/>
 		<text name="el_ui_fertility" text="Vruchtbaarheid"/>
 
@@ -131,6 +137,7 @@
 		<text name="el_ui_genetics_high" text="Hoog"/>
 		<text name="el_ui_genetics_veryHigh" text="Erg hoog"/>
 		<text name="el_ui_genetics_extremelyHigh" text="Extreem hoog"/>
+		<text name="el_ui_genetics_highest" text="Hoogst"/>
 
 		<text name="el_ui_genetics_extremelyBad" text="Extreme slecht"/>
 		<text name="el_ui_genetics_veryBad" text="Erg slecht"/>
@@ -197,9 +204,9 @@
 
 
 
-		<text name="el_ui_castrated" text="Castrated"/>
-		<text name="el_ui_castrate" text="Castrate"/>
-		<text name="el_ui_importance" text="Importance"/>
+		<text name="el_ui_castrated" text="Gecastreerd"/>
+		<text name="el_ui_castrate" text="Castreren"/>
+		<text name="el_ui_importance" text="Belangrijkheid"/>
 		<text name="el_ui_type" text="Type"/>
 		<text name="el_ui_date" text="Date"/>
 		<text name="el_ui_message" text="Message"/>
@@ -451,11 +458,15 @@
 		<text name="el_settings_on" text="Aan"/>
 
 		<text name="el_settings_deathEnabled_label" text="Dier verwijdering"/>
+		<text name="el_settings_deathEnabled_label_github" text="Dier dood"/>
 		<text name="el_settings_deathEnabled_tooltip_1" text="Dieren worden niet verwijderd vanwege zwangerschap, gezondheid, leeftijd of ongevallen"/>
+		<text name="el_settings_deathEnabled_tooltip_1_github" text="Dieren sterven niet door zwangerschap, gezondheid, leeftijd of ongevallen"/>
 		<text name="el_settings_deathEnabled_tooltip_2" text="Dieren worden verwijderd vanwege zwangerschap, gezondheid, leeftijd of ongevallen"/>
+		<text name="el_settings_deathEnabled_tooltip_2_github" text="Dieren sterven door zwangerschap, gezondheid, leeftijd of ongevallen"/>
 
 		<text name="el_settings_accidentsChance_label" text="Ongeval kans"/>
 		<text name="el_settings_accidentsChance_tooltip" text="Verander de kans dat dieren worden verwijderd door willekeurige ongevallen"/>
+		<text name="el_settings_accidentsChance_tooltip_github" text="Verander de kans dat dieren sterven door willekeurige ongevallen"/>
 
 		<text name="el_settings_foodScale_label" text="Voedselschaal"/>
 		<text name="el_settings_foodScale_tooltip" text="Verander de hoeveelheid voedsel die door dieren wordt gegeten"/>

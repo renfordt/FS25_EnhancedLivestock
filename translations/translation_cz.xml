@@ -62,6 +62,8 @@
 
 		<!-- UI -->
 
+		<text name="el_ui_dependency_missing" text="Chybějící závislost"/>
+		<text name="el_ui_dependency_missing_installed" text="Chybějící závislost nainstalována"/>
 
 		<text name="input_VisualAnimalsDialog" text="Změnit množství zobrazených zvířat"/>
 		<text name="el_button_apply" text="Použít"/>
@@ -120,6 +122,9 @@
 		<text name="el_ui_eggs" text="Produkce vajec"/>
 		<text name="el_ui_metabolism" text="Životospráva"/>
 		<text name="el_ui_meat" text="Kvalita"/>
+		<text name="el_ui_meat_github" text="Kvalita masa"/>
+		<text name="el_ui_quality" text="Kvalita"/>
+		<text name="el_ui_quality_github" text="Kvalita masa"/>
 		<text name="el_ui_health" text="Kondice"/>
 		<text name="el_ui_fertility" text="Plodnost"/>
 
@@ -131,6 +136,7 @@
 		<text name="el_ui_genetics_high" text="Vysoká"/>
 		<text name="el_ui_genetics_veryHigh" text="Velmi vysoká"/>
 		<text name="el_ui_genetics_extremelyHigh" text="Extrémně vysoká"/>
+		<text name="el_ui_genetics_highest" text="Nejvyšší"/>
 
 		<text name="el_ui_genetics_extremelyBad" text="Extrémně špatná"/>
 		<text name="el_ui_genetics_veryBad" text="Velmi špatná"/>
@@ -264,7 +270,7 @@
 
 		<text name="el_ui_healthy" text="Healthy"/>
 		<text name="el_ui_hasDisease" text="Has Disease"/>
-		<text name="el_ui_diseasedAnimals" text="Diseased Animals"/>
+		<text name="el_ui_diseasedAnimals" text="Nemocná zvířata"/>
 
 
 		<text name="el_insemination_male" text="Only females can be artificially inseminated"/>
@@ -453,11 +459,15 @@
 		<text name="el_settings_on" text="Zapnuto"/>
 
 		<text name="el_settings_deathEnabled_label" text="Úhyn zvířat"/>
+		<text name="el_settings_deathEnabled_label_github" text="Smrt zvířat"/>
 		<text name="el_settings_deathEnabled_tooltip_1" text="Zvířata nebudou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
+		<text name="el_settings_deathEnabled_tooltip_1_github" text="Zvířata nezemřou kvůli březosti, zdraví, věku nebo nehodám"/>
 		<text name="el_settings_deathEnabled_tooltip_2" text="Zvířata budou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
+		<text name="el_settings_deathEnabled_tooltip_2_github" text="Zvířata zemřou kvůli březosti, zdraví, věku nebo nehodám"/>
 
 		<text name="el_settings_accidentsChance_label" text="Pravděpodobnost nehody"/>
 		<text name="el_settings_accidentsChance_tooltip" text="Změnit pravděpodobnost úhynu zvířat kvůli náhodným nehodám"/>
+		<text name="el_settings_accidentsChance_tooltip_github" text="Změnit pravděpodobnost smrti zvířat kvůli náhodným nehodám"/>
 		
 		<text name="el_settings_foodScale_label" text="Množství potravy"/>
 		<text name="el_settings_foodScale_tooltip" text="Změna množství potravy, kterou zvířata konzumují"/>

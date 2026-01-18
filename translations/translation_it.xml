@@ -64,6 +64,9 @@
 		<text name="el_button_random" text="Casuale"/>
 		<text name="el_dialog_title" text="Imposta numero massimo di animali visibili"/>
 
+		<text name="el_ui_dependency_missing" text="Dipendenza mancante"/>
+		<text name="el_ui_dependency_missing_installed" text="Dipendenza mancante installata"/>
+
 		<text name="el_ui_unhealthy" text="Salute insufficiente"/>
 		<text name="el_ui_unhealthyBracketed" text="No (salute insufficiente)"/>
 		<text name="el_ui_noMaleAnimal" text="Nessun maschio idoneo"/>

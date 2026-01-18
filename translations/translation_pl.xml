@@ -71,6 +71,9 @@
 		<text name="el_button_random" text="Losowo"/>
         <text name="el_dialog_title" text="Ustaw maksymalną liczbę zwierząt wizualnych"/>
 
+		<text name="el_ui_dependency_missing" text="Brakująca zależność"/>
+		<text name="el_ui_dependency_missing_installed" text="Brakująca zainstalowana zależność"/>
+
         <text name="el_ui_unhealthy" text="Zbyt niezdrowe"/>
         <text name="el_ui_unhealthyBracketed" text="Nie (zbyt niezdrowe)"/>
         <text name="el_ui_noMaleAnimal" text="Brak odpowiedniego samca"/>
@@ -120,6 +123,9 @@
 		<text name="el_ui_eggs" text="Produkcja jaj"/>
 		<text name="el_ui_metabolism" text="Metabolizm"/>
 		<text name="el_ui_meat" text="Jakość"/>
+		<text name="el_ui_meat_github" text="Jakość mięsa"/>
+		<text name="el_ui_quality" text="Jakość"/>
+		<text name="el_ui_quality_github" text="Jakość mięsa"/>
 		<text name="el_ui_health" text="Zdrowie"/>
 		<text name="el_ui_fertility" text="Płodność"/>
 
@@ -131,6 +137,7 @@
 		<text name="el_ui_genetics_high" text="Wysoki"/>
 		<text name="el_ui_genetics_veryHigh" text="Bardzo wysoki"/>
 		<text name="el_ui_genetics_extremelyHigh" text="Niezwykle wysoki"/>
+		<text name="el_ui_genetics_highest" text="Najwyższy"/>
 
 		<text name="el_ui_genetics_extremelyBad" text="Niezwykle źle"/>
 		<text name="el_ui_genetics_veryBad" text="Bardzo źle"/>
@@ -453,17 +460,25 @@
 		<text name="el_settings_on" text="On"/>
 
 		<text name="el_settings_deathEnabled_label" text="Animal Removal"/>
+		<text name="el_settings_deathEnabled_label_github" text="Śmierć zwierząt"/>
 		<text name="el_settings_deathEnabled_tooltip_1" text="Animals will not be removed due to pregnancy, health, age or accidents"/>
+		<text name="el_settings_deathEnabled_tooltip_1_github" text="Zwierzęta nie umrą z powodu ciąży, zdrowia, wieku lub wypadków"/>
 		<text name="el_settings_deathEnabled_tooltip_2" text="Animals will be removed due to pregnancy, health, age or accidents"/>
+		<text name="el_settings_deathEnabled_tooltip_2_github" text="Zwierzęta umrą z powodu ciąży, zdrowia, wieku lub wypadków"/>
 
 		<text name="el_settings_accidentsChance_label" text="Accident Chance"/>
 		<text name="el_settings_accidentsChance_tooltip" text="Change the likelihood of animals being removed due to random accidents"/>
+		<text name="el_settings_accidentsChance_tooltip_github" text="Zmiana prawdopodobieństwa śmierci zwierząt z powodu losowych wypadków"/>
 
 		<text name="el_settings_foodScale_label" text="Food Scale"/>
 		<text name="el_settings_foodScale_tooltip" text="Change the amount of food eaten by animals"/>
 
 		<text name="el_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
 		<text name="el_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+
+		<text name="el_settings_resetDealer_label" text="Zresetuj dealera zwierząt"/>
+		<text name="el_settings_resetDealer_tooltip" text="Usuń wszystkie zwierzęta dealera i uzupełnij zapasy nowymi zwierzętami"/>
+		<text name="el_settings_resetDealer_text" text="Zresetuj dealera zwierząt"/>
 
 		<text name="el_settings_tagColour_label" text="Change Tag Colour"/>
 		<text name="el_settings_tagColour_tooltip" text="Change the colour of ear tags"/>

@@ -72,6 +72,9 @@
 		<text name="el_button_random" text="Satunnainen"/>
 		<text name="el_dialog_title" text="Aseta visuaalisten eläinten maksimimäärä"/>
 
+		<text name="el_ui_dependency_missing" text="Riippuvuus puuttuu"/>
+		<text name="el_ui_dependency_missing_installed" text="Riippuvuus puuttuu asennettu"/>
+
 		<text name="el_ui_unhealthy" text="Liian huonokuntoinen"/>
 		<text name="el_ui_unhealthyBracketed" text="Ei (liian huonokuntoinen)"/>
 		<text name="el_ui_noMaleAnimal" text="Ei soveltuvaa uros eläintä"/>
@@ -204,6 +207,8 @@
 
 		<text name="el_ui_castrated" text="Kastroitu"/>
 		<text name="el_ui_castrate" text="Kastroi"/>
+
+		<text name="el_ui_importance" text="Tärkeys"/>
 		<text name="el_ui_type" text="Tyyppi"/>
 		<text name="el_ui_date" text="Päivämäärä"/>
 		<text name="el_ui_message" text="Viesti"/>

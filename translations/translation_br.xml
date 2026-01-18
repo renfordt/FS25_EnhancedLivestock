@@ -63,6 +63,9 @@
     <!-- UI -->
 
 		
+		<text name="el_ui_dependency_missing" text="Dependência ausente"/>
+		<text name="el_ui_dependency_missing_installed" text="Dependência ausente instalada"/>
+
     <text name="input_VisualAnimalsDialog" text="Alterar Quantidade Visual de Animais"/>
     <text name="el_button_apply" text="Aplicar"/>
     <text name="el_button_confirm" text="Confirmar"/>
@@ -120,6 +123,9 @@
 		<text name="el_ui_eggs" text="Produção de Ovo"/>
 		<text name="el_ui_metabolism" text="Metabolismo"/>
 		<text name="el_ui_meat" text="Qualidade"/>
+		<text name="el_ui_meat_github" text="Qualidade da Carne"/>
+		<text name="el_ui_quality" text="Qualidade"/>
+		<text name="el_ui_quality_github" text="Qualidade da Carne"/>
 		<text name="el_ui_health" text="Saúde"/>
 		<text name="el_ui_fertility" text="Fertilidade"/>
 
@@ -131,6 +137,7 @@
 		<text name="el_ui_genetics_high" text="Alto"/>
 		<text name="el_ui_genetics_veryHigh" text="Muito alto"/>
 		<text name="el_ui_genetics_extremelyHigh" text="Extremamente alto"/>
+		<text name="el_ui_genetics_highest" text="Máximo"/>
 
 		<text name="el_ui_genetics_extremelyBad" text="Extremamente ruim"/>
 		<text name="el_ui_genetics_veryBad" text="Muito ruim"/>
@@ -264,7 +271,7 @@
 
 		<text name="el_ui_healthy" text="Healthy"/>
 		<text name="el_ui_hasDisease" text="Has Disease"/>
-		<text name="el_ui_diseasedAnimals" text="Diseased Animals"/>
+		<text name="el_ui_diseasedAnimals" text="Animais Doentes"/>
 
 
 		<text name="el_insemination_male" text="Only females can be artificially inseminated"/>
@@ -451,11 +458,15 @@
 		<text name="el_settings_on" text="Ligado"/>
 
 		<text name="el_settings_deathEnabled_label" text="Remoção de Animais"/>
+		<text name="el_settings_deathEnabled_label_github" text="Morte de Animais"/>
 		<text name="el_settings_deathEnabled_tooltip_1" text="Os animais não serão removidos devido à gravidez, saúde, idade ou acidentes"/>
+		<text name="el_settings_deathEnabled_tooltip_1_github" text="Os animais não morrerão devido à gravidez, saúde, idade ou acidentes"/>
 		<text name="el_settings_deathEnabled_tooltip_2" text="Os animais serão removidos devido à gravidez, saúde, idade ou acidentes"/>
+		<text name="el_settings_deathEnabled_tooltip_2_github" text="Os animais morrerão devido à gravidez, saúde, idade ou acidentes"/>
 
 		<text name="el_settings_accidentsChance_label" text="Chance de Acidentes"/>
 		<text name="el_settings_accidentsChance_tooltip" text="Alterar a probabilidade de animais serem removidos devido a acidentes aleatórios"/>
+		<text name="el_settings_accidentsChance_tooltip_github" text="Alterar a probabilidade de animais morrerem devido a acidentes aleatórios"/>
 
 		<text name="el_settings_foodScale_label" text="Escala de Alimentos"/>
 		<text name="el_settings_foodScale_tooltip" text="Alterar a quantidade de alimentos consumidos pelos animais"/>

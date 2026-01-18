@@ -63,7 +63,9 @@
 		<text name="el_button_cancel" text="Скасувати"/>
 		<text name="el_button_random" text="Випадково"/>
 		<text name="el_dialog_title" text="Встановити максимальну кількість видимих тварин"/>
-		<text name="el_ui_unhealthy" text="Надто поганий стан здоров’я"/>
+		<text name="el_ui_dependency_missing" text="Відсутня залежність"/>
+		<text name="el_ui_dependency_missing_installed" text="Відсутня встановлена залежність"/>
+		<text name="el_ui_unhealthy" text="Надто поганий стан здоров'я"/>
 		<text name="el_ui_unhealthyBracketed" text="Ні (поганий стан здоров’я)"/>
 		<text name="el_ui_noMaleAnimal" text="Немає відповідного самця"/>
 		<text name="el_ui_noMaleAnimalBracketed" text="Ні (немає відповідного самця)"/>
@@ -109,8 +111,11 @@
 		<text name="el_ui_wool" text="Виробництво вовни"/>
 		<text name="el_ui_eggs" text="Виробництво яєць"/>
 		<text name="el_ui_metabolism" text="Метаболізм"/>
-		<text name="el_ui_meat" text="Якість м’яса"/>
-		<text name="el_ui_health" text="Здоров’я"/>
+		<text name="el_ui_meat" text="Якість м'яса"/>
+		<text name="el_ui_meat_github" text="Якість м'яса"/>
+		<text name="el_ui_quality" text="Якість"/>
+		<text name="el_ui_quality_github" text="Якість м'яса"/>
+		<text name="el_ui_health" text="Здоров'я"/>
 		<text name="el_ui_fertility" text="Фертильність"/>
 		<text name="el_ui_genetics_infertile" text="Infertile"/>
 		<text name="el_ui_genetics_extremelyLow" text="Крайній низький рівень"/>
@@ -120,6 +125,7 @@
 		<text name="el_ui_genetics_high" text="Високий рівень"/>
 		<text name="el_ui_genetics_veryHigh" text="Дуже високий рівень"/>
 		<text name="el_ui_genetics_extremelyHigh" text="Крайній високий рівень"/>
+		<text name="el_ui_genetics_highest" text="Найвищий"/>
 		<text name="el_ui_genetics_extremelyBad" text="Крайня погана"/>
 		<text name="el_ui_genetics_veryBad" text="Дуже погана"/>
 		<text name="el_ui_genetics_bad" text="Погана"/>
@@ -435,16 +441,24 @@
 		<text name="el_settings_off" text="Вимкнено"/>
 		<text name="el_settings_on" text="Увімкнено"/>
 		<text name="el_settings_deathEnabled_label" text="Видалення тварин"/>
-		<text name="el_settings_deathEnabled_tooltip_1" text="Тварини не видалятимуться через вагітність, стан здоров’я, вік або нещасні випадки"/>
-		<text name="el_settings_deathEnabled_tooltip_2" text="Тварини будуть видалятися через вагітність, стан здоров’я, вік або нещасні випадки"/>
+		<text name="el_settings_deathEnabled_label_github" text="Смерть тварин"/>
+		<text name="el_settings_deathEnabled_tooltip_1" text="Тварини не видалятимуться через вагітність, стан здоров'я, вік або нещасні випадки"/>
+		<text name="el_settings_deathEnabled_tooltip_1_github" text="Тварини не помиратимуть через вагітність, стан здоров'я, вік або нещасні випадки"/>
+		<text name="el_settings_deathEnabled_tooltip_2" text="Тварини будуть видалятися через вагітність, стан здоров'я, вік або нещасні випадки"/>
+		<text name="el_settings_deathEnabled_tooltip_2_github" text="Тварини помиратимуть через вагітність, стан здоров'я, вік або нещасні випадки"/>
 		<text name="el_settings_accidentsChance_label" text="Ймовірність нещасних випадків"/>
 		<text name="el_settings_accidentsChance_tooltip" text="Змініть ймовірність видалення тварин через випадкові нещасні випадки"/>
+		<text name="el_settings_accidentsChance_tooltip_github" text="Змінити ймовірність загибелі тварин через випадкові нещасні випадки"/>
 
 		<text name="el_settings_foodScale_label" text="Харчові ваги"/>
 		<text name="el_settings_foodScale_tooltip" text="Змінити кількість їжі, яку їдять тварини"/>
 
 		<text name="el_settings_maxDealerAnimals_label" text="Максимальна кількість тварин у продавця"/>
 		<text name="el_settings_maxDealerAnimals_tooltip" text="Змінити максимальну кількість тварин, яку продавець тварин може мати в наявності для кожного типу тварин"/>
+
+		<text name="el_settings_resetDealer_label" text="Скинути торговця тваринами"/>
+		<text name="el_settings_resetDealer_tooltip" text="Видалити всіх тварин у торговця та поповнити запас новими тваринами"/>
+		<text name="el_settings_resetDealer_text" text="Скинути торговця тваринами"/>
 
 		<text name="el_settings_tagColour_label" text="Змінити колір тегу"/>
 		<text name="el_settings_tagColour_tooltip" text="Змінити колір вушних бірок"/>

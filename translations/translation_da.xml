@@ -61,6 +61,9 @@
 
 		<!-- UI -->
 
+		<text name="el_ui_dependency_missing" text="Manglende afhængighed"/>
+		<text name="el_ui_dependency_missing_installed" text="Manglende afhængighed installeret"/>
+
 		<text name="input_VisualAnimalsDialog" text="Ændr antallet af viste dyr"/>
 		<text name="el_button_apply" text="Tilføj"/>
 		<text name="el_button_confirm" text="Bekræft"/>
@@ -268,6 +271,7 @@
 
 		<text name="el_ui_healthy" text="Rask"/>
 		<text name="el_ui_hasDisease" text="er syg"/>
+		<text name="el_ui_diseasedAnimals" text="Syge dyr"/>
 
 
 		<text name="el_insemination_male" text="Kun hunner kan gøres drægtige"/>

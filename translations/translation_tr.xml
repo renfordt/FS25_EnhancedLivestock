@@ -71,6 +71,9 @@
         <text name="el_button_random" text="Rastgele"/>
         <text name="el_dialog_title" text="Maksimum Görsel Hayvan Sayısını Ayarlayın"/>
 
+		<text name="el_ui_dependency_missing" text="Eksik bağımlılık"/>
+		<text name="el_ui_dependency_missing_installed" text="Eksik yüklü bağımlılık"/>
+
         <text name="el_ui_unhealthy" text="Çok Sağlıksız"/>
         <text name="el_ui_unhealthyBracketed" text="Hayır (çok sağlıksız)"/>
         <text name="el_ui_noMaleAnimal" text="Uygun erkek hayvan yok"/>
@@ -120,6 +123,9 @@
 		<text name="el_ui_eggs" text="Yumurta üretimi"/>
 		<text name="el_ui_metabolism" text="Metabolizma"/>
 		<text name="el_ui_meat" text="Kalite"/>
+		<text name="el_ui_meat_github" text="Et Kalitesi"/>
+		<text name="el_ui_quality" text="Kalite"/>
+		<text name="el_ui_quality_github" text="Et Kalitesi"/>
 		<text name="el_ui_health" text="Sağlık"/>
 		<text name="el_ui_fertility" text="Doğurganlık"/>
 

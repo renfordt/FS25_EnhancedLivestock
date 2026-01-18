@@ -454,11 +454,15 @@
 		<text name="el_settings_on" text="An"/>
 
 		<text name="el_settings_deathEnabled_label" text="Tierentfernung"/>
+		<text name="el_settings_deathEnabled_label_github" text="Tiertod"/>
 		<text name="el_settings_deathEnabled_tooltip_1" text="Tiere werden nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen entfernt."/>
+		<text name="el_settings_deathEnabled_tooltip_1_github" text="Tiere sterben nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen."/>
 		<text name="el_settings_deathEnabled_tooltip_2" text="Tiere werden aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen entfernt."/>
+		<text name="el_settings_deathEnabled_tooltip_2_github" text="Tiere sterben aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen."/>
 
 		<text name="el_settings_accidentsChance_label" text="Unfallwahrscheinlichkeit"/>
 		<text name="el_settings_accidentsChance_tooltip" text="Änderung der Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen entfernt werden"/>
+		<text name="el_settings_accidentsChance_tooltip_github" text="Änderung der Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen sterben"/>
 
 		<text name="el_settings_foodScale_label" text="Futtermenge"/>
 		<text name="el_settings_foodScale_tooltip" text="Die Menge der von Tieren gefressenen Nahrung verändern"/>
