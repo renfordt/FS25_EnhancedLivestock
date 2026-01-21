@@ -505,7 +505,8 @@
 		<text name="el_settings_animalsXML_tooltip" text="Set path to a custom animals XML file"/>
 		<text name="el_settings_animalsXML_text" text="Set Animals XML Path"/>
 
-
+		<text name="el_settings_earTagTextEnabled_label" text="Text ušních známek"/>
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Zapnout/vypnout zobrazení textu na ušních známkách zvířat"/>
 
 		<!--  HELP  -->
 

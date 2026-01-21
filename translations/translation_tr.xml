@@ -503,9 +503,10 @@
 		<text name="el_settings_animalsXML_label" text="Hayvanlar XML Yolunu Ayarla"/>
 		<text name="el_settings_animalsXML_tooltip" text="Özel hayvanlar XML dosyasına yol ayarla"/>
 		<text name="el_settings_animalsXML_text" text="Hayvanlar XML Yolunu Ayarla"/>
-		
-		
-		
+
+		<text name="el_settings_earTagTextEnabled_label" text="Kulak küpesi metni"/>
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Hayvan kulak küpelerindeki metin görüntülemeyi aç/kapat"/>
+
 		<!--  HELP  -->
 
 

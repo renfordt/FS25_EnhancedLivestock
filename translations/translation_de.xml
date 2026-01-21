@@ -500,7 +500,8 @@
 		<text name="el_settings_animalsXML_tooltip" text="Pfad zu einer benutzerdefinierten XML-Datei für Tiere festlegen"/>
 		<text name="el_settings_animalsXML_text" text="XML-Pfad für Tiere festlegen"/>
 
-
+		<text name="el_settings_earTagTextEnabled_label" text="Ohrmarken-Text"/>
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Anzeige von Text auf Tier-Ohrmarken ein-/ausschalten"/>
 
 		<!--  HELP  -->
 

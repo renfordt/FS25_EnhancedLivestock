@@ -223,6 +223,15 @@ ELSettings.SETTINGS = {
 			["name"] = "useCustomAnimals",
 			["state"] = 2
 		}
+	},
+
+	["earTagTextEnabled"] = {
+		["index"] = 11,
+		["type"] = "BinaryOption",
+		["default"] = 2,
+		["binaryType"] = "offOn",
+		["values"] = { false, true },
+		["callback"] = VisualAnimal.onSettingChanged
 	}
 
 }

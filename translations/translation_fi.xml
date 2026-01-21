@@ -508,7 +508,8 @@
 		<text name="el_settings_animalsXML_tooltip" text="Set path to a custom animals XML file"/>
 		<text name="el_settings_animalsXML_text" text="Set Animals XML Path"/>
 
-
+		<text name="el_settings_earTagTextEnabled_label" text="Korvamerkkiteksti"/>
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Ota käyttöön/poista käytöstä tekstin näyttäminen eläinten korvamerkeissä"/>
 
 		<!--  HELP  -->
 

@@ -526,7 +526,8 @@
 		<text name="el_settings_animalsXML_tooltip" text="Angiv sti til en brugerdefineret dyr XML-fil"/>
 		<text name="el_settings_animalsXML_text" text="Angiv XML-sti for dyr"/>
 
-
+		<text name="el_settings_earTagTextEnabled_label" text="Øremærketekst"/>
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Slå visning af tekst på dyreøremærker til/fra"/>
 
 		<!--  HELP  -->
 

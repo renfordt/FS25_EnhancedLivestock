@@ -3,12 +3,37 @@ VisualAnimal = {}
 -- FontLibrary detection (checked lazily since g_modIsLoaded may not be populated at script load time)
 VisualAnimal.useFontLibrary = nil
 
+-- Ear tag text rendering (default enabled)
+VisualAnimal.earTagTextEnabled = true
+
 function VisualAnimal.isFontLibraryAvailable()
 	if VisualAnimal.useFontLibrary == nil then
 		-- Check if FS25_FontLibrary mod is loaded and functions are available
 		VisualAnimal.useFontLibrary = g_modIsLoaded ~= nil and g_modIsLoaded["FS25_FontLibrary"] == true and create3DLinkedText ~= nil
 	end
 	return VisualAnimal.useFontLibrary
+end
+
+function VisualAnimal.onSettingChanged(name, value)
+	if name == "earTagTextEnabled" then
+		VisualAnimal.earTagTextEnabled = value
+		-- Refresh all existing visual animals
+		VisualAnimal.refreshAllEarTags()
+	end
+end
+
+function VisualAnimal.refreshAllEarTags()
+	if g_currentMission == nil or g_currentMission.husbandrySystem == nil then return end
+
+	for _, placeable in pairs(g_currentMission.husbandrySystem.placeables) do
+		local animals = placeable:getClusters()
+		for _, animal in pairs(animals) do
+			if animal.visualAnimal ~= nil then
+				animal.visualAnimal:setLeftEarTag()
+				animal.visualAnimal:setRightEarTag()
+			end
+		end
+	end
 end
 
 local VisualAnimal_mt = Class(VisualAnimal)
@@ -190,6 +215,24 @@ function VisualAnimal:setLeftEarTag()
 
 	if self.nodes.earTagLeft == nil then return end
 
+	local node = self.nodes.earTagLeft
+
+	-- If ear tag text is disabled, hide all text elements and return
+	if not VisualAnimal.earTagTextEnabled then
+		-- Delete any existing FontLibrary text
+		for _, nodes in pairs(self.texts.earTagLeft) do
+			for _, textNode in pairs(nodes) do
+				if delete3DLinkedText ~= nil then delete3DLinkedText(textNode) end
+			end
+		end
+		self.texts.earTagLeft = {}
+		-- Hide all child nodes (both shader shapes and TransformGroups)
+		for i = 0, getNumOfChildren(node) - 1 do
+			setVisibility(getChildAt(node, i), false)
+		end
+		return
+	end
+
 	local uniqueId = self.animal.uniqueId
 	local farmId = self.animal.farmId
 	local birthday = self.animal:getBirthday()
@@ -199,7 +242,6 @@ function VisualAnimal:setLeftEarTag()
 	else
 		countryCode = EnhancedLivestock.getMapCountryCode()
 	end
-	local node = self.nodes.earTagLeft
 	local colour = self.leftTextColour
 
 	if VisualAnimal.isFontLibraryAvailable() then
@@ -218,6 +260,10 @@ function VisualAnimal:setLeftEarTag()
 
 		local front = getChild(node, "front")
 		local back = getChild(node, "back")
+
+		-- Ensure TransformGroups are visible (may have been hidden when setting was disabled)
+		if front ~= nil and front ~= 0 then setVisibility(front, true) end
+		if back ~= nil and back ~= 0 then setVisibility(back, true) end
 
 		setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
 		setTextAlignment(RenderText.ALIGN_CENTER)
@@ -245,10 +291,11 @@ function VisualAnimal:setLeftEarTag()
 		-- Shader-based fallback (no FontLibrary)
 		local numCharacters = EnhancedLivestock.NUM_CHARACTERS
 
-		-- Set text colour on all children (only Shape nodes, skip TransformGroups like front/back)
+		-- Set text colour and visibility on all children (only Shape nodes, skip TransformGroups like front/back)
 		for colourI = 0, getNumOfChildren(node) - 1 do
 			local colourChild = getChildAt(node, colourI)
 			if getHasClassId(colourChild, ClassIds.SHAPE) then
+				setVisibility(colourChild, true)
 				setShaderParameter(colourChild, "colorScale", colour[1], colour[2], colour[3], nil, false)
 			end
 		end
@@ -308,6 +355,23 @@ function VisualAnimal:setRightEarTag()
 	if self.nodes.earTagRight == nil then return end
 
 	local node = self.nodes.earTagRight
+
+	-- If ear tag text is disabled, hide all text elements and return
+	if not VisualAnimal.earTagTextEnabled then
+		-- Delete any existing FontLibrary text
+		for _, nodes in pairs(self.texts.earTagRight) do
+			for _, textNode in pairs(nodes) do
+				if delete3DLinkedText ~= nil then delete3DLinkedText(textNode) end
+			end
+		end
+		self.texts.earTagRight = {}
+		-- Hide all child nodes (both shader shapes and TransformGroups)
+		for i = 0, getNumOfChildren(node) - 1 do
+			setVisibility(getChildAt(node, i), false)
+		end
+		return
+	end
+
 	local colour = self.rightTextColour
 	local name = self.animal:getName()
 	local birthday = self.animal:getBirthday()
@@ -336,6 +400,10 @@ function VisualAnimal:setRightEarTag()
 
 		local front = getChild(node, "front")
 		local back = getChild(node, "back")
+
+		-- Ensure TransformGroups are visible (may have been hidden when setting was disabled)
+		if front ~= nil and front ~= 0 then setVisibility(front, true) end
+		if back ~= nil and back ~= 0 then setVisibility(back, true) end
 
 		set3DTextAutoScale(true)
 		set3DTextRemoveSpaces(true)
@@ -371,10 +439,11 @@ function VisualAnimal:setRightEarTag()
 		-- Shader-based fallback (no FontLibrary)
 		local numCharacters = EnhancedLivestock.NUM_CHARACTERS
 
-		-- Set text colour on all children (only Shape nodes, skip TransformGroups like front/back)
+		-- Set text colour and visibility on all children (only Shape nodes, skip TransformGroups like front/back)
 		for colourI = 0, getNumOfChildren(node) - 1 do
 			local colourChild = getChildAt(node, colourI)
 			if getHasClassId(colourChild, ClassIds.SHAPE) then
+				setVisibility(colourChild, true)
 				setShaderParameter(colourChild, "colorScale", colour[1], colour[2], colour[3], nil, false)
 			end
 		end

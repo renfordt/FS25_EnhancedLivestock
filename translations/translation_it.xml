@@ -492,6 +492,9 @@
 		<text name="el_settings_animalsXML_tooltip" text="Imposta il percorso di un file XML personalizzato per gli animali"/>
 		<text name="el_settings_animalsXML_text" text="Imposta Percorso XML Animali"/>
 
+		<text name="el_settings_earTagTextEnabled_label" text="Testo marche auricolari"/>
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Attiva/disattiva la visualizzazione del testo sulle marche auricolari"/>
+
 		<!-- HELP -->
 		<text name="el_help_monitors_title" text="Monitoraggio"/>
 		<text name="el_help_monitors_1" text="Per visualizzare la maggior parte delle statistiche di un animale, è necessario applicare una marca di monitoraggio tramite il menu animali (dove si acquistano e vendono i capi). Le marche di monitoraggio sono visibili anche sull'animale, posizionate sull'orecchio sinistro accanto alla marca ID."/>
