@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*-alpha*'
+      - 'v*-beta*'
+      - 'v*-rc*'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,15 +20,26 @@ jobs:
           type: 'zip'
           filename: 'FS25_EnhancedLivestock.zip'
           exclusions: '*.git* *.github* *.idea* *README* *LICENSE* *.md Contributors.md'
-      - name: Get Version
-        id: get_version
+      - name: Get Version (from modDesc.xml)
+        if: github.ref_type != 'tag'
         run: echo "version=$(grep '<version>' modDesc.xml | sed -e 's/<\/*version>//g' -e 's/^[ \t]*//')" >> $GITHUB_ENV
+      - name: Get Version (from tag)
+        if: github.ref_type == 'tag'
+        run: echo "version=${{ github.ref_name }}" >> $GITHUB_ENV
+      - name: Check if Pre-release
+        run: |
+          if [[ "${{ github.ref_name }}" =~ -(alpha|beta|rc) ]]; then
+            echo "prerelease=true" >> $GITHUB_ENV
+          else
+            echo "prerelease=false" >> $GITHUB_ENV
+          fi
       - name: Upload Release
         uses: ncipollo/release-action@v1.20.0
         with:
           artifacts: "FS25_EnhancedLivestock.zip"
           tag: '${{ env.version }}'
-          name: 'Enhanced Livestock v${{ env.version }}'
+          name: 'Enhanced Livestock ${{ env.version }}'
           body: ${{ github.event.head_commit.message }}
           generateReleaseNotes: 'true'
           skipIfReleaseExists: 'true'
+          prerelease: ${{ env.prerelease }}
