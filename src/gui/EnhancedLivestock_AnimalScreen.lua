@@ -137,44 +137,46 @@ function EnhancedLivestock_AnimalScreen:onGuiSetupFinished()
     local function updateTooltip(element)
 
         local option = self.herdsmanOptions[element.name]
-            
+
         local tooltip = element:getDescendantByName("tooltip")
         tooltip:setVisible(true)
+
+        local pageName = element.herdsmanPageName or self.currentHerdsmanPage
 
         if option.type == "doubleSlider" then
 
             local lowestState = element:getLowestState()
             local highestState = element:getHighestState()
-            
+
             if lowestState == highestState then
-                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s_equal", self.currentHerdsmanPage, element.name)), option.texts[lowestState]))
+                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s_equal", pageName, element.name)), option.texts[lowestState]))
             else
-                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s_range", self.currentHerdsmanPage, element.name)), option.texts[lowestState], option.texts[highestState]))
+                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s_range", pageName, element.name)), option.texts[lowestState], option.texts[highestState]))
             end
 
         elseif option.type == "input" then
 
             if option.inputType == "money" then
-                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s", self.currentHerdsmanPage, element.name)), g_i18n:formatMoney(tonumber(element:getText()) or 0, 2, true, true)))
+                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s", pageName, element.name)), g_i18n:formatMoney(tonumber(element:getText()) or 0, 2, true, true)))
             elseif option.inputType == "number" then
-                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s", self.currentHerdsmanPage, element.name)), g_i18n:formatNumber(tonumber(element:getText()) or 0)))
+                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s", pageName, element.name)), g_i18n:formatNumber(tonumber(element:getText()) or 0)))
             end
 
         elseif option.type == "multi" then
 
             if (option.target == "breed" or option.target == "semen") and option.values[element:getState()] == "any" then
-                
-                tooltip:setText(getText(string.format("el_ui_herdsmanTooltip_%s_%s_any", self.currentHerdsmanPage, option.target)))
-                
+
+                tooltip:setText(getText(string.format("el_ui_herdsmanTooltip_%s_%s_any", pageName, option.target)))
+
             else
 
-                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s", self.currentHerdsmanPage, element.name)), option.texts[element:getState()]))
+                tooltip:setText(string.format(getText(string.format("el_ui_herdsmanTooltip_%s_%s", pageName, element.name)), option.texts[element:getState()]))
 
             end
 
         else
 
-            tooltip:setText(getText(string.format("el_ui_herdsmanTooltip_%s_%s_%s", self.currentHerdsmanPage, element.name, element:getState())))
+            tooltip:setText(getText(string.format("el_ui_herdsmanTooltip_%s_%s_%s", pageName, element.name, element:getState())))
 
         end
 
@@ -190,12 +192,13 @@ function EnhancedLivestock_AnimalScreen:onGuiSetupFinished()
     }
 
 
-    for _, page in pairs(self.herdsmanPages) do
+    for pageName, page in pairs(self.herdsmanPages) do
 
         for _, element in pairs(page.elements) do
 
             if element.name == "ignore" then continue end
-            
+
+            element.herdsmanPageName = pageName
             element.onFocusEnter = updateTooltip
             
             if self.herdsmanOptions[element.name].type == "input" then
