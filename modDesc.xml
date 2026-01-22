@@ -8,7 +8,7 @@
     </title>
     <description>
         <en>
-    <![CDATA[A comprehensive livestock overhaul for Farming Simulator 25.
+            <![CDATA[A comprehensive livestock overhaul for Farming Simulator 25.
 
 This mod is based on the FS25 Realistic Livestock mod by Arrow-kb.
 
@@ -41,7 +41,7 @@ Optional Dependencies
 
 Enhanced Pregnancy System
 - Species-specific litter sizes (e.g., cows can have 0-3 calves)
-- Conception at impregnation - offspring created when mother is impregnated, not at birth
+- Conception at breeding - offspring created when mother is expecting, not at birth
 - Pregnancy tracking - view expected offspring count and due dates
 - Individual gestation periods - reproduction duration varies by animal, not by species
 
@@ -54,7 +54,7 @@ Weight System
 - Individual weight tracking for every animal
 - Daily weight fluctuations based on food and water consumption
 - Ideal weight targets influenced by metabolism genetics
-- Health consequences - unhealthy weight affects health and can lead to death
+- Health consequences - unhealthy weight affects health and can lead to loss
 - Vulnerable young animals - juveniles especially susceptible to weight-related health issues
 - Sale value impact - weight directly affects market price
 
@@ -68,11 +68,11 @@ Enhanced Production
 - Sheep wool production: Seasonal wool growth, only produce wool during warm months
 - Production affected by genetics and health
 
-Death and Aging
+Life Cycle and Aging
 - No age limits - animals can live beyond 5 years
 - Species-specific lifespans - each animal type has realistic expected lifespan
-- Progressive mortality - increasing death chance with age, but can live past expectancy
-- Multiple death causes: Old age, poor health, random accidents, pregnancy complications
+- Progressive life cycle - increasing chance of leaving with age, but can live past expectancy
+- Multiple causes for leaving: Old age, poor health, random accidents, pregnancy complications
 
 Enhanced Animal Dealer
 - Global farm network - hundreds of unique farms across supported countries
@@ -86,14 +86,14 @@ Enhanced Animal Dealer
 - Quality-based pricing - farm quality affects animal traits and cost
 
 Changelog 1.1.0.0:
-- EPP Butcher integration - slaughter animals directly from the animal screen
+- EPP Butcher integration - process animals directly from the animal screen
 - Ear tag text reintroduced with toggle setting for visibility
 - FontLibrary integration with shader-based fallback
 - Several smaller bug fixes and improvements
  ]]>
-</en>
-<de>
-    <![CDATA[Eine umfassende Viehbestand-Überarbeitung für Farming Simulator 25.
+        </en>
+        <de>
+            <![CDATA[Eine umfassende Viehbestand-Überarbeitung für Farming Simulator 25.
 
 Diese Mod basiert auf der FS25 Realistic Livestock Mod von Arrow-kb.
 
@@ -139,7 +139,7 @@ Gewichtssystem
 - Individuelle Gewichtsverfolgung für jedes Tier
 - Tägliche Gewichtsschwankungen basierend auf Futter- und Wasseraufnahme
 - Idealgewichtsziele beeinflusst durch Stoffwechselgenetik
-- Gesundheitsfolgen - ungesundes Gewicht beeinflusst Gesundheit und kann zum Tod führen
+- Gesundheitsfolgen - ungesundes Gewicht beeinflusst Gesundheit und kann zum Verlust führen
 - Gefährdete Jungtiere - Jungtiere besonders anfällig für gewichtsbedingte Gesundheitsprobleme
 - Verkaufswert-Einfluss - Gewicht beeinflusst direkt den Marktpreis
 
@@ -153,11 +153,11 @@ Verbesserte Produktion
 - Schaf-Wollproduktion: Saisonales Wollwachstum, nur Wolle in warmen Monaten
 - Produktion beeinflusst durch Genetik und Gesundheit
 
-Tod und Alterung
+Lebenszyklus und Alterung
 - Keine Altersgrenzen - Tiere können über 5 Jahre hinaus leben
 - Artspezifische Lebensspannen - jede Tierart hat realistische erwartete Lebensspanne
-- Progressive Sterblichkeit - steigende Todeswahrscheinlichkeit mit Alter, kann aber über Erwartung hinaus leben
-- Mehrere Todesursachen: Alter, schlechte Gesundheit, zufällige Unfälle, Schwangerschaftskomplikationen
+- Progressive Verlustrate - steigende Wahrscheinlichkeit zu gehen mit Alter, kann aber über Erwartung hinaus leben
+- Mehrere Verlustursachen: Alter, schlechte Gesundheit, zufällige Unfälle, Schwangerschaftskomplikationen
 
 Verbesserter Tierhändler
 - Globales Farmnetzwerk - Hunderte einzigartige Farmen in unterstützten Ländern
@@ -171,14 +171,14 @@ Verbesserter Tierhändler
 - Qualitätsbasierte Preise - Farmqualität beeinflusst Tiermerkmale und Kosten
 
 Changelog 1.1.0.0:
-- EPP Butcher Integration - Tiere direkt vom Tierbildschirm schlachten
+- EPP Butcher Integration - Tiere direkt vom Tierbildschirm verarbeiten
 - Ohrmarkentext wiedereingeführt mit Einstellung zur Sichtbarkeit
 - FontLibrary-Integration mit Shader-basiertem Fallback
 - Mehrere kleinere Bugfixes und Verbesserungen
 ]]>
-</de>
-<fr>
-    <![CDATA[Une refonte complete de l'elevage pour Farming Simulator 25.
+        </de>
+        <fr>
+            <![CDATA[Une refonte complete de l'elevage pour Farming Simulator 25.
 
 Ce mod est base sur le mod FS25 Realistic Livestock de Arrow-kb.
 
@@ -211,7 +211,7 @@ Dependances optionnelles
 
 Systeme de gestation ameliore
 - Tailles de portee specifiques a l'espece (ex: les vaches peuvent avoir 0-3 veaux)
-- Conception a l'insemination - progeniture creee quand la mere est fecondee, pas a la naissance
+- Conception a l'accouplement - progeniture creee quand la mere est fecondee, pas a la naissance
 - Suivi de grossesse - voir le nombre de descendants attendus et les dates prevues
 - Periodes de gestation individuelles - la duree de reproduction varie par animal, pas par espece
 
@@ -224,7 +224,7 @@ Systeme de poids
 - Suivi de poids individuel pour chaque animal
 - Fluctuations de poids quotidiennes basees sur la consommation de nourriture et d'eau
 - Objectifs de poids ideal influences par la genetique du metabolisme
-- Consequences sur la sante - un poids malsain affecte la sante et peut entrainer la mort
+- Consequences sur la sante - un poids malsain affecte la sante et peut entrainer la perte
 - Jeunes animaux vulnerables - les juveniles particulierement sensibles aux problemes de sante lies au poids
 - Impact sur la valeur de vente - le poids affecte directement le prix du marche
 
@@ -238,11 +238,11 @@ Production amelioree
 - Production de laine de mouton: Croissance saisonniere de la laine, produisent de la laine uniquement pendant les mois chauds
 - Production affectee par la genetique et la sante
 
-Mort et vieillissement
+Cycle de vie et vieillissement
 - Pas de limites d'age - les animaux peuvent vivre au-dela de 5 ans
 - Durees de vie specifiques a l'espece - chaque type d'animal a une esperance de vie realiste
-- Mortalite progressive - risque de mort croissant avec l'age, mais peut vivre au-dela de l'esperance
-- Causes de mort multiples: Vieillesse, mauvaise sante, accidents aleatoires, complications de grossesse
+- Cycle progressif - risque de depart croissant avec l'age, mais peut vivre au-dela de l'esperance
+- Causes de depart multiples: Vieillesse, mauvaise sante, accidents aleatoires, complications de grossesse
 
 Marchand d'animaux ameliore
 - Reseau de fermes mondial - des centaines de fermes uniques dans les pays supportes
@@ -256,17 +256,17 @@ Marchand d'animaux ameliore
 - Prix bases sur la qualite - la qualite de la ferme affecte les traits et le cout des animaux
 
 Changelog 1.1.0.0:
-- Integration EPP Butcher - abattre les animaux directement depuis l'ecran des animaux
+- Integration EPP Butcher - transformer les animaux directement depuis l'ecran des animaux
 - Texte des etiquettes auriculaires reintroduit avec parametre de visibilite
 - Integration FontLibrary avec solution de secours basee sur shader
 - Plusieurs corrections de bugs mineurs et ameliorations
 ]]>
-</fr>
+        </fr>
     </description>
     <iconFilename>icon_EnhancedLivestock.dds</iconFilename>
     <multiplayer supported="true"/>
     <extraSourceFiles>
-		<sourceFile filename="src/gui/MPLoadingScreen.lua"/>
+        <sourceFile filename="src/gui/MPLoadingScreen.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/EnhancedLivestock_AnimalCluster.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/EnhancedLivestock_AnimalClusterHusbandry.lua"/>
         <sourceFile filename="src/animals/husbandry/cluster/EnhancedLivestock_AnimalClusterSystem.lua"/>
@@ -291,11 +291,11 @@ Changelog 1.1.0.0:
         <sourceFile filename="src/animals/shop/controllers/AnimalScreenTrailerFarm.lua"/>
         <sourceFile filename="src/animals/shop/events/AIAnimalBuyEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AIAnimalInseminationEvent.lua"/>
-		<sourceFile filename="src/animals/shop/events/AIAnimalSellEvent.lua"/>
-		<sourceFile filename="src/animals/shop/events/AIBulkMessageEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AIAnimalSellEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AIBulkMessageEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalBuyEvent.lua"/>
-		<sourceFile filename="src/animals/shop/events/AnimalInseminationEvent.lua"/>
-		<sourceFile filename="src/animals/shop/events/AnimalInseminationResultEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AnimalInseminationEvent.lua"/>
+        <sourceFile filename="src/animals/shop/events/AnimalInseminationResultEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalMoveEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/AnimalSellEvent.lua"/>
         <sourceFile filename="src/animals/shop/events/SemenBuyEvent.lua"/>
@@ -307,7 +307,7 @@ Changelog 1.1.0.0:
         <sourceFile filename="src/farms/FarmManager.lua"/>
         <sourceFile filename="src/farms/EnhancedLivestock_FarmStats.lua"/>
         <sourceFile filename="src/fillTypes/EnhancedLivestock_FillTypeManager.lua"/>
-		<sourceFile filename="src/gui/elements/DoubleOptionSliderElement.lua"/>
+        <sourceFile filename="src/gui/elements/DoubleOptionSliderElement.lua"/>
         <sourceFile filename="src/gui/elements/RenderElement.lua"/>
         <sourceFile filename="src/gui/elements/TripleOptionElement.lua"/>
         <sourceFile filename="src/gui/EnhancedLivestock_AnimalScreen.lua"/>
@@ -319,9 +319,9 @@ Changelog 1.1.0.0:
         <sourceFile filename="src/gui/AnimalInfoDialog.lua"/>
         <sourceFile filename="src/gui/DiseaseDialog.lua"/>
         <sourceFile filename="src/gui/EarTagColourPickerDialog.lua"/>
-		<sourceFile filename="src/gui/FileExplorerDialog.lua"/>
-		<sourceFile filename="src/gui/InGameMenuSettingsFrame.lua"/>
-		<sourceFile filename="src/gui/ProfileDialog.lua"/>
+        <sourceFile filename="src/gui/FileExplorerDialog.lua"/>
+        <sourceFile filename="src/gui/InGameMenuSettingsFrame.lua"/>
+        <sourceFile filename="src/gui/ProfileDialog.lua"/>
         <sourceFile filename="src/gui/EL_InfoDisplayKeyValueBox.lua"/>
         <sourceFile filename="src/gui/EnhancedLivestock_InGameMenuAnimalsFrame.lua"/>
         <sourceFile filename="src/handTools/specializations/HandToolHorseBrush.lua"/>
@@ -350,8 +350,8 @@ Changelog 1.1.0.0:
         <sourceFile filename="src/I18N.lua"/>
         <sourceFile filename="src/EnhancedLivestock.lua"/>
         <sourceFile filename="src/EnhancedLivestock_Animal.lua"/>
-		<sourceFile filename="src/EnhancedLivestock_FSBaseMission.lua"/>
-		<sourceFile filename="src/ELConsoleCommandManager.lua"/>
+        <sourceFile filename="src/EnhancedLivestock_FSBaseMission.lua"/>
+        <sourceFile filename="src/ELConsoleCommandManager.lua"/>
         <sourceFile filename="src/ELMessage.lua"/>
         <sourceFile filename="src/ELSettings.lua"/>
         <sourceFile filename="src/EL_BroadcastSettingsEvent.lua"/>
@@ -368,93 +368,75 @@ Changelog 1.1.0.0:
     <actions>
         <action name="VisualAnimalsDialog"/>
     </actions>
-	<helpLines>
-
-		<category title="$l10n_el_settings">
-
-			<page title="$l10n_el_help_monitors_title" iconSliceId="elHelpIcons.monitor">
-
-				<paragraph>
-					<text text="$l10n_el_help_monitors_1"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_monitors_2"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_monitors_3"/>
-				</paragraph>
-				
-			</page>
-
-			<page title="$l10n_el_help_pregnancy_title" iconSliceId="elHelpIcons.pregnancy">
-
-				<paragraph>
-					<text text="$l10n_el_help_pregnancy_1"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_pregnancy_2"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_pregnancy_3"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_pregnancy_4"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_pregnancy_5"/>
-				</paragraph>
-				
-			</page>
-
-			<page title="$l10n_el_help_production_title" iconSliceId="elHelpIcons.production">
-
-				<paragraph>
-					<text text="$l10n_el_help_production_1"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_production_2"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_production_3"/>
-				</paragraph>
-				
-			</page>
-
-			<page title="$l10n_el_help_weight_title" iconSliceId="gui.storeAttribute_maxLoadCapacity">
-
-				<paragraph>
-					<text text="$l10n_el_help_weight_1"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_weight_2"/>
-				</paragraph>
-
-			</page>
-
-			<page title="$l10n_el_help_genetics_title" iconSliceId="elHelpIcons.genetics">
-
-				<paragraph>
-					<text text="$l10n_el_help_genetics_1"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_genetics_2"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_genetics_3"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_genetics_4"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_genetics_5"/>
-				</paragraph>
-				<paragraph>
-					<text text="$l10n_el_help_genetics_6"/>
-				</paragraph>
-				
-			</page>
-			
-		</category>
-		
-	</helpLines>
+    <helpLines>
+        <category title="$l10n_el_settings">
+            <page title="$l10n_el_help_monitors_title" iconSliceId="elHelpIcons.monitor">
+                <paragraph>
+                    <text text="$l10n_el_help_monitors_1"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_monitors_2"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_monitors_3"/>
+                </paragraph>
+            </page>
+            <page title="$l10n_el_help_pregnancy_title" iconSliceId="elHelpIcons.pregnancy">
+                <paragraph>
+                    <text text="$l10n_el_help_pregnancy_1"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_pregnancy_2"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_pregnancy_3"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_pregnancy_4"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_pregnancy_5"/>
+                </paragraph>
+            </page>
+            <page title="$l10n_el_help_production_title" iconSliceId="elHelpIcons.production">
+                <paragraph>
+                    <text text="$l10n_el_help_production_1"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_production_2"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_production_3"/>
+                </paragraph>
+            </page>
+            <page title="$l10n_el_help_weight_title" iconSliceId="gui.storeAttribute_maxLoadCapacity">
+                <paragraph>
+                    <text text="$l10n_el_help_weight_1"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_weight_2"/>
+                </paragraph>
+            </page>
+            <page title="$l10n_el_help_genetics_title" iconSliceId="elHelpIcons.genetics">
+                <paragraph>
+                    <text text="$l10n_el_help_genetics_1"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_genetics_2"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_genetics_3"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_genetics_4"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_genetics_5"/>
+                </paragraph>
+                <paragraph>
+                    <text text="$l10n_el_help_genetics_6"/>
+                </paragraph>
+            </page>
+        </category>
+    </helpLines>
 </modDesc>
