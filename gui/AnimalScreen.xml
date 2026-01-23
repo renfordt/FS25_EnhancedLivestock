@@ -751,7 +751,7 @@
 						<Text profile="fs25_animalMoneyValue" position="-10px 40px" id="geneticsValue[6]" text=""/>
 					</GuiElement>
 
-					<GuiElement profile="el_geneticsBoxInfo" id="diseasesBox" position="-20px -30px">
+					<GuiElement profile="el_geneticsBoxInfo" id="diseasesBox" position="-20px -30px"><!-- ToDo: Why genetics box? -->
 						<Text profile="fs25_animalMoneyTitle" position="80px 220px" text="$l10n_el_disease"/>
 						<Text profile="fs25_animalMoneyTitle" position="400px 220px" text="$l10n_ui_missionStatusTitle"/>
 						<Text profile="fs25_animalMoneyTitle" position="80px 190px" id="diseasesTitle[1]" text=""/>

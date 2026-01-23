@@ -86,6 +86,7 @@ function AnimalAIDialog:updateDewars()
 
     self:resetButtonStates()
     self.dewarList:reloadData()
+    self.dewarList:setSelectedItem(1, 1, nil, true)
 
 end
 
@@ -233,5 +234,6 @@ function AnimalAIDialog:onClickSortButton(button)
 	end)
 
 	self.dewarList:reloadData()
+	self.dewarList:setSelectedItem(1, 1, nil, true)
 
 end

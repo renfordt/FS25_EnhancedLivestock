@@ -261,6 +261,7 @@ function EnhancedLivestockFrame:onClickSortButton(button)
 	end)
 
 	self.husbandryList:reloadData()
+	self.husbandryList:setSelectedItem(1, 1, nil, true)
 
 end
 

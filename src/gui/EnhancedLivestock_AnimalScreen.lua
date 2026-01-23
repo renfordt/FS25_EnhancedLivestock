@@ -266,7 +266,8 @@ function AnimalScreen:onClickMessageSortButton(button)
 		return aTarget < bTarget
 	end)
 
-	self.husbandryList:reloadData()
+	self.husbandryList:reloadData(true)
+	self.husbandryList:setSelectedItem(1, 1, nil, true)
 
 end
 
@@ -286,7 +287,8 @@ function AnimalScreen:updateLog()
     self.messageListPageNext:setDisabled(self.currentMessagePage == #self.messages)
     self.messageListPageLast:setDisabled(self.currentMessagePage == #self.messages)
 
-    self.husbandryList:reloadData()
+    self.husbandryList:reloadData(true)
+    self.husbandryList:setSelectedItem(1, 1, nil, true)
 
 end
 
@@ -475,7 +477,9 @@ end
 
 function AnimalScreen:postSemenBought()
 
-    self.aiList:reloadData()
+    self.aiList:reloadData(true)
+    self.aiList:setSelectedItem(1, 1, nil, true)
+    self:onAIListSelectionChanged()
 
 end
 
@@ -506,7 +510,7 @@ AnimalScreen.onMoneyChange = Utils.appendedFunction(AnimalScreen.onMoneyChange, 
 function AnimalScreen:onClickChangeAIAnimalType(animalTypeIndex)
 
     self.aiAnimalTypeIndex = animalTypeIndex
-    self.aiList:reloadData()
+    self.aiList:reloadData(true)
     self:onAIListSelectionChanged()
 
 end
@@ -609,7 +613,7 @@ function AnimalScreen:onClickFavouriteAnimal()
 
     self.buttonFavourite:setText(g_i18n:getText("el_ui_" .. (animal.favouritedBy[uniqueUserId] ~= nil and animal.favouritedBy[uniqueUserId] and "unFavourite" or "favourite")))
 
-    self.aiList:reloadData()
+    self.aiList:reloadData(true)
 
 end
 
@@ -1264,7 +1268,7 @@ function AnimalScreen:onClickMark()
         animal:setMarked(nil, false)
     end
 
-    self.sourceList:reloadData()
+    self.sourceList:reloadData(true)
 
 end
 
@@ -2410,6 +2414,7 @@ function EnhancedLivestock_AnimalScreen:onYesNoSource(_, clickYes)
         end
 
 		self.controller:applySource(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+		self.sourceList:reloadData(true)
 	end
 
 end
@@ -2429,6 +2434,7 @@ function EnhancedLivestock_AnimalScreen:onYesNoTarget(_, clickYes)
         end
 
 		self.controller:applyTarget(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+		self.sourceList:reloadData(true)
 	end
 
 end
@@ -2562,7 +2568,7 @@ function AnimalScreen:onClickToggleSelectAll()
 
 
     self.buttonToggleSelectAll:setText(selectAll and g_i18n:getText("el_ui_selectNone") or g_i18n:getText("el_ui_selectAll"))
-    self.sourceList:reloadData()
+    self.sourceList:reloadData(true)
 
 end
 
