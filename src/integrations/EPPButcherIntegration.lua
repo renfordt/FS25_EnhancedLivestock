@@ -451,8 +451,8 @@ function EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
     end
 
     -- Debug: Log all placeable finalizations to verify hook is working
-    local placeableNameDebug = placeable.getName and placeable:getName() or placeable.configFileName or "unknown"
-    Logging.info("[EL-EPP] onPlaceableFinalized triggered for: %s", placeableNameDebug)
+    -- local placeableNameDebug = placeable.getName and placeable:getName() or placeable.configFileName or "unknown"
+    -- Logging.info("[EL-EPP] onPlaceableFinalized triggered for: %s", placeableNameDebug)
 
     -- Find all EPP-related specs on this placeable
     local foundEPPSpecs = {}
