@@ -1289,12 +1289,16 @@ end
 
 function AnimalSystem:getSaleAnimalsByTypeIndex(animalTypeIndex)
 
+    if self.animals == nil then return {} end
+
     return self.animals[animalTypeIndex] or {}
 
 end
 
 
 function AnimalSystem:getAIAnimalsByTypeIndex(animalTypeIndex)
+
+    if self.aiAnimals == nil then return {} end
 
     return self.aiAnimals[animalTypeIndex] or {}
 
