@@ -1899,7 +1899,7 @@ function EnhancedLivestock_AnimalScreen:getNumberOfItemsInSection(superFunc, lis
 
     if list == self.aiList then return #self.aiAnimals[self.aiAnimalTypeIndex] end
 
-    if self.isLogMode then return #self.messages[self.currentMessagePage] end
+    if self.isLogMode and list == self.husbandryList then return #self.messages[self.currentMessagePage] end
 
     if self.filteredItems == nil or not self.isOpen then return superFunc(self, list) end
 
