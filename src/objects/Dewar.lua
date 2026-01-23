@@ -401,8 +401,10 @@ end
 
 function Dewar:updateStrawVisuals()
 
+	if not VisualAnimal.isFontLibraryAvailable() then return end
+
 	local parent = I3DUtil.indexToObject(self.shapeNode, "0|1")
-	
+
 	set3DTextRemoveSpaces(true)
 	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
 	setTextAlignment(RenderText.ALIGN_CENTER)
@@ -412,7 +414,7 @@ function Dewar:updateStrawVisuals()
 
 	if self.texts.straws ~= nil then delete3DLinkedText(self.texts.straws) end
 	self.texts.straws = create3DLinkedText(parent, 0.003, 0.01, 0.003, 0, math.rad(-90), 0, 0.025, string.format("%s %s", self.straws, self.straws == 1 and "straw" or "straws"))
-	
+
 	set3DTextRemoveSpaces(false)
 	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_BASELINE)
 	setTextAlignment(RenderText.ALIGN_LEFT)
