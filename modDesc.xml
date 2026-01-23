@@ -46,7 +46,7 @@ Enhanced Pregnancy System
 - Individual gestation periods - reproduction duration varies by animal, not by species
 
 Genetics System
-- Five genetic traits: Health, Fertility, Metabolism, Productivity, and Meat Quality
+- Five genetic traits: Health, Fertility, Metabolism, Productivity, and Growth Quality
 - Inheritance mechanics - offspring inherit traits from parents
 - Economic impact - genetics directly affect sale value and profitability
 
@@ -72,7 +72,7 @@ Life Cycle and Aging
 - No age limits - animals can live beyond 5 years
 - Species-specific lifespans - each animal type has realistic expected lifespan
 - Progressive life cycle - increasing chance of leaving with age, but can live past expectancy
-- Multiple causes for leaving: Old age, poor health, random accidents, pregnancy complications
+- Multiple causes for leaving: Old age, poor health, pregnancy complications
 
 Enhanced Animal Dealer
 - Global farm network - hundreds of unique farms across supported countries
@@ -86,7 +86,7 @@ Enhanced Animal Dealer
 - Quality-based pricing - farm quality affects animal traits and cost
 
 Changelog 1.1.0.0:
-- EPP Butcher integration - process animals directly from the animal screen
+- EPP Market integration - process animals directly from the animal screen
 - Ear tag text reintroduced with toggle setting for visibility
 - FontLibrary integration with shader-based fallback
 - Several smaller bug fixes and improvements
@@ -131,7 +131,7 @@ Verbessertes Trächtigkeitssystem
 - Individuelle Tragezeiten - Reproduktionsdauer variiert je nach Tier, nicht nach Art
 
 Genetiksystem
-- Fünf genetische Merkmale: Gesundheit, Fruchtbarkeit, Stoffwechsel, Produktivität und Fleischqualität
+- Fünf genetische Merkmale: Gesundheit, Fruchtbarkeit, Stoffwechsel, Produktivität und Zuchtqualität
 - Vererbungsmechanik - Nachkommen erben Merkmale von Eltern
 - Wirtschaftliche Auswirkung - Genetik beeinflusst direkt Verkaufswert und Rentabilität
 
@@ -157,7 +157,7 @@ Lebenszyklus und Alterung
 - Keine Altersgrenzen - Tiere können über 5 Jahre hinaus leben
 - Artspezifische Lebensspannen - jede Tierart hat realistische erwartete Lebensspanne
 - Progressive Verlustrate - steigende Wahrscheinlichkeit zu gehen mit Alter, kann aber über Erwartung hinaus leben
-- Mehrere Verlustursachen: Alter, schlechte Gesundheit, zufällige Unfälle, Schwangerschaftskomplikationen
+- Mehrere Verlustursachen: Alter, schlechte Gesundheit, Schwangerschaftskomplikationen
 
 Verbesserter Tierhändler
 - Globales Farmnetzwerk - Hunderte einzigartige Farmen in unterstützten Ländern
@@ -171,7 +171,7 @@ Verbesserter Tierhändler
 - Qualitätsbasierte Preise - Farmqualität beeinflusst Tiermerkmale und Kosten
 
 Changelog 1.1.0.0:
-- EPP Butcher Integration - Tiere direkt vom Tierbildschirm verarbeiten
+- EPP Markt Integration - Tiere direkt vom Tierbildschirm verarbeiten
 - Ohrmarkentext wiedereingeführt mit Einstellung zur Sichtbarkeit
 - FontLibrary-Integration mit Shader-basiertem Fallback
 - Mehrere kleinere Bugfixes und Verbesserungen
@@ -216,7 +216,7 @@ Systeme de gestation ameliore
 - Periodes de gestation individuelles - la duree de reproduction varie par animal, pas par espece
 
 Systeme genetique
-- Cinq traits genetiques: Sante, Fertilite, Metabolisme, Productivite et Qualite de viande
+- Cinq traits genetiques: Sante, Fertilite, Metabolisme, Productivite et Qualite de croissance
 - Mecaniques d'heredite - les descendants heritent des traits des parents
 - Impact economique - la genetique affecte directement la valeur de vente et la rentabilite
 
@@ -242,7 +242,7 @@ Cycle de vie et vieillissement
 - Pas de limites d'age - les animaux peuvent vivre au-dela de 5 ans
 - Durees de vie specifiques a l'espece - chaque type d'animal a une esperance de vie realiste
 - Cycle progressif - risque de depart croissant avec l'age, mais peut vivre au-dela de l'esperance
-- Causes de depart multiples: Vieillesse, mauvaise sante, accidents aleatoires, complications de grossesse
+- Causes de depart multiples: Vieillesse, mauvaise sante, complications de grossesse
 
 Marchand d'animaux ameliore
 - Reseau de fermes mondial - des centaines de fermes uniques dans les pays supportes
@@ -256,7 +256,7 @@ Marchand d'animaux ameliore
 - Prix bases sur la qualite - la qualite de la ferme affecte les traits et le cout des animaux
 
 Changelog 1.1.0.0:
-- Integration EPP Butcher - transformer les animaux directement depuis l'ecran des animaux
+- Integration EPP Marche - transformer les animaux directement depuis l'ecran des animaux
 - Texte des etiquettes auriculaires reintroduit avec parametre de visibilite
 - Integration FontLibrary avec solution de secours basee sur shader
 - Plusieurs corrections de bugs mineurs et ameliorations
