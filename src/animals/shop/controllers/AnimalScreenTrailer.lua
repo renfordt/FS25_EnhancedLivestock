@@ -2,17 +2,17 @@ EL_AnimalScreenTrailer = {}
 
 function EL_AnimalScreenTrailer:initTargetItems(_)
 
-    self.targetItems = {}
-    local animals = self.trailer:getClusters()
+	self.targetItems = {}
+	local animals = self.trailer:getClusters()
 
-    if animals ~= nil then
-        for _, animal in pairs(animals) do
-            local item = AnimalItemStock.new(animal)
-            table.insert(self.targetItems, item)
-        end
-    end
+	if animals ~= nil then
+		for _, animal in pairs(animals) do
+			local item = AnimalItemStock.new(animal)
+			table.insert(self.targetItems, item)
+		end
+	end
 
-    table.sort(self.targetItems, EL_AnimalScreenBase.sortAnimals)
+	table.sort(self.targetItems, EL_AnimalScreenBase.sortAnimals)
 
 end
 
@@ -20,10 +20,10 @@ AnimalScreenTrailer.initTargetItems = Utils.overwrittenFunction(AnimalScreenTrai
 
 function EL_AnimalScreenTrailer:getApplySourceConfirmationText(_, animalTypeIndex, index, numAnimals)
 
-    --local text = numAnimals == 1 and g_i18n:getText(AnimalScreenTrailer.L10N_SYMBOL.CONFIRM_MOVE_TO_TRAILER_SINGULAR) or g_i18n:getText(AnimalScreenTrailer.L10N_SYMBOL.CONFIRM_MOVE_TO_TRAILER)
-    local text = "Do you want to move %d animals to the trailer?"
+--local text = numAnimals == 1 and g_i18n:getText(AnimalScreenTrailer.L10N_SYMBOL.CONFIRM_MOVE_TO_TRAILER_SINGULAR) or g_i18n:getText(AnimalScreenTrailer.L10N_SYMBOL.CONFIRM_MOVE_TO_TRAILER)
+	local text = "Do you want to move %d animals to the trailer?"
 
-    return string.format(text, numAnimals)
+	return string.format(text, numAnimals)
 
 end
 

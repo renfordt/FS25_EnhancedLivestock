@@ -5,100 +5,100 @@ InitEventClass(AIAnimalInseminationEvent, "AIAnimalInseminationEvent")
 
 function AIAnimalInseminationEvent.emptyNew()
 
-    local self = Event.new(AIAnimalInseminationEvent_mt)
-    return self
+	local self = Event.new(AIAnimalInseminationEvent_mt)
+	return self
 
 end
 
 function AIAnimalInseminationEvent.new(object, items)
 
-    local event = AIAnimalInseminationEvent.emptyNew()
+	local event = AIAnimalInseminationEvent.emptyNew()
 
-    event.object = object
-    event.items = items
+	event.object = object
+	event.items = items
 
-    return event
+	return event
 
 end
 
 function AIAnimalInseminationEvent:readStream(streamId, connection)
 
-    self.object = NetworkUtil.readNodeObject(streamId)
-    local numItems = streamReadUInt16(streamId)
+	self.object = NetworkUtil.readNodeObject(streamId)
+	local numItems = streamReadUInt16(streamId)
 
-    self.items = {}
+	self.items = {}
 
-    for i = 1, numItems do
+	for i = 1, numItems do
 
-        local identifiers = Animal.readStreamIdentifiers(streamId, connection)
-        local dewarUniqueId = streamReadString(streamId)
+		local identifiers = Animal.readStreamIdentifiers(streamId, connection)
+		local dewarUniqueId = streamReadString(streamId)
 
-        table.insert(self.items, { ["animal"] = identifiers, ["dewar"] = dewarUniqueId })
+		table.insert(self.items, { ["animal"] = identifiers, ["dewar"] = dewarUniqueId })
 
-    end
+	end
 
-    self:run(connection)
+	self:run(connection)
 
 end
 
 function AIAnimalInseminationEvent:writeStream(streamId, connection)
 
-    NetworkUtil.writeNodeObject(streamId, self.object)
+	NetworkUtil.writeNodeObject(streamId, self.object)
 
-    streamWriteUInt16(streamId, #self.items)
+	streamWriteUInt16(streamId, #self.items)
 
-    for _, item in pairs(self.items) do
+	for _, item in pairs(self.items) do
 
-        item.animal:writeStreamIdentifiers(streamId, connection)
-        streamWriteString(item.dewar)
+		item.animal:writeStreamIdentifiers(streamId, connection)
+		streamWriteString(item.dewar)
 
-    end
+	end
 
 end
 
 function AIAnimalInseminationEvent:run(connection)
 
-    local clusterSystem = self.object:getClusterSystem()
-    local farmId = self.object:getOwnerFarmId()
-    local farmDewars = g_dewarManager:getDewarsByFarm(farmId)
+	local clusterSystem = self.object:getClusterSystem()
+	local farmId = self.object:getOwnerFarmId()
+	local farmDewars = g_dewarManager:getDewarsByFarm(farmId)
 
-    if farmDewars == nil then
-        return
-    end
+	if farmDewars == nil then
+		return
+	end
 
-    for i, item in pairs(self.items) do
+	for i, item in pairs(self.items) do
 
-        local dewars = farmDewars[item.animal.animalTypeIndex]
+		local dewars = farmDewars[item.animal.animalTypeIndex]
 
-        if dewars == nil or #dewars == 0 then
-            continue
-        end
+		if dewars == nil or #dewars == 0 then
+			continue
+		end
 
-        local identifiers = item.animal
+		local identifiers = item.animal
 
-        for _, dewar in pairs(dewars) do
+		for _, dewar in pairs(dewars) do
 
-            if dewar:getUniqueId() == item.dewar then
+			if dewar:getUniqueId() == item.dewar then
 
-                for _, animal in pairs(clusterSystem.animals) do
+				for _, animal in pairs(clusterSystem.animals) do
 
-                    if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
+					if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 
-                        animal:setInsemination(dewar.animal)
-                        dewar:changeStraws(-1)
+						animal:setInsemination(dewar.animal)
+						dewar:changeStraws(-1)
 
-                        break
+						break
 
-                    end
+					end
 
-                end
+				end
 
-                break
+				break
 
-            end
+			end
 
-        end
+		end
 
-    end
+	end
 
 end

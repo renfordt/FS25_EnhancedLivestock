@@ -1,7 +1,7 @@
 EnhancedLivestock_PlaceableHusbandryPallets = {}
 
 function EnhancedLivestock_PlaceableHusbandryPallets.registerOverwrittenFunctions(placeable)
-    SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryPallets.updateInputAndOutput)
+	SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryPallets.updateInputAndOutput)
 end
 
 PlaceableHusbandryPallets.registerOverwrittenFunctions = Utils.appendedFunction(PlaceableHusbandryPallets.registerOverwrittenFunctions, EnhancedLivestock_PlaceableHusbandryPallets.registerOverwrittenFunctions)
@@ -13,34 +13,34 @@ PlaceableHusbandryPallets.onHusbandryAnimalsUpdate = Utils.overwrittenFunction(P
 
 function PlaceableHusbandryPallets:updateInputAndOutput(superFunc, animals)
 
-    superFunc(self, animals)
+	superFunc(self, animals)
 
-    local spec = self.spec_husbandryPallets
+	local spec = self.spec_husbandryPallets
 
-    for fillType, _ in pairs(spec.litersPerHour) do
-        spec.litersPerHour[fillType] = 0
-    end
+	for fillType, _ in pairs(spec.litersPerHour) do
+		spec.litersPerHour[fillType] = 0
+	end
 
-    spec.activeFillTypes = {}
+	spec.activeFillTypes = {}
 
-    for _, animal in pairs(animals) do
+	for _, animal in pairs(animals) do
 
-        local subType = animal:getSubType()
+		local subType = animal:getSubType()
 
-        if subType ~= nil then
+		if subType ~= nil then
 
-            local pallets = subType.output.pallets
+			local pallets = subType.output.pallets
 
-            if pallets ~= nil then
+			if pallets ~= nil then
 
-                spec.litersPerHour[pallets.fillType] = spec.litersPerHour[pallets.fillType] + animal:getOutput("pallets")
+				spec.litersPerHour[pallets.fillType] = spec.litersPerHour[pallets.fillType] + animal:getOutput("pallets")
 
-                table.addElement(spec.activeFillTypes, pallets.fillType)
+				table.addElement(spec.activeFillTypes, pallets.fillType)
 
-            end
+			end
 
-        end
+		end
 
-    end
+	end
 
 end

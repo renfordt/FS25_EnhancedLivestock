@@ -1,7 +1,7 @@
 EL_PlaceableHusbandryLiquidManure = {}
 
 function EL_PlaceableHusbandryLiquidManure.registerOverwrittenFunctions(placeable)
-    SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryLiquidManure.updateInputAndOutput)
+	SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryLiquidManure.updateInputAndOutput)
 end
 
 PlaceableHusbandryLiquidManure.registerOverwrittenFunctions = Utils.appendedFunction(PlaceableHusbandryLiquidManure.registerOverwrittenFunctions, EL_PlaceableHusbandryLiquidManure.registerOverwrittenFunctions)
@@ -13,28 +13,28 @@ PlaceableHusbandryLiquidManure.onHusbandryAnimalsUpdate = Utils.overwrittenFunct
 
 function PlaceableHusbandryLiquidManure:updateInputAndOutput(superFunc, animals)
 
-    superFunc(self, animals)
+	superFunc(self, animals)
 
-    local spec = self.spec_husbandryLiquidManure
+	local spec = self.spec_husbandryLiquidManure
 
-    spec.litersPerHour = 0
+	spec.litersPerHour = 0
 
-    for _, animal in pairs(animals) do
+	for _, animal in pairs(animals) do
 
-        local subType = animal:getSubType()
+		local subType = animal:getSubType()
 
-        if subType ~= nil then
+		if subType ~= nil then
 
-            local liquidManure = subType.output.liquidManure
+			local liquidManure = subType.output.liquidManure
 
-            if liquidManure ~= nil then
+			if liquidManure ~= nil then
 
-                spec.litersPerHour = spec.litersPerHour + animal:getOutput("liquidManure")
+				spec.litersPerHour = spec.litersPerHour + animal:getOutput("liquidManure")
 
-            end
+			end
 
-        end
+		end
 
-    end
+	end
 
 end

@@ -5,106 +5,106 @@ InitEventClass(HusbandryMessageStateEvent, "HusbandryMessageStateEvent")
 
 function HusbandryMessageStateEvent.emptyNew()
 
-    local self = Event.new(HusbandryMessageStateEvent_mt)
-    return self
+	local self = Event.new(HusbandryMessageStateEvent_mt)
+	return self
 
 end
 
 function HusbandryMessageStateEvent.new(husbandries)
 
-    local event = HusbandryMessageStateEvent.emptyNew()
+	local event = HusbandryMessageStateEvent.emptyNew()
 
-    event.husbandries = husbandries
+	event.husbandries = husbandries
 
-    return event
+	return event
 
 end
 
 function HusbandryMessageStateEvent:readStream(streamId, connection)
 
-    local numHusbandries = streamReadUInt8(streamId)
+	local numHusbandries = streamReadUInt8(streamId)
 
-    for i = 1, numHusbandries do
+	for i = 1, numHusbandries do
 
-        local husbandry = NetworkUtil.readNodeObject(streamId)
+		local husbandry = NetworkUtil.readNodeObject(streamId)
 
-        local hasUnreadMessages = streamReadBool(streamId)
-        local nextUniqueId = streamReadUInt16(streamId)
-        husbandry:setHasUnreadELMessages(hasUnreadMessages)
-        husbandry:setNextELMessageUniqueId(nextUniqueId)
+		local hasUnreadMessages = streamReadBool(streamId)
+		local nextUniqueId = streamReadUInt16(streamId)
+		husbandry:setHasUnreadELMessages(hasUnreadMessages)
+		husbandry:setNextELMessageUniqueId(nextUniqueId)
 
-        local numMessages = streamReadUInt16(streamId)
-        local messages = {}
+		local numMessages = streamReadUInt16(streamId)
+		local messages = {}
 
-        for j = 1, numMessages do
+		for j = 1, numMessages do
 
-            local id = streamReadString(streamId)
-            local date = streamReadString(streamId)
-            local uniqueId = streamReadUInt16(streamId)
+			local id = streamReadString(streamId)
+			local date = streamReadString(streamId)
+			local uniqueId = streamReadUInt16(streamId)
 
-            local message = {
-                ["id"] = id,
-                ["date"] = date,
-                ["uniqueId"] = uniqueId,
-                ["args"] = {}
-            }
+			local message = {
+				["id"] = id,
+				["date"] = date,
+				["uniqueId"] = uniqueId,
+				["args"] = {}
+			}
 
-            local hasAnimal = streamReadBool(streamId)
+			local hasAnimal = streamReadBool(streamId)
 
-            if hasAnimal then
-                message.animal = streamReadString(streamId)
-            end
+			if hasAnimal then
+				message.animal = streamReadString(streamId)
+			end
 
-            local numArgs = streamReadUInt8(streamId)
-            for k = 1, numArgs do
-                table.insert(message.args, streamReadString(streamId))
-            end
+			local numArgs = streamReadUInt8(streamId)
+			for k = 1, numArgs do
+				table.insert(message.args, streamReadString(streamId))
+			end
 
-            table.insert(messages, message)
+			table.insert(messages, message)
 
-        end
+		end
 
-        husbandry.spec_husbandryAnimals.messages = messages
+		husbandry.spec_husbandryAnimals.messages = messages
 
-    end
+	end
 
 end
 
 function HusbandryMessageStateEvent:writeStream(streamId, connection)
 
-    streamWriteUInt8(streamId, #self.husbandries)
+	streamWriteUInt8(streamId, #self.husbandries)
 
-    for _, husbandry in pairs(self.husbandries) do
+	for _, husbandry in pairs(self.husbandries) do
 
-        NetworkUtil.writeNodeObject(streamId, husbandry)
-        streamWriteBool(streamId, husbandry:getHasUnreadELMessages())
-        streamWriteUInt16(streamId, husbandry:getNextELMessageUniqueId())
+		NetworkUtil.writeNodeObject(streamId, husbandry)
+		streamWriteBool(streamId, husbandry:getHasUnreadELMessages())
+		streamWriteUInt16(streamId, husbandry:getNextELMessageUniqueId())
 
-        local messages = husbandry:getELMessages()
-        streamWriteUInt16(streamId, #messages)
+		local messages = husbandry:getELMessages()
+		streamWriteUInt16(streamId, #messages)
 
-        for i = 1, #messages do
+		for i = 1, #messages do
 
-            local message = messages[i]
+			local message = messages[i]
 
-            streamWriteString(streamId, message.id)
-            streamWriteString(streamId, message.date)
-            streamWriteUInt16(streamId, message.uniqueId)
+			streamWriteString(streamId, message.id)
+			streamWriteString(streamId, message.date)
+			streamWriteUInt16(streamId, message.uniqueId)
 
-            streamWriteBool(streamId, message.animal ~= nil)
+			streamWriteBool(streamId, message.animal ~= nil)
 
-            if message.animal ~= nil then
-                streamWriteString(streamId, message.animal)
-            end
+			if message.animal ~= nil then
+				streamWriteString(streamId, message.animal)
+			end
 
-            streamWriteUInt8(streamId, #message.args)
+			streamWriteUInt8(streamId, #message.args)
 
-            for j = 1, #message.args do
-                streamWriteString(streamId, message.args[j])
-            end
+			for j = 1, #message.args do
+				streamWriteString(streamId, message.args[j])
+			end
 
-        end
+		end
 
-    end
+	end
 
 end

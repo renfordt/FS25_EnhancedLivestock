@@ -4,25 +4,25 @@ local isGithubVersion = true
 
 function EL_I18N:getText(superFunc, text, modEnv)
 
-    if (text == "el_ui_monitorSubscriptions" or text == "finance_monitorSubscriptions" or text == "el_ui_herdsmanWages" or text == "finance_herdsmanWages" or text == "el_ui_semenPurchase" or text == "finance_semenPurchase" or text == "el_ui_medicine" or text == "finance_medicine") and modEnv == nil then
-        return superFunc(self, text, modName)
-    end
+	if (text == "el_ui_monitorSubscriptions" or text == "finance_monitorSubscriptions" or text == "el_ui_herdsmanWages" or text == "finance_herdsmanWages" or text == "el_ui_semenPurchase" or text == "finance_semenPurchase" or text == "el_ui_medicine" or text == "finance_medicine") and modEnv == nil then
+		return superFunc(self, text, modName)
+	end
 
-    if isGithubVersion and string.contains(text, "el_") then
+	if isGithubVersion and string.contains(text, "el_") then
 
-        local env = self.modEnvironments[modName]
+		local env = self.modEnvironments[modName]
 
-        if env == nil then
-            return superFunc(self, text, modEnv)
-        end
+		if env == nil then
+			return superFunc(self, text, modEnv)
+		end
 
-        if env.texts[text .. "_github"] ~= nil then
-            return env.texts[text .. "_github"]
-        end
+		if env.texts[text .. "_github"] ~= nil then
+			return env.texts[text .. "_github"]
+		end
 
-    end
+	end
 
-    return superFunc(self, text, modEnv)
+	return superFunc(self, text, modEnv)
 
 end
 

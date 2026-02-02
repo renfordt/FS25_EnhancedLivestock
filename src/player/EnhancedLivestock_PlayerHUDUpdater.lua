@@ -2,24 +2,24 @@ EnhancedLivestock_PlayerHUDUpdater = {}
 
 function PlayerHUDUpdater:setCarriedItem(item)
 
-    self.currentlyCarriedItem = item
+	self.currentlyCarriedItem = item
 
 end
 
 function PlayerHUDUpdater:getCarriedItem()
 
-    return self.currentlyCarriedItem
+	return self.currentlyCarriedItem
 
 end
 
 function EnhancedLivestock_PlayerHUDUpdater:update()
 
-    if Platform.playerInfo.showVehicleInfo and self.isDewar then
-        self:showDewarInfo(self.object)
-    end
-    if Platform.playerInfo.showVehicleInfo and self.currentlyCarriedItem ~= nil then
-        self:showHandToolInfo(self.currentlyCarriedItem)
-    end
+	if Platform.playerInfo.showVehicleInfo and self.isDewar then
+		self:showDewarInfo(self.object)
+	end
+	if Platform.playerInfo.showVehicleInfo and self.currentlyCarriedItem ~= nil then
+		self:showHandToolInfo(self.currentlyCarriedItem)
+	end
 
 end
 
@@ -27,40 +27,40 @@ PlayerHUDUpdater.update = Utils.appendedFunction(PlayerHUDUpdater.update, Enhanc
 
 function EnhancedLivestock_PlayerHUDUpdater:updateRaycastObject()
 
-    self.isDewar = false
+	self.isDewar = false
 
-    if self.isAnimal == false and self.currentRaycastTarget ~= nil and entityExists(self.currentRaycastTarget) then
+	if self.isAnimal == false and self.currentRaycastTarget ~= nil and entityExists(self.currentRaycastTarget) then
 
-        local object = g_currentMission:getNodeObject(self.currentRaycastTarget)
+		local object = g_currentMission:getNodeObject(self.currentRaycastTarget)
 
-        if object == nil then
+		if object == nil then
 
-            if not getHasClassId(self.currentRaycastTarget, ClassIds.MESH_SPLIT_SHAPE) then
+			if not getHasClassId(self.currentRaycastTarget, ClassIds.MESH_SPLIT_SHAPE) then
 
-                local husbandryId, animalId = getAnimalFromCollisionNode(self.currentRaycastTarget)
-                if husbandryId ~= nil and husbandryId ~= 0 then
+				local husbandryId, animalId = getAnimalFromCollisionNode(self.currentRaycastTarget)
+				if husbandryId ~= nil and husbandryId ~= 0 then
 
-                    local clusterHusbandry = g_currentMission.husbandrySystem:getClusterHusbandryById(husbandryId)
-                    if clusterHusbandry ~= nil then
-                        local animal = clusterHusbandry:getClusterByAnimalId(animalId, husbandryId)
-                        if animal ~= nil then
-                            self.isAnimal = true
-                            self.object = animal
-                            return
-                        end
-                    end
+					local clusterHusbandry = g_currentMission.husbandrySystem:getClusterHusbandryById(husbandryId)
+					if clusterHusbandry ~= nil then
+						local animal = clusterHusbandry:getClusterByAnimalId(animalId, husbandryId)
+						if animal ~= nil then
+							self.isAnimal = true
+							self.object = animal
+							return
+						end
+					end
 
-                end
+				end
 
-            end
+			end
 
-        elseif object:isa(Dewar) then
+		elseif object:isa(Dewar) then
 
-            self.isDewar = true
+			self.isDewar = true
 
-        end
+		end
 
-    end
+	end
 
 end
 
@@ -68,88 +68,88 @@ PlayerHUDUpdater.updateRaycastObject = Utils.appendedFunction(PlayerHUDUpdater.u
 
 function PlayerHUDUpdater:showDewarInfo(object)
 
-    if object == nil then
-        return
-    end
+	if object == nil then
+		return
+	end
 
-    local farmId = object:getOwnerFarmId()
-    if farmId == FarmManager.SPECTATOR_FARM_ID then
-        return
-    end
+	local farmId = object:getOwnerFarmId()
+	if farmId == FarmManager.SPECTATOR_FARM_ID then
+		return
+	end
 
-    local box = self.objectBox
+	local box = self.objectBox
 
-    box:clear()
-    box:setTitle(g_i18n:getText("el_ui_dewar"))
+	box:clear()
+	box:setTitle(g_i18n:getText("el_ui_dewar"))
 
-    local farm = g_farmManager:getFarmById(farmId)
+	local farm = g_farmManager:getFarmById(farmId)
 
-    box:addLine(g_i18n:getText("fieldInfo_ownedBy"), self:convertFarmToName(farm))
-    object:showInfo(box)
+	box:addLine(g_i18n:getText("fieldInfo_ownedBy"), self:convertFarmToName(farm))
+	object:showInfo(box)
 
-    box:showNextFrame()
+	box:showNextFrame()
 
 end
 
 function PlayerHUDUpdater:showHandToolInfo(object)
 
-    if object == nil then
-        return
-    end
+	if object == nil then
+		return
+	end
 
-    if self.handToolBox == nil then
-        self.handToolBox = g_currentMission.hud.infoDisplay:createBox(InfoDisplayKeyValueBox)
-    end
+	if self.handToolBox == nil then
+		self.handToolBox = g_currentMission.hud.infoDisplay:createBox(InfoDisplayKeyValueBox)
+	end
 
-    local box = self.handToolBox
+	local box = self.handToolBox
 
-    box:clear()
-    box:setTitle(g_i18n:getText("el_ui_strawSingle"))
+	box:clear()
+	box:setTitle(g_i18n:getText("el_ui_strawSingle"))
 
-    object:showInfo(box)
+	object:showInfo(box)
 
-    box:showNextFrame()
+	box:showNextFrame()
 
 end
 
 function EnhancedLivestock_PlayerHUDUpdater:showAnimalInfo(animal)
 
-    if self.monitorBox == nil then
-        self.monitorBox = g_currentMission.hud.infoDisplay:createBox(InfoDisplayKeyValueBox)
-    end
+	if self.monitorBox == nil then
+		self.monitorBox = g_currentMission.hud.infoDisplay:createBox(InfoDisplayKeyValueBox)
+	end
 
-    if animal.monitor.active or animal.monitor.removed then
+	if animal.monitor.active or animal.monitor.removed then
 
-        local box = self.monitorBox
-        box:clear()
-        box:setTitle(g_i18n:getText("el_ui_monitor"))
-        animal:showMonitorInfo(box)
-        box:showNextFrame()
+		local box = self.monitorBox
+		box:clear()
+		box:setTitle(g_i18n:getText("el_ui_monitor"))
+		animal:showMonitorInfo(box)
+		box:showNextFrame()
 
-    end
+	end
 
-    if self.geneticsBox == nil then
-        self.geneticsBox = g_currentMission.hud.infoDisplay:createBox(EL_InfoDisplayKeyValueBox)
-    end
+	if self.geneticsBox == nil then
+		self.geneticsBox = g_currentMission.hud.infoDisplay:createBox(EL_InfoDisplayKeyValueBox)
+	end
 
-    local box = self.geneticsBox
-    box:clear()
-    box:setTitle(g_i18n:getText("el_ui_genetics"))
-    animal:showGeneticsInfo(box)
-    box:showNextFrame()
+	local box = self.geneticsBox
+	box:clear()
+	box:setTitle(g_i18n:getText("el_ui_genetics"))
+	animal:showGeneticsInfo(box)
+	box:showNextFrame()
 
-    if self.diseaseBox == nil then
-        self.diseaseBox = g_currentMission.hud.infoDisplay:createBox(InfoDisplayKeyValueBox)
-    end
+	if self.diseaseBox == nil then
+		self.diseaseBox = g_currentMission.hud.infoDisplay:createBox(InfoDisplayKeyValueBox)
+	end
 
-    local box = self.diseaseBox
-    box:clear()
+	local box = self.diseaseBox
+	box:clear()
 
-    if animal.diseases ~= nil and #animal.diseases > 0 and g_diseaseManager.diseasesEnabled then
-        box:setTitle(g_i18n:getText("el_diseases"))
-        animal:showDiseasesInfo(box)
-        box:showNextFrame()
-    end
+	if animal.diseases ~= nil and #animal.diseases > 0 and g_diseaseManager.diseasesEnabled then
+		box:setTitle(g_i18n:getText("el_diseases"))
+		animal:showDiseasesInfo(box)
+		box:showNextFrame()
+	end
 
 end
 
@@ -157,18 +157,18 @@ PlayerHUDUpdater.showAnimalInfo = Utils.appendedFunction(PlayerHUDUpdater.showAn
 
 function EnhancedLivestock_PlayerHUDUpdater:delete()
 
-    if self.geneticsBox ~= nil then
-        g_currentMission.hud.infoDisplay:destroyBox(self.geneticsBox)
-    end
-    if self.diseaseBox ~= nil then
-        g_currentMission.hud.infoDisplay:destroyBox(self.diseaseBox)
-    end
-    if self.monitorBox ~= nil then
-        g_currentMission.hud.infoDisplay:destroyBox(self.monitorBox)
-    end
-    if self.handToolBox ~= nil then
-        g_currentMission.hud.infoDisplay:destroyBox(self.handToolBox)
-    end
+	if self.geneticsBox ~= nil then
+		g_currentMission.hud.infoDisplay:destroyBox(self.geneticsBox)
+	end
+	if self.diseaseBox ~= nil then
+		g_currentMission.hud.infoDisplay:destroyBox(self.diseaseBox)
+	end
+	if self.monitorBox ~= nil then
+		g_currentMission.hud.infoDisplay:destroyBox(self.monitorBox)
+	end
+	if self.handToolBox ~= nil then
+		g_currentMission.hud.infoDisplay:destroyBox(self.handToolBox)
+	end
 
 end
 
