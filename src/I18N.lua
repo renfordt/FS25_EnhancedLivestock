@@ -12,9 +12,13 @@ function EL_I18N:getText(superFunc, text, modEnv)
 
         local env = self.modEnvironments[modName]
 
-        if env == nil then return superFunc(self, text, modEnv) end
+        if env == nil then
+            return superFunc(self, text, modEnv)
+        end
 
-        if env.texts[text .. "_github"] ~= nil then return env.texts[text .. "_github"] end
+        if env.texts[text .. "_github"] ~= nil then
+            return env.texts[text .. "_github"]
+        end
 
     end
 

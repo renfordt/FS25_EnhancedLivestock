@@ -4,7 +4,9 @@ function EnhancedLivestock_HusbandrySystem:getClusterHusbandryById(superFunc, id
     for _, clusterHusbandry in ipairs(self.clusterHusbandries) do
         if clusterHusbandry.husbandryIds ~= nil then
             for _, husbandryId in ipairs(clusterHusbandry.husbandryIds) do
-                if husbandryId == id then return clusterHusbandry end
+                if husbandryId == id then
+                    return clusterHusbandry
+                end
             end
         end
     end

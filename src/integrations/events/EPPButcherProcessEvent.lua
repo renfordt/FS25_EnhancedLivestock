@@ -9,12 +9,10 @@ EPPButcherProcessEvent = {}
 local EPPButcherProcessEvent_mt = Class(EPPButcherProcessEvent, Event)
 InitEventClass(EPPButcherProcessEvent, "EPPButcherProcessEvent")
 
-
 function EPPButcherProcessEvent.emptyNew()
     local self = Event.new(EPPButcherProcessEvent_mt)
     return self
 end
-
 
 function EPPButcherProcessEvent.new(productionPoint, sourceObject, animal)
     local self = EPPButcherProcessEvent.emptyNew()
@@ -25,7 +23,6 @@ function EPPButcherProcessEvent.new(productionPoint, sourceObject, animal)
 
     return self
 end
-
 
 function EPPButcherProcessEvent:readStream(streamId, connection)
     self.productionPoint = NetworkUtil.readNodeObject(streamId)
@@ -48,7 +45,6 @@ function EPPButcherProcessEvent:readStream(streamId, connection)
     self:run(connection)
 end
 
-
 function EPPButcherProcessEvent:writeStream(streamId, connection)
     NetworkUtil.writeNodeObject(streamId, self.productionPoint)
 
@@ -67,7 +63,6 @@ function EPPButcherProcessEvent:writeStream(streamId, connection)
     streamWriteFloat32(streamId, self.animal.health or 100)
     streamWriteUInt8(streamId, self.animal.subTypeIndex or 1)
 end
-
 
 function EPPButcherProcessEvent:run(connection)
     -- Only process on server
@@ -93,8 +88,8 @@ function EPPButcherProcessEvent:run(connection)
         if clusterSystem ~= nil and clusterSystem.animals ~= nil then
             for _, a in pairs(clusterSystem.animals) do
                 if a.farmId == identifiers.farmId and
-                   a.uniqueId == identifiers.uniqueId and
-                   a.birthday and a.birthday.country == identifiers.country then
+                        a.uniqueId == identifiers.uniqueId and
+                        a.birthday and a.birthday.country == identifiers.country then
                     animal = a
                     break
                 end
@@ -117,8 +112,8 @@ function EPPButcherProcessEvent:run(connection)
             if animals ~= nil then
                 for _, a in pairs(animals) do
                     if a.farmId == identifiers.farmId and
-                       a.uniqueId == identifiers.uniqueId and
-                       a.birthday and a.birthday.country == identifiers.country then
+                            a.uniqueId == identifiers.uniqueId and
+                            a.birthday and a.birthday.country == identifiers.country then
                         animal = a
                         break
                     end
@@ -129,25 +124,25 @@ function EPPButcherProcessEvent:run(connection)
 
     if animal == nil then
         Logging.warning("[EL-EPP] EPPButcherProcessEvent: Animal not found (farmId=%s, uniqueId=%s)",
-            identifiers.farmId or "nil", identifiers.uniqueId or "nil")
+                identifiers.farmId or "nil", identifiers.uniqueId or "nil")
         return
     end
 
     -- Calculate and process the meat yield
     local result = EL_EPPButcherIntegration.processAnimalOnServer(
-        self.productionPoint,
-        animal,
-        animalData,
-        clusterSystem
+            self.productionPoint,
+            animal,
+            animalData,
+            clusterSystem
     )
 
     if result ~= nil and result.success then
         -- Broadcast result to all clients
         g_server:broadcastEvent(EPPButcherResultEvent.new(
-            identifiers,
-            result.meatYield,
-            result.fillTypeIndex,
-            result.fillTypeName
+                identifiers,
+                result.meatYield,
+                result.fillTypeIndex,
+                result.fillTypeName
         ))
     end
 end

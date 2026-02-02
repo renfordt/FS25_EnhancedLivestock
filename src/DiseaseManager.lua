@@ -7,337 +7,363 @@ function DiseaseManager.new()
 
     local self = setmetatable({}, diseaseManager_mt)
 
-	self.diseases = {}
-	self.diseasesEnabled = true
-	self.diseasesChance = 1
+    self.diseases = {}
+    self.diseasesEnabled = true
+    self.diseasesChance = 1
 
-	self:loadDiseases()
+    self:loadDiseases()
 
-	return self
+    return self
 
 end
-
 
 function DiseaseManager:loadDiseases()
 
-	local xmlFile = XMLFile.loadIfExists("diseases", modDirectory .. "xml/diseases.xml")
+    local xmlFile = XMLFile.loadIfExists("diseases", modDirectory .. "xml/diseases.xml")
 
-	if xmlFile == nil then return end
+    if xmlFile == nil then
+        return
+    end
 
-	xmlFile:iterate("diseases.disease", function(_, key)
-	
-		local title = xmlFile:getString(key .. "#title")
-		local translationKey = "el_disease_" .. title
-		local name = g_i18n:getText(translationKey)
+    xmlFile:iterate("diseases.disease", function(_, key)
 
-		local animals = {}
-		local animalTitles = string.split(xmlFile:getString(key .. "#animals"), " ")
+        local title = xmlFile:getString(key .. "#title")
+        local translationKey = "el_disease_" .. title
+        local name = g_i18n:getText(translationKey)
 
-		for _, animalTitle in pairs(animalTitles) do
-			local animalType = AnimalType[animalTitle]
-			if animalType ~= nil then
-				animals[animalType] = true
-			end
-		end
+        local animals = {}
+        local animalTitles = string.split(xmlFile:getString(key .. "#animals"), " ")
 
-		local valueModifier = xmlFile:getFloat(key .. "#value", 1.0)
-		local transmission = xmlFile:getFloat(key .. "#transmission", 0)
-		local immunity = xmlFile:getInt(key .. "#immunity", 12)
+        for _, animalTitle in pairs(animalTitles) do
+            local animalType = AnimalType[animalTitle]
+            if animalType ~= nil then
+                animals[animalType] = true
+            end
+        end
 
-		local prerequisites = {}
+        local valueModifier = xmlFile:getFloat(key .. "#value", 1.0)
+        local transmission = xmlFile:getFloat(key .. "#transmission", 0)
+        local immunity = xmlFile:getInt(key .. "#immunity", 12)
 
-		xmlFile:iterate(key .. ".prerequisites.prerequisite", function(_, prerequisiteKey)
+        local prerequisites = {}
 
-			local valueType = xmlFile:getString(prerequisiteKey .. "#valueType", "Int")
-		
-			table.insert(prerequisites, {
-				["path"] = string.split(xmlFile:getString(prerequisiteKey .. "#path"), "."),
-				["value"] = XMLFile["get" .. valueType](xmlFile, prerequisiteKey .. "#value")
-			})
-		
-		end)
+        xmlFile:iterate(key .. ".prerequisites.prerequisite", function(_, prerequisiteKey)
 
-		local probability = {}
+            local valueType = xmlFile:getString(prerequisiteKey .. "#valueType", "Int")
 
-		xmlFile:iterate(key .. ".probability.key", function(_, probabilityKey)
+            table.insert(prerequisites, {
+                ["path"] = string.split(xmlFile:getString(prerequisiteKey .. "#path"), "."),
+                ["value"] = XMLFile["get" .. valueType](xmlFile, prerequisiteKey .. "#value")
+            })
 
-			table.insert(probability, {
-				["age"] = xmlFile:getInt(probabilityKey .. "#age"),
-				["value"] = xmlFile:getFloat(probabilityKey .. "#value")
-			})
-		
-		end)
+        end)
 
-		local fatality = {}
+        local probability = {}
 
-		xmlFile:iterate(key .. ".fatality.key", function(_, fatalityKey)
+        xmlFile:iterate(key .. ".probability.key", function(_, probabilityKey)
 
-			table.insert(fatality, {
-				["time"] = xmlFile:getInt(fatalityKey .. "#time"),
-				["value"] = xmlFile:getFloat(fatalityKey .. "#value")
-			})
-		
-		end)
+            table.insert(probability, {
+                ["age"] = xmlFile:getInt(probabilityKey .. "#age"),
+                ["value"] = xmlFile:getFloat(probabilityKey .. "#value")
+            })
 
-		local output = {}
+        end)
 
-		xmlFile:iterate(key .. ".output.fillType", function(_, outputKey)
+        local fatality = {}
 
-			output[xmlFile:getString(outputKey .. "#type")] = xmlFile:getFloat(outputKey .. "#modifier")
-		
-		end)
+        xmlFile:iterate(key .. ".fatality.key", function(_, fatalityKey)
 
-		local treatment = {
-			["cost"] = xmlFile:getFloat(key .. ".treatment#cost"),
-			["duration"] = xmlFile:getInt(key .. ".treatment#duration")
-		}
+            table.insert(fatality, {
+                ["time"] = xmlFile:getInt(fatalityKey .. "#time"),
+                ["value"] = xmlFile:getFloat(fatalityKey .. "#value")
+            })
 
-		if treatment.cost == nil or treatment.duration == nil then treatment = nil end
+        end)
 
-		local recovery = xmlFile:getFloat(key .. "#recovery")
+        local output = {}
 
-		local disease = {
-			["title"] = title,
-			["key"] = translationKey,
-			["name"] = name,
-			["animals"] = animals,
-			["value"] = valueModifier,
-			["transmission"] = transmission,
-			["immunity"] = immunity,
-			["prerequisites"] = prerequisites,
-			["probability"] = probability,
-			["fatality"] = fatality,
-			["output"] = output,
-			["treatment"] = treatment,
-			["recovery"] = recovery
-		}
+        xmlFile:iterate(key .. ".output.fillType", function(_, outputKey)
 
-		if xmlFile:hasProperty(key .. ".carrier") then
+            output[xmlFile:getString(outputKey .. "#type")] = xmlFile:getFloat(outputKey .. "#modifier")
 
-			local carrier = {}
+        end)
 
-			if xmlFile:hasProperty(key .. ".carrier.output") then
+        local treatment = {
+            ["cost"] = xmlFile:getFloat(key .. ".treatment#cost"),
+            ["duration"] = xmlFile:getInt(key .. ".treatment#duration")
+        }
 
-				local carrierOutput = {}
+        if treatment.cost == nil or treatment.duration == nil then
+            treatment = nil
+        end
 
-				xmlFile:iterate(key .. ".output.fillType", function(_, outputKey)
+        local recovery = xmlFile:getFloat(key .. "#recovery")
 
-					carrierOutput[xmlFile:getString(outputKey .. "#type")] = xmlFile:getFloat(outputKey .. "#modifier")
-		
-				end)
+        local disease = {
+            ["title"] = title,
+            ["key"] = translationKey,
+            ["name"] = name,
+            ["animals"] = animals,
+            ["value"] = valueModifier,
+            ["transmission"] = transmission,
+            ["immunity"] = immunity,
+            ["prerequisites"] = prerequisites,
+            ["probability"] = probability,
+            ["fatality"] = fatality,
+            ["output"] = output,
+            ["treatment"] = treatment,
+            ["recovery"] = recovery
+        }
 
-				carrier.output = carrierOutput
+        if xmlFile:hasProperty(key .. ".carrier") then
 
-			end
+            local carrier = {}
 
-			disease.carrier = carrier
+            if xmlFile:hasProperty(key .. ".carrier.output") then
 
-		end
+                local carrierOutput = {}
 
-		if xmlFile:hasProperty(key .. ".genetic") then
+                xmlFile:iterate(key .. ".output.fillType", function(_, outputKey)
 
-			disease.genetic = {
-				["recessive"] = xmlFile:getBool(key .. ".genetic#recessive", false),
-				["dominant"] = xmlFile:getBool(key .. ".genetic#dominant", false),
-				["saleChance"] = xmlFile:getFloat(key .. ".genetic#saleChance", 0)
-			}
+                    carrierOutput[xmlFile:getString(outputKey .. "#type")] = xmlFile:getFloat(outputKey .. "#modifier")
 
-		end
+                end)
 
-		table.insert(self.diseases, disease)
-	
-	end)
+                carrier.output = carrierOutput
 
-	xmlFile:delete()
+            end
+
+            disease.carrier = carrier
+
+        end
+
+        if xmlFile:hasProperty(key .. ".genetic") then
+
+            disease.genetic = {
+                ["recessive"] = xmlFile:getBool(key .. ".genetic#recessive", false),
+                ["dominant"] = xmlFile:getBool(key .. ".genetic#dominant", false),
+                ["saleChance"] = xmlFile:getFloat(key .. ".genetic#saleChance", 0)
+            }
+
+        end
+
+        table.insert(self.diseases, disease)
+
+    end)
+
+    xmlFile:delete()
 
 end
-
 
 function DiseaseManager:getDiseaseByTitle(title)
 
-	for _, disease in pairs(self.diseases) do
-		if disease.title == title then return disease end
-	end
+    for _, disease in pairs(self.diseases) do
+        if disease.title == title then
+            return disease
+        end
+    end
 
-	return nil
+    return nil
 
 end
-
 
 function DiseaseManager:onDayChanged(animal)
 
-	if not self.diseasesEnabled then return end
+    if not self.diseasesEnabled then
+        return
+    end
 
-	for _, disease in pairs(self.diseases) do
+    for _, disease in pairs(self.diseases) do
 
-		if not disease.animals[animal.animalTypeIndex] then continue end
+        if not disease.animals[animal.animalTypeIndex] then
+            continue
+        end
 
-		local eligible = true
+        local eligible = true
 
-		for _, existingDisease in pairs(animal.diseases) do
+        for _, existingDisease in pairs(animal.diseases) do
 
-			if existingDisease.type.title == disease.title then
-				eligible = false
-				break
-			end
+            if existingDisease.type.title == disease.title then
+                eligible = false
+                break
+            end
 
-		end
+        end
 
-		if not eligible then continue end
+        if not eligible then
+            continue
+        end
 
-		for _, prerequisite in pairs(disease.prerequisites) do
+        for _, prerequisite in pairs(disease.prerequisites) do
 
-			local currentValue = animal
+            local currentValue = animal
 
-			for _, path in pairs(prerequisite.path) do
+            for _, path in pairs(prerequisite.path) do
 
-				currentValue = currentValue[path]
+                currentValue = currentValue[path]
 
-			end
+            end
 
-			if currentValue ~= prerequisite.value then
-				eligible = false
-				break
-			end
+            if currentValue ~= prerequisite.value then
+                eligible = false
+                break
+            end
 
-		end
+        end
 
-		if not eligible then continue end
+        if not eligible then
+            continue
+        end
 
-		local probability = 0
+        local probability = 0
 
-		for i = 1, #disease.probability do
+        for i = 1, #disease.probability do
 
-			if animal.age <= disease.probability[i].age or i == #disease.probability then
-				probability = disease.probability[i].value
-				break
-			end
+            if animal.age <= disease.probability[i].age or i == #disease.probability then
+                probability = disease.probability[i].value
+                break
+            end
 
-		end
+        end
 
-		if math.random() >= probability * self.diseasesChance then continue end
+        if math.random() >= probability * self.diseasesChance then
+            continue
+        end
 
-		animal:addDisease(disease)
+        animal:addDisease(disease)
 
-	end
+    end
 
 end
-
 
 function DiseaseManager:setGeneticDiseasesForSaleAnimal(animal)
 
-	for _, disease in pairs(self.diseases) do
+    for _, disease in pairs(self.diseases) do
 
-		if not disease.animals[animal.animalTypeIndex] or disease.genetic == nil or disease.probability[1].value ~= 0 or #disease.probability > 1 then continue end
+        if not disease.animals[animal.animalTypeIndex] or disease.genetic == nil or disease.probability[1].value ~= 0 or #disease.probability > 1 then
+            continue
+        end
 
-		local eligible = true
+        local eligible = true
 
-		for _, existingDisease in pairs(animal.diseases) do
+        for _, existingDisease in pairs(animal.diseases) do
 
-			if existingDisease.type.title == disease.title then
-				eligible = false
-				break
-			end
+            if existingDisease.type.title == disease.title then
+                eligible = false
+                break
+            end
 
-		end
+        end
 
-		if not eligible then continue end
+        if not eligible then
+            continue
+        end
 
-		if math.random() < disease.genetic.saleChance then
+        if math.random() < disease.genetic.saleChance then
 
-			local numGenes = 1
+            local numGenes = 1
 
-			if math.random() <= 0.25 then numGenes = 2 end
+            if math.random() <= 0.25 then
+                numGenes = 2
+            end
 
-			animal:addDisease(disease, disease.genetic.recessive and numGenes == 1, numGenes)
+            animal:addDisease(disease, disease.genetic.recessive and numGenes == 1, numGenes)
 
-		end
+        end
 
-	end
+    end
 
 end
-
 
 function DiseaseManager:calculateTransmission(animals)
 
-	if not self.diseasesEnabled then return end
+    if not self.diseasesEnabled then
+        return
+    end
 
-	local diseases = {}
-	local hasDiseases = false
+    local diseases = {}
+    local hasDiseases = false
 
-	for _, animal in pairs(animals) do
+    for _, animal in pairs(animals) do
 
-		for _, disease in pairs(animal.diseases) do
+        for _, disease in pairs(animal.diseases) do
 
-			local type = disease.type
+            local type = disease.type
 
-			if type.transmission == nil or type.transmission <= 0 then continue end
+            if type.transmission == nil or type.transmission <= 0 then
+                continue
+            end
 
-			if diseases[type.title] == nil then
-				diseases[type.title] = { ["type"] = type, ["amount"] = 0 }
-				hasDiseases = true
-			end
+            if diseases[type.title] == nil then
+                diseases[type.title] = { ["type"] = type, ["amount"] = 0 }
+                hasDiseases = true
+            end
 
-			diseases[type.title].amount = diseases[type.title].amount + 1
+            diseases[type.title].amount = diseases[type.title].amount + 1
 
-		end
+        end
 
-	end
+    end
 
+    if not hasDiseases then
+        return
+    end
 
-	if not hasDiseases then return end
+    for _, animal in pairs(animals) do
 
+        for title, disease in pairs(diseases) do
 
-	for _, animal in pairs(animals) do
+            local eligible = true
 
-		for title, disease in pairs(diseases) do
+            for _, existingDisease in pairs(animal.diseases) do
 
-			local eligible = true
+                if existingDisease.type.title == title then
+                    eligible = false
+                    break
+                end
 
-			for _, existingDisease in pairs(animal.diseases) do
+            end
 
-				if existingDisease.type.title == title then
-					eligible = false
-					break
-				end
+            if not eligible then
+                continue
+            end
 
-			end
+            for _, prerequisite in pairs(disease.type.prerequisites) do
 
-			if not eligible then continue end
+                local currentValue = animal
 
-			for _, prerequisite in pairs(disease.type.prerequisites) do
+                for _, path in pairs(prerequisite.path) do
 
-				local currentValue = animal
+                    currentValue = currentValue[path]
 
-				for _, path in pairs(prerequisite.path) do
+                end
 
-					currentValue = currentValue[path]
+                if currentValue ~= prerequisite.value then
+                    eligible = false
+                    break
+                end
 
-				end
+            end
 
-				if currentValue ~= prerequisite.value then
-					eligible = false
-					break
-				end
+            if not eligible then
+                continue
+            end
 
-			end
+            if math.random() <= disease.type.transmission * (disease.amount / #animals) then
+                animal:addDisease(disease.type)
+            end
 
-			if not eligible then continue end
+        end
 
-			if math.random() <= disease.type.transmission * (disease.amount / #animals) then
-				animal:addDisease(disease.type)
-			end
-
-		end
-
-	end
+    end
 
 
 end
 
-
 function DiseaseManager.onSettingChanged(name, state)
 
-	if g_diseaseManager ~= nil then g_diseaseManager[name] = state end
+    if g_diseaseManager ~= nil then
+        g_diseaseManager[name] = state
+    end
 
 end

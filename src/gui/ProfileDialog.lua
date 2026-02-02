@@ -4,7 +4,6 @@ local ProfileDialog_mt = Class(ProfileDialog, MessageDialog)
 local modSettingsDirectory = g_currentModSettingsDirectory
 local modDirectory = g_currentModDirectory
 
-
 function ProfileDialog.register()
 
     local dialog = ProfileDialog.new()
@@ -13,10 +12,11 @@ function ProfileDialog.register()
 
 end
 
-
 function ProfileDialog.show(context, manager, callback, target)
-    
-    if ProfileDialog.INSTANCE == nil then ProfileDialog.register() end
+
+    if ProfileDialog.INSTANCE == nil then
+        ProfileDialog.register()
+    end
 
     local dialog = ProfileDialog.INSTANCE
 
@@ -29,7 +29,6 @@ function ProfileDialog.show(context, manager, callback, target)
 
 end
 
-
 function ProfileDialog.new(target, customMt)
 
     local self = MessageDialog.new(target, customMt or ProfileDialog_mt)
@@ -38,11 +37,10 @@ function ProfileDialog.new(target, customMt)
     self.profiles = {}
 
     self:loadProfiles()
-    
+
     return self
 
 end
-
 
 function ProfileDialog.createFromExistingGui(gui, _)
 
@@ -51,12 +49,13 @@ function ProfileDialog.createFromExistingGui(gui, _)
 
 end
 
-
 function ProfileDialog:loadProfiles()
 
     local xmlFile = XMLFile.loadIfExists("aiManagerProfiles", modSettingsDirectory .. "aiManagerProfiles.xml")
 
-    if xmlFile == nil then return end
+    if xmlFile == nil then
+        return
+    end
 
     xmlFile:iterate("profiles.profile", function(_, key)
 
@@ -73,12 +72,13 @@ function ProfileDialog:loadProfiles()
 
 end
 
-
 function ProfileDialog:saveProfiles()
 
     local xmlFile = XMLFile.create("aiManagerProfiles", modSettingsDirectory .. "aiManagerProfiles.xml", "profiles")
 
-    if xmlFile == nil then return end
+    if xmlFile == nil then
+        return
+    end
 
     local i = 0
 
@@ -97,41 +97,45 @@ function ProfileDialog:saveProfiles()
 
 end
 
-
 function ProfileDialog.getProfiles()
 
     return ProfileDialog.INSTANCE.profiles
 
 end
 
-
 function ProfileDialog.getAmountOfProfiles()
 
     local profiles = ProfileDialog.INSTANCE.profiles
 
-    if profiles == nil then return 0 end
+    if profiles == nil then
+        return 0
+    end
 
     local i = 0
 
-    for _, profile in pairs(profiles) do i = i + 1 end
+    for _, profile in pairs(profiles) do
+        i = i + 1
+    end
 
     return i
 
 end
 
-
 function ProfileDialog.getHasProfiles()
 
     local profiles = ProfileDialog.INSTANCE.profiles
 
-    if profiles == nil then return false end
+    if profiles == nil then
+        return false
+    end
 
-    for name, profile in pairs(profiles) do return true end
+    for name, profile in pairs(profiles) do
+        return true
+    end
 
     return false
 
 end
-
 
 function ProfileDialog:onOpen()
 
@@ -179,7 +183,6 @@ function ProfileDialog:onOpen()
 
 end
 
-
 function ProfileDialog:onClickSave()
 
     local name = self.saveProfileInput:getText()
@@ -194,12 +197,13 @@ function ProfileDialog:onClickSave()
 
 end
 
-
 function ProfileDialog:onClickLoad()
 
     local profile = self.profiles[self.profileIndexToName[self.loadProfileSelector:getState()]]
 
-    if profile ~= nil then self.manager:copyProfile(profile) end
+    if profile ~= nil then
+        self.manager:copyProfile(profile)
+    end
 
     self:close()
 

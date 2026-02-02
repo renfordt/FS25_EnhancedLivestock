@@ -3,12 +3,10 @@ AnimalMonitorEvent = {}
 local AnimalMonitorEvent_mt = Class(AnimalMonitorEvent, Event)
 InitEventClass(AnimalMonitorEvent, "AnimalMonitorEvent")
 
-
 function AnimalMonitorEvent.emptyNew()
     local self = Event.new(AnimalMonitorEvent_mt)
     return self
 end
-
 
 function AnimalMonitorEvent.new(object, animal, active, removed)
 
@@ -23,7 +21,6 @@ function AnimalMonitorEvent.new(object, animal, active, removed)
 
 end
 
-
 function AnimalMonitorEvent:readStream(streamId, connection)
 
     self.object = NetworkUtil.readNodeObject(streamId)
@@ -36,18 +33,16 @@ function AnimalMonitorEvent:readStream(streamId, connection)
 
 end
 
-
 function AnimalMonitorEvent:writeStream(streamId, connection)
 
     NetworkUtil.writeNodeObject(streamId, self.object)
-    
+
     self.animal:writeStreamIdentifiers(streamId, connection)
 
     streamWriteBool(streamId, self.active)
     streamWriteBool(streamId, self.removed)
 
 end
-
 
 function AnimalMonitorEvent:run(connection)
 
@@ -68,7 +63,6 @@ function AnimalMonitorEvent:run(connection)
     end
 
 end
-
 
 function AnimalMonitorEvent.sendEvent(object, animal, active, removed)
 

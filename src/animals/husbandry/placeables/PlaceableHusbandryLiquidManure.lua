@@ -1,21 +1,19 @@
 EL_PlaceableHusbandryLiquidManure = {}
 
-
 function EL_PlaceableHusbandryLiquidManure.registerOverwrittenFunctions(placeable)
-	SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryLiquidManure.updateInputAndOutput)
+    SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryLiquidManure.updateInputAndOutput)
 end
 
 PlaceableHusbandryLiquidManure.registerOverwrittenFunctions = Utils.appendedFunction(PlaceableHusbandryLiquidManure.registerOverwrittenFunctions, EL_PlaceableHusbandryLiquidManure.registerOverwrittenFunctions)
 
-
-function EL_PlaceableHusbandryLiquidManure:onHusbandryAnimalsUpdate(_, _) end
+function EL_PlaceableHusbandryLiquidManure:onHusbandryAnimalsUpdate(_, _)
+end
 
 PlaceableHusbandryLiquidManure.onHusbandryAnimalsUpdate = Utils.overwrittenFunction(PlaceableHusbandryLiquidManure.onHusbandryAnimalsUpdate, EL_PlaceableHusbandryLiquidManure.onHusbandryAnimalsUpdate)
 
-
 function PlaceableHusbandryLiquidManure:updateInputAndOutput(superFunc, animals)
 
-	superFunc(self, animals)
+    superFunc(self, animals)
 
     local spec = self.spec_husbandryLiquidManure
 

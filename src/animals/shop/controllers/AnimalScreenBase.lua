@@ -6,37 +6,49 @@ end
 
 AnimalScreenBase.getTargetItems = Utils.overwrittenFunction(AnimalScreenBase.getTargetItems, EL_AnimalScreenBase.getTargetItems)
 
-
 function EL_AnimalScreenBase.sortAnimals(a, b)
 
-    if a.cluster == nil or b.cluster == nil then return true end
+    if a.cluster == nil or b.cluster == nil then
+        return true
+    end
 
     local aDisease, bDisease = a.cluster:getHasAnyDisease(), b.cluster:getHasAnyDisease()
 
     if aDisease or bDisease then
 
-        if aDisease and not bDisease then return true end
-        if bDisease and not aDisease then return false end
+        if aDisease and not bDisease then
+            return true
+        end
+        if bDisease and not aDisease then
+            return false
+        end
 
     end
 
-    if a.cluster.subTypeIndex == b.cluster.subTypeIndex then return a.cluster.age < b.cluster.age end
+    if a.cluster.subTypeIndex == b.cluster.subTypeIndex then
+        return a.cluster.age < b.cluster.age
+    end
 
     return a.cluster.subTypeIndex < b.cluster.subTypeIndex
 
 end
 
-
 function EL_AnimalScreenBase.sortSaleAnimals(a, b)
 
-    if a.animal == nil or b.animal == nil then return true end
+    if a.animal == nil or b.animal == nil then
+        return true
+    end
 
     local aDisease, bDisease = a.animal:getHasAnyDisease(), b.animal:getHasAnyDisease()
 
     if aDisease or bDisease then
 
-        if aDisease and not bDisease then return true end
-        if bDisease and not aDisease then return false end
+        if aDisease and not bDisease then
+            return true
+        end
+        if bDisease and not aDisease then
+            return false
+        end
 
     end
 
@@ -45,8 +57,10 @@ function EL_AnimalScreenBase.sortSaleAnimals(a, b)
 
     if a.animal.subTypeIndex == b.animal.subTypeIndex then
 
-        if aValue == bValue then return a.animal.age < b.animal.age end
-        
+        if aValue == bValue then
+            return a.animal.age < b.animal.age
+        end
+
         return aValue > bValue
 
     end
@@ -55,9 +69,10 @@ function EL_AnimalScreenBase.sortSaleAnimals(a, b)
 
 end
 
-
 function EL_AnimalScreenBase:onAnimalsChanged(_)
-    if self.trailer == nil then return end
+    if self.trailer == nil then
+        return
+    end
     self:initItems()
     self.animalsChangedCallback()
     self.trailer:updateAnimals()
@@ -72,7 +87,6 @@ AnimalScreenDealerTrailer.onAnimalsChanged = Utils.appendedFunction(AnimalScreen
 AnimalScreenTrailer.onAnimalLoadedToTrailer = Utils.appendedFunction(AnimalScreenTrailer.onAnimalLoadedToTrailer, EL_AnimalScreenBase.onAnimalsChanged)
 AnimalScreenTrailer.onAnimalsChanged = Utils.appendedFunction(AnimalScreenTrailer.onAnimalsChanged, EL_AnimalScreenBase.onAnimalsChanged)
 
-
 function AnimalScreenBase:setSourceBulkActionFinishedCallback(callback, target)
 
     function self.sourceBulkActionFinished(error, text, indexes)
@@ -82,7 +96,6 @@ function AnimalScreenBase:setSourceBulkActionFinishedCallback(callback, target)
     end
 
 end
-
 
 function AnimalScreenBase:setTargetBulkActionFinishedCallback(callback, target)
 

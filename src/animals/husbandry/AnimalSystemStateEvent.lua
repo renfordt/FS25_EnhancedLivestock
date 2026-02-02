@@ -3,12 +3,10 @@ AnimalSystemStateEvent = {}
 local AnimalSystemStateEvent_mt = Class(AnimalSystemStateEvent, Event)
 InitEventClass(AnimalSystemStateEvent, "AnimalSystemStateEvent")
 
-
 function AnimalSystemStateEvent.emptyNew()
     local self = Event.new(AnimalSystemStateEvent_mt)
     return self
 end
-
 
 function AnimalSystemStateEvent.new(countries, animals, aiAnimals)
 
@@ -19,7 +17,6 @@ function AnimalSystemStateEvent.new(countries, animals, aiAnimals)
     return self
 
 end
-
 
 function AnimalSystemStateEvent:readStream(streamId, connection)
 
@@ -62,7 +59,6 @@ function AnimalSystemStateEvent:readStream(streamId, connection)
 
     self.countries = countries
 
-
     self.animals = {}
     local numAnimals = streamReadUInt8(streamId)
 
@@ -88,7 +84,6 @@ function AnimalSystemStateEvent:readStream(streamId, connection)
         self.animals[i] = animals
 
     end
-
 
     self.aiAnimals = {}
     local numAIAnimals = streamReadUInt8(streamId)
@@ -130,9 +125,8 @@ function AnimalSystemStateEvent:readStream(streamId, connection)
 
 end
 
-
 function AnimalSystemStateEvent:writeStream(streamId, connection)
-    
+
     local countries = self.countries
     streamWriteUInt8(streamId, #countries)
 
@@ -150,7 +144,9 @@ function AnimalSystemStateEvent:writeStream(streamId, connection)
 
             local ids, numIds = farm.ids, 0
 
-            for animalTypeIndex, id in pairs(ids) do numIds = numIds + 1 end
+            for animalTypeIndex, id in pairs(ids) do
+                numIds = numIds + 1
+            end
 
             streamWriteUInt8(streamId, numIds)
 
@@ -162,7 +158,6 @@ function AnimalSystemStateEvent:writeStream(streamId, connection)
         end
 
     end
-
 
     streamWriteUInt8(streamId, #self.animals)
 
@@ -181,7 +176,6 @@ function AnimalSystemStateEvent:writeStream(streamId, connection)
 
     end
 
-
     streamWriteUInt8(streamId, #self.aiAnimals)
 
     for i = 1, #self.aiAnimals do
@@ -198,7 +192,9 @@ function AnimalSystemStateEvent:writeStream(streamId, connection)
 
             local numUsers = 0
 
-            for userId, _ in pairs(animal.favouritedBy) do numUsers = numUsers + 1 end
+            for userId, _ in pairs(animal.favouritedBy) do
+                numUsers = numUsers + 1
+            end
 
             streamWriteUInt8(streamId, numUsers)
 
@@ -215,7 +211,6 @@ function AnimalSystemStateEvent:writeStream(streamId, connection)
 
 
 end
-
 
 function AnimalSystemStateEvent:run(connection)
 

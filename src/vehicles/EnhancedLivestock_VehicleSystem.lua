@@ -4,7 +4,9 @@ function EnhancedLivestock_VehicleSystem:save(_, _)
     local indexesToRemove = {}
 
     for i, vehicle in ipairs(self.vehicles) do
-        if vehicle.spec_rideable ~= nil then table.insert(indexesToRemove, i) end
+        if vehicle.spec_rideable ~= nil then
+            table.insert(indexesToRemove, i)
+        end
     end
 
     table.sort(indexesToRemove, function(a, b)

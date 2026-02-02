@@ -1,11 +1,18 @@
 EnhancedLivestock_AnimalCluster = {}
 
-
 function EnhancedLivestock_AnimalCluster:saveToXMLFile(xmlFile, key, _)
-    if self.monthsSinceLastBirth == nil then self.monthsSinceLastBirth = 0 end
-    if self.lactatingAnimals == nil then self.lactatingAnimals = 0 end
-    if self.isParent == nil then self.isParent = false end
-    if self.gender == nil then self.gender = "female" end
+    if self.monthsSinceLastBirth == nil then
+        self.monthsSinceLastBirth = 0
+    end
+    if self.lactatingAnimals == nil then
+        self.lactatingAnimals = 0
+    end
+    if self.isParent == nil then
+        self.isParent = false
+    end
+    if self.gender == nil then
+        self.gender = "female"
+    end
     xmlFile:setInt(key .. "#monthsSinceLastBirth", self.monthsSinceLastBirth)
     xmlFile:setInt(key .. "#lactatingAnimals", self.lactatingAnimals)
     xmlFile:setBool(key .. "#isParent", self.isParent)
@@ -69,7 +76,9 @@ function EnhancedLivestock_AnimalCluster:showInfo(superFunc, box)
 
     if self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.gender ~= nil and self.gender == "female" and self.age >= 12 then
         local lactatingAnimals = self.lactatingAnimals
-        if lactatingAnimals ~= nil then box:addLine("Lactating animals", string.format("%d", lactatingAnimals)) end
+        if lactatingAnimals ~= nil then
+            box:addLine("Lactating animals", string.format("%d", lactatingAnimals))
+        end
     end
 
     if self.gender ~= nil and self.gender == "female" and subType.supportsReproduction then

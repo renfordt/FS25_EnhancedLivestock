@@ -1,7 +1,6 @@
 EL_InfoDisplayKeyValueBox = {}
 local el_InfoDisplayKeyValueBox_mt = Class(EL_InfoDisplayKeyValueBox, InfoDisplayBox)
 
-
 function EL_InfoDisplayKeyValueBox.new(infoDisplay, uiScale)
 
     local self = InfoDisplayBox.new(infoDisplay, uiScale, el_InfoDisplayKeyValueBox_mt)
@@ -25,7 +24,6 @@ function EL_InfoDisplayKeyValueBox.new(infoDisplay, uiScale)
 
 end
 
-
 function EL_InfoDisplayKeyValueBox:delete()
 
     self.bgScale:delete()
@@ -34,7 +32,6 @@ function EL_InfoDisplayKeyValueBox:delete()
     self.warningIcon:delete()
 
 end
-
 
 function EL_InfoDisplayKeyValueBox:storeScaledValues()
 
@@ -77,7 +74,6 @@ function EL_InfoDisplayKeyValueBox:storeScaledValues()
 
 end
 
-
 function EL_InfoDisplayKeyValueBox:draw(posX, posY)
 
     local leftX = posX - self.boxWidth
@@ -87,7 +83,9 @@ function EL_InfoDisplayKeyValueBox:draw(posX, posY)
 
         if line.isActive then
             height = height + self.lineHeight
-            if line.isWarning then height = height + math.abs(self.warningOffsetY) end
+            if line.isWarning then
+                height = height + math.abs(self.warningOffsetY)
+            end
         end
 
     end
@@ -183,16 +181,13 @@ function EL_InfoDisplayKeyValueBox:draw(posX, posY)
 
 end
 
-
 function EL_InfoDisplayKeyValueBox:canDraw()
     return self.doShowNextFrame
 end
 
-
 function EL_InfoDisplayKeyValueBox:showNextFrame()
     self.doShowNextFrame = true
 end
-
 
 function EL_InfoDisplayKeyValueBox:clear()
 
@@ -202,7 +197,6 @@ function EL_InfoDisplayKeyValueBox:clear()
     self.currentLineIndex = 0
 
 end
-
 
 function EL_InfoDisplayKeyValueBox:addLine(key, value, accentuate)
 
@@ -222,7 +216,6 @@ function EL_InfoDisplayKeyValueBox:addLine(key, value, accentuate)
     line.isActive = true
 
 end
-
 
 function EL_InfoDisplayKeyValueBox:setTitle(title)
 

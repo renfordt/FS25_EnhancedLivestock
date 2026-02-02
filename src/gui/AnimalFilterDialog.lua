@@ -11,7 +11,6 @@ function AnimalFilterDialog.register()
 
 end
 
-
 function AnimalFilterDialog.new(target, customMt)
 
     local self = MessageDialog.new(target, customMt or animalFilterDialog_mt)
@@ -26,7 +25,6 @@ function AnimalFilterDialog.new(target, customMt)
 
 end
 
-
 function AnimalFilterDialog.createFromExistingGui(gui)
 
     AnimalFilterDialog.register()
@@ -34,10 +32,11 @@ function AnimalFilterDialog.createFromExistingGui(gui)
 
 end
 
-
 function AnimalFilterDialog.show(items, animalTypeIndex, callback, target, isBuyMode)
 
-    if AnimalFilterDialog.INSTANCE == nil then AnimalFilterDialog.register() end
+    if AnimalFilterDialog.INSTANCE == nil then
+        AnimalFilterDialog.register()
+    end
 
     local dialog = AnimalFilterDialog.INSTANCE
 
@@ -51,7 +50,6 @@ function AnimalFilterDialog.show(items, animalTypeIndex, callback, target, isBuy
 
 end
 
-
 function AnimalFilterDialog:onOpen()
 
     AnimalFilterDialog:superClass().onOpen(self)
@@ -59,7 +57,9 @@ function AnimalFilterDialog:onOpen()
     self.filters = {}
 
     for i = #self.elementsToDelete, 1, -1 do
-        if self.elementsToDelete[i] ~= nil then self.elementsToDelete[i]:delete() end
+        if self.elementsToDelete[i] ~= nil then
+            self.elementsToDelete[i]:delete()
+        end
         table.remove(self.elementsToDelete, i)
     end
 
@@ -296,7 +296,7 @@ function AnimalFilterDialog:onOpen()
     }
 
     if self.animalTypeIndex == AnimalType.COW or self.animalTypeIndex == AnimalType.SHEEP or self.animalTypeIndex == AnimalType.CHICKEN then
-        
+
         table.insert(filters, {
             ["isLayered"] = true,
             ["target"] = {
@@ -318,7 +318,6 @@ function AnimalFilterDialog:onOpen()
         })
 
     end
-
 
     if self.animalTypeIndex == AnimalType.COW then
 
@@ -345,14 +344,15 @@ function AnimalFilterDialog:onOpen()
 
     end
 
-
     for _, item in pairs(items) do
 
         local animal = item.animal or item.cluster
 
         for _, filter in pairs(filters) do
 
-            if (filter.requiresMonitor and not animal.monitor.active and not animal.monitor.removed) or filter.template ~= "sliderTemplate" then continue end
+            if (filter.requiresMonitor and not animal.monitor.active and not animal.monitor.removed) or filter.template ~= "sliderTemplate" then
+                continue
+            end
 
             local value
 
@@ -376,8 +376,12 @@ function AnimalFilterDialog:onOpen()
 
             end
 
-            if value < filter.min then filter.min = math.floor(value) end
-            if value > filter.max then filter.max = math.ceil(value) end
+            if value < filter.min then
+                filter.min = math.floor(value)
+            end
+            if value > filter.max then
+                filter.max = math.ceil(value)
+            end
 
             filter.hasValues = true
 
@@ -385,13 +389,13 @@ function AnimalFilterDialog:onOpen()
 
     end
 
-
     for i = #filters, 1, -1 do
 
-        if filters[i].template == "sliderTemplate" and not filters[i].hasValues then table.remove(filters, i) end
+        if filters[i].template == "sliderTemplate" and not filters[i].hasValues then
+            table.remove(filters, i)
+        end
 
     end
-
 
     self.filters = filters
 
@@ -399,13 +403,11 @@ function AnimalFilterDialog:onOpen()
 
 end
 
-
 function AnimalFilterDialog:onClose()
 
     AnimalFilterDialog:superClass().onClose(self)
 
 end
-
 
 function AnimalFilterDialog:onClickOk()
 
@@ -418,7 +420,7 @@ function AnimalFilterDialog:onClickOk()
 
             local multiplier = filter.multiplier or 1
 
-            filter.min, filter.max = (element:getLowestState() - 1) / multiplier , (element:getHighestState() - 1) / multiplier
+            filter.min, filter.max = (element:getLowestState() - 1) / multiplier, (element:getHighestState() - 1) / multiplier
 
         end
 
@@ -446,7 +448,9 @@ function AnimalFilterDialog:onClickOk()
 
         for _, filter in pairs(self.filters) do
 
-            if filter.requiresMonitor and not animal.monitor.active and not animal.monitor.removed then continue end
+            if filter.requiresMonitor and not animal.monitor.active and not animal.monitor.removed then
+                continue
+            end
 
             if filter.template == "sliderTemplate" then
 
@@ -456,13 +460,17 @@ function AnimalFilterDialog:onClickOk()
 
                     value = animal
 
-                    for _, target in pairs(filter.target) do value = value[target] end
+                    for _, target in pairs(filter.target) do
+                        value = value[target]
+                    end
 
                 elseif filter.isFunction then
 
                     value = animal[filter.target](animal)
 
-                    if filter.name == "Value" and self.isBuyMode then value = value * 1.075 end
+                    if filter.name == "Value" and self.isBuyMode then
+                        value = value * 1.075
+                    end
 
                 else
 
@@ -477,13 +485,12 @@ function AnimalFilterDialog:onClickOk()
 
             end
 
-
             if filter.template == "binaryOptionTemplate" then
 
                 local Value
 
                 if filter.isFunction then
-                    
+
                     value = animal[filter.target](animal)
 
                 else
@@ -503,7 +510,9 @@ function AnimalFilterDialog:onClickOk()
 
         self.items[i].originalIndex = i
 
-        if not meetsFilters then table.remove(self.items, i) end
+        if not meetsFilters then
+            table.remove(self.items, i)
+        end
 
     end
 
@@ -521,20 +530,17 @@ function AnimalFilterDialog:onClickOk()
 
 end
 
-
 function AnimalFilterDialog:getNumberOfSections()
 
-	return 1
+    return 1
 
 end
-
 
 function AnimalFilterDialog:getNumberOfItemsInSection(list, section)
 
-	return #self.filters
+    return #self.filters
 
 end
-
 
 function AnimalFilterDialog:getTitleForSectionHeader(list, section)
 
@@ -542,10 +548,9 @@ function AnimalFilterDialog:getTitleForSectionHeader(list, section)
 
 end
 
-
 function AnimalFilterDialog:populateCellForItemInSection(list, section, index, cell)
 
-	local filter = self.filters[index]
+    local filter = self.filters[index]
 
     cell:findAllAttributes()
 
@@ -599,11 +604,15 @@ function AnimalFilterDialog:populateCellForItemInSection(list, section, index, c
 
                         local args = table.clone(filter.text.args or {})
 
-                        for argIndex, arg in pairs(args) do if arg == "value" then args[argIndex] = i end end
+                        for argIndex, arg in pairs(args) do
+                            if arg == "value" then
+                                args[argIndex] = i
+                            end
+                        end
 
                         local text = filter.text.formatFunction(filter.text.target, args[1], args[2], args[3], args[4])
                         table.insert(templateTexts, text)
-                
+
                     else
 
                         table.insert(templateTexts, string.format(filter.text[i == 1 and "single" or "multiple"], i))
@@ -616,7 +625,9 @@ function AnimalFilterDialog:populateCellForItemInSection(list, section, index, c
 
             if filter.template == "binaryOptionTemplate" then
 
-                for _, data in pairs(filter.text) do table.insert(templateTexts, data.text) end
+                for _, data in pairs(filter.text) do
+                    table.insert(templateTexts, data.text)
+                end
 
             end
 
@@ -624,7 +635,9 @@ function AnimalFilterDialog:populateCellForItemInSection(list, section, index, c
             template:setPosition(self[filter.template .. "Offset"][1], self[filter.template .. "Offset"][2])
             template:setVisible(true)
 
-            if filter.template == "binaryOptionTemplate" then template:setState(filter.default or 1) end
+            if filter.template == "binaryOptionTemplate" then
+                template:setState(filter.default or 1)
+            end
 
             self.elementsToDelete[index] = template
 
@@ -633,13 +646,14 @@ function AnimalFilterDialog:populateCellForItemInSection(list, section, index, c
     end
 
     for name, element in pairs(cell.attributes) do
-    
-        if name ~= "name" and name ~= "separator" then element:delete() end
+
+        if name ~= "name" and name ~= "separator" then
+            element:delete()
+        end
 
     end
-    
-end
 
+end
 
 function AnimalFilterDialog:formatGenetics(value)
 

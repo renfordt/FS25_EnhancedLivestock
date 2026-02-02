@@ -46,54 +46,55 @@ end
 
 AnimalClusterSystem.getAnimals = EnhancedLivestock_AnimalClusterSystem.getAnimals
 
-
 function EnhancedLivestock_AnimalClusterSystem:loadFromXMLFile(_, xmlFile, key)
 
     self.animals = {}
 
-
-
     xmlFile:iterate(key .. ".ELAnimal", function(_, legacyKey)
-        
+
         local animal = Animal.loadFromXMLFile(xmlFile, legacyKey, self, true)
-        if animal ~= nil then table.insert(self.animals, animal) end
+        if animal ~= nil then
+            table.insert(self.animals, animal)
+        end
 
     end)
 
-
-   xmlFile:iterate(key .. ".animal", function(_, animalKey)
+    xmlFile:iterate(key .. ".animal", function(_, animalKey)
 
         local numAnimals = xmlFile:getInt(animalKey .. "#numAnimals", 1)
 
         for i = 1, numAnimals do
 
             local animal = Animal.loadFromXMLFile(xmlFile, animalKey, self)
-            if animal ~= nil then table.insert(self.animals, animal) end
+            if animal ~= nil then
+                table.insert(self.animals, animal)
+            end
 
         end
 
     end)
 
-
     self:updateClusters()
     self.needsUpdate = false
 
-    if self.owner ~= nil and self.owner.spec_husbandryFood ~= nil then SpecializationUtil.raiseEvent(self.owner, "onHusbandryAnimalsUpdate", self.animals) end
+    if self.owner ~= nil and self.owner.spec_husbandryFood ~= nil then
+        SpecializationUtil.raiseEvent(self.owner, "onHusbandryAnimalsUpdate", self.animals)
+    end
 
 end
 
-
 AnimalClusterSystem.loadFromXMLFile = Utils.overwrittenFunction(AnimalClusterSystem.loadFromXMLFile, EnhancedLivestock_AnimalClusterSystem.loadFromXMLFile)
-
 
 function EnhancedLivestock_AnimalClusterSystem:saveToXMLFile(superFunc, xmlFile, key, usedModNames)
 
     local toRemove = {}
     for i, animal in pairs(self.animals) do
-        if animal == nil or animal.isDead or animal.isSold or animal.numAnimals <= 0 then table.insert(toRemove, i) end
+        if animal == nil or animal.isDead or animal.isSold or animal.numAnimals <= 0 then
+            table.insert(toRemove, i)
+        end
     end
 
-    for i=#toRemove, 1, -1 do
+    for i = #toRemove, 1, -1 do
         table.remove(self.animals, toRemove[i])
     end
 
@@ -112,7 +113,6 @@ function EnhancedLivestock_AnimalClusterSystem:saveToXMLFile(superFunc, xmlFile,
 end
 
 AnimalClusterSystem.saveToXMLFile = Utils.overwrittenFunction(AnimalClusterSystem.saveToXMLFile, EnhancedLivestock_AnimalClusterSystem.saveToXMLFile)
-
 
 function EnhancedLivestock_AnimalClusterSystem:readStream(_, streamId, connection)
 
@@ -162,12 +162,11 @@ function EnhancedLivestock_AnimalClusterSystem:readStream(_, streamId, connectio
     end
 
     self:updateIdMapping()
-	g_messageCenter:publish(AnimalClusterUpdateEvent, self.owner, self.animals)
+    g_messageCenter:publish(AnimalClusterUpdateEvent, self.owner, self.animals)
 
 end
 
 AnimalClusterSystem.readStream = Utils.overwrittenFunction(AnimalClusterSystem.readStream, EnhancedLivestock_AnimalClusterSystem.readStream)
-
 
 function EnhancedLivestock_AnimalClusterSystem:writeStream(_, streamId, connection)
 
@@ -188,7 +187,6 @@ end
 
 AnimalClusterSystem.writeStream = Utils.overwrittenFunction(AnimalClusterSystem.writeStream, EnhancedLivestock_AnimalClusterSystem.writeStream)
 
-
 function EnhancedLivestock_AnimalClusterSystem:getClusters(superFunc)
     return self.animals or {}
 end
@@ -201,37 +199,43 @@ end
 
 AnimalClusterSystem.getCluster = Utils.overwrittenFunction(AnimalClusterSystem.getCluster, EnhancedLivestock_AnimalClusterSystem.getCluster)
 
-
 function EnhancedLivestock_AnimalClusterSystem:getClusterById(superFunc, id)
     local index = self.idToIndex[id]
 
-    if id == nil or self.animals == nil then return end
+    if id == nil or self.animals == nil then
+        return
+    end
 
     if string.contains(id, "-") then
 
         for _, animal in pairs(self.animals) do
-            if animal.id == id then return animal end
+            if animal.id == id then
+                return animal
+            end
         end
 
     end
 
-
     for _, animal in pairs(self.animals) do
-        if animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country == id then return animal end
+        if animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country == id then
+            return animal
+        end
     end
 
-    if index == nil or self.animals == nil or self.animals[index] == nil then return nil end
+    if index == nil or self.animals == nil or self.animals[index] == nil then
+        return nil
+    end
 
     return self.animals[index]
 end
 
 AnimalClusterSystem.getClusterById = Utils.overwrittenFunction(AnimalClusterSystem.getClusterById, EnhancedLivestock_AnimalClusterSystem.getClusterById)
 
-
-
 function EnhancedLivestock_AnimalClusterSystem:addCluster(superFunc, animal)
 
-    if animal.uniqueId == nil or animal.uniqueId == "1-1" or animal.uniqueId == "0-0" then return end
+    if animal.uniqueId == nil or animal.uniqueId == "1-1" or animal.uniqueId == "0-0" then
+        return
+    end
     animal:setClusterSystem(self)
     table.insert(self.animals, animal)
 
@@ -240,7 +244,6 @@ function EnhancedLivestock_AnimalClusterSystem:addCluster(superFunc, animal)
 end
 
 AnimalClusterSystem.addCluster = Utils.overwrittenFunction(AnimalClusterSystem.addCluster, EnhancedLivestock_AnimalClusterSystem.addCluster)
-
 
 function EnhancedLivestock_AnimalClusterSystem:removeCluster(_, animalIndex)
 
@@ -317,7 +320,6 @@ end
 
 AnimalClusterSystem.removeCluster = Utils.overwrittenFunction(AnimalClusterSystem.removeCluster, EnhancedLivestock_AnimalClusterSystem.removeCluster)
 
-
 function EnhancedLivestock_AnimalClusterSystem:updateClusters(superFunc)
 
     --assert(self.isServer, "AnimalClusterSystem:updateClusters is a server function")
@@ -326,7 +328,9 @@ function EnhancedLivestock_AnimalClusterSystem:updateClusters(superFunc)
     local removedClusterIndices = {}
 
     for animalsToAdd, pending in pairs(self.clustersToAdd) do
-        if not pending then continue end
+        if not pending then
+            continue
+        end
 
         if animalsToAdd.isIndividual ~= nil then
             self:addCluster(animalsToAdd)
@@ -336,7 +340,7 @@ function EnhancedLivestock_AnimalClusterSystem:updateClusters(superFunc)
 
         if animalsToAdd.numAnimals ~= nil then
             local subType = g_currentMission.animalSystem:getSubTypeByIndex(animalsToAdd.subTypeIndex)
-            for i=1, animalsToAdd.numAnimals do
+            for i = 1, animalsToAdd.numAnimals do
                 local genetics = animalsToAdd.genetics or nil
                 local impregnatedBy = animalsToAdd.impregnatedBy or nil
                 local animal = Animal.new(animalsToAdd.age, animalsToAdd.health, animalsToAdd.monthsSinceLastBirth or 0, subType.gender, animalsToAdd.subTypeIndex, animalsToAdd.reproduction or 0, animalsToAdd.isParent or false, animalsToAdd.isPregnant or false, animalsToAdd.isLactating or false, self, animalsToAdd.uniqueId, animalsToAdd.motherId, animalsToAdd.fatherId, nil, animalsToAdd.name, animalsToAdd.dirt, animalsToAdd.fitness, animalsToAdd.riding, animalsToAdd.farmId, animalsToAdd.weight, genetics, impregnatedBy, animalsToAdd.variation, animalsToAdd.children, animalsToAdd.monitor)
@@ -355,7 +359,7 @@ function EnhancedLivestock_AnimalClusterSystem:updateClusters(superFunc)
 
             else
                 local subType = g_currentMission.animalSystem:getSubTypeByIndex(animalToAdd.subTypeIndex)
-                for i=1, animalToAdd.numAnimals do
+                for i = 1, animalToAdd.numAnimals do
                     local genetics = animalToAdd.genetics or nil
                     local impregnatedBy = animalToAdd.impregnatedBy or nil
                     local animal = Animal.new(animalToAdd.age, animalToAdd.health, animalToAdd.monthsSinceLastBirth or 0, subType.gender, animalToAdd.subTypeIndex, animalToAdd.reproduction or 0, animalToAdd.isParent or false, animalToAdd.isPregnant or false, animalToAdd.isLactating or false, self, animalToAdd.uniqueId, animalToAdd.motherId, animalToAdd.fatherId, nil, animalToAdd.name, animalToAdd.dirt, animalToAdd.fitness, animalToAdd.riding, animalToAdd.farmId, animalToAdd.weight, genetics, impregnatedBy, animalToAdd.variation, animalToAdd.children, animalToAdd.monitor)
@@ -368,7 +372,6 @@ function EnhancedLivestock_AnimalClusterSystem:updateClusters(superFunc)
 
     end
 
-
     for animalIndex, animal in pairs(self.animals) do
         if animal.isDirty then
             isDirty = true
@@ -377,9 +380,10 @@ function EnhancedLivestock_AnimalClusterSystem:updateClusters(superFunc)
 
         --if animal:getNumAnimals() <= 0 and not animal.isDead and not animal.isSold then animal.numAnimals = 1 end
 
-        if self.clustersToRemove[animal] ~= nil or (animal.beingRidden ~= nil and animal.beingRidden) or animal:getNumAnimals() == 0 or animal.uniqueId == "1-1" or animal.uniqueId == "0-0" then table.insert(removedClusterIndices, animalIndex) end
+        if self.clustersToRemove[animal] ~= nil or (animal.beingRidden ~= nil and animal.beingRidden) or animal:getNumAnimals() == 0 or animal.uniqueId == "1-1" or animal.uniqueId == "0-0" then
+            table.insert(removedClusterIndices, animalIndex)
+        end
     end
-
 
     for i = #removedClusterIndices, 1, -1 do
         isDirty = true
@@ -389,35 +393,42 @@ function EnhancedLivestock_AnimalClusterSystem:updateClusters(superFunc)
     end
 
     --if isDirty then
-       -- g_server:broadcastEvent(AnimalClusterUpdateEvent.new(self.owner, self.animals), true)
-        --g_messageCenter:publish(AnimalClusterUpdateEvent, self.owner, self.animals)
+    -- g_server:broadcastEvent(AnimalClusterUpdateEvent.new(self.owner, self.animals), true)
+    --g_messageCenter:publish(AnimalClusterUpdateEvent, self.owner, self.animals)
     --end
 
     self.clustersToAdd = {}
     self.clustersToRemove = {}
 
     self:updateIdMapping()
-    if self.owner.spec_husbandryAnimals ~= nil then self.owner.spec_husbandryAnimals:updateVisualAnimals() end
+    if self.owner.spec_husbandryAnimals ~= nil then
+        self.owner.spec_husbandryAnimals:updateVisualAnimals()
+    end
 
 
 end
 
 AnimalClusterSystem.updateClusters = Utils.overwrittenFunction(AnimalClusterSystem.updateClusters, EnhancedLivestock_AnimalClusterSystem.updateClusters)
 
-
 function EnhancedLivestock_AnimalClusterSystem:updateIdMapping(superFunc)
     self.idToIndex = {}
 
     for index, animal in pairs(self.animals) do
-        if index == nil then continue end
+        if index == nil then
+            continue
+        end
         self.idToIndex[animal.farmId .. " " .. animal.uniqueId] = index
     end
-        
-    if self.owner.updatedClusters ~= nil then self.owner:updatedClusters(self.owner, self.animals) end
 
-    if g_server ~= nil then g_server:broadcastEvent(AnimalClusterUpdateEvent.new(self.owner, self.animals)) end
+    if self.owner.updatedClusters ~= nil then
+        self.owner:updatedClusters(self.owner, self.animals)
+    end
+
+    if g_server ~= nil then
+        g_server:broadcastEvent(AnimalClusterUpdateEvent.new(self.owner, self.animals))
+    end
     g_messageCenter:publish(AnimalClusterUpdateEvent, self.owner, self.animals)
-    
+
 end
 
 AnimalClusterSystem.updateIdMapping = Utils.overwrittenFunction(AnimalClusterSystem.updateIdMapping, EnhancedLivestock_AnimalClusterSystem.updateIdMapping)

@@ -7,7 +7,9 @@ function EnhancedLivestock_PlaceableSystem:saveToXML(_, _)
     createFolder(modSettingsDirectory)
     local xmlFile = XMLFile.loadIfExists("EnhancedLivestock", modSettingsDirectory .. "Settings.xml")
 
-    if xmlFile == nil then xmlFile = XMLFile.create("EnhancedLivestock", modSettingsDirectory .. "Settings.xml", "Settings") end
+    if xmlFile == nil then
+        xmlFile = XMLFile.create("EnhancedLivestock", modSettingsDirectory .. "Settings.xml", "Settings")
+    end
 
     if xmlFile ~= nil then
 

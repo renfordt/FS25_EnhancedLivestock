@@ -9,13 +9,11 @@ function AnimalAIDialog.register()
     AnimalAIDialog.INSTANCE = dialog
 end
 
-
 function AnimalAIDialog.new(target, customMt)
     local dialog = MessageDialog.new(target, customMt or AnimalAIDialog_mt)
     dialog.children = {}
     return dialog
 end
-
 
 function AnimalAIDialog.createFromExistingGui(gui)
 
@@ -24,10 +22,11 @@ function AnimalAIDialog.createFromExistingGui(gui)
 
 end
 
-
 function AnimalAIDialog.show(farmId, animalTypeIndex, animal)
 
-    if AnimalAIDialog.INSTANCE == nil then AnimalAIDialog.register() end
+    if AnimalAIDialog.INSTANCE == nil then
+        AnimalAIDialog.register()
+    end
 
     local dialog = AnimalAIDialog.INSTANCE
 
@@ -39,19 +38,19 @@ function AnimalAIDialog.show(farmId, animalTypeIndex, animal)
 
 end
 
-
 function AnimalAIDialog:onCreate()
     AnimalAIDialog:superClass().onCreate(self)
     self:setDialogType(DialogElement.Type_INFO)
 end
 
-
 function AnimalAIDialog:onClickOk()
 
     local farmDewars = g_dewarManager:getDewarsByFarm(self.farmId)
     local selectedDewar = self.dewars[self.dewarList.selectedIndex]
-    
-    if farmDewars == nil or farmDewars[self.animalTypeIndex] == nil or selectedDewar == nil then return end
+
+    if farmDewars == nil or farmDewars[self.animalTypeIndex] == nil or selectedDewar == nil then
+        return
+    end
 
     local uniqueId = selectedDewar:getUniqueId()
 
@@ -71,13 +70,11 @@ function AnimalAIDialog:onClickOk()
 
 end
 
-
 function AnimalAIDialog:onClickBack()
 
     self:close()
 
 end
-
 
 function AnimalAIDialog:updateDewars()
 
@@ -89,33 +86,33 @@ function AnimalAIDialog:updateDewars()
 
 end
 
-
 function AnimalAIDialog:onListSelectionChanged(list, index)
 
     local dewar = self.dewars[index]
 
-    if dewar == nil then return end
+    if dewar == nil then
+        return
+    end
 
     self.okButton:setDisabled(not self.animal:getCanBeInseminatedByAnimal(dewar.animal))
 
 end
 
-
 function AnimalAIDialog:getNumberOfSections()
 
-	if self.dewars == nil or #self.dewars == 0 then return 0 end
+    if self.dewars == nil or #self.dewars == 0 then
+        return 0
+    end
 
-	return 1
+    return 1
 
 end
-
 
 function AnimalAIDialog:getNumberOfItemsInSection(list, section)
 
-	return self.dewars == nil and 0 or #self.dewars
+    return self.dewars == nil and 0 or #self.dewars
 
 end
-
 
 function AnimalAIDialog:getTitleForSectionHeader(list, section)
 
@@ -123,12 +120,13 @@ function AnimalAIDialog:getTitleForSectionHeader(list, section)
 
 end
 
-
 function AnimalAIDialog:populateCellForItemInSection(list, section, index, cell)
 
-	local dewar = self.dewars[index]
+    local dewar = self.dewars[index]
 
-    if dewar == nil or dewar.animal == nil then return end
+    if dewar == nil or dewar.animal == nil then
+        return
+    end
 
     local animal = dewar.animal
     local subType = g_currentMission.animalSystem:getSubTypeByIndex(animal.subTypeIndex)
@@ -143,9 +141,9 @@ function AnimalAIDialog:populateCellForItemInSection(list, section, index, cell)
 
     for type, value in pairs(animal.genetics) do
 
-		local valueText
+        local valueText
 
-		if value >= 1.65 then
+        if value >= 1.65 then
             valueText = "extremelyHigh"
         elseif value >= 1.4 then
             valueText = "veryHigh"
@@ -163,47 +161,45 @@ function AnimalAIDialog:populateCellForItemInSection(list, section, index, cell)
 
         cell:getAttribute(type):setText(g_i18n:getText("el_ui_genetics_" .. valueText))
 
-	end
+    end
 
 end
-
 
 function AnimalAIDialog:resetButtonStates()
 
-	self.buttonStates = {
-		[self.nameButton] = { ["sorter"] = false, ["target"] = "animal|name", ["pos"] = "-5px" },
-		[self.identifierButton] = { ["sorter"] = false, ["target"] = "identifier", ["pos"] = "12px" },
-		[self.subTypeButton] = { ["sorter"] = false, ["target"] = "animal|subTypeIndex", ["pos"] = "35px" },
-		[self.strawsButton] = { ["sorter"] = false, ["target"] = "straws", ["pos"] = "12px" },
-		[self.successButton] = { ["sorter"] = false, ["target"] = "animal|success", ["pos"] = "12px" },
-		[self.metabolismButton] = { ["sorter"] = false, ["target"] = "animal|genetics|metabolism", ["pos"] = "22px" },
-		[self.qualityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|quality", ["pos"] = "36px" },
-		[self.healthButton] = { ["sorter"] = false, ["target"] = "animal|genetics|health", ["pos"] = "36px" },
-		[self.fertilityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|fertility", ["pos"] = "10px" },
-		[self.productivityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|productivity", ["pos"] = "20px" }
-	}
+    self.buttonStates = {
+        [self.nameButton] = { ["sorter"] = false, ["target"] = "animal|name", ["pos"] = "-5px" },
+        [self.identifierButton] = { ["sorter"] = false, ["target"] = "identifier", ["pos"] = "12px" },
+        [self.subTypeButton] = { ["sorter"] = false, ["target"] = "animal|subTypeIndex", ["pos"] = "35px" },
+        [self.strawsButton] = { ["sorter"] = false, ["target"] = "straws", ["pos"] = "12px" },
+        [self.successButton] = { ["sorter"] = false, ["target"] = "animal|success", ["pos"] = "12px" },
+        [self.metabolismButton] = { ["sorter"] = false, ["target"] = "animal|genetics|metabolism", ["pos"] = "22px" },
+        [self.qualityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|quality", ["pos"] = "36px" },
+        [self.healthButton] = { ["sorter"] = false, ["target"] = "animal|genetics|health", ["pos"] = "36px" },
+        [self.fertilityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|fertility", ["pos"] = "10px" },
+        [self.productivityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|productivity", ["pos"] = "20px" }
+    }
 
-	self.sortingIcon_true:setVisible(false)
-	self.sortingIcon_false:setVisible(false)
+    self.sortingIcon_true:setVisible(false)
+    self.sortingIcon_false:setVisible(false)
 
 end
 
-
 function AnimalAIDialog:onClickSortButton(button)
-	
-	local buttonState = self.buttonStates[button]
 
-	self["sortingIcon_" .. tostring(buttonState.sorter)]:setVisible(false)
-	self["sortingIcon_" .. tostring(not buttonState.sorter)]:setVisible(true)
-	self["sortingIcon_" .. tostring(not buttonState.sorter)]:setPosition(button.position[1] + GuiUtils.getNormalizedXValue(buttonState.pos), 0)
+    local buttonState = self.buttonStates[button]
 
-	buttonState.sorter = not buttonState.sorter
-	
-	local sorter = buttonState.sorter
-	local target = buttonState.target
+    self["sortingIcon_" .. tostring(buttonState.sorter)]:setVisible(false)
+    self["sortingIcon_" .. tostring(not buttonState.sorter)]:setVisible(true)
+    self["sortingIcon_" .. tostring(not buttonState.sorter)]:setPosition(button.position[1] + GuiUtils.getNormalizedXValue(buttonState.pos), 0)
+
+    buttonState.sorter = not buttonState.sorter
+
+    local sorter = buttonState.sorter
+    local target = buttonState.target
     local targetPaths = string.split(target, "|")
 
-	table.sort(self.dewars, function(a, b)
+    table.sort(self.dewars, function(a, b)
 
         local aTarget, bTarget
 
@@ -226,12 +222,14 @@ function AnimalAIDialog:onClickSortButton(button)
 
         end
 
-		if sorter then return aTarget > bTarget end
+        if sorter then
+            return aTarget > bTarget
+        end
 
-		return aTarget < bTarget
+        return aTarget < bTarget
 
-	end)
+    end)
 
-	self.dewarList:reloadData()
+    self.dewarList:reloadData()
 
 end

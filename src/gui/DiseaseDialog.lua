@@ -11,7 +11,6 @@ function DiseaseDialog.register()
 
 end
 
-
 function DiseaseDialog.new(target, customMt)
 
     local self = MessageDialog.new(target, customMt or diseaseDialog_mt)
@@ -20,7 +19,6 @@ function DiseaseDialog.new(target, customMt)
 
 end
 
-
 function DiseaseDialog.createFromExistingGui(gui)
 
     DiseaseDialog.register()
@@ -28,10 +26,11 @@ function DiseaseDialog.createFromExistingGui(gui)
 
 end
 
-
 function DiseaseDialog.show(animal)
 
-    if DiseaseDialog.INSTANCE == nil then DiseaseDialog.register() end
+    if DiseaseDialog.INSTANCE == nil then
+        DiseaseDialog.register()
+    end
 
     local dialog = DiseaseDialog.INSTANCE
 
@@ -41,7 +40,6 @@ function DiseaseDialog.show(animal)
     g_gui:showDialog("DiseaseDialog")
 
 end
-
 
 function DiseaseDialog:onOpen()
 
@@ -53,12 +51,13 @@ function DiseaseDialog:onOpen()
 
 end
 
-
 function DiseaseDialog:onClickOk()
 
     local disease = self.diseases[self.diseaseList.selectedIndex]
 
-    if disease == nil or disease.type.treatment == nil or disease.cured then return end
+    if disease == nil or disease.type.treatment == nil or disease.cured then
+        return
+    end
 
     disease.beingTreated = not disease.beingTreated
 
@@ -67,7 +66,7 @@ function DiseaseDialog:onClickOk()
     else
         self.animal:addMessage("DISEASE_TREATMENT_" .. (disease.treatmentDuration > 0 and "RESUME" or "START"), { disease.type.name, string.format(g_i18n:getText("el_ui_feePerMonth"), g_i18n:formatMoney(disease.type.treatment.cost, 2, true, true)) })
     end
-    
+
     for _, aDisease in pairs(self.animal.diseases) do
 
         if aDisease.type.title == disease.type.title then
@@ -81,7 +80,6 @@ function DiseaseDialog:onClickOk()
     self.diseaseList:reloadData()
 
 end
-
 
 function DiseaseDialog:onClickListItem(index)
 
@@ -99,20 +97,17 @@ function DiseaseDialog:onClickListItem(index)
 
 end
 
-
 function DiseaseDialog:getNumberOfSections()
 
-	return 1
+    return 1
 
 end
-
 
 function DiseaseDialog:getNumberOfItemsInSection(list, section)
 
-	return #self.animal.diseases
+    return #self.animal.diseases
 
 end
-
 
 function DiseaseDialog:getTitleForSectionHeader(list, section)
 
@@ -120,12 +115,13 @@ function DiseaseDialog:getTitleForSectionHeader(list, section)
 
 end
 
-
 function DiseaseDialog:populateCellForItemInSection(list, section, index, cell)
 
-	local disease = self.diseases[index]
+    local disease = self.diseases[index]
 
-    if disease == nil then return end
+    if disease == nil then
+        return
+    end
 
     local type = disease.type
     local treatment = type.treatment
@@ -136,7 +132,9 @@ function DiseaseDialog:populateCellForItemInSection(list, section, index, cell)
     cell:getAttribute("status"):setText(disease:getStatus())
 
     cell.setSelected = Utils.appendedFunction(cell.setSelected, function(cell, selected)
-		if selected then self:onClickListItem(index) end
-	end)
-    
+        if selected then
+            self:onClickListItem(index)
+        end
+    end)
+
 end

@@ -3,7 +3,6 @@ ReturnStrawEvent = {}
 local ReturnStrawEvent_mt = Class(ReturnStrawEvent, Event)
 InitEventClass(ReturnStrawEvent, "ReturnStrawEvent")
 
-
 function ReturnStrawEvent.emptyNew()
 
     local self = Event.new(ReturnStrawEvent_mt)
@@ -11,36 +10,34 @@ function ReturnStrawEvent.emptyNew()
 
 end
 
-
 function ReturnStrawEvent.new(object)
 
-	local event = ReturnStrawEvent.emptyNew()
+    local event = ReturnStrawEvent.emptyNew()
 
-	event.object = object
+    event.object = object
 
-	return event
+    return event
 
 end
-
 
 function ReturnStrawEvent:readStream(streamId, connection)
 
-	self.object = NetworkUtil.readNodeObject(streamId)
+    self.object = NetworkUtil.readNodeObject(streamId)
 
-	self:run(connection)
+    self:run(connection)
 
 end
-
 
 function ReturnStrawEvent:writeStream(streamId, connection)
 
-	NetworkUtil.writeNodeObject(streamId, self.object)
+    NetworkUtil.writeNodeObject(streamId, self.object)
 
 end
 
-
 function ReturnStrawEvent:run(connection)
 
-	if self.object ~= nil then self.object:changeStraws(1) end
+    if self.object ~= nil then
+        self.object:changeStraws(1)
+    end
 
 end

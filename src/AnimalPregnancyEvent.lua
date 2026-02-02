@@ -3,12 +3,10 @@ AnimalPregnancyEvent = {}
 local AnimalPregnancyEvent_mt = Class(AnimalPregnancyEvent, Event)
 InitEventClass(AnimalPregnancyEvent, "AnimalPregnancyEvent")
 
-
 function AnimalPregnancyEvent.emptyNew()
     local self = Event.new(AnimalPregnancyEvent_mt)
     return self
 end
-
 
 function AnimalPregnancyEvent.new(object, animal)
 
@@ -20,7 +18,6 @@ function AnimalPregnancyEvent.new(object, animal)
     return self
 
 end
-
 
 function AnimalPregnancyEvent:readStream(streamId, connection)
 
@@ -44,7 +41,9 @@ function AnimalPregnancyEvent:readStream(streamId, connection)
         local child = Animal.new()
         child:readStreamUnborn(streamId, connection)
 
-        if child ~= nil then table.insert(pregnancy.pregnancies, child) end
+        if child ~= nil then
+            table.insert(pregnancy.pregnancies, child)
+        end
 
     end
 
@@ -62,7 +61,6 @@ function AnimalPregnancyEvent:readStream(streamId, connection)
 
 end
 
-
 function AnimalPregnancyEvent:writeStream(streamId, connection)
 
     streamWriteBool(streamId, self.object ~= nil)
@@ -72,9 +70,9 @@ function AnimalPregnancyEvent:writeStream(streamId, connection)
         NetworkUtil.writeNodeObject(streamId, self.object)
 
     end
-    
+
     self.animal:writeStreamIdentifiers(streamId, connection)
-    
+
     local pregnancy = self.animal.pregnancy
     local impregnatedBy = self.animal.impregnatedBy
 
@@ -99,7 +97,6 @@ function AnimalPregnancyEvent:writeStream(streamId, connection)
     streamWriteFloat32(streamId, impregnatedBy.productivity)
 
 end
-
 
 function AnimalPregnancyEvent:run(connection)
 

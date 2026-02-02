@@ -3,12 +3,10 @@ AnimalBirthEvent = {}
 local AnimalBirthEvent_mt = Class(AnimalBirthEvent, Event)
 InitEventClass(AnimalBirthEvent, "AnimalBirthEvent")
 
-
 function AnimalBirthEvent.emptyNew()
     local self = Event.new(AnimalBirthEvent_mt)
     return self
 end
-
 
 function AnimalBirthEvent.new(object, animal, children, parentDied)
 
@@ -22,7 +20,6 @@ function AnimalBirthEvent.new(object, animal, children, parentDied)
     return self
 
 end
-
 
 function AnimalBirthEvent:readStream(streamId, connection)
 
@@ -46,23 +43,25 @@ function AnimalBirthEvent:readStream(streamId, connection)
 
 end
 
-
 function AnimalBirthEvent:writeStream(streamId, connection)
 
     streamWriteBool(streamId, self.object ~= nil)
 
-    if self.object ~= nil then NetworkUtil.writeNodeObject(streamId, self.object) end
-    
+    if self.object ~= nil then
+        NetworkUtil.writeNodeObject(streamId, self.object)
+    end
+
     self.animal:writeStreamIdentifiers(streamId, connection)
 
     streamWriteUInt8(streamId, #self.children)
 
-    for _, child in pairs(self.children) do child:writeStream(streamId, connection) end
+    for _, child in pairs(self.children) do
+        child:writeStream(streamId, connection)
+    end
 
     streamWriteBool(streamId, self.parentDied)
 
 end
-
 
 function AnimalBirthEvent:run(connection)
 
@@ -72,7 +71,9 @@ function AnimalBirthEvent:run(connection)
 
         local animals = g_currentMission.animalSystem.animals[identifiers.animalTypeIndex]
 
-        for _, child in pairs(self.children) do table.insert(animals, child) end
+        for _, child in pairs(self.children) do
+            table.insert(animals, child)
+        end
 
         for i, animal in pairs(animals) do
 
@@ -85,9 +86,13 @@ function AnimalBirthEvent:run(connection)
                 animal.isPregnant = false
                 animal.reproduction = 0
 
-                if animal.animalTypeIndex == AnimalType.COW or animal.subType == "GOAT" then animal.isLactating = true end 
+                if animal.animalTypeIndex == AnimalType.COW or animal.subType == "GOAT" then
+                    animal.isLactating = true
+                end
 
-                if self.parentDied then table.remove(animals, i) end
+                if self.parentDied then
+                    table.remove(animals, i)
+                end
 
                 break
 
@@ -99,7 +104,9 @@ function AnimalBirthEvent:run(connection)
 
         local clusterSystem = self.object:getClusterSystem()
 
-        for _, child in pairs(self.children) do clusterSystem:addCluster(child) end
+        for _, child in pairs(self.children) do
+            clusterSystem:addCluster(child)
+        end
 
         for _, animal in pairs(clusterSystem.animals) do
 
@@ -112,15 +119,19 @@ function AnimalBirthEvent:run(connection)
                 animal.isPregnant = false
                 animal.reproduction = 0
 
-                if animal.animalTypeIndex == AnimalType.COW or animal.subType == "GOAT" then animal.isLactating = true end 
+                if animal.animalTypeIndex == AnimalType.COW or animal.subType == "GOAT" then
+                    animal.isLactating = true
+                end
 
                 break
 
             end
 
         end
-        
-        if self.parentDied then clusterSystem:removeCluster(identifiers.farmId .. " " .. identifiers.uniqueId .. " " .. (identifiers.country or identifiers.birthday.country)) end
+
+        if self.parentDied then
+            clusterSystem:removeCluster(identifiers.farmId .. " " .. identifiers.uniqueId .. " " .. (identifiers.country or identifiers.birthday.country))
+        end
 
     end
 

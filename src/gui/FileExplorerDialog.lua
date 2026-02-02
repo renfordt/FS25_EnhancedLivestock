@@ -1,18 +1,15 @@
 FileExplorerDialog = {}
 
-
 local modDirectory = g_currentModDirectory
 local FileExplorerDialog_mt = Class(FileExplorerDialog, MessageDialog)
 
-
 function FileExplorerDialog.register()
 
-	local dialog = FileExplorerDialog.new()
-	g_gui:loadGui(modDirectory .. "gui/FileExplorerDialog.xml", "FileExplorerDialog", dialog)
-	FileExplorerDialog.INSTANCE = dialog
+    local dialog = FileExplorerDialog.new()
+    g_gui:loadGui(modDirectory .. "gui/FileExplorerDialog.xml", "FileExplorerDialog", dialog)
+    FileExplorerDialog.INSTANCE = dialog
 
 end
-
 
 function FileExplorerDialog.show(files, baseDirectory, callback, target)
 
@@ -27,7 +24,6 @@ function FileExplorerDialog.show(files, baseDirectory, callback, target)
     end
 
 end
-
 
 function FileExplorerDialog.new(target, customMt)
 
@@ -47,14 +43,12 @@ function FileExplorerDialog.new(target, customMt)
 
 end
 
-
 function FileExplorerDialog.createFromExistingGui(gui, _)
 
     FileExplorerDialog.register()
     FileExplorerDialog.show(gui.files)
 
 end
-
 
 function FileExplorerDialog:onGuiSetupFinished()
 
@@ -73,22 +67,20 @@ function FileExplorerDialog:onGuiSetupFinished()
 
 end
 
-
 function FileExplorerDialog:onOpen()
 
     FileExplorerDialog:superClass().onOpen(self)
 
     self.currentFolder = self.files[1]
-    
+
     self.currentFolderPath = {
         1
     }
-    
+
     self.pathText:setText(self.currentFolder.path)
     self.fileList:reloadData()
 
 end
-
 
 function FileExplorerDialog:onClose()
 
@@ -96,13 +88,11 @@ function FileExplorerDialog:onClose()
 
 end
 
-
 function FileExplorerDialog:onClickCancel()
 
     self:close()
 
 end
-
 
 function FileExplorerDialog:onClickOk()
 
@@ -110,7 +100,9 @@ function FileExplorerDialog:onClickOk()
 
     local file = self.currentFolder.files[self.fileList.selectedIndex - #self.currentFolder.folders]
 
-    if file == nil then return end
+    if file == nil then
+        return
+    end
 
     local name = file.name
     local valid = file.valid
@@ -127,14 +119,12 @@ function FileExplorerDialog:onClickOk()
 
 end
 
-
 function FileExplorerDialog:onClickResize()
 
     self.resizeData.active = true
     self.resizeData.maximise = not self.resizeData.maximise
 
 end
-
 
 function FileExplorerDialog:update(dT)
 
@@ -149,12 +139,16 @@ function FileExplorerDialog:update(dT)
         local size = self.dialogElement.size
 
         if not data.maximise then
-        
-            if size[1] <= self.windowSize[1] and size[2] <= self.windowSize[2] then data.active = false end
+
+            if size[1] <= self.windowSize[1] and size[2] <= self.windowSize[2] then
+                data.active = false
+            end
 
         else
-                    
-            if size[1] >= 0.9 and size[2] >= 0.9 then data.active = false end
+
+            if size[1] >= 0.9 and size[2] >= 0.9 then
+                data.active = false
+            end
 
         end
 
@@ -163,7 +157,9 @@ function FileExplorerDialog:update(dT)
 
         self.cellSize = size[1] * 0.95
 
-        for _, cell in pairs(self.fileList.elements) do cell:setSize(self.cellSize) end
+        for _, cell in pairs(self.fileList.elements) do
+            cell:setSize(self.cellSize)
+        end
 
         self.fileList:updateView(true)
 
@@ -171,12 +167,13 @@ function FileExplorerDialog:update(dT)
 
 end
 
-
 function FileExplorerDialog:onClickPathUp()
 
     self.upButton:onFocusLeave()
 
-    if #self.currentFolderPath <= 1 then return end
+    if #self.currentFolderPath <= 1 then
+        return
+    end
 
     self.currentFolder = self.files[1]
 
@@ -193,22 +190,21 @@ function FileExplorerDialog:onClickPathUp()
 
 end
 
-
 function FileExplorerDialog:getNumberOfSections()
 
-	if self.currentFolder == nil or (#self.currentFolder.folders == 0 and #self.currentFolder.files == 0) then return 0 end
+    if self.currentFolder == nil or (#self.currentFolder.folders == 0 and #self.currentFolder.files == 0) then
+        return 0
+    end
 
-	return 1
+    return 1
 
 end
-
 
 function FileExplorerDialog:getNumberOfItemsInSection(list, section)
 
-	return self.currentFolder == nil and 0 or (#self.currentFolder.folders + #self.currentFolder.files)
+    return self.currentFolder == nil and 0 or (#self.currentFolder.folders + #self.currentFolder.files)
 
 end
-
 
 function FileExplorerDialog:getTitleForSectionHeader(list, section)
 
@@ -216,21 +212,21 @@ function FileExplorerDialog:getTitleForSectionHeader(list, section)
 
 end
 
-
 function FileExplorerDialog:populateCellForItemInSection(list, section, index, cell)
 
     if index <= #self.currentFolder.folders then
 
         local folder = self.currentFolder.folders[index]
 
-	    cell:getAttribute("name"):setText(folder.name)
+        cell:getAttribute("name"):setText(folder.name)
         cell:getAttribute("icon"):setImageSlice(nil, "fileTypeIcons.folder")
 
         cell:setDisabled(g_server == nil or g_server.netIsRunning)
 
         if g_server == nil or g_server.netIsRunning then
 
-            cell.onClickCallback = function() end
+            cell.onClickCallback = function()
+            end
 
         else
 
@@ -269,7 +265,8 @@ function FileExplorerDialog:populateCellForItemInSection(list, section, index, c
         cell:getAttribute("name"):setText(name .. valid)
         cell:getAttribute("icon"):setImageSlice(nil, "fileTypeIcons." .. extension)
 
-        cell.onClickCallback = function() end
+        cell.onClickCallback = function()
+        end
 
     end
 

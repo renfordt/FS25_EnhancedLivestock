@@ -3,12 +3,10 @@ AnimalDeathEvent = {}
 local AnimalDeathEvent_mt = Class(AnimalDeathEvent, Event)
 InitEventClass(AnimalDeathEvent, "AnimalDeathEvent")
 
-
 function AnimalDeathEvent.emptyNew()
     local self = Event.new(AnimalDeathEvent_mt)
     return self
 end
-
 
 function AnimalDeathEvent.new(object, animal)
 
@@ -21,7 +19,6 @@ function AnimalDeathEvent.new(object, animal)
 
 end
 
-
 function AnimalDeathEvent:readStream(streamId, connection)
 
     local hasObject = streamReadBool(streamId)
@@ -33,17 +30,17 @@ function AnimalDeathEvent:readStream(streamId, connection)
 
 end
 
-
 function AnimalDeathEvent:writeStream(streamId, connection)
 
     streamWriteBool(streamId, self.object ~= nil)
 
-    if self.object ~= nil then NetworkUtil.writeNodeObject(streamId, self.object) end
-    
+    if self.object ~= nil then
+        NetworkUtil.writeNodeObject(streamId, self.object)
+    end
+
     self.animal:writeStreamIdentifiers(streamId, connection)
 
 end
-
 
 function AnimalDeathEvent:run(connection)
 

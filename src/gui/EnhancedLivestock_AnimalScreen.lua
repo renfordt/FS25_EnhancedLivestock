@@ -1,6 +1,5 @@
 EnhancedLivestock_AnimalScreen = {}
 
-
 AnimalScreen.DEWAR_QUANTITIES = {
     1,
     2,
@@ -26,7 +25,6 @@ AnimalScreen.DEWAR_QUANTITIES = {
     1000
 }
 
-
 function EnhancedLivestock_AnimalScreen.show(husbandry, vehicle, isDealer)
 
     --if husbandry == nil and vehicle == nil then return end
@@ -34,14 +32,13 @@ function EnhancedLivestock_AnimalScreen.show(husbandry, vehicle, isDealer)
     g_animalScreen.isTrailerFarm = husbandry ~= nil and vehicle ~= nil
     g_animalScreen.filters = nil
     g_animalScreen.filteredItems = nil
-    
-	g_animalScreen:setController(husbandry, vehicle, isDealer)
-	g_gui:showGui("AnimalScreen")
+
+    g_animalScreen:setController(husbandry, vehicle, isDealer)
+    g_gui:showGui("AnimalScreen")
 
 end
 
 AnimalScreen.show = EnhancedLivestock_AnimalScreen.show
-
 
 function EnhancedLivestock_AnimalScreen:setController(_, husbandry, vehicle, isDealer)
 
@@ -54,40 +51,39 @@ function EnhancedLivestock_AnimalScreen:setController(_, husbandry, vehicle, isD
 
     local controller
 
-	if husbandry == nil then
-		if vehicle == nil then
-			controller = AnimalScreenDealer.new()
-		elseif isDealer then
-			controller = AnimalScreenDealerTrailer.new(vehicle)
-		else
-			controller = AnimalScreenTrailer.new(vehicle)
-		end
-	elseif vehicle == nil then
-		controller = AnimalScreenDealerFarm.new(husbandry)
-	else
-		controller = AnimalScreenTrailerFarm.new(husbandry, vehicle)
-	end
+    if husbandry == nil then
+        if vehicle == nil then
+            controller = AnimalScreenDealer.new()
+        elseif isDealer then
+            controller = AnimalScreenDealerTrailer.new(vehicle)
+        else
+            controller = AnimalScreenTrailer.new(vehicle)
+        end
+    elseif vehicle == nil then
+        controller = AnimalScreenDealerFarm.new(husbandry)
+    else
+        controller = AnimalScreenTrailerFarm.new(husbandry, vehicle)
+    end
 
-	controller:init()
+    controller:init()
 
     self.tabLog:setVisible(self.isDirectFarm)
     self.tabHerdsman:setVisible(self.isDirectFarm)
 
-	self.controller = controller
-	self.controller:setAnimalsChangedCallback(self.onAnimalsChanged, self)
-	self.controller:setActionTypeCallback(self.onActionTypeChanged, self)
-	self.controller:setSourceActionFinishedCallback(self.onSourceActionFinished, self)
-	self.controller:setTargetActionFinishedCallback(self.onTargetActionFinished, self)
-	self.controller:setSourceBulkActionFinishedCallback(self.onSourceBulkActionFinished, self)
-	self.controller:setTargetBulkActionFinishedCallback(self.onTargetBulkActionFinished, self)
-	self.controller:setErrorCallback(self.onError, self)
+    self.controller = controller
+    self.controller:setAnimalsChangedCallback(self.onAnimalsChanged, self)
+    self.controller:setActionTypeCallback(self.onActionTypeChanged, self)
+    self.controller:setSourceActionFinishedCallback(self.onSourceActionFinished, self)
+    self.controller:setTargetActionFinishedCallback(self.onTargetActionFinished, self)
+    self.controller:setSourceBulkActionFinishedCallback(self.onSourceBulkActionFinished, self)
+    self.controller:setTargetBulkActionFinishedCallback(self.onTargetBulkActionFinished, self)
+    self.controller:setErrorCallback(self.onError, self)
 
-	self.sourceList:reloadData(true)
+    self.sourceList:reloadData(true)
 
 end
 
 AnimalScreen.setController = Utils.overwrittenFunction(AnimalScreen.setController, EnhancedLivestock_AnimalScreen.setController)
-
 
 function EnhancedLivestock_AnimalScreen:onGuiSetupFinished()
 
@@ -96,7 +92,7 @@ function EnhancedLivestock_AnimalScreen:onGuiSetupFinished()
         return g_i18n:getText(key)
 
     end
-    
+
     local geneticTexts = {
         getText("el_ui_genetics_extremelyBad"),
         getText("el_ui_genetics_veryBad"),
@@ -182,7 +178,6 @@ function EnhancedLivestock_AnimalScreen:onGuiSetupFinished()
 
     end
 
-
     self.herdsmanPages = {
         ["buy"] = self.herdsmanPageBuyScrollingLayout,
         ["sell"] = self.herdsmanPageSellScrollingLayout,
@@ -191,16 +186,17 @@ function EnhancedLivestock_AnimalScreen:onGuiSetupFinished()
         ["ai"] = self.herdsmanPageAIScrollingLayout
     }
 
-
     for pageName, page in pairs(self.herdsmanPages) do
 
         for _, element in pairs(page.elements) do
 
-            if element.name == "ignore" then continue end
+            if element.name == "ignore" then
+                continue
+            end
 
             element.herdsmanPageName = pageName
             element.onFocusEnter = updateTooltip
-            
+
             if self.herdsmanOptions[element.name].type == "input" then
                 element.updateVisibleTextElements = Utils.appendedFunction(element.updateVisibleTextElements, updateTooltip)
                 continue
@@ -208,7 +204,9 @@ function EnhancedLivestock_AnimalScreen:onGuiSetupFinished()
 
             element.updateContentElement = Utils.appendedFunction(element.updateContentElement, updateTooltip)
 
-            if self.herdsmanOptions[element.name].ignoreTexts then continue end
+            if self.herdsmanOptions[element.name].ignoreTexts then
+                continue
+            end
 
             element:setTexts(self.herdsmanOptions[element.name].texts)
 
@@ -216,10 +214,11 @@ function EnhancedLivestock_AnimalScreen:onGuiSetupFinished()
 
     end
 
-
     local aiQuantityTexts = {}
 
-    for _, quantity in pairs(AnimalScreen.DEWAR_QUANTITIES) do table.insert(aiQuantityTexts, string.format("%s %s", quantity, g_i18n:getText("el_ui_straw" .. (quantity == 1 and "Single" or "Multiple")))) end
+    for _, quantity in pairs(AnimalScreen.DEWAR_QUANTITIES) do
+        table.insert(aiQuantityTexts, string.format("%s %s", quantity, g_i18n:getText("el_ui_straw" .. (quantity == 1 and "Single" or "Multiple"))))
+    end
 
     self.aiQuantitySelector:setTexts(aiQuantityTexts)
 
@@ -227,49 +226,48 @@ end
 
 AnimalScreen.onGuiSetupFinished = Utils.appendedFunction(AnimalScreen.onGuiSetupFinished, EnhancedLivestock_AnimalScreen.onGuiSetupFinished)
 
-
 function AnimalScreen:resetMessageButtonStates()
 
-	self.messageButtonStates = {
-		[self.messagesImportanceButton] = { ["sorter"] = false, ["target"] = "importance", ["pos"] = "-5px" },
-		[self.messagesTypeButton] = { ["sorter"] = false, ["target"] = "title", ["pos"] = "50px" },
-		[self.messagesAnimalButton] = { ["sorter"] = false, ["target"] = "animal", ["pos"] = "30px" },
-		[self.messagesMessageButton] = { ["sorter"] = false, ["target"] = "text", ["pos"] = "20px" },
-	}
+    self.messageButtonStates = {
+        [self.messagesImportanceButton] = { ["sorter"] = false, ["target"] = "importance", ["pos"] = "-5px" },
+        [self.messagesTypeButton] = { ["sorter"] = false, ["target"] = "title", ["pos"] = "50px" },
+        [self.messagesAnimalButton] = { ["sorter"] = false, ["target"] = "animal", ["pos"] = "30px" },
+        [self.messagesMessageButton] = { ["sorter"] = false, ["target"] = "text", ["pos"] = "20px" },
+    }
 
-	self.sortingIcon_true:setVisible(false)
-	self.sortingIcon_false:setVisible(false)
+    self.sortingIcon_true:setVisible(false)
+    self.sortingIcon_false:setVisible(false)
 
 end
 
-
 function AnimalScreen:onClickMessageSortButton(button)
-	
-	local buttonState = self.messageButtonStates[button]
 
-	self["sortingIcon_" .. tostring(buttonState.sorter)]:setVisible(false)
-	self["sortingIcon_" .. tostring(not buttonState.sorter)]:setVisible(true)
-	self["sortingIcon_" .. tostring(not buttonState.sorter)]:setPosition(button.position[1] + GuiUtils.getNormalizedXValue(buttonState.pos), 0)
+    local buttonState = self.messageButtonStates[button]
 
-	buttonState.sorter = not buttonState.sorter
-	
-	local sorter = buttonState.sorter
-	local target = buttonState.target
+    self["sortingIcon_" .. tostring(buttonState.sorter)]:setVisible(false)
+    self["sortingIcon_" .. tostring(not buttonState.sorter)]:setVisible(true)
+    self["sortingIcon_" .. tostring(not buttonState.sorter)]:setPosition(button.position[1] + GuiUtils.getNormalizedXValue(buttonState.pos), 0)
 
-	table.sort(self.messages[self.currentMessagePage], function(a, b)
+    buttonState.sorter = not buttonState.sorter
+
+    local sorter = buttonState.sorter
+    local target = buttonState.target
+
+    table.sort(self.messages[self.currentMessagePage], function(a, b)
 
         local aTarget = a[target] or ELMessage[a.id][target]
         local bTarget = b[target] or ELMessage[b.id][target]
 
-		if sorter then return aTarget > bTarget end
+        if sorter then
+            return aTarget > bTarget
+        end
 
-		return aTarget < bTarget
-	end)
+        return aTarget < bTarget
+    end)
 
-	self.husbandryList:reloadData()
+    self.husbandryList:reloadData()
 
 end
-
 
 function AnimalScreen:updateLog()
 
@@ -290,14 +288,15 @@ function AnimalScreen:updateLog()
 
 end
 
-
 function AnimalScreen:onClickDeleteMessage()
 
     local index = self.husbandryList.selectedIndex
 
     local message = self.messages[self.currentMessagePage][index]
 
-    if message == nil then return end
+    if message == nil then
+        return
+    end
 
     self.husbandry:deleteELMessage(message.uniqueId)
 
@@ -314,14 +313,12 @@ function AnimalScreen:onClickDeleteMessage()
 
 end
 
-
 function AnimalScreen:onClickMessagePageFirst()
 
     self.currentMessagePage = 1
     self:updateLog()
 
 end
-
 
 function AnimalScreen:onClickMessagePagePrevious()
 
@@ -330,7 +327,6 @@ function AnimalScreen:onClickMessagePagePrevious()
 
 end
 
-
 function AnimalScreen:onClickMessagePageNext()
 
     self.currentMessagePage = self.currentMessagePage + 1
@@ -338,14 +334,12 @@ function AnimalScreen:onClickMessagePageNext()
 
 end
 
-
 function AnimalScreen:onClickMessagePageLast()
 
     self.currentMessagePage = #self.messages
     self:updateLog()
 
 end
-
 
 function AnimalScreen:onClickAIMode()
 
@@ -396,45 +390,50 @@ function AnimalScreen:onClickAIMode()
     for animalTypeIndex, animalType in pairs(animalSystem:getTypes()) do
 
         self.aiAnimals[animalTypeIndex] = animalSystem:getAIAnimalsByTypeIndex(animalTypeIndex)
-        table.sort(self.aiAnimals[animalTypeIndex], function(a, b) return a.subTypeIndex == b.subTypeIndex and a.age > b.age or a.subTypeIndex < b.subTypeIndex end)
+        table.sort(self.aiAnimals[animalTypeIndex], function(a, b)
+            return a.subTypeIndex == b.subTypeIndex and a.age > b.age or a.subTypeIndex < b.subTypeIndex
+        end)
         table.insert(texts, animalType.groupTitle)
 
     end
 
-
     self.aiPageAnimalTypeSelector:setTexts(texts)
     self.aiPageAnimalTypeSelector:setState(1)
-
 
     self:onClickChangeAIAnimalType(1)
 
 end
 
-
 function AnimalScreen:onClickBuyAI()
 
-    if self.aiAnimals == nil or self.aiAnimalTypeIndex == nil or self.aiAnimals[self.aiAnimalTypeIndex] == nil then return end
+    if self.aiAnimals == nil or self.aiAnimalTypeIndex == nil or self.aiAnimals[self.aiAnimalTypeIndex] == nil then
+        return
+    end
 
     local animal = self.aiAnimals[self.aiAnimalTypeIndex][self.aiList.selectedIndex]
 
-    if animal == nil then return end
+    if animal == nil then
+        return
+    end
 
     local spawnPlaces, usedPlaces = g_currentMission.storeSpawnPlaces, g_currentMission.usedStorePlaces
 
     local x, y, z, place, width = PlacementUtil.getPlace(spawnPlaces, { ["width"] = 1, ["height"] = 2.5, ["length"] = 1, ["widthOffset"] = 0.5, ["lengthOffset"] = 0.5 }, usedPlaces, true, true, false, true)
-	
+
     if x == nil then
-		return
-	end
-	
+        return
+    end
+
     PlacementUtil.markPlaceUsed(usedPlaces, place, width)
 
     local farmId = g_localPlayer.farmId
-    
+
     local quantity = AnimalScreen.DEWAR_QUANTITIES[self.aiQuantitySelector:getState()]
     local price = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * quantity * Dewar.PRICE_PER_STRAW * animal.success * 2.25
 
-    for _, value in pairs(animal.genetics) do price = price * value end
+    for _, value in pairs(animal.genetics) do
+        price = price * value
+    end
 
     local errorCode
 
@@ -451,12 +450,11 @@ function AnimalScreen:onClickBuyAI()
 
 end
 
-
 function AnimalScreen:onSemenBought(errorCode)
 
     local dialogType = DialogElement.TYPE_INFO
     local text = "el_ui_semenPurchase_successful"
-	
+
     if errorCode == AnimalBuyEvent.BUY_ERROR_NOT_ENOUGH_MONEY then
         dialogType = DialogElement.TYPE_WARNING
         text = "el_ui_semenPurchaseNoMoney"
@@ -467,11 +465,10 @@ function AnimalScreen:onSemenBought(errorCode)
         dialogType = DialogElement.TYPE_WARNING
         text = "el_ui_semenPurchase_unsuccessful"
     end
-	
+
     InfoDialog.show(g_i18n:getText(text), self.postSemenBought, self, dialogType, nil, nil, true)
 
 end
-
 
 function AnimalScreen:postSemenBought()
 
@@ -479,29 +476,29 @@ function AnimalScreen:postSemenBought()
 
 end
 
-
 function EnhancedLivestock_AnimalScreen:onMoneyChange()
 
-    if g_localPlayer == nil then return end
+    if g_localPlayer == nil then
+        return
+    end
 
-	local farm = g_farmManager:getFarmById(g_localPlayer.farmId)
+    local farm = g_farmManager:getFarmById(g_localPlayer.farmId)
 
-	if farm.money <= -1 then
-		self.aiCurrentBalanceText:applyProfile(ShopMenu.GUI_PROFILE.SHOP_MONEY_NEGATIVE, nil, true)
-	else
-		self.aiCurrentBalanceText:applyProfile(ShopMenu.GUI_PROFILE.SHOP_MONEY, nil, true)
-	end
+    if farm.money <= -1 then
+        self.aiCurrentBalanceText:applyProfile(ShopMenu.GUI_PROFILE.SHOP_MONEY_NEGATIVE, nil, true)
+    else
+        self.aiCurrentBalanceText:applyProfile(ShopMenu.GUI_PROFILE.SHOP_MONEY, nil, true)
+    end
 
-	self.aiCurrentBalanceText:setText(g_i18n:formatMoney(farm.money, 0, true, false))
-	if self.aiShopMoneyBox ~= nil then
-		self.aiShopMoneyBox:invalidateLayout()
-		self.aiShopMoneyBoxBg:setSize(self.aiShopMoneyBox.flowSizes[1] + 60 * g_pixelSizeScaledX)
-	end
+    self.aiCurrentBalanceText:setText(g_i18n:formatMoney(farm.money, 0, true, false))
+    if self.aiShopMoneyBox ~= nil then
+        self.aiShopMoneyBox:invalidateLayout()
+        self.aiShopMoneyBoxBg:setSize(self.aiShopMoneyBox.flowSizes[1] + 60 * g_pixelSizeScaledX)
+    end
 
 end
 
 AnimalScreen.onMoneyChange = Utils.appendedFunction(AnimalScreen.onMoneyChange, EnhancedLivestock_AnimalScreen.onMoneyChange)
-
 
 function AnimalScreen:onClickChangeAIAnimalType(animalTypeIndex)
 
@@ -511,19 +508,22 @@ function AnimalScreen:onClickChangeAIAnimalType(animalTypeIndex)
 
 end
 
-
 function AnimalScreen:onAIListSelectionChanged()
 
     self.aiInfoContainer:setVisible(false)
     self.buttonBuyAI:setDisabled(true)
     self.buttonFavourite:setDisabled(true)
 
-    if self.aiAnimals == nil or self.aiAnimalTypeIndex == nil or self.aiAnimals[self.aiAnimalTypeIndex] == nil then return end
-    
+    if self.aiAnimals == nil or self.aiAnimalTypeIndex == nil or self.aiAnimals[self.aiAnimalTypeIndex] == nil then
+        return
+    end
+
     local index = self.aiList.selectedIndex
     local animal = self.aiAnimals[self.aiAnimalTypeIndex][index]
 
-    if animal == nil then return end
+    if animal == nil then
+        return
+    end
 
     self.buttonBuyAI:setDisabled(false)
     self.buttonFavourite:setDisabled(false)
@@ -578,7 +578,6 @@ function AnimalScreen:onAIListSelectionChanged()
 
 end
 
-
 function AnimalScreen:onClickChangeAIQuantity(state)
 
     local animal = self.aiAnimals[self.aiAnimalTypeIndex][self.aiList.selectedIndex]
@@ -586,18 +585,21 @@ function AnimalScreen:onClickChangeAIQuantity(state)
     local quantity = AnimalScreen.DEWAR_QUANTITIES[state]
     local price = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * quantity * animal.success * 2.25
 
-    for _, value in pairs(animal.genetics) do price = price * value end
+    for _, value in pairs(animal.genetics) do
+        price = price * value
+    end
 
     self.aiQuantityPrice:setText(g_i18n:formatMoney(price * Dewar.PRICE_PER_STRAW, 2, true, true))
 
 end
 
-
 function AnimalScreen:onClickFavouriteAnimal()
 
     local animal = self.aiAnimals[self.aiAnimalTypeIndex][self.aiList.selectedIndex]
 
-    if animal == nil then return end
+    if animal == nil then
+        return
+    end
 
     local uniqueId = g_localPlayer:getUniqueId()
 
@@ -613,10 +615,11 @@ function AnimalScreen:onClickFavouriteAnimal()
 
 end
 
-
 function AnimalScreen:onClickLogMode()
 
-    if self.husbandry == nil or not self.isDirectFarm then return end
+    if self.husbandry == nil or not self.isDirectFarm then
+        return
+    end
 
     self.filters = nil
     self.filteredItems = nil
@@ -663,7 +666,9 @@ function AnimalScreen:onClickLogMode()
 
         local message = allMessages[i]
 
-        if #messages[#messages] >= 250 then table.insert(messages, { }) end
+        if #messages[#messages] >= 250 then
+            table.insert(messages, { })
+        end
 
         table.insert(messages[#messages], message)
 
@@ -678,10 +683,11 @@ function AnimalScreen:onClickLogMode()
 
 end
 
-
 function AnimalScreen:onClickHerdsmanMode()
 
-    if self.husbandry == nil or not self.isDirectFarm then return end
+    if self.husbandry == nil or not self.isDirectFarm then
+        return
+    end
 
     self.filters = nil
     self.filteredItems = nil
@@ -727,8 +733,7 @@ function AnimalScreen:onClickHerdsmanMode()
     self.currentHerdsmanPage = nil
 
     local animalTypeIndex = self.husbandry:getAnimalTypeIndex()
-    
-    
+
     local ageValues = {}
     local ageTexts = {}
 
@@ -756,14 +761,15 @@ function AnimalScreen:onClickHerdsmanMode()
 
     table.insert(ageValues, 1, 0)
 
-    for _, value in pairs(ageValues) do table.insert(ageTexts, EnhancedLivestock.formatAge(value)) end
+    for _, value in pairs(ageValues) do
+        table.insert(ageTexts, EnhancedLivestock.formatAge(value))
+    end
 
     table.insert(ageValues, 999)
     table.insert(ageTexts, g_i18n:getText("el_ui_infinite"))
 
     self.herdsmanOptions["age"].values = ageValues
     self.herdsmanOptions["age"].texts = ageTexts
-
 
     local breeds = g_currentMission.animalSystem:getBreedsByAnimalTypeIndex(animalTypeIndex)
     local breedsValues, breedsTexts = { "any" }, { "any" }
@@ -802,7 +808,6 @@ function AnimalScreen:onClickHerdsmanMode()
     self.herdsmanOptions["semen"].values = dewarValues
     self.herdsmanOptions["semen"].texts = dewarTexts
 
-
     self:onClickHerdsmanPageBuy()
 
     local wage = self.husbandry:getAIManager().wage or 0
@@ -810,10 +815,11 @@ function AnimalScreen:onClickHerdsmanMode()
 
 end
 
-
 function AnimalScreen:onClickHerdsmanPageBuy()
 
-    if self.currentHerdsmanPage == "buy" then return end
+    if self.currentHerdsmanPage == "buy" then
+        return
+    end
 
     self.herdsmanPageBuy:setVisible(true)
     self.herdsmanPageSell:setVisible(false)
@@ -832,10 +838,11 @@ function AnimalScreen:onClickHerdsmanPageBuy()
 
 end
 
-
 function AnimalScreen:onClickHerdsmanPageSell()
 
-    if self.currentHerdsmanPage == "sell" then return end
+    if self.currentHerdsmanPage == "sell" then
+        return
+    end
 
     self.herdsmanPageBuy:setVisible(false)
     self.herdsmanPageSell:setVisible(true)
@@ -854,10 +861,11 @@ function AnimalScreen:onClickHerdsmanPageSell()
 
 end
 
-
 function AnimalScreen:onClickHerdsmanPageCastrate()
 
-    if self.currentHerdsmanPage == "castrate" then return end
+    if self.currentHerdsmanPage == "castrate" then
+        return
+    end
 
     self.herdsmanPageBuy:setVisible(false)
     self.herdsmanPageSell:setVisible(false)
@@ -876,10 +884,11 @@ function AnimalScreen:onClickHerdsmanPageCastrate()
 
 end
 
-
 function AnimalScreen:onClickHerdsmanPageNaming()
 
-    if self.currentHerdsmanPage == "naming" then return end
+    if self.currentHerdsmanPage == "naming" then
+        return
+    end
 
     self.herdsmanPageBuy:setVisible(false)
     self.herdsmanPageSell:setVisible(false)
@@ -898,10 +907,11 @@ function AnimalScreen:onClickHerdsmanPageNaming()
 
 end
 
-
 function AnimalScreen:onClickHerdsmanPageAI()
 
-    if self.currentHerdsmanPage == "ai" then return end
+    if self.currentHerdsmanPage == "ai" then
+        return
+    end
 
     self.herdsmanPageBuy:setVisible(false)
     self.herdsmanPageSell:setVisible(false)
@@ -920,13 +930,11 @@ function AnimalScreen:onClickHerdsmanPageAI()
 
 end
 
-
 function AnimalScreen:onClickHerdsmanSaveProfile()
 
     ProfileDialog.show("save", self.husbandry:getAIManager(), self.onHerdsmanSaveProfileCallback, self)
 
 end
-
 
 function AnimalScreen:onClickHerdsmanLoadProfile()
 
@@ -934,13 +942,11 @@ function AnimalScreen:onClickHerdsmanLoadProfile()
 
 end
 
-
 function AnimalScreen:onHerdsmanSaveProfileCallback()
 
     self.herdsmanLoadProfileButton:setDisabled(not ProfileDialog.getHasProfiles())
 
 end
-
 
 function AnimalScreen:onHerdsmanLoadProfileCallback()
 
@@ -948,7 +954,6 @@ function AnimalScreen:onHerdsmanLoadProfileCallback()
     self:setDefaultHerdsmanOptions()
 
 end
-
 
 function AnimalScreen:onClickEnableHerdsman(state, button)
 
@@ -963,13 +968,12 @@ function AnimalScreen:onClickEnableHerdsman(state, button)
     local page = self.herdsmanPages[self.currentHerdsmanPage]
 
     for _, element in pairs(page.elements) do
-    
+
         element:setDisabled(not enabled and element.name ~= "enabled")
 
     end
 
 end
-
 
 function AnimalScreen:setDefaultHerdsmanOptions()
 
@@ -979,20 +983,24 @@ function AnimalScreen:setDefaultHerdsmanOptions()
     self.aiManagerSettings = settings
 
     for _, element in pairs(container.elements) do
-    
+
         element:setDisabled(not settings[self.currentHerdsmanPage]["enabled"] and element.name ~= "enabled")
 
-        if element.name == "ignore" then continue end
+        if element.name == "ignore" then
+            continue
+        end
 
         local option = self.herdsmanOptions[element.name]
         local value
 
         if string.contains(option.target, "|") then
-            
+
             local paths = string.split(option.target, "|")
             value = self.aiManagerSettings[self.currentHerdsmanPage][paths[1]]
 
-            for i = 2, #paths do value = value[paths[i]] end
+            for i = 2, #paths do
+                value = value[paths[i]]
+            end
 
         else
 
@@ -1037,30 +1045,35 @@ function AnimalScreen:setDefaultHerdsmanOptions()
 
         end
 
-        if element.name == "budget|type" then self:onClickChangeHerdsmanBudgetType(element:getState(), element) end
+        if element.name == "budget|type" then
+            self:onClickChangeHerdsmanBudgetType(element:getState(), element)
+        end
 
     end
 
 end
 
-
 function AnimalScreen:onClickApplyHerdsmanSettings()
 
-    if self.currentHerdsmanPage == nil then return end
+    if self.currentHerdsmanPage == nil then
+        return
+    end
 
     local settings = self.aiManagerSettings[self.currentHerdsmanPage]
     local page = self.herdsmanPages[self.currentHerdsmanPage]
 
     for _, element in pairs(page.elements) do
 
-        if element.name == "ignore" then continue end
+        if element.name == "ignore" then
+            continue
+        end
 
         local option = self.herdsmanOptions[element.name]
 
         if option.type == "binary" or option.type == "tripleOption" or option.type == "input" or option.type == "multi" then
 
             local value
-            
+
             if option.type == "input" then
                 value = tonumber(element:getText()) or 0
             else
@@ -1070,7 +1083,7 @@ function AnimalScreen:onClickApplyHerdsmanSettings()
             if string.contains(option.target, "|") then
 
                 local paths = string.split(option.target, "|")
-                
+
                 if #paths == 2 then
                     settings[paths[1]][paths[2]] = value
                 elseif #paths == 3 then
@@ -1084,7 +1097,7 @@ function AnimalScreen:onClickApplyHerdsmanSettings()
             end
 
         elseif option.type == "doubleSlider" then
-            
+
             settings[option.target].min = option.values[element:getLowestState()]
             settings[option.target].max = option.values[element:getHighestState()]
 
@@ -1096,7 +1109,6 @@ function AnimalScreen:onClickApplyHerdsmanSettings()
 
 end
 
-
 function AnimalScreen:onHerdsmanTextChangedInt(element, text)
 
     text = string.gsub(text, "[%a%p]", "")
@@ -1105,15 +1117,18 @@ function AnimalScreen:onHerdsmanTextChangedInt(element, text)
 
 end
 
-
 function AnimalScreen:onClickChangeHerdsmanBudgetType(state, button)
 
     local value = self.herdsmanOptions[button.name].values[state]
 
     for _, element in pairs(button.parent.elements) do
 
-        if element.name == "budget|fixed" then element:setVisible(value == "fixed") end
-        if element.name == "budget|percentage" then element:setVisible(value == "percentage") end
+        if element.name == "budget|fixed" then
+            element:setVisible(value == "fixed")
+        end
+        if element.name == "budget|percentage" then
+            element:setVisible(value == "percentage")
+        end
 
     end
 
@@ -1121,19 +1136,19 @@ function AnimalScreen:onClickChangeHerdsmanBudgetType(state, button)
 
 end
 
-
 function AnimalScreen:onClickDiseases()
 
     local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
 
-    if item == nil or (item.cluster == nil and item.animal == nil) then return end
+    if item == nil or (item.cluster == nil and item.animal == nil) then
+        return
+    end
 
     local animal = item.animal or item.cluster
 
     DiseaseDialog.show(animal)
 
 end
-
 
 function EnhancedLivestock_AnimalScreen:onClickBuyMode(a, b)
 
@@ -1171,7 +1186,6 @@ end
 
 AnimalScreen.onClickBuyMode = Utils.prependedFunction(AnimalScreen.onClickBuyMode, EnhancedLivestock_AnimalScreen.onClickBuyMode)
 
-
 function EnhancedLivestock_AnimalScreen:onClickSellMode(a, b)
 
     self.isInfoMode = false
@@ -1208,8 +1222,6 @@ end
 
 AnimalScreen.onClickSellMode = Utils.prependedFunction(AnimalScreen.onClickSellMode, EnhancedLivestock_AnimalScreen.onClickSellMode)
 
-
-
 function EnhancedLivestock_AnimalScreen:onPageNext(superFunc)
     if self.isBuyMode then
         self:onClickSellMode()
@@ -1227,7 +1239,6 @@ function EnhancedLivestock_AnimalScreen:onPageNext(superFunc)
 end
 
 AnimalScreen.onPageNext = Utils.overwrittenFunction(AnimalScreen.onPageNext, EnhancedLivestock_AnimalScreen.onPageNext)
-
 
 function EnhancedLivestock_AnimalScreen:onPagePrevious(superFunc)
     if self.isBuyMode then
@@ -1247,12 +1258,13 @@ end
 
 AnimalScreen.onPagePrevious = Utils.overwrittenFunction(AnimalScreen.onPagePrevious, EnhancedLivestock_AnimalScreen.onPagePrevious)
 
-
 function AnimalScreen:onClickMark()
 
     local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
 
-    if item == nil or (item.cluster == nil and item.animal == nil) then return end
+    if item == nil or (item.cluster == nil and item.animal == nil) then
+        return
+    end
 
     local animal = item.animal or item.cluster
 
@@ -1268,12 +1280,13 @@ function AnimalScreen:onClickMark()
 
 end
 
-
 function EnhancedLivestock_AnimalScreen:onClickRename()
 
     local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
 
-    if item == nil or (item.cluster == nil and item.animal == nil) then return end
+    if item == nil or (item.cluster == nil and item.animal == nil) then
+        return
+    end
 
     local animal = item.animal or item.cluster
 
@@ -1285,7 +1298,6 @@ function EnhancedLivestock_AnimalScreen:onClickRename()
 end
 
 AnimalScreen.onClickRename = EnhancedLivestock_AnimalScreen.onClickRename
-
 
 function EnhancedLivestock_AnimalScreen:changeName(text, clickOk)
 
@@ -1337,17 +1349,23 @@ function EnhancedLivestock_AnimalScreen:onClickAnimalInfo(button)
 
     local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
 
-    if item == nil then return end
+    if item == nil then
+        return
+    end
 
     local animal = item.animal or item.cluster
 
-    if animal == nil then return end
+    if animal == nil then
+        return
+    end
 
     local animalType = animal.animalTypeIndex
 
     if button.id == "childInfoButton" then
         local children = animal.children
-        if children == nil or #children == 0 then return end
+        if children == nil or #children == 0 then
+            return
+        end
 
         AnimalInfoDialog.show(children[1].farmId, children[1].uniqueId, children, animalType)
 
@@ -1356,11 +1374,15 @@ function EnhancedLivestock_AnimalScreen:onClickAnimalInfo(button)
 
     local target = button.id == "motherInfoButton" and "mother" or "father"
 
-    if target == nil then return end
+    if target == nil then
+        return
+    end
 
     local uniqueId = animal[target .. "Id"]
 
-    if uniqueId == "-1" then return end
+    if uniqueId == "-1" then
+        return
+    end
 
     local farmId = ""
     local i = string.find(uniqueId, " ")
@@ -1368,14 +1390,15 @@ function EnhancedLivestock_AnimalScreen:onClickAnimalInfo(button)
     farmId = string.sub(uniqueId, 1, i - 1)
     uniqueId = string.sub(uniqueId, i + 1)
 
-    if uniqueId == nil or farmId == nil then return end
+    if uniqueId == nil or farmId == nil then
+        return
+    end
 
     AnimalInfoDialog.show(farmId, uniqueId, nil, animalType, animal:getIdentifiers())
 
 end
 
 AnimalScreen.onClickAnimalInfo = EnhancedLivestock_AnimalScreen.onClickAnimalInfo
-
 
 function EnhancedLivestock_AnimalScreen:onClickInfoMode(a, b)
 
@@ -1418,31 +1441,37 @@ end
 
 AnimalScreen.onClickInfoMode = EnhancedLivestock_AnimalScreen.onClickInfoMode
 
-
 function AnimalScreen:onClickArtificialInsemination()
 
     local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
 
-    if item == nil or g_localPlayer == nil then return end
+    if item == nil or g_localPlayer == nil then
+        return
+    end
 
     local animal = item.animal or item.cluster
 
-    if animal == nil then return end
+    if animal == nil then
+        return
+    end
 
     AnimalAIDialog.show(g_localPlayer.farmId, animal.animalTypeIndex, animal)
 
 end
 
-
 function AnimalScreen:onClickMonitor()
 
     local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
 
-    if item == nil then return end
+    if item == nil then
+        return
+    end
 
     local animal = item.animal or item.cluster
 
-    if animal == nil then return end
+    if animal == nil then
+        return
+    end
 
     local monitor = animal.monitor
 
@@ -1459,24 +1488,26 @@ function AnimalScreen:onClickMonitor()
 
 end
 
-
 function AnimalScreen:onClickCastrate()
 
     self.buttonCastrate:setDisabled(true)
 
     local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
 
-    if item == nil then return end
+    if item == nil then
+        return
+    end
 
     local animal = item.animal or item.cluster
 
-    if animal == nil then return end
+    if animal == nil then
+        return
+    end
 
     animal.isCastrated = true
     animal.genetics.fertility = 0
 
 end
-
 
 function EnhancedLivestock_AnimalScreen:onListSelectionChanged(superFunc, list)
 
@@ -1490,13 +1521,12 @@ end
 
 AnimalScreen.onListSelectionChanged = Utils.overwrittenFunction(AnimalScreen.onListSelectionChanged, EnhancedLivestock_AnimalScreen.onListSelectionChanged)
 
-
 function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelected)
 
     if not g_gui.currentlyReloading then
 
         --if isSourceSelected == nil then
-            --local _ = self.isSourceSelected
+        --local _ = self.isSourceSelected
         --end
 
         local animalType = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
@@ -1582,7 +1612,6 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
             self.geneticsBox:applyProfile(self.isInfoMode and "el_geneticsBoxInfo" or "el_geneticsBox")
             self.geneticsBox:setVisible(true)
 
-            
             local genetics = animal:addGeneticsInfo()
 
             for i, title in ipairs(self.geneticsTitle) do
@@ -1591,14 +1620,16 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
                 title:setVisible(genetics[i] ~= nil)
                 value:setVisible(genetics[i] ~= nil)
 
-                if genetics[i] == nil then continue end
+                if genetics[i] == nil then
+                    continue
+                end
 
                 title:setText(genetics[i].title)
                 value:setText(g_i18n:getText(genetics[i].text))
 
                 local quality = genetics[i].text
 
-                if quality == "el_ui_genetics_infertile"  then
+                if quality == "el_ui_genetics_infertile" then
                     title:setTextColor(1, 0, 0, 1)
                     value:setTextColor(1, 0, 0, 1)
                 elseif quality == "el_ui_genetics_extremelyLow" or quality == "el_ui_genetics_extremelyBad" then
@@ -1627,7 +1658,6 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 
             end
 
-
             if self.isInfoMode then
 
                 local isMarked = animal:getMarked()
@@ -1650,26 +1680,24 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 
                 self.childInfoButton:setDisabled(not animal.isParent)
 
-
                 for i = 1, #self.inputTitle do
                     self.inputTitle[i]:setVisible(false)
                     self.inputValue[i]:setVisible(false)
                 end
-
 
                 for i = 1, #self.outputTitle do
                     self.outputTitle[i]:setVisible(false)
                     self.outputValue[i]:setVisible(false)
                 end
 
-
                 local infoIndex = 1
                 local daysPerMonth = g_currentMission.environment.daysPerPeriod
 
-
                 for fillType, amount in pairs(animal.input) do
 
-                    if infoIndex > #self.inputTitle then break end
+                    if infoIndex > #self.inputTitle then
+                        break
+                    end
 
                     local title, value = self.inputTitle[infoIndex], self.inputValue[infoIndex]
 
@@ -1683,13 +1711,13 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 
                 end
 
-
                 infoIndex = 1
-
 
                 for fillType, amount in pairs(animal.output) do
 
-                    if infoIndex > #self.outputTitle then break end
+                    if infoIndex > #self.outputTitle then
+                        break
+                    end
 
                     local title, value = self.outputTitle[infoIndex], self.outputValue[infoIndex]
 
@@ -1700,11 +1728,17 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 
                     if fillType == "pallets" then
 
-                        if animal.animalTypeIndex == AnimalType.COW then outputText = "pallets_milk" end
+                        if animal.animalTypeIndex == AnimalType.COW then
+                            outputText = "pallets_milk"
+                        end
 
-                        if animal.animalTypeIndex == AnimalType.SHEEP then outputText = animal.subType == "GOAT" and "pallets_goatMilk" or "pallets_wool" end
+                        if animal.animalTypeIndex == AnimalType.SHEEP then
+                            outputText = animal.subType == "GOAT" and "pallets_goatMilk" or "pallets_wool"
+                        end
 
-                        if animal.animalTypeIndex == AnimalType.CHICKEN then outputText = "pallets_eggs" end
+                        if animal.animalTypeIndex == AnimalType.CHICKEN then
+                            outputText = "pallets_eggs"
+                        end
 
                     end
 
@@ -1717,9 +1751,9 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 
             end
 
-
-            if not Platform.isMobile then self:updatePrice() end
-
+            if not Platform.isMobile then
+                self:updatePrice()
+            end
 
             self.infoBox:setVisible(not self.isInfoMode)
             --self.numAnimalsBox:setVisible(not self.isInfoMode)
@@ -1741,7 +1775,6 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 end
 
 AnimalScreen.updateInfoBox = Utils.overwrittenFunction(AnimalScreen.updateInfoBox, EnhancedLivestock_AnimalScreen.updateInfoBox)
-
 
 function EnhancedLivestock_AnimalScreen:updateScreen(superFunc, state)
 
@@ -1769,7 +1802,6 @@ function EnhancedLivestock_AnimalScreen:updateScreen(superFunc, state)
         table.insert(husbandryTexts, husbandryString)
     end
 
-
     self.targetSelector:setTexts(husbandryTexts)
 
     if #placeables > 0 and (not state or self.targetSelector:getState() == 0) then
@@ -1780,7 +1812,6 @@ function EnhancedLivestock_AnimalScreen:updateScreen(superFunc, state)
     self:setSelectionState(AnimalScreen.SELECTION_SOURCE)
 
     local hasAnimals = self.sourceList:getItemCount() > 0
-
 
     self.detailsContainer:setVisible(hasAnimals)
     self.infoBox:setVisible(not self.isInfoMode)
@@ -1801,7 +1832,6 @@ function EnhancedLivestock_AnimalScreen:updateScreen(superFunc, state)
         self.buttonSelect:setVisible(not isItemSelected)
 
     end
-
 
     self.buttonBuy:setDisabled(not self.isBuyMode)
     self.buttonBuy:setVisible(not self.isInfoMode and self.isBuyMode)
@@ -1831,7 +1861,6 @@ end
 
 AnimalScreen.updateScreen = Utils.overwrittenFunction(AnimalScreen.updateScreen, EnhancedLivestock_AnimalScreen.updateScreen)
 
-
 function EnhancedLivestock_AnimalScreen:setMaxNumAnimals()
 
     self.infoBox:setVisible(not self.isInfoMode)
@@ -1844,7 +1873,6 @@ end
 
 AnimalScreen.setMaxNumAnimals = Utils.appendedFunction(AnimalScreen.setMaxNumAnimals, EnhancedLivestock_AnimalScreen.setMaxNumAnimals)
 
-
 function EnhancedLivestock_AnimalScreen:getCellTypeForItemInSection(_, list, _, index)
 
     if list == self.aiList then
@@ -1852,24 +1880,26 @@ function EnhancedLivestock_AnimalScreen:getCellTypeForItemInSection(_, list, _, 
         local animals = self.aiAnimals[self.aiAnimalTypeIndex]
 
         local a = animals[index]
-	    local b = animals[index - 1]
+        local b = animals[index - 1]
 
-	    return (a == nil or b == nil or a:getSubTypeIndex() ~= b:getSubTypeIndex()) and "sectionCell" or "defaultCell"
+        return (a == nil or b == nil or a:getSubTypeIndex() ~= b:getSubTypeIndex()) and "sectionCell" or "defaultCell"
 
     end
 
-    if list ~= self.sourceList then return nil end
+    if list ~= self.sourceList then
+        return nil
+    end
 
     local animalTypeIndex = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
-	local items
+    local items
 
     if self.filteredItems == nil then
 
-	    if self.isInfoMode or not self.isBuyMode then
+        if self.isInfoMode or not self.isBuyMode then
             items = self.controller:getTargetItems()
-	    else
-		    items = self.controller:getSourceItems(animalTypeIndex, self.isBuyMode)
-	    end
+        else
+            items = self.controller:getSourceItems(animalTypeIndex, self.isBuyMode)
+        end
 
     else
 
@@ -1877,27 +1907,36 @@ function EnhancedLivestock_AnimalScreen:getCellTypeForItemInSection(_, list, _, 
 
     end
 
-	local a = items[index]
-	local b = items[index - 1]
+    local a = items[index]
+    local b = items[index - 1]
 
-    if a ~= nil and a:getHasAnyDisease() and index == 1 then return "sectionCell" end
+    if a ~= nil and a:getHasAnyDisease() and index == 1 then
+        return "sectionCell"
+    end
 
-    if a ~= nil and b ~= nil and b:getHasAnyDisease() then return a:getHasAnyDisease() and "defaultCell" or "sectionCell" end
+    if a ~= nil and b ~= nil and b:getHasAnyDisease() then
+        return a:getHasAnyDisease() and "defaultCell" or "sectionCell"
+    end
 
-	return (a == nil or b == nil or a:getSubTypeIndex() ~= b:getSubTypeIndex()) and "sectionCell" or "defaultCell"
+    return (a == nil or b == nil or a:getSubTypeIndex() ~= b:getSubTypeIndex()) and "sectionCell" or "defaultCell"
 
 end
 
 AnimalScreen.getCellTypeForItemInSection = Utils.overwrittenFunction(AnimalScreen.getCellTypeForItemInSection, EnhancedLivestock_AnimalScreen.getCellTypeForItemInSection)
 
-
 function EnhancedLivestock_AnimalScreen:getNumberOfItemsInSection(superFunc, list)
 
-    if list == self.aiList then return #self.aiAnimals[self.aiAnimalTypeIndex] end
+    if list == self.aiList then
+        return #self.aiAnimals[self.aiAnimalTypeIndex]
+    end
 
-    if self.isLogMode then return #self.messages[self.currentMessagePage] end
+    if self.isLogMode then
+        return #self.messages[self.currentMessagePage]
+    end
 
-    if self.filteredItems == nil or not self.isOpen then return superFunc(self, list) end
+    if self.filteredItems == nil or not self.isOpen then
+        return superFunc(self, list)
+    end
 
     return #self.filteredItems
 
@@ -1905,22 +1944,27 @@ end
 
 AnimalScreen.getNumberOfItemsInSection = Utils.overwrittenFunction(AnimalScreen.getNumberOfItemsInSection, EnhancedLivestock_AnimalScreen.getNumberOfItemsInSection)
 
-
 function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _, index, cell)
 
     if list == self.aiList then
 
         local animal = self.aiAnimals[self.aiAnimalTypeIndex][index]
 
-        if animal == nil then return end
+        if animal == nil then
+            return
+        end
 
         local subType = animal:getSubType()
 
-        if cell.name == "sectionCell" then cell:getAttribute("title"):setText(g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex)) end
+        if cell.name == "sectionCell" then
+            cell:getAttribute("title"):setText(g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
+        end
 
         local name = animal:getName()
 
-        if name == nil or name == "" then name = string.format("%s %s %s", EnhancedLivestock.AREA_CODES[animal.birthday.country].code, animal.farmId, animal.uniqueId) end
+        if name == nil or name == "" then
+            name = string.format("%s %s %s", EnhancedLivestock.AREA_CODES[animal.birthday.country].code, animal.farmId, animal.uniqueId)
+        end
 
         local visual = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal.age)
 
@@ -1985,18 +2029,22 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
 
         local messagePage = self.messages[self.currentMessagePage]
 
-        if messagePage == nil then return end
+        if messagePage == nil then
+            return
+        end
 
         local message = messagePage[index]
 
-        if message == nil then return end
+        if message == nil then
+            return
+        end
 
         local baseMessage = ELMessage[message.id]
 
         local text, argI = string.split(g_i18n:getText("el_message_" .. baseMessage.text), " "), 1
 
         for i, split in pairs(text) do
-        
+
             if split == "%s" then
 
                 if string.contains(message.args[argI], "el_") then
@@ -2018,11 +2066,10 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
                 argI = argI + 1
 
             end
-        
+
         end
 
         text = table.concat(text, " ")
-
 
         cell:getAttribute("message"):setText(text)
         cell:getAttribute("type"):setText(g_i18n:getText("el_messageTitle_" .. baseMessage.title))
@@ -2055,7 +2102,9 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
 
         end
 
-        if item == nil then return end
+        if item == nil then
+            return
+        end
 
         local animal = item.animal or item.cluster
         local subType = g_currentMission.animalSystem:getSubTypeByIndex(item:getSubTypeIndex())
@@ -2063,7 +2112,9 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
 
         local isDiseased = animal:getHasAnyDisease()
 
-        if cell.name == "sectionCell" then cell:getAttribute("title"):setText(isDiseased and g_i18n:getText("el_ui_diseasedAnimals") or g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex)) end
+        if cell.name == "sectionCell" then
+            cell:getAttribute("title"):setText(isDiseased and g_i18n:getText("el_ui_diseasedAnimals") or g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
+        end
 
         self.isHorse = g_currentMission.animalSystem:getSubTypeByIndex(item:getSubTypeIndex()).typeIndex == AnimalType.HORSE
 
@@ -2096,7 +2147,6 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
 
         end
 
-        
         local name = animal:getName()
         local identifier = animal:getIdentifiers()
 
@@ -2119,7 +2169,7 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
         if recentlyBoughtByAI then
 
             descriptor:setText(g_i18n:getText("el_ui_herdsmanRecentlyBought"))
-        
+
         elseif isMarked then
 
             local markText = EnhancedLivestock.MARKS[animal:getHighestPriorityMark()].text
@@ -2195,18 +2245,19 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
 
             end
 
-            if item == nil then return end
-
+            if item == nil then
+                return
+            end
 
             self.isHorse = g_currentMission.animalSystem:getSubTypeByIndex(item:getSubTypeIndex()).typeIndex == AnimalType.HORSE
 
-
             local name = item:getName()
 
-            if not self.isHorse and not self.isBuyMode and item.cluster ~= nil and item.cluster.uniqueId ~= nil then name = item.cluster.uniqueId .. (name == "" and "" or (" (" .. name .. ")")) end
+            if not self.isHorse and not self.isBuyMode and item.cluster ~= nil and item.cluster.uniqueId ~= nil then
+                name = item.cluster.uniqueId .. (name == "" and "" or (" (" .. name .. ")"))
+            end
 
             cell:getAttribute("name"):setText(name)
-
 
             cell:getAttribute("icon"):setImageFilename(item:getFilename())
             cell:getAttribute("separator"):setVisible(index > 1)
@@ -2223,7 +2274,6 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
 end
 
 AnimalScreen.populateCellForItemInSection = Utils.overwrittenFunction(AnimalScreen.populateCellForItemInSection, EnhancedLivestock_AnimalScreen.populateCellForItemInSection)
-
 
 function AnimalScreen:onClickBuySelected()
 
@@ -2265,13 +2315,13 @@ function AnimalScreen:onClickBuySelected()
 
         confirmationText = self.isTrailerFarm and g_i18n:getText("el_ui_moveConfirmation") or g_i18n:getText("el_ui_buyConfirmation")
         callback = self.buySelected
-	    text = self.controller:getSourceActionText()
+        text = self.controller:getSourceActionText()
 
     else
 
         confirmationText = self.isTrailerFarm and g_i18n:getText("el_ui_moveConfirmation") or g_i18n:getText("el_ui_sellConfirmation")
         callback = self.sellSelected
-	    text = self.controller:getTargetActionText()
+        text = self.controller:getTargetActionText()
 
     end
 
@@ -2279,10 +2329,11 @@ function AnimalScreen:onClickBuySelected()
 
 end
 
-
 function AnimalScreen:buySelected(clickYes)
 
-    if not clickYes or self.pendingBulkTransaction == nil then return end
+    if not clickYes or self.pendingBulkTransaction == nil then
+        return
+    end
 
     self.controller:applySourceBulk(self.pendingBulkTransaction.animalTypeIndex, self.pendingBulkTransaction.items)
 
@@ -2290,17 +2341,17 @@ function AnimalScreen:buySelected(clickYes)
 
 end
 
-
 function AnimalScreen:sellSelected(clickYes)
 
-    if not clickYes or self.pendingBulkTransaction == nil then return end
+    if not clickYes or self.pendingBulkTransaction == nil then
+        return
+    end
 
     self.controller:applyTargetBulk(self.pendingBulkTransaction.animalTypeIndex, self.pendingBulkTransaction.items)
 
     self.selectedItems = {}
 
 end
-
 
 function AnimalScreen:onClickFilter()
 
@@ -2309,7 +2360,6 @@ function AnimalScreen:onClickFilter()
     AnimalFilterDialog.show(self.isBuyMode and self.controller:getSourceItems(animalTypeIndex, self.isBuyMode) or self.controller:getTargetItems(), animalTypeIndex, self.onApplyFilters, self, self.isBuyMode)
 
 end
-
 
 function AnimalScreen:onApplyFilters(filters, filteredItems)
 
@@ -2320,7 +2370,6 @@ function AnimalScreen:onApplyFilters(filters, filteredItems)
     self.sourceList:reloadData(true)
 
 end
-
 
 function EnhancedLivestock_AnimalScreen:getPrice()
 
@@ -2337,11 +2386,11 @@ function EnhancedLivestock_AnimalScreen:getPrice()
 
     local isFound, price, transportationFee, totalPrice = false, 0, 0, 0
 
-	if self.isBuyMode then
-		isFound, price, transportationFee, totalPrice = self.controller:getSourcePrice(animalTypeIndex, animalIndex, 1)
-	else
-	    isFound, price, transportationFee, totalPrice = self.controller:getTargetPrice(animalTypeIndex, animalIndex, 1)
-	end
+    if self.isBuyMode then
+        isFound, price, transportationFee, totalPrice = self.controller:getSourcePrice(animalTypeIndex, animalIndex, 1)
+    else
+        isFound, price, transportationFee, totalPrice = self.controller:getTargetPrice(animalTypeIndex, animalIndex, 1)
+    end
 
     return isFound, price, transportationFee, totalPrice
 
@@ -2349,12 +2398,11 @@ end
 
 AnimalScreen.getPrice = Utils.overwrittenFunction(AnimalScreen.getPrice, EnhancedLivestock_AnimalScreen.getPrice)
 
-
 function EnhancedLivestock_AnimalScreen:onClickBuy()
 
-	self.numAnimals = 1
+    self.numAnimals = 1
 
-	local animalIndex
+    local animalIndex
 
     if self.filteredItems == nil then
         animalIndex = self.sourceList.selectedIndex
@@ -2362,23 +2410,22 @@ function EnhancedLivestock_AnimalScreen:onClickBuy()
         animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
     end
 
-	local confirmationText = self.controller:getApplySourceConfirmationText(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
-	local actionText = self.controller:getSourceActionText()
+    local confirmationText = self.controller:getApplySourceConfirmationText(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+    local actionText = self.controller:getSourceActionText()
 
-	YesNoDialog.show(self.onYesNoSource, self, confirmationText, g_i18n:getText("ui_attention"), actionText, g_i18n:getText("button_back"))
+    YesNoDialog.show(self.onYesNoSource, self, confirmationText, g_i18n:getText("ui_attention"), actionText, g_i18n:getText("button_back"))
 
-	return true
+    return true
 
 end
 
 AnimalScreen.onClickBuy = Utils.overwrittenFunction(AnimalScreen.onClickBuy, EnhancedLivestock_AnimalScreen.onClickBuy)
 
-
 function EnhancedLivestock_AnimalScreen:onClickSell()
 
-	self.numAnimals = 1
+    self.numAnimals = 1
 
-	local animalIndex
+    local animalIndex
 
     if self.filteredItems == nil then
         animalIndex = self.sourceList.selectedIndex
@@ -2386,22 +2433,21 @@ function EnhancedLivestock_AnimalScreen:onClickSell()
         animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
     end
 
-	local confirmationText = self.controller:getApplyTargetConfirmationText(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
-	local actionText = self.controller:getTargetActionText()
+    local confirmationText = self.controller:getApplyTargetConfirmationText(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+    local actionText = self.controller:getTargetActionText()
 
-	YesNoDialog.show(self.onYesNoTarget, self, confirmationText, g_i18n:getText("ui_attention"), actionText, g_i18n:getText("button_back"))
+    YesNoDialog.show(self.onYesNoTarget, self, confirmationText, g_i18n:getText("ui_attention"), actionText, g_i18n:getText("button_back"))
 
-	return true
+    return true
 
 end
 
 AnimalScreen.onClickSell = Utils.overwrittenFunction(AnimalScreen.onClickSell, EnhancedLivestock_AnimalScreen.onClickSell)
 
-
 function EnhancedLivestock_AnimalScreen:onYesNoSource(_, clickYes)
 
-	if clickYes then
-		local animalIndex
+    if clickYes then
+        local animalIndex
 
         if self.filteredItems == nil then
             animalIndex = self.sourceList.selectedIndex
@@ -2409,18 +2455,17 @@ function EnhancedLivestock_AnimalScreen:onYesNoSource(_, clickYes)
             animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
         end
 
-		self.controller:applySource(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
-	end
+        self.controller:applySource(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+    end
 
 end
 
 AnimalScreen.onYesNoSource = Utils.overwrittenFunction(AnimalScreen.onYesNoSource, EnhancedLivestock_AnimalScreen.onYesNoSource)
 
-
 function EnhancedLivestock_AnimalScreen:onYesNoTarget(_, clickYes)
 
-	if clickYes then
-		local animalIndex
+    if clickYes then
+        local animalIndex
 
         if self.filteredItems == nil then
             animalIndex = self.sourceList.selectedIndex
@@ -2428,51 +2473,52 @@ function EnhancedLivestock_AnimalScreen:onYesNoTarget(_, clickYes)
             animalIndex = self.filteredItems[self.sourceList.selectedIndex].originalIndex
         end
 
-		self.controller:applyTarget(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
-	end
+        self.controller:applyTarget(self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()], animalIndex, 1)
+    end
 
 end
 
 AnimalScreen.onYesNoTarget = Utils.overwrittenFunction(AnimalScreen.onYesNoTarget, EnhancedLivestock_AnimalScreen.onYesNoTarget)
 
-
 function EnhancedLivestock_AnimalScreen:onSourceActionFinished(_, error, text)
 
-	local dialogType = error and DialogElement.TYPE_WARNING or DialogElement.TYPE_INFO
+    local dialogType = error and DialogElement.TYPE_WARNING or DialogElement.TYPE_INFO
 
     if self.filteredItems ~= nil then
 
         local item = self.filteredItems[self.sourceList.selectedIndex]
 
-        if item ~= nil then table.remove(self.filteredItems, self.sourceList.selectedIndex) end
+        if item ~= nil then
+            table.remove(self.filteredItems, self.sourceList.selectedIndex)
+        end
 
     end
 
-	InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
+    InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
 
 end
 
 AnimalScreen.onSourceActionFinished = Utils.overwrittenFunction(AnimalScreen.onSourceActionFinished, EnhancedLivestock_AnimalScreen.onSourceActionFinished)
 
-
 function EnhancedLivestock_AnimalScreen:onTargetActionFinished(_, error, text)
 
-	local dialogType = error and DialogElement.TYPE_WARNING or DialogElement.TYPE_INFO
+    local dialogType = error and DialogElement.TYPE_WARNING or DialogElement.TYPE_INFO
 
     if self.filteredItems ~= nil then
 
         local item = self.filteredItems[self.sourceList.selectedIndex]
 
-        if item ~= nil then table.remove(self.filteredItems, self.sourceList.selectedIndex) end
+        if item ~= nil then
+            table.remove(self.filteredItems, self.sourceList.selectedIndex)
+        end
 
     end
 
-	InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
+    InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
 
 end
 
 AnimalScreen.onTargetActionFinished = Utils.overwrittenFunction(AnimalScreen.onTargetActionFinished, EnhancedLivestock_AnimalScreen.onTargetActionFinished)
-
 
 function AnimalScreen:onSourceBulkActionFinished(error, text, indexes)
 
@@ -2495,10 +2541,9 @@ function AnimalScreen:onSourceBulkActionFinished(error, text, indexes)
 
     end
 
-	InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
+    InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
 
 end
-
 
 function AnimalScreen:onTargetBulkActionFinished(error, text, indexes)
 
@@ -2521,10 +2566,9 @@ function AnimalScreen:onTargetBulkActionFinished(error, text, indexes)
 
     end
 
-	InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
+    InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
 
 end
-
 
 function AnimalScreen:onClickToggleSelectAll()
 
@@ -2536,7 +2580,6 @@ function AnimalScreen:onClickToggleSelectAll()
             break
         end
     end
-
 
     local animalType = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
     local items
@@ -2553,21 +2596,19 @@ function AnimalScreen:onClickToggleSelectAll()
         items = self.filteredItems
     end
 
-
     for i, item in pairs(items) do
 
         self.selectedItems[self.filteredItems == nil and i or item.originalIndex] = selectAll
 
     end
 
-
     self.buttonToggleSelectAll:setText(selectAll and g_i18n:getText("el_ui_selectNone") or g_i18n:getText("el_ui_selectAll"))
     self.sourceList:reloadData()
 
 end
 
-
-function EnhancedLivestock_AnimalScreen:setSelectionState(superFunc, state) -- ?
+function EnhancedLivestock_AnimalScreen:setSelectionState(superFunc, state)
+    -- ?
 
     local returnValue = superFunc(self, state)
 
@@ -2576,7 +2617,7 @@ function EnhancedLivestock_AnimalScreen:setSelectionState(superFunc, state) -- ?
     self.buttonBuy:setVisible(self.isBuyMode and hasItems)
     self.buttonSell:setVisible(not self.isBuyMode and not self.isInfoMode and hasItems)
 
-	self.buttonsPanel:invalidateLayout()
+    self.buttonsPanel:invalidateLayout()
 
     return returnValue
 
@@ -2584,9 +2625,8 @@ end
 
 AnimalScreen.setSelectionState = Utils.overwrittenFunction(AnimalScreen.setSelectionState, EnhancedLivestock_AnimalScreen.setSelectionState)
 
-
-function AnimalScreen:onClickInfoPrompt() end
-
+function AnimalScreen:onClickInfoPrompt()
+end
 
 function AnimalScreen:onHighlightInfoPrompt(button)
 
@@ -2598,7 +2638,6 @@ function AnimalScreen:onHighlightInfoPrompt(button)
     self.infoPrompt:setAbsolutePosition(x, y)
 
 end
-
 
 function AnimalScreen:onHighlightRemoveInfoPrompt()
 

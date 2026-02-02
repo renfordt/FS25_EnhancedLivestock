@@ -3,12 +3,10 @@ AnimalNameChangeEvent = {}
 local AnimalNameChangeEvent_mt = Class(AnimalNameChangeEvent, Event)
 InitEventClass(AnimalNameChangeEvent, "AnimalNameChangeEvent")
 
-
 function AnimalNameChangeEvent.emptyNew()
     local self = Event.new(AnimalNameChangeEvent_mt)
     return self
 end
-
 
 function AnimalNameChangeEvent.new(object, animal, name)
 
@@ -22,7 +20,6 @@ function AnimalNameChangeEvent.new(object, animal, name)
 
 end
 
-
 function AnimalNameChangeEvent:readStream(streamId, connection)
 
     self.object = NetworkUtil.readNodeObject(streamId)
@@ -30,25 +27,27 @@ function AnimalNameChangeEvent:readStream(streamId, connection)
 
     local hasName = streamReadBool(streamId)
 
-    if hasName then self.name = streamReadString(streamId) end
+    if hasName then
+        self.name = streamReadString(streamId)
+    end
 
     self:run(connection)
 
 end
 
-
 function AnimalNameChangeEvent:writeStream(streamId, connection)
 
     NetworkUtil.writeNodeObject(streamId, self.object)
-    
+
     self.animal:writeStreamIdentifiers(streamId, connection)
 
     streamWriteBool(streamId, self.name ~= nil and self.name ~= "")
 
-    if self.name ~= nil and self.name ~= "" then streamWriteString(streamId, self.name) end
+    if self.name ~= nil and self.name ~= "" then
+        streamWriteString(streamId, self.name)
+    end
 
 end
-
 
 function AnimalNameChangeEvent:run(connection)
 
@@ -68,7 +67,6 @@ function AnimalNameChangeEvent:run(connection)
     end
 
 end
-
 
 function AnimalNameChangeEvent.sendEvent(object, animal, name)
 

@@ -19,8 +19,12 @@ BreedingMath.SD_CONST = 0.10 * (1.75 - 0.25) -- 0.15
 ---@param hi number Upper bound
 ---@return number Clamped value
 local function clamp(x, lo, hi)
-    if x < lo then return lo end
-    if x > hi then return hi end
+    if x < lo then
+        return lo
+    end
+    if x > hi then
+        return hi
+    end
     return x
 end
 
@@ -85,7 +89,9 @@ local function inv_norm_cdf(p)
     -- Horner evaluator for polynomial
     local function horner(x, coeffs)
         local r = coeffs[1]
-        for i = 2, #coeffs do r = r * x + coeffs[i] end
+        for i = 2, #coeffs do
+            r = r * x + coeffs[i]
+        end
         return r
     end
 
@@ -117,7 +123,9 @@ end
 ---@return number|nil Standard deviation, or nil if delta <= 0
 local function sd_from_poutside(delta, p_outside)
     assert(p_outside > 0.0 and p_outside < 1.0, "p_outside must be in (0,1)")
-    if delta <= 0.0 then return nil end -- undefined when parents are equal
+    if delta <= 0.0 then
+        return nil
+    end -- undefined when parents are equal
     local alpha = 1.0 - 0.5 * p_outside
     local z = inv_norm_cdf(alpha)
     return delta / (2.0 * z)

@@ -2,7 +2,6 @@ EnhancedLivestock_PlayerInputComponent = {}
 
 local modName = g_currentModName
 
-
 function EnhancedLivestock_PlayerInputComponent:update(_)
 
     self.dewar = nil
@@ -58,7 +57,7 @@ function EnhancedLivestock_PlayerInputComponent:update(_)
                         self.dewar = object
 
                         g_inputBinding:setActionEventText(self.enterActionId, g_i18n:getText("el_ui_takeStraw"))
-                        g_inputBinding:setActionEventActive(self.enterActionId, true)        
+                        g_inputBinding:setActionEventActive(self.enterActionId, true)
 
                     end
 
@@ -74,10 +73,11 @@ end
 
 PlayerInputComponent.update = Utils.appendedFunction(PlayerInputComponent.update, EnhancedLivestock_PlayerInputComponent.update)
 
-
 function EnhancedLivestock_PlayerInputComponent:onInputEnter()
 
-    if g_time <= g_currentMission.lastInteractionTime + 200 or g_currentMission.interactiveVehicleInRange ~= nil or self.rideablePlaceable ~= nil or self.dewar == nil or HandToolAIStraw.numHeldStraws > 10 then return end
+    if g_time <= g_currentMission.lastInteractionTime + 200 or g_currentMission.interactiveVehicleInRange ~= nil or self.rideablePlaceable ~= nil or self.dewar == nil or HandToolAIStraw.numHeldStraws > 10 then
+        return
+    end
 
     local strawType = g_handToolTypeManager:getTypeByName(modName .. ".aiStraw")
     local handTool = _G[strawType.className].new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
@@ -92,7 +92,6 @@ end
 
 PlayerInputComponent.onInputEnter = Utils.appendedFunction(PlayerInputComponent.onInputEnter, EnhancedLivestock_PlayerInputComponent.onInputEnter)
 
-
 function PlayerInputComponent:onFinishedLoadStraw(handTool, loadingState, args)
 
     if loadingState == HandToolLoadingState.OK then
@@ -102,7 +101,6 @@ function PlayerInputComponent:onFinishedLoadStraw(handTool, loadingState, args)
 
 end
 
-
 function EnhancedLivestock_PlayerInputComponent:registerGlobalPlayerActionEvents()
 
     VisualAnimalsDialog.register()
@@ -111,9 +109,7 @@ function EnhancedLivestock_PlayerInputComponent:registerGlobalPlayerActionEvents
 
 end
 
-
 PlayerInputComponent.registerGlobalPlayerActionEvents = Utils.appendedFunction(PlayerInputComponent.registerGlobalPlayerActionEvents, EnhancedLivestock_PlayerInputComponent.registerGlobalPlayerActionEvents)
-
 
 function EnhancedLivestock_PlayerInputComponent.onFinishedRideBlending(superFunc, _, args)
     local placeable = args[1]

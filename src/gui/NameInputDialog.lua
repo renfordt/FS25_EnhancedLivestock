@@ -1,9 +1,9 @@
 NameInputDialog = {}
 
 local nameInputDialog_mt = Class(NameInputDialog, YesNoDialog)
-local function nameInputDialog_callback() end
+local function nameInputDialog_callback()
+end
 local modDirectory = g_currentModDirectory
-
 
 function NameInputDialog.register()
     local dialog = NameInputDialog.new()
@@ -11,7 +11,6 @@ function NameInputDialog.register()
     NameInputDialog.INSTANCE = dialog
     dialog.textElement.maxCharacters = 20
 end
-
 
 function NameInputDialog.show(callback, target, text, prompt, maxCharacters, args, gender)
     if NameInputDialog.INSTANCE ~= nil then
@@ -22,20 +21,20 @@ function NameInputDialog.show(callback, target, text, prompt, maxCharacters, arg
     end
 end
 
-
 function NameInputDialog.new(target, customMt)
     local dialog = YesNoDialog.new(target, customMt or nameInputDialog_mt)
     dialog.onTextEntered = nameInputDialog_callback
     dialog.callbackArgs = nil
     dialog.extraInputDisableTime = 0
     local dismiss = GS_IS_CONSOLE_VERSION
-    if dismiss then dismiss = imeIsSupported() end
+    if dismiss then
+        dismiss = imeIsSupported()
+    end
     dialog.doHide = dismiss
     dialog.disableOpenSound = true
     dialog.animalGender = "female"
     return dialog
 end
-
 
 function NameInputDialog.createFromExistingGui(gui, _)
     NameInputDialog.register()
@@ -48,7 +47,6 @@ function NameInputDialog.createFromExistingGui(gui, _)
     NameInputDialog.show(callback, target, text, prompt, maxCharacters, args)
 end
 
-
 function NameInputDialog:onOpen()
     NameInputDialog:superClass().onOpen(self)
     self.extraInputDisableTime = getPlatformId() == PlatformId.SWITCH and 0 or 100
@@ -58,18 +56,20 @@ function NameInputDialog:onOpen()
     self:updateButtonVisibility()
 end
 
-
 function NameInputDialog:onClose()
     NameInputDialog:superClass().onClose(self)
-    if not GS_IS_CONSOLE_VERSION then self.textElement:setForcePressed(false) end
+    if not GS_IS_CONSOLE_VERSION then
+        self.textElement:setForcePressed(false)
+    end
     self:updateButtonVisibility()
 end
-
 
 function NameInputDialog:onClickRandom()
 
     local system = g_currentMission.animalNameSystem
-    if system == nil then return end
+    if system == nil then
+        return
+    end
 
     local attempts = 0
 
@@ -79,18 +79,18 @@ function NameInputDialog:onClickRandom()
         attempts = attempts + 1
     end
 
-    if name == nil or name == "" then return end
+    if name == nil or name == "" then
+        return
+    end
 
     self.textElement:setText(name)
 
 end
 
-
 function NameInputDialog:setText(text)
-    NameInputDialog:superClass().setText(self,text)
+    NameInputDialog:superClass().setText(self, text)
     self.inputText = text
 end
-
 
 function NameInputDialog:setCallback(callback, target, text, prompt, maxCharacters, args, gender)
 
@@ -100,14 +100,15 @@ function NameInputDialog:setCallback(callback, target, text, prompt, maxCharacte
     self.textElement:setText(text or "")
     self.textElement.maxCharacters = maxCharacters or self.textElement.maxCharacters
 
-    if prompt ~= nil then self.dialogTextElement:setText(prompt) end
+    if prompt ~= nil then
+        self.dialogTextElement:setText(prompt)
+    end
 
     self.dialogPrompt = prompt
     self.maxCharacters = maxCharacters
     self.animalGender = gender
 
 end
-
 
 function NameInputDialog:sendCallback(clickOk)
     local text = self.textElement.text
@@ -122,7 +123,9 @@ function NameInputDialog:sendCallback(clickOk)
 
     end
 
-    if #words == 2 then text = words[1] .. " " .. words[2] end
+    if #words == 2 then
+        text = words[1] .. " " .. words[2]
+    end
 
     if self.target == nil then
         self.onTextEntered(text, clickOk, self.callbackArgs)
@@ -131,39 +134,41 @@ function NameInputDialog:sendCallback(clickOk)
     end
 end
 
-
-function NameInputDialog:onEnterPressed( _, dismiss)
+function NameInputDialog:onEnterPressed(_, dismiss)
     return dismiss and true or self:onClickOk()
 end
-
 
 function NameInputDialog:onEscPressed(_)
     return self:onClickBack()
 end
 
-
 function NameInputDialog:onClickBack(_, _)
-    if self:isInputDisabled() then return true end
+    if self:isInputDisabled() then
+        return true
+    end
 
     self:sendCallback(false)
     return false
 end
 
-
 function NameInputDialog:onClickOk()
-    if self:isInputDisabled() then return true end
+    if self:isInputDisabled() then
+        return true
+    end
 
     self:sendCallback(true)
     self:updateButtonVisibility()
     return false
 end
 
-
 function NameInputDialog:updateButtonVisibility()
-    if self.yesButton ~= nil then self.yesButton:setVisible(not self.textElement.imeActive) end
-    if self.noButton ~= nil then self.noButton:setVisible(not self.textElement.imeActive) end
+    if self.yesButton ~= nil then
+        self.yesButton:setVisible(not self.textElement.imeActive)
+    end
+    if self.noButton ~= nil then
+        self.noButton:setVisible(not self.textElement.imeActive)
+    end
 end
-
 
 function NameInputDialog:update(dT)
     NameInputDialog:superClass().update(self, dT)
@@ -179,7 +184,6 @@ function NameInputDialog:update(dT)
     end
 end
 
-
 function NameInputDialog:isInputDisabled()
     local disabled
 
@@ -192,12 +196,13 @@ function NameInputDialog:isInputDisabled()
     return disabled
 end
 
-
-function NameInputDialog:disableInputForDuration(_) end
-
+function NameInputDialog:disableInputForDuration(_)
+end
 
 function NameInputDialog:getIsVisible()
-    if self.doHide then return false end
+    if self.doHide then
+        return false
+    end
 
     return NameInputDialog:superClass().getIsVisible(self)
 end

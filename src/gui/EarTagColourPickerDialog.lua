@@ -7,7 +7,6 @@ EarTagColourPickerDialog.INPUT_THRESHOLD = 0.01
 EarTagColourPickerDialog.INPUT_SCALE = 10000
 EarTagColourPickerDialog.DOUBLE_CLICK_INTERVAL = 400
 
-
 function EarTagColourPickerDialog.register()
 
     local dialog = EarTagColourPickerDialog.new()
@@ -15,7 +14,6 @@ function EarTagColourPickerDialog.register()
     EarTagColourPickerDialog.INSTANCE = dialog
 
 end
-
 
 function EarTagColourPickerDialog.show()
 
@@ -25,7 +23,6 @@ function EarTagColourPickerDialog.show()
     end
 
 end
-
 
 function EarTagColourPickerDialog.new(target, customMt)
 
@@ -41,14 +38,12 @@ function EarTagColourPickerDialog.new(target, customMt)
 
 end
 
-
 function EarTagColourPickerDialog.createFromExistingGui(gui, _)
 
     EarTagColourPickerDialog.register()
     EarTagColourPickerDialog.show()
 
 end
-
 
 function EarTagColourPickerDialog:onGuiSetupFinished()
 
@@ -67,36 +62,37 @@ function EarTagColourPickerDialog:onGuiSetupFinished()
     local rgbTexts = {}
     local hsvTexts = {}
 
-	for i = 0, 360 do
+    for i = 0, 360 do
 
         table.insert(hsvTexts, tostring(i))
 
-        if i <= 255 then table.insert(rgbTexts, tostring(i)) end
+        if i <= 255 then
+            table.insert(rgbTexts, tostring(i))
+        end
 
     end
-    
-	self.hueSliderBase:setTexts(hsvTexts)
-	self.hueSliderText:setTexts(hsvTexts)
+
+    self.hueSliderBase:setTexts(hsvTexts)
+    self.hueSliderText:setTexts(hsvTexts)
     self.baseRgbRed:setTexts(rgbTexts)
-	self.baseRgbGreen:setTexts(rgbTexts)
-	self.baseRgbBlue:setTexts(rgbTexts)
+    self.baseRgbGreen:setTexts(rgbTexts)
+    self.baseRgbBlue:setTexts(rgbTexts)
     self.textRgbRed:setTexts(rgbTexts)
-	self.textRgbGreen:setTexts(rgbTexts)
-	self.textRgbBlue:setTexts(rgbTexts)
+    self.textRgbGreen:setTexts(rgbTexts)
+    self.textRgbBlue:setTexts(rgbTexts)
 
 end
-
 
 function EarTagColourPickerDialog:onOpen()
 
     EarTagColourPickerDialog:superClass().onOpen(self)
-	
+
     self.customPickerUpDownEventId = g_inputBinding:registerActionEvent(InputAction.AXIS_PICK_COLOR_UPDOWN, self, self.onVerticalCursorInput, false, false, true, true)
-	self.customPickerLeftRightEventId = g_inputBinding:registerActionEvent(InputAction.AXIS_PICK_COLOR_LEFTRIGHT, self, self.onHorizontalCursorInput, false, false, true, true)
-    
+    self.customPickerLeftRightEventId = g_inputBinding:registerActionEvent(InputAction.AXIS_PICK_COLOR_LEFTRIGHT, self, self.onHorizontalCursorInput, false, false, true, true)
+
     self.accumHorizontalInput, self.accumVerticalInput = 0, 0
 
-	self.colorRender:createScene()
+    self.colorRender:createScene()
 
     self.animalTypePicker:setState(1)
 
@@ -105,18 +101,16 @@ function EarTagColourPickerDialog:onOpen()
 
 end
 
-
 function EarTagColourPickerDialog:onClose()
 
     EarTagColourPickerDialog:superClass().onClose(self)
 
-	g_inputBinding:removeActionEventsByTarget(self)
-    
-	self.colorRender:destroyScene()
+    g_inputBinding:removeActionEventsByTarget(self)
+
+    self.colorRender:destroyScene()
     self.renderNode = nil
 
 end
-
 
 function EarTagColourPickerDialog:onAnimalTypeChanged()
 
@@ -125,7 +119,6 @@ function EarTagColourPickerDialog:onAnimalTypeChanged()
     self:setColourFromType(index)
 
 end
-
 
 function EarTagColourPickerDialog:setColourFromType(index)
 
@@ -145,20 +138,19 @@ function EarTagColourPickerDialog:setColourFromType(index)
 
 end
 
-
 function EarTagColourPickerDialog:onBaseRGBChanged()
 
     local baseR = (self.baseRgbRed:getState() - 1) / 255
     local baseG = (self.baseRgbGreen:getState() - 1) / 255
     local baseB = (self.baseRgbBlue:getState() - 1) / 255
 
-	local hsvR, hsvG, hsvB = GuiUtils.rgbToHSV(baseR, baseG, baseB)
-	local r, g, b = GuiUtils.hsvToRGB(hsvR)
+    local hsvR, hsvG, hsvB = GuiUtils.rgbToHSV(baseR, baseG, baseB)
+    local r, g, b = GuiUtils.hsvToRGB(hsvR)
 
-	self.customPickerBase:setImageColor(nil, math.pow(r, 2.2), math.pow(g, 2.2), math.pow(b, 2.2), 1)
-	self.hueSliderBase:setState(math.floor(hsvR * 360) + 1)
+    self.customPickerBase:setImageColor(nil, math.pow(r, 2.2), math.pow(g, 2.2), math.pow(b, 2.2), 1)
+    self.hueSliderBase:setState(math.floor(hsvR * 360) + 1)
 
-	self.baseCursor:setAbsolutePosition(self.customPickerBase.absPosition[1] + self.customPickerBase.absSize[1] * hsvG - self.baseCursor.absSize[1] * 0.5, self.customPickerBase.absPosition[2] + self.customPickerBase.absSize[2] * hsvB - self.baseCursor.absSize[2] * 0.5)
+    self.baseCursor:setAbsolutePosition(self.customPickerBase.absPosition[1] + self.customPickerBase.absSize[1] * hsvG - self.baseCursor.absSize[1] * 0.5, self.customPickerBase.absPosition[2] + self.customPickerBase.absSize[2] * hsvB - self.baseCursor.absSize[2] * 0.5)
 
     self:setCustomColorHSVBase(math.floor(hsvR * 360), hsvG, hsvB)
 
@@ -166,20 +158,19 @@ function EarTagColourPickerDialog:onBaseRGBChanged()
 
 end
 
-
 function EarTagColourPickerDialog:onTextRGBChanged()
 
     local textR = (self.textRgbRed:getState() - 1) / 255
     local textG = (self.textRgbGreen:getState() - 1) / 255
     local textB = (self.textRgbBlue:getState() - 1) / 255
 
-	local hsvR, hsvG, hsvB = GuiUtils.rgbToHSV(textR, textG, textB)
-	local r, g, b = GuiUtils.hsvToRGB(hsvR)
+    local hsvR, hsvG, hsvB = GuiUtils.rgbToHSV(textR, textG, textB)
+    local r, g, b = GuiUtils.hsvToRGB(hsvR)
 
-	self.customPickerText:setImageColor(nil, math.pow(r, 2.2), math.pow(g, 2.2), math.pow(b, 2.2), 1)
-	self.hueSliderText:setState(math.floor(hsvR * 360) + 1)
+    self.customPickerText:setImageColor(nil, math.pow(r, 2.2), math.pow(g, 2.2), math.pow(b, 2.2), 1)
+    self.hueSliderText:setState(math.floor(hsvR * 360) + 1)
 
-	self.textCursor:setAbsolutePosition(self.customPickerText.absPosition[1] + self.customPickerText.absSize[1] * hsvG - self.textCursor.absSize[1] * 0.5, self.customPickerText.absPosition[2] + self.customPickerText.absSize[2] * hsvB - self.textCursor.absSize[2] * 0.5)
+    self.textCursor:setAbsolutePosition(self.customPickerText.absPosition[1] + self.customPickerText.absSize[1] * hsvG - self.textCursor.absSize[1] * 0.5, self.customPickerText.absPosition[2] + self.customPickerText.absSize[2] * hsvB - self.textCursor.absSize[2] * 0.5)
 
     self:setCustomColorHSVText(math.floor(hsvR * 360), hsvG, hsvB)
 
@@ -187,17 +178,16 @@ function EarTagColourPickerDialog:onTextRGBChanged()
 
 end
 
-
 function EarTagColourPickerDialog:onBaseHueChanged(index)
 
-	local hsvR, hsvG, hsvB = GuiUtils.hsvToRGB((index - 1) / 360)
+    local hsvR, hsvG, hsvB = GuiUtils.hsvToRGB((index - 1) / 360)
 
-	local r = math.pow(hsvR, 2.2)
-	local g = math.pow(hsvG, 2.2)
-	local b = math.pow(hsvB, 2.2)
+    local r = math.pow(hsvR, 2.2)
+    local g = math.pow(hsvG, 2.2)
+    local b = math.pow(hsvB, 2.2)
 
-	self.customPickerBase:setImageColor(nil, r, g, b, 1)
-	
+    self.customPickerBase:setImageColor(nil, r, g, b, 1)
+
     self.baseRgbRed:setState(math.floor(r * 255) + 1)
     self.baseRgbGreen:setState(math.floor(g * 255) + 1)
     self.baseRgbBlue:setState(math.floor(b * 255) + 1)
@@ -208,17 +198,16 @@ function EarTagColourPickerDialog:onBaseHueChanged(index)
 
 end
 
-
 function EarTagColourPickerDialog:onTextHueChanged(index)
 
-	local hsvR, hsvG, hsvB = GuiUtils.hsvToRGB((index - 1) / 360)
+    local hsvR, hsvG, hsvB = GuiUtils.hsvToRGB((index - 1) / 360)
 
-	local r = math.pow(hsvR, 2.2)
-	local g = math.pow(hsvG, 2.2)
-	local b = math.pow(hsvB, 2.2)
+    local r = math.pow(hsvR, 2.2)
+    local g = math.pow(hsvG, 2.2)
+    local b = math.pow(hsvB, 2.2)
 
-	self.customPickerText:setImageColor(nil, r, g, b, 1)
-	
+    self.customPickerText:setImageColor(nil, r, g, b, 1)
+
     self.textRgbRed:setState(math.floor(r * 255) + 1)
     self.textRgbGreen:setState(math.floor(g * 255) + 1)
     self.textRgbBlue:setState(math.floor(b * 255) + 1)
@@ -229,22 +218,21 @@ function EarTagColourPickerDialog:onTextHueChanged(index)
 
 end
 
-
 function EarTagColourPickerDialog:setCustomColorHSVBase(index, hsvG, hsvB)
 
     if hsvG ~= nil and hsvB ~= nil then
-		self.baseCursor:setAbsolutePosition(self.customPickerBase.absPosition[1] + self.customPickerBase.absSize[1] * hsvG - self.baseCursor.absSize[1] * 0.5, self.customPickerBase.absPosition[2] + self.customPickerBase.absSize[2] * hsvB - self.baseCursor.absSize[2] * 0.5)
-	end
+        self.baseCursor:setAbsolutePosition(self.customPickerBase.absPosition[1] + self.customPickerBase.absSize[1] * hsvG - self.baseCursor.absSize[1] * 0.5, self.customPickerBase.absPosition[2] + self.customPickerBase.absSize[2] * hsvB - self.baseCursor.absSize[2] * 0.5)
+    end
 
-	if not hsvG then
-		local sG = (self.baseCursor.absPosition[1] + self.baseCursor.absSize[1] * 0.5 - self.customPickerBase.absPosition[1]) / self.customPickerBase.absSize[1]
-		hsvG = math.clamp(sG, 0, 1)
-	end
+    if not hsvG then
+        local sG = (self.baseCursor.absPosition[1] + self.baseCursor.absSize[1] * 0.5 - self.customPickerBase.absPosition[1]) / self.customPickerBase.absSize[1]
+        hsvG = math.clamp(sG, 0, 1)
+    end
 
-	if not hsvB then
-		local sB = (self.baseCursor.absPosition[2] + self.baseCursor.absSize[2] * 0.5 - self.customPickerBase.absPosition[2]) / self.customPickerBase.absSize[2]
-		hsvB = math.clamp(sB, 0, 1)
-	end
+    if not hsvB then
+        local sB = (self.baseCursor.absPosition[2] + self.baseCursor.absSize[2] * 0.5 - self.customPickerBase.absPosition[2]) / self.customPickerBase.absSize[2]
+        hsvB = math.clamp(sB, 0, 1)
+    end
 
     local r, g, b = GuiUtils.hsvToRGB(index / 360, hsvG, hsvB)
 
@@ -256,22 +244,21 @@ function EarTagColourPickerDialog:setCustomColorHSVBase(index, hsvG, hsvB)
 
 end
 
-
 function EarTagColourPickerDialog:setCustomColorHSVText(index, hsvG, hsvB)
 
     if hsvG ~= nil and hsvB ~= nil then
-		self.textCursor:setAbsolutePosition(self.customPickerText.absPosition[1] + self.customPickerText.absSize[1] * hsvG - self.textCursor.absSize[1] * 0.5, self.customPickerText.absPosition[2] + self.customPickerText.absSize[2] * hsvB - self.textCursor.absSize[2] * 0.5)
-	end
+        self.textCursor:setAbsolutePosition(self.customPickerText.absPosition[1] + self.customPickerText.absSize[1] * hsvG - self.textCursor.absSize[1] * 0.5, self.customPickerText.absPosition[2] + self.customPickerText.absSize[2] * hsvB - self.textCursor.absSize[2] * 0.5)
+    end
 
-	if not hsvG then
-		local sG = (self.textCursor.absPosition[1] + self.textCursor.absSize[1] * 0.5 - self.customPickerText.absPosition[1]) / self.customPickerText.absSize[1]
-		hsvG = math.clamp(sG, 0, 1)
-	end
+    if not hsvG then
+        local sG = (self.textCursor.absPosition[1] + self.textCursor.absSize[1] * 0.5 - self.customPickerText.absPosition[1]) / self.customPickerText.absSize[1]
+        hsvG = math.clamp(sG, 0, 1)
+    end
 
-	if not hsvB then
-		local sB = (self.textCursor.absPosition[2] + self.textCursor.absSize[2] * 0.5 - self.customPickerText.absPosition[2]) / self.customPickerText.absSize[2]
-		hsvB = math.clamp(sB, 0, 1)
-	end
+    if not hsvB then
+        local sB = (self.textCursor.absPosition[2] + self.textCursor.absSize[2] * 0.5 - self.customPickerText.absPosition[2]) / self.customPickerText.absSize[2]
+        hsvB = math.clamp(sB, 0, 1)
+    end
 
     local r, g, b = GuiUtils.hsvToRGB(index / 360, hsvG, hsvB)
 
@@ -282,7 +269,6 @@ function EarTagColourPickerDialog:setCustomColorHSVText(index, hsvG, hsvB)
     self.pendingRenderUpdate = true
 
 end
-
 
 function EarTagColourPickerDialog:onClickOk()
 
@@ -300,25 +286,30 @@ function EarTagColourPickerDialog:onClickOk()
     type.colours[self.context] = { baseR, baseG, baseB }
     type.colours[self.context .. "_text"] = { textR, textG, textB }
 
-
     local leftTag, leftText, rightTag, rightText
 
-    if self.context == "earTagLeft" then leftTag, leftText = { baseR, baseG, baseB }, { textR, textG, textB } end
-    if self.context == "earTagRight" then rightTag, rightText = { baseR, baseG, baseB }, { textR, textG, textB } end
-
+    if self.context == "earTagLeft" then
+        leftTag, leftText = { baseR, baseG, baseB }, { textR, textG, textB }
+    end
+    if self.context == "earTagRight" then
+        rightTag, rightText = { baseR, baseG, baseB }, { textR, textG, textB }
+    end
 
     for _, placeable in pairs(g_currentMission.husbandrySystem.placeables) do
 
-        if placeable:getAnimalTypeIndex() ~= typeIndex then continue end
+        if placeable:getAnimalTypeIndex() ~= typeIndex then
+            continue
+        end
 
         local animals = placeable:getClusters()
 
-        for _, animal in pairs(animals) do animal:setVisualEarTagColours(leftTag, leftText, rightTag, rightText) end
+        for _, animal in pairs(animals) do
+            animal:setVisualEarTagColours(leftTag, leftText, rightTag, rightText)
+        end
 
     end
 
 end
-
 
 function EarTagColourPickerDialog:onClickEarTagLeft()
 
@@ -326,11 +317,14 @@ function EarTagColourPickerDialog:onClickEarTagLeft()
     self.animalTypePicker:setState(1)
     self:setColourFromType(1)
 
-    for _, node in pairs(self.texts.earTagLeft) do setVisibility(node, true) end
-    for _, node in pairs(self.texts.earTagRight) do setVisibility(node, false) end
+    for _, node in pairs(self.texts.earTagLeft) do
+        setVisibility(node, true)
+    end
+    for _, node in pairs(self.texts.earTagRight) do
+        setVisibility(node, false)
+    end
 
 end
-
 
 function EarTagColourPickerDialog:onClickEarTagRight()
 
@@ -338,11 +332,14 @@ function EarTagColourPickerDialog:onClickEarTagRight()
     self.animalTypePicker:setState(1)
     self:setColourFromType(1)
 
-    for _, node in pairs(self.texts.earTagLeft) do setVisibility(node, false) end
-    for _, node in pairs(self.texts.earTagRight) do setVisibility(node, true) end
+    for _, node in pairs(self.texts.earTagLeft) do
+        setVisibility(node, false)
+    end
+    for _, node in pairs(self.texts.earTagRight) do
+        setVisibility(node, true)
+    end
 
 end
-
 
 function EarTagColourPickerDialog:update(dT)
 
@@ -358,11 +355,15 @@ function EarTagColourPickerDialog:update(dT)
         local textG = (self.textRgbGreen:getState() - 1) / 255
         local textB = (self.textRgbBlue:getState() - 1) / 255
 
-        if self.renderNode == nil then self:setupScene() end
+        if self.renderNode == nil then
+            self:setupScene()
+        end
 
         setShaderParameter(self.renderNode, "colorScale", baseR, baseG, baseB)
 
-        for _, node in pairs(self.texts[self.context]) do change3DLinkedTextColour(node, textR, textG, textB, 1) end
+        for _, node in pairs(self.texts[self.context]) do
+            change3DLinkedTextColour(node, textR, textG, textB, 1)
+        end
 
         self.colorRender:setRenderDirty()
         self.pendingRenderUpdate = false
@@ -370,7 +371,6 @@ function EarTagColourPickerDialog:update(dT)
     end
 
 end
-
 
 function EarTagColourPickerDialog:setupScene()
 
@@ -380,94 +380,91 @@ function EarTagColourPickerDialog:setupScene()
 
     local uniqueId, farmId, countryCode, name, birthday = "405070", "109824", "UK", "Little Megan", "05/11/22"
 
-	----set3DTextAutoScale(true)
-	--set3DTextRemoveSpaces(true)
-	--setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
-	--setTextAlignment(RenderText.ALIGN_CENTER)
-	--setTextColor(0, 0, 0, 1)
+    ----set3DTextAutoScale(true)
+    --set3DTextRemoveSpaces(true)
+    --setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
+    --setTextAlignment(RenderText.ALIGN_CENTER)
+    --setTextColor(0, 0, 0, 1)
 
     --self.texts.earTagLeft = {
-	--	["uniqueId"] = create3DLinkedText(node, 0, -0.006, -0.015, 0, 0, 0, 0.035, uniqueId),
-	--	["farmId"] = create3DLinkedText(node, 0, -0.041, -0.02, 0, 0, 0, 0.05, farmId),
-	--	["country"] = create3DLinkedText(node, 0, 0.021, -0.015, 0, 0, 0, 0.03, countryCode)
-	--}
+    --	["uniqueId"] = create3DLinkedText(node, 0, -0.006, -0.015, 0, 0, 0, 0.035, uniqueId),
+    --	["farmId"] = create3DLinkedText(node, 0, -0.041, -0.02, 0, 0, 0, 0.05, farmId),
+    --	["country"] = create3DLinkedText(node, 0, 0.021, -0.015, 0, 0, 0, 0.03, countryCode)
+    --}
 
     --self.texts.earTagRight = {
     --    ["birthday"] = create3DLinkedText(node, 0, 0.018, -0.015, 0, 0, 0, 0.02, birthday)
-	--}
+    --}
 
-	--set3DTextWrapWidth(0.14)
-	--set3DTextWordsPerLine(1)
-	--setTextLineHeightScale(0.75)
-	
-	--self.texts.earTagRight.name = create3DLinkedText(node, 0, -0.01, -0.015, 0, 0, 0, 0.035, name)
+    --set3DTextWrapWidth(0.14)
+    --set3DTextWordsPerLine(1)
+    --setTextLineHeightScale(0.75)
 
-	--setTextLineHeightScale(1.1)
-	--set3DTextWordsPerLine(0)
-	--set3DTextAutoScale(false)
-	--set3DTextRemoveSpaces(false)
-	--setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_BASELINE)
-	--setTextAlignment(RenderText.ALIGN_LEFT)
-	--setTextColor(1, 1, 1, 1)
-	--set3DTextWrapWidth(0)
+    --self.texts.earTagRight.name = create3DLinkedText(node, 0, -0.01, -0.015, 0, 0, 0, 0.035, name)
+
+    --setTextLineHeightScale(1.1)
+    --set3DTextWordsPerLine(0)
+    --set3DTextAutoScale(false)
+    --set3DTextRemoveSpaces(false)
+    --setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_BASELINE)
+    --setTextAlignment(RenderText.ALIGN_LEFT)
+    --setTextColor(1, 1, 1, 1)
+    --set3DTextWrapWidth(0)
 
     --setVisibility(self.texts.earTagRight.birthday, false)
     --setVisibility(self.texts.earTagRight.name, false)
 
 end
 
-
 function EarTagColourPickerDialog:mouseEvent(pixelX, pixelY, isDown, isUp)
 
-	local pixelsX = 20 * g_pixelSizeX
-	local pixelsY = 20 * g_pixelSizeY
+    local pixelsX = 20 * g_pixelSizeX
+    local pixelsY = 20 * g_pixelSizeY
 
-	if GuiUtils.checkOverlayOverlap(pixelX, pixelY, self.customPickerBase.absPosition[1] - pixelsX, self.customPickerBase.absPosition[2] - pixelsY, self.customPickerBase.absSize[1] + pixelsX * 2, self.customPickerBase.absSize[2] + pixelsY * 2) and self.customPickerBase:getIsVisible() then
+    if GuiUtils.checkOverlayOverlap(pixelX, pixelY, self.customPickerBase.absPosition[1] - pixelsX, self.customPickerBase.absPosition[2] - pixelsY, self.customPickerBase.absSize[1] + pixelsX * 2, self.customPickerBase.absSize[2] + pixelsY * 2) and self.customPickerBase:getIsVisible() then
 
-		if isDown then
-			self.inputDown = true
-		end
+        if isDown then
+            self.inputDown = true
+        end
 
-		if self.inputDown then
+        if self.inputDown then
 
-			local positionX = math.clamp(pixelX, self.customPickerBase.absPosition[1], self.customPickerBase.absPosition[1] + self.customPickerBase.absSize[1])
-			local positionY = math.clamp(pixelY, self.customPickerBase.absPosition[2], self.customPickerBase.absPosition[2] + self.customPickerBase.absSize[2])
+            local positionX = math.clamp(pixelX, self.customPickerBase.absPosition[1], self.customPickerBase.absPosition[1] + self.customPickerBase.absSize[1])
+            local positionY = math.clamp(pixelY, self.customPickerBase.absPosition[2], self.customPickerBase.absPosition[2] + self.customPickerBase.absSize[2])
 
-			self.baseCursor:setAbsolutePosition(positionX - self.baseCursor.absSize[1] * 0.5, positionY - self.baseCursor.absSize[2] * 0.5)
-			self:setCustomColorHSVBase(self.hueSliderBase:getState() - 1)
+            self.baseCursor:setAbsolutePosition(positionX - self.baseCursor.absSize[1] * 0.5, positionY - self.baseCursor.absSize[2] * 0.5)
+            self:setCustomColorHSVBase(self.hueSliderBase:getState() - 1)
 
-		end
-	end
+        end
+    end
 
-	if GuiUtils.checkOverlayOverlap(pixelX, pixelY, self.customPickerText.absPosition[1] - pixelsX, self.customPickerText.absPosition[2] - pixelsY, self.customPickerText.absSize[1] + pixelsX * 2, self.customPickerText.absSize[2] + pixelsY * 2) and self.customPickerText:getIsVisible() then
+    if GuiUtils.checkOverlayOverlap(pixelX, pixelY, self.customPickerText.absPosition[1] - pixelsX, self.customPickerText.absPosition[2] - pixelsY, self.customPickerText.absSize[1] + pixelsX * 2, self.customPickerText.absSize[2] + pixelsY * 2) and self.customPickerText:getIsVisible() then
 
-		if isDown then
-			self.inputDown = true
-		end
+        if isDown then
+            self.inputDown = true
+        end
 
-		if self.inputDown then
+        if self.inputDown then
 
-			local positionX = math.clamp(pixelX, self.customPickerText.absPosition[1], self.customPickerText.absPosition[1] + self.customPickerText.absSize[1])
-			local positionY = math.clamp(pixelY, self.customPickerText.absPosition[2], self.customPickerText.absPosition[2] + self.customPickerText.absSize[2])
+            local positionX = math.clamp(pixelX, self.customPickerText.absPosition[1], self.customPickerText.absPosition[1] + self.customPickerText.absSize[1])
+            local positionY = math.clamp(pixelY, self.customPickerText.absPosition[2], self.customPickerText.absPosition[2] + self.customPickerText.absSize[2])
 
-			self.textCursor:setAbsolutePosition(positionX - self.textCursor.absSize[1] * 0.5, positionY - self.textCursor.absSize[2] * 0.5)
-			self:setCustomColorHSVText(self.hueSliderText:getState() - 1)
+            self.textCursor:setAbsolutePosition(positionX - self.textCursor.absSize[1] * 0.5, positionY - self.textCursor.absSize[2] * 0.5)
+            self:setCustomColorHSVText(self.hueSliderText:getState() - 1)
 
-		end
-	end
+        end
+    end
 
-	if isUp then
-		self.inputDown = false
-	end
+    if isUp then
+        self.inputDown = false
+    end
 
 end
-
 
 function EarTagColourPickerDialog:onHorizontalCursorInput(_, amount)
-	self.accumHorizontalInput = self.accumHorizontalInput + amount
+    self.accumHorizontalInput = self.accumHorizontalInput + amount
 end
 
-
 function EarTagColourPickerDialog:onVerticalCursorInput(_, amount)
-	self.accumVerticalInput = self.accumVerticalInput + amount
+    self.accumVerticalInput = self.accumVerticalInput + amount
 end

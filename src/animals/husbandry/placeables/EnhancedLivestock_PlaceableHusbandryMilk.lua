@@ -1,17 +1,15 @@
 EnhancedLivestock_PlaceableHusbandryMilk = {}
 
-
 function EnhancedLivestock_PlaceableHusbandryMilk.registerOverwrittenFunctions(placeable)
-	SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryMilk.updateInputAndOutput)
+    SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryMilk.updateInputAndOutput)
 end
 
 PlaceableHusbandryMilk.registerOverwrittenFunctions = Utils.appendedFunction(PlaceableHusbandryMilk.registerOverwrittenFunctions, EnhancedLivestock_PlaceableHusbandryMilk.registerOverwrittenFunctions)
 
-
-function EnhancedLivestock_PlaceableHusbandryMilk:onHusbandryAnimalsUpdate(_, _) end
+function EnhancedLivestock_PlaceableHusbandryMilk:onHusbandryAnimalsUpdate(_, _)
+end
 
 PlaceableHusbandryMilk.onHusbandryAnimalsUpdate = Utils.overwrittenFunction(PlaceableHusbandryMilk.onHusbandryAnimalsUpdate, EnhancedLivestock_PlaceableHusbandryMilk.onHusbandryAnimalsUpdate)
-
 
 function PlaceableHusbandryMilk:updateInputAndOutput(superFunc, animals)
 

@@ -56,11 +56,21 @@ function EL_EPPButcherIntegration.initializeDefaults()
     -- Used for calculating "animal equivalent" value
     EL_EPPButcherIntegration.MEAT_YIELD = {}
     if AnimalType ~= nil then
-        if AnimalType.COW ~= nil then EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.COW] = 0.60 end
-        if AnimalType.PIG ~= nil then EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.PIG] = 0.72 end
-        if AnimalType.SHEEP ~= nil then EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.SHEEP] = 0.50 end
-        if AnimalType.CHICKEN ~= nil then EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.CHICKEN] = 0.65 end
-        if AnimalType.HORSE ~= nil then EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.HORSE] = 0.55 end
+        if AnimalType.COW ~= nil then
+            EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.COW] = 0.60
+        end
+        if AnimalType.PIG ~= nil then
+            EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.PIG] = 0.72
+        end
+        if AnimalType.SHEEP ~= nil then
+            EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.SHEEP] = 0.50
+        end
+        if AnimalType.CHICKEN ~= nil then
+            EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.CHICKEN] = 0.65
+        end
+        if AnimalType.HORSE ~= nil then
+            EL_EPPButcherIntegration.MEAT_YIELD[AnimalType.HORSE] = 0.55
+        end
     end
 
     -- Default animal type to INTERMEDIATE fill type mapping (used by EPP butchers)
@@ -68,11 +78,21 @@ function EL_EPPButcherIntegration.initializeDefaults()
     -- E.g., BEEF is stored as input, then production converts BEEF -> MEAT
     EL_EPPButcherIntegration.FILL_TYPE_MAPPING = {}
     if AnimalType ~= nil then
-        if AnimalType.COW ~= nil then EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.COW] = "BEEF" end
-        if AnimalType.PIG ~= nil then EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.PIG] = "PIGS" end
-        if AnimalType.SHEEP ~= nil then EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.SHEEP] = "SHEEPGOAT" end
-        if AnimalType.CHICKEN ~= nil then EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.CHICKEN] = "POULTRY" end
-        if AnimalType.HORSE ~= nil then EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.HORSE] = "HORSEMEAT" end
+        if AnimalType.COW ~= nil then
+            EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.COW] = "BEEF"
+        end
+        if AnimalType.PIG ~= nil then
+            EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.PIG] = "PIGS"
+        end
+        if AnimalType.SHEEP ~= nil then
+            EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.SHEEP] = "SHEEPGOAT"
+        end
+        if AnimalType.CHICKEN ~= nil then
+            EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.CHICKEN] = "POULTRY"
+        end
+        if AnimalType.HORSE ~= nil then
+            EL_EPPButcherIntegration.FILL_TYPE_MAPPING[AnimalType.HORSE] = "HORSEMEAT"
+        end
     end
 
     -- Reference weights for "standard" animals (in kg)
@@ -80,11 +100,21 @@ function EL_EPPButcherIntegration.initializeDefaults()
     -- Used to calculate "animal equivalent" value relative to standard
     EL_EPPButcherIntegration.REFERENCE_WEIGHT = {}
     if AnimalType ~= nil then
-        if AnimalType.COW ~= nil then EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.COW] = 500 end      -- 500 kg standard cow
-        if AnimalType.PIG ~= nil then EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.PIG] = 110 end      -- 110 kg standard pig
-        if AnimalType.SHEEP ~= nil then EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.SHEEP] = 45 end   -- 45 kg standard sheep
-        if AnimalType.CHICKEN ~= nil then EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.CHICKEN] = 2.5 end -- 2.5 kg standard chicken
-        if AnimalType.HORSE ~= nil then EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.HORSE] = 500 end  -- 500 kg standard horse
+        if AnimalType.COW ~= nil then
+            EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.COW] = 500
+        end      -- 500 kg standard cow
+        if AnimalType.PIG ~= nil then
+            EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.PIG] = 110
+        end      -- 110 kg standard pig
+        if AnimalType.SHEEP ~= nil then
+            EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.SHEEP] = 45
+        end   -- 45 kg standard sheep
+        if AnimalType.CHICKEN ~= nil then
+            EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.CHICKEN] = 2.5
+        end -- 2.5 kg standard chicken
+        if AnimalType.HORSE ~= nil then
+            EL_EPPButcherIntegration.REFERENCE_WEIGHT[AnimalType.HORSE] = 500
+        end  -- 500 kg standard horse
     end
 
     Logging.info("[EL-EPP] Initialized default mappings (yields, fill types, reference weights)")
@@ -105,16 +135,16 @@ function EL_EPPButcherIntegration.initialize()
     if not EL_EPPButcherIntegration.globalPlaceableHooked then
         if Placeable.finalizePlacement ~= nil then
             Placeable.finalizePlacement = Utils.appendedFunction(
-                Placeable.finalizePlacement,
-                EL_EPPButcherIntegration.onPlaceableFinalized
+                    Placeable.finalizePlacement,
+                    EL_EPPButcherIntegration.onPlaceableFinalized
             )
             EL_EPPButcherIntegration.globalPlaceableHooked = true
             Logging.info("[EL-EPP] Hooked Placeable.finalizePlacement for EPP detection")
         else
             -- Fallback: try onFinalizePlacement (may not work for all placeables)
             Placeable.onFinalizePlacement = Utils.appendedFunction(
-                Placeable.onFinalizePlacement,
-                EL_EPPButcherIntegration.onPlaceableFinalized
+                    Placeable.onFinalizePlacement,
+                    EL_EPPButcherIntegration.onPlaceableFinalized
             )
             EL_EPPButcherIntegration.globalPlaceableHooked = true
             Logging.info("[EL-EPP] Hooked Placeable.onFinalizePlacement for EPP detection (fallback)")
@@ -284,11 +314,11 @@ function EL_EPPButcherIntegration.tryInitialize()
 
             -- Check for common EPP mod naming patterns
             local isEPPMod = modNameLower:find("butcher") ~= nil
-                          or modNameLower:find("slaughter") ~= nil
-                          or modNameLower:find("extendedproduction") ~= nil
-                          or modNameLower:find("meat") ~= nil
-                          or modNameLower:find("meatprocessing") ~= nil
-                          or modNameLower:find("abattoir") ~= nil
+                    or modNameLower:find("slaughter") ~= nil
+                    or modNameLower:find("extendedproduction") ~= nil
+                    or modNameLower:find("meat") ~= nil
+                    or modNameLower:find("meatprocessing") ~= nil
+                    or modNameLower:find("abattoir") ~= nil
 
             if isEPPMod then
                 table.insert(eppModsFound, modName)
@@ -459,7 +489,7 @@ function EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
 
     -- Method 1: Check for the convenience reference (added by EPP at line 164 of PlaceableExtendedProductionPoint.lua)
     if placeable.spec_extendedProductionPoint ~= nil then
-        table.insert(foundEPPSpecs, {name = "spec_extendedProductionPoint", spec = placeable.spec_extendedProductionPoint})
+        table.insert(foundEPPSpecs, { name = "spec_extendedProductionPoint", spec = placeable.spec_extendedProductionPoint })
     end
 
     -- Method 2: Search for dynamic spec names like "spec_FS25_Butcher.extendedProductionPoint"
@@ -476,7 +506,7 @@ function EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
                     end
                 end
                 if not isDuplicate then
-                    table.insert(foundEPPSpecs, {name = key, spec = value})
+                    table.insert(foundEPPSpecs, { name = key, spec = value })
                 end
             end
         end
@@ -700,9 +730,9 @@ function EL_EPPButcherIntegration.isELAnimal(cluster)
 
     -- EL animals have these unique properties
     return cluster.weight ~= nil
-       and cluster.genetics ~= nil
-       and cluster.uniqueId ~= nil
-       and cluster.isIndividual == true
+            and cluster.genetics ~= nil
+            and cluster.uniqueId ~= nil
+            and cluster.isIndividual == true
 end
 
 
@@ -744,7 +774,7 @@ function EL_EPPButcherIntegration.processELAnimal(productionPoint, animal, sourc
     end
 
     Logging.info("[EL-EPP] Processing EL animal at butcher: weight=%.1f, quality=%.2f",
-        animal.weight or 0, animal.genetics and animal.genetics.quality or 1.0)
+            animal.weight or 0, animal.genetics and animal.genetics.quality or 1.0)
 
     if g_server ~= nil then
         -- Server or singleplayer - process directly
@@ -763,10 +793,10 @@ function EL_EPPButcherIntegration.processELAnimal(productionPoint, animal, sourc
         end
 
         local result = EL_EPPButcherIntegration.processAnimalOnServer(
-            productionPoint,
-            animal,
-            animalData,
-            clusterSystem
+                productionPoint,
+                animal,
+                animalData,
+                clusterSystem
         )
 
         if result ~= nil and result.success then
@@ -775,24 +805,24 @@ function EL_EPPButcherIntegration.processELAnimal(productionPoint, animal, sourc
                 local fillTypeTitle = g_fillTypeManager:getFillTypeTitleByIndex(result.fillTypeIndex) or result.fillTypeName
                 local animalTypeName = EL_EPPButcherIntegration.getAnimalTypeName(animal.animalTypeIndex)
                 local message = string.format(
-                    g_i18n:getText("el_epp_butcher_delivered") or "%s delivered to butcher (%.2fx %s)",
-                    animalTypeName,
-                    result.animalEquivalent,
-                    fillTypeTitle
+                        g_i18n:getText("el_epp_butcher_delivered") or "%s delivered to butcher (%.2fx %s)",
+                        animalTypeName,
+                        result.animalEquivalent,
+                        fillTypeTitle
                 )
                 g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_INFO, message)
             else
                 -- Dedicated server - broadcast to clients
                 g_server:broadcastEvent(EPPButcherResultEvent.new(
-                    {
-                        uniqueId = animal.uniqueId,
-                        farmId = animal.farmId,
-                        country = animal.birthday and animal.birthday.country or 1,
-                        animalTypeIndex = animal.animalTypeIndex
-                    },
-                    result.animalEquivalent,
-                    result.fillTypeIndex,
-                    result.fillTypeName
+                        {
+                            uniqueId = animal.uniqueId,
+                            farmId = animal.farmId,
+                            country = animal.birthday and animal.birthday.country or 1,
+                            animalTypeIndex = animal.animalTypeIndex
+                        },
+                        result.animalEquivalent,
+                        result.fillTypeIndex,
+                        result.fillTypeName
                 ))
             end
         end
@@ -801,7 +831,7 @@ function EL_EPPButcherIntegration.processELAnimal(productionPoint, animal, sourc
     else
         -- Client - send event to server
         g_client:getServerConnection():sendEvent(
-            EPPButcherProcessEvent.new(productionPoint, sourceObject, animal)
+                EPPButcherProcessEvent.new(productionPoint, sourceObject, animal)
         )
         return true
     end
@@ -835,7 +865,7 @@ function EL_EPPButcherIntegration.processAnimalOnServer(productionPoint, animal,
     end
 
     Logging.info("[EL-EPP] Storing animal equivalent: %.3f of %s (fillTypeIndex=%d)",
-        animalEquivalent, fillTypeName, fillTypeIndex)
+            animalEquivalent, fillTypeName, fillTypeIndex)
 
     -- Add animal equivalent to production point storage
     -- The EPP production chain will then convert this to meat based on its production ratios
@@ -856,8 +886,8 @@ function EL_EPPButcherIntegration.processAnimalOnServer(productionPoint, animal,
         if animals ~= nil then
             for i, a in pairs(animals) do
                 if a.farmId == animal.farmId and
-                   a.uniqueId == animal.uniqueId and
-                   a.birthday and a.birthday.country == (animal.birthday and animal.birthday.country) then
+                        a.uniqueId == animal.uniqueId and
+                        a.birthday and a.birthday.country == (animal.birthday and animal.birthday.country) then
                     table.remove(animals, i)
                     break
                 end
@@ -910,7 +940,7 @@ function EL_EPPButcherIntegration.calculateAnimalEquivalent(animal, animalData)
     local animalEquivalent = weightFactor * qualityFactor * healthFactor
 
     Logging.info("[EL-EPP] Animal equivalent calculation: weight=%.1f (ref=%.1f, factor=%.2f), quality=%.2f (factor=%.2f), health=%.0f (factor=%.2f) => %.3f equivalents",
-        weight, referenceWeight, weightFactor, quality, qualityFactor, health, healthFactor, animalEquivalent)
+            weight, referenceWeight, weightFactor, quality, qualityFactor, health, healthFactor, animalEquivalent)
 
     return animalEquivalent
 end
@@ -935,7 +965,7 @@ function EL_EPPButcherIntegration.getIntermediateFillType(productionPoint, anima
         if fillType ~= nil then
             local fillTypeName = g_fillTypeManager:getFillTypeNameByIndex(fillType)
             Logging.info("[EL-EPP] Using EPP animalSubTypeToFillType mapping: subType=%d -> %s",
-                subTypeIndex, fillTypeName or "?")
+                    subTypeIndex, fillTypeName or "?")
             return fillType, fillTypeName or "UNKNOWN"
         end
     end
@@ -946,7 +976,7 @@ function EL_EPPButcherIntegration.getIntermediateFillType(productionPoint, anima
         if fillType ~= nil then
             local fillTypeName = g_fillTypeManager:getFillTypeNameByIndex(fillType)
             Logging.info("[EL-EPP] Using EPP animalTypeToFillType mapping: type=%d -> %s",
-                animalType, fillTypeName or "?")
+                    animalType, fillTypeName or "?")
             return fillType, fillTypeName or "UNKNOWN"
         end
     end
@@ -964,21 +994,21 @@ function EL_EPPButcherIntegration.getIntermediateFillType(productionPoint, anima
             if productionPoint.storage ~= nil and productionPoint.storage.getIsFillTypeSupported ~= nil then
                 if productionPoint.storage:getIsFillTypeSupported(fillTypeIndex) then
                     Logging.info("[EL-EPP] Using EL configured intermediate fill type: %s -> %s",
-                        EL_EPPButcherIntegration.getAnimalTypeName(animalType), fillTypeName)
+                            EL_EPPButcherIntegration.getAnimalTypeName(animalType), fillTypeName)
                     return fillTypeIndex, fillTypeName
                 else
                     Logging.info("[EL-EPP] Configured fill type %s not supported by storage", fillTypeName)
                 end
             else
                 Logging.info("[EL-EPP] Using EL configured intermediate fill type: %s -> %s (no storage check)",
-                    EL_EPPButcherIntegration.getAnimalTypeName(animalType), fillTypeName)
+                        EL_EPPButcherIntegration.getAnimalTypeName(animalType), fillTypeName)
                 return fillTypeIndex, fillTypeName
             end
         end
     end
 
     -- Method 4: Last resort - try common intermediate fill type names
-    local fallbackNames = {"BEEF", "PIGS", "SHEEPGOAT", "POULTRY", "HORSEMEAT"}
+    local fallbackNames = { "BEEF", "PIGS", "SHEEPGOAT", "POULTRY", "HORSEMEAT" }
     for _, name in ipairs(fallbackNames) do
         local fillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(name)
         if fillTypeIndex ~= nil then
@@ -1013,9 +1043,9 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
     -- Log diagnostic info about available storage methods
     Logging.info("[EL-EPP] addToStorage: fillType=%s (idx=%d), amount=%.2f", fillTypeName, fillTypeIndex, amount)
     Logging.info("[EL-EPP] Storage diagnostics: storage=%s, unloadingStation=%s, fillLevels=%s",
-        tostring(productionPoint.storage ~= nil),
-        tostring(productionPoint.unloadingStation ~= nil),
-        tostring(productionPoint.fillLevels ~= nil))
+            tostring(productionPoint.storage ~= nil),
+            tostring(productionPoint.unloadingStation ~= nil),
+            tostring(productionPoint.fillLevels ~= nil))
 
     -- Method 1: Direct storage access (recommended by third-party overrides script)
     -- This is the most reliable method for EPP production points
@@ -1048,7 +1078,7 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
             local amountToAdd = math.min(amount, freeCapacity)
 
             Logging.info("[EL-EPP] Storage state: oldLevel=%.2f, capacity=%.2f, freeCapacity=%.2f, amountToAdd=%.2f",
-                oldFillLevel, capacity, freeCapacity, amountToAdd)
+                    oldFillLevel, capacity, freeCapacity, amountToAdd)
 
             if amountToAdd > 0 then
                 -- Try setFillLevel with 2 arguments first (as used by overrides script)
@@ -1072,7 +1102,7 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
                             newFillLevel = storage.fillLevels[fillTypeIndex] or 0
                         end
                         Logging.info("[EL-EPP] Successfully added %.2f to storage via setFillLevel (old=%.2f, new=%.2f)",
-                            amountToAdd, oldFillLevel, newFillLevel)
+                                amountToAdd, oldFillLevel, newFillLevel)
                         return true
                     else
                         Logging.warning("[EL-EPP] setFillLevel failed: %s", tostring(err))
@@ -1099,7 +1129,9 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 
         if targetStorages ~= nil then
             local storageCount = 0
-            for _ in pairs(targetStorages) do storageCount = storageCount + 1 end
+            for _ in pairs(targetStorages) do
+                storageCount = storageCount + 1
+            end
             Logging.info("[EL-EPP] Trying unloadingStation.targetStorages (%d storages)", storageCount)
 
             local addedAmount = 0
@@ -1129,7 +1161,7 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
                         end
 
                         Logging.info("[EL-EPP] targetStorage[%s]: supports=%s, freeCapacity=%.2f",
-                            tostring(idx), tostring(isSupported), freeCapacity)
+                                tostring(idx), tostring(isSupported), freeCapacity)
 
                         if freeCapacity > 0 then
                             local amountToAdd = math.min(amount - addedAmount, freeCapacity)
@@ -1149,7 +1181,7 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
                                     local newFillLevel = targetStorage:getFillLevel(fillTypeIndex) or 0
                                     addedAmount = addedAmount + (newFillLevel - oldFillLevel)
                                     Logging.info("[EL-EPP] Added %.2f to targetStorage[%s] (old=%.2f, new=%.2f)",
-                                        amountToAdd, tostring(idx), oldFillLevel, newFillLevel)
+                                            amountToAdd, tostring(idx), oldFillLevel, newFillLevel)
                                 end
                             end
 
@@ -1163,7 +1195,7 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 
             if addedAmount > 0 then
                 Logging.info("[EL-EPP] Successfully added %.2f of %s via unloadingStation.targetStorages",
-                    addedAmount, fillTypeName)
+                        addedAmount, fillTypeName)
                 return true
             end
         else
@@ -1193,10 +1225,10 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 
     Logging.warning("[EL-EPP] Could not find valid storage method for production point")
     Logging.warning("[EL-EPP] Available properties: storage=%s, unloadingStation=%s, fillLevels=%s, setFillLevel=%s",
-        tostring(productionPoint.storage ~= nil),
-        tostring(productionPoint.unloadingStation ~= nil),
-        tostring(productionPoint.fillLevels ~= nil),
-        tostring(productionPoint.setFillLevel ~= nil))
+            tostring(productionPoint.storage ~= nil),
+            tostring(productionPoint.unloadingStation ~= nil),
+            tostring(productionPoint.fillLevels ~= nil),
+            tostring(productionPoint.setFillLevel ~= nil))
     return false
 end
 
@@ -1212,11 +1244,21 @@ function EL_EPPButcherIntegration.getAnimalTypeName(animalTypeIndex)
     end
 
     local typeNames = {}
-    if AnimalType.COW ~= nil then typeNames[AnimalType.COW] = "Cattle" end
-    if AnimalType.PIG ~= nil then typeNames[AnimalType.PIG] = "Pig" end
-    if AnimalType.SHEEP ~= nil then typeNames[AnimalType.SHEEP] = "Sheep" end
-    if AnimalType.CHICKEN ~= nil then typeNames[AnimalType.CHICKEN] = "Chicken" end
-    if AnimalType.HORSE ~= nil then typeNames[AnimalType.HORSE] = "Horse" end
+    if AnimalType.COW ~= nil then
+        typeNames[AnimalType.COW] = "Cattle"
+    end
+    if AnimalType.PIG ~= nil then
+        typeNames[AnimalType.PIG] = "Pig"
+    end
+    if AnimalType.SHEEP ~= nil then
+        typeNames[AnimalType.SHEEP] = "Sheep"
+    end
+    if AnimalType.CHICKEN ~= nil then
+        typeNames[AnimalType.CHICKEN] = "Chicken"
+    end
+    if AnimalType.HORSE ~= nil then
+        typeNames[AnimalType.HORSE] = "Horse"
+    end
 
     return typeNames[animalTypeIndex] or "Animal"
 end

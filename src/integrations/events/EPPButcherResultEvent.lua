@@ -9,12 +9,10 @@ EPPButcherResultEvent = {}
 local EPPButcherResultEvent_mt = Class(EPPButcherResultEvent, Event)
 InitEventClass(EPPButcherResultEvent, "EPPButcherResultEvent")
 
-
 function EPPButcherResultEvent.emptyNew()
     local self = Event.new(EPPButcherResultEvent_mt)
     return self
 end
-
 
 function EPPButcherResultEvent.new(animalIdentifiers, meatYield, fillTypeIndex, fillTypeName)
     local self = EPPButcherResultEvent.emptyNew()
@@ -26,7 +24,6 @@ function EPPButcherResultEvent.new(animalIdentifiers, meatYield, fillTypeIndex, 
 
     return self
 end
-
 
 function EPPButcherResultEvent:readStream(streamId, connection)
     -- Read animal identifiers
@@ -45,7 +42,6 @@ function EPPButcherResultEvent:readStream(streamId, connection)
     self:run(connection)
 end
 
-
 function EPPButcherResultEvent:writeStream(streamId, connection)
     -- Write animal identifiers
     streamWriteString(streamId, self.animalIdentifiers.uniqueId or "")
@@ -59,7 +55,6 @@ function EPPButcherResultEvent:writeStream(streamId, connection)
     streamWriteString(streamId, self.fillTypeName or "UNKNOWN")
 end
 
-
 function EPPButcherResultEvent:run(connection)
     -- Display notification to the player
     local animalTypeName = EL_EPPButcherIntegration.getAnimalTypeName(self.animalIdentifiers.animalTypeIndex)
@@ -67,9 +62,9 @@ function EPPButcherResultEvent:run(connection)
     local fillTypeTitle = g_fillTypeManager:getFillTypeTitleByIndex(self.fillTypeIndex) or self.fillTypeName
 
     local message = string.format(
-        g_i18n:getText("el_epp_butcher_processed") or "Animal processed at butcher: %s kg of %s",
-        yieldText,
-        fillTypeTitle
+            g_i18n:getText("el_epp_butcher_processed") or "Animal processed at butcher: %s kg of %s",
+            yieldText,
+            fillTypeTitle
     )
 
     g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_INFO, message)

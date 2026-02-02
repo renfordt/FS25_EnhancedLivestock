@@ -7,51 +7,50 @@ end
 
 AnimalItemStock.getClusterId = Utils.overwrittenFunction(AnimalItemStock.getClusterId, EnhancedLivestock_AnimalItemStock.getClusterId)
 
-
 function EnhancedLivestock_AnimalItemStock.new(animal)
 
     local self = setmetatable({}, mt)
 
     self.cluster = animal
-	self.visual = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal:getAge())
-	local subType = g_currentMission.animalSystem:getSubTypeByIndex(animal.subTypeIndex)
-	self.title = g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex)
+    self.visual = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal:getAge())
+    local subType = g_currentMission.animalSystem:getSubTypeByIndex(animal.subTypeIndex)
+    self.title = g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex)
 
-	local hasMonitor = animal.monitor.active or animal.monitor.removed
-	
-	self.infos = {
-		{
-			title = g_i18n:getText("ui_age"),
-			value = g_i18n:formatNumMonth(animal:getAge())
-		}
-	}
+    local hasMonitor = animal.monitor.active or animal.monitor.removed
 
-	if hasMonitor then
+    self.infos = {
+        {
+            title = g_i18n:getText("ui_age"),
+            value = g_i18n:formatNumMonth(animal:getAge())
+        }
+    }
 
-		table.insert(self.infos, {
-			title = g_i18n:getText("ui_horseHealth"),
-			value = string.format("%.f%%", animal:getHealthFactor() * 100)
-		})
+    if hasMonitor then
 
-	end
-	
-	if subType.supportsReproduction and animal.reproduction > 0 and animal:getAge() >= subType.reproductionMinAgeMonth then
-		local newInfo = {
-			title = g_i18n:getText("infohud_reproductionStatus"),
-			value = string.format("%.f%%", animal:getReproductionFactor() * 100)
-		}
-		table.insert(self.infos, newInfo)
-	end
+        table.insert(self.infos, {
+            title = g_i18n:getText("ui_horseHealth"),
+            value = string.format("%.f%%", animal:getHealthFactor() * 100)
+        })
 
-	if animal.isIndividual then
+    end
 
-		local yes = g_i18n:getText("el_ui_yes")
-		local no = g_i18n:getText("el_ui_no")
+    if subType.supportsReproduction and animal.reproduction > 0 and animal:getAge() >= subType.reproductionMinAgeMonth then
+        local newInfo = {
+            title = g_i18n:getText("infohud_reproductionStatus"),
+            value = string.format("%.f%%", animal:getReproductionFactor() * 100)
+        }
+        table.insert(self.infos, newInfo)
+    end
 
-		if subType.supportsReproduction and animal.reproduction <= 0 then
+    if animal.isIndividual then
 
-			local valueText = nil
-			local healthFactor = animal:getHealthFactor()
+        local yes = g_i18n:getText("el_ui_yes")
+        local no = g_i18n:getText("el_ui_no")
+
+        if subType.supportsReproduction and animal.reproduction <= 0 then
+
+            local valueText = nil
+            local healthFactor = animal:getHealthFactor()
 
             if animal.age < subType.reproductionMinAgeMonth then
                 valueText = g_i18n:getText("el_ui_tooYoung")
@@ -64,75 +63,75 @@ function EnhancedLivestock_AnimalItemStock.new(animal)
             end
 
             if valueText ~= nil then
-				table.insert(self.infos, {
-					title = g_i18n:getText("el_ui_canReproduce"),
-					value = valueText
-				})
-			end
+                table.insert(self.infos, {
+                    title = g_i18n:getText("el_ui_canReproduce"),
+                    value = valueText
+                })
+            end
 
-		end
+        end
 
-
-		local pregnancy = animal.pregnancy
+        local pregnancy = animal.pregnancy
 
         if pregnancy ~= nil and pregnancy.pregnancies and #pregnancy.pregnancies > 0 then
 
             table.insert(self.infos, { ["title"] = g_i18n:getText("el_ui_pregnancyExpecting"), ["value"] = string.format("%s %s", #pregnancy.pregnancies, g_i18n:getText("el_ui_pregnancy" .. (#pregnancy.pregnancies == 1 and "Baby" or "Babies"))) })
-            table.insert(self.infos, { ["title"] = g_i18n:getText("el_ui_pregnancyExpected"), ["value"] = string.format("%s/%s/%s", pregnancy.expected.day, pregnancy.expected.month, pregnancy.expected.year + EnhancedLivestock.START_YEAR.FULL) })         
+            table.insert(self.infos, { ["title"] = g_i18n:getText("el_ui_pregnancyExpected"), ["value"] = string.format("%s/%s/%s", pregnancy.expected.day, pregnancy.expected.month, pregnancy.expected.year + EnhancedLivestock.START_YEAR.FULL) })
 
-		end
+        end
 
-		if hasMonitor then
+        if hasMonitor then
 
-			table.insert(self.infos, {
-				title = g_i18n:getText("el_ui_weight"),
-				value = string.format("%.2f", animal.weight or 50) .. "kg"
-			})
-		
-			table.insert(self.infos, {
-				title = g_i18n:getText("el_ui_targetWeight"),
-				value = string.format("%.2f", animal.targetWeight or 50) .. "kg"
-			})
-		
-			if animal.animalTypeIndex == AnimalType.COW and animal.gender == "female" and animal:getAge() >= subType.reproductionMinAgeMonth then
-		
-				table.insert(self.infos, {
-					title = g_i18n:getText("el_ui_lactating"),
-					value = animal.isLactating and yes or no
-				})
+            table.insert(self.infos, {
+                title = g_i18n:getText("el_ui_weight"),
+                value = string.format("%.2f", animal.weight or 50) .. "kg"
+            })
 
-			end
+            table.insert(self.infos, {
+                title = g_i18n:getText("el_ui_targetWeight"),
+                value = string.format("%.2f", animal.targetWeight or 50) .. "kg"
+            })
 
-		end
+            if animal.animalTypeIndex == AnimalType.COW and animal.gender == "female" and animal:getAge() >= subType.reproductionMinAgeMonth then
 
-		if animal.gender == "male" and animal:getAge() >= subType.reproductionMinAgeMonth then
-			
-			table.insert(self.infos, {
-				title = g_i18n:getText("el_ui_maleNumImpregnatable"),
-				value = animal:getNumberOfImpregnatableFemalesForMale() or 0
-			})
+                table.insert(self.infos, {
+                    title = g_i18n:getText("el_ui_lactating"),
+                    value = animal.isLactating and yes or no
+                })
 
-		end
+            end
 
-	end
+        end
 
-	if animal.animalTypeIndex == AnimalType.HORSE then
+        if animal.gender == "male" and animal:getAge() >= subType.reproductionMinAgeMonth then
 
-		table.insert(self.infos, { ["title"] = g_i18n:getText("ui_horseFitness"), ["value"] = string.format("%.f%%", animal:getFitnessFactor() * 100) })
-		table.insert(self.infos, { ["title"] = g_i18n:getText("ui_horseDailyRiding"), ["value"] = string.format("%.f%%", animal:getRidingFactor() * 100) })
-	
-		if Platform.gameplay.needHorseCleaning then table.insert(self.infos, { ["title"] = g_i18n:getText("statistic_cleanliness"), ["value"] = string.format("%.f%%", (1 - animal:getDirtFactor()) * 100) }) end
+            table.insert(self.infos, {
+                title = g_i18n:getText("el_ui_maleNumImpregnatable"),
+                value = animal:getNumberOfImpregnatableFemalesForMale() or 0
+            })
 
-	end
-	
-	return self
+        end
+
+    end
+
+    if animal.animalTypeIndex == AnimalType.HORSE then
+
+        table.insert(self.infos, { ["title"] = g_i18n:getText("ui_horseFitness"), ["value"] = string.format("%.f%%", animal:getFitnessFactor() * 100) })
+        table.insert(self.infos, { ["title"] = g_i18n:getText("ui_horseDailyRiding"), ["value"] = string.format("%.f%%", animal:getRidingFactor() * 100) })
+
+        if Platform.gameplay.needHorseCleaning then
+            table.insert(self.infos, { ["title"] = g_i18n:getText("statistic_cleanliness"), ["value"] = string.format("%.f%%", (1 - animal:getDirtFactor()) * 100) })
+        end
+
+    end
+
+    return self
 end
 
 AnimalItemStock.new = EnhancedLivestock_AnimalItemStock.new
 
-
 function AnimalItemStock:getHasAnyDisease()
 
-	return self.cluster:getHasAnyDisease()
+    return self.cluster:getHasAnyDisease()
 
 end

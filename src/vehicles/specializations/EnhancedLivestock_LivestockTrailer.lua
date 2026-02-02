@@ -12,14 +12,13 @@ end
 
 LivestockTrailer.addAnimals = Utils.overwrittenFunction(LivestockTrailer.addAnimals, EnhancedLivestock_LivestockTrailer.addAnimals)
 
-
 function EnhancedLivestock_LivestockTrailer:addCluster(superFunc, cluster)
 
     local clusterSystem = self.spec_livestockTrailer.clusterSystem
 
     if cluster.numAnimals > 1 or cluster.isIndividual == nil then
 
-        for i=1, cluster.numAnimals do
+        for i = 1, cluster.numAnimals do
             local subType = g_currentMission.animalSystem:getSubTypeByIndex(cluster.subTypeIndex)
             local animal = Animal.new(cluster.age, cluster.health, nil, subType.gender, cluster.subTypeIndex, cluster.reproduction, false, false, false, clusterSystem)
             clusterSystem:addCluster(animal)
@@ -35,16 +34,15 @@ end
 
 LivestockTrailer.addCluster = Utils.overwrittenFunction(LivestockTrailer.addCluster, EnhancedLivestock_LivestockTrailer.addCluster)
 
-
 function EnhancedLivestock_LivestockTrailer:onLoadFinished(success)
-    if success == nil then return end
+    if success == nil then
+        return
+    end
 
     self.spec_livestockTrailer:updateAnimals()
 end
 
 LivestockTrailer.onLoadFinished = Utils.appendedFunction(LivestockTrailer.onLoadFinished, EnhancedLivestock_LivestockTrailer.onLoadFinished)
-
-
 
 function EnhancedLivestock_LivestockTrailer:dayChanged(superFunc)
 
@@ -52,13 +50,15 @@ function EnhancedLivestock_LivestockTrailer:dayChanged(superFunc)
 
     if self.isServer then
 
-        local minTemp =  math.floor(g_currentMission.environment.weather.temperatureUpdater.currentMin)
+        local minTemp = math.floor(g_currentMission.environment.weather.temperatureUpdater.currentMin)
 
         local environment = g_currentMission.environment
         local month = environment.currentPeriod + 2
         local currentDayInPeriod = environment.currentDayInPeriod
 
-        if month > 12 then month = month - 12 end
+        if month > 12 then
+            month = month - 12
+        end
 
         local daysPerPeriod = environment.daysPerPeriod
         local day = 1 + math.floor((currentDayInPeriod - 1) * (EnhancedLivestock.DAYS_PER_MONTH[month] / daysPerPeriod))
@@ -97,11 +97,21 @@ function EnhancedLivestock_LivestockTrailer:dayChanged(superFunc)
         if totalChildren > 0 then
             local msgText = ""
 
-            if animalType == 1 then msgText = totalChildren == 1 and g_i18n:getText("el_ui_cow_singleBirth") or string.format(g_i18n:getText("el_ui_cow_multipleBirths"), totalChildren) end
-            if animalType == 2 then msgText = totalChildren == 1 and g_i18n:getText("el_ui_pig_singleBirth") or string.format(g_i18n:getText("el_ui_pig_multipleBirths"), totalChildren) end
-            if animalType == 3 then msgText = totalChildren == 1 and g_i18n:getText("el_ui_sheep_singleBirth") or string.format(g_i18n:getText("el_ui_sheep_multipleBirths"), totalChildren) end
-            if animalType == 4 then msgText = totalChildren == 1 and g_i18n:getText("el_ui_chicken_singleBirth") or string.format(g_i18n:getText("el_ui_chicken_multipleBirths"), totalChildren) end
-            if animalType == 5 then msgText = totalChildren == 1 and g_i18n:getText("el_ui_horse_singleBirth") or string.format(g_i18n:getText("el_ui_horse_multipleBirths"), totalChildren) end
+            if animalType == 1 then
+                msgText = totalChildren == 1 and g_i18n:getText("el_ui_cow_singleBirth") or string.format(g_i18n:getText("el_ui_cow_multipleBirths"), totalChildren)
+            end
+            if animalType == 2 then
+                msgText = totalChildren == 1 and g_i18n:getText("el_ui_pig_singleBirth") or string.format(g_i18n:getText("el_ui_pig_multipleBirths"), totalChildren)
+            end
+            if animalType == 3 then
+                msgText = totalChildren == 1 and g_i18n:getText("el_ui_sheep_singleBirth") or string.format(g_i18n:getText("el_ui_sheep_multipleBirths"), totalChildren)
+            end
+            if animalType == 4 then
+                msgText = totalChildren == 1 and g_i18n:getText("el_ui_chicken_singleBirth") or string.format(g_i18n:getText("el_ui_chicken_multipleBirths"), totalChildren)
+            end
+            if animalType == 5 then
+                msgText = totalChildren == 1 and g_i18n:getText("el_ui_horse_singleBirth") or string.format(g_i18n:getText("el_ui_horse_multipleBirths"), totalChildren)
+            end
 
             g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
         end
@@ -110,10 +120,18 @@ function EnhancedLivestock_LivestockTrailer:dayChanged(superFunc)
 
             local msgText = ""
 
-            if animalType == 1 then msgText = deadParents == 1 and g_i18n:getText("el_ui_cow_singleDeath_birth") or string.format(g_i18n:getText("el_ui_cow_multipleDeaths_birth"), deadParents) end
-            if animalType == 2 then msgText = deadParents == 1 and g_i18n:getText("el_ui_pig_singleDeath_birth") or string.format(g_i18n:getText("el_ui_pig_multipleDeaths_birth"), deadParents) end
-            if animalType == 3 then msgText = deadParents == 1 and g_i18n:getText("el_ui_sheep_singleDead_birth") or string.format(g_i18n:getText("el_ui_sheep_multipleDeaths_birth"), deadParents) end
-            if animalType == 5 then msgText = deadParents == 1 and g_i18n:getText("el_ui_horse_singleDeath_birth") or string.format(g_i18n:getText("el_ui_horse_multipleDeaths_birth"), deadParents) end
+            if animalType == 1 then
+                msgText = deadParents == 1 and g_i18n:getText("el_ui_cow_singleDeath_birth") or string.format(g_i18n:getText("el_ui_cow_multipleDeaths_birth"), deadParents)
+            end
+            if animalType == 2 then
+                msgText = deadParents == 1 and g_i18n:getText("el_ui_pig_singleDeath_birth") or string.format(g_i18n:getText("el_ui_pig_multipleDeaths_birth"), deadParents)
+            end
+            if animalType == 3 then
+                msgText = deadParents == 1 and g_i18n:getText("el_ui_sheep_singleDead_birth") or string.format(g_i18n:getText("el_ui_sheep_multipleDeaths_birth"), deadParents)
+            end
+            if animalType == 5 then
+                msgText = deadParents == 1 and g_i18n:getText("el_ui_horse_singleDeath_birth") or string.format(g_i18n:getText("el_ui_horse_multipleDeaths_birth"), deadParents)
+            end
 
             g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
         end
@@ -124,11 +142,21 @@ function EnhancedLivestock_LivestockTrailer:dayChanged(superFunc)
 
             local msgText = ""
 
-            if animalType == 1 then msgText = childrenToSell == 1 and g_i18n:getText("el_ui_cow_singleSold_birth") or string.format(g_i18n:getText("el_ui_cow_multipleSold_birth"), childrenToSell) end
-            if animalType == 2 then msgText = childrenToSell == 1 and g_i18n:getText("el_ui_pig_singleSold_birth") or string.format(g_i18n:getText("el_ui_pig_multipleSold_birth"), childrenToSell) end
-            if animalType == 3 then msgText = childrenToSell == 1 and g_i18n:getText("el_ui_sheep_singleSold_birth") or string.format(g_i18n:getText("el_ui_sheep_multipleSold_birth"), childrenToSell) end
-            if animalType == 4 then msgText = childrenToSell == 1 and g_i18n:getText("el_ui_chicken_singleSold_birth") or string.format(g_i18n:getText("el_ui_chicken_multipleSold_birth"), childrenToSell) end
-            if animalType == 5 then msgText = childrenToSell == 1 and g_i18n:getText("el_ui_horse_singleSold_birth") or string.format(g_i18n:getText("el_ui_horse_multipleSold_birth"), childrenToSell) end
+            if animalType == 1 then
+                msgText = childrenToSell == 1 and g_i18n:getText("el_ui_cow_singleSold_birth") or string.format(g_i18n:getText("el_ui_cow_multipleSold_birth"), childrenToSell)
+            end
+            if animalType == 2 then
+                msgText = childrenToSell == 1 and g_i18n:getText("el_ui_pig_singleSold_birth") or string.format(g_i18n:getText("el_ui_pig_multipleSold_birth"), childrenToSell)
+            end
+            if animalType == 3 then
+                msgText = childrenToSell == 1 and g_i18n:getText("el_ui_sheep_singleSold_birth") or string.format(g_i18n:getText("el_ui_sheep_multipleSold_birth"), childrenToSell)
+            end
+            if animalType == 4 then
+                msgText = childrenToSell == 1 and g_i18n:getText("el_ui_chicken_singleSold_birth") or string.format(g_i18n:getText("el_ui_chicken_multipleSold_birth"), childrenToSell)
+            end
+            if animalType == 5 then
+                msgText = childrenToSell == 1 and g_i18n:getText("el_ui_horse_singleSold_birth") or string.format(g_i18n:getText("el_ui_horse_multipleSold_birth"), childrenToSell)
+            end
 
             g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
 
@@ -147,11 +175,21 @@ function EnhancedLivestock_LivestockTrailer:dayChanged(superFunc)
 
             local msgText = ""
 
-            if animalType == 1 then msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_cow_singleDeath_health") or string.format(g_i18n:getText("el_ui_cow_multipleDeaths_health"), lowHealthDeaths) end
-            if animalType == 2 then msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_pig_singleDeath_health") or string.format(g_i18n:getText("el_ui_pig_multipleDeaths_health"), lowHealthDeaths) end
-            if animalType == 3 then msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_sheep_singleDeath_health") or string.format(g_i18n:getText("el_ui_sheep_multipleDeaths_health"), lowHealthDeaths) end
-            if animalType == 4 then msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_chicken_singleDeath_health") or string.format(g_i18n:getText("el_ui_chicken_multipleDeaths_health"), lowHealthDeaths) end
-            if animalType == 5 then msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_horse_singleDeath_health") or string.format(g_i18n:getText("el_ui_horse_multipleDeaths_health"), lowHealthDeaths) end
+            if animalType == 1 then
+                msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_cow_singleDeath_health") or string.format(g_i18n:getText("el_ui_cow_multipleDeaths_health"), lowHealthDeaths)
+            end
+            if animalType == 2 then
+                msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_pig_singleDeath_health") or string.format(g_i18n:getText("el_ui_pig_multipleDeaths_health"), lowHealthDeaths)
+            end
+            if animalType == 3 then
+                msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_sheep_singleDeath_health") or string.format(g_i18n:getText("el_ui_sheep_multipleDeaths_health"), lowHealthDeaths)
+            end
+            if animalType == 4 then
+                msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_chicken_singleDeath_health") or string.format(g_i18n:getText("el_ui_chicken_multipleDeaths_health"), lowHealthDeaths)
+            end
+            if animalType == 5 then
+                msgText = lowHealthDeaths == 1 and g_i18n:getText("el_ui_horse_singleDeath_health") or string.format(g_i18n:getText("el_ui_horse_multipleDeaths_health"), lowHealthDeaths)
+            end
 
             g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
 
@@ -161,11 +199,21 @@ function EnhancedLivestock_LivestockTrailer:dayChanged(superFunc)
 
             local msgText = ""
 
-            if animalType == 1 then msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_cow_singleDeath_age") or string.format(g_i18n:getText("el_ui_cow_multipleDeaths_age"), oldAgeDeaths) end
-            if animalType == 2 then msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_pig_singleDeath_age") or string.format(g_i18n:getText("el_ui_pig_multipleDeaths_age"), oldAgeDeaths) end
-            if animalType == 3 then msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_sheep_singleDeath_age") or string.format(g_i18n:getText("el_ui_sheep_multipleDeaths_age"), oldAgeDeaths) end
-            if animalType == 4 then msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_chicken_singleDeath_age") or string.format(g_i18n:getText("el_ui_chicken_multipleDeaths_age"), oldAgeDeaths) end
-            if animalType == 5 then msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_horse_singleDeath_age") or string.format(g_i18n:getText("el_ui_horse_multipleDeaths_age"), oldAgeDeaths) end
+            if animalType == 1 then
+                msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_cow_singleDeath_age") or string.format(g_i18n:getText("el_ui_cow_multipleDeaths_age"), oldAgeDeaths)
+            end
+            if animalType == 2 then
+                msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_pig_singleDeath_age") or string.format(g_i18n:getText("el_ui_pig_multipleDeaths_age"), oldAgeDeaths)
+            end
+            if animalType == 3 then
+                msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_sheep_singleDeath_age") or string.format(g_i18n:getText("el_ui_sheep_multipleDeaths_age"), oldAgeDeaths)
+            end
+            if animalType == 4 then
+                msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_chicken_singleDeath_age") or string.format(g_i18n:getText("el_ui_chicken_multipleDeaths_age"), oldAgeDeaths)
+            end
+            if animalType == 5 then
+                msgText = oldAgeDeaths == 1 and g_i18n:getText("el_ui_horse_singleDeath_age") or string.format(g_i18n:getText("el_ui_horse_multipleDeaths_age"), oldAgeDeaths)
+            end
 
             g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
 
@@ -178,11 +226,21 @@ function EnhancedLivestock_LivestockTrailer:dayChanged(superFunc)
 
             local msgText = ""
 
-            if animalType == 1 then msgText = randomDeaths == 1 and string.format(g_i18n:getText("el_ui_cow_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("el_ui_cow_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) end
-            if animalType == 2 then msgText = randomDeaths == 1 and string.format(g_i18n:getText("el_ui_pig_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("el_ui_pig_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) end
-            if animalType == 3 then msgText = randomDeaths == 1 and string.format(g_i18n:getText("el_ui_sheep_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("el_ui_sheep_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) end
-            if animalType == 4 then msgText = randomDeaths == 1 and g_i18n:getText("el_ui_chicken_singleDeath_random") or string.format(g_i18n:getText("el_ui_chicken_multipleDeaths_random"), randomDeaths) end
-            if animalType == 5 then msgText = randomDeaths == 1 and string.format(g_i18n:getText("el_ui_horse_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("el_ui_horse_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) end
+            if animalType == 1 then
+                msgText = randomDeaths == 1 and string.format(g_i18n:getText("el_ui_cow_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("el_ui_cow_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true))
+            end
+            if animalType == 2 then
+                msgText = randomDeaths == 1 and string.format(g_i18n:getText("el_ui_pig_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("el_ui_pig_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true))
+            end
+            if animalType == 3 then
+                msgText = randomDeaths == 1 and string.format(g_i18n:getText("el_ui_sheep_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("el_ui_sheep_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true))
+            end
+            if animalType == 4 then
+                msgText = randomDeaths == 1 and g_i18n:getText("el_ui_chicken_singleDeath_random") or string.format(g_i18n:getText("el_ui_chicken_multipleDeaths_random"), randomDeaths)
+            end
+            if animalType == 5 then
+                msgText = randomDeaths == 1 and string.format(g_i18n:getText("el_ui_horse_singleDeath_random"), g_i18n:formatMoney(randomDeathsMoney, 2, true, true)) or string.format(g_i18n:getText("el_ui_horse_multipleDeaths_random"), randomDeaths, g_i18n:formatMoney(randomDeathsMoney, 2, true, true))
+            end
 
             g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
 
@@ -202,10 +260,11 @@ function EnhancedLivestock_LivestockTrailer:dayChanged(superFunc)
 
         end
 
-
         spec.minTemp = minTemp
 
-        if randomDeaths > 0 or oldAgeDeaths > 0 or lowHealthDeaths > 0 or deadParents > 0 or totalChildren > 0 then spec:updateAnimals() end
+        if randomDeaths > 0 or oldAgeDeaths > 0 or lowHealthDeaths > 0 or deadParents > 0 or totalChildren > 0 then
+            spec:updateAnimals()
+        end
 
         self:raiseActive()
     end

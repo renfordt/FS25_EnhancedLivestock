@@ -202,7 +202,7 @@ FinanceStats.statNameToIndex["medicine"] = #FinanceStats.statNames
 function EnhancedLivestock.loadMap()
 
     EnhancedLivestock.mapAreaCode = EnhancedLivestock.MAP_TO_AREA_CODE[g_currentMission.missionInfo.mapTitle] or 1
-	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "rlHelpIcons")
+    g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "rlHelpIcons")
     g_overlayManager:addTextureConfigFile(modDirectory .. "gui/icons.xml", "enhanced_livestock")
     g_overlayManager:addTextureConfigFile(modDirectory .. "gui/fileTypeIcons.xml", "fileTypeIcons")
     g_elConsoleCommandManager = ELConsoleCommandManager.new()
@@ -227,22 +227,22 @@ end
 addModEventListener(EnhancedLivestock)
 
 function EnhancedLivestock.getMapCountryCode()
-    
+
     local areaCode = EnhancedLivestock.AREA_CODES[EnhancedLivestock.mapAreaCode]
 
-    if areaCode ~= nil then return areaCode.code end
+    if areaCode ~= nil then
+        return areaCode.code
+    end
 
     return "UK"
 
 end
-
 
 function EnhancedLivestock.getMapCountryIndex()
 
     return EnhancedLivestock.mapAreaCode or 1
 
 end
-
 
 function EnhancedLivestock.formatAge(age)
 
@@ -251,7 +251,9 @@ function EnhancedLivestock.formatAge(age)
 
     local monthsString = months == 1 and g_i18n:getText("el_ui_month") or g_i18n:getText("el_ui_months")
 
-    if years > 0 then return string.format("%s %s, %s %s", years, years == 1 and g_i18n:getText("el_ui_year") or g_i18n:getText("el_ui_years"), months, monthsString) end
+    if years > 0 then
+        return string.format("%s %s, %s %s", years, years == 1 and g_i18n:getText("el_ui_year") or g_i18n:getText("el_ui_years"), months, monthsString)
+    end
 
     return string.format("%s %s", months, monthsString)
 
@@ -307,7 +309,7 @@ function EnhancedLivestock:updateReproduction(spec, cluster, numNewAnimals, free
                 deathChance = deathChance - 10
             elseif parentAge <= 48 then
                 noChildProb = 24
-                deathChance = deathChance -8
+                deathChance = deathChance - 8
             elseif parentAge <= 60 then
                 noChildProb = 21
                 deathChance = deathChance - 2
@@ -331,7 +333,9 @@ function EnhancedLivestock:updateReproduction(spec, cluster, numNewAnimals, free
 
             if childNumProb <= noChildProb then
                 childNum = 0
-                if not parentDied and math.random() <= 0.08 then lactatingAnimals = lactatingAnimals + 1 end
+                if not parentDied and math.random() <= 0.08 then
+                    lactatingAnimals = lactatingAnimals + 1
+                end
             elseif childNumProb >= 950 and childNumProb <= 997 then
                 childNum = 2
                 lactatingAnimals = lactatingAnimals + 1
@@ -507,7 +511,7 @@ function EnhancedLivestock:updateReproduction(spec, cluster, numNewAnimals, free
             end
         end
 
-        print("parent #" .. (i + 1) .. ": ".. childNum .. " children")
+        print("parent #" .. (i + 1) .. ": " .. childNum .. " children")
         totalOffspring = totalOffspring + childNum
 
         if parentDied == true then
@@ -521,31 +525,45 @@ function EnhancedLivestock:updateReproduction(spec, cluster, numNewAnimals, free
     print(" --- ")
     if animalType == AnimalType.PIG then
         animalTypeText = "piglets"
-        if totalOffspring == 1 then animalTypeText = "piglet" end
+        if totalOffspring == 1 then
+            animalTypeText = "piglet"
+        end
         print("PIGS")
     elseif cluster.subType == "COW_WATERBUFFALO" then
         animalTypeText = "buffalos"
-        if totalOffspring == 1 then animalTypeText = "buffalo" end
+        if totalOffspring == 1 then
+            animalTypeText = "buffalo"
+        end
         print("WATER BUFFALOS")
     elseif animalType == AnimalType.COW then
         animalTypeText = "calves"
-        if totalOffspring == 1 then animalTypeText = "calf" end
+        if totalOffspring == 1 then
+            animalTypeText = "calf"
+        end
         print("CATTLE")
     elseif cluster.subType == "GOAT" then
         animalTypeText = "goats"
-        if totalOffspring == 1 then animalTypeText = "goat" end
+        if totalOffspring == 1 then
+            animalTypeText = "goat"
+        end
         print("GOATS")
     elseif animalType == AnimalType.SHEEP then
         animalTypeText = "lambs"
-        if totalOffspring == 1 then animalTypeText = "lamb" end
+        if totalOffspring == 1 then
+            animalTypeText = "lamb"
+        end
         print("SHEEP")
     elseif animalType == AnimalType.HORSE then
         animalTypeText = "foals"
-        if totalOffspring == 1 then animalTypeText = "foal" end
+        if totalOffspring == 1 then
+            animalTypeText = "foal"
+        end
         print("HORSES")
     elseif animalType == AnimalType.CHICKEN then
         animalTypeText = "chicks"
-        if totalOffspring == 1 then animalTypeText = "chick" end
+        if totalOffspring == 1 then
+            animalTypeText = "chick"
+        end
         print("CHICKEN")
     end
     print(totalParents .. " total parents")
@@ -562,9 +580,11 @@ function EnhancedLivestock:updateReproduction(spec, cluster, numNewAnimals, free
         animalsToSell = totalOffspring - freeSlots
     end
 
-        cluster.monthsSinceLastBirth = 0
+    cluster.monthsSinceLastBirth = 0
 
-    if totalOffspring > 0 then cluster.isParent = true end
+    if totalOffspring > 0 then
+        cluster.isParent = true
+    end
 
     local msgText = totalOffspring .. " " .. animalTypeText .. " born"
 
@@ -623,7 +643,9 @@ function EnhancedLivestock:updateReproduction(spec, cluster, numNewAnimals, free
 
     end
 
-    if totalOffspring > 0 or animalsToSell > 0 then g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText) end
+    if totalOffspring > 0 or animalsToSell > 0 then
+        g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
+    end
 
 end
 
@@ -666,7 +688,9 @@ function EnhancedLivestock.CalculateLowHealthMonthlyAnimalDeaths(spec, cluster)
     deathChance = 0.8 - (health / 100)
 
     if math.random() <= deathChance then
-    if cluster.age < 6 then health = health - 10 end
+        if cluster.age < 6 then
+            health = health - 10
+        end
         numAnimalsToDispose = math.random(math.max(1, (0.8 - (health / 100)) * numAnimals))
         if numAnimalsToDispose < 1 then
             numAnimalsToDispose = 1
@@ -683,54 +707,76 @@ function EnhancedLivestock.CalculateLowHealthMonthlyAnimalDeaths(spec, cluster)
 
         if animalType == AnimalType.PIG and cluster.age < 6 then
             animalTypeText = "piglets"
-            if numAnimalsToDispose == 1 then animalTypeText = "piglet" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "piglet"
+            end
         elseif animalType == AnimalType.PIG then
             animalTypeText = "pigs"
-            if numAnimalsToDispose == 1 then animalTypeText = "pig" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "pig"
+            end
         end
-
 
         if cluster.subType == "COW_WATERBUFFALO" then
             animalTypeText = "buffalos"
-            if numAnimalsToDispose == 1 then animalTypeText = "buffalo" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "buffalo"
+            end
         elseif animalType == AnimalType.COW and cluster.age < 12 then
             animalTypeText = "calves"
-            if numAnimalsToDispose == 1 then animalTypeText = "calf" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "calf"
+            end
         elseif animalType == AnimalType.COW then
             animalTypeText = "cows"
-            if numAnimalsToDispose == 1 then animalTypeText = "cow" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "cow"
+            end
         end
-
 
         if cluster.subType == "GOAT" then
             animalTypeText = "goats"
-            if numAnimalsToDispose == 1 then animalTypeText = "goat" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "goat"
+            end
         elseif animalType == AnimalType.SHEEP and cluster.age < 6 then
             animalTypeText = "lambs"
-            if numAnimalsToDispose == 1 then animalTypeText = "lamb" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "lamb"
+            end
         elseif animalType == AnimalType.SHEEP then
             animalTypeText = "sheep"
         end
 
         if animalType == AnimalType.HORSE and cluster.age < 12 then
             animalTypeText = "foals"
-            if numAnimalsToDispose == 1 then animalTypeText = "foal" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "foal"
+            end
         elseif animalType == AnimalType.HORSE then
             animalTypeText = "horses"
-            if numAnimalsToDispose == 1 then animalTypeText = "horse" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "horse"
+            end
         end
 
         if animalType == AnimalType.CHICKEN and cluster.age < 6 then
             animalTypeText = "chicks"
-            if numAnimalsToDispose == 1 then animalTypeText = "chick" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "chick"
+            end
         elseif animalType == AnimalType.CHICKEN then
             animalTypeText = "chickens"
-            if numAnimalsToDispose == 1 then animalTypeText = "chicken" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "chicken"
+            end
         end
 
         msgText = numAnimalsToDispose .. " " .. animalTypeText .. " died due to low health"
 
-        if numAnimalsToDispose >= 1 then g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText) end
+        if numAnimalsToDispose >= 1 then
+            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
+        end
     end
 
 end
@@ -802,39 +848,51 @@ function EnhancedLivestock.CalculateOldAgeMonthlyAnimalDeaths(spec, cluster)
 
         if animalType == AnimalType.PIG then
             animalTypeText = "pigs"
-            if numAnimalsToDispose == 1 then animalTypeText = "pig" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "pig"
+            end
         end
-
 
         if cluster.subType == "COW_WATERBUFFALO" then
             animalTypeText = "buffalos"
-            if numAnimalsToDispose == 1 then animalTypeText = "buffalo" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "buffalo"
+            end
         elseif animalType == AnimalType.COW then
             animalTypeText = "cows"
-            if numAnimalsToDispose == 1 then animalTypeText = "cow" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "cow"
+            end
         end
-
 
         if cluster.subType == "GOAT" then
             animalTypeText = "goats"
-            if numAnimalsToDispose == 1 then animalTypeText = "goat" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "goat"
+            end
         elseif animalType == AnimalType.SHEEP then
             animalTypeText = "sheep"
         end
 
         if animalType == AnimalType.HORSE then
             animalTypeText = "horses"
-            if numAnimalsToDispose == 1 then animalTypeText = "horse" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "horse"
+            end
         end
 
         if animalType == AnimalType.CHICKEN then
             animalTypeText = "chickens"
-            if numAnimalsToDispose == 1 then animalTypeText = "chicken" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "chicken"
+            end
         end
 
         msgText = numAnimalsToDispose .. " " .. animalTypeText .. " died due to old age"
 
-        if numAnimalsToDispose >= 1 then g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText) end
+        if numAnimalsToDispose >= 1 then
+            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
+        end
     end
 
 end
@@ -930,55 +988,79 @@ function EnhancedLivestock.CalculateRandomMonthlyAnimalDeaths(spec, cluster, isS
 
         if animalType == AnimalType.PIG and cluster.age < 6 then
             animalTypeText = "piglets"
-            if numAnimalsToDispose == 1 then animalTypeText = "piglet" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "piglet"
+            end
         elseif animalType == AnimalType.PIG then
             animalTypeText = "pigs"
-            if numAnimalsToDispose == 1 then animalTypeText = "pig" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "pig"
+            end
         end
-
 
         if cluster.subType == "COW_WATERBUFFALO" then
             animalTypeText = "buffalos"
-            if numAnimalsToDispose == 1 then animalTypeText = "buffalo" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "buffalo"
+            end
         elseif animalType == AnimalType.COW and cluster.age < 12 then
             animalTypeText = "calves"
-            if numAnimalsToDispose == 1 then animalTypeText = "calf" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "calf"
+            end
         elseif animalType == AnimalType.COW then
             animalTypeText = "cows"
-            if numAnimalsToDispose == 1 then animalTypeText = "cow" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "cow"
+            end
         end
-
 
         if cluster.subType == "GOAT" then
             animalTypeText = "goats"
-            if numAnimalsToDispose == 1 then animalTypeText = "goat" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "goat"
+            end
         elseif animalType == AnimalType.SHEEP and cluster.age < 6 then
             animalTypeText = "lambs"
-            if numAnimalsToDispose == 1 then animalTypeText = "lamb" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "lamb"
+            end
         elseif animalType == AnimalType.SHEEP then
             animalTypeText = "sheep"
         end
 
         if animalType == AnimalType.HORSE and cluster.age < 12 then
             animalTypeText = "foals"
-            if numAnimalsToDispose == 1 then animalTypeText = "foal" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "foal"
+            end
         elseif animalType == AnimalType.HORSE then
             animalTypeText = "horses"
-            if numAnimalsToDispose == 1 then animalTypeText = "horse" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "horse"
+            end
         end
 
         if animalType == AnimalType.CHICKEN and cluster.age < 6 then
             animalTypeText = "chicks"
-            if numAnimalsToDispose == 1 then animalTypeText = "chick" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "chick"
+            end
         elseif animalType == AnimalType.CHICKEN then
             animalTypeText = "chickens"
-            if numAnimalsToDispose == 1 then animalTypeText = "chicken" end
+            if numAnimalsToDispose == 1 then
+                animalTypeText = "chicken"
+            end
         end
 
         msgText = numAnimalsToDispose .. " " .. animalTypeText .. " died due to accidents"
-        if animalsCanBeSold then msgText = msgText .. ", sold for £" .. math.floor(totalAnimalPrice) end
+        if animalsCanBeSold then
+            msgText = msgText .. ", sold for £" .. math.floor(totalAnimalPrice)
+        end
 
-        if numAnimalsToDispose >= 1 then g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText) end
+        if numAnimalsToDispose >= 1 then
+            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
+        end
 
     end
 
@@ -989,10 +1071,14 @@ end
 
 function EnhancedLivestock.hasMaleAnimalInPen(spec, subT, female)
 
-    if spec == nil then return false end
+    if spec == nil then
+        return false
+    end
 
     local clusterSystem = spec.clusterSystem or spec
-    if clusterSystem == nil or clusterSystem.getAnimals == nil or clusterSystem:getAnimals() == nil or female.genetics.fertility <= 0 then return false end
+    if clusterSystem == nil or clusterSystem.getAnimals == nil or clusterSystem:getAnimals() == nil or female.genetics.fertility <= 0 then
+        return false
+    end
 
     local animals = clusterSystem:getAnimals()
     local animalSystem = g_currentMission.animalSystem
@@ -1001,19 +1087,31 @@ function EnhancedLivestock.hasMaleAnimalInPen(spec, subT, female)
 
     for _, animal in pairs(animals) do
 
-        if animal.isCastrated or animal.genetics.fertility <= 0 then continue end
+        if animal.isCastrated or animal.genetics.fertility <= 0 then
+            continue
+        end
 
         local s = animalSystem:getSubTypeByIndex(animal:getSubTypeIndex())
-        if s.reproductionMinAgeMonth == nil or s.reproductionMinAgeMonth > animal.age then continue end
+        if s.reproductionMinAgeMonth == nil or s.reproductionMinAgeMonth > animal.age then
+            continue
+        end
 
-        if animal:getIdentifiers() == fatherId then continue end
+        if animal:getIdentifiers() == fatherId then
+            continue
+        end
 
         if subT == "COW_WATERBUFFALO" then
-            if s.name == "BULL_WATERBUFFALO" and animal.age < 132 then return true end
+            if s.name == "BULL_WATERBUFFALO" and animal.age < 132 then
+                return true
+            end
         elseif subT == "GOAT" then
-            if s.name == "RAM_GOAT" and animal.age < 72 then return true end
+            if s.name == "RAM_GOAT" and animal.age < 72 then
+                return true
+            end
         elseif s.name ~= "RAM_GOAT" and s.name ~= "BULL_WATERBUFFALO" then
-            if animal.gender == "male" and ((animalType == AnimalType.COW and animal.age < 132) or (animalType == AnimalType.SHEEP and animal.age < 72) or (animalType == AnimalType.HORSE and animal.age < 300) or animalType == AnimalType.CHICKEN or (animalType == AnimalType.PIG and animal.age < 48)) then return true end
+            if animal.gender == "male" and ((animalType == AnimalType.COW and animal.age < 132) or (animalType == AnimalType.SHEEP and animal.age < 72) or (animalType == AnimalType.HORSE and animal.age < 300) or animalType == AnimalType.CHICKEN or (animalType == AnimalType.PIG and animal.age < 48)) then
+                return true
+            end
         end
 
     end
@@ -1030,7 +1128,7 @@ function EnhancedLivestock.onPeriodChanged(self, func)
 
     if self.isServer then
 
-        local minTemp =  math.floor(g_currentMission.environment.weather.temperatureUpdater.currentMin)
+        local minTemp = math.floor(g_currentMission.environment.weather.temperatureUpdater.currentMin)
 
         local spec = self.spec_husbandryAnimals
         local clusters = spec.clusterSystem:getClusters()
@@ -1053,8 +1151,9 @@ function EnhancedLivestock.onPeriodChanged(self, func)
 
             local numNewAnimals = cluster:updateReproduction()
 
-            if cluster.monthsSinceLastBirth <= 2 then cluster.reproduction = 0 end
-
+            if cluster.monthsSinceLastBirth <= 2 then
+                cluster.reproduction = 0
+            end
 
             local index = cluster:getSubTypeIndex()
 
@@ -1062,7 +1161,9 @@ function EnhancedLivestock.onPeriodChanged(self, func)
             local reproductionDuration = subTypeFull.reproductionDurationMonth
 
             if cluster.gender == "female" and reproductionDuration ~= nil then
-                if cluster.reproduction > 0 and cluster.reproduction <= 100 / reproductionDuration and not EnhancedLivestock.hasMaleAnimalInPen(spec, subTypeFull.name) then cluster.reproduction = 0 end
+                if cluster.reproduction > 0 and cluster.reproduction <= 100 / reproductionDuration and not EnhancedLivestock.hasMaleAnimalInPen(spec, subTypeFull.name) then
+                    cluster.reproduction = 0
+                end
             end
 
             if numNewAnimals > 0 then
@@ -1121,7 +1222,7 @@ function EnhancedLivestock:updateInfo(superFunc, infoTable)
 
     if spec.animalTypeIndex == AnimalType.COW and milkSpec ~= nil then
         if spec.infoLactatingAnimals == nil then
-            spec.infoLactatingAnimals = {title="Lactating animals", text=""}
+            spec.infoLactatingAnimals = { title = "Lactating animals", text = "" }
         end
         spec.infoLactatingAnimals.text = string.format("%d", lactatingAnimals)
         table.insert(infoTable, spec.infoLactatingAnimals)
@@ -1155,7 +1256,7 @@ function EnhancedLivestock.addAnimals(self, superFunc, subTypeIndex, numAnimals,
         cluster.subTypeIndex = subTypeIndex
         self:addCluster(cluster)
     else
-        for i=1, numAnimals do
+        for i = 1, numAnimals do
             cluster = animalSystem:createClusterFromSubTypeIndex(subTypeIndex)
             cluster.numAnimals = 1
             cluster.age = age
@@ -1172,7 +1273,9 @@ end
 
 function EnhancedLivestock:saveHusbandryToXMLFile(superFunc, xmlFile, key, usedModNames)
     superFunc(self, xmlFile, key, usedModNames)
-    if self.spec_husbandryAnimals.minTemp == nil then self.spec_husbandryAnimals.minTemp = 15 end
+    if self.spec_husbandryAnimals.minTemp == nil then
+        self.spec_husbandryAnimals.minTemp = 15
+    end
     xmlFile:setInt(key .. "#minTemp", self.spec_husbandryAnimals.minTemp)
 end
 

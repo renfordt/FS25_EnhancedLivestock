@@ -1,17 +1,15 @@
 EnhancedLivestock_PlaceableHusbandryPallets = {}
 
-
 function EnhancedLivestock_PlaceableHusbandryPallets.registerOverwrittenFunctions(placeable)
-	SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryPallets.updateInputAndOutput)
+    SpecializationUtil.registerOverwrittenFunction(placeable, "updateInputAndOutput", PlaceableHusbandryPallets.updateInputAndOutput)
 end
 
 PlaceableHusbandryPallets.registerOverwrittenFunctions = Utils.appendedFunction(PlaceableHusbandryPallets.registerOverwrittenFunctions, EnhancedLivestock_PlaceableHusbandryPallets.registerOverwrittenFunctions)
 
-
-function EnhancedLivestock_PlaceableHusbandryPallets:onHusbandryAnimalsUpdate(_, _) end
+function EnhancedLivestock_PlaceableHusbandryPallets:onHusbandryAnimalsUpdate(_, _)
+end
 
 PlaceableHusbandryPallets.onHusbandryAnimalsUpdate = Utils.overwrittenFunction(PlaceableHusbandryPallets.onHusbandryAnimalsUpdate, EnhancedLivestock_PlaceableHusbandryPallets.onHusbandryAnimalsUpdate)
-
 
 function PlaceableHusbandryPallets:updateInputAndOutput(superFunc, animals)
 

@@ -9,12 +9,16 @@ function EnhancedLivestock_AnimalNameSystem:loadMapData(_, _, missionInfo)
     self.descriptions = {}
 
     local xmlFile = XMLFile.loadIfExists("animalNames", modDirectory .. "xml/animalNames.xml")
-    if xmlFile == nil then return false end
+    if xmlFile == nil then
+        return false
+    end
 
     xmlFile:iterate("animalNames.name", function(_, key)
 
         local name = xmlFile:getString(key .. "#value")
-        if name == nil then return false end
+        if name == nil then
+            return false
+        end
 
         local gender = xmlFile:getString(key .. "#gender", nil)
 
@@ -41,16 +45,21 @@ end
 
 AnimalNameSystem.loadMapData = Utils.overwrittenFunction(AnimalNameSystem.loadMapData, EnhancedLivestock_AnimalNameSystem.loadMapData)
 
-
 function EnhancedLivestock_AnimalNameSystem:getRandomName(_, gender)
 
-    if gender == nil then gender = "female" end
+    if gender == nil then
+        gender = "female"
+    end
     local names = gender == "male" and self.maleNames or self.femaleNames
 
-    if names == nil or #names == 0 then return nil end
+    if names == nil or #names == 0 then
+        return nil
+    end
     local description = ""
 
-    if self.descriptions ~= nil and #self.descriptions > 0 and math.random() >= 0.65 then description = self.descriptions[math.random(1, #self.descriptions)] .. " " end
+    if self.descriptions ~= nil and #self.descriptions > 0 and math.random() >= 0.65 then
+        description = self.descriptions[math.random(1, #self.descriptions)] .. " "
+    end
 
     return description .. names[math.random(1, #names)]
 
@@ -58,12 +67,13 @@ end
 
 AnimalNameSystem.getRandomName = Utils.overwrittenFunction(AnimalNameSystem.getRandomName, EnhancedLivestock_AnimalNameSystem.getRandomName)
 
-
 function AnimalNameSystem:getNamesAlphabetical(gender)
 
     local names = table.clone(gender == "female" and self.femaleNames or self.maleNames)
 
-    table.sort(names, function(a, b) return a < b end)
+    table.sort(names, function(a, b)
+        return a < b
+    end)
 
     return names
 

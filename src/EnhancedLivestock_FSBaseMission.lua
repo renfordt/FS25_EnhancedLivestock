@@ -2,66 +2,64 @@ EnhancedLivestock_FSBaseMission = {}
 local modDirectory = g_currentModDirectory
 local modSettingsDirectory = g_currentModSettingsDirectory
 
-
 local function fixInGameMenu(frame, pageName, uvs, position, predicateFunc)
 
-	local inGameMenu = g_gui.screenControllers[InGameMenu]
-	position = position or #inGameMenu.pagingElement.pages + 1
+    local inGameMenu = g_gui.screenControllers[InGameMenu]
+    position = position or #inGameMenu.pagingElement.pages + 1
 
-	for k, v in pairs({pageName}) do
-		inGameMenu.controlIDs[v] = nil
-	end
+    for k, v in pairs({ pageName }) do
+        inGameMenu.controlIDs[v] = nil
+    end
 
-	for i = 1, #inGameMenu.pagingElement.elements do
-		local child = inGameMenu.pagingElement.elements[i]
-		if child == inGameMenu.pageAnimals then
-			position = i
+    for i = 1, #inGameMenu.pagingElement.elements do
+        local child = inGameMenu.pagingElement.elements[i]
+        if child == inGameMenu.pageAnimals then
+            position = i
             break
-		end
-	end
-	
-	inGameMenu[pageName] = frame
-	inGameMenu.pagingElement:addElement(inGameMenu[pageName])
+        end
+    end
 
-	inGameMenu:exposeControlsAsFields(pageName)
+    inGameMenu[pageName] = frame
+    inGameMenu.pagingElement:addElement(inGameMenu[pageName])
 
-	for i = 1, #inGameMenu.pagingElement.elements do
-		local child = inGameMenu.pagingElement.elements[i]
-		if child == inGameMenu[pageName] then
-			table.remove(inGameMenu.pagingElement.elements, i)
-			table.insert(inGameMenu.pagingElement.elements, position, child)
-			break
-		end
-	end
+    inGameMenu:exposeControlsAsFields(pageName)
 
-	for i = 1, #inGameMenu.pagingElement.pages do
-		local child = inGameMenu.pagingElement.pages[i]
-		if child.element == inGameMenu[pageName] then
-			table.remove(inGameMenu.pagingElement.pages, i)
-			table.insert(inGameMenu.pagingElement.pages, position, child)
-			break
-		end
-	end
+    for i = 1, #inGameMenu.pagingElement.elements do
+        local child = inGameMenu.pagingElement.elements[i]
+        if child == inGameMenu[pageName] then
+            table.remove(inGameMenu.pagingElement.elements, i)
+            table.insert(inGameMenu.pagingElement.elements, position, child)
+            break
+        end
+    end
 
-	inGameMenu.pagingElement:updateAbsolutePosition()
-	inGameMenu.pagingElement:updatePageMapping()
-	
-	inGameMenu:registerPage(inGameMenu[pageName], position, predicateFunc)
-	inGameMenu:addPageTab(inGameMenu[pageName], modDirectory .. "gui/icons.dds", GuiUtils.getUVs(uvs))
+    for i = 1, #inGameMenu.pagingElement.pages do
+        local child = inGameMenu.pagingElement.pages[i]
+        if child.element == inGameMenu[pageName] then
+            table.remove(inGameMenu.pagingElement.pages, i)
+            table.insert(inGameMenu.pagingElement.pages, position, child)
+            break
+        end
+    end
 
-	for i = 1, #inGameMenu.pageFrames do
-		local child = inGameMenu.pageFrames[i]
-		if child == inGameMenu[pageName] then
-			table.remove(inGameMenu.pageFrames, i)
-			table.insert(inGameMenu.pageFrames, position, child)
-			break
-		end
-	end
+    inGameMenu.pagingElement:updateAbsolutePosition()
+    inGameMenu.pagingElement:updatePageMapping()
 
-	inGameMenu:rebuildTabList()
+    inGameMenu:registerPage(inGameMenu[pageName], position, predicateFunc)
+    inGameMenu:addPageTab(inGameMenu[pageName], modDirectory .. "gui/icons.dds", GuiUtils.getUVs(uvs))
+
+    for i = 1, #inGameMenu.pageFrames do
+        local child = inGameMenu.pageFrames[i]
+        if child == inGameMenu[pageName] then
+            table.remove(inGameMenu.pageFrames, i)
+            table.insert(inGameMenu.pageFrames, position, child)
+            break
+        end
+    end
+
+    inGameMenu:rebuildTabList()
 
 end
-
 
 function EnhancedLivestock_FSBaseMission:onStartMission()
 
@@ -84,10 +82,10 @@ function EnhancedLivestock_FSBaseMission:onStartMission()
     EarTagColourPickerDialog.register()
     AnimalFilterDialog.register()
 
-	ELSettings.applyDefaultSettings()
+    ELSettings.applyDefaultSettings()
 
     local temp = self.environment.weather.temperatureUpdater.currentMin or 20
-	local isServer = self:getIsServer() 
+    local isServer = self:getIsServer()
 
     for _, placeable in pairs(self.husbandrySystem.placeables) do
 
@@ -98,14 +96,18 @@ function EnhancedLivestock_FSBaseMission:onStartMission()
             animal:updateOutput(temp)
         end
 
-        if isServer then placeable:updateInputAndOutput(animals) end
+        if isServer then
+            placeable:updateInputAndOutput(animals)
+        end
 
     end
 
-    local enhancedLivestockFrame = EnhancedLivestockFrame.new() 
-	g_gui:loadGui(modDirectory .. "gui/EnhancedLivestockFrame.xml", "EnhancedLivestockFrame", enhancedLivestockFrame, true)
+    local enhancedLivestockFrame = EnhancedLivestockFrame.new()
+    g_gui:loadGui(modDirectory .. "gui/EnhancedLivestockFrame.xml", "EnhancedLivestockFrame", enhancedLivestockFrame, true)
 
-    fixInGameMenu(enhancedLivestockFrame, "enhancedLivestockFrame", {260,0,256,256}, 4, function() return true end)
+    fixInGameMenu(enhancedLivestockFrame, "enhancedLivestockFrame", { 260, 0, 256, 256 }, 4, function()
+        return true
+    end)
 
     enhancedLivestockFrame:initialize()
 
@@ -113,14 +115,15 @@ end
 
 FSBaseMission.onStartMission = Utils.prependedFunction(FSBaseMission.onStartMission, EnhancedLivestock_FSBaseMission.onStartMission)
 
-
 function EnhancedLivestock_FSBaseMission:sendInitialClientState(connection, _, _)
 
     local animalSystem = g_currentMission.animalSystem
 
-	for _, setting in pairs(ELSettings.SETTINGS) do
-		if not setting.ignore then setting.state = setting.state or setting.default end
-	end
+    for _, setting in pairs(ELSettings.SETTINGS) do
+        if not setting.ignore then
+            setting.state = setting.state or setting.default
+        end
+    end
 
     connection:sendEvent(EL_BroadcastSettingsEvent.new())
     connection:sendEvent(AnimalSystemStateEvent.new(animalSystem.countries, animalSystem.animals, animalSystem.aiAnimals))
@@ -131,29 +134,34 @@ end
 
 FSBaseMission.sendInitialClientState = Utils.prependedFunction(FSBaseMission.sendInitialClientState, EnhancedLivestock_FSBaseMission.sendInitialClientState)
 
-
 function EnhancedLivestock_FSBaseMission:onDayChanged()
 
-	if not self:getIsServer() then return end
+    if not self:getIsServer() then
+        return
+    end
 
-	local husbandrySystem = self.husbandrySystem
+    local husbandrySystem = self.husbandrySystem
 
-	for _, farm in pairs(g_farmManager:getFarms()) do
+    for _, farm in pairs(g_farmManager:getFarms()) do
 
-		local husbandries = husbandrySystem:getPlaceablesByFarm(farm.farmId)
-		local wages = 0
+        local husbandries = husbandrySystem:getPlaceablesByFarm(farm.farmId)
+        local wages = 0
 
-		for _, husbandry in pairs(husbandries) do
+        for _, husbandry in pairs(husbandries) do
 
-			local aiManager = husbandry:getAIManager()
+            local aiManager = husbandry:getAIManager()
 
-			if aiManager ~= nil then wages = wages + (aiManager.wage or 0) end
+            if aiManager ~= nil then
+                wages = wages + (aiManager.wage or 0)
+            end
 
-		end
+        end
 
-		if wages > 0 then self:addMoney(-wages, farm.farmId, MoneyType.HERDSMAN_WAGES, true, true) end
+        if wages > 0 then
+            self:addMoney(-wages, farm.farmId, MoneyType.HERDSMAN_WAGES, true, true)
+        end
 
-	end
+    end
 
 end
 

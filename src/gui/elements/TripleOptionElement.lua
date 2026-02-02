@@ -15,7 +15,6 @@ local tripleOptionElement_mt = Class(TripleOptionElement, MultiTextOptionElement
 Gui.registerGuiElement("TripleOption", TripleOptionElement)
 Gui.registerGuiElementProcFunction("TripleOption", Gui.assignPlaySampleCallback)
 
-
 function TripleOptionElement.new(target, custom_mt)
 
     local self = MultiTextOptionElement.new(target, custom_mt or tripleOptionElement_mt)
@@ -33,15 +32,13 @@ function TripleOptionElement.new(target, custom_mt)
 
 end
 
-
 function TripleOptionElement:loadFromXML(xmlFile, key)
 
     TripleOptionElement:superClass().loadFromXML(self, xmlFile, key)
 
-    self.useYesNoTexts = Utils.getNoNil(getXMLBool(xmlFile, key.."#useYesNoTexts"), self.useYesNoTexts)
+    self.useYesNoTexts = Utils.getNoNil(getXMLBool(xmlFile, key .. "#useYesNoTexts"), self.useYesNoTexts)
 
 end
-
 
 function TripleOptionElement:loadProfile(profile, applyProfile)
 
@@ -57,7 +54,6 @@ function TripleOptionElement:loadProfile(profile, applyProfile)
 
 end
 
-
 function TripleOptionElement:copyAttributes(src)
 
     TripleOptionElement:superClass().copyAttributes(self, src)
@@ -69,7 +65,6 @@ function TripleOptionElement:copyAttributes(src)
     self.defaultProfileButtonMiddle = src.defaultProfileButtonMiddle
 
 end
-
 
 function TripleOptionElement:setElementsByName()
 
@@ -85,15 +80,17 @@ function TripleOptionElement:setElementsByName()
 
         if element.name == "middle" then
 
-			if self.middleButtonElement ~= nil and self.middleButtonElement ~= element then self.middleButtonElement:delete() end
+            if self.middleButtonElement ~= nil and self.middleButtonElement ~= element then
+                self.middleButtonElement:delete()
+            end
 
-			self.middleButtonElement = element
-			element.target = self
-			element:setHandleFocus(false)
-			element:setCallback("onClickCallback", "onMiddleButtonClicked")
-			element:setDisabled(self.disabled)
-			element:setVisible(not self.hideLeftRightButtons)
-        
+            self.middleButtonElement = element
+            element.target = self
+            element:setHandleFocus(false)
+            element:setCallback("onClickCallback", "onMiddleButtonClicked")
+            element:setDisabled(self.disabled)
+            element:setVisible(not self.hideLeftRightButtons)
+
         end
 
     end
@@ -103,19 +100,30 @@ function TripleOptionElement:setElementsByName()
     end
 
     self.leftButtonElement:setSelected(true)
-    self.leftButtonElement.getIsSelected = function() return self.state == TripleOptionElement.STATE_LEFT end
-    self.leftButtonElement.getIsScrollingAllowed = function() return self:getIsFocused() or self:getIsHighlighted() end
+    self.leftButtonElement.getIsSelected = function()
+        return self.state == TripleOptionElement.STATE_LEFT
+    end
+    self.leftButtonElement.getIsScrollingAllowed = function()
+        return self:getIsFocused() or self:getIsHighlighted()
+    end
 
-    self.middleButtonElement.getIsSelected = function() return self.state == TripleOptionElement.STATE_MIDDLE end
-    self.middleButtonElement.getIsScrollingAllowed = function() return self:getIsFocused() or self:getIsHighlighted() end
+    self.middleButtonElement.getIsSelected = function()
+        return self.state == TripleOptionElement.STATE_MIDDLE
+    end
+    self.middleButtonElement.getIsScrollingAllowed = function()
+        return self:getIsFocused() or self:getIsHighlighted()
+    end
 
-    self.rightButtonElement.getIsSelected = function() return self.state == TripleOptionElement.STATE_RIGHT end
-    self.rightButtonElement.getIsScrollingAllowed = function() return self:getIsFocused() or self:getIsHighlighted() end
+    self.rightButtonElement.getIsSelected = function()
+        return self.state == TripleOptionElement.STATE_RIGHT
+    end
+    self.rightButtonElement.getIsScrollingAllowed = function()
+        return self:getIsFocused() or self:getIsHighlighted()
+    end
 
     self.sliderDelta = (self.absSize[1] - self.sliderElement.absSize[1]) / TripleOptionElement.NUM_SLIDER_STATES
 
 end
-
 
 function TripleOptionElement:addDefaultElements()
 
@@ -142,40 +150,36 @@ function TripleOptionElement:addDefaultElements()
             end
         end
 
-        
-		if self:getDescendantByName("middle") == nil then
-			local element = ButtonElement.new(self)
-			element.name = "middle"
-			self:addElement(element)
-			element:applyProfile(self.defaultProfileButtonMiddle)
-		end
+        if self:getDescendantByName("middle") == nil then
+            local element = ButtonElement.new(self)
+            element.name = "middle"
+            self:addElement(element)
+            element:applyProfile(self.defaultProfileButtonMiddle)
+        end
 
     end
 
 end
-
 
 function TripleOptionElement:onGuiSetupFinished()
 
     TripleOptionElement:superClass().onGuiSetupFinished(self)
 
     if self.useYesNoTexts then
-        self:setTexts({g_i18n:getText(TripleOptionElement.STRING_NO), g_i18n:getText(TripleOptionElement.STRING_ANY), g_i18n:getText(TripleOptionElement.STRING_YES)})
+        self:setTexts({ g_i18n:getText(TripleOptionElement.STRING_NO), g_i18n:getText(TripleOptionElement.STRING_ANY), g_i18n:getText(TripleOptionElement.STRING_YES) })
     else
-        self:setTexts({g_i18n:getText(TripleOptionElement.STRING_OFF), g_i18n:getText(TripleOptionElement.STRING_ANY), g_i18n:getText(TripleOptionElement.STRING_ON)})
+        self:setTexts({ g_i18n:getText(TripleOptionElement.STRING_OFF), g_i18n:getText(TripleOptionElement.STRING_ANY), g_i18n:getText(TripleOptionElement.STRING_ON) })
     end
 
     self.textElement:setVisible(false)
 
 end
 
-
 function TripleOptionElement:getIsChecked()
 
     return self.state == TripleOptionElement.STATE_RIGHT
 
 end
-
 
 function TripleOptionElement:setIsChecked(isChecked, skipAnimation, forceEvent)
     if isChecked then
@@ -187,13 +191,11 @@ function TripleOptionElement:setIsChecked(isChecked, skipAnimation, forceEvent)
     self.skipAnimation = skipAnimation
 end
 
-
 function TripleOptionElement:getIsActiveNonRec()
 
     return self:getIsVisibleNonRec()
 
 end
-
 
 function TripleOptionElement:setTexts(texts)
 
@@ -209,7 +211,6 @@ function TripleOptionElement:setTexts(texts)
     self.rightButtonElement:setText(texts[3])
 
 end
-
 
 function TripleOptionElement:update(dt)
 
@@ -235,7 +236,6 @@ function TripleOptionElement:update(dt)
 
 end
 
-
 function TripleOptionElement:inputLeft()
 
     if self.sliderMovingDirection == 0 and (self:getIsFocused() or self.leftButtonElement:getIsPressed()) then
@@ -247,7 +247,6 @@ function TripleOptionElement:inputLeft()
     end
 
 end
-
 
 function TripleOptionElement:inputRight()
 
@@ -268,7 +267,6 @@ function TripleOptionElement:inputRight()
     end
 
 end
-
 
 function TripleOptionElement:setState(state, forceEvent, skipAnimation)
 
@@ -292,7 +290,6 @@ function TripleOptionElement:setState(state, forceEvent, skipAnimation)
 
 end
 
-
 function TripleOptionElement:onRightButtonClicked()
 
     self:setSoundSuppressed(true)
@@ -312,7 +309,6 @@ function TripleOptionElement:onRightButtonClicked()
     end
 
 end
-
 
 function TripleOptionElement:onMiddleButtonClicked()
 
@@ -334,7 +330,6 @@ function TripleOptionElement:onMiddleButtonClicked()
 
 end
 
-
 function TripleOptionElement:onLeftButtonClicked()
 
     self:setSoundSuppressed(true)
@@ -354,7 +349,6 @@ function TripleOptionElement:onLeftButtonClicked()
     end
 
 end
-
 
 function TripleOptionElement:updateSelection()
 

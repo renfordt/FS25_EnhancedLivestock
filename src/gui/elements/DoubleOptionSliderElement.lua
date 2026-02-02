@@ -5,215 +5,207 @@ local doubleOptionSliderElement_mt = Class(DoubleOptionSliderElement, MultiTextO
 Gui.registerGuiElement("DoubleOptionSlider", DoubleOptionSliderElement)
 Gui.registerGuiElementProcFunction("DoubleOptionSlider", Gui.assignPlaySampleCallback)
 
-
 function DoubleOptionSliderElement.new(target, customMt)
 
-	local self = MultiTextOptionElement.new(target, customMt or doubleOptionSliderElement_mt)
-	
-	self.leftSliderElement = nil
-	self.rightSliderElement = nil
-	self.sliderOffset = nil
-	self.defaultProfileSlider = nil
-	self.defaultProfileSliderRound = nil
-	self.useFillingBar = false
-	self.fillingBarElement = nil
-	self.defaultProfileFillingBar = nil
-	self.defaultProfileFillingBarThreePart = nil
-	self.updateTextPosition = true
-	self.leftState = 1
-	self.rightState = 2
+    local self = MultiTextOptionElement.new(target, customMt or doubleOptionSliderElement_mt)
+
+    self.leftSliderElement = nil
+    self.rightSliderElement = nil
+    self.sliderOffset = nil
+    self.defaultProfileSlider = nil
+    self.defaultProfileSliderRound = nil
+    self.useFillingBar = false
+    self.fillingBarElement = nil
+    self.defaultProfileFillingBar = nil
+    self.defaultProfileFillingBarThreePart = nil
+    self.updateTextPosition = true
+    self.leftState = 1
+    self.rightState = 2
     self.fillingBarOffset = GuiUtils.getNormalizedScreenValues("2px 0px")
 
-	return self
+    return self
 
 end
-
 
 function DoubleOptionSliderElement:loadFromXML(handle, key)
 
-	DoubleOptionSliderElement:superClass().loadFromXML(self, handle, key)
+    DoubleOptionSliderElement:superClass().loadFromXML(self, handle, key)
 
-	self.sliderOffset = GuiUtils.getNormalizedXValue(getXMLInt(handle, key .. "#sliderOffset"), self.sliderOffset)
-	self.useFillingBar = getXMLBool(handle, key .. "#useFillingBar") or self.useFillingBar
-	self.updateTextPosition = getXMLBool(handle, key .. "#updateTextPosition") or self.updateTextPosition
+    self.sliderOffset = GuiUtils.getNormalizedXValue(getXMLInt(handle, key .. "#sliderOffset"), self.sliderOffset)
+    self.useFillingBar = getXMLBool(handle, key .. "#useFillingBar") or self.useFillingBar
+    self.updateTextPosition = getXMLBool(handle, key .. "#updateTextPosition") or self.updateTextPosition
 
 end
-
 
 function DoubleOptionSliderElement:loadProfile(profile, applyProfile)
 
-	DoubleOptionSliderElement:superClass().loadProfile(self, profile, applyProfile)
+    DoubleOptionSliderElement:superClass().loadProfile(self, profile, applyProfile)
 
-	self.sliderOffset = GuiUtils.getNormalizedXValue(profile:getValue("sliderOffset"), self.sliderOffset)
-	self.useFillingBar = profile:getBool("useFillingBar", self.useFillingBar)
-	self.updateTextPosition = profile:getBool("updateTextPosition", self.updateTextPosition)
-	self.defaultProfileSlider = profile:getValue("defaultProfileSlider", self.defaultProfileSlider)
-	self.defaultProfileSliderRound = profile:getValue("defaultProfileSliderRound", self.defaultProfileSliderRound)
-	self.defaultProfileFillingBar = profile:getValue("defaultProfileFillingBar", self.defaultProfileFillingBar)
-	self.defaultProfileFillingBarThreePart = profile:getValue("defaultProfileFillingBarThreePart", self.defaultProfileFillingBarThreePart)
+    self.sliderOffset = GuiUtils.getNormalizedXValue(profile:getValue("sliderOffset"), self.sliderOffset)
+    self.useFillingBar = profile:getBool("useFillingBar", self.useFillingBar)
+    self.updateTextPosition = profile:getBool("updateTextPosition", self.updateTextPosition)
+    self.defaultProfileSlider = profile:getValue("defaultProfileSlider", self.defaultProfileSlider)
+    self.defaultProfileSliderRound = profile:getValue("defaultProfileSliderRound", self.defaultProfileSliderRound)
+    self.defaultProfileFillingBar = profile:getValue("defaultProfileFillingBar", self.defaultProfileFillingBar)
+    self.defaultProfileFillingBarThreePart = profile:getValue("defaultProfileFillingBarThreePart", self.defaultProfileFillingBarThreePart)
 
 end
-
 
 function DoubleOptionSliderElement:copyAttributes(target)
 
-	self.sliderOffset = target.sliderOffset
-	self.useFillingBar = target.useFillingBar
-	self.updateTextPosition = target.updateTextPosition
-	self.defaultProfileSlider = target.defaultProfileSlider
-	self.defaultProfileSliderRound = target.defaultProfileSliderRound
-	self.defaultProfileFillingBar = target.defaultProfileFillingBar
-	self.defaultProfileFillingBarThreePart = target.defaultProfileFillingBarThreePart
+    self.sliderOffset = target.sliderOffset
+    self.useFillingBar = target.useFillingBar
+    self.updateTextPosition = target.updateTextPosition
+    self.defaultProfileSlider = target.defaultProfileSlider
+    self.defaultProfileSliderRound = target.defaultProfileSliderRound
+    self.defaultProfileFillingBar = target.defaultProfileFillingBar
+    self.defaultProfileFillingBarThreePart = target.defaultProfileFillingBarThreePart
 
-	self.leftSliderElement = target.leftSliderElement
-	self.rightSliderElement = target.rightSliderElement
-	self.leftState = target.leftState
-	self.rightState = target.rightState
-	self.leftSliderMousePosX = target.leftSliderMousePosX
-	self.rightSliderMousePosX = target.rightSliderMousePosX
-	self.texts = target.texts
-	self.isLeftSliderPressed = target.isLeftSliderPressed
-	self.isRightSliderPressed = target.isRightSliderPressed
+    self.leftSliderElement = target.leftSliderElement
+    self.rightSliderElement = target.rightSliderElement
+    self.leftState = target.leftState
+    self.rightState = target.rightState
+    self.leftSliderMousePosX = target.leftSliderMousePosX
+    self.rightSliderMousePosX = target.rightSliderMousePosX
+    self.texts = target.texts
+    self.isLeftSliderPressed = target.isLeftSliderPressed
+    self.isRightSliderPressed = target.isRightSliderPressed
 
-	DoubleOptionSliderElement:superClass().copyAttributes(self, target)
+    DoubleOptionSliderElement:superClass().copyAttributes(self, target)
 
 end
-
 
 function DoubleOptionSliderElement:setElementsByName()
 
-	DoubleOptionSliderElement:superClass().setElementsByName(self)
+    DoubleOptionSliderElement:superClass().setElementsByName(self)
 
-	for _, element in pairs(self.elements) do
+    for _, element in pairs(self.elements) do
 
-		if element.name == "leftSlider" then
-			self.leftSliderElement = element
-			element.target = self
-		end
+        if element.name == "leftSlider" then
+            self.leftSliderElement = element
+            element.target = self
+        end
 
-		if element.name == "rightSlider" then
-			self.rightSliderElement = element
-			element.target = self
-		end
+        if element.name == "rightSlider" then
+            self.rightSliderElement = element
+            element.target = self
+        end
 
-		if element.name == "fillingBar" then
-			self.fillingBarElement = element
-			element.target = self
-		end
+        if element.name == "fillingBar" then
+            self.fillingBarElement = element
+            element.target = self
+        end
 
-	end
+    end
 
-	if self.fillingBarElement == nil then
-		self.useFillingBar = false
-	end
+    if self.fillingBarElement == nil then
+        self.useFillingBar = false
+    end
 
-	if self.leftSliderElement == nil then
-		Logging.warning("DoubleOptionSliderElement: could not find a left slider element for element with profile " .. self.profile)
-	elseif self.rightSliderElement == nil then
-		Logging.warning("DoubleOptionSliderElement: could not find a right slider element for element with profile " .. self.profile)
-	end
+    if self.leftSliderElement == nil then
+        Logging.warning("DoubleOptionSliderElement: could not find a left slider element for element with profile " .. self.profile)
+    elseif self.rightSliderElement == nil then
+        Logging.warning("DoubleOptionSliderElement: could not find a right slider element for element with profile " .. self.profile)
+    end
 
 end
-
 
 function DoubleOptionSliderElement:addDefaultElements()
 
-	DoubleOptionSliderElement:superClass().addDefaultElements(self)
+    DoubleOptionSliderElement:superClass().addDefaultElements(self)
 
-	if self.autoAddDefaultElements then
+    if self.autoAddDefaultElements then
 
-		if self:getDescendantByName("fillingBar") == nil then
+        if self:getDescendantByName("fillingBar") == nil then
 
-			if self.defaultProfileFillingBar == nil then
+            if self.defaultProfileFillingBar == nil then
 
-				if self.defaultProfileFillingBarThreePart ~= nil then
-					local element = ThreePartBitmapElement.new(self)
-					element.name = "fillingBar"
-					self:addElement(element)
-					element:applyProfile(self.defaultProfileFillingBarThreePart)
-				end
+                if self.defaultProfileFillingBarThreePart ~= nil then
+                    local element = ThreePartBitmapElement.new(self)
+                    element.name = "fillingBar"
+                    self:addElement(element)
+                    element:applyProfile(self.defaultProfileFillingBarThreePart)
+                end
 
-			else
+            else
 
-				local element = BitmapElement.new(self)
-				element.name = "fillingBar"
-				self:addElement(element)
-				element:applyProfile(self.defaultProfileFillingBar)
+                local element = BitmapElement.new(self)
+                element.name = "fillingBar"
+                self:addElement(element)
+                element:applyProfile(self.defaultProfileFillingBar)
 
-			end
+            end
 
-		end
+        end
 
-		if self:getDescendantByName("leftSlider") == nil then
+        if self:getDescendantByName("leftSlider") == nil then
 
-			if self.defaultProfileSliderRound ~= nil then
+            if self.defaultProfileSliderRound ~= nil then
 
-				local element = RoundCornerElement.new(self)
-				element.name = "leftSlider"
-				self:addElement(element)
-				element:applyProfile(self.defaultProfileSliderRound)
+                local element = RoundCornerElement.new(self)
+                element.name = "leftSlider"
+                self:addElement(element)
+                element:applyProfile(self.defaultProfileSliderRound)
 
-				return
+                return
 
-			end
+            end
 
-			if self.defaultProfileSlider ~= nil then
+            if self.defaultProfileSlider ~= nil then
 
-				local element = BitmapElement.new(self)
-				element.name = "leftSlider"
-				self:addElement(element)
-				element:applyProfile(self.defaultProfileSlider)
+                local element = BitmapElement.new(self)
+                element.name = "leftSlider"
+                self:addElement(element)
+                element:applyProfile(self.defaultProfileSlider)
 
-			end
+            end
 
-		end
+        end
 
-		if self:getDescendantByName("rightSlider") == nil then
+        if self:getDescendantByName("rightSlider") == nil then
 
-			if self.defaultProfileSliderRound ~= nil then
+            if self.defaultProfileSliderRound ~= nil then
 
-				local element = RoundCornerElement.new(self)
-				element.name = "rightSlider"
-				self:addElement(element)
-				element:applyProfile(self.defaultProfileSliderRound)
+                local element = RoundCornerElement.new(self)
+                element.name = "rightSlider"
+                self:addElement(element)
+                element:applyProfile(self.defaultProfileSliderRound)
 
-				return
+                return
 
-			end
+            end
 
-			if self.defaultProfileSlider ~= nil then
+            if self.defaultProfileSlider ~= nil then
 
-				local element = BitmapElement.new(self)
-				element.name = "rightSlider"
-				self:addElement(element)
-				element:applyProfile(self.defaultProfileSlider)
+                local element = BitmapElement.new(self)
+                element.name = "rightSlider"
+                self:addElement(element)
+                element:applyProfile(self.defaultProfileSlider)
 
-			end
+            end
 
-		end
+        end
 
-	end
+    end
 
 end
-
 
 function DoubleOptionSliderElement:onOpen()
 
-	DoubleOptionSliderElement:superClass().onOpen(self)
-	self:updateSlider()
+    DoubleOptionSliderElement:superClass().onOpen(self)
+    self:updateSlider()
 
 end
 
-
 function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, eventUsed)
 
-	if self:getIsActive() then
+    if self:getIsActive() then
 
-		eventUsed = self.wasContinuousTrigger and isUp and true or (MultiTextOptionElement:superClass().mouseEvent(self, posX, posY, isDown, isUp, button, eventUsed) and true or eventUsed)
+        eventUsed = self.wasContinuousTrigger and isUp and true or (MultiTextOptionElement:superClass().mouseEvent(self, posX, posY, isDown, isUp, button, eventUsed) and true or eventUsed)
 
-		if isDown then
+        if isDown then
 
-			local leftButton = self.leftButtonElement
+            local leftButton = self.leftButtonElement
             self.isLeftButtonPressed = not self.hideLeftRightButtons and GuiUtils.checkOverlayOverlap(posX, posY, leftButton.absPosition[1], leftButton.absPosition[2], leftButton.absSize[1], leftButton.absSize[2], leftButton.hotspot)
 
             local rightButton = self.rightButtonElement
@@ -225,135 +217,144 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
             local rightSlider = self.rightSliderElement
             self.isRightSliderPressed = rightSlider ~= nil and GuiUtils.checkOverlayOverlap(posX, posY, rightSlider.absPosition[1], rightSlider.absPosition[2], rightSlider.absSize[1], rightSlider.absSize[2], rightSlider.hotspot)
 
-            if self.leftSliderMousePosX == nil and self.isLeftSliderPressed then self.leftSliderMousePosX = posX end
-            if self.rightSliderMousePosX == nil and self.isRightSliderPressed then self.rightSliderMousePosX = posX end
+            if self.leftSliderMousePosX == nil and self.isLeftSliderPressed then
+                self.leftSliderMousePosX = posX
+            end
+            if self.rightSliderMousePosX == nil and self.isRightSliderPressed then
+                self.rightSliderMousePosX = posX
+            end
 
             self.delayTime = g_time
 
-		elseif isUp then
+        elseif isUp then
 
-			self.delayTime = math.huge
-			self.scrollDelayDuration = MultiTextOptionElement.FIRST_INPUT_DELAY
-			self.wasContinuousTrigger = false
-			self.continuousTriggerTime = 0
-			self.isLeftButtonPressed = false
-			self.leftDelayTime = 0
-			self.isRightButtonPressed = false
-			self.rightDelayTime = 0
-			self.isLeftSliderPressed = false
-			self.isRightSliderPressed = false
-			self.leftSliderMousePosX = nil
-			self.rightSliderMousePosX = nil
-			self.hasWrapped = false
+            self.delayTime = math.huge
+            self.scrollDelayDuration = MultiTextOptionElement.FIRST_INPUT_DELAY
+            self.wasContinuousTrigger = false
+            self.continuousTriggerTime = 0
+            self.isLeftButtonPressed = false
+            self.leftDelayTime = 0
+            self.isRightButtonPressed = false
+            self.rightDelayTime = 0
+            self.isLeftSliderPressed = false
+            self.isRightSliderPressed = false
+            self.leftSliderMousePosX = nil
+            self.rightSliderMousePosX = nil
+            self.hasWrapped = false
 
-		end
+        end
 
-		if eventUsed or not GuiUtils.checkOverlayOverlap(posX, posY, self.absPosition[1], self.absPosition[2], self.absSize[1], self.absSize[2], nil) then
+        if eventUsed or not GuiUtils.checkOverlayOverlap(posX, posY, self.absPosition[1], self.absPosition[2], self.absSize[1], self.absSize[2], nil) then
 
-			if self.inputEntered and not self.focusActive then
+            if self.inputEntered and not self.focusActive then
 
-				FocusManager:unsetHighlight(self)
-				self.inputEntered = false
+                FocusManager:unsetHighlight(self)
+                self.inputEntered = false
 
-			end
+            end
 
-		else
+        else
 
-			if not (self.inputEntered or self:getIsFocused()) then
+            if not (self.inputEntered or self:getIsFocused()) then
 
-				FocusManager:setHighlight(self)
-				self.inputEntered = true
+                FocusManager:setHighlight(self)
+                self.inputEntered = true
 
-			end
+            end
 
-			if #self.texts > 1 then
+            if #self.texts > 1 then
 
-				if not self:getIsFocused() and (self.isLeftSliderPressed or self.isRightSliderPressed) then FocusManager:setFocus(self) end
+                if not self:getIsFocused() and (self.isLeftSliderPressed or self.isRightSliderPressed) then
+                    FocusManager:setFocus(self)
+                end
 
-				if self.isLeftSliderPressed then
+                if self.isLeftSliderPressed then
 
-					local slider = self.leftSliderElement
-					local sliderWidth = slider.absSize[1]
-					local stepSize = (self.absSize[1] - 2 * self.sliderOffset - sliderWidth) / (#self.texts - 1)
+                    local slider = self.leftSliderElement
+                    local sliderWidth = slider.absSize[1]
+                    local stepSize = (self.absSize[1] - 2 * self.sliderOffset - sliderWidth) / (#self.texts - 1)
 
-					local mouseMoveDistance = posX - self.leftSliderMousePosX
-					local sliderLocalPosX = slider.absPosition[1] - self.absPosition[1] - self.sliderOffset
+                    local mouseMoveDistance = posX - self.leftSliderMousePosX
+                    local sliderLocalPosX = slider.absPosition[1] - self.absPosition[1] - self.sliderOffset
 
-					local sliderPosX = MathUtil.snapValue(sliderLocalPosX + mouseMoveDistance, stepSize)
-					sliderPosX = math.clamp(sliderPosX, 0, self.absSize[1] - sliderWidth - 2 * self.sliderOffset)
-					local state = MathUtil.round(sliderPosX / stepSize) + 1
+                    local sliderPosX = MathUtil.snapValue(sliderLocalPosX + mouseMoveDistance, stepSize)
+                    sliderPosX = math.clamp(sliderPosX, 0, self.absSize[1] - sliderWidth - 2 * self.sliderOffset)
+                    local state = MathUtil.round(sliderPosX / stepSize) + 1
 
-					--if state ~= self.leftState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state < self.leftState)) then
-					if state ~= self.leftState then
-						--print(string.format("left: %s, %s, %s", tostring(state ~= self.leftState), tostring(self.leftState == self.rightState), tostring(state < self.leftState)))
+                    --if state ~= self.leftState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state < self.leftState)) then
+                    if state ~= self.leftState then
+                        --print(string.format("left: %s, %s, %s", tostring(state ~= self.leftState), tostring(self.leftState == self.rightState), tostring(state < self.leftState)))
 
-						self.leftSliderMousePosX = self.leftSliderMousePosX + stepSize * (state - self.leftState)
-						self.leftState = state
-						self:setState(state, true)
+                        self.leftSliderMousePosX = self.leftSliderMousePosX + stepSize * (state - self.leftState)
+                        self.leftState = state
+                        self:setState(state, true)
 
-						slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
+                        slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
 
-						if self.updateTextPosition then self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2]) end
+                        if self.updateTextPosition then
+                            self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2])
+                        end
 
-						if self.useFillingBar then 
-		
-							local lowestSlider = self:getLowestSlider()
+                        if self.useFillingBar then
 
-							self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
-							self.fillingBarElement:setSize(math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset, nil)
-					
-						end
+                            local lowestSlider = self:getLowestSlider()
 
-					end
+                            self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
+                            self.fillingBarElement:setSize(math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset, nil)
 
-				elseif self.isRightSliderPressed then
+                        end
 
-					local slider = self.rightSliderElement
-					local sliderWidth = slider.absSize[1]
-					local stepSize = (self.absSize[1] - 2 * self.sliderOffset - sliderWidth) / (#self.texts - 1)
+                    end
 
-					local mouseMoveDistance = posX - self.rightSliderMousePosX
-					local sliderLocalPosX = slider.absPosition[1] - self.absPosition[1] - self.sliderOffset
+                elseif self.isRightSliderPressed then
 
-					local sliderPosX = MathUtil.snapValue(sliderLocalPosX + mouseMoveDistance, stepSize)
-					sliderPosX = math.clamp(sliderPosX, 0, self.absSize[1] - sliderWidth - 2 * self.sliderOffset)
-					local state = MathUtil.round(sliderPosX / stepSize) + 1
+                    local slider = self.rightSliderElement
+                    local sliderWidth = slider.absSize[1]
+                    local stepSize = (self.absSize[1] - 2 * self.sliderOffset - sliderWidth) / (#self.texts - 1)
 
-					--if state ~= self.rightState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state > self.rightState)) then
-					if state ~= self.rightState then
-						--print(string.format("right: %s, %s, %s", tostring(state ~= self.rightState), tostring(self.leftState == self.rightState), tostring(state > self.rightState)))
+                    local mouseMoveDistance = posX - self.rightSliderMousePosX
+                    local sliderLocalPosX = slider.absPosition[1] - self.absPosition[1] - self.sliderOffset
 
-						self.rightSliderMousePosX = self.rightSliderMousePosX + stepSize * (state - self.rightState)
-						self.rightState = state
-						self:setState(state, true)
-					
-						slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
+                    local sliderPosX = MathUtil.snapValue(sliderLocalPosX + mouseMoveDistance, stepSize)
+                    sliderPosX = math.clamp(sliderPosX, 0, self.absSize[1] - sliderWidth - 2 * self.sliderOffset)
+                    local state = MathUtil.round(sliderPosX / stepSize) + 1
 
-						if self.updateTextPosition then self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2]) end
+                    --if state ~= self.rightState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state > self.rightState)) then
+                    if state ~= self.rightState then
+                        --print(string.format("right: %s, %s, %s", tostring(state ~= self.rightState), tostring(self.leftState == self.rightState), tostring(state > self.rightState)))
 
-						if self.useFillingBar then
-		
-							local lowestSlider = self:getLowestSlider()
+                        self.rightSliderMousePosX = self.rightSliderMousePosX + stepSize * (state - self.rightState)
+                        self.rightState = state
+                        self:setState(state, true)
 
-							self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
-							self.fillingBarElement:setSize(math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset, nil)
+                        slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
 
-						end
+                        if self.updateTextPosition then
+                            self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2])
+                        end
 
-					end
+                        if self.useFillingBar then
 
-				end
+                            local lowestSlider = self:getLowestSlider()
 
-			end
+                            self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
+                            self.fillingBarElement:setSize(math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset, nil)
 
-		end
+                        end
 
-	end
+                    end
 
-	return eventUsed
+                end
+
+            end
+
+        end
+
+    end
+
+    return eventUsed
 
 end
-
 
 function DoubleOptionSliderElement:updateSlider()
 
@@ -401,109 +402,99 @@ function DoubleOptionSliderElement:updateSlider()
 
     end
 
-	if self.useFillingBar and self.leftSliderElement ~= nil and self.rightSliderElement ~= nil then
+    if self.useFillingBar and self.leftSliderElement ~= nil and self.rightSliderElement ~= nil then
 
-		local fillingBarSize = self.absSize[1] - self.sliderOffset
+        local fillingBarSize = self.absSize[1] - self.sliderOffset
 
         if #self.texts > 1 then
             fillingBarSize = math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset
         end
-		
 
-		local lowestSlider = self:getLowestSlider()
+        local lowestSlider = self:getLowestSlider()
 
-		self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
+        self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
         self.fillingBarElement:setSize(fillingBarSize, nil)
 
-	end
+    end
 
 end
-
 
 function DoubleOptionSliderElement:updateFillingBar()
 
-	if self.useFillingBar and self.leftSliderElement ~= nil and self.rightSliderElement ~= nil then
+    if self.useFillingBar and self.leftSliderElement ~= nil and self.rightSliderElement ~= nil then
 
-		local fillingBarSize = self.absSize[1] - self.sliderOffset
+        local fillingBarSize = self.absSize[1] - self.sliderOffset
 
         if #self.texts > 1 then
             fillingBarSize = math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset
         end
-		
 
-		local lowestSlider = self:getLowestSlider()
+        local lowestSlider = self:getLowestSlider()
 
-		self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
+        self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
         self.fillingBarElement:setSize(fillingBarSize, nil)
 
-	end
+    end
 
 end
-
 
 function DoubleOptionSliderElement:updateAbsolutePosition()
 
     DoubleOptionSliderElement:superClass().updateAbsolutePosition(self)
-	self:updateSlider()
+    self:updateSlider()
 
 end
-
 
 function DoubleOptionSliderElement:updateContentElement()
 
     DoubleOptionSliderElement:superClass().updateContentElement(self)
 
-	if self.texts ~= nil and #self.texts > 0 then
+    if self.texts ~= nil and #self.texts > 0 then
 
-		local lowestState = self:getLowestState()
-		local highestState = self:getHighestState()
+        local lowestState = self:getLowestState()
+        local highestState = self:getHighestState()
 
-		if lowestState == highestState then
-			self.textElement:setText(self.texts[lowestState])
-		else
-			self.textElement:setText(self.texts[lowestState] .. " - " .. self.texts[highestState])
-		end
+        if lowestState == highestState then
+            self.textElement:setText(self.texts[lowestState])
+        else
+            self.textElement:setText(self.texts[lowestState] .. " - " .. self.texts[highestState])
+        end
 
-	end
+    end
 
 end
-
 
 function DoubleOptionSliderElement:setTexts(texts)
 
-	self.leftState = 1
-	self.rightState = #texts
+    self.leftState = 1
+    self.rightState = #texts
 
-	DoubleOptionSliderElement:superClass().setTexts(self, texts)
+    DoubleOptionSliderElement:superClass().setTexts(self, texts)
 
-	self:updateSlider()
+    self:updateSlider()
 
 end
-
 
 function DoubleOptionSliderElement:getHighestSlider()
 
-	return self.leftState > self.rightState and self.leftSliderElement or self.rightSliderElement
+    return self.leftState > self.rightState and self.leftSliderElement or self.rightSliderElement
 
 end
-
 
 function DoubleOptionSliderElement:getLowestSlider()
 
-	return self.leftState <= self.rightState and self.leftSliderElement or self.rightSliderElement
+    return self.leftState <= self.rightState and self.leftSliderElement or self.rightSliderElement
 
 end
-
 
 function DoubleOptionSliderElement:getHighestState()
 
-	return self.leftState > self.rightState and self.leftState or self.rightState
+    return self.leftState > self.rightState and self.leftState or self.rightState
 
 end
 
-
 function DoubleOptionSliderElement:getLowestState()
 
-	return self.leftState <= self.rightState and self.leftState or self.rightState
+    return self.leftState <= self.rightState and self.leftState or self.rightState
 
 end

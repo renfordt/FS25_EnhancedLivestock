@@ -1,33 +1,29 @@
 EnhancedLivestock_PlaceableHusbandryAnimals = {}
 
-
 function EnhancedLivestock_PlaceableHusbandryAnimals.registerFunctions(placeable)
-	SpecializationUtil.registerFunction(placeable, "setHasUnreadELMessages", PlaceableHusbandryAnimals.setHasUnreadELMessages)
-	SpecializationUtil.registerFunction(placeable, "getHasUnreadELMessages", PlaceableHusbandryAnimals.getHasUnreadELMessages)
-	SpecializationUtil.registerFunction(placeable, "getELMessages", PlaceableHusbandryAnimals.getELMessages)
-	SpecializationUtil.registerFunction(placeable, "addELMessage", PlaceableHusbandryAnimals.addELMessage)
-	SpecializationUtil.registerFunction(placeable, "deleteELMessage", PlaceableHusbandryAnimals.deleteELMessage)
-	SpecializationUtil.registerFunction(placeable, "getNextELMessageUniqueId", PlaceableHusbandryAnimals.getNextELMessageUniqueId)
-	SpecializationUtil.registerFunction(placeable, "setNextELMessageUniqueId", PlaceableHusbandryAnimals.setNextELMessageUniqueId)
-	SpecializationUtil.registerFunction(placeable, "getAIManager", PlaceableHusbandryAnimals.getAIManager)
+    SpecializationUtil.registerFunction(placeable, "setHasUnreadELMessages", PlaceableHusbandryAnimals.setHasUnreadELMessages)
+    SpecializationUtil.registerFunction(placeable, "getHasUnreadELMessages", PlaceableHusbandryAnimals.getHasUnreadELMessages)
+    SpecializationUtil.registerFunction(placeable, "getELMessages", PlaceableHusbandryAnimals.getELMessages)
+    SpecializationUtil.registerFunction(placeable, "addELMessage", PlaceableHusbandryAnimals.addELMessage)
+    SpecializationUtil.registerFunction(placeable, "deleteELMessage", PlaceableHusbandryAnimals.deleteELMessage)
+    SpecializationUtil.registerFunction(placeable, "getNextELMessageUniqueId", PlaceableHusbandryAnimals.getNextELMessageUniqueId)
+    SpecializationUtil.registerFunction(placeable, "setNextELMessageUniqueId", PlaceableHusbandryAnimals.setNextELMessageUniqueId)
+    SpecializationUtil.registerFunction(placeable, "getAIManager", PlaceableHusbandryAnimals.getAIManager)
 end
 
 PlaceableHusbandryAnimals.registerFunctions = Utils.appendedFunction(PlaceableHusbandryAnimals.registerFunctions, EnhancedLivestock_PlaceableHusbandryAnimals.registerFunctions)
 
-
 function PlaceableHusbandryAnimals:setHasUnreadELMessages(hasUnreadMessages)
-    
+
     self.spec_husbandryAnimals.unreadMessages = hasUnreadMessages
 
 end
 
-
 function PlaceableHusbandryAnimals:getHasUnreadELMessages()
-    
+
     return self.spec_husbandryAnimals.unreadMessages or false
 
 end
-
 
 function PlaceableHusbandryAnimals:getELMessages()
 
@@ -35,12 +31,13 @@ function PlaceableHusbandryAnimals:getELMessages()
 
 end
 
-
 function PlaceableHusbandryAnimals:addELMessage(id, animal, args, date, uniqueId, isLoading)
 
     local spec = self.spec_husbandryAnimals
 
-    if spec.messages == nil then spec.messages = {} end
+    if spec.messages == nil then
+        spec.messages = {}
+    end
 
     if date == nil then
 
@@ -48,7 +45,9 @@ function PlaceableHusbandryAnimals:addELMessage(id, animal, args, date, uniqueId
         local month = environment.currentPeriod + 2
         local currentDayInPeriod = environment.currentDayInPeriod
 
-        if month > 12 then month = month - 12 end
+        if month > 12 then
+            month = month - 12
+        end
 
         local daysPerPeriod = environment.daysPerPeriod
         local day = 1 + math.floor((currentDayInPeriod - 1) * (EnhancedLivestock.DAYS_PER_MONTH[month] / daysPerPeriod))
@@ -58,7 +57,9 @@ function PlaceableHusbandryAnimals:addELMessage(id, animal, args, date, uniqueId
 
     end
 
-    for i, arg in pairs(args or {}) do args[i] = tostring(arg) end
+    for i, arg in pairs(args or {}) do
+        args[i] = tostring(arg)
+    end
 
     table.insert(spec.messages, {
         ["id"] = id,
@@ -68,12 +69,13 @@ function PlaceableHusbandryAnimals:addELMessage(id, animal, args, date, uniqueId
         ["uniqueId"] = uniqueId or spec:getNextELMessageUniqueId()
     })
 
-    if not isLoading and #spec.messages > PlaceableHusbandryAnimals.maxNumMessages then table.remove(spec.messages, 1) end
+    if not isLoading and #spec.messages > PlaceableHusbandryAnimals.maxNumMessages then
+        table.remove(spec.messages, 1)
+    end
 
     spec.unreadMessages = true
 
 end
-
 
 function PlaceableHusbandryAnimals:deleteELMessage(uniqueId)
 
@@ -90,26 +92,25 @@ function PlaceableHusbandryAnimals:deleteELMessage(uniqueId)
 
 end
 
-
 function PlaceableHusbandryAnimals:setNextELMessageUniqueId(nextUniqueId)
 
     self.spec_husbandryAnimals.elMessageUniqueId = nextUniqueId or 0
 
 end
 
-
 function PlaceableHusbandryAnimals:getNextELMessageUniqueId()
 
     local spec = self.spec_husbandryAnimals
 
-    if spec.elMessageUniqueId == nil then spec.elMessageUniqueId = 0 end
+    if spec.elMessageUniqueId == nil then
+        spec.elMessageUniqueId = 0
+    end
 
     spec.elMessageUniqueId = spec.elMessageUniqueId + 1
 
     return spec.elMessageUniqueId
 
 end
-
 
 function EnhancedLivestock_PlaceableHusbandryAnimals:saveToXMLFile(xmlFile, key)
 
@@ -124,9 +125,11 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:saveToXMLFile(xmlFile, key)
 
         xmlFile:setString(messageKey .. "#id", message.id)
         xmlFile:setString(messageKey .. "#date", message.date)
-        if message.animal ~= nil then xmlFile:setString(messageKey .. "#animal", message.animal) end
+        if message.animal ~= nil then
+            xmlFile:setString(messageKey .. "#animal", message.animal)
+        end
         xmlFile:setInt(messageKey .. "#uniqueId", message.uniqueId)
-        
+
         for j, arg in pairs(message.args) do
 
             xmlFile:setString(string.format("%s.args.arg(%d)#value", messageKey, j - 1), arg)
@@ -141,15 +144,14 @@ end
 
 PlaceableHusbandryAnimals.saveToXMLFile = Utils.prependedFunction(PlaceableHusbandryAnimals.saveToXMLFile, EnhancedLivestock_PlaceableHusbandryAnimals.saveToXMLFile)
 
-
 function EnhancedLivestock_PlaceableHusbandryAnimals:loadFromXMLFile(xmlFile, key)
 
     local spec = self.spec_husbandryAnimals
-    
+
     spec.elMessageUniqueId = xmlFile:getInt(key .. ".messages#uniqueId", 0)
 
     xmlFile:iterate(key .. ".messages.message", function(_, messageKey)
-    
+
         local id = xmlFile:getString(messageKey .. "#id")
         local date = xmlFile:getString(messageKey .. "#date")
         local animal = xmlFile:getString(messageKey .. "#animal")
@@ -161,9 +163,9 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:loadFromXMLFile(xmlFile, ke
             table.insert(args, xmlFile:getString(argKey .. "#value"))
 
         end)
-        
+
         self:addELMessage(id, animal, args, date, uniqueId, true)
-    
+
     end)
 
     spec.unreadMessages = xmlFile:getBool(key .. ".messages#unreadMessages", false)
@@ -174,17 +176,17 @@ end
 
 PlaceableHusbandryAnimals.loadFromXMLFile = Utils.prependedFunction(PlaceableHusbandryAnimals.loadFromXMLFile, EnhancedLivestock_PlaceableHusbandryAnimals.loadFromXMLFile)
 
-
 function PlaceableHusbandryAnimals:getAIManager()
 
     local spec = self.spec_husbandryAnimals
 
-    if spec.aiAnimalManager == nil then spec.aiAnimalManager = AIAnimalManager.new(self) end
+    if spec.aiAnimalManager == nil then
+        spec.aiAnimalManager = AIAnimalManager.new(self)
+    end
 
     return spec.aiAnimalManager
 
 end
-
 
 function EnhancedLivestock_PlaceableHusbandryAnimals:onLoad()
 
@@ -194,13 +196,11 @@ end
 
 PlaceableHusbandryAnimals.onLoad = Utils.appendedFunction(PlaceableHusbandryAnimals.onLoad, EnhancedLivestock_PlaceableHusbandryAnimals.onLoad)
 
-
 function EnhancedLivestock_PlaceableHusbandryAnimals.onSettingChanged(name, state)
 
     PlaceableHusbandryAnimals[name] = state
 
 end
-
 
 function EnhancedLivestock_PlaceableHusbandryAnimals:updateVisualAnimals(_)
     local spec = self.spec_husbandryAnimals
@@ -222,32 +222,33 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:addAnimals(_, animals)
 
     --for i=1, numAnimals do
 
-        --local subType = g_currentMission.animalSystem:getSubTypeByIndex(subTypeIndex)
-        --local animal = Animal.new(age, 100, 0, subType.gender, subTypeIndex, 0, false, false, false, self.spec_husbandryAnimals.clusterSystem)
-        --table.insert(newAnimals, animal)
+    --local subType = g_currentMission.animalSystem:getSubTypeByIndex(subTypeIndex)
+    --local animal = Animal.new(age, 100, 0, subType.gender, subTypeIndex, 0, false, false, false, self.spec_husbandryAnimals.clusterSystem)
+    --table.insert(newAnimals, animal)
 
     --end
 
     --if #newAnimals >= 1 then self:addCluster(newAnimals) end
 
-    for _, animal in pairs(animals) do self:addCluster(animal) end
+    for _, animal in pairs(animals) do
+        self:addCluster(animal)
+    end
 
 end
 
 PlaceableHusbandryAnimals.addAnimals = Utils.overwrittenFunction(PlaceableHusbandryAnimals.addAnimals, EnhancedLivestock_PlaceableHusbandryAnimals.addAnimals)
 
-
-
-
 function EnhancedLivestock_PlaceableHusbandryAnimals:onDayChanged()
 
-    local minTemp =  math.floor(g_currentMission.environment.weather.temperatureUpdater.currentMin)
+    local minTemp = math.floor(g_currentMission.environment.weather.temperatureUpdater.currentMin)
 
     local environment = g_currentMission.environment
     local month = environment.currentPeriod + 2
     local currentDayInPeriod = environment.currentDayInPeriod
 
-    if month > 12 then month = month - 12 end
+    if month > 12 then
+        month = month - 12
+    end
 
     local daysPerPeriod = environment.daysPerPeriod
     local day = 1 + math.floor((currentDayInPeriod - 1) * (EnhancedLivestock.DAYS_PER_MONTH[month] / daysPerPeriod))
@@ -288,9 +289,9 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onDayChanged()
             local farm = g_farmManager:getFarmById(farmIndex)
 
             --if self.isServer then
-                g_currentMission:addMoneyChange(childrenToSellMoney, farmIndex, MoneyType.SOLD_ANIMALS, true)
+            g_currentMission:addMoneyChange(childrenToSellMoney, farmIndex, MoneyType.SOLD_ANIMALS, true)
             --else
-                --g_client:getServerConnection():sendEvent(MoneyChangeEvent.new(childrenToSellMoney, MoneyType.SOLD_ANIMALS, farmIndex))
+            --g_client:getServerConnection():sendEvent(MoneyChangeEvent.new(childrenToSellMoney, MoneyType.SOLD_ANIMALS, farmIndex))
             --end
 
             if farm ~= nil then
@@ -306,9 +307,9 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onDayChanged()
             if randomDeathsMoney > 0 then
 
                 --if self.isServer then
-                    g_currentMission:addMoneyChange(randomDeathsMoney, farmIndex, MoneyType.SOLD_ANIMALS, true)
+                g_currentMission:addMoneyChange(randomDeathsMoney, farmIndex, MoneyType.SOLD_ANIMALS, true)
                 --else
-                    --g_client:getServerConnection():sendEvent(MoneyChangeEvent.new(randomDeathsMoney, MoneyType.SOLD_ANIMALS, farmIndex))
+                --g_client:getServerConnection():sendEvent(MoneyChangeEvent.new(randomDeathsMoney, MoneyType.SOLD_ANIMALS, farmIndex))
                 --end
 
                 if farm ~= nil then
@@ -318,14 +319,16 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onDayChanged()
             end
 
         end
-        
+
         spec.aiAnimalManager:onDayChanged()
 
     end
 
     spec.minTemp = minTemp
 
-    if randomDeaths > 0 or oldAgeDeaths > 0 or lowHealthDeaths > 0 or deadParents > 0 or totalChildren > 0 then spec.clusterHusbandry:updateVisuals() end
+    if randomDeaths > 0 or oldAgeDeaths > 0 or lowHealthDeaths > 0 or deadParents > 0 or totalChildren > 0 then
+        spec.clusterHusbandry:updateVisuals()
+    end
 
     self:raiseActive()
 
@@ -339,12 +342,11 @@ end
 
 PlaceableHusbandryAnimals.onDayChanged = Utils.overwrittenFunction(PlaceableHusbandryAnimals.onDayChanged, EnhancedLivestock_PlaceableHusbandryAnimals.onDayChanged)
 
-
 function EnhancedLivestock_PlaceableHusbandryAnimals:onPeriodChanged(_)
 
     if self.isServer then
 
-		local animals = self.spec_husbandryAnimals.clusterSystem:getClusters()
+        local animals = self.spec_husbandryAnimals.clusterSystem:getClusters()
         local totalTreatmentCost = 0
 
         for _, animal in pairs(animals) do
@@ -352,7 +354,9 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onPeriodChanged(_)
             totalTreatmentCost = totalTreatmentCost + treatmentCost
         end
 
-        if totalTreatmentCost > 0 then g_currentMission:addMoneyChange(totalTreatmentCost, self.spec_husbandryAnimals:getOwnerFarmId(), MoneyType.MEDICINE, true) end
+        if totalTreatmentCost > 0 then
+            g_currentMission:addMoneyChange(totalTreatmentCost, self.spec_husbandryAnimals:getOwnerFarmId(), MoneyType.MEDICINE, true)
+        end
 
         g_diseaseManager:calculateTransmission(animals)
 

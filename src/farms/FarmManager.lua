@@ -1,9 +1,8 @@
 EL_FarmManager = {}
 
-
 function EL_FarmManager:loadFromXMLFile(superFunc, path)
 
-	local returnValue = superFunc(self, path)
+    local returnValue = superFunc(self, path)
 
     local animalSystem = g_currentMission.animalSystem
     animalSystem:initialiseCountries()

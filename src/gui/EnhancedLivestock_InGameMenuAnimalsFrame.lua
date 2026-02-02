@@ -1,6 +1,5 @@
 EnhancedLivestock_InGameMenuAnimalsFrame = {}
 
-
 function EnhancedLivestock_InGameMenuAnimalsFrame:displayCluster(superFunc, animal, husbandry)
 
     if g_currentMission.isRunning or Platform.isMobile then
@@ -50,8 +49,6 @@ function EnhancedLivestock_InGameMenuAnimalsFrame:displayCluster(superFunc, anim
 end
 
 InGameMenuAnimalsFrame.displayCluster = Utils.overwrittenFunction(InGameMenuAnimalsFrame.displayCluster, EnhancedLivestock_InGameMenuAnimalsFrame.displayCluster)
-
-
 
 function EnhancedLivestock_InGameMenuAnimalsFrame:populateCellForItemInSection(_, subTypeIndex, animalIndex, cell)
 

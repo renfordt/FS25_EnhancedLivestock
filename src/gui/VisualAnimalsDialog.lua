@@ -9,10 +9,11 @@ function VisualAnimalsDialog.register()
     VisualAnimalsDialog.INSTANCE = dialog
 end
 
-
 function VisualAnimalsDialog.show()
 
-    if VisualAnimalsDialog.INSTANCE == nil then VisualAnimalsDialog.register() end
+    if VisualAnimalsDialog.INSTANCE == nil then
+        VisualAnimalsDialog.register()
+    end
 
     if VisualAnimalsDialog.INSTANCE ~= nil then
         local instance = VisualAnimalsDialog.INSTANCE
@@ -34,14 +35,12 @@ function VisualAnimalsDialog.show()
     end
 end
 
-
 function VisualAnimalsDialog.new(target, customMt)
     local dialog = YesNoDialog.new(target, customMt or visualAnimalsDialog_mt)
     dialog.areButtonsDisabled = false
     dialog.recommendedAnimals = 8
     return dialog
 end
-
 
 function VisualAnimalsDialog.createFromExistingGui(gui, _)
 
@@ -50,7 +49,6 @@ function VisualAnimalsDialog.createFromExistingGui(gui, _)
 
 end
 
-
 function VisualAnimalsDialog:onOpen()
 
     VisualAnimalsDialog:superClass().onOpen(self)
@@ -58,15 +56,15 @@ function VisualAnimalsDialog:onOpen()
 
 end
 
-
 function VisualAnimalsDialog:onClose()
     VisualAnimalsDialog:superClass().onClose(self)
 end
 
-
 function VisualAnimalsDialog:onRecommended()
 
-    if self.areButtonsDisabled then return true end
+    if self.areButtonsDisabled then
+        return true
+    end
 
     self.quantityElement:setState(self.recommendedAnimals * 2)
 
@@ -74,14 +72,14 @@ function VisualAnimalsDialog:onRecommended()
 
 end
 
-
 function VisualAnimalsDialog:onYes()
 
-    if self.areButtonsDisabled then return true end
+    if self.areButtonsDisabled then
+        return true
+    end
 
     local maxHusbandries = EnhancedLivestock_AnimalClusterHusbandry.MAX_HUSBANDRIES
     local newMaxHusbandries = self.quantityElement:getState()
-
 
     local husbandrySystem = g_currentMission.husbandrySystem
 
@@ -101,7 +99,6 @@ function VisualAnimalsDialog:onYes()
 
 end
 
-
 function VisualAnimalsDialog:onNo(_, _)
 
     self:close()
@@ -109,15 +106,16 @@ function VisualAnimalsDialog:onNo(_, _)
 
 end
 
-
 function VisualAnimalsDialog:setQuantity(quantity)
 
-    if quantity < 1 then quantity = 1 end
+    if quantity < 1 then
+        quantity = 1
+    end
     self.maxQuantity = quantity
 
     local texts = {}
 
-    for i=1, quantity do
+    for i = 1, quantity do
         local text = tostring(i)
         table.insert(texts, text)
     end
@@ -125,7 +123,6 @@ function VisualAnimalsDialog:setQuantity(quantity)
     self.quantityElement:setTexts(texts)
 
 end
-
 
 function VisualAnimalsDialog:setButtonDisabled(disabled)
     self.areButtonsDisabled = disabled

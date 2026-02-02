@@ -18,13 +18,14 @@ end
 
 AnimalScreenTrailerFarm.initTargetItems = Utils.overwrittenFunction(AnimalScreenTrailerFarm.initTargetItems, EL_AnimalScreenTrailerFarm.initTargetItems)
 
-
 function EL_AnimalScreenTrailerFarm:initSourceItems(_)
 
     self.sourceItems = {}
 
     local animalType = self.trailer:getCurrentAnimalType()
-    if animalType == nil then return end
+    if animalType == nil then
+        return
+    end
 
     local animals = self.trailer:getClusters()
 
@@ -32,12 +33,13 @@ function EL_AnimalScreenTrailerFarm:initSourceItems(_)
         for _, animal in pairs(animals) do
             local item = AnimalItemStock.new(animal)
 
-            if self.sourceItems[animalType.typeIndex] == nil then self.sourceItems[animalType.typeIndex] = {} end
+            if self.sourceItems[animalType.typeIndex] == nil then
+                self.sourceItems[animalType.typeIndex] = {}
+            end
 
             table.insert(self.sourceItems[animalType.typeIndex], item)
         end
     end
-
 
     for _, category in pairs(self.sourceItems) do
         table.sort(category, EL_AnimalScreenBase.sortAnimals)
@@ -46,7 +48,6 @@ function EL_AnimalScreenTrailerFarm:initSourceItems(_)
 end
 
 AnimalScreenTrailerFarm.initSourceItems = Utils.overwrittenFunction(AnimalScreenTrailerFarm.initSourceItems, EL_AnimalScreenTrailerFarm.initSourceItems)
-
 
 function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
 
@@ -73,8 +74,10 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
             --local errorCode = AnimalMoveEvent.validate(trailer, husbandry, sourceItem:getClusterId(), 1, ownerFarmId)
             local errorCode = AnimalMoveEvent.validate(trailer, husbandry, ownerFarmId, animal.subTypeIndex)
 
-            if errorCode ~= nil then continue end
-    
+            if errorCode ~= nil then
+                continue
+            end
+
             totalMovedAnimals = totalMovedAnimals + 1
             --clusterSystemTrailer:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
             --animal.id, animal.idFull = nil, nil
@@ -97,8 +100,8 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
     --self.sourceBulkActionFinished(nil, string.format(g_i18n:getText("el_ui_moveBulkResult"), totalMovedAnimals), indexesToReturn)
 
     self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenTrailerFarm.L10N_SYMBOL.MOVE_TO_FARM))
-	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToFarm, self)
-	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(trailer, husbandry, self.sourceAnimals, "TARGET"))
+    g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToFarm, self)
+    g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(trailer, husbandry, self.sourceAnimals, "TARGET"))
 
     if husbandry.addELMessage ~= nil then
         if totalMovedAnimals == 1 then
@@ -109,7 +112,6 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
     end
 
 end
-
 
 function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
 
@@ -136,8 +138,10 @@ function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
             --local errorCode = AnimalMoveEvent.validate(husbandry, trailer, targetItem:getClusterId(), 1, ownerFarmId)
             local errorCode = AnimalMoveEvent.validate(husbandry, trailer, ownerFarmId, animal.subTypeIndex)
 
-            if errorCode ~= nil then continue end
-    
+            if errorCode ~= nil then
+                continue
+            end
+
             totalMovedAnimals = totalMovedAnimals + 1
             --clusterSystemHusbandry:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
             --animal.id, animal.idFull = nil, nil
@@ -160,8 +164,8 @@ function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
     --self.targetBulkActionFinished(nil, string.format(g_i18n:getText("el_ui_moveBulkResult"), totalMovedAnimals), indexesToReturn)
 
     self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_TARGET, g_i18n:getText(AnimalScreenTrailerFarm.L10N_SYMBOL.MOVE_TO_TRAILER))
-	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToTrailer, self)
-	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(husbandry, trailer, self.targetAnimals, "SOURCE"))
+    g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToTrailer, self)
+    g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(husbandry, trailer, self.targetAnimals, "SOURCE"))
 
     if husbandry.addELMessage ~= nil then
         if totalMovedAnimals == 1 then
@@ -172,7 +176,6 @@ function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
     end
 
 end
-
 
 function EL_AnimalScreenTrailerFarm:applyTarget(_, _, animalIndex)
 
@@ -186,21 +189,21 @@ function EL_AnimalScreenTrailerFarm:applyTarget(_, _, animalIndex)
     local item = self.targetItems[animalIndex]
 
     local animal = item.animal or item.cluster
-    
+
     local id = item:getClusterId()
-	--local errorCode = AnimalMoveEvent.validate(husbandry, trailer, id, 1, ownerFarmId)
-	local errorCode = AnimalMoveEvent.validate(husbandry, trailer, ownerFarmId, animal.subTypeIndex)
+    --local errorCode = AnimalMoveEvent.validate(husbandry, trailer, id, 1, ownerFarmId)
+    local errorCode = AnimalMoveEvent.validate(husbandry, trailer, ownerFarmId, animal.subTypeIndex)
 
     if errorCode ~= nil then
-		self.errorCallback(g_i18n:getText(AnimalScreenTrailerFarm.MOVE_TO_TRAILER_ERROR_CODE_MAPPING[errorCode].text))
-		return false
-	end
+        self.errorCallback(g_i18n:getText(AnimalScreenTrailerFarm.MOVE_TO_TRAILER_ERROR_CODE_MAPPING[errorCode].text))
+        return false
+    end
 
     self.targetAnimals = { animal }
 
     self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_TARGET, g_i18n:getText(AnimalScreenTrailerFarm.L10N_SYMBOL.MOVE_TO_TRAILER))
-	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToTrailer, self)
-	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(husbandry, trailer, self.targetAnimals))
+    g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToTrailer, self)
+    g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(husbandry, trailer, self.targetAnimals))
 
     --clusterSystemHusbandry:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
     --animal.id, animal.idFull = nil, nil
@@ -220,7 +223,6 @@ end
 
 AnimalScreenTrailerFarm.applyTarget = Utils.overwrittenFunction(AnimalScreenTrailerFarm.applyTarget, EL_AnimalScreenTrailerFarm.applyTarget)
 
-
 function EL_AnimalScreenTrailerFarm:applySource(_, animalTypeIndex, animalIndex)
 
     self.sourceAnimals = nil
@@ -234,21 +236,21 @@ function EL_AnimalScreenTrailerFarm:applySource(_, animalTypeIndex, animalIndex)
     local sourceItems = self.sourceItems[animalTypeIndex]
     local item = sourceItems[animalIndex]
     local animal = item.animal or item.cluster
-    
+
     local id = item:getClusterId()
-	--local errorCode = AnimalMoveEvent.validate(trailer, husbandry, id, 1, ownerFarmId)
-	local errorCode = AnimalMoveEvent.validate(trailer, husbandry, ownerFarmId, animal.subTypeIndex)
+    --local errorCode = AnimalMoveEvent.validate(trailer, husbandry, id, 1, ownerFarmId)
+    local errorCode = AnimalMoveEvent.validate(trailer, husbandry, ownerFarmId, animal.subTypeIndex)
 
     if errorCode ~= nil then
-		self.errorCallback(g_i18n:getText(AnimalScreenTrailerFarm.MOVE_TO_FARM_ERROR_CODE_MAPPING[errorCode].text))
-		return false
-	end
+        self.errorCallback(g_i18n:getText(AnimalScreenTrailerFarm.MOVE_TO_FARM_ERROR_CODE_MAPPING[errorCode].text))
+        return false
+    end
 
     self.sourceAnimals = { animal }
 
     self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenTrailerFarm.L10N_SYMBOL.MOVE_TO_FARM))
-	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToFarm, self)
-	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(trailer, husbandry, self.sourceAnimals))
+    g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToFarm, self)
+    g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(trailer, husbandry, self.sourceAnimals))
 
     --clusterSystemTrailer:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
     --animal.id, animal.idFull = nil, nil

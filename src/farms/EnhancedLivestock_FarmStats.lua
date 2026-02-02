@@ -14,18 +14,28 @@ end
 
 FarmStats.loadFromXMLFile = Utils.prependedFunction(FarmStats.loadFromXMLFile, EnhancedLivestock_FarmStats.loadFromXMLFile)
 
-
 function EnhancedLivestock_FarmStats:saveToXMLFile(xmlFile, rootKey)
 
     local key = rootKey .. ".statistics"
 
-    if self.statistics.farmId == nil then self.statistics.farmId = math.random(100000, 999999) end
-    if self.statistics.cowId == nil then self.statistics.cowId = 0 end
-    if self.statistics.pigId == nil then self.statistics.pigId = 0 end
-    if self.statistics.sheepId == nil then self.statistics.sheepId = 0 end
-    if self.statistics.horseId == nil then self.statistics.horseId = 0 end
-    if self.statistics.chickenId == nil then self.statistics.chickenId = 0 end
-
+    if self.statistics.farmId == nil then
+        self.statistics.farmId = math.random(100000, 999999)
+    end
+    if self.statistics.cowId == nil then
+        self.statistics.cowId = 0
+    end
+    if self.statistics.pigId == nil then
+        self.statistics.pigId = 0
+    end
+    if self.statistics.sheepId == nil then
+        self.statistics.sheepId = 0
+    end
+    if self.statistics.horseId == nil then
+        self.statistics.horseId = 0
+    end
+    if self.statistics.chickenId == nil then
+        self.statistics.chickenId = 0
+    end
 
     xmlFile:setInt(key .. ".farmId", self.statistics.farmId)
     xmlFile:setInt(key .. ".cowId", self.statistics.cowId)
@@ -38,35 +48,44 @@ end
 
 FarmStats.saveToXMLFile = Utils.prependedFunction(FarmStats.saveToXMLFile, EnhancedLivestock_FarmStats.saveToXMLFile)
 
-
 function EnhancedLivestock_FarmStats:getNextAnimalId(animalType)
 
     if animalType == AnimalType.COW then
-        if self.statistics.cowId == nil then self.statistics.cowId = 0 end
+        if self.statistics.cowId == nil then
+            self.statistics.cowId = 0
+        end
         self.statistics.cowId = self.statistics.cowId + 1
         return self.statistics.cowId
     end
 
     if animalType == AnimalType.PIG then
-        if self.statistics.pigId == nil then self.statistics.pigId = 0 end
+        if self.statistics.pigId == nil then
+            self.statistics.pigId = 0
+        end
         self.statistics.pigId = self.statistics.pigId + 1
         return self.statistics.pigId
     end
 
     if animalType == AnimalType.SHEEP then
-        if self.statistics.sheepId == nil then self.statistics.sheepId = 0 end
+        if self.statistics.sheepId == nil then
+            self.statistics.sheepId = 0
+        end
         self.statistics.sheepId = self.statistics.sheepId + 1
         return self.statistics.sheepId
     end
 
     if animalType == AnimalType.HORSE then
-        if self.statistics.horseId == nil then self.statistics.horseId = 0 end
+        if self.statistics.horseId == nil then
+            self.statistics.horseId = 0
+        end
         self.statistics.horseId = self.statistics.horseId + 1
         return self.statistics.horseId
     end
 
     if animalType == AnimalType.CHICKEN then
-        if self.statistics.chickenId == nil then self.statistics.chickenId = 0 end
+        if self.statistics.chickenId == nil then
+            self.statistics.chickenId = 0
+        end
         self.statistics.chickenId = self.statistics.chickenId + 1
         return self.statistics.chickenId
     end

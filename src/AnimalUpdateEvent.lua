@@ -3,12 +3,10 @@ AnimalUpdateEvent = {}
 local AnimalUpdateEvent_mt = Class(AnimalUpdateEvent, Event)
 InitEventClass(AnimalUpdateEvent, "AnimalUpdateEvent")
 
-
 function AnimalUpdateEvent.emptyNew()
     local self = Event.new(AnimalUpdateEvent_mt)
     return self
 end
-
 
 function AnimalUpdateEvent.new(object, animal, trait, value)
 
@@ -22,7 +20,6 @@ function AnimalUpdateEvent.new(object, animal, trait, value)
     return self
 
 end
-
 
 function AnimalUpdateEvent:readStream(streamId, connection)
 
@@ -44,14 +41,13 @@ function AnimalUpdateEvent:readStream(streamId, connection)
 
 end
 
-
 function AnimalUpdateEvent:writeStream(streamId, connection)
 
     NetworkUtil.writeNodeObject(streamId, self.object)
-    
+
     self.animal:writeStreamIdentifiers(streamId, connection)
     streamWriteString(streamId, self.trait)
-    
+
     local valueType = type(self.value)
     streamWriteString(streamId, valueType)
 
@@ -64,7 +60,6 @@ function AnimalUpdateEvent:writeStream(streamId, connection)
     end
 
 end
-
 
 function AnimalUpdateEvent:run(connection)
 
