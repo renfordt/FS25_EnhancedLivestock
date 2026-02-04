@@ -2088,7 +2088,7 @@ end
 function Animal:changeReproduction(delta)
 
 	local old = self.reproduction
-	self.reproduction = math.clamp(math.floor(self.reproduction + math.max(delta, 1)), 0, 100)
+	self.reproduction = math.clamp(self.reproduction + delta, 0, 100)
 
 	if math.abs(self.reproduction - old) > 0 then
 	--self:setDirty()
@@ -2112,7 +2112,7 @@ function Animal:getReproductionDelta()
 	end
 
 	if duration > 0 then
-		return math.floor((100 / duration) / g_currentMission.environment.daysPerPeriod)
+		return (100 / duration) / g_currentMission.environment.daysPerPeriod
 	end
 
 	return 0
