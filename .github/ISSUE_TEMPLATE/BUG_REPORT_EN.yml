@@ -20,7 +20,8 @@ body:
     - '0'
     - 1.0.0.0
     - 1.1.0.0-beta1
-    default: 2
+    - 1.1.0.0
+    default: 3
   validations:
     required: true
 - type: dropdown
@@ -40,7 +41,8 @@ body:
     - 1.10.0.0
     - 1.14.1.0
     - 1.15.0.0
-    default: 10
+    - 1.16.0.0
+    default: 11
   validations:
     required: true
 - type: dropdown

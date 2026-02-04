@@ -22,7 +22,8 @@ body:
     - '0'
     - 1.0.0.0
     - 1.1.0.0-beta1
-    default: 2
+    - 1.1.0.0
+    default: 3
   validations:
     required: true
 - type: dropdown
