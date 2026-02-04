@@ -3,14 +3,12 @@ AIBulkMessageEvent = {}
 local AIBulkMessageEvent_mt = Class(AIBulkMessageEvent, Event)
 InitEventClass(AIBulkMessageEvent, "AIBulkMessageEvent")
 
-
 function AIBulkMessageEvent.emptyNew()
 
-    local self = Event.new(AIBulkMessageEvent_mt)
-    return self
+	local self = Event.new(AIBulkMessageEvent_mt)
+	return self
 
 end
-
 
 function AIBulkMessageEvent.new(object, messages)
 
@@ -22,7 +20,6 @@ function AIBulkMessageEvent.new(object, messages)
 	return event
 
 end
-
 
 function AIBulkMessageEvent:readStream(streamId, connection)
 
@@ -37,7 +34,9 @@ function AIBulkMessageEvent:readStream(streamId, connection)
 		local numArgs = streamReadUInt8(streamId)
 		local args = {}
 
-		for j = 1, numArgs do table.insert(args, streamReadString(streamId)) end
+		for j = 1, numArgs do
+			table.insert(args, streamReadString(streamId))
+		end
 
 		table.insert(self.messages, {
 			["id"] = id,
@@ -49,7 +48,6 @@ function AIBulkMessageEvent:readStream(streamId, connection)
 	self:run(connection)
 
 end
-
 
 function AIBulkMessageEvent:writeStream(streamId, connection)
 
@@ -65,19 +63,20 @@ function AIBulkMessageEvent:writeStream(streamId, connection)
 		streamWriteString(streamId, message.id)
 		streamWriteUInt8(streamId, #message.args)
 
-		for j = 1, #message.args do streamWriteString(streamId, message.args[j]) end
+		for j = 1, #message.args do
+			streamWriteString(streamId, message.args[j])
+		end
 
 	end
 
 end
-
 
 function AIBulkMessageEvent:run(connection)
 
 	for i = 1, #self.messages do
 
 		local message = self.messages[i]
-		self.object:addRLMessage(message.id, nil, message.args)
+		self.object:addELMessage(message.id, nil, message.args)
 
 	end
 

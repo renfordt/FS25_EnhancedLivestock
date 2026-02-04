@@ -11,7 +11,6 @@ function AnimalMoveEvent.new(sourceObject, targetObject, animals, moveType)
 
 end
 
-
 function AnimalMoveEvent:readStream(streamId, connection)
 
 	if connection:getIsServer() then
@@ -43,7 +42,6 @@ function AnimalMoveEvent:readStream(streamId, connection)
 
 end
 
-
 function AnimalMoveEvent:writeStream(streamId, connection)
 
 	if not connection:getIsServer() then
@@ -58,10 +56,11 @@ function AnimalMoveEvent:writeStream(streamId, connection)
 
 	streamWriteUInt16(streamId, #self.animals)
 
-	for _, animal in pairs(self.animals) do local success = animal:writeStream(streamId, connection) end
+	for _, animal in pairs(self.animals) do
+		local success = animal:writeStream(streamId, connection)
+	end
 
 end
-
 
 function AnimalMoveEvent:run(connection)
 
@@ -83,7 +82,7 @@ function AnimalMoveEvent:run(connection)
 			connection:sendEvent(AnimalMoveEvent.newServerToClient(errorCode))
 			return
 		end
-	
+
 	end
 
 	local clusterSystemSource = self.sourceObject:getClusterSystem()
@@ -99,36 +98,47 @@ function AnimalMoveEvent:run(connection)
 
 	connection:sendEvent(AnimalMoveEvent.newServerToClient(AnimalMoveEvent.MOVE_SUCCESS))
 
-	if g_server ~= nil and not g_server.netIsRunning then return end
+	if g_server ~= nil and not g_server.netIsRunning then
+		return
+	end
 
 	local husbandry, trailer
-	
-	if self.moveType == "SOURCE" then 
+
+	if self.moveType == "SOURCE" then
 		husbandry, trailer = self.sourceObject, self.targetObject
 	else
 		husbandry, trailer = self.targetObject, self.sourceObject
 	end
 
 	if #self.animals == 1 then
-        husbandry:addRLMessage(string.format("MOVE_ANIMALS_%s_SINLGE", self.moveType), nil, { trailer:getName() })
-    elseif #self.animals > 0 then
-        husbandry:addRLMessage(string.format("MOVE_ANIMALS_%s_MULTIPLE", self.moveType), nil, { #self.animals, trailer:getName() })
-    end
+		husbandry:addELMessage(string.format("MOVE_ANIMALS_%s_SINLGE", self.moveType), nil, { trailer:getName() })
+	elseif #self.animals > 0 then
+		husbandry:addELMessage(string.format("MOVE_ANIMALS_%s_MULTIPLE", self.moveType), nil, { #self.animals, trailer:getName() })
+	end
 
 end
 
-
 function AnimalMoveEvent.validate(sourceObject, targetObject, farmId, subTypeIndex)
 
-	if sourceObject == nil then return AnimalMoveEvent.MOVE_ERROR_SOURCE_OBJECT_DOES_NOT_EXIST end
-	
-	if targetObject == nil then return AnimalMoveEvent.MOVE_ERROR_TARGET_OBJECT_DOES_NOT_EXIST end
+	if sourceObject == nil then
+		return AnimalMoveEvent.MOVE_ERROR_SOURCE_OBJECT_DOES_NOT_EXIST
+	end
 
-	if not g_currentMission.accessHandler:canFarmAccess(farmId, sourceObject) or not g_currentMission.accessHandler:canFarmAccess(farmId, targetObject) then return AnimalMoveEvent.MOVE_ERROR_NO_PERMISSION end
+	if targetObject == nil then
+		return AnimalMoveEvent.MOVE_ERROR_TARGET_OBJECT_DOES_NOT_EXIST
+	end
 
-	if not targetObject:getSupportsAnimalSubType(subTypeIndex) then return AnimalMoveEvent.MOVE_ERROR_ANIMAL_NOT_SUPPORTED end
+	if not g_currentMission.accessHandler:canFarmAccess(farmId, sourceObject) or not g_currentMission.accessHandler:canFarmAccess(farmId, targetObject) then
+		return AnimalMoveEvent.MOVE_ERROR_NO_PERMISSION
+	end
 
-	if targetObject:getNumOfFreeAnimalSlots(subTypeIndex) < 1 then return AnimalMoveEvent.MOVE_ERROR_NOT_ENOUGH_SPACE end
+	if not targetObject:getSupportsAnimalSubType(subTypeIndex) then
+		return AnimalMoveEvent.MOVE_ERROR_ANIMAL_NOT_SUPPORTED
+	end
+
+	if targetObject:getNumOfFreeAnimalSlots(subTypeIndex) < 1 then
+		return AnimalMoveEvent.MOVE_ERROR_NOT_ENOUGH_SPACE
+	end
 
 	return nil
 

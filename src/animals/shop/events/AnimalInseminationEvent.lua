@@ -3,14 +3,12 @@ AnimalInseminationEvent = {}
 local AnimalInseminationEvent_mt = Class(AnimalInseminationEvent, Event)
 InitEventClass(AnimalInseminationEvent, "AnimalInseminationEvent")
 
-
 function AnimalInseminationEvent.emptyNew()
 
-    local self = Event.new(AnimalInseminationEvent_mt)
-    return self
+	local self = Event.new(AnimalInseminationEvent_mt)
+	return self
 
 end
-
 
 function AnimalInseminationEvent.new(object, animal, semen)
 
@@ -24,12 +22,11 @@ function AnimalInseminationEvent.new(object, animal, semen)
 
 end
 
-
 function AnimalInseminationEvent:readStream(streamId, connection)
 
 	self.object = NetworkUtil.readNodeObject(streamId)
 	self.animal = Animal.readStreamIdentifiers(streamId, connection)
-	
+
 	self.semen = { ["genetics"] = {} }
 
 	semen.country = streamReadUInt8(streamId)
@@ -46,12 +43,13 @@ function AnimalInseminationEvent:readStream(streamId, connection)
 	semen.genetics.quality = streamReadFloat32(streamId)
 	semen.genetics.productivity = streamReadFloat32(streamId)
 
-	if semen.genetics.productivity < 0 then semen.genetics.productivity = nil end
+	if semen.genetics.productivity < 0 then
+		semen.genetics.productivity = nil
+	end
 
 	self:run(connection)
 
 end
-
 
 function AnimalInseminationEvent:writeStream(streamId, connection)
 
@@ -76,7 +74,6 @@ function AnimalInseminationEvent:writeStream(streamId, connection)
 
 end
 
-
 function AnimalInseminationEvent:run(connection)
 
 	local clusterSystem = self.object:getClusterSystem()
@@ -85,7 +82,7 @@ function AnimalInseminationEvent:run(connection)
 	for _, animal in pairs(clusterSystem.animals) do
 
 		if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
-					
+
 			animal:setInsemination(self.semen)
 			break
 

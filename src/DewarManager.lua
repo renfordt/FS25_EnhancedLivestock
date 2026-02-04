@@ -3,7 +3,6 @@ DewarManager = {}
 local DewarManager_mt = Class(DewarManager)
 local modDirectory = g_currentModDirectory
 
-
 function DewarManager.new()
 
 	local self = setmetatable({}, DewarManager_mt)
@@ -14,26 +13,30 @@ function DewarManager.new()
 
 end
 
-
 function DewarManager:addDewar(farmId, dewar)
 
-	if self.farms[farmId] == nil then self.farms[farmId] = {} end
+	if self.farms[farmId] == nil then
+		self.farms[farmId] = {}
+	end
 
 	local farm = self.farms[farmId]
 	local typeIndex = dewar.animal.typeIndex
 
-	if farm[typeIndex] == nil then farm[typeIndex] = {} end
+	if farm[typeIndex] == nil then
+		farm[typeIndex] = {}
+	end
 
 	table.insert(farm[typeIndex], dewar)
 
 end
 
-
 function DewarManager:removeDewar(farmId, dewar)
 
 	local typeIndex = dewar.animal.typeIndex
 
-	if self.farms[farmId] == nil or self.farms[farmId][typeIndex] == nil then return end
+	if self.farms[farmId] == nil or self.farms[farmId][typeIndex] == nil then
+		return
+	end
 
 	local id = dewar:getUniqueId()
 
@@ -48,13 +51,11 @@ function DewarManager:removeDewar(farmId, dewar)
 
 end
 
-
 function DewarManager:getDewarsByFarm(farmId)
 
 	return self.farms[farmId]
 
 end
-
 
 function DewarManager:readStream(streamId, connection)
 
@@ -94,12 +95,13 @@ function DewarManager:readStream(streamId, connection)
 
 end
 
-
 function DewarManager:writeStream(streamId, connection)
 
 	local numFarms = 0
 
-	for farmId, animalTypes in pairs(self.farms) do numFarms = numFarms + 1 end
+	for farmId, animalTypes in pairs(self.farms) do
+		numFarms = numFarms + 1
+	end
 
 	streamWriteUInt8(streamId, numFarms)
 
@@ -107,23 +109,26 @@ function DewarManager:writeStream(streamId, connection)
 
 		local numAnimalTypes = 0
 
-		for animalTypeIndex, dewars in pairs(animalTypes) do numAnimalTypes = numAnimalTypes + 1 end
+		for animalTypeIndex, dewars in pairs(animalTypes) do
+			numAnimalTypes = numAnimalTypes + 1
+		end
 
 		streamWriteUInt8(streamId, farmId)
 		streamWriteUInt8(streamId, numAnimalTypes)
 
 		for animalTypeIndex, dewars in pairs(animalTypes) do
-		
+
 			streamWriteUInt8(streamId, animalTypeIndex)
 			streamWriteUInt8(streamId, #dewars)
 
-			for _, dewar in pairs(dewars) do dewar:writeStream(streamId, connection) end
-		
+			for _, dewar in pairs(dewars) do
+				dewar:writeStream(streamId, connection)
+			end
+
 		end
 
 	end
 
 end
-
 
 g_dewarManager = DewarManager.new()

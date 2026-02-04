@@ -7,8 +7,8 @@
 		<text name="fillType_bull_holstein" text="Голштинский бык"/>
 		<text name="fillType_bull_angus" text="Ангусский бык"/>
 		<text name="fillType_bull_limousin" text="Лимузинский бык"/>
-		<text name="fillType_cow_hereford" text="Hereford"/>
-		<text name="fillType_bull_hereford" text="Hereford Bull"/>
+		<text name="fillType_cow_hereford" text="Герефорд"/>
+		<text name="fillType_bull_hereford" text="Герефордский бык"/>
 		<text name="fillType_cow_highland_cattle" text="Хайленд"/>
 		<text name="fillType_bull_highland_cattle" text="Бык Хайленд"/>
 		<text name="animal_descriptionBullFeed" text="Быки любят траву, сено и TMR."/>
@@ -69,6 +69,9 @@
 		<text name="el_button_random" text="Случайно"/>
 		<text name="el_dialog_title" text="Установить максимальное количество видимых животных"/>
 
+		<text name="el_ui_dependency_missing" text="Отсутствует зависимость"/>
+		<text name="el_ui_dependency_missing_installed" text="Отсутствующая установленная зависимость"/>
+
 		<text name="el_ui_unhealthy" text="Слишком нездоров"/>
 		<text name="el_ui_unhealthyBracketed" text="Нет (слишком нездоров)"/>
 		<text name="el_ui_noMaleAnimal" text="Нет подходящего самца"/>
@@ -118,10 +121,13 @@
 		<text name="el_ui_eggs" text="Производство яиц"/>
 		<text name="el_ui_metabolism" text="Метаболизм"/>
 		<text name="el_ui_meat" text="Качество мяса"/>
+		<text name="el_ui_meat_github" text="Качество мяса"/>
+		<text name="el_ui_quality" text="Качество"/>
+		<text name="el_ui_quality_github" text="Качество мяса"/>
 		<text name="el_ui_health" text="Здоровье"/>
 		<text name="el_ui_fertility" text="Фертильность"/>
 
-		<text name="el_ui_genetics_infertile" text="Infertile"/>
+		<text name="el_ui_genetics_infertile" text="Бесплодный"/>
 		<text name="el_ui_genetics_extremelyLow" text="Крайне низкий"/>
 		<text name="el_ui_genetics_veryLow" text="Очень низкий"/>
 		<text name="el_ui_genetics_low" text="Низкий"/>
@@ -129,6 +135,7 @@
 		<text name="el_ui_genetics_high" text="Высокий"/>
 		<text name="el_ui_genetics_veryHigh" text="Очень высокий"/>
 		<text name="el_ui_genetics_extremelyHigh" text="Крайне высокий"/>
+		<text name="el_ui_genetics_highest" text="Высочайший"/>
 
 		<text name="el_ui_genetics_extremelyBad" text="Крайне плохой"/>
 		<text name="el_ui_genetics_veryBad" text="Очень плохой"/>
@@ -137,307 +144,354 @@
 		<text name="el_ui_genetics_veryGood" text="Очень хороший"/>
 		<text name="el_ui_genetics_extremelyGood" text="Крайне хороший"/>
 
-		<text name="el_ui_buySelected" text="Buy selected"/>
-		<text name="el_ui_sellSelected" text="Sell selected"/>
-		<text name="el_ui_moveSelected" text="Move selected"/>
-		<text name="el_ui_buyConfirmation" text="Are you sure you want to buy %s animals for %s?" tag="format"/>
-		<text name="el_ui_sellConfirmation" text="Are you sure you want to sell %s animals for %s?" tag="format"/>
-		<text name="el_ui_moveConfirmation" text="Are you sure you want to move %s animals?" tag="format"/>
-		<text name="el_ui_buyBulkResult" text="%s animals bought for %s" tag="format"/>
-		<text name="el_ui_sellBulkResult" text="%s animals sold for %s" tag="format"/>
-		<text name="el_ui_moveBulkResult" text="%s animals moved" tag="format"/>
+		<text name="el_ui_buySelected" text="Купить выбранное"/>
+		<text name="el_ui_sellSelected" text="Продать выбранное"/>
+		<text name="el_ui_moveSelected" text="Переместить выбранное"/>
+		<text name="el_ui_buyConfirmation" text="Вы уверены, что хотите купить %s животных за %s?" tag="format"/>
+		<text name="el_ui_sellConfirmation" text="Вы уверены, что хотите продать %s животных за %s?" tag="format"/>
+		<text name="el_ui_moveConfirmation" text="Вы уверены, что хотите переместить %s животных?" tag="format"/>
+		<text name="el_ui_buyBulkResult" text="Куплено %s животных за %s" tag="format"/>
+		<text name="el_ui_sellBulkResult" text="Продано %s животных за %s" tag="format"/>
+		<text name="el_ui_moveBulkResult" text="Перемещено %s животных" tag="format"/>
 
-		<text name="el_ui_monitor" text="Monitor"/>
-		<text name="el_ui_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="finance_monitorSubscriptions" text="Monitor Subscriptions"/>
-		<text name="el_ui_monitorFee" text="Monitor fee"/>
-		<text name="el_ui_applyMonitor" text="Apply Monitor"/>
-		<text name="el_ui_removeMonitor" text="Remove Monitor"/>
-		<text name="el_ui_input_food" text="Food"/>
-		<text name="el_ui_input_water" text="Water"/>
-		<text name="el_ui_input_straw" text="Straw"/>
-		<text name="el_ui_output_milk" text="Milk"/>
-		<text name="el_ui_output_manure" text="Manure"/>
-		<text name="el_ui_output_liquidManure" text="Liquid manure"/>
-		<text name="el_ui_output_pallets_eggs" text="Eggs"/>
-		<text name="el_ui_output_pallets_wool" text="Wool"/>
-		<text name="el_ui_output_pallets_goatMilk" text="Goat milk"/>
-		<text name="el_ui_amountPerDay" text="%.0fL / day" tag="format"/>
-		<text name="el_ui_feePerMonth" text="%s / month" tag="format"/>
+		<text name="el_ui_monitor" text="Монитор"/>
+		<text name="el_ui_monitorSubscriptions" text="Подписки на мониторинг"/>
+		<text name="finance_monitorSubscriptions" text="Подписки на мониторинг"/>
+		<text name="el_ui_monitorFee" text="Плата за мониторинг"/>
+		<text name="el_ui_applyMonitor" text="Установить монитор"/>
+		<text name="el_ui_removeMonitor" text="Снять монитор"/>
+		<text name="el_ui_input_food" text="Корм"/>
+		<text name="el_ui_input_water" text="Вода"/>
+		<text name="el_ui_input_straw" text="Подстилка"/>
+		<text name="el_ui_output_milk" text="Молоко"/>
+		<text name="el_ui_output_manure" text="Навоз"/>
+		<text name="el_ui_output_liquidManure" text="Жидкий навоз"/>
+		<text name="el_ui_output_pallets_eggs" text="Яйца"/>
+		<text name="el_ui_output_pallets_wool" text="Шерсть"/>
+		<text name="el_ui_output_pallets_goatMilk" text="Козье молоко"/>
+		<text name="el_ui_amountPerDay" text="%.0f л / день" tag="format"/>
+		<text name="el_ui_feePerMonth" text="%s / месяц" tag="format"/>
 
-		<text name="el_ui_animalType" text="Type"/>
-		<text name="el_ui_amountMonitored" text="Monitored"/>
-		<text name="el_ui_production" text="Products"/>
-		<text name="el_ui_applyAllMonitor" text="Apply All Monitors"/>
-		<text name="el_ui_removeAllMonitor" text="Remove All Monitors"/>
-		<text name="el_ui_fee" text="Fee"/>
+		<text name="el_ui_animalType" text="Тип"/>
+		<text name="el_ui_amountMonitored" text="С мониторингом"/>
+		<text name="el_ui_production" text="Продукция"/>
+		<text name="el_ui_applyAllMonitor" text="Установить все мониторы"/>
+		<text name="el_ui_removeAllMonitor" text="Снять все мониторы"/>
+		<text name="el_ui_fee" text="Плата"/>
 
-		<text name="el_ui_leftEarTag" text="Left Ear Tag"/>
-		<text name="el_ui_rightEarTag" text="Right Ear Tag"/>
-		<text name="el_ui_backgroundColour" text="Background Colour"/>
-		<text name="el_ui_backgroundHue" text="Background Hue"/>
-		<text name="el_ui_backgroundRgb" text="Background RGB"/>
-		<text name="el_ui_textColour" text="Text Colour"/>
-		<text name="el_ui_textHue" text="Text Hue"/>
-		<text name="el_ui_textRgb" text="Text RGB"/>
+		<text name="el_ui_leftEarTag" text="Левая ушная бирка"/>
+		<text name="el_ui_rightEarTag" text="Правая ушная бирка"/>
+		<text name="el_ui_backgroundColour" text="Цвет фона"/>
+		<text name="el_ui_backgroundHue" text="Оттенок фона"/>
+		<text name="el_ui_backgroundRgb" text="RGB фона"/>
+		<text name="el_ui_textColour" text="Цвет текста"/>
+		<text name="el_ui_textHue" text="Оттенок текста"/>
+		<text name="el_ui_textRgb" text="RGB текста"/>
 
-		<text name="el_ui_formatMonths" text="%s months"/>
-		<text name="el_ui_formatMonth" text="%s month"/>
-		<text name="el_ui_notPregnant" text="Not Pregnant"/>
-		<text name="el_ui_any" text="Any"/>
-		<text name="el_ui_pregnancy" text="Pregnancy"/>
-		<text name="el_ui_productivity" text="Productivity"/>
-		<text name="el_ui_selectAll" text="Select All"/>
-		<text name="el_ui_selectNone" text="Select None"/>
-		<text name="el_ui_filters" text="Filters"/>
-		<text name="el_ui_doesntHaveName" text="No Name"/>
-		<text name="el_ui_doesHaveName" text="Has Name"/>
-
-
-
-		<text name="el_ui_castrated" text="Castrated"/>
-		<text name="el_ui_castrate" text="Castrate"/>
-		<text name="el_ui_importance" text="Importance"/>
-		<text name="el_ui_type" text="Type"/>
-		<text name="el_ui_date" text="Date"/>
-		<text name="el_ui_message" text="Message"/>
-		<text name="el_ui_messages" text="Messages"/>
-		<text name="el_ui_unknownCauses" text="unknown causes"/>
-		<text name="el_ui_messageNumber" text="%s-%s of %s"/>
-		<text name="el_ui_deleteMessage" text="Delete Message"/>
-		<text name="el_ui_unreadMessages" text="Husbandry '%s' has unread messages!"/>
-		<text name="el_ui_herdsman" text="Herdsman"/>
-		<text name="el_ui_budget" text="Budget"/>
-		<text name="el_ui_budgetType" text="Budget Type"/>
-		<text name="el_ui_fixed" text="Fixed"/>
-		<text name="el_ui_percentage" text="Percentage"/>
-		<text name="el_ui_maxAnimals" text="Max Animals"/>
-		<text name="el_ui_infinite" text="Infinite"/>
-		<text name="el_ui_herdsmanRecentlyBought" text="Recent Herdsman Purchase"/>
-		<text name="el_ui_previousWage" text="Previous Wage"/>
-		<text name="el_ui_herdsmanWages" text="Herdsman Wages"/>
-		<text name="finance_herdsmanWages" text="Herdsman Wages"/>
-		<text name="el_ui_medicine" text="Medicine"/>
-		<text name="finance_medicine" text="Medicine"/>
-		<text name="el_ui_semenPurchase" text="Inseminant Purchase"/>
-		<text name="el_ui_semenPurchase_github" text="Semen Purchase"/>
-		<text name="finance_semenPurchase" text="Inseminant Purchase"/>
-		<text name="finance_semenPurchase_github" text="Semen Purchase"/>
-		<text name="el_ui_noDiseases" text="No Diseases"/>
-		<text name="el_ui_onlyDiseases" text="Only Diseases"/>
-		<text name="el_ui_naming" text="Naming"/>
-		<text name="el_ui_alphabetical" text="Alphabetical"/>
-		<text name="el_ui_breed" text="Breed"/>
-		<text name="el_ui_dontMark" text="Don't Mark"/>
-		<text name="el_ui_mark" text="Mark"/>
-		<text name="el_ui_unmark" text="Unmark"/>
-		<text name="el_ui_favourite" text="Favourite"/>
-		<text name="el_ui_unFavourite" text="Unfavourite"/>
-		<text name="el_ui_quantity" text="Quantity"/>
-		<text name="el_ui_dewar" text="Dewar"/>
-		<text name="el_ui_semenPurchase_successful" text="Artificial inseminant successfully purchased. You can pick it up at the store"/>
-		<text name="el_ui_semenPurchase_successful_github" text="Semen successfully purchased. You can pick it up at the store"/>
-		<text name="el_ui_semenPurchase_unsuccessful" text="Artificial inseminant could not be purchased"/>
-		<text name="el_ui_semenPurchase_unsuccessful_github" text="Semen could not be purchased"/>
-		<text name="el_ui_earTag" text="Ear Tag"/>
-		<text name="el_ui_species" text="Species"/>
-		<text name="el_ui_strawSingle" text="Straw"/>
-		<text name="el_ui_strawMultiple" text="Straws"/>
-		<text name="el_ui_artificialInsemination" text="Artificial Insemination"/>
-		<text name="el_ui_semenPurchaseNoPermission" text="You don't have to permission to trade animals or purchase inseminant."/>
-		<text name="el_ui_semenPurchaseNoPermission_github" text="You don't have to permission to trade animals or purchase semen."/>
-		<text name="el_ui_semenPurchaseNoMoney" text="You don't have enough money to purchase this inseminant."/>
-		<text name="el_ui_semenPurchaseNoMoney_github" text="You don't have enough money to purchase this semen."/>
-		<text name="el_ui_takeStraw" text="Take Straw"/>
-		<text name="el_ui_inseminateAnimal" text="Inseminate %s"/>
-		<text name="el_ui_inseminate" text="Inseminate"/>
-		<text name="el_ui_strawEmpty" text="This straw is empty"/>
-		<text name="el_ui_averageSuccessColon" text="Average Success: "/>
-		<text name="el_ui_averageSuccess" text="Average Success"/>
-		<text name="el_ui_success" text="Success"/>
-		<text name="el_ui_save" text="Save"/>
-		<text name="el_ui_load" text="Load"/>
-		<text name="el_ui_saveProfile" text="Save Profile"/>
-		<text name="el_ui_loadProfile" text="Load Profile"/>
-
-		<text name="el_ui_healthy" text="Healthy"/>
-		<text name="el_ui_hasDisease" text="Has Disease"/>
-		<text name="el_ui_diseasedAnimals" text="Diseased Animals"/>
+		<text name="el_ui_formatMonths" text="%s месяцев"/>
+		<text name="el_ui_formatMonth" text="%s месяц"/>
+		<text name="el_ui_notPregnant" text="Не беременна"/>
+		<text name="el_ui_any" text="Любой"/>
+		<text name="el_ui_pregnancy" text="Беременность"/>
+		<text name="el_ui_productivity" text="Продуктивность"/>
+		<text name="el_ui_selectAll" text="Выбрать все"/>
+		<text name="el_ui_selectNone" text="Снять выделение"/>
+		<text name="el_ui_filters" text="Фильтры"/>
+		<text name="el_ui_doesntHaveName" text="Без имени"/>
+		<text name="el_ui_doesHaveName" text="С именем"/>
 
 
-		<text name="el_insemination_male" text="Only females can be artificially inseminated"/>
-		<text name="el_insemination_pregnant" text="This animal is already pregnant"/>
-		<text name="el_insemination_animalType" text="Animal must be of the same species as the father"/>
-		<text name="el_insemination_inseminated" text="This animal has already been artificially inseminated"/>
-		<text name="el_insemination_recovering" text="This animal is still recovering from its previous pregnancy"/>
-		<text name="el_insemination_father" text="Inbreeding is not permitted"/>
-		<text name="el_insemination_young" text="This animal is too young to be artificially inseminated"/>
+
+		<text name="el_ui_castrated" text="Стерилизован"/>
+		<text name="el_ui_castrated_github" text="Кастрирован"/>
+		<text name="el_ui_castrate" text="Стерилизовать"/>
+		<text name="el_ui_castrate_github" text="Кастрировать"/>
+		<text name="el_ui_importance" text="Важность"/>
+		<text name="el_ui_type" text="Тип"/>
+		<text name="el_ui_date" text="Дата"/>
+		<text name="el_ui_message" text="Сообщение"/>
+		<text name="el_ui_messages" text="Сообщения"/>
+		<text name="el_ui_unknownCauses" text="неизвестные причины"/>
+		<text name="el_ui_messageNumber" text="%s-%s из %s"/>
+		<text name="el_ui_deleteMessage" text="Удалить сообщение"/>
+		<text name="el_ui_unreadMessages" text="В загоне '%s' есть непрочитанные сообщения!"/>
+		<text name="el_ui_herdsman" text="Животновод"/>
+		<text name="el_ui_budget" text="Бюджет"/>
+		<text name="el_ui_budgetType" text="Тип бюджета"/>
+		<text name="el_ui_fixed" text="Фиксированный"/>
+		<text name="el_ui_percentage" text="Процентный"/>
+		<text name="el_ui_maxAnimals" text="Макс. животных"/>
+		<text name="el_ui_infinite" text="Бесконечно"/>
+		<text name="el_ui_herdsmanRecentlyBought" text="Недавняя покупка животновода"/>
+		<text name="el_ui_previousWage" text="Предыдущая зарплата"/>
+		<text name="el_ui_herdsmanWages" text="Зарплата животновода"/>
+		<text name="finance_herdsmanWages" text="Зарплата животновода"/>
+		<text name="el_ui_medicine" text="Лекарство"/>
+		<text name="finance_medicine" text="Лекарство"/>
+		<text name="el_ui_semenPurchase" text="Покупка племенного образца"/>
+		<text name="el_ui_semenPurchase_github" text="Покупка семени"/>
+		<text name="finance_semenPurchase" text="Покупка племенного образца"/>
+		<text name="finance_semenPurchase_github" text="Покупка семени"/>
+		<text name="el_ui_noDiseases" text="Нет болезней"/>
+		<text name="el_ui_onlyDiseases" text="Только болезни"/>
+		<text name="el_ui_naming" text="Именование"/>
+		<text name="el_ui_alphabetical" text="Алфавитный"/>
+		<text name="el_ui_breed" text="Порода"/>
+		<text name="el_ui_dontMark" text="Не помечать"/>
+		<text name="el_ui_mark" text="Пометить"/>
+		<text name="el_ui_unmark" text="Снять метку"/>
+		<text name="el_ui_favourite" text="Избранное"/>
+		<text name="el_ui_unFavourite" text="Убрать из избранного"/>
+		<text name="el_ui_quantity" text="Количество"/>
+		<text name="el_ui_dewar" text="Сосуд Дьюара"/>
+		<text name="el_ui_semenPurchase_successful" text="Племенной образец успешно куплен. Вы можете забрать его в магазине"/>
+		<text name="el_ui_semenPurchase_successful_github" text="Семя успешно куплено. Вы можете забрать его в магазине"/>
+		<text name="el_ui_semenPurchase_unsuccessful" text="Не удалось купить племенной образец"/>
+		<text name="el_ui_semenPurchase_unsuccessful_github" text="Не удалось купить семя"/>
+		<text name="el_ui_earTag" text="Ушная бирка"/>
+		<text name="el_ui_species" text="Вид"/>
+		<text name="el_ui_strawSingle" text="Соломинка"/>
+		<text name="el_ui_strawMultiple" text="Соломинки"/>
+		<text name="el_ui_artificialInsemination" text="Вспомогательное разведение"/>
+	<text name="el_ui_artificialInsemination_github" text="Искусственное осеменение"/>
+		<text name="el_ui_semenPurchaseNoPermission" text="У вас нет разрешения торговать животными или покупать племенные образцы."/>
+		<text name="el_ui_semenPurchaseNoPermission_github" text="У вас нет разрешения торговать животными или покупать семя."/>
+		<text name="el_ui_semenPurchaseNoMoney" text="У вас недостаточно денег для покупки этого племенного образца."/>
+		<text name="el_ui_semenPurchaseNoMoney_github" text="У вас недостаточно денег для покупки этого семени."/>
+		<text name="el_ui_takeStraw" text="Взять соломинку"/>
+		<text name="el_ui_inseminateAnimal" text="Разводить %s"/>
+		<text name="el_ui_inseminateAnimal_github" text="Осеменить %s"/>
+		<text name="el_ui_inseminate" text="Разводить"/>
+		<text name="el_ui_inseminate_github" text="Осеменить"/>
+		<text name="el_ui_strawEmpty" text="Эта соломинка пуста"/>
+		<text name="el_ui_averageSuccessColon" text="Средний успех: "/>
+		<text name="el_ui_averageSuccess" text="Средний успех"/>
+		<text name="el_ui_success" text="Успех"/>
+		<text name="el_ui_save" text="Сохранить"/>
+		<text name="el_ui_load" text="Загрузить"/>
+		<text name="el_ui_saveProfile" text="Сохранить профиль"/>
+		<text name="el_ui_loadProfile" text="Загрузить профиль"/>
+
+		<text name="el_ui_healthy" text="Здоров"/>
+		<text name="el_ui_hasDisease" text="Болен"/>
+		<text name="el_ui_diseasedAnimals" text="Больные животные"/>
 
 
-		<text name="el_mark_aiManager_sell" text="Herdsman marked for selling"/>
-		<text name="el_mark_aiManager_castrate" text="Herdsman marked for castrating"/>
-		<text name="el_mark_aiManager_disease" text="Herdsman marked for treating"/>
-		<text name="el_mark_aiManager_ai" text="Herdsman marked for artificial insemination"/>
-		<text name="el_mark_player" text="Marked by player"/>
+		<text name="el_insemination_male" text="Разводить можно только самок"/>
+		<text name="el_insemination_male_github" text="Искусственно осеменять можно только самок"/>
+		<text name="el_insemination_pregnant" text="Это животное уже беременно"/>
+		<text name="el_insemination_animalType" text="Животное должно быть того же вида, что и отец"/>
+		<text name="el_insemination_inseminated" text="Это животное уже было разведено"/>
+		<text name="el_insemination_inseminated_github" text="Это животное уже было искусственно осеменено"/>
+		<text name="el_insemination_recovering" text="Это животное все еще восстанавливается после предыдущей беременности"/>
+		<text name="el_insemination_father" text="Инбридинг не допускается"/>
+		<text name="el_insemination_young" text="Это животное слишком молодо для разведения"/>
+		<text name="el_insemination_young_github" text="Это животное слишком молодо для искусственного осеменения"/>
+
+
+		<text name="el_mark_aiManager_sell" text="Животновод пометил для продажи"/>
+		<text name="el_mark_aiManager_castrate" text="Животновод пометил для стерилизации"/>
+		<text name="el_mark_aiManager_castrate_github" text="Животновод пометил для кастрации"/>
+		<text name="el_mark_aiManager_disease" text="Животновод пометил для лечения"/>
+		<text name="el_mark_aiManager_ai" text="Животновод пометил для вспомогательного разведения"/>
+		<text name="el_mark_aiManager_ai_github" text="Животновод пометил для искусственного осеменения"/>
+		<text name="el_mark_player" text="Помечено игроком"/>
 
 
 		<!-- AI - BUYING -->
 
 
-		<text name="el_ui_herdsmanTooltip_buy_enabled_1" text="The herdsman will not purchase animals"/>
-		<text name="el_ui_herdsmanTooltip_buy_enabled_2" text="The herdsman will purchase animals"/>
+		<text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Животновод не будет покупать животных"/>
+		<text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Животновод будет покупать животных"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Purchasing budget is a fixed amount"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Purchasing budget is a percentage of your farm's money"/>
+		<text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Бюджет на покупку — фиксированная сумма"/>
+		<text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Бюджет на покупку — процент от денег вашей фермы"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="The herdsman will spend up to %s per day"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="The herdsman will spend up to %s of your farm's money per day"/>
+		<text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Животновод будет тратить до %s в день"/>
+		<text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Животновод будет тратить до %s от денег вашей фермы в день"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="The herdsman will buy up to %s animals per day"/>
+		<text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Животновод будет покупать до %s животных в день"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_breed" text="The herdsman will only buy %s animals"/>
-		<text name="el_ui_herdsmanTooltip_buy_breed_any" text="The herdsman will buy any breed"/>
+		<text name="el_ui_herdsmanTooltip_buy_breed" text="Животновод будет покупать только животных породы %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_breed_any" text="Животновод будет покупать любую породу"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_diseases_1" text="The herdsman will only purchase animals without any diseases"/>
-		<text name="el_ui_herdsmanTooltip_buy_diseases_2" text="The herdsman will purchase animals regardless of diseases"/>
+		<text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Животновод будет покупать только животных без каких-либо болезней"/>
+		<text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Животновод будет покупать животных независимо от болезней"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_gender_1" text="The herdsman will only purchase female animals"/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_2" text="The herdsman will purchase female and male animals"/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_3" text="The herdsman will only purchase male animals"/>
+		<text name="el_ui_herdsmanTooltip_buy_gender_1" text="Животновод будет покупать только самок"/>
+		<text name="el_ui_herdsmanTooltip_buy_gender_2" text="Животновод будет покупать и самок, и самцов"/>
+		<text name="el_ui_herdsmanTooltip_buy_gender_3" text="Животновод будет покупать только самцов"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_age_equal" text="The herdsman will only purchase animals that are %s old"/>
-		<text name="el_ui_herdsmanTooltip_buy_age_range" text="The herdsman will only purchase animals that are between %s and %s old"/>
+		<text name="el_ui_herdsmanTooltip_buy_age_equal" text="Животновод будет покупать только животных в возрасте %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_age_range" text="Животновод будет покупать только животных в возрасте от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_quality_equal" text="The herdsman will only purchase animals with %s quality"/>
-		<text name="el_ui_herdsmanTooltip_buy_quality_range" text="The herdsman will only purchase animals with quality between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Животновод будет покупать только животных с качеством %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_quality_range" text="Животновод будет покупать только животных с качеством от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="The herdsman will only purchase animals with %s fertility"/>
-		<text name="el_ui_herdsmanTooltip_buy_fertility_range" text="The herdsman will only purchase animals with fertility between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Животновод будет покупать только животных с фертильностью %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Животновод будет покупать только животных с фертильностью от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_health_equal" text="The herdsman will only purchase animals with %s health"/>
-		<text name="el_ui_herdsmanTooltip_buy_health_range" text="The herdsman will only purchase animals with health between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_health_equal" text="Животновод будет покупать только животных со здоровьем %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_health_range" text="Животновод будет покупать только животных со здоровьем от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="The herdsman will only purchase animals with %s productivity"/>
-		<text name="el_ui_herdsmanTooltip_buy_productivity_range" text="The herdsman will only purchase animals with productivity between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Животновод будет покупать только животных с продуктивностью %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Животновод будет покупать только животных с продуктивностью от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="The herdsman will only purchase animals with %s metabolism"/>
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="The herdsman will only purchase animals with metabolism between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Животновод будет покупать только животных с метаболизмом %s"/>
+		<text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Животновод будет покупать только животных с метаболизмом от %s до %s"/>
 
 
 		<!-- AI - SELLING -->
 
 
-		<text name="el_ui_herdsmanTooltip_sell_enabled_1" text="The herdsman will not sell animals"/>
-		<text name="el_ui_herdsmanTooltip_sell_enabled_2" text="The herdsman will sell animals"/>
+		<text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Животновод не будет продавать животных"/>
+		<text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Животновод будет продавать животных"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="The herdsman will sell up to %s animals per day"/>
+		<text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Животновод будет продавать до %s животных в день"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_mark_1" text="The herdsman will not mark animals to be sold"/>
-		<text name="el_ui_herdsmanTooltip_sell_mark_2" text="The herdsman will mark animals to be sold"/>
+		<text name="el_ui_herdsmanTooltip_sell_mark_1" text="Животновод не будет помечать животных для продажи"/>
+		<text name="el_ui_herdsmanTooltip_sell_mark_2" text="Животновод будет помечать животных для продажи"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="The herdsman will sell animals regardless of diseases"/>
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="The herdsman will only sell animals with a disease"/>
+		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Животновод будет продавать животных независимо от болезней"/>
+		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Животновод будет продавать только животных с болезнью"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_gender_1" text="The herdsman will only sell female animals"/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_2" text="The herdsman will sell female and male animals"/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_3" text="The herdsman will only sell male animals"/>
+		<text name="el_ui_herdsmanTooltip_sell_gender_1" text="Животновод будет продавать только самок"/>
+		<text name="el_ui_herdsmanTooltip_sell_gender_2" text="Животновод будет продавать и самок, и самцов"/>
+		<text name="el_ui_herdsmanTooltip_sell_gender_3" text="Животновод будет продавать только самцов"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_age_equal" text="The herdsman will only sell animals that are %s old"/>
-		<text name="el_ui_herdsmanTooltip_sell_age_range" text="The herdsman will only sell animals that are between %s and %s old"/>
+		<text name="el_ui_herdsmanTooltip_sell_age_equal" text="Животновод будет продавать только животных в возрасте %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_age_range" text="Животновод будет продавать только животных в возрасте от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_quality_equal" text="The herdsman will only sell animals with %s quality"/>
-		<text name="el_ui_herdsmanTooltip_sell_quality_range" text="The herdsman will only sell animals with quality between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Животновод будет продавать только животных с качеством %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_quality_range" text="Животновод будет продавать только животных с качеством от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="The herdsman will only sell animals with %s fertility"/>
-		<text name="el_ui_herdsmanTooltip_sell_fertility_range" text="The herdsman will only sell animals with fertility between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Животновод будет продавать только животных с фертильностью %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Животновод будет продавать только животных с фертильностью от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_health_equal" text="The herdsman will only sell animals with %s health"/>
-		<text name="el_ui_herdsmanTooltip_sell_health_range" text="The herdsman will only sell animals with health between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_health_equal" text="Животновод будет продавать только животных со здоровьем %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_health_range" text="Животновод будет продавать только животных со здоровьем от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="The herdsman will only sell animals with %s productivity"/>
-		<text name="el_ui_herdsmanTooltip_sell_productivity_range" text="The herdsman will only sell animals with productivity between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Животновод будет продавать только животных с продуктивностью %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Животновод будет продавать только животных с продуктивностью от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="The herdsman will only sell animals with %s metabolism"/>
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="The herdsman will only sell animals with metabolism between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Животновод будет продавать только животных с метаболизмом %s"/>
+		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Животновод будет продавать только животных с метаболизмом от %s до %s"/>
 
 
 		<!-- AI - CASTRATING -->
 
 
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="The herdsman will not castrate animals"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="The herdsman will castrate animals"/>
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Животновод не будет стерилизовать животных"/>
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Животновод не будет кастрировать животных"/>
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Животновод будет стерилизовать животных"/>
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Животновод будет кастрировать животных"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="The herdsman will not mark animals for castration"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="The herdsman will mark animals for castration"/>
+		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Животновод не будет помечать животных для стерилизации"/>
+		<text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Животновод не будет помечать животных для кастрации"/>
+		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Животновод будет помечать животных для стерилизации"/>
+		<text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Животновод будет помечать животных для кастрации"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="The herdsman will castrate animals regardless of diseases"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="The herdsman will only castrate animals with a disease"/>
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Животновод будет стерилизовать животных независимо от болезней"/>
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Животновод будет кастрировать животных независимо от болезней"/>
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Животновод будет стерилизовать только животных с болезнью"/>
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Животновод будет кастрировать только животных с болезнью"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="The herdsman will only castrate animals that are %s old"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="The herdsman will only castrate animals that are between %s and %s old"/>
+		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Животновод будет стерилизовать только животных в возрасте %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Животновод будет кастрировать только животных в возрасте %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="Животновод будет стерилизовать только животных в возрасте от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Животновод будет кастрировать только животных в возрасте от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="The herdsman will only castrate animals with %s quality"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="The herdsman will only castrate animals with quality between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Животновод будет стерилизовать только животных с качеством %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Животновод будет кастрировать только животных с качеством %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Животновод будет стерилизовать только животных с качеством от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Животновод будет кастрировать только животных с качеством от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="The herdsman will only castrate animals with %s fertility"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="The herdsman will only castrate animals with fertility between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Животновод будет стерилизовать только животных с фертильностью %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Животновод будет кастрировать только животных с фертильностью %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Животновод будет стерилизовать только животных с фертильностью от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Животновод будет кастрировать только животных с фертильностью от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="The herdsman will only castrate animals with %s health"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="The herdsman will only castrate animals with health between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Животновод будет стерилизовать только животных со здоровьем %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Животновод будет кастрировать только животных со здоровьем %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="Животновод будет стерилизовать только животных со здоровьем от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Животновод будет кастрировать только животных со здоровьем от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="The herdsman will only castrate animals with %s productivity"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="The herdsman will only castrate animals with productivity between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Животновод будет стерилизовать только животных с продуктивностью %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Животновод будет кастрировать только животных с продуктивностью %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Животновод будет стерилизовать только животных с продуктивностью от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Животновод будет кастрировать только животных с продуктивностью от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="The herdsman will only castrate animals with %s metabolism"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="The herdsman will only castrate animals with metabolism between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Животновод будет стерилизовать только животных с метаболизмом %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Животновод будет кастрировать только животных с метаболизмом %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Животновод будет стерилизовать только животных с метаболизмом от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Животновод будет кастрировать только животных с метаболизмом от %s до %s"/>
 
 
 		<!-- AI - NAMING -->
 
 
-		<text name="el_ui_herdsmanTooltip_naming_enabled_1" text="The herdsman will not name animals"/>
-		<text name="el_ui_herdsmanTooltip_naming_enabled_2" text="The herdsman will name animals"/>
+		<text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Животновод не будет давать имена животным"/>
+		<text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Животновод будет давать имена животным"/>
 
-		<text name="el_ui_herdsmanTooltip_naming_convention_1" text="The herdsman will name animals randomly"/>
-		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="The herdsman will name animals alphabetically"/>
+		<text name="el_ui_herdsmanTooltip_naming_convention_1" text="Животновод будет давать имена животным случайно"/>
+		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="Животновод будет давать имена животным по алфавиту"/>
 
 
 		<!-- AI - AI -->
 
 
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="The herdsman will not AI animals"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="The herdsman will AI animals"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Животновод не будет разводить животных"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Животновод не будет разводить животных"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Животновод будет разводить животных"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Животновод будет разводить животных"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="The herdsman will AI up to %s animals per day"/>
+		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Животновод будет разводить до %s животных в день"/>
+		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Животновод будет разводить до %s животных в день"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="The herdsman will not mark animals to be inseminated"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="The herdsman will mark animals to be inseminated"/>
+		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="Животновод не будет помечать животных для разведения"/>
+		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Животновод не будет помечать животных для разведения"/>
+		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="Животновод будет помечать животных для разведения"/>
+		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Животновод будет помечать животных для разведения"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="The herdsman will AI animals regardless of diseases"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="The herdsman will only AI animals with a disease"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Животновод будет разводить животных независимо от болезней"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Животновод будет разводить животных независимо от болезней"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Животновод будет разводить только животных с болезнью"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Животновод будет разводить только животных с болезнью"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_semen" text="The herdsman will use inseminant from %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="The herdsman will use semen from %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable inseminant"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="The herdsman will use any viable semen"/>
+		<text name="el_ui_herdsmanTooltip_ai_semen" text="Животновод будет использовать племенные образцы от %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="Животновод будет использовать семя от %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="Животновод будет использовать любые подходящие племенные образцы"/>
+		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Животновод будет использовать любое подходящее семя"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="The herdsman will only AI animals that are %s old"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range" text="The herdsman will only AI animals that are between %s and %s old"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="Животновод будет разводить только животных в возрасте %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Животновод будет разводить только животных в возрасте %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_range" text="Животновод будет разводить только животных в возрасте от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Животновод будет разводить только животных в возрасте от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="The herdsman will only AI animals with %s quality"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="The herdsman will only AI animals with quality between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Животновод будет разводить только животных с качеством %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Животновод будет разводить только животных с качеством %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="Животновод будет разводить только животных с качеством от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Животновод будет разводить только животных с качеством от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="The herdsman will only AI animals with %s fertility"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="The herdsman will only AI animals with fertility between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Животновод будет разводить только животных с фертильностью %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Животновод будет разводить только животных с фертильностью %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Животновод будет разводить только животных с фертильностью от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Животновод будет разводить только животных с фертильностью от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="The herdsman will only AI animals with %s health"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range" text="The herdsman will only AI animals with health between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="Животновод будет разводить только животных со здоровьем %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Животновод будет разводить только животных со здоровьем %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_range" text="Животновод будет разводить только животных со здоровьем от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Животновод будет разводить только животных со здоровьем от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="The herdsman will only AI animals with %s productivity"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="The herdsman will only AI animals with productivity between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Животновод будет разводить только животных с продуктивностью %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Животновод будет разводить только животных с продуктивностью %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Животновод будет разводить только животных с продуктивностью от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Животновод будет разводить только животных с продуктивностью от %s до %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="The herdsman will only AI animals with %s metabolism"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="The herdsman will only AI animals with metabolism between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Животновод будет разводить только животных с метаболизмом %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Животновод будет разводить только животных с метаболизмом %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Животновод будет разводить только животных с метаболизмом от %s до %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Животновод будет разводить только животных с метаболизмом от %s до %s"/>
 
 
 
@@ -447,176 +501,212 @@
 
 		<text name="el_settings" text="Realistic Livestock"/>
 
-		<text name="el_settings_off" text="Off"/>
-		<text name="el_settings_on" text="On"/>
+		<text name="el_settings_off" text="Выкл"/>
+		<text name="el_settings_on" text="Вкл"/>
 
-		<text name="el_settings_deathEnabled_label" text="Animal Removal"/>
-		<text name="el_settings_deathEnabled_tooltip_1" text="Animals will not be removed due to pregnancy, health, age or accidents"/>
-		<text name="el_settings_deathEnabled_tooltip_2" text="Animals will be removed due to pregnancy, health, age or accidents"/>
+		<text name="el_settings_deathEnabled_label" text="Удаление животных"/>
+		<text name="el_settings_deathEnabled_label_github" text="Смерть животных"/>
+		<text name="el_settings_deathEnabled_tooltip_1" text="Животные не будут удаляться из-за беременности, здоровья, возраста или несчастных случаев"/>
+		<text name="el_settings_deathEnabled_tooltip_1_github" text="Животные не будут умирать из-за беременности, здоровья, возраста или несчастных случаев"/>
+		<text name="el_settings_deathEnabled_tooltip_2" text="Животные будут удаляться из-за беременности, здоровья, возраста или несчастных случаев"/>
+		<text name="el_settings_deathEnabled_tooltip_2_github" text="Животные будут умирать из-за беременности, здоровья, возраста или несчастных случаев"/>
 
-		<text name="el_settings_accidentsChance_label" text="Accident Chance"/>
-		<text name="el_settings_accidentsChance_tooltip" text="Change the likelihood of animals being removed due to random accidents"/>
+		<text name="el_settings_accidentsChance_label" text="Шанс несчастного случая"/>
+		<text name="el_settings_accidentsChance_tooltip" text="Изменить вероятность удаления животных из-за случайных несчастных случаев"/>
+		<text name="el_settings_accidentsChance_tooltip_github" text="Изменить вероятность гибели животных из-за случайных несчастных случаев"/>
 
-		<text name="el_settings_foodScale_label" text="Food Scale"/>
-		<text name="el_settings_foodScale_tooltip" text="Change the amount of food eaten by animals"/>
+		<text name="el_settings_foodScale_label" text="Коэффициент потребления пищи"/>
+		<text name="el_settings_foodScale_tooltip" text="Изменить количество пищи, потребляемой животными"/>
 
-		<text name="el_settings_maxDealerAnimals_label" text="Max Dealer Animals"/>
-		<text name="el_settings_maxDealerAnimals_tooltip" text="Change the maximum number of animals the animal dealer will have in stock per animal type"/>
+		<text name="el_settings_maxDealerAnimals_label" text="Макс. животных у торговца"/>
+		<text name="el_settings_maxDealerAnimals_tooltip" text="Изменить максимальное количество животных каждого типа, которое торговец будет иметь в наличии"/>
 
-		<text name="el_settings_tagColour_label" text="Change Tag Colour"/>
-		<text name="el_settings_tagColour_tooltip" text="Change the colour of ear tags"/>
-		<text name="el_settings_tagColour_text" text="Change Tag Colour"/>
+		<text name="el_settings_resetDealer_label" text="Сбросить торговца животными"/>
+		<text name="el_settings_resetDealer_tooltip" text="Удалить всех животных у торговца и пополнить запас новыми животными"/>
+		<text name="el_settings_resetDealer_text" text="Сбросить торговца животными"/>
 
-		<text name="el_settings_exportCSV_label" text="Export To CSV"/>
-		<text name="el_settings_exportCSV_tooltip" text="Export stats to CSV"/>
-		<text name="el_settings_exportCSV_text" text="Export To CSV"/>
+		<text name="el_settings_tagColour_label" text="Изменить цвет бирки"/>
+		<text name="el_settings_tagColour_tooltip" text="Изменить цвет ушных бирок"/>
+		<text name="el_settings_tagColour_text" text="Изменить цвет бирки"/>
 
-		<text name="el_settings_maxNumMessages_label" text="Maximum Amount of Messages"/>
-		<text name="el_settings_maxNumMessages_tooltip" text="A higher amount will result in your save folder taking up more space. After this limit is reached, the earliest messages will be deleted."/>
+		<text name="el_settings_exportCSV_label" text="Экспорт в CSV"/>
+		<text name="el_settings_exportCSV_tooltip" text="Экспортировать статистику в CSV"/>
+		<text name="el_settings_exportCSV_text" text="Экспорт в CSV"/>
 
-		<text name="el_settings_diseasesEnabled_label" text="Diseases Enabled"/>
-		<text name="el_settings_diseasesEnabled_tooltip_1" text="Animals cannot catch or inherit diseases"/>
-		<text name="el_settings_diseasesEnabled_tooltip_2" text="Animals can catch or inherit diseases"/>
+		<text name="el_settings_maxNumMessages_label" text="Максимальное количество сообщений"/>
+		<text name="el_settings_maxNumMessages_tooltip" text="Большее количество приведет к тому, что папка сохранения будет занимать больше места. При достижении этого лимита самые ранние сообщения будут удалены."/>
 
-		<text name="el_settings_diseasesChance_label" text="Disease Chance"/>
-		<text name="el_settings_diseasesChance_tooltip" text="Change the likelihood of animals contracting diseases"/>
+		<text name="el_settings_diseasesEnabled_label" text="Болезни включены"/>
+		<text name="el_settings_diseasesEnabled_tooltip_1" text="Животные не могут заражаться или наследовать болезни"/>
+		<text name="el_settings_diseasesEnabled_tooltip_2" text="Животные могут заражаться или наследовать болезни"/>
 
-		<text name="el_settings_useCustomAnimals_label" text="Use Custom Animals"/>
-		<text name="el_settings_useCustomAnimals_tooltip_1" text="Use EnhancedLivestock animal models (requires restart)"/>
-		<text name="el_settings_useCustomAnimals_tooltip_2" text="Use custom animal models (experimental, requires restart, must be unzipped)"/>
+		<text name="el_settings_diseasesChance_label" text="Шанс болезни"/>
+		<text name="el_settings_diseasesChance_tooltip" text="Изменить вероятность заражения животных болезнями"/>
 
-		<text name="el_settings_animalsXML_label" text="Set Animals XML Path"/>
-		<text name="el_settings_animalsXML_tooltip" text="Set path to a custom animals XML file"/>
-		<text name="el_settings_animalsXML_text" text="Set Animals XML Path"/>
+		<text name="el_settings_useCustomAnimals_label" text="Использовать модели животных"/>
+		<text name="el_settings_useCustomAnimals_tooltip_1" text="Использовать модели животных EnhancedLivestock (требуется перезагрузка)"/>
+		<text name="el_settings_useCustomAnimals_tooltip_2" text="Использовать кастомные модели животных (экспериментально, требуется перезагрузка, должны быть распакованы)"/>
 
+		<text name="el_settings_animalsXML_label" text="Путь к XML файлу животных"/>
+		<text name="el_settings_animalsXML_tooltip" text="Установить путь к кастомному XML файлу животных"/>
+		<text name="el_settings_animalsXML_text" text="Путь к XML файлу животных"/>
 
+		<text name="el_settings_earTagTextEnabled_label" text="Текст на бирках"/>
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Включить/выключить отображение текста на ушных бирках животных"/>
 
 		<!--  HELP  -->
 
 
-		<text name="el_help_monitors_title" text="Monitors"/>
-		<text name="el_help_monitors_1" text="In order to see the majority of an animal's statistics, you need to apply a monitoring tag to it, which can be done through the animal menu (where you buy and sell animals). Monitoring tags are also visually shown on the animal, on their left ear next to their ID tag."/>
-		<text name="el_help_monitors_2" text="Monitoring tags will result in important information being shown to you, including health, weight, lactation, production, and straw, food and water requirements."/>
-		<text name="el_help_monitors_3" text="Applying a tag to an animal will cost you a small monthly subscription based on the animal's species. If you choose to remove the tag, the tag will be removed at the start of the next month."/>
+		<text name="el_help_monitors_title" text="Мониторы"/>
+		<text name="el_help_monitors_1" text="Для того чтобы видеть большую часть характеристик животного, необходимо установить на него бирку мониторинга, что можно сделать через меню животных (где вы покупаете и продаете животных). Бирки мониторинга также визуально отображаются на животном, на его левом ухе рядом с биркой ID."/>
+		<text name="el_help_monitors_2" text="Установка бирок мониторинга позволит вам видеть важную информацию, включая здоровье, вес, лактацию, продукцию, а также потребности в подстилке, корме и воде."/>
+		<text name="el_help_monitors_3" text="Установка бирки на животное стоит небольшую ежемесячную плату, зависящую от вида животного. Если вы решите снять бирку, она будет удалена в начале следующего месяца."/>
 
-		<text name="el_help_pregnancy_title" text="Pregnancy"/>
-		<text name="el_help_pregnancy_1" text="Female animals all require at least 1 male animal in order to potentially become pregnant. Both animals must be of the correct age and health, and must be from the same species. Breeding between different breeds (eg: holstein cow and angus bull) is allowed."/>
-		<text name="el_help_pregnancy_2" text="Inbreeding is not allowed. If a male and a female are directly related, they will not breed together."/>
-		<text name="el_help_pregnancy_3" text="The chance for a female to become pregnant depends upon both her and the male's fertility. A female with higher fertility also has a significantly higher chance of producing more offspring at once."/>
-		<text name="el_help_pregnancy_4" text="Once a female becomes pregnant, she will start to carry her offspring. You can view the expected date of pregnancy and the number of offspring by looking at the animal in the pen, or by clicking on her in the animal menu."/>
-		<text name="el_help_pregnancy_5" text="When she reaches her due date, she will give birth to her babies. However, the newborns have a certain chance of being removed, as does the mother if the pregnancy goes badly. Newborns that are born in an overcrowded pen will be sold automatically."/>
+		<text name="el_help_pregnancy_title" text="Беременность"/>
+		<text name="el_help_pregnancy_1" text="Для того чтобы самки могли забеременеть, требуется как минимум 1 самец. Оба животных должны быть подходящего возраста и здоровья, и относиться к одному виду. Скрещивание разных пород (например, голштинской коровы и ангусского быка) разрешено."/>
+		<text name="el_help_pregnancy_2" text="Инбридинг не допускается. Если самец и самка являются прямыми родственниками, они не будут размножаться вместе."/>
+		<text name="el_help_pregnancy_3" text="Шанс забеременеть зависит от фертильности и самки, и самца. Самка с более высокой фертильностью также имеет значительно более высокий шанс произвести больше потомства за один раз."/>
+		<text name="el_help_pregnancy_4" text="Как только самка забеременеет, она начнет вынашивать потомство. Вы можете просмотреть ожидаемую дату родов и количество потомков, посмотрев на животное в загоне или нажав на нее в меню животных."/>
+		<text name="el_help_pregnancy_5" text="Когда наступит срок родов, она произведет на свет детенышей. Однако существует определенный шанс удаления новорожденных, а также матери, если беременность пройдет неудачно. Новорожденные, родившиеся в переполненном загоне, будут проданы автоматически."/>
 
-		<text name="el_help_production_title" text="Production"/>
-		<text name="el_help_production_1" text="Cows of any breed will only begin to produce milk after giving birth. Once she has given birth, the cow will produce milk exponentially for 3 months, then her production will slowly drop for the next 6 months. 10 months after pregnancy, the cow will stop producing milk until her next pregnancy."/>
-		<text name="el_help_production_2" text="Sheep will produce wool in warm months. In cold months, under 12C, they will not produce wool."/>
-		<text name="el_help_production_3" text="Milk, wool and egg production is further affected by the animal's genetics. An animal with good production genetics will produce more, whereas animal with bad genetics wont produce much at all."/>
+		<text name="el_help_production_title" text="Продукция"/>
+		<text name="el_help_production_1" text="Коровы любой породы начнут давать молоко только после родов. После отела корова будет вырабатывать молоко в геометрической прогрессии в течение 3 месяцев, затем ее продуктивность будет медленно падать в течение следующих 6 месяцев. Через 10 месяцев после беременности корова перестанет давать молоко до следующей беременности."/>
+		<text name="el_help_production_2" text="Овцы будут производить шерсть в теплые месяцы. В холодные месяцы, при температуре ниже 12°C, они не будут производить шерсть."/>
+		<text name="el_help_production_3" text="На производство молока, шерсти и яиц также влияет генетика животного. Животное с хорошей производственной генетикой будет производить больше, в то время как животное с плохой генетикой не даст много продукции."/>
 
-		<text name="el_help_weight_title" text="Weight"/>
-		<text name="el_help_weight_1" text="Animals have a certain weight that which is affected by how much they eat and drink. Every species and breed has its own average weight which affects the weight of each animal."/>
-		<text name="el_help_weight_2" text="Weight increases the value of the animal, and a low weight affects its chance of being removed each month."/>
+		<text name="el_help_weight_title" text="Вес"/>
+		<text name="el_help_weight_1" text="Животные имеют определенный вес, на который влияет то, сколько они едят и пьют. У каждого вида и породы есть свой средний вес, который влияет на вес каждого животного."/>
+		<text name="el_help_weight_2" text="Вес увеличивает стоимость животного, а низкий вес влияет на шанс его удаления каждый месяц."/>
 
-		<text name="el_help_genetics_title" text="Genetics"/>
-		<text name="el_help_genetics_1" text="Each animal has 4 different genetic values; metabolism, fertility, health and quality. Genetics are mixed between the mother and father and then passed down to their children."/>
-		<text name="el_help_genetics_2" text="Metabolism affects the animal's ability to convert food into weight, and affects the amount it eats."/>
-		<text name="el_help_genetics_3" text="Fertility affects the animal's chance of getting pregnant, or getting a female pregnant, and the number of offspring it will produce."/>
-		<text name="el_help_genetics_4" text="Health affects the animal's health and its chance of being removed each month. An animal with higher health genetics will also have a longer lifespan."/>
-		<text name="el_help_genetics_5" text="Quality affects the value of the animal itself, an animal with higher quality will sell for much more."/>
-		<text name="el_help_genetics_6" text="Cattle, sheep and chicken also have production genetics, which affects how much milk/eggs/wool they produce."/>
+		<text name="el_help_genetics_title" text="Генетика"/>
+		<text name="el_help_genetics_1" text="Каждоное животное имеет 4 различных генетических значения: метаболизм, фертильность, здоровье и качество. Генетика смешивается между матерью и отцом, а затем передается их детям."/>
+		<text name="el_help_genetics_2" text="Метаболизм влияет на способность животного преобразовывать пищу в вес, а также на количество съедаемого корма."/>
+		<text name="el_help_genetics_3" text="Фертильность влияет на шансы животного забеременеть или оплодотворить самку, а также на количество потомства."/>
+		<text name="el_help_genetics_4" text="Здоровье влияет на состояние животного и его шанс удаления каждый месяц. Животное с более высокой генетикой здоровья также будет иметь большую продолжительность жизни."/>
+		<text name="el_help_genetics_5" text="Качество влияет на стоимость самого животного: животное более высокого качества будет продаваться намного дороже."/>
+		<text name="el_help_genetics_6" text="У крупного рогатого скота, овец и кур также есть производственная генетика, которая влияет на количество молока/яиц/шерсти, которое они производят."/>
 
 
 
 		<!--  DISEASES  -->
 
 
-		<text name="el_ui_immune" text="Immune"/>
-		<text name="el_ui_startTreatment" text="Start Treatment"/>
-		<text name="el_ui_resumeTreatment" text="Resume Treatment"/>
-		<text name="el_ui_stopTreatment" text="Stop Treatment"/>
-		<text name="el_ui_duration" text="Duration"/>
-		<text name="el_ui_beingTreated" text="Being treated"/>
-		<text name="el_ui_notTreated" text="Not treated"/>
-		<text name="el_ui_carrier" text="Carrier"/>
+		<text name="el_ui_immune" text="Иммунитет"/>
+		<text name="el_ui_startTreatment" text="Начать лечение"/>
+		<text name="el_ui_resumeTreatment" text="Возобновить лечение"/>
+		<text name="el_ui_stopTreatment" text="Остановить лечение"/>
+		<text name="el_ui_duration" text="Продолжительность"/>
+		<text name="el_ui_beingTreated" text="Лечится"/>
+		<text name="el_ui_notTreated" text="Не лечится"/>
+		<text name="el_ui_carrier" text="Носитель"/>
 
-		<text name="el_diseases" text="Diseases"/>
-		<text name="el_disease" text="Disease"/>
+		<text name="el_diseases" text="Болезни"/>
+		<text name="el_disease" text="Болезнь"/>
 
-		<text name="el_disease_mastitis" text="Mastitis"/>
+		<text name="el_disease_mastitis" text="Мастит"/>
 
 		<text name="el_disease_cvm" text="CVM"/>
 
-		<text name="el_disease_footAndMouth" text="Foot and Mouth"/>
+		<text name="el_disease_footAndMouth" text="Ящур"/>
 
-		<text name="el_disease_ped" text="Porcine Epidemic Diarrhoea"/>
+		<text name="el_disease_ped" text="Эпидемическая диарея свиней"/>
 
-		<text name="el_disease_avianFlu" text="Avian Influenza"/>
+		<text name="el_disease_avianFlu" text="Птичий грипп"/>
 
 
 
 		<!--  MESSAGES  -->
 
 
-		<text name="el_messageTitle_pregnancy" text="Pregnancy"/>
-		<text name="el_messageTitle_death" text="Removal"/>
-		<text name="el_messageTitle_death_github" text="Death"/>
-		<text name="el_messageTitle_disease" text="Disease"/>
-		<text name="el_messageTitle_name" text="Name"/>
-		<text name="el_messageTitle_movement" text="Movement"/>
-		<text name="el_messageTitle_aiManager" text="Herdsman"/>
-		<text name="el_messageTitle_insemination" text="Artificial Insemination"/>
+		<text name="el_messageTitle_pregnancy" text="Беременность"/>
+		<text name="el_messageTitle_death" text="Удаление"/>
+		<text name="el_messageTitle_death_github" text="Смерть"/>
+		<text name="el_messageTitle_disease" text="Болезнь"/>
+		<text name="el_messageTitle_name" text="Имя"/>
+		<text name="el_messageTitle_movement" text="Перемещение"/>
+		<text name="el_messageTitle_aiManager" text="Животновод"/>
+		<text name="el_messageTitle_insemination" text="Вспомогательное разведение"/>
+		<text name="el_messageTitle_insemination_github" text="Искусственное осеменение"/>
 
-		<text name="el_message_pregnancySingle" text="Gave birth to 1 baby"/>
-		<text name="el_message_pregnancyMultiple" text="Gave birth to %s babies"/>
-		<text name="el_message_pregnancySold" text="%s babies were sold for %s due to overcrowding"/>
-		<text name="el_message_pregnancyDied" text="%s babies were removed at birth"/>
-		<text name="el_message_pregnancyDied_github" text="%s babies died at birth"/>
-		<text name="el_message_death" text="Removed due to %s"/>
-		<text name="el_message_death_github" text="Died due to %s"/>
-		<text name="el_message_diseaseContracted" text="Contracted %s"/>
-		<text name="el_message_diseaseCured" text="Cured from %s"/>
-		<text name="el_message_diseaseTreatment_start" text="Started treatment for %s at %s"/>
-		<text name="el_message_diseaseTreatment_resume" text="Resumed treatment for %s at %s"/>
-		<text name="el_message_diseaseTreatment_stop" text="Stopped treatment for %s"/>
-		<text name="el_message_nameChange" text="Name changed from '%s' to '%s'"/>
-		<text name="el_message_nameAdded" text="Given name '%s'"/>
-		<text name="el_message_nameDeleted" text="Name '%s' was removed"/>
-		<text name="el_message_boughtAnimals_single" text="1 animal was bought for %s"/>
-		<text name="el_message_boughtAnimals_multiple" text="%s animals were bought for %s"/>
-		<text name="el_message_soldAnimals_single" text="1 animal was sold for %s"/>
-		<text name="el_message_soldAnimals_multiple" text="%s animals were sold for %s"/>
-		<text name="el_message_movedAnimalsTo_single" text="1 animals was moved to %s"/>
-		<text name="el_message_movedAnimalsTo_multiple" text="%s animals were moved to %s"/>
-		<text name="el_message_movedAnimalsFrom_single" text="1 animal was moved from %s"/>
-		<text name="el_message_movedAnimalsFrom_multiple" text="%s animals were moved from %s"/>
-		<text name="el_message_aiManager_boughtAnimals_single" text="Herdsman bought 1 animal for %s"/>
-		<text name="el_message_aiManager_boughtAnimals_multiple" text="Herdsman bought %s animals for %s"/>
-		<text name="el_message_aiManager_soldAnimals_single" text="Herdsman sold 1 animal for %s"/>
-		<text name="el_message_aiManager_soldAnimals_multiple" text="Herdsman sold %s animals for %s"/>
-		<text name="el_message_aiManager_castrated_single" text="Herdsman castrated 1 animal"/>
-		<text name="el_message_aiManager_castrated_multiple" text="Herdsman castrated %s animals"/>
-		<text name="el_message_aiManager_named_single" text="Herdsman named 1 animal"/>
-		<text name="el_message_aiManager_named_multiple" text="Herdsman named %s animals"/>
-		<text name="el_message_aiManager_mark_sell_single" text="Herdsman marked 1 animal for selling"/>
-		<text name="el_message_aiManager_mark_sell_multiple" text="Herdsman marked %s animals for selling"/>
-		<text name="el_message_aiManager_mark_castrate_single" text="Herdsman marked 1 animal for castrating"/>
-		<text name="el_message_aiManager_mark_castrate_multiple" text="Herdsman marked %s animals for castrating"/>
-		<text name="el_message_aiManager_mark_disease_single" text="Herdsman marked 1 animal for treatment"/>
-		<text name="el_message_aiManager_mark_disease_multiple" text="Herdsman marked %s animals for treatment"/>
-		<text name="el_message_insemination_success" text="Insemination was successful"/>
-		<text name="el_message_insemination_fail" text="Insemination was unsuccessful"/>
-		<text name="el_message_aiManager_mark_ai_single" text="Herdsman marked 1 animal for AI"/>
-		<text name="el_message_aiManager_mark_ai_multiple" text="Herdsman marked %s animals for AI"/>
-		<text name="el_message_aiManager_ai_single" text="Herdsman inseminated 1 animal"/>
-		<text name="el_message_aiManager_ai_multiple" text="Herdsman inseminated %s animals"/>
+		<text name="el_message_pregnancySingle" text="Родился 1 детеныш"/>
+		<text name="el_message_pregnancyMultiple" text="Родилось %s детенышей"/>
+		<text name="el_message_pregnancySold" text="%s детенышей были проданы за %s из-за переполнения"/>
+		<text name="el_message_pregnancyDied" text="%s детенышей были удалены при рождении"/>
+		<text name="el_message_pregnancyDied_github" text="%s детенышей умерли при рождении"/>
+		<text name="el_message_death" text="Удалено по причине: %s"/>
+		<text name="el_message_death_github" text="Умерло по причине: %s"/>
+		<text name="el_message_diseaseContracted" text="Заболевание: %s"/>
+		<text name="el_message_diseaseCured" text="Излечено от %s"/>
+		<text name="el_message_diseaseTreatment_start" text="Начато лечение от %s в %s"/>
+		<text name="el_message_diseaseTreatment_resume" text="Возобновлено лечение от %s в %s"/>
+		<text name="el_message_diseaseTreatment_stop" text="Прекращено лечение от %s"/>
+		<text name="el_message_nameChange" text="Имя изменено с '%s' на '%s'"/>
+		<text name="el_message_nameAdded" text="Дано имя '%s'"/>
+		<text name="el_message_nameDeleted" text="Имя '%s' было удалено"/>
+		<text name="el_message_boughtAnimals_single" text="Куплено 1 животное за %s"/>
+		<text name="el_message_boughtAnimals_multiple" text="Куплено %s животных за %s"/>
+		<text name="el_message_soldAnimals_single" text="Продано 1 животное за %s"/>
+		<text name="el_message_soldAnimals_multiple" text="Продано %s животных за %s"/>
+		<text name="el_message_movedAnimalsTo_single" text="1 животное перемещено в %s"/>
+		<text name="el_message_movedAnimalsTo_multiple" text="%s животных перемещено в %s"/>
+		<text name="el_message_movedAnimalsFrom_single" text="1 животное перемещено из %s"/>
+		<text name="el_message_movedAnimalsFrom_multiple" text="%s животных перемещено из %s"/>
+		<text name="el_message_aiManager_boughtAnimals_single" text="Животновод купил 1 животное за %s"/>
+		<text name="el_message_aiManager_boughtAnimals_multiple" text="Животновод купил %s животных за %s"/>
+		<text name="el_message_aiManager_soldAnimals_single" text="Животновод продал 1 животное за %s"/>
+		<text name="el_message_aiManager_soldAnimals_multiple" text="Животновод продал %s животных за %s"/>
+		<text name="el_message_aiManager_castrated_single" text="Животновод стерилизовал 1 животное"/>
+		<text name="el_message_aiManager_castrated_single_github" text="Животновод кастрировал 1 животное"/>
+		<text name="el_message_aiManager_castrated_multiple" text="Животновод стерилизовал %s животных"/>
+		<text name="el_message_aiManager_castrated_multiple_github" text="Животновод кастрировал %s животных"/>
+		<text name="el_message_aiManager_named_single" text="Животновод дал имя 1 животному"/>
+		<text name="el_message_aiManager_named_multiple" text="Животновод дал имена %s животным"/>
+		<text name="el_message_aiManager_mark_sell_single" text="Животновод пометил 1 животное для продажи"/>
+		<text name="el_message_aiManager_mark_sell_multiple" text="Животновод пометил %s животных для продажи"/>
+		<text name="el_message_aiManager_mark_castrate_single" text="Животновод пометил 1 животное для стерилизации"/>
+		<text name="el_message_aiManager_mark_castrate_single_github" text="Животновод пометил 1 животное для кастрации"/>
+		<text name="el_message_aiManager_mark_castrate_multiple" text="Животновод пометил %s животных для стерилизации"/>
+		<text name="el_message_aiManager_mark_castrate_multiple_github" text="Животновод пометил %s животных для кастрации"/>
+		<text name="el_message_aiManager_mark_disease_single" text="Животновод пометил 1 животное для лечения"/>
+		<text name="el_message_aiManager_mark_disease_multiple" text="Животновод пометил %s животных для лечения"/>
+		<text name="el_message_insemination_success" text="Разведение прошло успешно"/>
+		<text name="el_message_insemination_success_github" text="Осеменение прошло успешно"/>
+		<text name="el_message_insemination_fail" text="Разведение не удалось"/>
+		<text name="el_message_insemination_fail_github" text="Осеменение не удалось"/>
+		<text name="el_message_aiManager_mark_ai_single" text="Животновод пометил 1 животное для разведения"/>
+		<text name="el_message_aiManager_mark_ai_single_github" text="Животновод пометил 1 животное для ИО"/>
+		<text name="el_message_aiManager_mark_ai_multiple" text="Животновод пометил %s животных для разведения"/>
+		<text name="el_message_aiManager_mark_ai_multiple_github" text="Животновод пометил %s животных для ИО"/>
+		<text name="el_message_aiManager_ai_single" text="Животновод развел 1 животное"/>
+		<text name="el_message_aiManager_ai_single_github" text="Животновод осеменил 1 животное"/>
+		<text name="el_message_aiManager_ai_multiple" text="Животновод развел %s животных"/>
+		<text name="el_message_aiManager_ai_multiple_github" text="Животновод осеменил %s животных"/>
 
 
 
 		<!--  DEATHS  -->
 
 
-		<text name="el_death_pregnancy" text="a bad pregnancy"/>
-		<text name="el_death_health" text="low health"/>
-		<text name="el_death_age" text="old age"/>
-		<text name="el_death_accident" text="an accident"/>
+		<text name="el_death_pregnancy" text="неудачной беременности"/>
+		<text name="el_death_health" text="плохого здоровья"/>
+		<text name="el_death_age" text="старости"/>
+		<text name="el_death_accident" text="несчастного случая"/>
+
+		<!-- EPP BUTCHER INTEGRATION -->
+
+		<text name="el_epp_butcher_processed" text="Животное обработано на бойне: %s кг %s"/>
+		<text name="el_epp_butcher_delivered" text="%s доставлено на бойню (%.2fx %s)"/>
+
+		<!-- MIGRATION -->
+
+		<text name="el_conflict_title" text="Обнаружен конфликт модов"/>
+		<text name="el_mod_conflict_message" text="Следующие моды конфликтуют с 'Enhanced Livestock' и не могут использоваться вместе: %s &#10;&#10;Пожалуйста, отключите конфликтующие моды и перезапустите игру."/>
+
+		<text name="el_migration_title" text="Уведомление о миграции данных"/>
+		<text name="el_migration_message" text="В этом сохранении найдены предыдущие данные Realistic Livestock. Ваши настройки, данные животных, Дьюары и ручные инструменты AI Straw будут автоматически перенесены в Enhanced Livestock при сохранении игры."/>
+		<text name="el_migration_files_found" text="Найденные файлы данных:"/>
+		<text name="el_migration_continue" text="Продолжить"/>
+		<text name="el_migration_quit" text="Выйти"/>
 
 	</texts>
 </l10n>

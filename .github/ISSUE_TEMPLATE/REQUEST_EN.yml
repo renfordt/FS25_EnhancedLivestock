@@ -1,0 +1,71 @@
+name: Feature Idea/Request [EN]
+description: A feature request or Idea.
+labels:
+- Suggestion
+body:
+- type: markdown
+  attributes:
+    value: 'Thanks for taking the time to fill out this report!
+
+      New ideas are always helpful and can improve Enhanced Livestock.
+      Please fill out the report and describe your idea as thoroughly as possible.
+      If you have a screenshot or video, please add it.
+      Thank you for your support!
+      
+      '
+- type: dropdown
+  id: mod-version
+  attributes:
+    label: Version
+    description: Which Enhanced Livestock version are you using?
+    options:
+    - '0'
+    - 1.0.0.0
+    - 1.1.0.0-beta1
+    default: 2
+  validations:
+    required: true
+- type: dropdown
+  id: spmp
+  attributes:
+    label: SP/MP
+    description: Is your idea for SP oder MP?
+    options:
+    - SP (Singleplayer)
+    - MP (Multiplayer)
+    default: 0
+  validations:
+    required: true
+- type: textarea
+  id: what-does
+  attributes:
+    label: What can be done with your idea?
+    description: Please describe as good as possible the problem your idea solves.
+    placeholder: Describe as good as possible.
+  validations:
+    required: true
+- type: textarea
+  id: how-to
+  attributes:
+    label: If applicable, how would the user interface look like for this enhancement?
+    description: Describe the solution you'd like.
+    placeholder: Describe as good as possible.
+  validations:
+    required: true
+- type: textarea
+  id: alternative
+  attributes:
+    label: Is there an alternative?
+    description: Are there any alternatives you've considered?
+    placeholder: Describe as good as possible.
+  validations:
+    required: true
+- type: textarea
+  id: screenshots
+  attributes:
+    label: Screenshots
+    description: Use drag and drop into the textbox to upload the screenshots.
+    placeholder: If you have any helpful screenshots to describe your idea, please
+      add them here.
+  validations:
+    required: true

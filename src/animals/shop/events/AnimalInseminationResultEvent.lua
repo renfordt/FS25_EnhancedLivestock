@@ -3,14 +3,12 @@ AnimalInseminationResultEvent = {}
 local AnimalInseminationResultEvent_mt = Class(AnimalInseminationResultEvent, Event)
 InitEventClass(AnimalInseminationResultEvent, "AnimalInseminationResultEvent")
 
-
 function AnimalInseminationResultEvent.emptyNew()
 
-    local self = Event.new(AnimalInseminationResultEvent_mt)
-    return self
+	local self = Event.new(AnimalInseminationResultEvent_mt)
+	return self
 
 end
-
 
 function AnimalInseminationResultEvent.new(object, animal, success)
 
@@ -24,17 +22,15 @@ function AnimalInseminationResultEvent.new(object, animal, success)
 
 end
 
-
 function AnimalInseminationResultEvent:readStream(streamId, connection)
 
 	self.object = NetworkUtil.readNodeObject(streamId)
-	self.animal = Animal.readStreamIdentifiers(streamId, connection)	
+	self.animal = Animal.readStreamIdentifiers(streamId, connection)
 	self.success = streamReadBool(streamId)
 
 	self:run(connection)
 
 end
-
 
 function AnimalInseminationResultEvent:writeStream(streamId, connection)
 
@@ -44,10 +40,11 @@ function AnimalInseminationResultEvent:writeStream(streamId, connection)
 
 end
 
-
 function AnimalInseminationResultEvent:run(connection)
 
-	if g_server ~= nil and not g_server.netIsRunning then return end
+	if g_server ~= nil and not g_server.netIsRunning then
+		return
+	end
 
 	local clusterSystem = self.object:getClusterSystem()
 	local identifiers = self.animal
@@ -55,8 +52,8 @@ function AnimalInseminationResultEvent:run(connection)
 	for _, animal in pairs(clusterSystem.animals) do
 
 		if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
-					
-			animal:addRLMessage(string.format("INSEMINATION_%s", self.success and "SUCCESS" or "FAIL"))
+
+			animal:addELMessage(string.format("INSEMINATION_%s", self.success and "SUCCESS" or "FAIL"))
 			return
 
 		end

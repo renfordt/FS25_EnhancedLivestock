@@ -2,7 +2,6 @@ AIAnimalManager = {}
 
 local AIAnimalManager_mt = Class(AIAnimalManager)
 
-
 function AIAnimalManager.new(husbandry, isServer)
 
 	local self = setmetatable({}, AIAnimalManager_mt)
@@ -159,14 +158,14 @@ function AIAnimalManager.new(husbandry, isServer)
 
 end
 
-
 function AIAnimalManager:saveToXMLFile(xmlFile, baseKey)
 
 	local key = self.isProfile and baseKey or (baseKey .. ".AIAnimalManager")
 	local settings = self.settings
 
-
-	if not self.isProfile then xmlFile:setFloat(key .. "#wage", self.wage) end
+	if not self.isProfile then
+		xmlFile:setFloat(key .. "#wage", self.wage)
+	end
 
 
 	-- BUY SETTINGS
@@ -241,7 +240,9 @@ function AIAnimalManager:saveToXMLFile(xmlFile, baseKey)
 
 	xmlFile:setBool(key .. ".naming#enabled", settings.naming.enabled)
 	xmlFile:setString(key .. ".naming#convention", settings.naming.convention)
-	if not self.isProfile and settings.naming.previous ~= nil and settings.naming.convention == "alphabetical" then xmlFile:setString(key .. ".naming#previous", settings.naming.previous) end
+	if not self.isProfile and settings.naming.previous ~= nil and settings.naming.convention == "alphabetical" then
+		xmlFile:setString(key .. ".naming#previous", settings.naming.previous)
+	end
 
 
 	-- AI SETTINGS
@@ -267,12 +268,10 @@ function AIAnimalManager:saveToXMLFile(xmlFile, baseKey)
 
 end
 
-
 function AIAnimalManager:loadFromXMLFile(xmlFile, baseKey)
 
 	local key = self.isProfile and basekey or (baseKey .. ".AIAnimalManager")
 	local settings = self.settings
-
 
 	self.wage = xmlFile:getFloat(key .. "#wage", 0)
 
@@ -375,17 +374,15 @@ function AIAnimalManager:loadFromXMLFile(xmlFile, baseKey)
 
 end
 
-
 function AIAnimalManager:getSettings(type)
 
 	return type == nil and self.settings or self.settings[type]
 
 end
 
-
 function AIAnimalManager:setSettings(settings, type)
 
-	if type == nil then 
+	if type == nil then
 		self.settings = settings
 	else
 		self.settings[type] = settings
@@ -393,16 +390,19 @@ function AIAnimalManager:setSettings(settings, type)
 
 end
 
-
 function AIAnimalManager:onDayChanged()
 
-	if not self.isServer then return end
+	if not self.isServer then
+		return
+	end
 
 	local buy, sell, castrate, naming, ai = self.settings.buy, self.settings.sell, self.settings.castrate, self.settings.naming, self.settings.ai
 
 	self.wage = 0
 
-	if not buy.enabled and not sell.enabled and not castrate.enabled and not naming.enabled and not ai.enabled then return end
+	if not buy.enabled and not sell.enabled and not castrate.enabled and not naming.enabled and not ai.enabled then
+		return
+	end
 
 	local farmId = self.husbandry:getOwnerFarmId()
 	local farm = g_farmManager:getFarmById(farmId)
@@ -429,19 +429,37 @@ function AIAnimalManager:onDayChanged()
 
 		for _, animal in pairs(animals) do
 
-			if animal:getMarked("AI_MANAGER_SELL") then animal:setMarked("AI_MANAGER_SELL", false) end
+			if animal:getMarked("AI_MANAGER_SELL") then
+				animal:setMarked("AI_MANAGER_SELL", false)
+			end
 
-			if sell.gender ~= "any" and animal.gender ~= sell.gender then continue end
+			if sell.gender ~= "any" and animal.gender ~= sell.gender then
+				continue
+			end
 
-			if animal.age < sell.age.min or animal.age > sell.age.max then continue end
+			if animal.age < sell.age.min or animal.age > sell.age.max then
+				continue
+			end
 
-			if sell.diseases and (animal.diseases == nil or #animal.diseases == 0) then continue end
+			if sell.diseases and (animal.diseases == nil or #animal.diseases == 0) then
+				continue
+			end
 
-			if animal.genetics.metabolism < metabolismMin or animal.genetics.metabolism > metabolismMax then continue end
-			if animal.genetics.quality < qualityMin or animal.genetics.quality > qualityMax then continue end
-			if animal.genetics.fertility < fertilityMin or animal.genetics.fertility > fertilityMax then continue end
-			if animal.genetics.health < healthMin or animal.genetics.health > healthMax then continue end
-			if animal.genetics.productivity ~= nil and (animal.genetics.productivity < productivityMin or animal.genetics.productivity > productivityMax) then continue end
+			if animal.genetics.metabolism < metabolismMin or animal.genetics.metabolism > metabolismMax then
+				continue
+			end
+			if animal.genetics.quality < qualityMin or animal.genetics.quality > qualityMax then
+				continue
+			end
+			if animal.genetics.fertility < fertilityMin or animal.genetics.fertility > fertilityMax then
+				continue
+			end
+			if animal.genetics.health < healthMin or animal.genetics.health > healthMax then
+				continue
+			end
+			if animal.genetics.productivity ~= nil and (animal.genetics.productivity < productivityMin or animal.genetics.productivity > productivityMax) then
+				continue
+			end
 
 			local price = animal:getSellPrice() + animalSystem:getAnimalTransportFee(animal.subTypeIndex, animal.age)
 
@@ -451,19 +469,25 @@ function AIAnimalManager:onDayChanged()
 
 		local soldAnimals, amountGained = {}, 0
 
-		table.sort(shortlist, function(a, b) return a.price > b.price end)
+		table.sort(shortlist, function(a, b)
+			return a.price > b.price
+		end)
 
 		local mark = sell.mark
 
 		for _, item in ipairs(shortlist) do
 
-			if #soldAnimals >= sell.maxAnimals then break end
+			if #soldAnimals >= sell.maxAnimals then
+				break
+			end
 
 			amountGained = amountGained + item.price
 
 			table.insert(soldAnimals, item.animal)
 
-			if mark then item.animal:setMarked("AI_MANAGER_SELL", true) end
+			if mark then
+				item.animal:setMarked("AI_MANAGER_SELL", true)
+			end
 
 		end
 
@@ -476,14 +500,14 @@ function AIAnimalManager:onDayChanged()
 			local errorCode = AIAnimalSellEvent.validate(self.husbandry, #soldAnimals, amountGained, farmId)
 
 			if errorCode == nil then
-				
+
 				g_server:broadcastEvent(AIAnimalSellEvent.new(self.husbandry, soldAnimals, amountGained), true)
 
 				if #soldAnimals == 1 then
-					self.husbandry:addRLMessage("AI_MANAGER_SOLD_SINGLE", nil, { g_i18n:formatMoney(amountGained, 2, true, true) })
+					self.husbandry:addELMessage("AI_MANAGER_SOLD_SINGLE", nil, { g_i18n:formatMoney(amountGained, 2, true, true) })
 					table.insert(messages, { ["id"] = "AI_MANAGER_SOLD_SINGLE", ["args"] = { g_i18n:formatMoney(amountGained, 2, true, true) } })
 				else
-					self.husbandry:addRLMessage("AI_MANAGER_SOLD_MULTIPLE", nil, { #soldAnimals, g_i18n:formatMoney(amountGained, 2, true, true) })
+					self.husbandry:addELMessage("AI_MANAGER_SOLD_MULTIPLE", nil, { #soldAnimals, g_i18n:formatMoney(amountGained, 2, true, true) })
 					table.insert(messages, { ["id"] = "AI_MANAGER_SOLD_MULTIPLE", ["args"] = { #soldAnimals, g_i18n:formatMoney(amountGained, 2, true, true) } })
 				end
 
@@ -492,11 +516,11 @@ function AIAnimalManager:onDayChanged()
 		elseif #soldAnimals > 0 then
 
 			if #soldAnimals == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_SELL_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_MARK_SELL_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_SELL_SINGLE" })
 			else
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_SELL_MULTIPLE", nil, { #soldAnimals })
-				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_SELL_MULTIPLE", ["args"] = { #soldAnimals }})
+				self.husbandry:addELMessage("AI_MANAGER_MARK_SELL_MULTIPLE", nil, { #soldAnimals })
+				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_SELL_MULTIPLE", ["args"] = { #soldAnimals } })
 			end
 
 		end
@@ -511,7 +535,9 @@ function AIAnimalManager:onDayChanged()
 
 		local budget = buy.budget.fixed
 
-		if buy.budget.type == "percentage" then budget = math.floor(farm:getBalance() * (buy.budget.percentage / 100)) end
+		if buy.budget.type == "percentage" then
+			budget = math.floor(farm:getBalance() * (buy.budget.percentage / 100))
+		end
 
 		budget = math.clamp(budget, 0, farm:getBalance())
 
@@ -528,25 +554,47 @@ function AIAnimalManager:onDayChanged()
 
 			for _, animal in pairs(animals) do
 
-				if animal.reserved then continue end
+				if animal.reserved then
+					continue
+				end
 
-				if buy.gender ~= "any" and animal.gender ~= buy.gender then continue end
+				if buy.gender ~= "any" and animal.gender ~= buy.gender then
+					continue
+				end
 
-				if buy.breed ~= "any" and animal.breed ~= buy.breed then continue end
+				if buy.breed ~= "any" and animal.breed ~= buy.breed then
+					continue
+				end
 
-				if animal.age < buy.age.min or animal.age > buy.age.max then continue end
+				if animal.age < buy.age.min or animal.age > buy.age.max then
+					continue
+				end
 
-				if not buy.diseases and #animal.diseases > 0 then continue end
+				if not buy.diseases and #animal.diseases > 0 then
+					continue
+				end
 
-				if animal.genetics.metabolism < metabolismMin or animal.genetics.metabolism > metabolismMax then continue end
-				if animal.genetics.quality < qualityMin or animal.genetics.quality > qualityMax then continue end
-				if animal.genetics.fertility < fertilityMin or animal.genetics.fertility > fertilityMax then continue end
-				if animal.genetics.health < healthMin or animal.genetics.health > healthMax then continue end
-				if animal.genetics.productivity ~= nil and (animal.genetics.productivity < productivityMin or animal.genetics.productivity > productivityMax) then continue end
+				if animal.genetics.metabolism < metabolismMin or animal.genetics.metabolism > metabolismMax then
+					continue
+				end
+				if animal.genetics.quality < qualityMin or animal.genetics.quality > qualityMax then
+					continue
+				end
+				if animal.genetics.fertility < fertilityMin or animal.genetics.fertility > fertilityMax then
+					continue
+				end
+				if animal.genetics.health < healthMin or animal.genetics.health > healthMax then
+					continue
+				end
+				if animal.genetics.productivity ~= nil and (animal.genetics.productivity < productivityMin or animal.genetics.productivity > productivityMax) then
+					continue
+				end
 
 				local price = animal:getSellPrice() * 1.075 + animalSystem:getAnimalTransportFee(animal.subTypeIndex, animal.age)
 
-				if price > budget then continue end
+				if price > budget then
+					continue
+				end
 
 				table.insert(shortlist, { ["animal"] = animal, ["price"] = price })
 
@@ -554,11 +602,15 @@ function AIAnimalManager:onDayChanged()
 
 			local boughtAnimals, amountSpent = {}, 0
 
-			table.sort(shortlist, function(a, b) return a.price < b.price end)
+			table.sort(shortlist, function(a, b)
+				return a.price < b.price
+			end)
 
 			for _, item in ipairs(shortlist) do
 
-				if item.price > budget or #boughtAnimals >= buy.maxAnimals then break end
+				if item.price > budget or #boughtAnimals >= buy.maxAnimals then
+					break
+				end
 
 				amountSpent = amountSpent + item.price
 				budget = budget - item.price
@@ -573,14 +625,14 @@ function AIAnimalManager:onDayChanged()
 				local errorCode = AIAnimalBuyEvent.validate(self.husbandry, #boughtAnimals, amountSpent, farmId)
 
 				if errorCode == nil then
-				
+
 					g_server:broadcastEvent(AIAnimalBuyEvent.new(self.husbandry, boughtAnimals, amountSpent), true)
 
 					if #boughtAnimals == 1 then
-						self.husbandry:addRLMessage("AI_MANAGER_BOUGHT_SINGLE", nil, { g_i18n:formatMoney(amountSpent, 2, true, true) })
+						self.husbandry:addELMessage("AI_MANAGER_BOUGHT_SINGLE", nil, { g_i18n:formatMoney(amountSpent, 2, true, true) })
 						table.insert(messages, { ["id"] = "AI_MANAGER_BOUGHT_SINGLE", ["args"] = { g_i18n:formatMoney(amountSpent, 2, true, true) } })
 					else
-						self.husbandry:addRLMessage("AI_MANAGER_BOUGHT_MULTIPLE", nil, { #boughtAnimals, g_i18n:formatMoney(amountSpent, 2, true, true) })
+						self.husbandry:addELMessage("AI_MANAGER_BOUGHT_MULTIPLE", nil, { #boughtAnimals, g_i18n:formatMoney(amountSpent, 2, true, true) })
 						table.insert(messages, { ["id"] = "AI_MANAGER_BOUGHT_MULTIPLE", ["args"] = { #boughtAnimals, g_i18n:formatMoney(amountSpent, 2, true, true) } })
 					end
 
@@ -611,19 +663,37 @@ function AIAnimalManager:onDayChanged()
 
 		for _, animal in pairs(animals) do
 
-			if animal:getMarked("AI_MANAGER_CASTRATE") then animal:setMarked("AI_MANAGER_CASTRATE", false) end
+			if animal:getMarked("AI_MANAGER_CASTRATE") then
+				animal:setMarked("AI_MANAGER_CASTRATE", false)
+			end
 
-			if animal.gender == "female" or animal.isCastrated or animal.genetics.fertility == 0 then continue end
+			if animal.gender == "female" or animal.isCastrated or animal.genetics.fertility == 0 then
+				continue
+			end
 
-			if animal.age < castrate.age.min or animal.age > castrate.age.max then continue end
+			if animal.age < castrate.age.min or animal.age > castrate.age.max then
+				continue
+			end
 
-			if castrate.diseases and (animal.diseases == nil or #animal.diseases == 0) then continue end
+			if castrate.diseases and (animal.diseases == nil or #animal.diseases == 0) then
+				continue
+			end
 
-			if animal.genetics.metabolism < metabolismMin or animal.genetics.metabolism > metabolismMax then continue end
-			if animal.genetics.quality < qualityMin or animal.genetics.quality > qualityMax then continue end
-			if animal.genetics.fertility < fertilityMin or animal.genetics.fertility > fertilityMax then continue end
-			if animal.genetics.health < healthMin or animal.genetics.health > healthMax then continue end
-			if animal.genetics.productivity ~= nil and (animal.genetics.productivity < productivityMin or animal.genetics.productivity > productivityMax) then continue end
+			if animal.genetics.metabolism < metabolismMin or animal.genetics.metabolism > metabolismMax then
+				continue
+			end
+			if animal.genetics.quality < qualityMin or animal.genetics.quality > qualityMax then
+				continue
+			end
+			if animal.genetics.fertility < fertilityMin or animal.genetics.fertility > fertilityMax then
+				continue
+			end
+			if animal.genetics.health < healthMin or animal.genetics.health > healthMax then
+				continue
+			end
+			if animal.genetics.productivity ~= nil and (animal.genetics.productivity < productivityMin or animal.genetics.productivity > productivityMax) then
+				continue
+			end
 
 			if not castrate.mark then
 
@@ -643,18 +713,18 @@ function AIAnimalManager:onDayChanged()
 
 		if castrate.mark then
 			if numCastrated == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_MARK_CASTRATE_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_SINGLE" })
 			elseif numCastrated > 0 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_MULTIPLE", nil, { numCastrated })
+				self.husbandry:addELMessage("AI_MANAGER_MARK_CASTRATE_MULTIPLE", nil, { numCastrated })
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_MULTIPLE", ["args"] = { numCastrated } })
 			end
 		else
 			if numCastrated == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_MARK_CASTRATE_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_SINGLE" })
 			elseif numCastrated > 0 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_CASTRATE_MULTIPLE", nil, { numCastrated })
+				self.husbandry:addELMessage("AI_MANAGER_MARK_CASTRATE_MULTIPLE", nil, { numCastrated })
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_CASTRATE_MULTIPLE", ["args"] = { numCastrated } })
 			end
 		end
@@ -675,7 +745,9 @@ function AIAnimalManager:onDayChanged()
 
 		for _, animal in pairs(animals) do
 
-			if animal.name ~= nil and animal.name ~= "" then continue end
+			if animal.name ~= nil and animal.name ~= "" then
+				continue
+			end
 
 			if naming.convention == "random" then
 
@@ -712,10 +784,10 @@ function AIAnimalManager:onDayChanged()
 		end
 
 		if numNamed == 1 then
-			self.husbandry:addRLMessage("AI_MANAGER_NAMED_SINGLE")
+			self.husbandry:addELMessage("AI_MANAGER_NAMED_SINGLE")
 			table.insert(messages, { ["id"] = "AI_MANAGER_NAMED_SINGLE" })
 		elseif numNamed > 0 then
-			self.husbandry:addRLMessage("AI_MANAGER_NAMED_MULTIPLE", nil, { numNamed })
+			self.husbandry:addELMessage("AI_MANAGER_NAMED_MULTIPLE", nil, { numNamed })
 			table.insert(messages, { ["id"] = "AI_MANAGER_NAMED_MULTIPLE", ["args"] = { numNamed } })
 		end
 
@@ -760,42 +832,67 @@ function AIAnimalManager:onDayChanged()
 
 		for _, animal in pairs(animals) do
 
-			if animal:getMarked("AI_MANAGER_INSEMINATE") then animal:setMarked("AI_MANAGER_INSEMINATE", false) end
+			if animal:getMarked("AI_MANAGER_INSEMINATE") then
+				animal:setMarked("AI_MANAGER_INSEMINATE", false)
+			end
 
-			if dewars == nil or #dewars == 0 then continue end
+			if dewars == nil or #dewars == 0 then
+				continue
+			end
 
-			if animal.age < ai.age.min or animal.age > ai.age.max then continue end
+			if animal.age < ai.age.min or animal.age > ai.age.max then
+				continue
+			end
 
-			if ai.diseases and (animal.diseases == nil or #animal.diseases == 0) then continue end
+			if ai.diseases and (animal.diseases == nil or #animal.diseases == 0) then
+				continue
+			end
 
-			if animal.genetics.metabolism < metabolismMin or animal.genetics.metabolism > metabolismMax then continue end
-			if animal.genetics.quality < qualityMin or animal.genetics.quality > qualityMax then continue end
-			if animal.genetics.fertility < fertilityMin or animal.genetics.fertility > fertilityMax then continue end
-			if animal.genetics.health < healthMin or animal.genetics.health > healthMax then continue end
-			if animal.genetics.productivity ~= nil and (animal.genetics.productivity < productivityMin or animal.genetics.productivity > productivityMax) then continue end
-			
+			if animal.genetics.metabolism < metabolismMin or animal.genetics.metabolism > metabolismMax then
+				continue
+			end
+			if animal.genetics.quality < qualityMin or animal.genetics.quality > qualityMax then
+				continue
+			end
+			if animal.genetics.fertility < fertilityMin or animal.genetics.fertility > fertilityMax then
+				continue
+			end
+			if animal.genetics.health < healthMin or animal.genetics.health > healthMax then
+				continue
+			end
+			if animal.genetics.productivity ~= nil and (animal.genetics.productivity < productivityMin or animal.genetics.productivity > productivityMax) then
+				continue
+			end
 
 			local canBeInseminated = false
 			local usedDewar
 
 			for _, dewar in pairs(dewars) do
 
-				if dewar.animal == nil or dewar.straws <= 0 then continue end
+				if dewar.animal == nil or dewar.straws <= 0 then
+					continue
+				end
 
-				if dewarToStrawDelta[dewar] ~= nil and dewar.straws - dewarToStrawDelta[dewar] <= 0 then continue end
+				if dewarToStrawDelta[dewar] ~= nil and dewar.straws - dewarToStrawDelta[dewar] <= 0 then
+					continue
+				end
 
 				canBeInseminated = animal:getCanBeInseminatedByAnimal(dewar.animal)
 
 				if canBeInseminated then
 					usedDewar = dewar
-					if dewarToStrawDelta[dewar] == nil then dewarToStrawDelta[dewar] = 0 end
+					if dewarToStrawDelta[dewar] == nil then
+						dewarToStrawDelta[dewar] = 0
+					end
 					dewarToStrawDelta[dewar] = dewarToStrawDelta[dewar] + 1
 					break
 				end
 
 			end
 
-			if not canBeInseminated then continue end
+			if not canBeInseminated then
+				continue
+			end
 
 			local genetics = animal.genetics.metabolism + animal.genetics.quality + animal.genetics.fertility + animal.genetics.health + (animal.genetics.productivity or 0)
 
@@ -805,17 +902,23 @@ function AIAnimalManager:onDayChanged()
 
 		local inseminatedAnimals = {}
 
-		table.sort(shortlist, function(a, b) return a.genetics > b.genetics end)
+		table.sort(shortlist, function(a, b)
+			return a.genetics > b.genetics
+		end)
 
 		local mark = ai.mark
 
 		for _, item in ipairs(shortlist) do
 
-			if #inseminatedAnimals >= ai.maxAnimals then break end
+			if #inseminatedAnimals >= ai.maxAnimals then
+				break
+			end
 
 			table.insert(inseminatedAnimals, { ["animal"] = item.animal, ["dewar"] = item.dewar:getUniqueId() })
 
-			if mark then item.animal:setMarked("AI_MANAGER_INSEMINATE", true) end
+			if mark then
+				item.animal:setMarked("AI_MANAGER_INSEMINATE", true)
+			end
 
 		end
 
@@ -824,24 +927,24 @@ function AIAnimalManager:onDayChanged()
 		self.wage = self.wage + animalTypeToWage * #inseminatedAnimals * (mark and 0.45 or 1.2) + animalTypeToWage * math.min(#shortlist, #inseminatedAnimals * 5) * 0.2 * (mark and 0.35 or 1)
 
 		if #inseminatedAnimals > 0 and not mark then
-				
+
 			g_server:broadcastEvent(AIAnimalInseminationEvent.new(self.husbandry, inseminatedAnimals), true)
 
 			if #inseminatedAnimals == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_INSEMINATED_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_INSEMINATED_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_INSEMINATED_SINGLE" })
 			else
-				self.husbandry:addRLMessage("AI_MANAGER_INSEMINATED_MULTIPLE", nil, { #inseminatedAnimals })
+				self.husbandry:addELMessage("AI_MANAGER_INSEMINATED_MULTIPLE", nil, { #inseminatedAnimals })
 				table.insert(messages, { ["id"] = "AI_MANAGER_INSEMINATED_MULTIPLE", ["args"] = { #inseminatedAnimals } })
 			end
 
 		elseif #inseminatedAnimals > 0 then
 
 			if #inseminatedAnimals == 1 then
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_INSEMINATED_SINGLE")
+				self.husbandry:addELMessage("AI_MANAGER_MARK_INSEMINATED_SINGLE")
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_INSEMINATED_SINGLE" })
 			else
-				self.husbandry:addRLMessage("AI_MANAGER_MARK_INSEMINATED_MULTIPLE", nil, { #inseminatedAnimals })
+				self.husbandry:addELMessage("AI_MANAGER_MARK_INSEMINATED_MULTIPLE", nil, { #inseminatedAnimals })
 				table.insert(messages, { ["id"] = "AI_MANAGER_MARK_INSEMINATED_MULTIPLE", ["args"] = { #inseminatedAnimals } })
 			end
 
@@ -849,12 +952,12 @@ function AIAnimalManager:onDayChanged()
 
 	end
 
-
-	if #messages > 0 and g_server.netIsRunning then g_server:broadcastEvent(AIBulkMessageEvent.new(self.husbandry, messages)) end
+	if #messages > 0 and g_server.netIsRunning then
+		g_server:broadcastEvent(AIBulkMessageEvent.new(self.husbandry, messages))
+	end
 
 
 end
-
 
 function AIAnimalManager:createProfile()
 
@@ -867,14 +970,11 @@ function AIAnimalManager:createProfile()
 
 end
 
-
 function AIAnimalManager:copyProfile(profile)
 
 	self.settings = table.clone(profile.settings, 10)
 
 end
-
-
 
 function InGameMenuStatisticsFrame:updateViewHandTools()
 
@@ -897,7 +997,9 @@ function InGameMenuStatisticsFrame:updateViewHandTools()
 
 		local v161 = v157[InGameMenuStatisticsFrame.SORT_ORDER_ASC]
 
-		if v158 then v158 = sortOrderHandTools == InGameMenuStatisticsFrame.SORT_ORDER_ASC end
+		if v158 then
+			v158 = sortOrderHandTools == InGameMenuStatisticsFrame.SORT_ORDER_ASC
+		end
 
 		v161:setVisible(v158)
 
@@ -932,7 +1034,9 @@ function InGameMenuStatisticsFrame:updateViewHandTools()
 
 		end
 
-		if sortOrderHandTools == InGameMenuStatisticsFrame.SORT_ORDER_DESC then return bValue < aValue end
+		if sortOrderHandTools == InGameMenuStatisticsFrame.SORT_ORDER_DESC then
+			return bValue < aValue
+		end
 
 		return aValue < bValue
 

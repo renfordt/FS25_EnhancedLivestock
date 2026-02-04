@@ -3,14 +3,12 @@ DewarManagerStateEvent = {}
 local DewarManagerStateEvent_mt = Class(DewarManagerStateEvent, Event)
 InitEventClass(DewarManagerStateEvent, "DewarManagerStateEvent")
 
-
 function DewarManagerStateEvent.emptyNew()
 
-    local self = Event.new(DewarManagerStateEvent_mt)
-    return self
+	local self = Event.new(DewarManagerStateEvent_mt)
+	return self
 
 end
-
 
 function DewarManagerStateEvent.new()
 
@@ -20,7 +18,6 @@ function DewarManagerStateEvent.new()
 
 end
 
-
 function DewarManagerStateEvent:readStream(streamId, connection)
 
 	g_dewarManager:readStream(streamId, connection)
@@ -29,16 +26,13 @@ function DewarManagerStateEvent:readStream(streamId, connection)
 
 end
 
-
 function DewarManagerStateEvent:writeStream(streamId, connection)
 
 	g_dewarManager:writeStream(streamId, connection)
 
 end
 
-
 function DewarManagerStateEvent:run(connection)
-
 
 
 end

@@ -10,15 +10,15 @@ function AIStrawUpdater.new()
 
 end
 
-
 function AIStrawUpdater:update(dT)
 
-	if self.straw == nil then return end
+	if self.straw == nil then
+		return
+	end
 
 	self.straw:updateStraw(dT)
 
 end
-
 
 function AIStrawUpdater:setStraw(straw)
 

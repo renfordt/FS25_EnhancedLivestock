@@ -1,7 +1,6 @@
 AnimalItemNew = {}
 local animalItemNew_mt = Class(AnimalItemNew)
 
-
 function AnimalItemNew.new(animal)
 
 	local self = setmetatable({}, animalItemNew_mt)
@@ -53,8 +52,9 @@ function AnimalItemNew.new(animal)
 		}
 	}
 
-	if animal.isPregnant then table.insert(self.infos, { ["title"] = g_i18n:getText("el_ui_pregnant"), ["value"] = g_i18n:getText("el_ui_yes") }) end
-
+	if animal.isPregnant then
+		table.insert(self.infos, { ["title"] = g_i18n:getText("el_ui_pregnant"), ["value"] = g_i18n:getText("el_ui_yes") })
+	end
 
 	local genetics = animal:getGenetics()
 	local totalGenetics = 0
@@ -62,7 +62,9 @@ function AnimalItemNew.new(animal)
 
 	for key, value in pairs(genetics) do
 
-		if value == nil then continue end
+		if value == nil then
+			continue
+		end
 
 		local qualityText
 
@@ -102,10 +104,9 @@ function AnimalItemNew.new(animal)
 
 	end
 
-
 	local averageGenetics = totalGeneticsValues / totalGenetics
 
-    if averageGenetics >= 1.65 then
+	if averageGenetics >= 1.65 then
 		qualityText = g_i18n:getText("el_ui_genetics_extremelyGood")
 	elseif averageGenetics >= 1.4 then
 		qualityText = g_i18n:getText("el_ui_genetics_veryGood")
@@ -121,14 +122,11 @@ function AnimalItemNew.new(animal)
 		qualityText = g_i18n:getText("el_ui_genetics_extremelyBad")
 	end
 
-
 	table.insert(self.infos, { ["title"] = g_i18n:getText("el_ui_overall"), ["value"] = qualityText, ["colour"] = { 1 - averageGenetics / 1.75, averageGenetics / 1.75, 0 } })
-
 
 	return self
 
 end
-
 
 function AnimalItemNew:getName()
 
@@ -138,13 +136,11 @@ function AnimalItemNew:getName()
 
 end
 
-
 function AnimalItemNew:getTitle()
 
 	return self.title
 
 end
-
 
 function AnimalItemNew:getPrice()
 
@@ -152,13 +148,11 @@ function AnimalItemNew:getPrice()
 
 end
 
-
 function AnimalItemNew:getTranportationFee(_)
 
 	return g_currentMission.animalSystem:getAnimalTransportFee(self.animal.subTypeIndex, self.animal.age)
 
 end
-
 
 function AnimalItemNew:getSubTypeIndex()
 
@@ -166,13 +160,11 @@ function AnimalItemNew:getSubTypeIndex()
 
 end
 
-
 function AnimalItemNew:getAge()
 
 	return self.animal.age
 
 end
-
 
 function AnimalItemNew:getDescription()
 
@@ -180,20 +172,17 @@ function AnimalItemNew:getDescription()
 
 end
 
-
 function AnimalItemNew:getFilename()
 
 	return self.visual.store.imageFilename
 
 end
 
-
 function AnimalItemNew:getInfos()
 
 	return self.infos
 
 end
-
 
 function AnimalItemNew:getHasAnyDisease()
 

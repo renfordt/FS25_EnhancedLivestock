@@ -3,14 +3,12 @@ AIAnimalSellEvent = {}
 local AIAnimalSellEvent_mt = Class(AIAnimalSellEvent, Event)
 InitEventClass(AIAnimalSellEvent, "AIAnimalSellEvent")
 
-
 function AIAnimalSellEvent.emptyNew()
 
-    local self = Event.new(AIAnimalSellEvent_mt)
-    return self
+	local self = Event.new(AIAnimalSellEvent_mt)
+	return self
 
 end
-
 
 function AIAnimalSellEvent.new(object, animals, price)
 
@@ -23,7 +21,6 @@ function AIAnimalSellEvent.new(object, animals, price)
 	return event
 
 end
-
 
 function AIAnimalSellEvent:readStream(streamId, connection)
 
@@ -45,19 +42,19 @@ function AIAnimalSellEvent:readStream(streamId, connection)
 
 end
 
-
 function AIAnimalSellEvent:writeStream(streamId, connection)
 
 	NetworkUtil.writeNodeObject(streamId, self.object)
 
 	streamWriteUInt16(streamId, #self.animals)
 
-	for _, animal in pairs(self.animals) do animal:writeStreamIdentifiers(streamId, connection) end
+	for _, animal in pairs(self.animals) do
+		animal:writeStreamIdentifiers(streamId, connection)
+	end
 
 	streamWriteFloat32(streamId, self.price)
 
 end
-
 
 function AIAnimalSellEvent:run(connection)
 
@@ -79,11 +76,12 @@ function AIAnimalSellEvent:run(connection)
 
 end
 
-
 function AIAnimalSellEvent.validate(object, numAnimals, price, farmId)
 
-	if object == nil then return AnimalSellEvent.SELL_ERROR_OBJECT_DOES_NOT_EXIST end
-	
+	if object == nil then
+		return AnimalSellEvent.SELL_ERROR_OBJECT_DOES_NOT_EXIST
+	end
+
 	return nil
 
 end

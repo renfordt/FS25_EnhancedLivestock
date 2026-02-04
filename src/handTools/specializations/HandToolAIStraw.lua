@@ -3,7 +3,6 @@ HandToolAIStraw = {}
 HandToolAIStraw.numHeldStraws = 0
 local specName = "spec_FS25_EnhancedLivestock.aiStraw"
 
-
 function HandToolAIStraw.registerFunctions(handTool)
 
 	SpecializationUtil.registerFunction(handTool, "setAnimal", HandToolAIStraw.setAnimal)
@@ -17,11 +16,9 @@ function HandToolAIStraw.registerFunctions(handTool)
 
 end
 
-
 function HandToolAIStraw.registerOverwrittenFunctions(handTool)
 	SpecializationUtil.registerOverwrittenFunction(handTool, "getShowInHandToolsOverview", HandToolAIStraw.getShowInHandToolsOverview)
 end
-
 
 function HandToolAIStraw.registerEventListeners(handTool)
 	SpecializationUtil.registerEventListener(handTool, "onPostLoad", HandToolAIStraw)
@@ -34,7 +31,6 @@ function HandToolAIStraw.registerEventListeners(handTool)
 	SpecializationUtil.registerEventListener(handTool, "onWriteStream", HandToolAIStraw)
 end
 
-
 function HandToolAIStraw.prerequisitesPresent()
 
 	print("Loaded handTool: HandToolAIStraw")
@@ -43,14 +39,15 @@ function HandToolAIStraw.prerequisitesPresent()
 
 end
 
-
 function HandToolAIStraw:onPostLoad(savegame)
 
 	HandToolAIStraw.numHeldStraws = HandToolAIStraw.numHeldStraws + 1
 
 	local spec = self[specName]
 
-	if self.isClient then spec.defaultCrosshair = self:createCrosshairOverlay("gui.crosshairDefault") end
+	if self.isClient then
+		spec.defaultCrosshair = self:createCrosshairOverlay("gui.crosshairDefault")
+	end
 
 	spec.inseminateText = g_i18n:getText("el_ui_inseminateAnimal")
 	spec.returnText = "Return straw"
@@ -58,10 +55,22 @@ function HandToolAIStraw:onPostLoad(savegame)
 	spec.textAlpha = 1
 	spec.textAlphaReverse = false
 
-	if savegame == nil or savegame.xmlFile == nil then return end
+	if savegame == nil or savegame.xmlFile == nil then
+		return
+	end
 
 	local xmlFile, key = savegame.xmlFile, savegame.key
-	local animalKey = key .. ".FS25_EnhancedLivestock.aiStraw.animal"
+
+	-- Try new namespace first, fall back to old namespace (migration support)
+	local namespace = ".FS25_RealisticLivestockRM.aiStraw"
+	if not xmlFile:hasProperty(key .. namespace) then
+		namespace = ".FS25_RealisticLivestock.aiStraw"  -- Legacy fallback
+	end
+
+	if not xmlFile:hasProperty(key .. namespace) then return end
+
+	local baseKey = key .. namespace
+	local animalKey = baseKey .. ".animal"
 
 	spec.isEmpty = xmlFile:getBool(key .. ".FS25_EnhancedLivestock.aiStraw#isEmpty", false)
 	spec.dewarUniqueId = xmlFile:getString(key .. ".FS25_EnhancedLivestock.aiStraw#dewarUniqueId")
@@ -69,7 +78,7 @@ function HandToolAIStraw:onPostLoad(savegame)
 	if xmlFile:hasProperty(animalKey) then
 
 		local animal = {}
-		
+
 		animal.country = xmlFile:getInt(animalKey .. "#country")
 		animal.farmId = xmlFile:getString(animalKey .. "#farmId")
 		animal.uniqueId = xmlFile:getString(animalKey .. "#uniqueId")
@@ -77,7 +86,7 @@ function HandToolAIStraw:onPostLoad(savegame)
 		animal.typeIndex = xmlFile:getInt(animalKey .. "#typeIndex")
 		animal.subTypeIndex = xmlFile:getInt(animalKey .. "#subTypeIndex")
 		animal.success = xmlFile:getFloat(animalKey .. "#success")
-		
+
 		animal.genetics = {
 			["metabolism"] = xmlFile:getFloat(animalKey .. ".genetics#metabolism"),
 			["fertility"] = xmlFile:getFloat(animalKey .. ".genetics#fertility"),
@@ -85,18 +94,17 @@ function HandToolAIStraw:onPostLoad(savegame)
 			["quality"] = xmlFile:getFloat(animalKey .. ".genetics#quality"),
 			["productivity"] = xmlFile:getFloat(animalKey .. ".genetics#productivity")
 		}
-		
+
 		self.animal = animal
 
 	end
 
 end
 
-
 function HandToolAIStraw:onDelete()
 
 	HandToolAIStraw.numHeldStraws = HandToolAIStraw.numHeldStraws - 1
-	
+
 	local spec = self[specName]
 
 	if spec.defaultCrosshair ~= nil then
@@ -105,7 +113,6 @@ function HandToolAIStraw:onDelete()
 	end
 
 end
-
 
 function HandToolAIStraw:saveToXMLFile(xmlFile, key)
 
@@ -123,7 +130,7 @@ function HandToolAIStraw:saveToXMLFile(xmlFile, key)
 		xmlFile:setInt(key .. ".animal#typeIndex", animal.typeIndex)
 		xmlFile:setInt(key .. ".animal#subTypeIndex", animal.subTypeIndex)
 		xmlFile:setFloat(key .. ".animal#success", animal.success)
-		
+
 		for type, value in pairs(animal.genetics) do
 			xmlFile:setFloat(key .. ".animal.genetics#" .. type, value)
 		end
@@ -131,7 +138,6 @@ function HandToolAIStraw:saveToXMLFile(xmlFile, key)
 	end
 
 end
-
 
 function HandToolAIStraw:onReadStream(streamId, connection)
 
@@ -161,14 +167,15 @@ function HandToolAIStraw:onReadStream(streamId, connection)
 		animal.genetics.quality = streamReadFloat32(streamId)
 		animal.genetics.productivity = streamReadFloat32(streamId)
 
-		if animal.genetics.productivity < 0 then animal.genetics.productivity = nil end
+		if animal.genetics.productivity < 0 then
+			animal.genetics.productivity = nil
+		end
 
 	end
 
 	spec.animal = animal
 
 end
-
 
 function HandToolAIStraw:onWriteStream(streamId, connection)
 
@@ -201,7 +208,6 @@ function HandToolAIStraw:onWriteStream(streamId, connection)
 
 end
 
-
 function HandToolAIStraw:updateStraw(dT)
 
 	local player = self:getCarryingPlayer()
@@ -220,7 +226,7 @@ function HandToolAIStraw:updateStraw(dT)
 		spec.textAlpha = 1
 		spec.textAlphaReverse = false
 		g_inputBinding:setActionEventActive(spec.activateActionEventId, false)
-		return 
+		return
 	end
 
 	local node = player.targeter:getClosestTargetedNodeFromType(HandToolAIStraw)
@@ -238,10 +244,10 @@ function HandToolAIStraw:updateStraw(dT)
 
 		local object = g_currentMission:getNodeObject(node)
 
-        if object ~= nil and object:isa(Dewar) then
+		if object ~= nil and object:isa(Dewar) then
 
 			if self:getBelongsToDewar(object) then
-				
+
 				spec.targetedDewar = object
 				spec.actionContext = "return"
 				g_inputBinding:setActionEventActive(spec.activateActionEventId, true)
@@ -271,7 +277,9 @@ function HandToolAIStraw:updateStraw(dT)
 
 	if spec.isEmpty or not canBeInseminated then
 
-		if spec.isEmpty then error = g_i18n:getText("el_ui_strawEmpty") end
+		if spec.isEmpty then
+			error = g_i18n:getText("el_ui_strawEmpty")
+		end
 
 		g_inputBinding:setActionEventActive(spec.activateActionEventId, false)
 
@@ -282,19 +290,19 @@ function HandToolAIStraw:updateStraw(dT)
 	end
 
 	spec.targetedPlaceable, spec.targetedAnimal = placeable, animal
-	
-				
+
 	spec.actionContext = "inseminate"
 	g_inputBinding:setActionEventActive(spec.activateActionEventId, true)
 	g_inputBinding:setActionEventText(spec.activateActionEventId, string.format(spec.inseminateText, animal:getIdentifiers()))
 
 end
 
-
 function HandToolAIStraw:onHeldStart()
 
-	if g_localPlayer == nil or self:getCarryingPlayer() ~= g_localPlayer or not g_localPlayer.isOwner then return end
-	
+	if g_localPlayer == nil or self:getCarryingPlayer() ~= g_localPlayer or not g_localPlayer.isOwner then
+		return
+	end
+
 	g_localPlayer.targeter:addTargetType(HandToolAIStraw, CollisionFlag.ANIMAL + CollisionFlag.DYNAMIC_OBJECT, 0.5, 3)
 	g_localPlayer.hudUpdater:setCarriedItem(self)
 	g_aiStrawUpdater:setStraw(self)
@@ -306,19 +314,21 @@ function HandToolAIStraw:onHeldStart()
 
 end
 
-
 function HandToolAIStraw:onHeldEnd()
 
-	if g_localPlayer == nil or g_localPlayer.hudUpdater:getCarriedItem() ~= self then return end
+	if g_localPlayer == nil or g_localPlayer.hudUpdater:getCarriedItem() ~= self then
+		return
+	end
 
-	if g_localPlayer.isOwner then g_localPlayer.targeter:removeTargetType(HandToolAIStraw) end
+	if g_localPlayer.isOwner then
+		g_localPlayer.targeter:removeTargetType(HandToolAIStraw)
+	end
 
 	g_localPlayer.hudUpdater:setCarriedItem()
 	g_aiStrawUpdater:setStraw()
 	g_currentMission:removeUpdateable(g_aiStrawUpdater)
 
 end
-
 
 function HandToolAIStraw:onRegisterActionEvents()
 
@@ -334,13 +344,11 @@ function HandToolAIStraw:onRegisterActionEvents()
 
 end
 
-
 function HandToolAIStraw:setAnimal(animal)
 
 	self[specName].animal = animal
 
 end
-
 
 function HandToolAIStraw:setDewarUniqueId(dewarUniqueId)
 
@@ -348,19 +356,20 @@ function HandToolAIStraw:setDewarUniqueId(dewarUniqueId)
 
 end
 
-
 function HandToolAIStraw:showInfo(box)
 
 	local animal = self[specName].animal
 
-	if animal == nil then return end
+	if animal == nil then
+		return
+	end
 
 	local animalSystem = g_currentMission.animalSystem
 	local subType = animalSystem:getSubTypeByIndex(animal.subTypeIndex)
-	
-    box:addLine(g_i18n:getText("el_ui_averageSuccess"), string.format("%s%%", tostring(math.round(animal.success * 100))))
-    box:addLine(g_i18n:getText("el_ui_species"), animalSystem:getTypeByIndex(animal.typeIndex).groupTitle)
-    box:addLine(g_i18n:getText("infohud_type"), g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
+
+	box:addLine(g_i18n:getText("el_ui_averageSuccess"), string.format("%s%%", tostring(math.round(animal.success * 100))))
+	box:addLine(g_i18n:getText("el_ui_species"), animalSystem:getTypeByIndex(animal.typeIndex).groupTitle)
+	box:addLine(g_i18n:getText("infohud_type"), g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
 	box:addLine(g_i18n:getText("infohud_name"), animal.name)
 	box:addLine(g_i18n:getText("el_ui_earTag"), string.format("%s %s %s", EnhancedLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId))
 
@@ -369,20 +378,20 @@ function HandToolAIStraw:showInfo(box)
 		local valueText
 
 		if value >= 1.65 then
-            valueText = "extremelyHigh"
-        elseif value >= 1.4 then
-            valueText = "veryHigh"
-        elseif value >= 1.1 then
-            valueText = "high"
-        elseif value >= 0.9 then
-            valueText = "average"
-        elseif value >= 0.7 then
-            valueText = "low"
-        elseif value >= 0.35 then
-            valueText = "veryLow"
-        else
-            valueText = "extremelyLow"
-        end
+			valueText = "extremelyHigh"
+		elseif value >= 1.4 then
+			valueText = "veryHigh"
+		elseif value >= 1.1 then
+			valueText = "high"
+		elseif value >= 0.9 then
+			valueText = "average"
+		elseif value >= 0.7 then
+			valueText = "low"
+		elseif value >= 0.35 then
+			valueText = "veryLow"
+		else
+			valueText = "extremelyLow"
+		end
 
 		box:addLine(g_i18n:getText("el_ui_" .. type), g_i18n:getText("el_ui_genetics_" .. valueText))
 
@@ -390,10 +399,11 @@ function HandToolAIStraw:showInfo(box)
 
 end
 
-
 function HandToolAIStraw.getHusbandryAndClusterFromNode(player, node)
 
-    if node == nil or not entityExists(node) then return nil, nil end
+	if node == nil or not entityExists(node) then
+		return nil, nil
+	end
 
 	local husbandryId, animalId = getAnimalFromCollisionNode(node)
 
@@ -406,7 +416,9 @@ function HandToolAIStraw.getHusbandryAndClusterFromNode(player, node)
 			local placeable = clusterHusbandry:getPlaceable()
 			local animal = clusterHusbandry:getClusterByAnimalId(animalId, husbandryId)
 
-			if animal ~= nil and (g_currentMission.accessHandler:canFarmAccess(player.farmId, placeable) and (animal.changeDirt ~= nil and animal.getName ~= nil)) then return placeable, animal end
+			if animal ~= nil and (g_currentMission.accessHandler:canFarmAccess(player.farmId, placeable) and (animal.changeDirt ~= nil and animal.getName ~= nil)) then
+				return placeable, animal
+			end
 
 		end
 
@@ -415,7 +427,6 @@ function HandToolAIStraw.getHusbandryAndClusterFromNode(player, node)
 	return nil, nil
 
 end
-
 
 function HandToolAIStraw:onActionFired()
 
@@ -428,7 +439,6 @@ function HandToolAIStraw:onActionFired()
 	end
 
 end
-
 
 function HandToolAIStraw:onInseminate()
 
@@ -447,10 +457,11 @@ function HandToolAIStraw:onInseminate()
 	spec.isEmpty = true
 	g_inputBinding:setActionEventActive(spec.activateActionEventId, false)
 
-	if self.isServer then g_currentMission.handToolSystem:markHandToolForDeletion(self) end
+	if self.isServer then
+		g_currentMission.handToolSystem:markHandToolForDeletion(self)
+	end
 
 end
-
 
 function HandToolAIStraw:onReturnToDewar()
 
@@ -468,17 +479,17 @@ function HandToolAIStraw:onReturnToDewar()
 	spec.isEmpty = true
 	g_inputBinding:setActionEventActive(spec.activateActionEventId, false)
 
-	if self.isServer then g_currentMission.handToolSystem:markHandToolForDeletion(self) end
+	if self.isServer then
+		g_currentMission.handToolSystem:markHandToolForDeletion(self)
+	end
 
 end
-
 
 function HandToolAIStraw:getShowInHandToolsOverview()
 
 	return false
 
 end
-
 
 function HandToolAIStraw:renderErrorText(text)
 
@@ -491,10 +502,11 @@ function HandToolAIStraw:renderErrorText(text)
 
 	spec.textAlpha = spec.textAlpha + (spec.textAlphaReverse and 0.015 or -0.015)
 
-	if spec.textAlpha <= 0 or spec.textAlpha >= 1 then spec.textAlphaReverse = not spec.textAlphaReverse end
+	if spec.textAlpha <= 0 or spec.textAlpha >= 1 then
+		spec.textAlphaReverse = not spec.textAlphaReverse
+	end
 
 end
-
 
 function HandToolAIStraw:getBelongsToDewar(dewar)
 
@@ -503,7 +515,6 @@ function HandToolAIStraw:getBelongsToDewar(dewar)
 	return dewar:getUniqueId() == spec.dewarUniqueId
 
 end
-
 
 function HandToolAIStraw:onDraw()
 

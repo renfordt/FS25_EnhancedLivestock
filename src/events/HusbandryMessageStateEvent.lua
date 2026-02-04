@@ -3,14 +3,12 @@ HusbandryMessageStateEvent = {}
 local HusbandryMessageStateEvent_mt = Class(HusbandryMessageStateEvent, Event)
 InitEventClass(HusbandryMessageStateEvent, "HusbandryMessageStateEvent")
 
-
 function HusbandryMessageStateEvent.emptyNew()
 
-    local self = Event.new(HusbandryMessageStateEvent_mt)
-    return self
+	local self = Event.new(HusbandryMessageStateEvent_mt)
+	return self
 
 end
-
 
 function HusbandryMessageStateEvent.new(husbandries)
 
@@ -22,7 +20,6 @@ function HusbandryMessageStateEvent.new(husbandries)
 
 end
 
-
 function HusbandryMessageStateEvent:readStream(streamId, connection)
 
 	local numHusbandries = streamReadUInt8(streamId)
@@ -33,14 +30,14 @@ function HusbandryMessageStateEvent:readStream(streamId, connection)
 
 		local hasUnreadMessages = streamReadBool(streamId)
 		local nextUniqueId = streamReadUInt16(streamId)
-		husbandry:setHasUnreadRLMessages(hasUnreadMessages)
-		husbandry:setNextRLMessageUniqueId(nextUniqueId)
+		husbandry:setHasUnreadELMessages(hasUnreadMessages)
+		husbandry:setNextELMessageUniqueId(nextUniqueId)
 
 		local numMessages = streamReadUInt16(streamId)
 		local messages = {}
 
 		for j = 1, numMessages do
-			
+
 			local id = streamReadString(streamId)
 			local date = streamReadString(streamId)
 			local uniqueId = streamReadUInt16(streamId)
@@ -54,10 +51,14 @@ function HusbandryMessageStateEvent:readStream(streamId, connection)
 
 			local hasAnimal = streamReadBool(streamId)
 
-			if hasAnimal then message.animal = streamReadString(streamId) end
+			if hasAnimal then
+				message.animal = streamReadString(streamId)
+			end
 
 			local numArgs = streamReadUInt8(streamId)
-			for k = 1, numArgs do table.insert(message.args, streamReadString(streamId)) end
+			for k = 1, numArgs do
+				table.insert(message.args, streamReadString(streamId))
+			end
 
 			table.insert(messages, message)
 
@@ -69,7 +70,6 @@ function HusbandryMessageStateEvent:readStream(streamId, connection)
 
 end
 
-
 function HusbandryMessageStateEvent:writeStream(streamId, connection)
 
 	streamWriteUInt8(streamId, #self.husbandries)
@@ -77,10 +77,10 @@ function HusbandryMessageStateEvent:writeStream(streamId, connection)
 	for _, husbandry in pairs(self.husbandries) do
 
 		NetworkUtil.writeNodeObject(streamId, husbandry)
-		streamWriteBool(streamId, husbandry:getHasUnreadRLMessages())
-		streamWriteUInt16(streamId, husbandry:getNextRLMessageUniqueId())
+		streamWriteBool(streamId, husbandry:getHasUnreadELMessages())
+		streamWriteUInt16(streamId, husbandry:getNextELMessageUniqueId())
 
-		local messages = husbandry:getRLMessages()
+		local messages = husbandry:getELMessages()
 		streamWriteUInt16(streamId, #messages)
 
 		for i = 1, #messages do
@@ -93,11 +93,15 @@ function HusbandryMessageStateEvent:writeStream(streamId, connection)
 
 			streamWriteBool(streamId, message.animal ~= nil)
 
-			if message.animal ~= nil then streamWriteString(streamId, message.animal) end
+			if message.animal ~= nil then
+				streamWriteString(streamId, message.animal)
+			end
 
 			streamWriteUInt8(streamId, #message.args)
 
-			for j = 1, #message.args do streamWriteString(streamId, message.args[j]) end
+			for j = 1, #message.args do
+				streamWriteString(streamId, message.args[j])
+			end
 
 		end
 

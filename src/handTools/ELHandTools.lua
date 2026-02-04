@@ -1,6 +1,5 @@
 ELHandTools = {}
 
-
 local modDirectory = g_currentModDirectory
 local modName = g_currentModName
 local path = modDirectory .. "xml/handTools.xml"

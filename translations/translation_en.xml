@@ -203,8 +203,10 @@
 		
 		
 		
-		<text name="el_ui_castrated" text="Castrated"/>
-		<text name="el_ui_castrate" text="Castrate"/>
+		<text name="el_ui_castrated" text="Neutered"/>
+		<text name="el_ui_castrated_github" text="Castrated"/>
+		<text name="el_ui_castrate" text="Neuter"/>
+		<text name="el_ui_castrate_github" text="Castrate"/>
 		
 		<text name="el_ui_importance" text="Importance"/>
 		<text name="el_ui_type" text="Type"/>
@@ -228,9 +230,9 @@
 		<text name="finance_herdsmanWages" text="Herdsman Wages"/>
 		<text name="el_ui_medicine" text="Medicine"/>
 		<text name="finance_medicine" text="Medicine"/>
-		<text name="el_ui_semenPurchase" text="Inseminant Purchase"/>
+		<text name="el_ui_semenPurchase" text="Breeding Sample Purchase"/>
 		<text name="el_ui_semenPurchase_github" text="Semen Purchase"/>
-		<text name="finance_semenPurchase" text="Inseminant Purchase"/>
+		<text name="finance_semenPurchase" text="Breeding Sample Purchase"/>
 		<text name="finance_semenPurchase_github" text="Semen Purchase"/>
 		<text name="el_ui_noDiseases" text="No Diseases"/>
 		<text name="el_ui_onlyDiseases" text="Only Diseases"/>
@@ -244,22 +246,25 @@
 		<text name="el_ui_unFavourite" text="Unfavourite"/>
 		<text name="el_ui_quantity" text="Quantity"/>
 		<text name="el_ui_dewar" text="Dewar"/>
-		<text name="el_ui_semenPurchase_successful" text="Artificial inseminant successfully purchased. You can pick it up at the store"/>
+		<text name="el_ui_semenPurchase_successful" text="Breeding sample successfully purchased. You can pick it up at the store"/>
 		<text name="el_ui_semenPurchase_successful_github" text="Semen successfully purchased. You can pick it up at the store"/>
-		<text name="el_ui_semenPurchase_unsuccessful" text="Artificial inseminant could not be purchased"/>
+		<text name="el_ui_semenPurchase_unsuccessful" text="Breeding sample could not be purchased"/>
 		<text name="el_ui_semenPurchase_unsuccessful_github" text="Semen could not be purchased"/>
 		<text name="el_ui_earTag" text="Ear Tag"/>
 		<text name="el_ui_species" text="Species"/>
 		<text name="el_ui_strawSingle" text="Straw"/>
 		<text name="el_ui_strawMultiple" text="Straws"/>
-		<text name="el_ui_artificialInsemination" text="Artificial Insemination"/>
-		<text name="el_ui_semenPurchaseNoPermission" text="You don't have to permission to trade animals or purchase inseminant."/>
-		<text name="el_ui_semenPurchaseNoPermission_github" text="You don't have to permission to trade animals or purchase semen."/>
-		<text name="el_ui_semenPurchaseNoMoney" text="You don't have enough money to purchase this inseminant."/>
+		<text name="el_ui_artificialInsemination" text="Assisted Breeding"/>
+		<text name="el_ui_artificialInsemination_github" text="Artificial Insemination"/>
+		<text name="el_ui_semenPurchaseNoPermission" text="You don't have the permission to trade animals or purchase breeding samples."/>
+		<text name="el_ui_semenPurchaseNoPermission_github" text="You don't have the permission to trade animals or purchase semen."/>
+		<text name="el_ui_semenPurchaseNoMoney" text="You don't have enough money to purchase this breeding sample."/>
 		<text name="el_ui_semenPurchaseNoMoney_github" text="You don't have enough money to purchase this semen."/>
 		<text name="el_ui_takeStraw" text="Take Straw"/>
-		<text name="el_ui_inseminateAnimal" text="Inseminate %s"/>
-		<text name="el_ui_inseminate" text="Inseminate"/>
+		<text name="el_ui_inseminateAnimal" text="Breed %s"/>
+		<text name="el_ui_inseminateAnimal_github" text="Inseminate %s"/>
+		<text name="el_ui_inseminate" text="Breed"/>
+		<text name="el_ui_inseminate_github" text="Inseminate"/>
 		<text name="el_ui_strawEmpty" text="This straw is empty"/>
 		<text name="el_ui_averageSuccessColon" text="Average Success: "/>
 		<text name="el_ui_averageSuccess" text="Average Success"/>
@@ -274,19 +279,24 @@
 		<text name="el_ui_diseasedAnimals" text="Diseased Animals"/>
 		
 		
-		<text name="el_insemination_male" text="Only females can be artificially inseminated"/>
+		<text name="el_insemination_male" text="Only females can be bred"/>
+		<text name="el_insemination_male_github" text="Only females can be artificially inseminated"/>
 		<text name="el_insemination_pregnant" text="This animal is already pregnant"/>
 		<text name="el_insemination_animalType" text="Animal must be of the same species as the father"/>
-		<text name="el_insemination_inseminated" text="This animal has already been artificially inseminated"/>
+		<text name="el_insemination_inseminated" text="This animal has already been bred"/>
+		<text name="el_insemination_inseminated_github" text="This animal has already been artificially inseminated"/>
 		<text name="el_insemination_recovering" text="This animal is still recovering from its previous pregnancy"/>
 		<text name="el_insemination_father" text="Inbreeding is not permitted"/>
-		<text name="el_insemination_young" text="This animal is too young to be artificially inseminated"/>
+		<text name="el_insemination_young" text="This animal is too young to be bred"/>
+		<text name="el_insemination_young_github" text="This animal is too young to be artificially inseminated"/>
 		
 		
 		<text name="el_mark_aiManager_sell" text="Herdsman marked for selling"/>
-		<text name="el_mark_aiManager_castrate" text="Herdsman marked for castrating"/>
+		<text name="el_mark_aiManager_castrate" text="Herdsman marked for neutering"/>
+		<text name="el_mark_aiManager_castrate_github" text="Herdsman marked for castrating"/>
 		<text name="el_mark_aiManager_disease" text="Herdsman marked for treating"/>
-		<text name="el_mark_aiManager_ai" text="Herdsman marked for artificial insemination"/>
+		<text name="el_mark_aiManager_ai" text="Herdsman marked for assisted breeding"/>
+		<text name="el_mark_aiManager_ai_github" text="Herdsman marked for artificial insemination"/>
 		<text name="el_mark_player" text="Marked by player"/>
 		
 		
@@ -370,35 +380,53 @@
 		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="The herdsman will only sell animals with metabolism between %s and %s"/>
 		
 
-		<!-- AI - CASTRATING -->
-		
+		<!-- AI - NEUTERING -->
 
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="The herdsman will not castrate animals"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="The herdsman will castrate animals"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="The herdsman will not mark animals for castration"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="The herdsman will mark animals for castration"/>
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="The herdsman will not neuter animals"/>
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="The herdsman will not castrate animals"/>
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="The herdsman will neuter animals"/>
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="The herdsman will castrate animals"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="The herdsman will castrate animals regardless of diseases"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="The herdsman will only castrate animals with a disease"/>
+		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="The herdsman will not mark animals for neutering"/>
+		<text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="The herdsman will not mark animals for castration"/>
+		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="The herdsman will mark animals for neutering"/>
+		<text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="The herdsman will mark animals for castration"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="The herdsman will only castrate animals that are %s old"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="The herdsman will only castrate animals that are between %s and %s old"/>
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="The herdsman will neuter animals regardless of diseases"/>
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="The herdsman will castrate animals regardless of diseases"/>
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="The herdsman will only neuter animals with a disease"/>
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="The herdsman will only castrate animals with a disease"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="The herdsman will only castrate animals with %s quality"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="The herdsman will only castrate animals with quality between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="The herdsman will only neuter animals that are %s old"/>
+		<text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="The herdsman will only castrate animals that are %s old"/>
+		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="The herdsman will only neuter animals that are between %s and %s old"/>
+		<text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="The herdsman will only castrate animals that are between %s and %s old"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="The herdsman will only castrate animals with %s fertility"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="The herdsman will only castrate animals with fertility between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="The herdsman will only neuter animals with %s quality"/>
+		<text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="The herdsman will only castrate animals with %s quality"/>
+		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="The herdsman will only neuter animals with quality between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="The herdsman will only castrate animals with quality between %s and %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="The herdsman will only castrate animals with %s health"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="The herdsman will only castrate animals with health between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="The herdsman will only neuter animals with %s fertility"/>
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="The herdsman will only castrate animals with %s fertility"/>
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="The herdsman will only neuter animals with fertility between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="The herdsman will only castrate animals with fertility between %s and %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="The herdsman will only castrate animals with %s productivity"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="The herdsman will only castrate animals with productivity between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="The herdsman will only neuter animals with %s health"/>
+		<text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="The herdsman will only castrate animals with %s health"/>
+		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="The herdsman will only neuter animals with health between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="The herdsman will only castrate animals with health between %s and %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="The herdsman will only castrate animals with %s metabolism"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="The herdsman will only castrate animals with metabolism between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="The herdsman will only neuter animals with %s productivity"/>
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="The herdsman will only castrate animals with %s productivity"/>
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="The herdsman will only neuter animals with productivity between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="The herdsman will only castrate animals with productivity between %s and %s"/>
+
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="The herdsman will only neuter animals with %s metabolism"/>
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="The herdsman will only castrate animals with %s metabolism"/>
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="The herdsman will only neuter animals with metabolism between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="The herdsman will only castrate animals with metabolism between %s and %s"/>
 		
 
 		<!-- AI - NAMING -->
@@ -411,42 +439,61 @@
 		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="The herdsman will name animals alphabetically"/>
 
 
-		<!-- AI - AI -->
+		<!-- AI - ASSISTED BREEDING -->
 
 
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="The herdsman will not AI animals"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="The herdsman will AI animals"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="The herdsman will not breed animals"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="The herdsman will not AI animals"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="The herdsman will breed animals"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="The herdsman will AI animals"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="The herdsman will AI up to %s animals per day"/>
+		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="The herdsman will breed up to %s animals per day"/>
+		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="The herdsman will AI up to %s animals per day"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="The herdsman will not mark animals to be inseminated"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="The herdsman will mark animals to be inseminated"/>
+		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="The herdsman will not mark animals to be bred"/>
+		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="The herdsman will not mark animals to be inseminated"/>
+		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="The herdsman will mark animals to be bred"/>
+		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="The herdsman will mark animals to be inseminated"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="The herdsman will AI animals regardless of diseases"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="The herdsman will only AI animals with a disease"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="The herdsman will breed animals regardless of diseases"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="The herdsman will AI animals regardless of diseases"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="The herdsman will only breed animals with a disease"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="The herdsman will only AI animals with a disease"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_semen" text="The herdsman will use inseminant from %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_semen" text="The herdsman will use breeding sample from %s"/>
 		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="The herdsman will use semen from %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable inseminant"/>
+		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable breeding sample"/>
 		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="The herdsman will use any viable semen"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="The herdsman will only AI animals that are %s old"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range" text="The herdsman will only AI animals that are between %s and %s old"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="The herdsman will only breed animals that are %s old"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="The herdsman will only AI animals that are %s old"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_range" text="The herdsman will only breed animals that are between %s and %s old"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="The herdsman will only AI animals that are between %s and %s old"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="The herdsman will only AI animals with %s quality"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="The herdsman will only AI animals with quality between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="The herdsman will only breed animals with %s quality"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="The herdsman will only AI animals with %s quality"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="The herdsman will only breed animals with quality between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="The herdsman will only AI animals with quality between %s and %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="The herdsman will only AI animals with %s fertility"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="The herdsman will only AI animals with fertility between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="The herdsman will only breed animals with %s fertility"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="The herdsman will only AI animals with %s fertility"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="The herdsman will only breed animals with fertility between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="The herdsman will only AI animals with fertility between %s and %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="The herdsman will only AI animals with %s health"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range" text="The herdsman will only AI animals with health between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="The herdsman will only breed animals with %s health"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="The herdsman will only AI animals with %s health"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_range" text="The herdsman will only breed animals with health between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="The herdsman will only AI animals with health between %s and %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="The herdsman will only AI animals with %s productivity"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="The herdsman will only AI animals with productivity between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="The herdsman will only breed animals with %s productivity"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="The herdsman will only AI animals with %s productivity"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="The herdsman will only breed animals with productivity between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="The herdsman will only AI animals with productivity between %s and %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="The herdsman will only AI animals with %s metabolism"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="The herdsman will only AI animals with metabolism between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="The herdsman will only breed animals with %s metabolism"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="The herdsman will only AI animals with %s metabolism"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="The herdsman will only breed animals with metabolism between %s and %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="The herdsman will only AI animals with metabolism between %s and %s"/>
 
 
 
@@ -504,8 +551,11 @@
 		<text name="el_settings_animalsXML_label" text="Set Animals XML Path"/>
 		<text name="el_settings_animalsXML_tooltip" text="Set path to a custom animals XML file"/>
 		<text name="el_settings_animalsXML_text" text="Set Animals XML Path"/>
-		
-		
+
+		<text name="el_settings_earTagTextEnabled_label" text="Ear Tag Text"/>
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Toggle the display of text on animal ear tags"/>
+
+
 		
 		<!--  HELP  -->
 
@@ -578,7 +628,8 @@
 		<text name="el_messageTitle_name" text="Name"/>
 		<text name="el_messageTitle_movement" text="Movement"/>
 		<text name="el_messageTitle_aiManager" text="Herdsman"/>
-		<text name="el_messageTitle_insemination" text="Artificial Insemination"/>
+		<text name="el_messageTitle_insemination" text="Assisted Breeding"/>
+		<text name="el_messageTitle_insemination_github" text="Artificial Insemination"/>
 		
 		<text name="el_message_pregnancySingle" text="Gave birth to 1 baby"/>
 		<text name="el_message_pregnancyMultiple" text="Gave birth to %s babies"/>
@@ -607,22 +658,32 @@
 		<text name="el_message_aiManager_boughtAnimals_multiple" text="Herdsman bought %s animals for %s"/>
 		<text name="el_message_aiManager_soldAnimals_single" text="Herdsman sold 1 animal for %s"/>
 		<text name="el_message_aiManager_soldAnimals_multiple" text="Herdsman sold %s animals for %s"/>
-		<text name="el_message_aiManager_castrated_single" text="Herdsman castrated 1 animal"/>
-		<text name="el_message_aiManager_castrated_multiple" text="Herdsman castrated %s animals"/>
+		<text name="el_message_aiManager_castrated_single" text="Herdsman neutered 1 animal"/>
+		<text name="el_message_aiManager_castrated_single_github" text="Herdsman castrated 1 animal"/>
+		<text name="el_message_aiManager_castrated_multiple" text="Herdsman neutered %s animals"/>
+		<text name="el_message_aiManager_castrated_multiple_github" text="Herdsman castrated %s animals"/>
 		<text name="el_message_aiManager_named_single" text="Herdsman named 1 animal"/>
 		<text name="el_message_aiManager_named_multiple" text="Herdsman named %s animals"/>
 		<text name="el_message_aiManager_mark_sell_single" text="Herdsman marked 1 animal for selling"/>
 		<text name="el_message_aiManager_mark_sell_multiple" text="Herdsman marked %s animals for selling"/>
-		<text name="el_message_aiManager_mark_castrate_single" text="Herdsman marked 1 animal for castrating"/>
-		<text name="el_message_aiManager_mark_castrate_multiple" text="Herdsman marked %s animals for castrating"/>
+		<text name="el_message_aiManager_mark_castrate_single" text="Herdsman marked 1 animal for neutering"/>
+		<text name="el_message_aiManager_mark_castrate_single_github" text="Herdsman marked 1 animal for castrating"/>
+		<text name="el_message_aiManager_mark_castrate_multiple" text="Herdsman marked %s animals for neutering"/>
+		<text name="el_message_aiManager_mark_castrate_multiple_github" text="Herdsman marked %s animals for castrating"/>
 		<text name="el_message_aiManager_mark_disease_single" text="Herdsman marked 1 animal for treatment"/>
 		<text name="el_message_aiManager_mark_disease_multiple" text="Herdsman marked %s animals for treatment"/>
-		<text name="el_message_insemination_success" text="Insemination was successful"/>
-		<text name="el_message_insemination_fail" text="Insemination was unsuccessful"/>
-		<text name="el_message_aiManager_mark_ai_single" text="Herdsman marked 1 animal for AI"/>
-		<text name="el_message_aiManager_mark_ai_multiple" text="Herdsman marked %s animals for AI"/>
-		<text name="el_message_aiManager_ai_single" text="Herdsman inseminated 1 animal"/>
-		<text name="el_message_aiManager_ai_multiple" text="Herdsman inseminated %s animals"/>
+		<text name="el_message_insemination_success" text="Breeding was successful"/>
+		<text name="el_message_insemination_success_github" text="Insemination was successful"/>
+		<text name="el_message_insemination_fail" text="Breeding was unsuccessful"/>
+		<text name="el_message_insemination_fail_github" text="Insemination was unsuccessful"/>
+		<text name="el_message_aiManager_mark_ai_single" text="Herdsman marked 1 animal for breeding"/>
+		<text name="el_message_aiManager_mark_ai_single_github" text="Herdsman marked 1 animal for AI"/>
+		<text name="el_message_aiManager_mark_ai_multiple" text="Herdsman marked %s animals for breeding"/>
+		<text name="el_message_aiManager_mark_ai_multiple_github" text="Herdsman marked %s animals for AI"/>
+		<text name="el_message_aiManager_ai_single" text="Herdsman bred 1 animal"/>
+		<text name="el_message_aiManager_ai_single_github" text="Herdsman inseminated 1 animal"/>
+		<text name="el_message_aiManager_ai_multiple" text="Herdsman bred %s animals"/>
+		<text name="el_message_aiManager_ai_multiple_github" text="Herdsman inseminated %s animals"/>
 		
 		
 		
@@ -633,7 +694,22 @@
 		<text name="el_death_health" text="low health"/>
 		<text name="el_death_age" text="old age"/>
 		<text name="el_death_accident" text="an accident"/>
-		
-		
+
+		<!-- EPP BUTCHER INTEGRATION -->
+
+		<text name="el_epp_butcher_processed" text="Animal processed at butcher: %s kg of %s"/>
+		<text name="el_epp_butcher_delivered" text="%s delivered to butcher (%.2fx %s)"/>
+
+		<!-- MIGRATION -->
+
+		<text name="el_conflict_title" text="Mod Conflict Detected"/>
+		<text name="el_mod_conflict_message" text="The following mod(s) conflict with 'Enhanced Livestock' and cannot be used together: %s &#10;&#10;Please disable the conflicting mod(s) and restart the game."/>
+
+		<text name="el_migration_title" text="Data Migration Notice"/>
+		<text name="el_migration_message" text="Previous Realistic Livestock data was found in this savegame. Your settings, animal data, Dewars, and AI Straw hand tools will be automatically migrated to Enhanced Livestock when the game saves."/>
+		<text name="el_migration_files_found" text="Data files found:"/>
+		<text name="el_migration_continue" text="Continue"/>
+		<text name="el_migration_quit" text="Quit"/>
+
 	</texts>
 </l10n>

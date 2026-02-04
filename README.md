@@ -15,6 +15,9 @@
 > [!NOTE]
 > This mod is based on the [FS25 Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) mod by [Arrow-kb](https://github.com/Arrow-kb), who has decided to cease all his mods.
 
+> [!NOTE]
+> Proudly cooperating with [FS25_RealisticLivestockRM](https://github.com/rittermod/FS25_RealisticLivestockRM) mod by [Ritter](https://github.com/rittermod).
+
 ---
 
 ## ✨ Features
@@ -24,6 +27,7 @@ Transform your breeding program with the addition of male animals:
 - **Higher market value** compared to females
 - **Essential for reproduction** - realistic breeding requirements
 - Uses vanilla models (no custom 3D models required)
+- **Highland Cattle bull** now available as a male variant
 
 ### 👀 Visual Animals
 Enhanced animal visualization system:
@@ -36,9 +40,8 @@ Every animal is truly unique with comprehensive individual tracking:
 - **Unique identifiers** based on the UK's cattle identification system
 - **Birthday and country of origin** for each animal
 - **Customizable names** for your livestock
-- **Physical identification tags**:
-    - Ear tags on left and right ears displaying country, farm ID, animal ID, name, and birthday
-    - Partial identifier marking on hindquarters
+- **Ear tags** displaying country code, farm ID, animal ID, name, and birthday
+- **Toggle ear tag text** - option to show or hide text on ear tags via settings
 - **Nose rings** on supported animals
 
 ### 🤰 Enhanced Pregnancy System
@@ -109,35 +112,77 @@ Completely reimagined purchasing experience:
 - **Pregnant animals available** - chance to purchase pregnant stock
 - **Quality-based pricing** - farm quality affects animal traits and cost
 
+### 🦠 Disease System
+Comprehensive health management with realistic disease mechanics:
+- **Multiple disease types** - Various conditions affecting different animal species
+- **Transmission mechanics** - Diseases can spread between animals in the same husbandry
+- **Treatment options** - Pay for veterinary care to cure sick animals
+- **Immunity periods** - Animals gain temporary immunity after recovery
+- **Production impact** - Diseases affect milk, wool, and other outputs
+- **Fatality risk** - Untreated conditions can be fatal over time
+
+### 🤖 AI Herdsman
+Automated animal management system:
+- **Automated buying** - Purchase animals matching your criteria
+- **Automated selling** - Sell animals based on configurable filters
+- **Castration management** - Automatic castration based on rules
+- **Naming service** - Auto-naming for new animals
+- **Insemination service** - Automated breeding management
+- **Monthly wage system** - Pay wages based on services and animal count
+- **Configurable filters** - Set criteria for age, genetics, gender, health, and more
+
+### 💉 Artificial Insemination
+Advanced breeding with pedigree genetics:
+- **Dewar storage** - Store and manage pedigree semen
+- **Hand tool system** - Manual insemination with specialized equipment
+- **Genetic selection** - Choose specific genetics for offspring
+- **Shop integration** - Purchase semen from various sources
+
+### 📝 Message Log
+Event tracking for your husbandries:
+- **Birth notifications** - Track new arrivals
+- **Death records** - Log animal deaths with causes
+- **Transaction history** - Record purchases and sales
+- **Health events** - Disease outbreaks and recoveries
+- **AI Herdsman actions** - Log automated management decisions
+
+### 🥩 Butcher Integration
+Seamless integration with EPP Butcher mod:
+- **Direct slaughter** - send animals to butcher directly from the animal screen
+- **Automatic processing** - works with installed EPP Butcher placeables
+
+---
+
+## 📦 Optional Dependencies
+
+- **FS25_FontLibrary** - Provides enhanced font rendering for ear tag text. If not installed, a shader-based fallback is used automatically.
+- **FS25_AnimalPackage_vanillaEdition** - Popular mod that introduces new animal models and variants. If installed, Enhanced Livestock automatically detects and uses the animals and models from this mod instead of the vanilla ones. The integration is seamless and requires no configuration.
+
 ---
 
 ## 📸 Screenshots
 
 <div align="center">
 
-
+![screenshot0](https://github.com/user-attachments/assets/be96a430-3c2f-4ae1-b5a6-5ece2ac1f35a)
+![screenshot1](https://github.com/user-attachments/assets/86690e7b-883a-402b-9552-b2f1fb41db19)
+![screenshot2](https://github.com/user-attachments/assets/bfc68990-5369-4812-8b6d-e64c28245c15)
+![screenshot3](https://github.com/user-attachments/assets/5a1bdcb7-c145-4460-8146-08b3dc44e2e0)
+![screenshot4](https://github.com/user-attachments/assets/6e296acb-c65a-4e6e-836b-f65fe13e69eb)
 
 </div>
 
 ---
 
-## 🚧 In Development
+## 🧾 Changelog
 
-The following features are currently being developed:
-
-- 🦠 **Disease System** - Animal health conditions and treatments
-- 📝 **Message Log** - Event tracking and history for husbandries
-
----
-
-## 📝 Planned Features
-- 🥩 **Butcher Integration** - allow animals to be slaughtered directly from the animal screen
+You can find the full changelog here: [Changelog](CHANGELOG.md)
 
 ---
 
 ## 💬 Support & Feedback
 
-Found a bug or have a suggestion? Please [open an issue](https://github.com/Arrow-kb/FS25_EnhancedLivestock/issues) on GitHub.
+Found a bug or have a suggestion? Please [open an issue](https://github.com/renfordt/FS25_EnhancedLivestock/issues) on GitHub.
 
 ---
 

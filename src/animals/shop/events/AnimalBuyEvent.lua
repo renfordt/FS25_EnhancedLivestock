@@ -11,7 +11,6 @@ function AnimalBuyEvent.new(object, animals, buyPrice, transportPrice)
 
 end
 
-
 function AnimalBuyEvent:readStream(streamId, connection)
 
 	if connection:getIsServer() then
@@ -42,7 +41,6 @@ function AnimalBuyEvent:readStream(streamId, connection)
 
 end
 
-
 function AnimalBuyEvent:writeStream(streamId, connection)
 
 	if not connection:getIsServer() then
@@ -54,13 +52,14 @@ function AnimalBuyEvent:writeStream(streamId, connection)
 
 	streamWriteUInt16(streamId, #self.animals)
 
-	for _, animal in pairs(self.animals) do animal:writeStream(streamId, connection) end
+	for _, animal in pairs(self.animals) do
+		animal:writeStream(streamId, connection)
+	end
 
 	streamWriteFloat32(streamId, self.buyPrice)
 	streamWriteFloat32(streamId, self.transportPrice)
 
 end
-
 
 function AnimalBuyEvent:run(connection)
 
@@ -89,7 +88,7 @@ function AnimalBuyEvent:run(connection)
 			connection:sendEvent(AnimalBuyEvent.newServerToClient(errorCode))
 			return
 		end
-	
+
 	end
 
 	for _, animal in pairs(self.animals) do
@@ -103,12 +102,14 @@ function AnimalBuyEvent:run(connection)
 	g_currentMission:addMoney(self.buyPrice + self.transportPrice, farmId, MoneyType.NEW_ANIMALS_COST, true, true)
 	connection:sendEvent(AnimalBuyEvent.newServerToClient(AnimalBuyEvent.BUY_SUCCESS))
 
-	if g_server ~= nil and not g_server.netIsRunning then return end
+	if g_server ~= nil and not g_server.netIsRunning then
+		return
+	end
 
 	if #self.animals == 1 then
-        self.object:addRLMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(self.buyPrice + self.transportPrice), 2, true, true) })
-    elseif #self.animals > 0 then
-        self.object:addRLMessage("BOUGHT_ANIMALS_MULTIPLE", nil, { #self.animals, g_i18n:formatMoney(math.abs(self.buyPrice + self.transportPrice), 2, true, true) })
-    end
+		self.object:addELMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(self.buyPrice + self.transportPrice), 2, true, true) })
+	elseif #self.animals > 0 then
+		self.object:addELMessage("BOUGHT_ANIMALS_MULTIPLE", nil, { #self.animals, g_i18n:formatMoney(math.abs(self.buyPrice + self.transportPrice), 2, true, true) })
+	end
 
 end

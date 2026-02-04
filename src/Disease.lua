@@ -20,7 +20,6 @@ function Disease.new(type, isCarrier, genes)
 
 end
 
-
 function Disease:loadFromXMLFile(xmlFile, key)
 
 	self.cured = xmlFile:getBool(key .. "#cured", false)
@@ -33,7 +32,6 @@ function Disease:loadFromXMLFile(xmlFile, key)
 	self.recovery = xmlFile:getInt(key .. "#recovery", 0)
 
 end
-
 
 function Disease:saveToXMLFile(xmlFile, key)
 
@@ -49,7 +47,6 @@ function Disease:saveToXMLFile(xmlFile, key)
 
 end
 
-
 function Disease:writeStream(streamId, connection)
 
 	streamWriteString(streamId, self.type.title)
@@ -64,7 +61,6 @@ function Disease:writeStream(streamId, connection)
 
 end
 
-
 function Disease:readStream(streamId, connection)
 
 	self.cured = streamReadBool(streamId)
@@ -78,10 +74,11 @@ function Disease:readStream(streamId, connection)
 
 end
 
-
 function Disease:onPeriodChanged(animal, deathEnabled)
 
-	if not g_diseaseManager.diseasesEnabled then return false, 0 end
+	if not g_diseaseManager.diseasesEnabled then
+		return false, 0
+	end
 
 	self.time = self.time + 1
 	local treatmentCost = 0
@@ -138,7 +135,7 @@ function Disease:onPeriodChanged(animal, deathEnabled)
 		end
 
 		if math.random() < fatalityChance then
-	
+
 			animal:die(self.type.key)
 			return true, treatmentCost
 
@@ -150,17 +147,20 @@ function Disease:onPeriodChanged(animal, deathEnabled)
 
 end
 
-
 function Disease:affectReproduction(child, otherParent)
 
-	if not g_diseaseManager.diseasesEnabled then return end
+	if not g_diseaseManager.diseasesEnabled then
+		return
+	end
 
 	local genetic = self.type.genetic
 
-	if genetic == nil or (not genetic.recessive and not genetic.dominant) then return end
+	if genetic == nil or (not genetic.recessive and not genetic.dominant) then
+		return
+	end
 
 	local pDisease = otherParent ~= nil and otherParent:getDisease(self.type.title) or nil
-	
+
 	local parents = {
 		self.genes,
 		pDisease ~= nil and pDisease.genes or 0
@@ -173,7 +173,9 @@ function Disease:affectReproduction(child, otherParent)
 		if genes == 2 then
 			numAffectedGenes = numAffectedGenes + 1
 		elseif genes == 1 then
-			if math.random() <= 0.5 then numAffectedGenes = numAffectedGenes + 1 end
+			if math.random() <= 0.5 then
+				numAffectedGenes = numAffectedGenes + 1
+			end
 		end
 
 	end
@@ -198,24 +200,25 @@ function Disease:affectReproduction(child, otherParent)
 
 end
 
-
 function Disease:modifyValue(value)
 
 	return value * self.type.value
 
 end
 
-
 function Disease:modifyOutput(type, value)
 
-	if self.cured or not g_diseaseManager.diseasesEnabled then return value end
+	if self.cured or not g_diseaseManager.diseasesEnabled then
+		return value
+	end
 
-	if self.isCarrier and self.type.carrier ~= nil and self.type.carrier.output ~= nil then return value * (self.type.carrier.output[type] or 1) end
+	if self.isCarrier and self.type.carrier ~= nil and self.type.carrier.output ~= nil then
+		return value * (self.type.carrier.output[type] or 1)
+	end
 
 	return value * (self.type.output[type] or 1)
 
 end
-
 
 function Disease:showInfo(box)
 
@@ -234,7 +237,6 @@ function Disease:showInfo(box)
 	box:addLine(string.format("%s (%s)", self.type.name, time), self:getStatus())
 
 end
-
 
 function Disease:getStatus()
 

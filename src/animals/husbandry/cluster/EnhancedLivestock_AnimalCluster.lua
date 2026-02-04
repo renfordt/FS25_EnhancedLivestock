@@ -1,95 +1,104 @@
 EnhancedLivestock_AnimalCluster = {}
 
-
 function EnhancedLivestock_AnimalCluster:saveToXMLFile(xmlFile, key, _)
-    if self.monthsSinceLastBirth == nil then self.monthsSinceLastBirth = 0 end
-    if self.lactatingAnimals == nil then self.lactatingAnimals = 0 end
-    if self.isParent == nil then self.isParent = false end
-    if self.gender == nil then self.gender = "female" end
-    xmlFile:setInt(key .. "#monthsSinceLastBirth", self.monthsSinceLastBirth)
-    xmlFile:setInt(key .. "#lactatingAnimals", self.lactatingAnimals)
-    xmlFile:setBool(key .. "#isParent", self.isParent)
-    xmlFile:setString(key .. "#gender", self.gender)
+	if self.monthsSinceLastBirth == nil then
+		self.monthsSinceLastBirth = 0
+	end
+	if self.lactatingAnimals == nil then
+		self.lactatingAnimals = 0
+	end
+	if self.isParent == nil then
+		self.isParent = false
+	end
+	if self.gender == nil then
+		self.gender = "female"
+	end
+	xmlFile:setInt(key .. "#monthsSinceLastBirth", self.monthsSinceLastBirth)
+	xmlFile:setInt(key .. "#lactatingAnimals", self.lactatingAnimals)
+	xmlFile:setBool(key .. "#isParent", self.isParent)
+	xmlFile:setString(key .. "#gender", self.gender)
 end
 
 AnimalCluster.saveToXMLFile = Utils.appendedFunction(AnimalCluster.saveToXMLFile, EnhancedLivestock_AnimalCluster.saveToXMLFile)
 
 function EnhancedLivestock_AnimalCluster:loadFromXMLFile(superFunc, xmlFile, key)
 
-    local r = superFunc(self, xmlFile, key)
+	local r = superFunc(self, xmlFile, key)
 
-    self.isParent = xmlFile:getBool(key .. "#isParent")
-    self.monthsSinceLastBirth = xmlFile:getInt(key .. "#monthsSinceLastBirth")
-    self.lactatingAnimals = xmlFile:getInt(key .. "#lactatingAnimals")
-    self.gender = xmlFile:getString(key .. "#gender")
+	self.isParent = xmlFile:getBool(key .. "#isParent")
+	self.monthsSinceLastBirth = xmlFile:getInt(key .. "#monthsSinceLastBirth")
+	self.lactatingAnimals = xmlFile:getInt(key .. "#lactatingAnimals")
+	self.gender = xmlFile:getString(key .. "#gender")
 
-    -- why is the age of animals clamped between 0 and 60 months?
+	-- why is the age of animals clamped between 0 and 60 months?
 
-    self.age = xmlFile:getInt(key .. "#age")
+	self.age = xmlFile:getInt(key .. "#age")
 
-    if self.monthsSinceLastBirth == nil then
-        self.monthsSinceLastBirth = 0
-    end
+	if self.monthsSinceLastBirth == nil then
+		self.monthsSinceLastBirth = 0
+	end
 
-    if self.lactatingAnimals == nil then
-        self.lactatingAnimals = 0
-    end
+	if self.lactatingAnimals == nil then
+		self.lactatingAnimals = 0
+	end
 
-    if self.isParent == nil then
-        self.isParent = false
-    end
+	if self.isParent == nil then
+		self.isParent = false
+	end
 
-    if self.gender == nil and self.subType ~= nil and self.subType == "CHICKEN_ROOSTER" then
-        self.gender = "male"
-    elseif self.gender == nil then
-        self.gender = "female"
-    end
+	if self.gender == nil and self.subType ~= nil and self.subType == "CHICKEN_ROOSTER" then
+		self.gender = "male"
+	elseif self.gender == nil then
+		self.gender = "female"
+	end
 
-    return r
+	return r
 end
 
 AnimalCluster.loadFromXMLFile = Utils.overwrittenFunction(AnimalCluster.loadFromXMLFile, EnhancedLivestock_AnimalCluster.loadFromXMLFile)
 
 function EnhancedLivestock_AnimalCluster:showInfo(superFunc, box)
 
-    local index = self:getSubTypeIndex()
-    local subType = g_currentMission.animalSystem:getSubTypeByIndex(index)
-    local name = subType.name
+	local index = self:getSubTypeIndex()
+	local subType = g_currentMission.animalSystem:getSubTypeByIndex(index)
+	local name = subType.name
 
-    local fillTypeTitle = g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex)
+	local fillTypeTitle = g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex)
 
-    box:addLine(g_i18n:getText("infohud_type"), fillTypeTitle)
-    box:addLine(g_i18n:getText("infohud_age"), g_i18n:formatNumMonth(self.age))
+	box:addLine(g_i18n:getText("infohud_type"), fillTypeTitle)
+	box:addLine(g_i18n:getText("infohud_age"), g_i18n:formatNumMonth(self.age))
 
-    if self.numAnimals > 1 then
-        box:addLine(g_i18n:getText("infohud_numAnimals"), tostring(self.numAnimals))
-    end
+	if self.numAnimals > 1 then
+		box:addLine(g_i18n:getText("infohud_numAnimals"), tostring(self.numAnimals))
+	end
 
-    box:addLine(g_i18n:getText("infohud_health"), string.format("%d %%", self.health))
+	box:addLine(g_i18n:getText("infohud_health"), string.format("%d %%", self.health))
 
-    if self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.gender ~= nil and self.gender == "female" and self.age >= 12 then
-        local lactatingAnimals = self.lactatingAnimals
-        if lactatingAnimals ~= nil then box:addLine("Lactating animals", string.format("%d", lactatingAnimals)) end
-    end
+	if self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.gender ~= nil and self.gender == "female" and self.age >= 12 then
+		local lactatingAnimals = self.lactatingAnimals
+		if lactatingAnimals ~= nil then
+			box:addLine("Lactating animals", string.format("%d", lactatingAnimals))
+		end
+	end
 
-    if self.gender ~= nil and self.gender == "female" and subType.supportsReproduction then
+	if self.gender ~= nil and self.gender == "female" and subType.supportsReproduction then
 
-        box:addLine(g_i18n:getText("infohud_reproduction"), string.format("%d %%", self.reproduction))
+		box:addLine(g_i18n:getText("infohud_reproduction"), string.format("%d %%", self.reproduction))
 
-        local healthFactor = self:getHealthFactor()
-        local text = "Yes"
+		local healthFactor = self:getHealthFactor()
+		local text = "Yes"
 
-        if self.age < subType.reproductionMinAgeMonth then
-            text = "No (too young)"
-        elseif not EnhancedLivestock.hasMaleAnimalInPen(self.clusterSystem.owner.spec_husbandryAnimals, name) and self.reproduction < 100 / subType.reproductionDurationMonth then
-            text = "No (no suitable male animal)"
-        elseif healthFactor < subType.reproductionMinHealth then
-            text = "No (too unhealthy)"
-        end
+		if self.age < subType.reproductionMinAgeMonth then
+			text = "No (too young)"
+		elseif not EnhancedLivestock.hasMaleAnimalInPen(self.clusterSystem.owner.spec_husbandryAnimals, name) and self.reproduction < 100 / subType.reproductionDurationMonth then
+			text = "No (no suitable male animal)"
+		elseif healthFactor < subType.reproductionMinHealth then
+			text = "No (too unhealthy)"
+		end
 
-        box:addLine("Can reproduce", text)
+		box:addLine("Can reproduce", text)
 
-    end
+	end
 
 end
 
@@ -97,30 +106,30 @@ AnimalCluster.showInfo = Utils.overwrittenFunction(AnimalCluster.showInfo, Enhan
 
 function EnhancedLivestock_AnimalCluster:addInfos(infos)
 
-    if self.gender ~= nil and self.gender == "female" and self.lactatingAnimals ~= nil and self.age > 12 and self.clusterSystem.owner.spec_husbandryMilk ~= nil then
+	if self.gender ~= nil and self.gender == "female" and self.lactatingAnimals ~= nil and self.age > 12 and self.clusterSystem.owner.spec_husbandryMilk ~= nil then
 
-        if self.infoLactation == nil then
-            self.infoLactation = {
-                text = "Lactating animals",
-                title = "Lactating animals"
-            }
-        end
+		if self.infoLactation == nil then
+			self.infoLactation = {
+				text = "Lactating animals",
+				title = "Lactating animals"
+			}
+		end
 
-        self.infoLactation.value = self.lactatingAnimals
-        self.infoLactation.ratio = self.lactatingAnimals / self.numAnimals
-        self.infoLactation.valueText = string.format("%d", self.lactatingAnimals)
+		self.infoLactation.value = self.lactatingAnimals
+		self.infoLactation.ratio = self.lactatingAnimals / self.numAnimals
+		self.infoLactation.valueText = string.format("%d", self.lactatingAnimals)
 
-        table.insert(infos, self.infoLactation)
+		table.insert(infos, self.infoLactation)
 
-    end
+	end
 
 end
 
 AnimalCluster.addInfos = Utils.appendedFunction(AnimalCluster.addInfos, EnhancedLivestock_AnimalCluster.addInfos)
 
 function EnhancedLivestock_AnimalCluster:changeAge(superFunc, delta)
-    -- whats even the point of having an aging system if animals dont age past 5 years old? animals die in real life, i get that you want your "E - Everyone" rating, but its not like 3 year olds are playing this £50 game. realistically your main audience is adult men, even moreso at this expensive price.
-    self.age = self.age + delta
+-- whats even the point of having an aging system if animals dont age past 5 years old? animals die in real life, i get that you want your "E - Everyone" rating, but its not like 3 year olds are playing this £50 game. realistically your main audience is adult men, even moreso at this expensive price.
+	self.age = self.age + delta
 end
 
 AnimalCluster.changeAge = Utils.overwrittenFunction(AnimalCluster.changeAge, EnhancedLivestock_AnimalCluster.changeAge)

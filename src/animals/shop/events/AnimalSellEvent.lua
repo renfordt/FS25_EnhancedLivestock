@@ -11,7 +11,6 @@ function AnimalSellEvent.new(object, animals, price, transportPrice)
 
 end
 
-
 function AnimalSellEvent:readStream(streamId, connection)
 
 	if connection:getIsServer() then
@@ -41,7 +40,6 @@ function AnimalSellEvent:readStream(streamId, connection)
 
 end
 
-
 function AnimalSellEvent:writeStream(streamId, connection)
 
 	if not connection:getIsServer() then
@@ -61,7 +59,6 @@ function AnimalSellEvent:writeStream(streamId, connection)
 	streamWriteFloat32(streamId, self.transportPrice)
 
 end
-
 
 function AnimalSellEvent:run(connection)
 
@@ -84,13 +81,13 @@ function AnimalSellEvent:run(connection)
 
 	--for _, animal in pairs(self.animals) do
 
-		--local errorCode = AnimalSellEvent.validate(self.object, animal.subTypeIndex, animal.age, 1, self.price, self.transportPrice, farmId)
+	--local errorCode = AnimalSellEvent.validate(self.object, animal.subTypeIndex, animal.age, 1, self.price, self.transportPrice, farmId)
 
-		--if errorCode ~= nil then
-			--connection:sendEvent(AnimalSellEvent.newServerToClient(errorCode))
-			--return
-		--end
-	
+	--if errorCode ~= nil then
+	--connection:sendEvent(AnimalSellEvent.newServerToClient(errorCode))
+	--return
+	--end
+
 	--end
 
 	local clusterSystem = self.object:getClusterSystem()
@@ -104,12 +101,14 @@ function AnimalSellEvent:run(connection)
 	g_currentMission:addMoney(self.price + self.transportPrice, farmId, MoneyType.SOLD_ANIMALS, true, true)
 	connection:sendEvent(AnimalSellEvent.newServerToClient(AnimalSellEvent.SELL_SUCCESS))
 
-	if g_server ~= nil and not g_server.netIsRunning then return end
+	if g_server ~= nil and not g_server.netIsRunning then
+		return
+	end
 
 	if #self.animals == 1 then
-        self.object:addRLMessage("SOLD_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(self.price + self.transportPrice), 2, true, true) })
-    elseif #self.animals > 0 then
-        self.object:addRLMessage("SOLD_ANIMALS_MULTIPLE", nil, { #self.animals, g_i18n:formatMoney(math.abs(self.price + self.transportPrice), 2, true, true) })
-    end
+		self.object:addELMessage("SOLD_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(self.price + self.transportPrice), 2, true, true) })
+	elseif #self.animals > 0 then
+		self.object:addELMessage("SOLD_ANIMALS_MULTIPLE", nil, { #self.animals, g_i18n:formatMoney(math.abs(self.price + self.transportPrice), 2, true, true) })
+	end
 
 end

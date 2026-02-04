@@ -3,14 +3,12 @@ SemenBuyEvent = {}
 local SemenBuyEvent_mt = Class(SemenBuyEvent, Event)
 InitEventClass(SemenBuyEvent, "SemenBuyEvent")
 
-
 function SemenBuyEvent.emptyNew()
 
-    local self = Event.new(SemenBuyEvent_mt)
-    return self
+	local self = Event.new(SemenBuyEvent_mt)
+	return self
 
 end
-
 
 function SemenBuyEvent.new(animal, quantity, price, farmId, position, rotation)
 
@@ -27,7 +25,6 @@ function SemenBuyEvent.new(animal, quantity, price, farmId, position, rotation)
 
 end
 
-
 function SemenBuyEvent.newServerToClient(errorCode)
 
 	local event = SemenBuyEvent.emptyNew()
@@ -37,7 +34,6 @@ function SemenBuyEvent.newServerToClient(errorCode)
 	return event
 
 end
-
 
 function SemenBuyEvent:readStream(streamId, connection)
 
@@ -56,14 +52,13 @@ function SemenBuyEvent:readStream(streamId, connection)
 	local rx = streamReadFloat32(streamId)
 	local ry = streamReadFloat32(streamId)
 	local rz = streamReadFloat32(streamId)
-		
+
 	self.position = { x, y, z }
 	self.rotation = { rx, ry, rz }
 
 	self:run(connection)
 
 end
-
 
 function SemenBuyEvent:writeStream(streamId, connection)
 
@@ -73,7 +68,7 @@ function SemenBuyEvent:writeStream(streamId, connection)
 	streamWriteUInt16(streamId, self.quantity)
 	streamWriteFloat32(streamId, self.price)
 	streamWriteUInt8(streamId, self.farmId)
-	
+
 	streamWriteFloat32(streamId, self.position[1])
 	streamWriteFloat32(streamId, self.position[2])
 	streamWriteFloat32(streamId, self.position[3])
@@ -86,13 +81,12 @@ function SemenBuyEvent:writeStream(streamId, connection)
 
 end
 
-
 function SemenBuyEvent:run(connection)
 
 	local dewar = Dewar.new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
 
-    dewar:setOwnerFarmId(self.farmId)
-    dewar:register(self.position, self.rotation, self.animal, self.quantity)
+	dewar:setOwnerFarmId(self.farmId)
+	dewar:register(self.position, self.rotation, self.animal, self.quantity)
 
 	g_currentMission:addMoney(self.price, self.farmId, MoneyType.SEMEN_PURCHASE, true, true)
 

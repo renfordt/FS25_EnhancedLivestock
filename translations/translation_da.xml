@@ -61,6 +61,9 @@
 
 		<!-- UI -->
 
+		<text name="el_ui_dependency_missing" text="Manglende afhængighed"/>
+		<text name="el_ui_dependency_missing_installed" text="Manglende afhængighed installeret"/>
+
 		<text name="input_VisualAnimalsDialog" text="Ændr antallet af viste dyr"/>
 		<text name="el_button_apply" text="Tilføj"/>
 		<text name="el_button_confirm" text="Bekræft"/>
@@ -255,8 +258,10 @@
 		<text name="el_ui_semenPurchaseNoMoney" text="Du har ikke penge nok til at købe denne potion sæd."/>
 		<text name="el_ui_semenPurchaseNoMoney_github" text="Du har ikke penge nok til at købe denne potion sæd."/>
 		<text name="el_ui_takeStraw" text="Tag sprøjte"/>
-		<text name="el_ui_inseminateAnimal" text="Insiminer %s"/>
-		<text name="el_ui_inseminate" text="Insiminer"/>
+		<text name="el_ui_inseminateAnimal" text="Avl %s"/>
+		<text name="el_ui_inseminateAnimal_github" text="Insiminer %s"/>
+		<text name="el_ui_inseminate" text="Avl"/>
+		<text name="el_ui_inseminate_github" text="Insiminer"/>
 		<text name="el_ui_strawEmpty" text="Denne sprøjte er tom"/>
 		<text name="el_ui_averageSuccessColon" text="Middel Succes: "/>
 		<text name="el_ui_averageSuccess" text="Middel Succes"/>
@@ -268,15 +273,19 @@
 
 		<text name="el_ui_healthy" text="Rask"/>
 		<text name="el_ui_hasDisease" text="er syg"/>
+		<text name="el_ui_diseasedAnimals" text="Syge dyr"/>
 
 
 		<text name="el_insemination_male" text="Kun hunner kan gøres drægtige"/>
+		<text name="el_insemination_male_github" text="Kun hunner kan insemineres"/>
 		<text name="el_insemination_pregnant" text="Dette dyr er allerede drægtigt"/>
 		<text name="el_insemination_animalType" text="Dyret skal være af samme art som faderen"/>
 		<text name="el_insemination_inseminated" text="Dette dyr er allerede blevet drægtiggjort ved assisteret avl"/>
+		<text name="el_insemination_inseminated_github" text="Dette dyr er allerede blevet insemineret"/>
 		<text name="el_insemination_recovering" text="Dette dyr er stadig ved at komme sig efter sin forrige drægtighed"/>
 		<text name="el_insemination_father" text="Indavl er ikke tilladt"/>
 		<text name="el_insemination_young" text="Dette dyr er for ungt til at blive drægtiggjort ved assisteret avl"/>
+		<text name="el_insemination_young_github" text="Dette dyr er for ungt til at blive insemineret"/>
 
 
 		<text name="el_mark_aiManager_sell" text="Dyrepasser markeret til salg"/>
@@ -284,6 +293,7 @@
 		<text name="el_mark_aiManager_castrate_github" text="Dyrepasser markeret til kastrering"/>
 		<text name="el_mark_aiManager_disease" text="Dyrepasser markeret til behandling"/>
 		<text name="el_mark_aiManager_ai" text="Dyrepasser markeret til assisteret avl"/>
+		<text name="el_mark_aiManager_ai_github" text="Dyrepasser markeret til kunstig insemination"/>
 		<text name="el_mark_player" text="Markeret af Spiller"/>
 
 
@@ -429,41 +439,58 @@
 		<!-- AI - AI -->
 
 
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Dyrepasseren vil ikke lave assisteret inseminering(AI) af dyrerne"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Dyrepasseren vil godt lave assisteret inseminering(AI) af dyrerne"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Dyrepasseren vil ikke lave assisteret avl af dyrerne"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Dyrepasseren vil ikke lave assisteret inseminering(AI) af dyrerne"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Dyrepasseren vil godt lave assisteret avl af dyrerne"/>
+		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Dyrepasseren vil godt lave assisteret inseminering(AI) af dyrerne"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Dyrepasseren vil lave AI op til %s dyr om dagen"/>
+		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Dyrepasseren vil avle op til %s dyr om dagen"/>
+		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Dyrepasseren vil lave AI op til %s dyr om dagen"/>
 
 		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="Dyrepasseren vil ikke mærke dyrerne til inseminering"/>
 		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Dyrepasseren vil ikke mærke dyrerne, der skal insemineres"/>
 		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="Dyrepasseren vil godt mærke dyrerne til Inseminering"/>
 		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Dyrepasseren vil godt mærke dyrerne der skal insemineres"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Dyrepasseren vil AI-behandle dyrerne uanset sygdomme"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Dyrepasseren vil kun AI-behandle dyrerne med en sygdom"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Dyrepasseren vil avle dyrerne uanset sygdomme"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Dyrepasseren vil AI-behandle dyrerne uanset sygdomme"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Dyrepasseren vil kun avle dyrerne med en sygdom"/>
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Dyrepasseren vil kun AI-behandle dyrerne med en sygdom"/>
 
 		<text name="el_ui_herdsmanTooltip_ai_semen" text="Dyrepasseren vil bruge sæd fra %s"/>
 		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="Dyrepasseren vil bruge sæd fra %s"/>
 		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable male juice"/>
 		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Dyrepasseren vil bruge enhver levedygtig sæd"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="Dyrepasseren vil kun AI-behandle dyr, der er %s gamle"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range" text="Dyrepasseren vil kun AI-behandle dyr, der er mellem %s og %s gamle"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="Dyrepasseren vil kun avle dyr, der er %s gamle"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Dyrepasseren vil kun AI-behandle dyr, der er %s gamle"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_range" text="Dyrepasseren vil kun avle dyr, der er mellem %s og %s gamle"/>
+		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Dyrepasseren vil kun AI-behandle dyr, der er mellem %s og %s gamle"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Dyrepasseren vil kun AI-behandle dyr med %s kvalitet"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="Dyrepasseren vil kun AI-behandle dyr med en kvalitet mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Dyrepasseren vil kun avle dyr med %s kvalitet"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s kvalitet"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="Dyrepasseren vil kun avle dyr med en kvalitet mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en kvalitet mellem %s og %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Dyrepasseren vil kun AI-behandle dyr med %s frugtbarhed"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Dyrepasseren vil kun AI-behandle dyr med en frugtbarhed mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Dyrepasseren vil kun avle dyr med %s frugtbarhed"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s frugtbarhed"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Dyrepasseren vil kun avle dyr med en frugtbarhed mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en frugtbarhed mellem %s og %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="Dyrepasseren vil kun AI-behandle dyr med %s helbred"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range" text="Dyrepasseren vil kun AI-behandle dyr med et helbred mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="Dyrepasseren vil kun avle dyr med %s helbred"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s helbred"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_range" text="Dyrepasseren vil kun avle dyr med et helbred mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Dyrepasseren vil kun AI-behandle dyr med et helbred mellem %s og %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Dyrepasseren vil kun AI-behandle dyr med %s produktivitet"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Dyrepasseren vil kun AI-behandle dyr med en produktivitet mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Dyrepasseren vil kun avle dyr med %s produktivitet"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s produktivitet"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Dyrepasseren vil kun avle dyr med en produktivitet mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en produktivitet mellem %s og %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Dyrepasseren vil kun AI-behandle dyr med %s stofskifte"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Dyrepasseren vil kun AI-behandle dyr med en stofskifte mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Dyrepasseren vil kun avle dyr med %s stofskifte"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s stofskifte"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Dyrepasseren vil kun avle dyr med en stofskifte mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en stofskifte mellem %s og %s"/>
 
 
 
@@ -522,7 +549,8 @@
 		<text name="el_settings_animalsXML_tooltip" text="Angiv sti til en brugerdefineret dyr XML-fil"/>
 		<text name="el_settings_animalsXML_text" text="Angiv XML-sti for dyr"/>
 
-
+		<text name="el_settings_earTagTextEnabled_label" text="Øremærketekst"/>
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Slå visning af tekst på dyreøremærker til/fra"/>
 
 		<!--  HELP  -->
 
@@ -644,7 +672,9 @@
 		<text name="el_message_insemination_fail" text="Assisteret insemination gik galt"/>
 		<text name="el_message_insemination_fail_github" text="Inseminering gik galt"/>
 		<text name="el_message_aiManager_mark_ai_single" text="Hyrden har mærket 1 dyr til AI"/>
+		<text name="el_message_aiManager_mark_ai_single_github" text="Dyrpasser markerede 1 dyr til AI"/>
 		<text name="el_message_aiManager_mark_ai_multiple" text="Hyrden har mærket %s dyr til AI"/>
+		<text name="el_message_aiManager_mark_ai_multiple_github" text="Dyrpasser markerede %s dyr til AI"/>
 		<text name="el_message_aiManager_ai_single" text="Hyrden har med succes gjort et dyr drægtig"/>
 		<text name="el_message_aiManager_ai_single_github" text="Hyrden inseminerede 1 dyr"/>
 		<text name="el_message_aiManager_ai_multiple" text="Hyrden har med succes gjort %s dyr drægtige"/>
@@ -660,6 +690,21 @@
 		<text name="el_death_age" text="Alderdom"/>
 		<text name="el_death_accident" text="Ulykke"/>
 
+		<!-- EPP BUTCHER INTEGRATION -->
+
+		<text name="el_epp_butcher_processed" text="Dyr behandlet hos slagter: %s kg %s"/>
+		<text name="el_epp_butcher_delivered" text="%s leveret til slagter (%.2fx %s)"/>
+
+		<!-- MIGRATION -->
+
+		<text name="el_conflict_title" text="Mod-konflikt opdaget"/>
+		<text name="el_mod_conflict_message" text="Følgende mod(s) er i konflikt med 'Enhanced Livestock' og kan ikke bruges sammen: %s &#10;&#10;Deaktiver venligst de konfliktende mod(s) og genstart spillet."/>
+
+		<text name="el_migration_title" text="Meddelelse om datamigrering"/>
+		<text name="el_migration_message" text="Tidligere Realistic Livestock-data blev fundet i denne gemte fil. Dine indstillinger, dyredata, Dewars og AI Straw-håndværktøj vil automatisk blive migreret til Enhanced Livestock, når spillet gemmer."/>
+		<text name="el_migration_files_found" text="Fundne datafiler:"/>
+		<text name="el_migration_continue" text="Fortsæt"/>
+		<text name="el_migration_quit" text="Afslut"/>
 
 	</texts>
 </l10n>

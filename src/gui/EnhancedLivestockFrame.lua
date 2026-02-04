@@ -2,11 +2,10 @@ EnhancedLivestockFrame = {}
 
 local enhancedLivestockFrame_mt = Class(EnhancedLivestockFrame, TabbedMenuFrameElement)
 
-
 function EnhancedLivestockFrame.new()
 
 	local self = EnhancedLivestockFrame:superClass().new(nil, enhancedLivestockFrame_mt)
-	
+
 	self.name = "EnhancedLivestockFrame"
 	self.husbandrySystem = g_currentMission.husbandrySystem
 
@@ -14,11 +13,9 @@ function EnhancedLivestockFrame.new()
 
 end
 
-
 function EnhancedLivestockFrame:delete()
 	EnhancedLivestockFrame:superClass().delete(self)
 end
-
 
 function EnhancedLivestockFrame:initialize()
 
@@ -46,14 +43,12 @@ function EnhancedLivestockFrame:initialize()
 		end,
 		["profile"] = "buttonSelect"
 	}
-	
-end
 
+end
 
 function EnhancedLivestockFrame:onGuiSetupFinished()
 	EnhancedLivestockFrame:superClass().onGuiSetupFinished(self)
 end
-
 
 function EnhancedLivestockFrame:onFrameOpen()
 	EnhancedLivestockFrame:superClass().onFrameOpen(self)
@@ -63,11 +58,9 @@ function EnhancedLivestockFrame:onFrameOpen()
 	self.husbandryList:reloadData()
 end
 
-
 function EnhancedLivestockFrame:onFrameClose()
 	EnhancedLivestockFrame:superClass().onFrameClose(self)
 end
-
 
 function EnhancedLivestockFrame:updateContent()
 
@@ -76,10 +69,12 @@ function EnhancedLivestockFrame:updateContent()
 	self.data = {}
 	self.selectedRow = nil
 
-	if g_localPlayer == nil then return end
+	if g_localPlayer == nil then
+		return
+	end
 
 	local placeables = self.husbandrySystem:getPlaceablesByFarm()
-	
+
 	for _, placeable in pairs(placeables) do
 
 		local animals = placeable:getClusters()
@@ -105,7 +100,9 @@ function EnhancedLivestockFrame:updateContent()
 
 		for _, animal in pairs(animals) do
 
-			if not animal.monitor.active and not animal.monitor.removed then continue end
+			if not animal.monitor.active and not animal.monitor.removed then
+				continue
+			end
 
 			numMonitored = numMonitored + 1
 
@@ -136,7 +133,6 @@ function EnhancedLivestockFrame:updateContent()
 
 end
 
-
 function EnhancedLivestockFrame:updateMenuButtons()
 
 	self.menuButtonInfo = { self.backButtonInfo, self.nextPageButtonInfo, self.prevPageButtonInfo }
@@ -145,15 +141,14 @@ function EnhancedLivestockFrame:updateMenuButtons()
 
 		self.changeMonitorsButtonInfo.disabled = self.selectedRow.totalAnimals == 0
 		self.changeMonitorsButtonInfo.text = g_i18n:getText("el_ui_" .. (self.selectedRow.percentMonitored == 1 and "remove" or "apply") .. "AllMonitor")
-		
+
 		table.insert(self.menuButtonInfo, self.changeMonitorsButtonInfo)
 
 	end
-	
+
 	self:setMenuButtonInfoDirty()
 
 end
-
 
 function EnhancedLivestockFrame:resetButtonStates()
 
@@ -176,15 +171,15 @@ function EnhancedLivestockFrame:resetButtonStates()
 
 end
 
-
 function EnhancedLivestockFrame:getNumberOfSections()
 
-	if self.data == nil or #self.data == 0 then return 0 end
+	if self.data == nil or #self.data == 0 then
+		return 0
+	end
 
 	return 1
 
 end
-
 
 function EnhancedLivestockFrame:getNumberOfItemsInSection(list, section)
 
@@ -192,13 +187,11 @@ function EnhancedLivestockFrame:getNumberOfItemsInSection(list, section)
 
 end
 
-
 function EnhancedLivestockFrame:getTitleForSectionHeader(list, section)
 
-    return ""
+	return ""
 
 end
-
 
 function EnhancedLivestockFrame:populateCellForItemInSection(list, section, index, cell)
 
@@ -218,31 +211,34 @@ function EnhancedLivestockFrame:populateCellForItemInSection(list, section, inde
 
 	end
 
-	if animalType ~= nil then animalType = string.sub(animalType, 1, 1):upper() .. string.sub(animalType, 2) end
+	if animalType ~= nil then
+		animalType = string.sub(animalType, 1, 1):upper() .. string.sub(animalType, 2)
+	end
 
 	cell:getAttribute("animalType"):setText(animalType)
 	cell:getAttribute("percentMonitored"):setText(string.format("%s / %s", item.totalMonitored, item.totalAnimals))
 	cell:getAttribute("fee"):setText(string.format(g_i18n:getText("el_ui_feePerMonth"), g_i18n:formatMoney(item.fee, 2, true, true)))
 
 	local daysPerMonth = g_currentMission.environment.daysPerPeriod
-	
+
 	cell:getAttribute("food"):setText(string.format(g_i18n:getText("el_ui_amountPerDay"), (item.food * 24) / daysPerMonth))
 	cell:getAttribute("water"):setText(string.format(g_i18n:getText("el_ui_amountPerDay"), (item.water * 24) / daysPerMonth))
 	cell:getAttribute("straw"):setText(string.format(g_i18n:getText("el_ui_amountPerDay"), (item.straw * 24) / daysPerMonth))
-	
+
 	cell:getAttribute("product"):setText(string.format(g_i18n:getText("el_ui_amountPerDay"), (item.product * 24) / daysPerMonth))
 	cell:getAttribute("manure"):setText(string.format(g_i18n:getText("el_ui_amountPerDay"), (item.manure * 24) / daysPerMonth))
 	cell:getAttribute("liquidManure"):setText(string.format(g_i18n:getText("el_ui_amountPerDay"), (item.liquidManure * 24) / daysPerMonth))
-	
+
 	cell.setSelected = Utils.appendedFunction(cell.setSelected, function(cell, selected)
-		if selected then self:onClickListItem(cell) end
+		if selected then
+			self:onClickListItem(cell)
+		end
 	end)
 
 end
 
-
 function EnhancedLivestockFrame:onClickSortButton(button)
-	
+
 	local buttonState = self.buttonStates[button]
 
 	self["sortingIcon_" .. tostring(buttonState.sorter)]:setVisible(false)
@@ -250,12 +246,14 @@ function EnhancedLivestockFrame:onClickSortButton(button)
 	self["sortingIcon_" .. tostring(not buttonState.sorter)]:setPosition(button.position[1] + GuiUtils.getNormalizedXValue(buttonState.pos), 0)
 
 	buttonState.sorter = not buttonState.sorter
-	
+
 	local sorter = buttonState.sorter
 	local target = buttonState.target
 
 	table.sort(self.data, function(a, b)
-		if sorter then return a[target] > b[target] end
+		if sorter then
+			return a[target] > b[target]
+		end
 
 		return a[target] < b[target]
 	end)
@@ -263,7 +261,6 @@ function EnhancedLivestockFrame:onClickSortButton(button)
 	self.husbandryList:reloadData()
 
 end
-
 
 function EnhancedLivestockFrame:onClickListItem(item)
 
@@ -282,12 +279,13 @@ function EnhancedLivestockFrame:onClickListItem(item)
 
 end
 
-
 function EnhancedLivestockFrame:onClickChangeMonitors()
 
 	local selectedRow = self.selectedRow
 
-	if selectedRow == nil then return end
+	if selectedRow == nil then
+		return
+	end
 
 	local animals = selectedRow.placeable:getClusters()
 
@@ -319,7 +317,9 @@ function EnhancedLivestockFrame:onClickChangeMonitors()
 
 	for _, animal in pairs(animals) do
 
-		if not animal.monitor.active and not animal.monitor.removed then continue end
+		if not animal.monitor.active and not animal.monitor.removed then
+			continue
+		end
 
 		selectedRow.totalMonitored = selectedRow.totalMonitored + 1
 

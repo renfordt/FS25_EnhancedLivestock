@@ -3,12 +3,13 @@ EL_HandTool = {}
 local modDirectory = g_currentModDirectory
 local modName = g_currentModName
 
-
 function EL_HandTool:load(superFunc, data)
 
 	local storeItem = g_storeManager:getItemByXMLFilename(self.configFileName)
 
-	if not string.contains(self.type.name, modName) or storeItem ~= nil then return superFunc(self, data) end
+	if not string.contains(self.type.name, modName) or storeItem ~= nil then
+		return superFunc(self, data)
+	end
 
 	self:loadNonStoreItem(data, self.configFileName)
 
@@ -16,10 +17,9 @@ end
 
 HandTool.load = Utils.overwrittenFunction(HandTool.load, EL_HandTool.load)
 
-
 function HandTool:loadNonStoreItem(data, xmlFile)
 
-	self.isRL = true
+	self.isEL = true
 
 	local handToolSystem = g_currentMission.handToolSystem
 
@@ -43,7 +43,7 @@ function HandTool:loadNonStoreItem(data, xmlFile)
 	end
 
 	self.i3dFilename = modDirectory .. self.xmlFile:getValue("handTool.base.filename")
-		
+
 	if self.i3dFilename == nil then
 		self:loadFinishedNonStoreItem()
 	else
@@ -56,7 +56,6 @@ function HandTool:loadNonStoreItem(data, xmlFile)
 	return nil
 
 end
-
 
 function HandTool:loadFinishedNonStoreItem()
 
@@ -72,11 +71,15 @@ function HandTool:loadFinishedNonStoreItem()
 
 		local uniqueId = savegame.xmlFile:getValue(savegame.key .. "#uniqueId", nil)
 
-		if uniqueId ~= nil then self:setUniqueId(uniqueId) end
+		if uniqueId ~= nil then
+			self:setUniqueId(uniqueId)
+		end
 
 		local farmId = savegame.xmlFile:getValue(savegame.key .. "#farmId", AccessHandler.EVERYONE)
 
-		if g_farmManager.mergedFarms ~= nil and g_farmManager.mergedFarms[farmId] ~= nil then farmId = g_farmManager.mergedFarms[farmId] end
+		if g_farmManager.mergedFarms ~= nil and g_farmManager.mergedFarms[farmId] ~= nil then
+			farmId = g_farmManager.mergedFarms[farmId]
+		end
 
 		self:setOwnerFarmId(farmId, true)
 
@@ -84,7 +87,7 @@ function HandTool:loadFinishedNonStoreItem()
 
 	self.typeDesc = self.xmlFile:getValue("handTool.base.typeDesc", "TypeDescription", self.customEnvironment, true)
 	self.activateText = self.xmlFile:getValue("handTool.base.actions#activate", "Activate", self.customEnvironment, true)
-	
+
 	if self.i3dNode ~= nil then
 
 		self.rootNode = getChildAt(self.i3dNode, 0)
@@ -170,7 +173,6 @@ function HandTool:loadFinishedNonStoreItem()
 
 end
 
-
 function HandTool:i3dFileLoadedNonStoreItem(node)
 
 	if node == 0 then
@@ -188,7 +190,6 @@ function HandTool:i3dFileLoadedNonStoreItem(node)
 	end
 
 end
-
 
 function HandTool:onFinishedLoadingNonStoreItem()
 

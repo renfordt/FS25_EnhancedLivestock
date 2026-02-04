@@ -22,7 +22,7 @@
 			<Button profile="el_headerButton" position="420px 0px" width="120px" text="$l10n_el_ui_fee" onClick="onClickSortButton" id="feeButton"/>
 			<Button profile="el_headerButton" position="540px 0px" width="120px" text="$l10n_el_ui_input_food" onClick="onClickSortButton" id="foodButton"/>
 			<Button profile="el_headerButton" position="660px 0px" width="120px" text="$l10n_el_ui_input_water" onClick="onClickSortButton" id="waterButton"/>
-			<Button profile="el_headerButton" position="780px 0px" width="120px" text="$l10n_el_ui_input_water" onClick="onClickSortButton" id="strawButton"/>
+			<Button profile="el_headerButton" position="780px 0px" width="120px" text="$l10n_el_ui_input_straw" onClick="onClickSortButton" id="strawButton"/>
 			<Button profile="el_headerButton" position="900px 0px" width="120px" text="$l10n_el_ui_production" onClick="onClickSortButton" id="productionButton"/>
 			<Button profile="el_headerButton" position="1020px 0px" width="120px" text="$l10n_el_ui_output_manure" onClick="onClickSortButton" id="manureButton"/>
 			<Button profile="el_headerButton" position="1140px 0px" width="160px" text="$l10n_el_ui_output_liquidManure" onClick="onClickSortButton" id="liquidManureButton"/>

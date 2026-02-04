@@ -1,0 +1,50 @@
+name: Question [EN]
+description: You got a question? Just ask!
+labels:
+- question
+body:
+- type: markdown
+  attributes:
+    value: 'Please use this template to ask your question!
+
+      '
+- type: dropdown
+  id: mod-version
+  attributes:
+    label: Version
+    description: Which Enhanced Livestock version are you using?
+    options:
+    - '0'
+    - 1.0.0.0
+    - 1.1.0.0-beta1
+    default: 2
+  validations:
+    required: true
+- type: dropdown
+  id: spmp
+  attributes:
+    label: SP/MP
+    description: Did the bug happen in SP or MP?
+    options:
+    - SP (Singleplayer)
+    - MP (Multiplayer)
+    default: 0
+  validations:
+    required: true
+- type: textarea
+  id: question
+  attributes:
+    label: What is your question?
+    description: Question
+    placeholder: Question
+  validations:
+    required: true
+- type: textarea
+  id: screenshots
+  attributes:
+    label: Screenshots
+    description: Use drag and drop into the textbox to upload the screenshots.
+    placeholder: If you have any helpful screenshots to describe the situation, please
+      add them here.
+  validations:
+    required: true

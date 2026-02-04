@@ -1,0 +1,72 @@
+name: Feature Idee/Anfrage [DE]
+description: Eine Anfrage oder Idee für ein Feature.
+labels:
+- Suggestion
+body:
+- type: markdown
+  attributes:
+    value: 'Danke, dass du dir Zeit nimmst, diesen Report auszufüllen.
+
+          Neue Ideen sind immer hilfreich und können Enhanced Livestock verbessern.
+          Bitte fülle den Report aus und beschreibe deine Idee so genau wie möglich.
+          Wenn du eine Bildschirmaufnahme oder ein Video hast, füge sie bitte hinzu.
+          Vielen Dank für deine Unterstützung!
+
+      '
+- type: dropdown
+  id: mod-version
+  attributes:
+    label: Version
+    description: Welche Enhanced Livestock Version verwendest du?
+    options:
+    - '0'
+    - 1.0.0.0
+    - 1.1.0.0-beta1
+    default: 2
+  validations:
+    required: true
+- type: dropdown
+  id: spmp
+  attributes:
+    label: SP/MP
+    description: Betrifft die Idee SP oder MP?
+    options:
+    - SP (Singleplayer)
+    - MP (Multiplayer)
+    default: 0
+  validations:
+    required: true
+- type: textarea
+  id: what-does
+  attributes:
+    label: Was kann mit deiner Idee gemacht werden?
+    description: Beschreibe bitte so gut es geht, was für ein Problem deine Idee löst
+      oder was sie verbessert.
+    placeholder: Beschreibe es so gut es geht.
+  validations:
+    required: true
+- type: textarea
+  id: how-to
+  attributes:
+    label: Wie könnte deine Idee in Enhanced Livestock aussehen?
+    description: Beschreibe bitte, wie es in CP passen könnte.
+    placeholder: Beschreibe es so gut es geht.
+  validations:
+    required: true
+- type: textarea
+  id: alternative
+  attributes:
+    label: Gäbe es eine Alternative?
+    description: Würde es eine Alternative zu deiner Lösung geben?
+    placeholder: Beschreibe es so gut es geht.
+  validations:
+    required: true
+- type: textarea
+  id: screenshots
+  attributes:
+    label: Screenshots
+    description: Ziehe deine Screenshots in das Textfeld, um diese hochzuladen.
+    placeholder: Wenn du Screenshots hast, die helfen deine Idee besser zu verstehen,
+      füge sie bitte hier ein.
+  validations:
+    required: true

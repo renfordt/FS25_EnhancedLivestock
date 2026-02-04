@@ -3,83 +3,78 @@ AnimalUpdateEvent = {}
 local AnimalUpdateEvent_mt = Class(AnimalUpdateEvent, Event)
 InitEventClass(AnimalUpdateEvent, "AnimalUpdateEvent")
 
-
 function AnimalUpdateEvent.emptyNew()
-    local self = Event.new(AnimalUpdateEvent_mt)
-    return self
+	local self = Event.new(AnimalUpdateEvent_mt)
+	return self
 end
-
 
 function AnimalUpdateEvent.new(object, animal, trait, value)
 
-    local self = AnimalUpdateEvent.emptyNew()
+	local self = AnimalUpdateEvent.emptyNew()
 
-    self.object = object
-    self.animal = animal
-    self.trait = trait
-    self.value = value
+	self.object = object
+	self.animal = animal
+	self.trait = trait
+	self.value = value
 
-    return self
+	return self
 
 end
-
 
 function AnimalUpdateEvent:readStream(streamId, connection)
 
-    self.object = NetworkUtil.readNodeObject(streamId)
-    self.animal = Animal.readStreamIdentifiers(streamId, connection)
+	self.object = NetworkUtil.readNodeObject(streamId)
+	self.animal = Animal.readStreamIdentifiers(streamId, connection)
 
-    self.trait = streamReadString(streamId)
-    local valueType = streamReadString(streamId)
+	self.trait = streamReadString(streamId)
+	local valueType = streamReadString(streamId)
 
-    if valueType == "number" then
-        self.value = streamReadFloat32(streamId)
-    elseif valueType == "string" then
-        self.value = streamReadString(streamId)
-    else
-        self.value = streamReadBool(streamId)
-    end
+	if valueType == "number" then
+		self.value = streamReadFloat32(streamId)
+	elseif valueType == "string" then
+		self.value = streamReadString(streamId)
+	else
+		self.value = streamReadBool(streamId)
+	end
 
-    self:run(connection)
+	self:run(connection)
 
 end
-
 
 function AnimalUpdateEvent:writeStream(streamId, connection)
 
-    NetworkUtil.writeNodeObject(streamId, self.object)
-    
-    self.animal:writeStreamIdentifiers(streamId, connection)
-    streamWriteString(streamId, self.trait)
-    
-    local valueType = type(self.value)
-    streamWriteString(streamId, valueType)
+	NetworkUtil.writeNodeObject(streamId, self.object)
 
-    if valueType == "number" then
-        streamWriteFloat32(streamId, self.value)
-    elseif valueType == "string" then
-        streamWriteString(streamId, self.value)
-    else
-        streamWriteBool(streamId, self.value)
-    end
+	self.animal:writeStreamIdentifiers(streamId, connection)
+	streamWriteString(streamId, self.trait)
+
+	local valueType = type(self.value)
+	streamWriteString(streamId, valueType)
+
+	if valueType == "number" then
+		streamWriteFloat32(streamId, self.value)
+	elseif valueType == "string" then
+		streamWriteString(streamId, self.value)
+	else
+		streamWriteBool(streamId, self.value)
+	end
 
 end
 
-
 function AnimalUpdateEvent:run(connection)
 
-    local clusterSystem = self.object:getClusterSystem()
-    local identifiers = self.animal
+	local clusterSystem = self.object:getClusterSystem()
+	local identifiers = self.animal
 
-    for _, animal in pairs(clusterSystem.animals) do
+	for _, animal in pairs(clusterSystem.animals) do
 
-        if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) and animal.animalTypeIndex == identifiers.animalTypeIndex then
+		if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) and animal.animalTypeIndex == identifiers.animalTypeIndex then
 
-            animal[self.trait] = self.value
-            return
+			animal[self.trait] = self.value
+			return
 
-        end
+		end
 
-    end
+	end
 
 end

@@ -5,11 +5,10 @@ local doubleOptionSliderElement_mt = Class(DoubleOptionSliderElement, MultiTextO
 Gui.registerGuiElement("DoubleOptionSlider", DoubleOptionSliderElement)
 Gui.registerGuiElementProcFunction("DoubleOptionSlider", Gui.assignPlaySampleCallback)
 
-
 function DoubleOptionSliderElement.new(target, customMt)
 
 	local self = MultiTextOptionElement.new(target, customMt or doubleOptionSliderElement_mt)
-	
+
 	self.leftSliderElement = nil
 	self.rightSliderElement = nil
 	self.sliderOffset = nil
@@ -22,12 +21,11 @@ function DoubleOptionSliderElement.new(target, customMt)
 	self.updateTextPosition = true
 	self.leftState = 1
 	self.rightState = 2
-    self.fillingBarOffset = GuiUtils.getNormalizedScreenValues("2px 0px")
+	self.fillingBarOffset = GuiUtils.getNormalizedScreenValues("2px 0px")
 
 	return self
 
 end
-
 
 function DoubleOptionSliderElement:loadFromXML(handle, key)
 
@@ -38,7 +36,6 @@ function DoubleOptionSliderElement:loadFromXML(handle, key)
 	self.updateTextPosition = getXMLBool(handle, key .. "#updateTextPosition") or self.updateTextPosition
 
 end
-
 
 function DoubleOptionSliderElement:loadProfile(profile, applyProfile)
 
@@ -53,7 +50,6 @@ function DoubleOptionSliderElement:loadProfile(profile, applyProfile)
 	self.defaultProfileFillingBarThreePart = profile:getValue("defaultProfileFillingBarThreePart", self.defaultProfileFillingBarThreePart)
 
 end
-
 
 function DoubleOptionSliderElement:copyAttributes(target)
 
@@ -78,7 +74,6 @@ function DoubleOptionSliderElement:copyAttributes(target)
 	DoubleOptionSliderElement:superClass().copyAttributes(self, target)
 
 end
-
 
 function DoubleOptionSliderElement:setElementsByName()
 
@@ -114,7 +109,6 @@ function DoubleOptionSliderElement:setElementsByName()
 	end
 
 end
-
 
 function DoubleOptionSliderElement:addDefaultElements()
 
@@ -196,14 +190,12 @@ function DoubleOptionSliderElement:addDefaultElements()
 
 end
 
-
 function DoubleOptionSliderElement:onOpen()
 
 	DoubleOptionSliderElement:superClass().onOpen(self)
 	self:updateSlider()
 
 end
-
 
 function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, eventUsed)
 
@@ -214,21 +206,25 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 		if isDown then
 
 			local leftButton = self.leftButtonElement
-            self.isLeftButtonPressed = not self.hideLeftRightButtons and GuiUtils.checkOverlayOverlap(posX, posY, leftButton.absPosition[1], leftButton.absPosition[2], leftButton.absSize[1], leftButton.absSize[2], leftButton.hotspot)
+			self.isLeftButtonPressed = not self.hideLeftRightButtons and GuiUtils.checkOverlayOverlap(posX, posY, leftButton.absPosition[1], leftButton.absPosition[2], leftButton.absSize[1], leftButton.absSize[2], leftButton.hotspot)
 
-            local rightButton = self.rightButtonElement
-            self.isRightButtonPressed = not self.hideLeftRightButtons and GuiUtils.checkOverlayOverlap(posX, posY, rightButton.absPosition[1], rightButton.absPosition[2], rightButton.absSize[1], rightButton.absSize[2], rightButton.hotspot)
+			local rightButton = self.rightButtonElement
+			self.isRightButtonPressed = not self.hideLeftRightButtons and GuiUtils.checkOverlayOverlap(posX, posY, rightButton.absPosition[1], rightButton.absPosition[2], rightButton.absSize[1], rightButton.absSize[2], rightButton.hotspot)
 
-            local leftSlider = self.leftSliderElement
-            self.isLeftSliderPressed = leftSlider ~= nil and GuiUtils.checkOverlayOverlap(posX, posY, leftSlider.absPosition[1], leftSlider.absPosition[2], leftSlider.absSize[1], leftSlider.absSize[2], leftSlider.hotspot)
+			local leftSlider = self.leftSliderElement
+			self.isLeftSliderPressed = leftSlider ~= nil and GuiUtils.checkOverlayOverlap(posX, posY, leftSlider.absPosition[1], leftSlider.absPosition[2], leftSlider.absSize[1], leftSlider.absSize[2], leftSlider.hotspot)
 
-            local rightSlider = self.rightSliderElement
-            self.isRightSliderPressed = rightSlider ~= nil and GuiUtils.checkOverlayOverlap(posX, posY, rightSlider.absPosition[1], rightSlider.absPosition[2], rightSlider.absSize[1], rightSlider.absSize[2], rightSlider.hotspot)
+			local rightSlider = self.rightSliderElement
+			self.isRightSliderPressed = rightSlider ~= nil and GuiUtils.checkOverlayOverlap(posX, posY, rightSlider.absPosition[1], rightSlider.absPosition[2], rightSlider.absSize[1], rightSlider.absSize[2], rightSlider.hotspot)
 
-            if self.leftSliderMousePosX == nil and self.isLeftSliderPressed then self.leftSliderMousePosX = posX end
-            if self.rightSliderMousePosX == nil and self.isRightSliderPressed then self.rightSliderMousePosX = posX end
+			if self.leftSliderMousePosX == nil and self.isLeftSliderPressed then
+				self.leftSliderMousePosX = posX
+			end
+			if self.rightSliderMousePosX == nil and self.isRightSliderPressed then
+				self.rightSliderMousePosX = posX
+			end
 
-            self.delayTime = g_time
+			self.delayTime = g_time
 
 		elseif isUp then
 
@@ -268,7 +264,9 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 
 			if #self.texts > 1 then
 
-				if not self:getIsFocused() and (self.isLeftSliderPressed or self.isRightSliderPressed) then FocusManager:setFocus(self) end
+				if not self:getIsFocused() and (self.isLeftSliderPressed or self.isRightSliderPressed) then
+					FocusManager:setFocus(self)
+				end
 
 				if self.isLeftSliderPressed then
 
@@ -285,7 +283,7 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 
 					--if state ~= self.leftState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state < self.leftState)) then
 					if state ~= self.leftState then
-						--print(string.format("left: %s, %s, %s", tostring(state ~= self.leftState), tostring(self.leftState == self.rightState), tostring(state < self.leftState)))
+					--print(string.format("left: %s, %s, %s", tostring(state ~= self.leftState), tostring(self.leftState == self.rightState), tostring(state < self.leftState)))
 
 						self.leftSliderMousePosX = self.leftSliderMousePosX + stepSize * (state - self.leftState)
 						self.leftState = state
@@ -293,15 +291,17 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 
 						slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
 
-						if self.updateTextPosition then self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2]) end
+						if self.updateTextPosition then
+							self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2])
+						end
 
-						if self.useFillingBar then 
-		
+						if self.useFillingBar then
+
 							local lowestSlider = self:getLowestSlider()
 
 							self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
 							self.fillingBarElement:setSize(math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset, nil)
-					
+
 						end
 
 					end
@@ -321,18 +321,20 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 
 					--if state ~= self.rightState and (self.leftState ~= self.rightState or (self.leftState == self.rightState and state > self.rightState)) then
 					if state ~= self.rightState then
-						--print(string.format("right: %s, %s, %s", tostring(state ~= self.rightState), tostring(self.leftState == self.rightState), tostring(state > self.rightState)))
+					--print(string.format("right: %s, %s, %s", tostring(state ~= self.rightState), tostring(self.leftState == self.rightState), tostring(state > self.rightState)))
 
 						self.rightSliderMousePosX = self.rightSliderMousePosX + stepSize * (state - self.rightState)
 						self.rightState = state
 						self:setState(state, true)
-					
+
 						slider:setAbsolutePosition(self.absPosition[1] + sliderPosX + self.sliderOffset, slider.absPosition[2])
 
-						if self.updateTextPosition then self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2]) end
+						if self.updateTextPosition then
+							self.textElement:setAbsolutePosition(slider.absPosition[1] - (self.textElement.absSize[1] - slider.absSize[1]) * 0.5, self.textElement.absPosition[2])
+						end
 
 						if self.useFillingBar then
-		
+
 							local lowestSlider = self:getLowestSlider()
 
 							self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
@@ -354,71 +356,68 @@ function DoubleOptionSliderElement:mouseEvent(posX, posY, isDown, isUp, button, 
 
 end
 
-
 function DoubleOptionSliderElement:updateSlider()
 
-    if self.leftSliderElement ~= nil then
+	if self.leftSliderElement ~= nil then
 
-        if self.sliderOffset == nil then
-            self.sliderOffset = self.leftButtonElement.absSize[1]
-        end
+		if self.sliderOffset == nil then
+			self.sliderOffset = self.leftButtonElement.absSize[1]
+		end
 
-        local text = self.textElement
-        local slider = self.leftSliderElement
+		local text = self.textElement
+		local slider = self.leftSliderElement
 
-        local minVal = self.absPosition[1] + self.sliderOffset
-        local maxVal = self.absPosition[1] + self.absSize[1] - slider.absSize[1] - self.sliderOffset
-        local pos = maxVal
-        if #self.texts > 1 then
-            pos = minVal + (self.leftState - 1) / (#self.texts - 1) * (maxVal - minVal)
-        end
+		local minVal = self.absPosition[1] + self.sliderOffset
+		local maxVal = self.absPosition[1] + self.absSize[1] - slider.absSize[1] - self.sliderOffset
+		local pos = maxVal
+		if #self.texts > 1 then
+			pos = minVal + (self.leftState - 1) / (#self.texts - 1) * (maxVal - minVal)
+		end
 
-        slider:setAbsolutePosition(pos, slider.absPosition[2])
+		slider:setAbsolutePosition(pos, slider.absPosition[2])
 
-        if self.updateTextPosition then
-            text:setAbsolutePosition(pos - (text.absSize[1] - slider.absSize[1]) * 0.5, text.absPosition[2])
-        end
+		if self.updateTextPosition then
+			text:setAbsolutePosition(pos - (text.absSize[1] - slider.absSize[1]) * 0.5, text.absPosition[2])
+		end
 
-    end
+	end
 
-    if self.rightSliderElement ~= nil then
+	if self.rightSliderElement ~= nil then
 
-        if self.sliderOffset == nil then
-            self.sliderOffset = self.leftButtonElement.absSize[1]
-        end
+		if self.sliderOffset == nil then
+			self.sliderOffset = self.leftButtonElement.absSize[1]
+		end
 
-        local text = self.textElement
-        local slider = self.rightSliderElement
+		local text = self.textElement
+		local slider = self.rightSliderElement
 
-        local minVal = self.absPosition[1] + self.sliderOffset
-        local maxVal = self.absPosition[1] + self.absSize[1] - slider.absSize[1] - self.sliderOffset
-        local pos = maxVal
-        if #self.texts > 1 then
-            pos = minVal + (self.rightState - 1) / (#self.texts - 1) * (maxVal - minVal)
-        end
+		local minVal = self.absPosition[1] + self.sliderOffset
+		local maxVal = self.absPosition[1] + self.absSize[1] - slider.absSize[1] - self.sliderOffset
+		local pos = maxVal
+		if #self.texts > 1 then
+			pos = minVal + (self.rightState - 1) / (#self.texts - 1) * (maxVal - minVal)
+		end
 
-        slider:setAbsolutePosition(pos, slider.absPosition[2])
+		slider:setAbsolutePosition(pos, slider.absPosition[2])
 
-    end
+	end
 
 	if self.useFillingBar and self.leftSliderElement ~= nil and self.rightSliderElement ~= nil then
 
 		local fillingBarSize = self.absSize[1] - self.sliderOffset
 
-        if #self.texts > 1 then
-            fillingBarSize = math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset
-        end
-		
+		if #self.texts > 1 then
+			fillingBarSize = math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset
+		end
 
 		local lowestSlider = self:getLowestSlider()
 
 		self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
-        self.fillingBarElement:setSize(fillingBarSize, nil)
+		self.fillingBarElement:setSize(fillingBarSize, nil)
 
 	end
 
 end
-
 
 function DoubleOptionSliderElement:updateFillingBar()
 
@@ -426,32 +425,29 @@ function DoubleOptionSliderElement:updateFillingBar()
 
 		local fillingBarSize = self.absSize[1] - self.sliderOffset
 
-        if #self.texts > 1 then
-            fillingBarSize = math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset
-        end
-		
+		if #self.texts > 1 then
+			fillingBarSize = math.abs((self.leftState - 1) - (self.rightState - 1)) / (#self.texts - 1) * (self.absSize[1] - self.sliderOffset * 2) + self.sliderOffset
+		end
 
 		local lowestSlider = self:getLowestSlider()
 
 		self.fillingBarElement.offset[1] = lowestSlider.absPosition[1] - self.fillingBarElement.absPosition[1] + self.fillingBarOffset[1]
-        self.fillingBarElement:setSize(fillingBarSize, nil)
+		self.fillingBarElement:setSize(fillingBarSize, nil)
 
 	end
 
 end
 
-
 function DoubleOptionSliderElement:updateAbsolutePosition()
 
-    DoubleOptionSliderElement:superClass().updateAbsolutePosition(self)
+	DoubleOptionSliderElement:superClass().updateAbsolutePosition(self)
 	self:updateSlider()
 
 end
 
-
 function DoubleOptionSliderElement:updateContentElement()
 
-    DoubleOptionSliderElement:superClass().updateContentElement(self)
+	DoubleOptionSliderElement:superClass().updateContentElement(self)
 
 	if self.texts ~= nil and #self.texts > 0 then
 
@@ -468,7 +464,6 @@ function DoubleOptionSliderElement:updateContentElement()
 
 end
 
-
 function DoubleOptionSliderElement:setTexts(texts)
 
 	self.leftState = 1
@@ -480,13 +475,11 @@ function DoubleOptionSliderElement:setTexts(texts)
 
 end
 
-
 function DoubleOptionSliderElement:getHighestSlider()
 
 	return self.leftState > self.rightState and self.leftSliderElement or self.rightSliderElement
 
 end
-
 
 function DoubleOptionSliderElement:getLowestSlider()
 
@@ -494,13 +487,11 @@ function DoubleOptionSliderElement:getLowestSlider()
 
 end
 
-
 function DoubleOptionSliderElement:getHighestState()
 
 	return self.leftState > self.rightState and self.leftState or self.rightState
 
 end
-
 
 function DoubleOptionSliderElement:getLowestState()
 

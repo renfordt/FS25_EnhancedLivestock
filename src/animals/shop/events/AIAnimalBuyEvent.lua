@@ -3,14 +3,12 @@ AIAnimalBuyEvent = {}
 local AIAnimalBuyEvent_mt = Class(AIAnimalBuyEvent, Event)
 InitEventClass(AIAnimalBuyEvent, "AIAnimalBuyEvent")
 
-
 function AIAnimalBuyEvent.emptyNew()
 
-    local self = Event.new(AIAnimalBuyEvent_mt)
-    return self
+	local self = Event.new(AIAnimalBuyEvent_mt)
+	return self
 
 end
-
 
 function AIAnimalBuyEvent.new(object, animals, price)
 
@@ -23,7 +21,6 @@ function AIAnimalBuyEvent.new(object, animals, price)
 	return event
 
 end
-
 
 function AIAnimalBuyEvent:readStream(streamId, connection)
 
@@ -46,19 +43,19 @@ function AIAnimalBuyEvent:readStream(streamId, connection)
 
 end
 
-
 function AIAnimalBuyEvent:writeStream(streamId, connection)
 
 	NetworkUtil.writeNodeObject(streamId, self.object)
 
 	streamWriteUInt16(streamId, #self.animals)
 
-	for _, animal in pairs(self.animals) do animal:writeStream(streamId, connection) end
+	for _, animal in pairs(self.animals) do
+		animal:writeStream(streamId, connection)
+	end
 
 	streamWriteFloat32(streamId, self.price)
 
 end
-
 
 function AIAnimalBuyEvent:run(connection)
 
@@ -81,15 +78,20 @@ function AIAnimalBuyEvent:run(connection)
 
 end
 
-
 function AIAnimalBuyEvent.validate(object, numAnimals, price, farmId)
 
-	if object == nil then return AnimalBuyEvent.BUY_ERROR_OBJECT_DOES_NOT_EXIST end
+	if object == nil then
+		return AnimalBuyEvent.BUY_ERROR_OBJECT_DOES_NOT_EXIST
+	end
 
-	if object:getNumOfFreeAnimalSlots() < numAnimals then return AnimalBuyEvent.BUY_ERROR_NOT_ENOUGH_SPACE end
-	
-	if g_currentMission:getMoney(farmId) - price < 0 then return AnimalBuyEvent.BUY_ERROR_NOT_ENOUGH_MONEY end
-	
+	if object:getNumOfFreeAnimalSlots() < numAnimals then
+		return AnimalBuyEvent.BUY_ERROR_NOT_ENOUGH_SPACE
+	end
+
+	if g_currentMission:getMoney(farmId) - price < 0 then
+		return AnimalBuyEvent.BUY_ERROR_NOT_ENOUGH_MONEY
+	end
+
 	return nil
 
 end

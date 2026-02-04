@@ -2,13 +2,12 @@ EnhancedLivestock_FSBaseMission = {}
 local modDirectory = g_currentModDirectory
 local modSettingsDirectory = g_currentModSettingsDirectory
 
-
 local function fixInGameMenu(frame, pageName, uvs, position, predicateFunc)
 
 	local inGameMenu = g_gui.screenControllers[InGameMenu]
 	position = position or #inGameMenu.pagingElement.pages + 1
 
-	for k, v in pairs({pageName}) do
+	for k, v in pairs({ pageName }) do
 		inGameMenu.controlIDs[v] = nil
 	end
 
@@ -16,10 +15,10 @@ local function fixInGameMenu(frame, pageName, uvs, position, predicateFunc)
 		local child = inGameMenu.pagingElement.elements[i]
 		if child == inGameMenu.pageAnimals then
 			position = i
-            break
+			break
 		end
 	end
-	
+
 	inGameMenu[pageName] = frame
 	inGameMenu.pagingElement:addElement(inGameMenu[pageName])
 
@@ -45,7 +44,7 @@ local function fixInGameMenu(frame, pageName, uvs, position, predicateFunc)
 
 	inGameMenu.pagingElement:updateAbsolutePosition()
 	inGameMenu.pagingElement:updatePageMapping()
-	
+
 	inGameMenu:registerPage(inGameMenu[pageName], position, predicateFunc)
 	inGameMenu:addPageTab(inGameMenu[pageName], modDirectory .. "gui/icons.dds", GuiUtils.getUVs(uvs))
 
@@ -62,79 +61,111 @@ local function fixInGameMenu(frame, pageName, uvs, position, predicateFunc)
 
 end
 
-
 function EnhancedLivestock_FSBaseMission:onStartMission()
 
-    g_gui.guis.AnimalScreen:delete()
-    g_gui:loadGui(modDirectory .. "gui/AnimalScreen.xml", "AnimalScreen", g_animalScreen)
+	g_gui.guis.AnimalScreen:delete()
+	g_gui:loadGui(modDirectory .. "gui/AnimalScreen.xml", "AnimalScreen", g_animalScreen)
 
-    local xmlFile = XMLFile.loadIfExists("EnhancedLivestock", modSettingsDirectory .. "Settings.xml")
-    if xmlFile ~= nil then
-        local maxHusbandries = xmlFile:getInt("Settings.setting(0)#maxHusbandries", 2)
-        EnhancedLivestock_AnimalClusterHusbandry.MAX_HUSBANDRIES = maxHusbandries
-        xmlFile:delete()
-    end
+	local xmlFile = XMLFile.loadIfExists("EnhancedLivestock", modSettingsDirectory .. "Settings.xml")
+	if xmlFile ~= nil then
+		local maxHusbandries = xmlFile:getInt("Settings.setting(0)#maxHusbandries", 2)
+		EnhancedLivestock_AnimalClusterHusbandry.MAX_HUSBANDRIES = maxHusbandries
+		xmlFile:delete()
+	end
 
-    AnimalAIDialog.register()
-    AnimalInfoDialog.register()
-    DiseaseDialog.register()
-    FileExplorerDialog.register()
-    ProfileDialog.register()
-    NameInputDialog.register()
-    EarTagColourPickerDialog.register()
-    AnimalFilterDialog.register()
+	AnimalAIDialog.register()
+	AnimalInfoDialog.register()
+	DiseaseDialog.register()
+	FileExplorerDialog.register()
+	ProfileDialog.register()
+	NameInputDialog.register()
+	EarTagColourPickerDialog.register()
+	AnimalFilterDialog.register()
+	ELMigrationDialog.register()
+
+	-- Handle migration conflict or pending migration (server only)
+	if self:getIsServer() then
+		print("Enhanced Livestock: Running on server")
+		if g_elMigrationConflict then
+		-- Show conflict dialog and block mission
+			print("Enhanced Livestock: Showing conflict dialog")
+			if g_ElMigrationManager ~= nil then
+				g_ElMigrationManager:showConflictDialog()
+			else
+				print("Enhanced Livestock: ERROR - g_ElMigrationManager is nil!")
+			end
+		elseif g_elPendingMigration then
+		-- Show migration dialog
+			print("Enhanced Livestock: Showing migration dialog")
+			if g_ElMigrationManager ~= nil then
+				g_ElMigrationManager:showMigrationDialog()
+			else
+				print("Enhanced Livestock: ERROR - g_ElMigrationManager is nil!")
+			end
+		else
+			print("Enhanced Livestock: No migration action needed")
+		end
+	else
+		print("Enhanced Livestock: Not running on server")
+	end
 
 	ELSettings.applyDefaultSettings()
 
-    local temp = self.environment.weather.temperatureUpdater.currentMin or 20
-	local isServer = self:getIsServer() 
+	local temp = self.environment.weather.temperatureUpdater.currentMin or 20
+	local isServer = self:getIsServer()
 
-    for _, placeable in pairs(self.husbandrySystem.placeables) do
+	for _, placeable in pairs(self.husbandrySystem.placeables) do
 
-        local animals = placeable:getClusters()
+		local animals = placeable:getClusters()
 
-        for _, animal in pairs(animals) do
-            animal:updateInput()
-            animal:updateOutput(temp)
-        end
+		for _, animal in pairs(animals) do
+			animal:updateInput()
+			animal:updateOutput(temp)
+		end
 
-        if isServer then placeable:updateInputAndOutput(animals) end
+		if isServer then
+			placeable:updateInputAndOutput(animals)
+		end
 
-    end
+	end
 
-    local enhancedLivestockFrame = EnhancedLivestockFrame.new() 
+	local enhancedLivestockFrame = EnhancedLivestockFrame.new()
 	g_gui:loadGui(modDirectory .. "gui/EnhancedLivestockFrame.xml", "EnhancedLivestockFrame", enhancedLivestockFrame, true)
 
-    fixInGameMenu(enhancedLivestockFrame, "enhancedLivestockFrame", {260,0,256,256}, 4, function() return true end)
+	fixInGameMenu(enhancedLivestockFrame, "enhancedLivestockFrame", { 260, 0, 256, 256 }, 4, function()
+		return true
+	end)
 
-    enhancedLivestockFrame:initialize()
+	enhancedLivestockFrame:initialize()
 
 end
 
 FSBaseMission.onStartMission = Utils.prependedFunction(FSBaseMission.onStartMission, EnhancedLivestock_FSBaseMission.onStartMission)
 
-
 function EnhancedLivestock_FSBaseMission:sendInitialClientState(connection, _, _)
 
-    local animalSystem = g_currentMission.animalSystem
+	local animalSystem = g_currentMission.animalSystem
 
 	for _, setting in pairs(ELSettings.SETTINGS) do
-		if not setting.ignore then setting.state = setting.state or setting.default end
+		if not setting.ignore then
+			setting.state = setting.state or setting.default
+		end
 	end
 
-    connection:sendEvent(EL_BroadcastSettingsEvent.new())
-    connection:sendEvent(AnimalSystemStateEvent.new(animalSystem.countries, animalSystem.animals, animalSystem.aiAnimals))
-    connection:sendEvent(DewarManagerStateEvent.new())
-    connection:sendEvent(HusbandryMessageStateEvent.new(g_currentMission.husbandrySystem.placeables))
+	connection:sendEvent(EL_BroadcastSettingsEvent.new())
+	connection:sendEvent(AnimalSystemStateEvent.new(animalSystem.countries, animalSystem.animals, animalSystem.aiAnimals))
+	connection:sendEvent(DewarManagerStateEvent.new())
+	connection:sendEvent(HusbandryMessageStateEvent.new(g_currentMission.husbandrySystem.placeables))
 
 end
 
 FSBaseMission.sendInitialClientState = Utils.prependedFunction(FSBaseMission.sendInitialClientState, EnhancedLivestock_FSBaseMission.sendInitialClientState)
 
-
 function EnhancedLivestock_FSBaseMission:onDayChanged()
 
-	if not self:getIsServer() then return end
+	if not self:getIsServer() then
+		return
+	end
 
 	local husbandrySystem = self.husbandrySystem
 
@@ -147,11 +178,15 @@ function EnhancedLivestock_FSBaseMission:onDayChanged()
 
 			local aiManager = husbandry:getAIManager()
 
-			if aiManager ~= nil then wages = wages + (aiManager.wage or 0) end
+			if aiManager ~= nil then
+				wages = wages + (aiManager.wage or 0)
+			end
 
 		end
 
-		if wages > 0 then self:addMoney(-wages, farm.farmId, MoneyType.HERDSMAN_WAGES, true, true) end
+		if wages > 0 then
+			self:addMoney(-wages, farm.farmId, MoneyType.HERDSMAN_WAGES, true, true)
+		end
 
 	end
 

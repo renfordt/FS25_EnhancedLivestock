@@ -1,12 +1,10 @@
 EL_PlaceableHusbandry = {}
 
-
 function EL_PlaceableHusbandry.registerFunctions(placeable)
 	SpecializationUtil.registerFunction(placeable, "updateInputAndOutput", PlaceableHusbandry.updateInputAndOutput)
 end
 
 PlaceableHusbandry.registerFunctions = Utils.appendedFunction(PlaceableHusbandry.registerFunctions, EL_PlaceableHusbandry.registerFunctions)
-
 
 function EL_PlaceableHusbandry:onHourChanged()
 
@@ -18,11 +16,13 @@ function EL_PlaceableHusbandry:onHourChanged()
 		animal:updateOutput(temp)
 	end
 
-	if self.isServer then self:updateInputAndOutput(animals) end
+	if self.isServer then
+		self:updateInputAndOutput(animals)
+	end
 
 end
 
 PlaceableHusbandry.onHourChanged = Utils.appendedFunction(PlaceableHusbandry.onHourChanged, EL_PlaceableHusbandry.onHourChanged)
 
-
-function PlaceableHusbandry:updateInputAndOutput(animals) end
+function PlaceableHusbandry:updateInputAndOutput(animals)
+end

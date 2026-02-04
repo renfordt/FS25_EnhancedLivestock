@@ -1,13 +1,10 @@
 Dewar = {}
 
-
 Dewar.CAPACITY = 1000
 Dewar.PRICE_PER_STRAW = 0.85
 
-
 local dewar_mt = Class(Dewar, PhysicsObject)
 local modDirectory = g_currentModDirectory
-
 
 function Dewar.new(isServer, isClient)
 
@@ -29,7 +26,6 @@ function Dewar.new(isServer, isClient)
 
 end
 
-
 function Dewar:delete()
 
 	g_dewarManager:removeDewar(self:getOwnerFarmId(), self)
@@ -38,29 +34,32 @@ function Dewar:delete()
 		g_i3DManager:releaseSharedI3DFile(self.sharedRequestId)
 		self.sharedRequestId = nil
 	end
-	
+
 	unregisterObjectClassName(self)
-	if self.isAddedToItemSystem then g_currentMission.itemSystem:removeItem(self) end
+	if self.isAddedToItemSystem then
+		g_currentMission.itemSystem:removeItem(self)
+	end
 	Dewar:superClass().delete(self)
 
 end
 
-
 function Dewar:register(position, rotation, animal, quantity)
 
-	--if self.isServer then Dewar:superClass().register(self, true) end
+--if self.isServer then Dewar:superClass().register(self, true) end
 
 	self.position = self.position or position
 	self.rotation = self.rotation or rotation
 	self.mass = 0.1
 
-	if self.nodeId == nil or self.nodeId == 0 then self:createNode(modDirectory .. "objects/dewar/dewar.i3d") end
+	if self.nodeId == nil or self.nodeId == 0 then
+		self:createNode(modDirectory .. "objects/dewar/dewar.i3d")
+	end
 
 	local x, y, z = unpack(self.position)
 	local rx, ry, rz = unpack(self.rotation)
 
 	local node = self.nodeId
-    link(getRootNode(), node)
+	link(getRootNode(), node)
 	setWorldTranslation(node, unpack(self.position))
 	setWorldRotation(node, unpack(self.rotation))
 
@@ -75,22 +74,25 @@ function Dewar:register(position, rotation, animal, quantity)
 		self.isAddedToItemSystem = true
 	end
 
-	if animal ~= nil then self:setAnimal(animal) end
-	if quantity ~= nil then self:setStraws(quantity) end
+	if animal ~= nil then
+		self:setAnimal(animal)
+	end
+	if quantity ~= nil then
+		self:setStraws(quantity)
+	end
 
 	g_dewarManager:addDewar(self:getOwnerFarmId(), self)
 
 	self:updateStrawVisuals()
 	self:updateAnimalVisuals()
 
-	--if g_server ~= nil then
-		--g_server:addObject(self, string.format("dewar_%s", self.uniqueId))
-	--elseif g_client ~= nil then
-		--g_client:addObject(self, string.format("dewar_%s", self.uniqueId))
-	--end
+--if g_server ~= nil then
+--g_server:addObject(self, string.format("dewar_%s", self.uniqueId))
+--elseif g_client ~= nil then
+--g_client:addObject(self, string.format("dewar_%s", self.uniqueId))
+--end
 
 end
-
 
 function Dewar:saveToXMLFile(xmlFile, key)
 
@@ -115,14 +117,13 @@ function Dewar:saveToXMLFile(xmlFile, key)
 		xmlFile:setInt(animalKey .. "#typeIndex", animal.typeIndex)
 		xmlFile:setInt(animalKey .. "#subTypeIndex", animal.subTypeIndex)
 		xmlFile:setFloat(animalKey .. "#success", animal.success)
-		
+
 		for type, value in pairs(animal.genetics) do
 			xmlFile:setFloat(animalKey .. ".genetics#" .. type, value)
 		end
 	end
 
 end
-
 
 function Dewar:loadFromXMLFile(xmlFile, key)
 
@@ -137,7 +138,7 @@ function Dewar:loadFromXMLFile(xmlFile, key)
 	if xmlFile:hasProperty(animalKey) then
 
 		local animal = {}
-		
+
 		animal.country = xmlFile:getInt(animalKey .. "#country")
 		animal.farmId = xmlFile:getString(animalKey .. "#farmId")
 		animal.uniqueId = xmlFile:getString(animalKey .. "#uniqueId")
@@ -145,7 +146,7 @@ function Dewar:loadFromXMLFile(xmlFile, key)
 		animal.typeIndex = xmlFile:getInt(animalKey .. "#typeIndex")
 		animal.subTypeIndex = xmlFile:getInt(animalKey .. "#subTypeIndex")
 		animal.success = xmlFile:getFloat(animalKey .. "#success")
-		
+
 		animal.genetics = {
 			["metabolism"] = xmlFile:getFloat(animalKey .. ".genetics#metabolism"),
 			["fertility"] = xmlFile:getFloat(animalKey .. ".genetics#fertility"),
@@ -153,7 +154,7 @@ function Dewar:loadFromXMLFile(xmlFile, key)
 			["quality"] = xmlFile:getFloat(animalKey .. ".genetics#quality"),
 			["productivity"] = xmlFile:getFloat(animalKey .. ".genetics#productivity")
 		}
-		
+
 		self.animal = animal
 
 	end
@@ -163,7 +164,6 @@ function Dewar:loadFromXMLFile(xmlFile, key)
 	return true
 
 end
-
 
 function Dewar:readStream(streamId, connection)
 
@@ -186,7 +186,7 @@ function Dewar:readStream(streamId, connection)
 
 	local hasAnimal = streamReadBool(streamId)
 	local animal
-	
+
 	if hasAnimal then
 
 		animal = { ["genetics"] = {} }
@@ -205,7 +205,9 @@ function Dewar:readStream(streamId, connection)
 		animal.genetics.quality = streamReadFloat32(streamId)
 		animal.genetics.productivity = streamReadFloat32(streamId)
 
-		if animal.genetics.productivity < 0 then animal.genetics.productivity = nil end
+		if animal.genetics.productivity < 0 then
+			animal.genetics.productivity = nil
+		end
 
 	end
 
@@ -215,15 +217,14 @@ function Dewar:readStream(streamId, connection)
 
 end
 
-
 function Dewar:writeStream(streamId, connection)
 
 	streamWriteString(streamId, self.uniqueId)
-	
+
 	streamWriteFloat32(streamId, self.position[1])
 	streamWriteFloat32(streamId, self.position[2])
 	streamWriteFloat32(streamId, self.position[3])
-	
+
 	streamWriteFloat32(streamId, self.rotation[1])
 	streamWriteFloat32(streamId, self.rotation[2])
 	streamWriteFloat32(streamId, self.rotation[3])
@@ -257,11 +258,10 @@ function Dewar:writeStream(streamId, connection)
 
 end
 
-
 function Dewar:createNode(filename)
 
 	local node, sharedRequestId = g_i3DManager:loadSharedI3DFile(filename, true, true, true)
-    setVisibility(node, true)
+	setVisibility(node, true)
 
 	self.sharedRequestId = sharedRequestId
 	self:setNodeId(node)
@@ -272,13 +272,11 @@ function Dewar:createNode(filename)
 
 end
 
-
 function Dewar:getUniqueId()
 
 	return self.uniqueId
 
 end
-
 
 function Dewar:setUniqueId(uniqueId)
 
@@ -286,18 +284,15 @@ function Dewar:setUniqueId(uniqueId)
 
 end
 
-
 function Dewar:setVisibility(visibility)
 
 	setVisibility(self.nodeId, visibility)
 
 end
 
-
 function Dewar:setAnimal(animal)
 
-	self.animal = 
-	{
+	self.animal = {
 		["country"] = animal.birthday.country,
 		["farmId"] = animal.farmId,
 		["uniqueId"] = animal.uniqueId,
@@ -312,26 +307,26 @@ function Dewar:setAnimal(animal)
 
 end
 
-
 function Dewar:getAnimal()
 
 	return self.animal
 
 end
 
-
 function Dewar:showInfo(box)
 
-	if self.animal == nil then return end
+	if self.animal == nil then
+		return
+	end
 
 	local animal = self.animal
 	local animalSystem = g_currentMission.animalSystem
 	local subType = animalSystem:getSubTypeByIndex(animal.subTypeIndex)
 
-    box:addLine(g_i18n:getText("el_ui_strawMultiple"), tostring(self.straws))
-    box:addLine(g_i18n:getText("el_ui_averageSuccess"), string.format("%s%%", tostring(math.round(animal.success * 100))))
-    box:addLine(g_i18n:getText("el_ui_species"), animalSystem:getTypeByIndex(animal.typeIndex).groupTitle)
-    box:addLine(g_i18n:getText("infohud_type"), g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
+	box:addLine(g_i18n:getText("el_ui_strawMultiple"), tostring(self.straws))
+	box:addLine(g_i18n:getText("el_ui_averageSuccess"), string.format("%s%%", tostring(math.round(animal.success * 100))))
+	box:addLine(g_i18n:getText("el_ui_species"), animalSystem:getTypeByIndex(animal.typeIndex).groupTitle)
+	box:addLine(g_i18n:getText("infohud_type"), g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
 	box:addLine(g_i18n:getText("infohud_name"), animal.name)
 	box:addLine(g_i18n:getText("el_ui_earTag"), string.format("%s %s %s", EnhancedLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId))
 
@@ -340,20 +335,20 @@ function Dewar:showInfo(box)
 		local valueText
 
 		if value >= 1.65 then
-            valueText = "extremelyHigh"
-        elseif value >= 1.4 then
-            valueText = "veryHigh"
-        elseif value >= 1.1 then
-            valueText = "high"
-        elseif value >= 0.9 then
-            valueText = "average"
-        elseif value >= 0.7 then
-            valueText = "low"
-        elseif value >= 0.35 then
-            valueText = "veryLow"
-        else
-            valueText = "extremelyLow"
-        end
+			valueText = "extremelyHigh"
+		elseif value >= 1.4 then
+			valueText = "veryHigh"
+		elseif value >= 1.1 then
+			valueText = "high"
+		elseif value >= 0.9 then
+			valueText = "average"
+		elseif value >= 0.7 then
+			valueText = "low"
+		elseif value >= 0.35 then
+			valueText = "veryLow"
+		else
+			valueText = "extremelyLow"
+		end
 
 		box:addLine(g_i18n:getText("el_ui_" .. type), g_i18n:getText("el_ui_genetics_" .. valueText))
 
@@ -361,20 +356,17 @@ function Dewar:showInfo(box)
 
 end
 
-
 function Dewar:getTotalMass()
 
 	return self.mass
 
 end
 
-
 function Dewar:getCanBePickedUp(player)
 
 	return true
 
 end
-
 
 function Dewar:setStraws(value)
 
@@ -383,7 +375,6 @@ function Dewar:setStraws(value)
 	self:updateStrawVisuals()
 
 end
-
 
 function Dewar:changeStraws(delta)
 
@@ -398,11 +389,14 @@ function Dewar:changeStraws(delta)
 
 end
 
-
 function Dewar:updateStrawVisuals()
 
+	if not VisualAnimal.isFontLibraryAvailable() then
+		return
+	end
+
 	local parent = I3DUtil.indexToObject(self.shapeNode, "0|1")
-	
+
 	set3DTextRemoveSpaces(true)
 	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
 	setTextAlignment(RenderText.ALIGN_CENTER)
@@ -410,9 +404,11 @@ function Dewar:updateStrawVisuals()
 	set3DTextWordsPerLine(1)
 	setTextLineHeightScale(0.75)
 
-	if self.texts.straws ~= nil then delete3DLinkedText(self.texts.straws) end
+	if self.texts.straws ~= nil then
+		delete3DLinkedText(self.texts.straws)
+	end
 	self.texts.straws = create3DLinkedText(parent, 0.003, 0.01, 0.003, 0, math.rad(-90), 0, 0.025, string.format("%s %s", self.straws, self.straws == 1 and "straw" or "straws"))
-	
+
 	set3DTextRemoveSpaces(false)
 	setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_BASELINE)
 	setTextAlignment(RenderText.ALIGN_LEFT)
@@ -422,37 +418,37 @@ function Dewar:updateStrawVisuals()
 
 end
 
-
 function Dewar:updateAnimalVisuals()
 
-	if self.animal == nil then return end
+	if self.animal == nil then
+		return
+	end
 
 	local parent = I3DUtil.indexToObject(self.shapeNode, "0|0")
 
 	local country = EnhancedLivestock.AREA_CODES[self.animal.country].code
 	local farmId = self.animal.farmId
 	local uniqueId = self.animal.uniqueId
-	
-	--set3DTextRemoveSpaces(true)
-	--setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
-	--setTextAlignment(RenderText.ALIGN_CENTER)
-	--setTextColor(1, 0.1, 0.1, 1)
-	--set3DTextWordsPerLine(1)
-	--setTextLineHeightScale(1.25)
 
-	--if self.texts.animal ~= nil then delete3DLinkedText(self.texts.animal) end
-	--self.texts.animal = create3DLinkedText(parent, -0.01, -0.002, 0.008, 0, math.rad(-170), 0, 0.02, string.format("%s %s %s", country, uniqueId, farmId))
+--set3DTextRemoveSpaces(true)
+--setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_MIDDLE)
+--setTextAlignment(RenderText.ALIGN_CENTER)
+--setTextColor(1, 0.1, 0.1, 1)
+--set3DTextWordsPerLine(1)
+--setTextLineHeightScale(1.25)
 
-	--set3DTextAutoScale(false)
-	--set3DTextRemoveSpaces(false)
-	--setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_BASELINE)
-	--setTextAlignment(RenderText.ALIGN_LEFT)
-	--setTextColor(1, 1, 1, 1)
-	--set3DTextWordsPerLine(0)
-	--setTextLineHeightScale(1.1)
+--if self.texts.animal ~= nil then delete3DLinkedText(self.texts.animal) end
+--self.texts.animal = create3DLinkedText(parent, -0.01, -0.002, 0.008, 0, math.rad(-170), 0, 0.02, string.format("%s %s %s", country, uniqueId, farmId))
+
+--set3DTextAutoScale(false)
+--set3DTextRemoveSpaces(false)
+--setTextVerticalAlignment(RenderText.VERTICAL_ALIGN_BASELINE)
+--setTextAlignment(RenderText.ALIGN_LEFT)
+--setTextColor(1, 1, 1, 1)
+--set3DTextWordsPerLine(0)
+--setTextLineHeightScale(1.1)
 
 end
-
 
 function Dewar:getTensionBeltNodeId()
 
@@ -460,13 +456,11 @@ function Dewar:getTensionBeltNodeId()
 
 end
 
-
 function Dewar:getSupportsTensionBelts()
 
 	return true
 
 end
-
 
 function Dewar:getMeshNodes()
 

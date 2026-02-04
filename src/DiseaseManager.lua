@@ -5,7 +5,7 @@ local diseaseManager_mt = Class(DiseaseManager)
 
 function DiseaseManager.new()
 
-    local self = setmetatable({}, diseaseManager_mt)
+	local self = setmetatable({}, diseaseManager_mt)
 
 	self.diseases = {}
 	self.diseasesEnabled = true
@@ -17,15 +17,16 @@ function DiseaseManager.new()
 
 end
 
-
 function DiseaseManager:loadDiseases()
 
 	local xmlFile = XMLFile.loadIfExists("diseases", modDirectory .. "xml/diseases.xml")
 
-	if xmlFile == nil then return end
+	if xmlFile == nil then
+		return
+	end
 
 	xmlFile:iterate("diseases.disease", function(_, key)
-	
+
 		local title = xmlFile:getString(key .. "#title")
 		local translationKey = "el_disease_" .. title
 		local name = g_i18n:getText(translationKey)
@@ -49,12 +50,12 @@ function DiseaseManager:loadDiseases()
 		xmlFile:iterate(key .. ".prerequisites.prerequisite", function(_, prerequisiteKey)
 
 			local valueType = xmlFile:getString(prerequisiteKey .. "#valueType", "Int")
-		
+
 			table.insert(prerequisites, {
 				["path"] = string.split(xmlFile:getString(prerequisiteKey .. "#path"), "."),
 				["value"] = XMLFile["get" .. valueType](xmlFile, prerequisiteKey .. "#value")
 			})
-		
+
 		end)
 
 		local probability = {}
@@ -65,7 +66,7 @@ function DiseaseManager:loadDiseases()
 				["age"] = xmlFile:getInt(probabilityKey .. "#age"),
 				["value"] = xmlFile:getFloat(probabilityKey .. "#value")
 			})
-		
+
 		end)
 
 		local fatality = {}
@@ -76,7 +77,7 @@ function DiseaseManager:loadDiseases()
 				["time"] = xmlFile:getInt(fatalityKey .. "#time"),
 				["value"] = xmlFile:getFloat(fatalityKey .. "#value")
 			})
-		
+
 		end)
 
 		local output = {}
@@ -84,7 +85,7 @@ function DiseaseManager:loadDiseases()
 		xmlFile:iterate(key .. ".output.fillType", function(_, outputKey)
 
 			output[xmlFile:getString(outputKey .. "#type")] = xmlFile:getFloat(outputKey .. "#modifier")
-		
+
 		end)
 
 		local treatment = {
@@ -92,7 +93,9 @@ function DiseaseManager:loadDiseases()
 			["duration"] = xmlFile:getInt(key .. ".treatment#duration")
 		}
 
-		if treatment.cost == nil or treatment.duration == nil then treatment = nil end
+		if treatment.cost == nil or treatment.duration == nil then
+			treatment = nil
+		end
 
 		local recovery = xmlFile:getFloat(key .. "#recovery")
 
@@ -123,7 +126,7 @@ function DiseaseManager:loadDiseases()
 				xmlFile:iterate(key .. ".output.fillType", function(_, outputKey)
 
 					carrierOutput[xmlFile:getString(outputKey .. "#type")] = xmlFile:getFloat(outputKey .. "#modifier")
-		
+
 				end)
 
 				carrier.output = carrierOutput
@@ -145,32 +148,36 @@ function DiseaseManager:loadDiseases()
 		end
 
 		table.insert(self.diseases, disease)
-	
+
 	end)
 
 	xmlFile:delete()
 
 end
 
-
 function DiseaseManager:getDiseaseByTitle(title)
 
 	for _, disease in pairs(self.diseases) do
-		if disease.title == title then return disease end
+		if disease.title == title then
+			return disease
+		end
 	end
 
 	return nil
 
 end
 
-
 function DiseaseManager:onDayChanged(animal)
 
-	if not self.diseasesEnabled then return end
+	if not self.diseasesEnabled then
+		return
+	end
 
 	for _, disease in pairs(self.diseases) do
 
-		if not disease.animals[animal.animalTypeIndex] then continue end
+		if not disease.animals[animal.animalTypeIndex] then
+			continue
+		end
 
 		local eligible = true
 
@@ -183,7 +190,9 @@ function DiseaseManager:onDayChanged(animal)
 
 		end
 
-		if not eligible then continue end
+		if not eligible then
+			continue
+		end
 
 		for _, prerequisite in pairs(disease.prerequisites) do
 
@@ -202,7 +211,9 @@ function DiseaseManager:onDayChanged(animal)
 
 		end
 
-		if not eligible then continue end
+		if not eligible then
+			continue
+		end
 
 		local probability = 0
 
@@ -215,7 +226,9 @@ function DiseaseManager:onDayChanged(animal)
 
 		end
 
-		if math.random() >= probability * self.diseasesChance then continue end
+		if math.random() >= probability * self.diseasesChance then
+			continue
+		end
 
 		animal:addDisease(disease)
 
@@ -223,12 +236,13 @@ function DiseaseManager:onDayChanged(animal)
 
 end
 
-
 function DiseaseManager:setGeneticDiseasesForSaleAnimal(animal)
 
 	for _, disease in pairs(self.diseases) do
 
-		if not disease.animals[animal.animalTypeIndex] or disease.genetic == nil or disease.probability[1].value ~= 0 or #disease.probability > 1 then continue end
+		if not disease.animals[animal.animalTypeIndex] or disease.genetic == nil or disease.probability[1].value ~= 0 or #disease.probability > 1 then
+			continue
+		end
 
 		local eligible = true
 
@@ -241,13 +255,17 @@ function DiseaseManager:setGeneticDiseasesForSaleAnimal(animal)
 
 		end
 
-		if not eligible then continue end
+		if not eligible then
+			continue
+		end
 
 		if math.random() < disease.genetic.saleChance then
 
 			local numGenes = 1
 
-			if math.random() <= 0.25 then numGenes = 2 end
+			if math.random() <= 0.25 then
+				numGenes = 2
+			end
 
 			animal:addDisease(disease, disease.genetic.recessive and numGenes == 1, numGenes)
 
@@ -257,10 +275,11 @@ function DiseaseManager:setGeneticDiseasesForSaleAnimal(animal)
 
 end
 
-
 function DiseaseManager:calculateTransmission(animals)
 
-	if not self.diseasesEnabled then return end
+	if not self.diseasesEnabled then
+		return
+	end
 
 	local diseases = {}
 	local hasDiseases = false
@@ -271,7 +290,9 @@ function DiseaseManager:calculateTransmission(animals)
 
 			local type = disease.type
 
-			if type.transmission == nil or type.transmission <= 0 then continue end
+			if type.transmission == nil or type.transmission <= 0 then
+				continue
+			end
 
 			if diseases[type.title] == nil then
 				diseases[type.title] = { ["type"] = type, ["amount"] = 0 }
@@ -284,9 +305,9 @@ function DiseaseManager:calculateTransmission(animals)
 
 	end
 
-
-	if not hasDiseases then return end
-
+	if not hasDiseases then
+		return
+	end
 
 	for _, animal in pairs(animals) do
 
@@ -303,7 +324,9 @@ function DiseaseManager:calculateTransmission(animals)
 
 			end
 
-			if not eligible then continue end
+			if not eligible then
+				continue
+			end
 
 			for _, prerequisite in pairs(disease.type.prerequisites) do
 
@@ -322,7 +345,9 @@ function DiseaseManager:calculateTransmission(animals)
 
 			end
 
-			if not eligible then continue end
+			if not eligible then
+				continue
+			end
 
 			if math.random() <= disease.type.transmission * (disease.amount / #animals) then
 				animal:addDisease(disease.type)
@@ -335,9 +360,10 @@ function DiseaseManager:calculateTransmission(animals)
 
 end
 
-
 function DiseaseManager.onSettingChanged(name, state)
 
-	if g_diseaseManager ~= nil then g_diseaseManager[name] = state end
+	if g_diseaseManager ~= nil then
+		g_diseaseManager[name] = state
+	end
 
 end

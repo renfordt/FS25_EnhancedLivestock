@@ -3,14 +3,12 @@ AIAnimalInseminationEvent = {}
 local AIAnimalInseminationEvent_mt = Class(AIAnimalInseminationEvent, Event)
 InitEventClass(AIAnimalInseminationEvent, "AIAnimalInseminationEvent")
 
-
 function AIAnimalInseminationEvent.emptyNew()
 
-    local self = Event.new(AIAnimalInseminationEvent_mt)
-    return self
+	local self = Event.new(AIAnimalInseminationEvent_mt)
+	return self
 
 end
-
 
 function AIAnimalInseminationEvent.new(object, items)
 
@@ -22,7 +20,6 @@ function AIAnimalInseminationEvent.new(object, items)
 	return event
 
 end
-
 
 function AIAnimalInseminationEvent:readStream(streamId, connection)
 
@@ -44,7 +41,6 @@ function AIAnimalInseminationEvent:readStream(streamId, connection)
 
 end
 
-
 function AIAnimalInseminationEvent:writeStream(streamId, connection)
 
 	NetworkUtil.writeNodeObject(streamId, self.object)
@@ -52,7 +48,7 @@ function AIAnimalInseminationEvent:writeStream(streamId, connection)
 	streamWriteUInt16(streamId, #self.items)
 
 	for _, item in pairs(self.items) do
-		
+
 		item.animal:writeStreamIdentifiers(streamId, connection)
 		streamWriteString(item.dewar)
 
@@ -60,20 +56,23 @@ function AIAnimalInseminationEvent:writeStream(streamId, connection)
 
 end
 
-
 function AIAnimalInseminationEvent:run(connection)
 
 	local clusterSystem = self.object:getClusterSystem()
 	local farmId = self.object:getOwnerFarmId()
 	local farmDewars = g_dewarManager:getDewarsByFarm(farmId)
 
-	if farmDewars == nil then return end
+	if farmDewars == nil then
+		return
+	end
 
 	for i, item in pairs(self.items) do
-	
+
 		local dewars = farmDewars[item.animal.animalTypeIndex]
 
-		if dewars == nil or #dewars == 0 then continue end
+		if dewars == nil or #dewars == 0 then
+			continue
+		end
 
 		local identifiers = item.animal
 
@@ -84,7 +83,7 @@ function AIAnimalInseminationEvent:run(connection)
 				for _, animal in pairs(clusterSystem.animals) do
 
 					if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
-					
+
 						animal:setInsemination(dewar.animal)
 						dewar:changeStraws(-1)
 

@@ -31,14 +31,14 @@
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/cow/store_cowSwissBrown.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/cow/store_cowSwissBrown.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionCowMilk</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/cow/store_cowSwissBrown.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/cow/store_cowSwissBrown.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionCowMilk</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
@@ -110,13 +110,13 @@
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/cow/store_cowSwissBrown.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/cow/store_cowSwissBrown.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/cow/store_cowSwissBrown.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/cow/store_cowSwissBrown.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
@@ -180,14 +180,14 @@
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/cow/store_cowHolstein.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/cow/store_cowHolstein.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionCowMilk</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/cow/store_cowHolstein.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/cow/store_cowHolstein.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionCowMilk</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
@@ -259,13 +259,13 @@
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/cow/store_cowHolstein.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/cow/store_cowHolstein.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/cow/store_cowHolstein.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/cow/store_cowHolstein.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
@@ -479,14 +479,14 @@
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="4" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="4" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="4" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="4" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
@@ -558,13 +558,13 @@
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="4" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="4" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="4" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="4" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
@@ -628,14 +628,14 @@
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="16" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="16" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|7">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="16" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="16" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
@@ -707,13 +707,13 @@
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="16" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="16" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="16" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="16" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_cowLimousin.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" marker="0|0|0|6">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
@@ -764,27 +764,27 @@
 		</subType>
 		<subType subType="COW_HIGHLAND_CATTLE" fillTypeName="COW_HIGHLAND_CATTLE" gender="female" minWeight="35.0" targetWeight="725.0" maxWeight="1200.0" statsBreeding="breedCowsCount" breed="HIGHLAND" requiredDLC="highlandsFishingPack">
 			<visuals>
-				<visual minAge="0" visualAnimalIndex="19" name="$l10n_animal_visual_baby" image="$dataS/character/animals/domesticated/cow/store_highlandCattleBaby.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" marker="0|0|0|4">
+				<visual minAge="0" visualAnimalIndex="19" name="$l10n_animal_visual_baby" image="$dataS/character/animals/domesticated/cow/store_highlandCattleBaby.png" canBeBought="true" earTagLeftLink="0|0|0|0|0|0|0|0|1|0" earTagRightLink="0|0|0|0|0|0|0|0|2|0">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionBuffaloYoung</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="6" visualAnimalIndex="20" name="$l10n_animal_visual_kid" image="$dataS/character/animals/domesticated/cow/store_highlandCattleKid.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" marker="0|0|0|4">
+				<visual minAge="6" visualAnimalIndex="20" name="$l10n_animal_visual_kid" image="$dataS/character/animals/domesticated/cow/store_highlandCattleKid.png" canBeBought="true" earTagLeftLink="0|0|0|0|0|0|0|0|1|0" earTagRightLink="0|0|0|0|0|0|0|0|2|0">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="false" earTagLeftLink="0|0|0|0|0|0|0|0|0|1|0" earTagRightLink="0|0|0|0|0|0|0|0|0|2|0">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionCowReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="true" earTagLeftLink="0|0|0|0|0|0|0|0|0|1|0" earTagRightLink="0|0|0|0|0|0|0|0|0|2|0">
 					<description>$l10n_animal_descriptionCowProfit</description>
 					<description>$l10n_animal_descriptionCowFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
@@ -844,24 +844,24 @@
 		</subType>
 		<subType subType="BULL_HIGHLAND_CATTLE" fillTypeName="BULL_HIGHLAND_CATTLE" gender="male" minWeight="35.0" targetWeight="950.0" maxWeight="1600.0" statsBreeding="breedCowsCount" breed="HIGHLAND" requiredDLC="highlandsFishingPack">
 			<visuals>
-				<visual minAge="0" visualAnimalIndex="19" name="$l10n_animal_visual_baby" image="$dataS/character/animals/domesticated/cow/store_highlandCattleBaby.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" marker="0|0|0|4">
+				<visual minAge="0" visualAnimalIndex="19" name="$l10n_animal_visual_baby" image="$dataS/character/animals/domesticated/cow/store_highlandCattleBaby.png" canBeBought="true" earTagLeftLink="0|0|0|0|0|0|0|0|1|0" earTagRightLink="0|0|0|0|0|0|0|0|2|0">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionBullYoung</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="6" visualAnimalIndex="20" name="$l10n_animal_visual_kid" image="$dataS/character/animals/domesticated/cow/store_highlandCattleKid.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" marker="0|0|0|4">
+				<visual minAge="6" visualAnimalIndex="20" name="$l10n_animal_visual_kid" image="$dataS/character/animals/domesticated/cow/store_highlandCattleKid.png" canBeBought="true" earTagLeftLink="0|0|0|0|0|0|0|0|1|0" earTagRightLink="0|0|0|0|0|0|0|0|2|0">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="12" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="false" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="12" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="false" earTagLeftLink="0|0|0|0|0|0|0|0|0|1|0" earTagRightLink="0|0|0|0|0|0|0|0|0|2|0">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>
 					<description>$l10n_animal_descriptionBullReproduction</description>
 				</visual>
-				<visual minAge="18" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="true" monitor="0|0|0|0|0|0|0|0|0|1|0|1" earTagLeft="0|0|0|0|0|0|0|0|0|1|0|0" earTagRight="0|0|0|0|0|0|0|0|0|2|0|0" noseRing="0|0|0|0|0|0|0|0|0|7" bumId="0|0|0|6" marker="0|0|0|7">
+				<visual minAge="18" visualAnimalIndex="21" name="$l10n_animal_visual_adult" image="$dataS/character/animals/domesticated/cow/store_highlandCattle.png" canBeBought="true" earTagLeftLink="0|0|0|0|0|0|0|0|0|1|0" earTagRightLink="0|0|0|0|0|0|0|0|0|2|0">
 					<description>$l10n_animal_descriptionBullFeed</description>
 					<description>$l10n_animal_descriptionWater</description>
 					<description>$l10n_animal_descriptionMature</description>

@@ -3,226 +3,221 @@ AnimalSystemStateEvent = {}
 local AnimalSystemStateEvent_mt = Class(AnimalSystemStateEvent, Event)
 InitEventClass(AnimalSystemStateEvent, "AnimalSystemStateEvent")
 
-
 function AnimalSystemStateEvent.emptyNew()
-    local self = Event.new(AnimalSystemStateEvent_mt)
-    return self
+	local self = Event.new(AnimalSystemStateEvent_mt)
+	return self
 end
-
 
 function AnimalSystemStateEvent.new(countries, animals, aiAnimals)
 
-    local self = AnimalSystemStateEvent.emptyNew()
+	local self = AnimalSystemStateEvent.emptyNew()
 
-    self.countries, self.animals, self.aiAnimals = countries, animals, aiAnimals
+	self.countries, self.animals, self.aiAnimals = countries, animals, aiAnimals
 
-    return self
+	return self
 
 end
-
 
 function AnimalSystemStateEvent:readStream(streamId, connection)
 
-    local numCountries = streamReadUInt8(streamId)
-    local countries = {}
+	local numCountries = streamReadUInt8(streamId)
+	local countries = {}
 
-    for i = 1, numCountries do
+	for i = 1, numCountries do
 
-        local farms = {}
-        local numFarms = streamReadUInt8(streamId)
+		local farms = {}
+		local numFarms = streamReadUInt8(streamId)
 
-        for j = 1, numFarms do
+		for j = 1, numFarms do
 
-            local semenPrice = streamReadFloat32(streamId)
-            local quality = streamReadFloat32(streamId)
-            local id = streamReadUInt32(streamId)
-            local numIds = streamReadUInt8(streamId)
-            local ids = {}
+			local semenPrice = streamReadFloat32(streamId)
+			local quality = streamReadFloat32(streamId)
+			local id = streamReadUInt32(streamId)
+			local numIds = streamReadUInt8(streamId)
+			local ids = {}
 
-            for k = 1, numIds do
-                local animalTypeIndex = streamReadUInt8(streamId)
-                local animalId = streamReadUInt32(streamId)
-                ids[animalTypeIndex] = animalId
-            end
+			for k = 1, numIds do
+				local animalTypeIndex = streamReadUInt8(streamId)
+				local animalId = streamReadUInt32(streamId)
+				ids[animalTypeIndex] = animalId
+			end
 
-            table.insert(farms, {
-                ["semenPrice"] = semenPrice,
-                ["quality"] = quality,
-                ["id"] = id,
-                ["ids"] = ids
-            })
+			table.insert(farms, {
+				["semenPrice"] = semenPrice,
+				["quality"] = quality,
+				["id"] = id,
+				["ids"] = ids
+			})
 
-        end
+		end
 
-        countries[i] = {
-            ["farms"] = farms
-        }
+		countries[i] = {
+			["farms"] = farms
+		}
 
-    end
+	end
 
-    self.countries = countries
+	self.countries = countries
 
+	self.animals = {}
+	local numAnimals = streamReadUInt8(streamId)
 
-    self.animals = {}
-    local numAnimals = streamReadUInt8(streamId)
+	for i = 1, numAnimals do
 
-    for i = 1, numAnimals do
+		local animals = {}
+		local numSaleAnimals = streamReadUInt16(streamId)
 
-        local animals = {}
-        local numSaleAnimals = streamReadUInt16(streamId)
+		for j = 1, numSaleAnimals do
 
-        for j = 1, numSaleAnimals do
+			local animal = Animal.new()
+			local success = animal:readStream(streamId, connection)
+			local day = streamReadUInt16(streamId)
 
-            local animal = Animal.new()
-            local success = animal:readStream(streamId, connection)
-            local day = streamReadUInt16(streamId)
+			animal.sale = {
+				["day"] = day
+			}
 
-            animal.sale = {
-                ["day"] = day
-            }
+			table.insert(animals, animal)
 
-            table.insert(animals, animal)
+		end
 
-        end
+		self.animals[i] = animals
 
-        self.animals[i] = animals
+	end
 
-    end
+	self.aiAnimals = {}
+	local numAIAnimals = streamReadUInt8(streamId)
 
+	for i = 1, numAIAnimals do
 
-    self.aiAnimals = {}
-    local numAIAnimals = streamReadUInt8(streamId)
+		local animals = {}
+		local num = streamReadUInt16(streamId)
 
-    for i = 1, numAIAnimals do
+		for j = 1, num do
 
-        local animals = {}
-        local num = streamReadUInt16(streamId)
+			local animal = Animal.new()
+			local success = animal:readStream(streamId, connection)
 
-        for j = 1, num do
+			animal.isAIAnimal = true
+			animal.success = streamReadFloat32(streamId) or 0.65
+			animal.favouritedBy = {}
 
-            local animal = Animal.new()
-            local success = animal:readStream(streamId, connection)
+			local numUsers = streamReadUInt8(streamId)
 
-            animal.isAIAnimal = true
-            animal.success = streamReadFloat32(streamId) or 0.65
-            animal.favouritedBy = {}
+			for k = 1, numUsers do
 
-            local numUsers = streamReadUInt8(streamId)
+				local userId = streamReadString(streamId)
+				local favourite = streamReadBool(streamId)
 
-            for k = 1, numUsers do
+				animal.favouritedBy[userId] = favourite
 
-                local userId = streamReadString(streamId)
-                local favourite = streamReadBool(streamId)
+			end
 
-                animal.favouritedBy[userId] = favourite
+			table.insert(animals, animal)
 
-            end
+		end
 
-            table.insert(animals, animal)
+		self.aiAnimals[i] = animals
 
-        end
+	end
 
-        self.aiAnimals[i] = animals
-
-    end
-
-    self:run(connection)
+	self:run(connection)
 
 end
-
 
 function AnimalSystemStateEvent:writeStream(streamId, connection)
-    
-    local countries = self.countries
-    streamWriteUInt8(streamId, #countries)
 
-    for i = 1, #countries do
+	local countries = self.countries
+	streamWriteUInt8(streamId, #countries)
 
-        local farms = countries[i].farms
+	for i = 1, #countries do
 
-        streamWriteUInt8(streamId, #farms)
+		local farms = countries[i].farms
 
-        for _, farm in pairs(farms) do
+		streamWriteUInt8(streamId, #farms)
 
-            streamWriteFloat32(streamId, farm.semenPrice)
-            streamWriteFloat32(streamId, farm.quality)
-            streamWriteUInt32(streamId, farm.id)
+		for _, farm in pairs(farms) do
 
-            local ids, numIds = farm.ids, 0
+			streamWriteFloat32(streamId, farm.semenPrice)
+			streamWriteFloat32(streamId, farm.quality)
+			streamWriteUInt32(streamId, farm.id)
 
-            for animalTypeIndex, id in pairs(ids) do numIds = numIds + 1 end
+			local ids, numIds = farm.ids, 0
 
-            streamWriteUInt8(streamId, numIds)
+			for animalTypeIndex, id in pairs(ids) do
+				numIds = numIds + 1
+			end
 
-            for animalTypeIndex, id in pairs(ids) do
-                streamWriteUInt8(streamId, animalTypeIndex)
-                streamWriteUInt32(streamId, id)
-            end
+			streamWriteUInt8(streamId, numIds)
 
-        end
+			for animalTypeIndex, id in pairs(ids) do
+				streamWriteUInt8(streamId, animalTypeIndex)
+				streamWriteUInt32(streamId, id)
+			end
 
-    end
+		end
 
+	end
 
-    streamWriteUInt8(streamId, #self.animals)
+	streamWriteUInt8(streamId, #self.animals)
 
-    for i = 1, #self.animals do
+	for i = 1, #self.animals do
 
-        local animals = self.animals[i] or {}
+		local animals = self.animals[i] or {}
 
-        streamWriteUInt16(streamId, #animals)
+		streamWriteUInt16(streamId, #animals)
 
-        for _, animal in pairs(animals) do
+		for _, animal in pairs(animals) do
 
-            local success = animal:writeStream(streamId, connection)
-            streamWriteUInt16(streamId, animal.sale.day)
+			local success = animal:writeStream(streamId, connection)
+			streamWriteUInt16(streamId, animal.sale.day)
 
-        end
+		end
 
-    end
+	end
 
+	streamWriteUInt8(streamId, #self.aiAnimals)
 
-    streamWriteUInt8(streamId, #self.aiAnimals)
+	for i = 1, #self.aiAnimals do
 
-    for i = 1, #self.aiAnimals do
+		local animals = self.aiAnimals[i] or {}
 
-        local animals = self.aiAnimals[i] or {}
+		streamWriteUInt16(streamId, #animals)
 
-        streamWriteUInt16(streamId, #animals)
+		for _, animal in pairs(animals) do
 
-        for _, animal in pairs(animals) do
+			local success = animal:writeStream(streamId, connection)
 
-            local success = animal:writeStream(streamId, connection)
+			streamWriteFloat32(streamId, animal.success or 0.65)
 
-            streamWriteFloat32(streamId, animal.success or 0.65)
+			local numUsers = 0
 
-            local numUsers = 0
+			for userId, _ in pairs(animal.favouritedBy) do
+				numUsers = numUsers + 1
+			end
 
-            for userId, _ in pairs(animal.favouritedBy) do numUsers = numUsers + 1 end
+			streamWriteUInt8(streamId, numUsers)
 
-            streamWriteUInt8(streamId, numUsers)
+			for userId, favourite in pairs(animal.favouritedBy) do
 
-            for userId, favourite in pairs(animal.favouritedBy) do
+				streamWriteString(streamId, userId)
+				streamWriteBool(streamId, favourite)
 
-                streamWriteString(streamId, userId)
-                streamWriteBool(streamId, favourite)
+			end
 
-            end
+		end
 
-        end
-
-    end
+	end
 
 
 end
-
 
 function AnimalSystemStateEvent:run(connection)
 
-    local animalSystem = g_currentMission.animalSystem
+	local animalSystem = g_currentMission.animalSystem
 
-    animalSystem.countries = self.countries
-    animalSystem.animals = self.animals
-    animalSystem.aiAnimals = self.aiAnimals
+	animalSystem.countries = self.countries
+	animalSystem.animals = self.animals
+	animalSystem.aiAnimals = self.aiAnimals
 
 end

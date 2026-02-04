@@ -1,6 +1,5 @@
 local modDirectory = g_currentModDirectory
 
-
 local function getAreVersionsCompatible(version, minVersion)
 
 	local versionParts = string.split(version, ".")
@@ -8,16 +7,19 @@ local function getAreVersionsCompatible(version, minVersion)
 
 	for i, versionNumber in pairs(versionParts) do
 
-		if #minVersionParts < i or versionNumber < minVersionParts[i] then return false end
+		if #minVersionParts < i or versionNumber < minVersionParts[i] then
+			return false
+		end
 
-		if versionNumber > minVersionParts[i] then return true end
+		if versionNumber > minVersionParts[i] then
+			return true
+		end
 
 	end
 
 	return true
 
 end
-
 
 function MPLoadingScreen:verifyDependencies(directory)
 
@@ -63,13 +65,11 @@ function MPLoadingScreen:verifyDependencies(directory)
 
 end
 
-
 function MPLoadingScreen:dependencyProblemOnQuitOk()
 
 	doRestart(false, "")
 
 end
-
 
 MPLoadingScreen.update = Utils.overwrittenFunction(MPLoadingScreen.update, function(self, superFunc, dT)
 

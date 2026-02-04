@@ -1,66 +1,81 @@
 EL_AnimalScreenBase = {}
 
 function EL_AnimalScreenBase:getTargetItems(_)
-    return self.targetItems
+	return self.targetItems
 end
 
 AnimalScreenBase.getTargetItems = Utils.overwrittenFunction(AnimalScreenBase.getTargetItems, EL_AnimalScreenBase.getTargetItems)
 
-
 function EL_AnimalScreenBase.sortAnimals(a, b)
 
-    if a.cluster == nil or b.cluster == nil then return true end
+	if a.cluster == nil or b.cluster == nil then
+		return true
+	end
 
-    local aDisease, bDisease = a.cluster:getHasAnyDisease(), b.cluster:getHasAnyDisease()
+	local aDisease, bDisease = a.cluster:getHasAnyDisease(), b.cluster:getHasAnyDisease()
 
-    if aDisease or bDisease then
+	if aDisease or bDisease then
 
-        if aDisease and not bDisease then return true end
-        if bDisease and not aDisease then return false end
+		if aDisease and not bDisease then
+			return true
+		end
+		if bDisease and not aDisease then
+			return false
+		end
 
-    end
+	end
 
-    if a.cluster.subTypeIndex == b.cluster.subTypeIndex then return a.cluster.age < b.cluster.age end
+	if a.cluster.subTypeIndex == b.cluster.subTypeIndex then
+		return a.cluster.age < b.cluster.age
+	end
 
-    return a.cluster.subTypeIndex < b.cluster.subTypeIndex
+	return a.cluster.subTypeIndex < b.cluster.subTypeIndex
 
 end
-
 
 function EL_AnimalScreenBase.sortSaleAnimals(a, b)
 
-    if a.animal == nil or b.animal == nil then return true end
+	if a.animal == nil or b.animal == nil then
+		return true
+	end
 
-    local aDisease, bDisease = a.animal:getHasAnyDisease(), b.animal:getHasAnyDisease()
+	local aDisease, bDisease = a.animal:getHasAnyDisease(), b.animal:getHasAnyDisease()
 
-    if aDisease or bDisease then
+	if aDisease or bDisease then
 
-        if aDisease and not bDisease then return true end
-        if bDisease and not aDisease then return false end
+		if aDisease and not bDisease then
+			return true
+		end
+		if bDisease and not aDisease then
+			return false
+		end
 
-    end
+	end
 
-    local aValue = a.animal:getSellPrice()
-    local bValue = b.animal:getSellPrice()
+	local aValue = a.animal:getSellPrice()
+	local bValue = b.animal:getSellPrice()
 
-    if a.animal.subTypeIndex == b.animal.subTypeIndex then
+	if a.animal.subTypeIndex == b.animal.subTypeIndex then
 
-        if aValue == bValue then return a.animal.age < b.animal.age end
-        
-        return aValue > bValue
+		if aValue == bValue then
+			return a.animal.age < b.animal.age
+		end
 
-    end
+		return aValue > bValue
 
-    return a.animal.subTypeIndex < b.animal.subTypeIndex
+	end
+
+	return a.animal.subTypeIndex < b.animal.subTypeIndex
 
 end
 
-
 function EL_AnimalScreenBase:onAnimalsChanged(_)
-    if self.trailer == nil then return end
-    self:initItems()
-    self.animalsChangedCallback()
-    self.trailer:updateAnimals()
+	if self.trailer == nil then
+		return
+	end
+	self:initItems()
+	self.animalsChangedCallback()
+	self.trailer:updateAnimals()
 end
 
 AnimalScreenTrailerFarm.onAnimalMovedToTrailer = Utils.appendedFunction(AnimalScreenTrailerFarm.onAnimalMovedToTrailer, EL_AnimalScreenBase.onAnimalsChanged)
@@ -72,24 +87,22 @@ AnimalScreenDealerTrailer.onAnimalsChanged = Utils.appendedFunction(AnimalScreen
 AnimalScreenTrailer.onAnimalLoadedToTrailer = Utils.appendedFunction(AnimalScreenTrailer.onAnimalLoadedToTrailer, EL_AnimalScreenBase.onAnimalsChanged)
 AnimalScreenTrailer.onAnimalsChanged = Utils.appendedFunction(AnimalScreenTrailer.onAnimalsChanged, EL_AnimalScreenBase.onAnimalsChanged)
 
-
 function AnimalScreenBase:setSourceBulkActionFinishedCallback(callback, target)
 
-    function self.sourceBulkActionFinished(error, text, indexes)
+	function self.sourceBulkActionFinished(error, text, indexes)
 
-        callback(target, error, text, indexes)
+		callback(target, error, text, indexes)
 
-    end
+	end
 
 end
 
-
 function AnimalScreenBase:setTargetBulkActionFinishedCallback(callback, target)
 
-    function self.targetBulkActionFinished(error, text, indexes)
+	function self.targetBulkActionFinished(error, text, indexes)
 
-        callback(target, error, text, indexes)
+		callback(target, error, text, indexes)
 
-    end
+	end
 
 end
