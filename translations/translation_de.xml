@@ -180,6 +180,7 @@
 		<text name="el_ui_applyAllMonitor" text="Alle Monitore anwenden"/>
 		<text name="el_ui_removeAllMonitor" text="Alle Monitore entfernen"/>
 		<text name="el_ui_fee" text="Gebühr"/>
+		<text name="el_ui_description" text="Beschreibung"/>
 
 		<text name="el_ui_leftEarTag" text="Linkes Ohr-Etikett"/>
 		<text name="el_ui_rightEarTag" text="Rechte Ohrmarke"/>
@@ -607,7 +608,59 @@
 
 		<text name="el_disease_ped" text="Porzine Epizootische Diarrhoe"/>
 
-		<text name="el_disease_avianFlu" text="Geflügelpes"/>
+		<text name="el_disease_avianFlu" text="Geflügelpest"/>
+
+		<text name="el_disease_colic" text="Kolik"/>
+		<text name="el_disease_laminitis" text="Hufrehe"/>
+		<text name="el_disease_arthritis" text="Arthritis"/>
+		<text name="el_disease_egus" text="Magengeschwür-Syndrom"/>
+		<text name="el_disease_equineAsthma" text="Equines Asthma"/>
+		<text name="el_disease_brd" text="Rindergrippe"/>
+		<text name="el_disease_bvd" text="Bovine Virusdiarrhoe"/>
+		<text name="el_disease_footRot" text="Moderhinke"/>
+		<text name="el_disease_johnes" text="Paratuberkulose"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="Afrikanische Schweinepest"/>
+		<text name="el_disease_swineInfluenza" text="Schweineinfluenza"/>
+		<text name="el_disease_greasyPig" text="Ferkelruß"/>
+		<text name="el_disease_scours" text="Ferkeldurchfall"/>
+		<text name="el_disease_internalParasites" text="Innere Parasiten"/>
+		<text name="el_disease_flystrike" text="Myiasis"/>
+		<text name="el_disease_clostridial" text="Clostridiose"/>
+		<text name="el_disease_twinLambDisease" text="Trächtigkeitstoxikose"/>
+		<text name="el_disease_coccidiosis" text="Kokzidiose"/>
+		<text name="el_disease_mareks" text="Mareksche Krankheit"/>
+		<text name="el_disease_newcastle" text="Newcastle-Krankheit"/>
+		<text name="el_disease_infectiousBronchitis" text="Infektiöse Bronchitis"/>
+
+		<!-- Krankheitsbeschreibungen -->
+		<text name="el_disease_mastitis_desc" text="Bakterielle Euterentzündung mit Schmerzen und verminderter Milchqualität. Betrifft laktierende Tiere und erfordert schnelle Behandlung."/>
+		<text name="el_disease_cvm_desc" text="Genetischer Defekt mit schweren Wirbelfehlbildungen. Kälber sterben meist kurz nach der Geburt. Träger können den Gendefekt weitergeben."/>
+		<text name="el_disease_footAndMouth_desc" text="Hochansteckende Viruskrankheit mit Fieber und Blasen an Maul und Klauen. Erfordert sofortige Quarantäne und Behandlung."/>
+		<text name="el_disease_ped_desc" text="Verheerende Viruserkrankung mit schwerem Durchfall, besonders tödlich für junge Ferkel. Verbreitet sich schnell über Futter und Ausrüstung."/>
+		<text name="el_disease_avianFlu_desc" text="Viruserkrankung von mild bis hochletal. Hochpathogene Formen verursachen plötzlichen Massentod. Zoonotisches Risiko erfordert Biosicherheit."/>
+		<text name="el_disease_colic_desc" text="Bauchschmerzen von leichten Blähungen bis lebensbedrohlicher Darmverdrehung. Häufigste Todesursache bei Pferden."/>
+		<text name="el_disease_laminitis_desc" text="Schmerzhafte Hufentzündung durch reiches Futter, Stress oder Stoffwechselprobleme. Kann zu dauerhafter Lahmheit führen."/>
+		<text name="el_disease_arthritis_desc" text="Degenerative Gelenkerkrankung bei älteren Pferden. Verursacht chronische Schmerzen und eingeschränkte Beweglichkeit."/>
+		<text name="el_disease_egus_desc" text="Magengeschwür-Syndrom bei gestressten Pferden. Verursacht Appetitlosigkeit und Gewichtsverlust. Häufig bei Leistungspferden."/>
+		<text name="el_disease_equineAsthma_desc" text="Chronische allergische Atemwegserkrankung durch Staub in Heu oder Einstreu. Verursacht Husten und Atembeschwerden."/>
+		<text name="el_disease_brd_desc" text="Rindergrippe, häufig nach Transport. Kostspieligste Krankheit in der Rinderhaltung. Kombination aus Stress, Viren und Bakterien."/>
+		<text name="el_disease_bvd_desc" text="Schwächt das Immunsystem und verursacht Fehlgeburten. Persistent infizierte Kälber verbreiten das Virus ihr ganzes Leben."/>
+		<text name="el_disease_footRot_desc" text="Bakterielle Infektion mit schweren Klauenschäden und Lahmheit. Häufig bei nassen Bedingungen. Tiere grasen auf den Knien."/>
+		<text name="el_disease_johnes_desc" text="Chronische, unheilbare Darminfektion mit fortschreitendem Gewichtsverlust. Keine Behandlung verfügbar."/>
+		<text name="el_disease_prrs_desc" text="Eine der wirtschaftlich verheerendsten Schweinekrankheiten weltweit. Verursacht Fortpflanzungsstörungen und schwere Lungenentzündung."/>
+		<text name="el_disease_asf_desc" text="Hämorrhagische Viruserkrankung mit fast 100% Sterblichkeit. Kein Impfstoff oder Heilmittel. Erfordert sofortige Keulung."/>
+		<text name="el_disease_swineInfluenza_desc" text="Atemwegserkrankung mit Fieber und Husten. Geringe Sterblichkeit, aber verlangsamt Wachstum erheblich."/>
+		<text name="el_disease_greasyPig_desc" text="Bakterielle Hautinfektion bei Ferkeln. Haut wird mit fettiger, dunkler Flüssigkeit bedeckt."/>
+		<text name="el_disease_scours_desc" text="Durchfall bei Ferkeln führt zu schneller Austrocknung und Tod. Häufigste Todesursache bei Ferkeln."/>
+		<text name="el_disease_internalParasites_desc" text="Magenwürmer und Leberegel verursachen Anämie und Gewichtsverlust. Größte Gesundheitsherausforderung für Schafe."/>
+		<text name="el_disease_flystrike_desc" text="Schmeißfliegen legen Eier in feuchter Wolle. Maden fressen lebendes Fleisch. Kann schnell tödlich sein."/>
+		<text name="el_disease_clostridial_desc" text="Bodenbakterien setzen tödliche Toxine frei. Plötzlicher Tod oft bei gesündesten Lämmern. Durch Impfung vermeidbar."/>
+		<text name="el_disease_twinLambDisease_desc" text="Trächtigkeitstoxikose in später Trächtigkeit bei Mehrlingen. Führt zu niedrigem Blutzucker und neurologischen Symptomen."/>
+		<text name="el_disease_coccidiosis_desc" text="Parasitäre Darmerkrankung mit blutigem Kot. Hohe Sterblichkeit bei jungen Küken unbehandelt."/>
+		<text name="el_disease_mareks_desc" text="Hochansteckender Viruskrebs mit Tumoren. Klassisches Symptom ist Lähmung mit gespreizten Beinen. Keine Heilung."/>
+		<text name="el_disease_newcastle_desc" text="Akute Viruserkrankung der Atemwege, Nerven und Verdauung. Verdrehter Hals, Keuchen und Lähmung. Hochansteckend."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Hochansteckende virale Atemwegserkrankung. Schädigt Fortpflanzungstrakt dauerhaft, führt zu schlechter Eierqualität."/>
 
 
 

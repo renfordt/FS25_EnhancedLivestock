@@ -178,6 +178,7 @@
 		<text name="el_ui_applyAllMonitor" text="Anvend alle overvågninger"/>
 		<text name="el_ui_removeAllMonitor" text="Fjern alle overvågninger"/>
 		<text name="el_ui_fee" text="Gebyr"/>
+		<text name="el_ui_description" text="Beskrivelse"/>
 
 		<text name="el_ui_leftEarTag" text="Venstre øremærke"/>
 		<text name="el_ui_rightEarTag" text="Højre øremærke"/>
@@ -610,6 +611,58 @@
 		<text name="el_disease_ped" text="Porchine diarré hos svin"/>
 
 		<text name="el_disease_avianFlu" text="Fugleinfluenza"/>
+
+		<text name="el_disease_colic" text="Kolik"/>
+		<text name="el_disease_laminitis" text="Forfangenhed"/>
+		<text name="el_disease_arthritis" text="Gigt"/>
+		<text name="el_disease_egus" text="Mavesår"/>
+		<text name="el_disease_equineAsthma" text="Hesteastma"/>
+		<text name="el_disease_brd" text="Kvægets luftvejssygdom"/>
+		<text name="el_disease_bvd" text="Bovin virusdiarré"/>
+		<text name="el_disease_footRot" text="Klovbrandbyld"/>
+		<text name="el_disease_johnes" text="Paratuberkulose"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="Afrikansk svinepest"/>
+		<text name="el_disease_swineInfluenza" text="Svineinfluenza"/>
+		<text name="el_disease_greasyPig" text="Fedtgris"/>
+		<text name="el_disease_scours" text="Smågrisediarré"/>
+		<text name="el_disease_internalParasites" text="Indre parasitter"/>
+		<text name="el_disease_flystrike" text="Fluestik"/>
+		<text name="el_disease_clostridial" text="Klostridiesygdom"/>
+		<text name="el_disease_twinLambDisease" text="Drægtighedstoksikose"/>
+		<text name="el_disease_coccidiosis" text="Coccidiose"/>
+		<text name="el_disease_mareks" text="Mareks sygdom"/>
+		<text name="el_disease_newcastle" text="Newcastle-sygdom"/>
+		<text name="el_disease_infectiousBronchitis" text="Infektiøs bronkitis"/>
+
+		<!-- Sygdomsbeskrivelser -->
+		<text name="el_disease_mastitis_desc" text="Bakteriel yverbetændelse der forårsager inflammation og reduceret mælkekvalitet. Kræver hurtig behandling."/>
+		<text name="el_disease_cvm_desc" text="Genetisk rygsøjlemisdannelse. Kalve dør kort efter fødslen. Bærere videregiver genet."/>
+		<text name="el_disease_footAndMouth_desc" text="Meget smitsom virussygdom med feber og blærer. Kræver øjeblikkelig karantæne."/>
+		<text name="el_disease_ped_desc" text="Ødelæggende virussygdom med alvorlig diarré, dødelig for grise. Spredes gennem forurenet foder."/>
+		<text name="el_disease_avianFlu_desc" text="Viral luftvejssygdom. Højpatogene stammer forårsager pludselig massedød."/>
+		<text name="el_disease_colic_desc" text="Mavesmerter fra let gas til livstruende tarmsnoninger. Hovedårsag til død hos heste."/>
+		<text name="el_disease_laminitis_desc" text="Smertefuld hovbetændelse udløst af rigt foder eller stress. Kan forårsage permanent halthed."/>
+		<text name="el_disease_arthritis_desc" text="Degenerativ ledsygdom hos ældre heste. Forårsager kroniske smerter og stivhed."/>
+		<text name="el_disease_egus_desc" text="Mavesårssyndrom hos stressede heste. Forårsager tab af appetit og vægt."/>
+		<text name="el_disease_equineAsthma_desc" text="Kronisk allergisk luftvejstilstand fra støv. Forårsager hoste og vejrtrækningsbesvær."/>
+		<text name="el_disease_brd_desc" text="Kvægets luftvejssygdom, ofte efter transport. Dyreste sygdom i kvægavl."/>
+		<text name="el_disease_bvd_desc" text="Undertrykker immunsystemet og forårsager aborter. Vedvarende inficerede kalve spreder virus hele livet."/>
+		<text name="el_disease_footRot_desc" text="Bakteriel infektion der forårsager alvorlig hovskade og halthed. Almindelig i fugtige forhold."/>
+		<text name="el_disease_johnes_desc" text="Kronisk, uhelbredelig tarminfektion. Progressivt vægttab. Ingen tilgængelig behandling."/>
+		<text name="el_disease_prrs_desc" text="En af verdens mest ødelæggende svinesygdomme. Forårsager reproduktionssvigt og alvorlig lungebetændelse."/>
+		<text name="el_disease_asf_desc" text="Hæmoragisk virussygdom med næsten 100% dødelighed. Ingen vaccine. Kræver øjeblikkelig aflivning."/>
+		<text name="el_disease_swineInfluenza_desc" text="Luftvejssygdom med feber og hoste. Lav dødelighed men bremser væksten betydeligt."/>
+		<text name="el_disease_greasyPig_desc" text="Bakteriel hudinfektion hos grise. Huden dækkes med fedtet, mørk væske."/>
+		<text name="el_disease_scours_desc" text="Diarré hos grise fører til hurtig dehydrering og død. Hovedårsag til grisedødelighed."/>
+		<text name="el_disease_internalParasites_desc" text="Maveorme og leverikter forårsager anæmi og vægttab. Største sundhedsudfordring for får."/>
+		<text name="el_disease_flystrike_desc" text="Fluer lægger æg i fugtig uld. Maddiker æder levende kød. Kan dræbe hurtigt."/>
+		<text name="el_disease_clostridial_desc" text="Jordbakterier frigiver dødelige toksiner. Pludselig død ofte hos de sundeste lam. Forebyggelig ved vaccination."/>
+		<text name="el_disease_twinLambDisease_desc" text="Drægtighedstoksikose sent i drægtighedsperioden med tvillinger. Lavt blodsukker forårsager neurologiske symptomer."/>
+		<text name="el_disease_coccidiosis_desc" text="Parasitisk tarmsygdom med blodig afføring. Høj dødelighed hos ubehandlede kyllinger."/>
+		<text name="el_disease_mareks_desc" text="Meget smitsom viral kræft med tumorer. Klassisk symptom: lammelse med spredte ben. Uhelbredelig."/>
+		<text name="el_disease_newcastle_desc" text="Akut virussygdom der påvirker åndedræts-, nerve- og fordøjelsessystemer. Vredet hals, stønnelse og lammelse."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Meget smitsom viral luftvejssygdom. Beskadiger reproduktionstrakt permanent."/>
 
 
 

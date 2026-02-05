@@ -33,7 +33,7 @@
 		</carrier>
 		<genetic recessive="true" saleChance="0.005"/>
 	</disease>
-	
+
 	<disease title="footAndMouth" animals="COW SHEEP PIG" value="0.5" transmission="0.1" immunity="24">
 		<probability>
 			<key age="0" value="0"/>
@@ -50,7 +50,7 @@
 		</output>
 		<treatment cost="250" duration="3"/>
 	</disease>
-	
+
 	<disease title="ped" animals="PIG" value="0.65" transmission="0.075" immunity="12" recovery="3">
 		<probability>
 			<key age="0" value="0.125"/>
@@ -69,7 +69,7 @@
 		</output>
 		<treatment cost="150" duration="1"/>
 	</disease>
-	
+
 	<disease title="avianFlu" animals="CHICKEN" value="0.25" transmission="0.2" immunity="24" recovery="1">
 		<probability>
 			<key age="0" value="0.005"/>
@@ -82,5 +82,357 @@
 			<fillType type="pallets" modifier="0"/>
 		</output>
 	</disease>
-	
+
+	<!-- HORSE DISEASES -->
+
+	<disease title="colic" animals="HORSE" value="0.5" immunity="6" recovery="2">
+		<probability>
+			<key age="0" value="0.001"/>
+			<key age="12" value="0.003"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.15"/>
+			<key time="1" value="0.05"/>
+			<key time="3" value="0.01"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.5"/>
+			<fillType type="liquidManure" modifier="2"/>
+		</output>
+		<treatment cost="500" duration="1"/>
+	</disease>
+
+	<disease title="laminitis" animals="HORSE" value="0.6" immunity="6">
+		<probability>
+			<key age="0" value="0"/>
+			<key age="12" value="0.001"/>
+			<key age="36" value="0.002"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0"/>
+			<key time="6" value="0.02"/>
+			<key time="12" value="0.05"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.8"/>
+		</output>
+		<treatment cost="400" duration="2"/>
+	</disease>
+
+	<disease title="arthritis" animals="HORSE" value="0.7" immunity="0">
+		<probability>
+			<key age="0" value="0"/>
+			<key age="36" value="0"/>
+			<key age="48" value="0.002"/>
+			<key age="72" value="0.005"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.9"/>
+		</output>
+		<treatment cost="300" duration="3"/>
+	</disease>
+
+	<disease title="egus" animals="HORSE" value="0.75" immunity="6" recovery="3">
+		<probability>
+			<key age="0" value="0"/>
+			<key age="12" value="0.002"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0"/>
+			<key time="12" value="0.01"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.7"/>
+		</output>
+		<treatment cost="250" duration="2"/>
+	</disease>
+
+	<disease title="equineAsthma" animals="HORSE" value="0.7" immunity="6">
+		<probability>
+			<key age="0" value="0"/>
+			<key age="24" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.85"/>
+		</output>
+		<treatment cost="200" duration="2"/>
+	</disease>
+
+	<!-- COW DISEASES (additional) -->
+
+	<disease title="brd" animals="COW" value="0.6" transmission="0.08" immunity="12" recovery="3">
+		<probability>
+			<key age="0" value="0.003"/>
+			<key age="12" value="0.001"/>
+			<key age="24" value="0.0005"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.1"/>
+			<key time="2" value="0.05"/>
+			<key time="6" value="0.01"/>
+		</fatality>
+		<output>
+			<fillType type="milk" modifier="0.7"/>
+			<fillType type="manure" modifier="0.8"/>
+		</output>
+		<treatment cost="300" duration="2"/>
+	</disease>
+
+	<disease title="bvd" animals="COW" value="0.55" transmission="0.06" immunity="24" recovery="4">
+		<probability>
+			<key age="0" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.05"/>
+			<key time="6" value="0.03"/>
+		</fatality>
+		<output>
+			<fillType type="milk" modifier="0.5"/>
+			<fillType type="liquidManure" modifier="3"/>
+			<fillType type="manure" modifier="0.3"/>
+		</output>
+		<treatment cost="350" duration="2"/>
+	</disease>
+
+	<disease title="footRot" animals="COW SHEEP" value="0.65" transmission="0.04" immunity="6">
+		<probability>
+			<key age="0" value="0"/>
+			<key age="6" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0"/>
+		</fatality>
+		<output>
+			<fillType type="milk" modifier="0.7"/>
+			<fillType type="pallets" modifier="0.6"/>
+			<fillType type="manure" modifier="0.8"/>
+		</output>
+		<treatment cost="200" duration="2"/>
+	</disease>
+
+	<disease title="johnes" animals="COW" value="0.3" transmission="0.03">
+		<probability>
+			<key age="0" value="0"/>
+			<key age="24" value="0.0003"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0"/>
+			<key time="6" value="0.02"/>
+			<key time="12" value="0.05"/>
+			<key time="24" value="0.15"/>
+		</fatality>
+		<output>
+			<fillType type="milk" modifier="0.4"/>
+			<fillType type="liquidManure" modifier="3"/>
+			<fillType type="manure" modifier="0.3"/>
+		</output>
+	</disease>
+
+	<!-- PIG DISEASES (additional) -->
+
+	<disease title="prrs" animals="PIG" value="0.5" transmission="0.1" immunity="12" recovery="4">
+		<probability>
+			<key age="0" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.15"/>
+			<key time="3" value="0.05"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.7"/>
+			<fillType type="liquidManure" modifier="1.5"/>
+		</output>
+		<treatment cost="250" duration="2"/>
+	</disease>
+
+	<disease title="asf" animals="PIG" value="0.1" transmission="0.15" immunity="24">
+		<probability>
+			<key age="0" value="0.0005"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.8"/>
+			<key time="1" value="0.95"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.3"/>
+			<fillType type="liquidManure" modifier="2"/>
+		</output>
+	</disease>
+
+	<disease title="swineInfluenza" animals="PIG" value="0.75" transmission="0.12" immunity="12" recovery="2">
+		<probability>
+			<key age="0" value="0.002"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.02"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.8"/>
+		</output>
+		<treatment cost="150" duration="1"/>
+	</disease>
+
+	<disease title="greasyPig" animals="PIG" value="0.6" transmission="0.05" immunity="12" recovery="3">
+		<probability>
+			<key age="0" value="0.005"/>
+			<key age="6" value="0.002"/>
+			<key age="12" value="0.0005"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.1"/>
+			<key time="2" value="0.03"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.9"/>
+		</output>
+		<treatment cost="100" duration="1"/>
+	</disease>
+
+	<disease title="scours" animals="PIG" value="0.6" transmission="0.06" immunity="6" recovery="2">
+		<probability>
+			<key age="0" value="0.01"/>
+			<key age="6" value="0.003"/>
+			<key age="12" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.5"/>
+			<key time="1" value="0.1"/>
+			<key time="2" value="0.02"/>
+		</fatality>
+		<output>
+			<fillType type="liquidManure" modifier="3"/>
+			<fillType type="manure" modifier="0.3"/>
+		</output>
+		<treatment cost="100" duration="1"/>
+	</disease>
+
+	<!-- SHEEP DISEASES (additional) -->
+
+	<disease title="internalParasites" animals="SHEEP" value="0.65" transmission="0.04" immunity="3" recovery="4">
+		<probability>
+			<key age="0" value="0.003"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0"/>
+			<key time="6" value="0.03"/>
+			<key time="12" value="0.08"/>
+		</fatality>
+		<output>
+			<fillType type="pallets" modifier="0.5"/>
+			<fillType type="manure" modifier="1.5"/>
+		</output>
+		<treatment cost="50" duration="1"/>
+	</disease>
+
+	<disease title="flystrike" animals="SHEEP" value="0.4" immunity="3">
+		<probability>
+			<key age="0" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.1"/>
+			<key time="1" value="0.3"/>
+		</fatality>
+		<output>
+			<fillType type="pallets" modifier="0.3"/>
+		</output>
+		<treatment cost="150" duration="1"/>
+	</disease>
+
+	<disease title="clostridial" animals="SHEEP" value="0.3" immunity="12">
+		<probability>
+			<key age="0" value="0.001"/>
+			<key age="6" value="0.0005"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.7"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.5"/>
+		</output>
+		<treatment cost="200" duration="1"/>
+	</disease>
+
+	<disease title="twinLambDisease" animals="SHEEP" value="0.5" immunity="12">
+		<prerequisites>
+			<prerequisite path="isPregnant" value="true" valueType="Bool"/>
+		</prerequisites>
+		<probability>
+			<key age="0" value="0"/>
+			<key age="12" value="0.003"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.2"/>
+			<key time="1" value="0.4"/>
+		</fatality>
+		<output>
+			<fillType type="manure" modifier="0.5"/>
+		</output>
+		<treatment cost="200" duration="1"/>
+	</disease>
+
+	<!-- CHICKEN DISEASES (additional) -->
+
+	<disease title="coccidiosis" animals="CHICKEN" value="0.55" transmission="0.1" immunity="12" recovery="3">
+		<probability>
+			<key age="0" value="0.005"/>
+			<key age="6" value="0.002"/>
+			<key age="12" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.2"/>
+			<key time="2" value="0.05"/>
+		</fatality>
+		<output>
+			<fillType type="pallets" modifier="0.3"/>
+		</output>
+		<treatment cost="30" duration="1"/>
+	</disease>
+
+	<disease title="mareks" animals="CHICKEN" value="0.2" transmission="0.08" immunity="24">
+		<probability>
+			<key age="0" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.1"/>
+			<key time="3" value="0.2"/>
+			<key time="6" value="0.3"/>
+		</fatality>
+		<output>
+			<fillType type="pallets" modifier="0"/>
+		</output>
+	</disease>
+
+	<disease title="newcastle" animals="CHICKEN" value="0.3" transmission="0.15" immunity="18" recovery="2">
+		<probability>
+			<key age="0" value="0.001"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.4"/>
+			<key time="2" value="0.15"/>
+		</fatality>
+		<output>
+			<fillType type="pallets" modifier="0.1"/>
+		</output>
+		<treatment cost="40" duration="1"/>
+	</disease>
+
+	<disease title="infectiousBronchitis" animals="CHICKEN" value="0.6" transmission="0.15" immunity="12" recovery="2">
+		<probability>
+			<key age="0" value="0.002"/>
+		</probability>
+		<fatality>
+			<key time="0" value="0.05"/>
+		</fatality>
+		<output>
+			<fillType type="pallets" modifier="0.3"/>
+		</output>
+		<treatment cost="30" duration="1"/>
+	</disease>
+
 </diseases>

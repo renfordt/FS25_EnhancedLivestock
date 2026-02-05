@@ -181,6 +181,7 @@
 		<text name="el_ui_applyAllMonitor" text="Aseta kaikille seurantalaite"/>
 		<text name="el_ui_removeAllMonitor" text="Poista kaikilta seurantalaite"/>
 		<text name="el_ui_fee" text="Maksu"/>
+		<text name="el_ui_description" text="Kuvaus"/>
 
 		<text name="el_ui_leftEarTag" text="Vasen korvamerkki"/>
 		<text name="el_ui_rightEarTag" text="Oikea korvamerkki"/>
@@ -616,6 +617,58 @@
 		<text name="el_disease_ped" text="PED (sikojen epidemiaripuli)"/>
 
 		<text name="el_disease_avianFlu" text="Lintuinfluenssa"/>
+
+		<text name="el_disease_colic" text="Ähky"/>
+		<text name="el_disease_laminitis" text="Kaviokuume"/>
+		<text name="el_disease_arthritis" text="Niveltulehdus"/>
+		<text name="el_disease_egus" text="Mahahaava"/>
+		<text name="el_disease_equineAsthma" text="Hevosen astma"/>
+		<text name="el_disease_brd" text="Naudan hengitystiesairaus"/>
+		<text name="el_disease_bvd" text="Naudan virusripuli"/>
+		<text name="el_disease_footRot" text="Sorkkamätä"/>
+		<text name="el_disease_johnes" text="Paratuberkuloosi"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="Afrikkalainen sikarutto"/>
+		<text name="el_disease_swineInfluenza" text="Sikainfluenssa"/>
+		<text name="el_disease_greasyPig" text="Porsasrupi"/>
+		<text name="el_disease_scours" text="Porsasripuli"/>
+		<text name="el_disease_internalParasites" text="Sisäloiset"/>
+		<text name="el_disease_flystrike" text="Myiaasi"/>
+		<text name="el_disease_clostridial" text="Klostridiatauti"/>
+		<text name="el_disease_twinLambDisease" text="Tiineystoksemia"/>
+		<text name="el_disease_coccidiosis" text="Kokkidioosi"/>
+		<text name="el_disease_mareks" text="Marekin tauti"/>
+		<text name="el_disease_newcastle" text="Newcastlen tauti"/>
+		<text name="el_disease_infectiousBronchitis" text="Tarttuva keuhkoputkentulehdus"/>
+
+		<!-- Tautikuvaukset -->
+		<text name="el_disease_mastitis_desc" text="Bakteritulehdus utareessa aiheuttaen tulehduksen ja heikentyneen maidon laadun. Vaatii nopeaa hoitoa."/>
+		<text name="el_disease_cvm_desc" text="Geneettinen selkärangan epämuodostuma. Vasikat kuolevat pian syntymän jälkeen. Kantajat siirtävät geenin jälkeläisille."/>
+		<text name="el_disease_footAndMouth_desc" text="Erittäin tarttuva virustauti kuumeella ja rakkuloilla. Vaatii välittömän karanteenin."/>
+		<text name="el_disease_ped_desc" text="Tuhoisa virustauti vakavalla ripulilla, tappava porsaille. Leviää saastuneen rehun kautta."/>
+		<text name="el_disease_avianFlu_desc" text="Viruksen aiheuttama hengitystiesairaus. Erittäin patogeeniset kannat aiheuttavat äkillisen joukkokuoleman."/>
+		<text name="el_disease_colic_desc" text="Vatsakipu lievästä kaasusta hengenvaaralliseen suolen kiertymiseen. Tärkein kuolinsyy hevosilla."/>
+		<text name="el_disease_laminitis_desc" text="Kivulias kavion tulehdus runsaan rehun tai stressin laukaisemana. Voi aiheuttaa pysyvän ontumisen."/>
+		<text name="el_disease_arthritis_desc" text="Rappeutuva nivelsairaus ikääntyvissä hevosissa. Aiheuttaa kroonista kipua ja jäykkyyttä."/>
+		<text name="el_disease_egus_desc" text="Mahahaavaoireyhtymä stressaantuneilla hevosilla. Aiheuttaa ruokahalun ja painon menetystä."/>
+		<text name="el_disease_equineAsthma_desc" text="Krooninen allerginen hengitystiesairaus pölystä. Aiheuttaa yskää ja hengitysvaikeuksia."/>
+		<text name="el_disease_brd_desc" text="Naudan hengitystiesairaus, usein kuljetuksen jälkeen. Kallein tauti nautakarjataloudessa."/>
+		<text name="el_disease_bvd_desc" text="Heikentää immuunijärjestelmää ja aiheuttaa keskenmenoja. Pysyvästi tartunnan saaneet vasikat levittävät virusta koko elämänsä."/>
+		<text name="el_disease_footRot_desc" text="Bakteeritartunta aiheuttaen vakavan sorkkavaurion ja ontumisen. Yleinen kosteissa olosuhteissa."/>
+		<text name="el_disease_johnes_desc" text="Krooninen, parantumaton suolistoinfektio. Etenevä painonlasku. Ei saatavilla olevaa hoitoa."/>
+		<text name="el_disease_prrs_desc" text="Yksi maailman tuhoisimmista sikataudeista. Aiheuttaa lisääntymishäiriöitä ja vakavaa keuhkokuumetta."/>
+		<text name="el_disease_asf_desc" text="Verenvuotoa aiheuttava virustauti lähes 100% kuolleisuudella. Ei rokotetta. Vaatii välittömän lopetuksen."/>
+		<text name="el_disease_swineInfluenza_desc" text="Hengitystiesairaus kuumeella ja yskällä. Alhainen kuolleisuus mutta hidastaa kasvua merkittävästi."/>
+		<text name="el_disease_greasyPig_desc" text="Bakteerien aiheuttama ihoinfektio porsailla. Iho peittyytyy rasvaisen tummalla nesteellä."/>
+		<text name="el_disease_scours_desc" text="Ripuli porsailla johtaa nopeaan kuivumiseen ja kuolemaan. Pääasiallinen porsaiden kuolinsyy."/>
+		<text name="el_disease_internalParasites_desc" text="Mahanloiset ja maksanmarrastoukka aiheuttavat anemiaa ja painonlaskua. Suurin terveyshaaste lampaille."/>
+		<text name="el_disease_flystrike_desc" text="Kärpäset munivat kosteaan villaan. Toukat syövät elävää lihaa. Voi tappaa nopeasti."/>
+		<text name="el_disease_clostridial_desc" text="Maaperän bakteerit vapauttavat tappavia toksiineja. Äkillinen kuolema usein terveimmillä karitsoilla. Ehkäistävissä rokotuksella."/>
+		<text name="el_disease_twinLambDisease_desc" text="Tiineystoksemia myöhäisessä tiineydessä kaksosilla. Matala verensokeri aiheuttaa neurologisia oireita."/>
+		<text name="el_disease_coccidiosis_desc" text="Loisten aiheuttama suolistosairaus verisissä ulosteissa. Korkea kuolleisuus hoitamattomilla kanoilla."/>
+		<text name="el_disease_mareks_desc" text="Erittäin tarttuva virussyöpä kasvaimilla. Klassinen oire: halvaus jalkojen ollessa levällään. Parantumaton."/>
+		<text name="el_disease_newcastle_desc" text="Akuutti virustauti joka vaikuttaa hengitys-, hermo- ja ruoansulatusjärjestelmiin. Väännetty kaula, hengästyminen ja halvaus."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Erittäin tarttuva viruksen aiheuttama hengitystiesairaus. Vahingoittaa lisääntymiskanavan pysyvästi."/>
 
 
 

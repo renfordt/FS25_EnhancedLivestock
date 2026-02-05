@@ -180,6 +180,7 @@
 		<text name="el_ui_applyAllMonitor" text="Aplicar Todos os Monitores"/>
 		<text name="el_ui_removeAllMonitor" text="Remover Todos os Monitores"/>
 		<text name="el_ui_fee" text="Taxa"/>
+		<text name="el_ui_description" text="Descrição"/>
 
 		<text name="el_ui_leftEarTag" text="Brinco Esquerdo"/>
 		<text name="el_ui_rightEarTag" text="Brinco Direito"/>
@@ -612,6 +613,58 @@
 		<text name="el_disease_ped" text="Diarreia Epidêmica Suína"/>
 
 		<text name="el_disease_avianFlu" text="Gripe Aviária"/>
+
+		<text name="el_disease_colic" text="Cólica"/>
+		<text name="el_disease_laminitis" text="Laminite"/>
+		<text name="el_disease_arthritis" text="Artrite"/>
+		<text name="el_disease_egus" text="Síndrome de Úlcera Gástrica"/>
+		<text name="el_disease_equineAsthma" text="Asma Equina"/>
+		<text name="el_disease_brd" text="Doença Respiratória Bovina"/>
+		<text name="el_disease_bvd" text="Diarreia Viral Bovina"/>
+		<text name="el_disease_footRot" text="Podridão do Casco"/>
+		<text name="el_disease_johnes" text="Doença de Johne"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="Peste Suína Africana"/>
+		<text name="el_disease_swineInfluenza" text="Gripe Suína"/>
+		<text name="el_disease_greasyPig" text="Epidermite Exsudativa"/>
+		<text name="el_disease_scours" text="Diarreia Neonatal"/>
+		<text name="el_disease_internalParasites" text="Parasitas Internos"/>
+		<text name="el_disease_flystrike" text="Miíase"/>
+		<text name="el_disease_clostridial" text="Clostridiose"/>
+		<text name="el_disease_twinLambDisease" text="Toxemia da Gestação"/>
+		<text name="el_disease_coccidiosis" text="Coccidiose"/>
+		<text name="el_disease_mareks" text="Doença de Marek"/>
+		<text name="el_disease_newcastle" text="Doença de Newcastle"/>
+		<text name="el_disease_infectiousBronchitis" text="Bronquite Infecciosa"/>
+
+		<!-- Descrições de doenças -->
+		<text name="el_disease_mastitis_desc" text="Infecção bacteriana do úbere causando inflamação e redução da qualidade do leite. Requer tratamento rápido."/>
+		<text name="el_disease_cvm_desc" text="Malformação vertebral complexa genética. Bezerros morrem logo após o nascimento. Portadores transmitem o gene."/>
+		<text name="el_disease_footAndMouth_desc" text="Doença viral altamente contagiosa com febre e bolhas. Requer quarentena imediata."/>
+		<text name="el_disease_ped_desc" text="Doença viral devastadora com diarreia grave, mortal para leitões. Espalha-se por ração contaminada."/>
+		<text name="el_disease_avianFlu_desc" text="Doença respiratória viral. Cepas altamente patogênicas causam morte maciça súbita."/>
+		<text name="el_disease_colic_desc" text="Dor abdominal desde gases leves até torção intestinal fatal. Principal causa de morte em cavalos."/>
+		<text name="el_disease_laminitis_desc" text="Inflamação dolorosa do casco desencadeada por ração rica ou estresse. Pode causar claudicação permanente."/>
+		<text name="el_disease_arthritis_desc" text="Doença articular degenerativa em cavalos idosos. Causa dor crônica e rigidez."/>
+		<text name="el_disease_egus_desc" text="Síndrome de úlcera gástrica em cavalos estressados. Causa perda de apetite e peso."/>
+		<text name="el_disease_equineAsthma_desc" text="Condição respiratória alérgica crônica por poeira. Causa tosse e dificuldade respiratória."/>
+		<text name="el_disease_brd_desc" text="Doença respiratória bovina, frequente após transporte. Doença mais dispendiosa na pecuária bovina."/>
+		<text name="el_disease_bvd_desc" text="Suprime o sistema imunológico e causa abortos. Bezerros persistentemente infectados espalham vírus toda a vida."/>
+		<text name="el_disease_footRot_desc" text="Infecção bacteriana causando graves danos no casco e claudicação. Comum em condições úmidas."/>
+		<text name="el_disease_johnes_desc" text="Infecção intestinal crônica incurável. Perda de peso progressiva. Nenhum tratamento disponível."/>
+		<text name="el_disease_prrs_desc" text="Uma das doenças suínas mais devastadoras do mundo. Causa falha reprodutiva e pneumonia grave."/>
+		<text name="el_disease_asf_desc" text="Doença viral hemorrágica com quase 100% de mortalidade. Sem vacina. Requer abate imediato."/>
+		<text name="el_disease_swineInfluenza_desc" text="Doença respiratória com febre e tosse. Baixa mortalidade mas atrasa significativamente o crescimento."/>
+		<text name="el_disease_greasyPig_desc" text="Infecção cutânea bacteriana em leitões. A pele fica coberta de líquido gorduroso escuro."/>
+		<text name="el_disease_scours_desc" text="Diarreia em leitões levando a desidratação rápida e morte. Principal causa de mortalidade de leitões."/>
+		<text name="el_disease_internalParasites_desc" text="Vermes gástricos e fascíola hepática causam anemia e perda de peso. Maior desafio sanitário para ovelhas."/>
+		<text name="el_disease_flystrike_desc" text="Moscas depositam ovos na lã úmida. As larvas comem carne viva. Pode matar rapidamente."/>
+		<text name="el_disease_clostridial_desc" text="Bactérias do solo liberam toxinas mortais. Morte súbita frequente nos cordeiros mais saudáveis. Evitável por vacinação."/>
+		<text name="el_disease_twinLambDisease_desc" text="Toxemia de gravidez no final da gestação com gêmeos. Hipoglicemia causa sintomas neurológicos."/>
+		<text name="el_disease_coccidiosis_desc" text="Doença parasitária intestinal com fezes sanguinolentas. Alta mortalidade em pintos não tratados."/>
+		<text name="el_disease_mareks_desc" text="Câncer viral altamente contagioso com tumores. Sintoma clássico: paralisia com pernas afastadas. Incurável."/>
+		<text name="el_disease_newcastle_desc" text="Doença viral aguda afetando sistemas respiratório, nervoso e digestivo. Pescoço torcido, ofego e paralisia."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Doença respiratória viral altamente contagiosa. Danifica permanentemente o trato reprodutivo."/>
 
 
 
