@@ -184,6 +184,7 @@
 		<text name="el_ui_applyAllMonitor" text="Appliquer tous les moniteurs"/>
 		<text name="el_ui_removeAllMonitor" text="Supprimer tous les moniteurs"/>
 		<text name="el_ui_fee" text="Frais"/>
+		<text name="el_ui_description" text="Description"/>
 
 		<text name="el_ui_leftEarTag" text="Étiquette d'oreille gauche"/>
 		<text name="el_ui_rightEarTag" text="Étiquette d'oreille droite"/>
@@ -627,6 +628,58 @@
 		<text name="el_disease_ped" text="Diarrhée Épidémique Porcine"/>
 
 		<text name="el_disease_avianFlu" text="Grippe aviaire"/>
+
+		<text name="el_disease_colic" text="Colique"/>
+		<text name="el_disease_laminitis" text="Fourbure"/>
+		<text name="el_disease_arthritis" text="Arthrite"/>
+		<text name="el_disease_egus" text="Syndrome d'ulcère gastrique"/>
+		<text name="el_disease_equineAsthma" text="Asthme équin"/>
+		<text name="el_disease_brd" text="Maladie respiratoire bovine"/>
+		<text name="el_disease_bvd" text="Diarrhée virale bovine"/>
+		<text name="el_disease_footRot" text="Piétin"/>
+		<text name="el_disease_johnes" text="Paratuberculose"/>
+		<text name="el_disease_prrs" text="SRRP"/>
+		<text name="el_disease_asf" text="Peste porcine africaine"/>
+		<text name="el_disease_swineInfluenza" text="Grippe porcine"/>
+		<text name="el_disease_greasyPig" text="Épidermite exsudative"/>
+		<text name="el_disease_scours" text="Diarrhée néonatale"/>
+		<text name="el_disease_internalParasites" text="Parasites internes"/>
+		<text name="el_disease_flystrike" text="Myiase"/>
+		<text name="el_disease_clostridial" text="Clostridiose"/>
+		<text name="el_disease_twinLambDisease" text="Toxémie de gestation"/>
+		<text name="el_disease_coccidiosis" text="Coccidiose"/>
+		<text name="el_disease_mareks" text="Maladie de Marek"/>
+		<text name="el_disease_newcastle" text="Maladie de Newcastle"/>
+		<text name="el_disease_infectiousBronchitis" text="Bronchite infectieuse"/>
+
+		<!-- Descriptions des maladies -->
+		<text name="el_disease_mastitis_desc" text="Infection bactérienne de la mamelle causant inflammation et réduction de la qualité du lait. Nécessite un traitement rapide."/>
+		<text name="el_disease_cvm_desc" text="Malformation vertébrale complexe génétique. Les veaux meurent peu après la naissance. Les porteurs transmettent le gène."/>
+		<text name="el_disease_footAndMouth_desc" text="Maladie virale très contagieuse avec fièvre et cloques. Nécessite une quarantaine immédiate."/>
+		<text name="el_disease_ped_desc" text="Maladie virale dévastatrice avec diarrhée sévère, mortelle pour les porcelets. Se propage par l'alimentation contaminée."/>
+		<text name="el_disease_avianFlu_desc" text="Maladie respiratoire virale. Les souches hautement pathogènes causent une mort massive soudaine."/>
+		<text name="el_disease_colic_desc" text="Douleur abdominale allant de gaz légers à torsion intestinale mortelle. Principale cause de décès chez les chevaux."/>
+		<text name="el_disease_laminitis_desc" text="Inflammation douloureuse du sabot déclenchée par alimentation riche ou stress. Peut causer une boiterie permanente."/>
+		<text name="el_disease_arthritis_desc" text="Maladie articulaire dégénérative chez les chevaux âgés. Cause douleur chronique et raideur."/>
+		<text name="el_disease_egus_desc" text="Syndrome d'ulcère gastrique chez les chevaux stressés. Cause perte d'appétit et amaigrissement."/>
+		<text name="el_disease_equineAsthma_desc" text="Affection respiratoire allergique chronique due à la poussière. Cause toux et difficultés respiratoires."/>
+		<text name="el_disease_brd_desc" text="Maladie respiratoire bovine, souvent après transport. Maladie la plus coûteuse en élevage bovin."/>
+		<text name="el_disease_bvd_desc" text="Affaiblit le système immunitaire et cause des avortements. Les veaux infectés de façon persistante propagent le virus toute leur vie."/>
+		<text name="el_disease_footRot_desc" text="Infection bactérienne causant lésions graves du sabot et boiterie. Fréquente en conditions humides."/>
+		<text name="el_disease_johnes_desc" text="Infection intestinale chronique incurable. Perte de poids progressive. Aucun traitement disponible."/>
+		<text name="el_disease_prrs_desc" text="L'une des maladies porcines les plus dévastatrices au monde. Cause échec reproductif et pneumonie sévère."/>
+		<text name="el_disease_asf_desc" text="Maladie virale hémorragique avec près de 100% de mortalité. Aucun vaccin. Nécessite abattage immédiat."/>
+		<text name="el_disease_swineInfluenza_desc" text="Maladie respiratoire avec fièvre et toux. Faible mortalité mais ralentit considérablement la croissance."/>
+		<text name="el_disease_greasyPig_desc" text="Infection cutanée bactérienne chez les porcelets. La peau se couvre de liquide gras foncé."/>
+		<text name="el_disease_scours_desc" text="Diarrhée chez les porcelets causant déshydratation rapide et mort. Principale cause de mortalité des porcelets."/>
+		<text name="el_disease_internalParasites_desc" text="Vers gastriques et douves hépatiques causant anémie et perte de poids. Plus grand défi sanitaire pour les ovins."/>
+		<text name="el_disease_flystrike_desc" text="Les mouches pondent des œufs dans la laine humide. Les asticots mangent la chair vivante. Peut tuer rapidement."/>
+		<text name="el_disease_clostridial_desc" text="Bactéries du sol libérant des toxines mortelles. Mort subite souvent chez les agneaux les plus sains. Évitable par vaccination."/>
+		<text name="el_disease_twinLambDisease_desc" text="Toxémie de gestation en fin de grossesse avec jumeaux. Hypoglycémie causant symptômes neurologiques."/>
+		<text name="el_disease_coccidiosis_desc" text="Maladie parasitaire intestinale avec fientes sanglantes. Forte mortalité chez les poussins non traités."/>
+		<text name="el_disease_mareks_desc" text="Cancer viral très contagieux avec tumeurs. Symptôme classique : paralysie avec pattes écartées. Incurable."/>
+		<text name="el_disease_newcastle_desc" text="Maladie virale aiguë affectant systèmes respiratoire, nerveux et digestif. Cou tordu, halètement et paralysie."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Maladie respiratoire virale très contagieuse. Endommage le système reproducteur de façon permanente."/>
 
 
 

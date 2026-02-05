@@ -85,11 +85,18 @@ function DiseaseDialog:onClickListItem(index)
 
 	local disease = self.diseases[index]
 
-	if disease == nil or disease.type.treatment == nil or disease.cured then
+	if disease == nil then
+		return
+	end
 
+	-- Update description text
+	if self.descriptionText ~= nil then
+		self.descriptionText:setText(disease.type.description or "")
+	end
+
+	if disease.type.treatment == nil or disease.cured then
 		self.yesButton:setDisabled(true)
 		return
-
 	end
 
 	self.yesButton:setDisabled(false)

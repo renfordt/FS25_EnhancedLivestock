@@ -30,6 +30,8 @@ function DiseaseManager:loadDiseases()
 		local title = xmlFile:getString(key .. "#title")
 		local translationKey = "el_disease_" .. title
 		local name = g_i18n:getText(translationKey)
+		local descriptionKey = translationKey .. "_desc"
+		local description = g_i18n:getText(descriptionKey)
 
 		local animals = {}
 		local animalTitles = string.split(xmlFile:getString(key .. "#animals"), " ")
@@ -103,6 +105,8 @@ function DiseaseManager:loadDiseases()
 			["title"] = title,
 			["key"] = translationKey,
 			["name"] = name,
+			["descriptionKey"] = descriptionKey,
+			["description"] = description,
 			["animals"] = animals,
 			["value"] = valueModifier,
 			["transmission"] = transmission,

@@ -177,6 +177,7 @@
 		<text name="el_ui_applyAllMonitor" text="Attiva tutti i monitoraggi"/>
 		<text name="el_ui_removeAllMonitor" text="Rimuovi tutti i monitoraggi"/>
 		<text name="el_ui_fee" text="Tassa"/>
+		<text name="el_ui_description" text="Descrizione"/>
 
 		<text name="el_ui_leftEarTag" text="Marca orecchio sinistro"/>
 		<text name="el_ui_rightEarTag" text="Marca orecchio destro"/>
@@ -604,6 +605,58 @@
 		<text name="el_disease_footAndMouth" text="Afta epizootica"/>
 		<text name="el_disease_ped" text="PED (Diarrea Epidemica Suina)"/>
 		<text name="el_disease_avianFlu" text="Influenza aviaria"/>
+
+		<text name="el_disease_colic" text="Colica"/>
+		<text name="el_disease_laminitis" text="Laminite"/>
+		<text name="el_disease_arthritis" text="Artrite"/>
+		<text name="el_disease_egus" text="Sindrome da ulcera gastrica"/>
+		<text name="el_disease_equineAsthma" text="Asma equina"/>
+		<text name="el_disease_brd" text="Malattia respiratoria bovina"/>
+		<text name="el_disease_bvd" text="Diarrea virale bovina"/>
+		<text name="el_disease_footRot" text="Zoppina"/>
+		<text name="el_disease_johnes" text="Paratubercolosi"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="Peste suina africana"/>
+		<text name="el_disease_swineInfluenza" text="Influenza suina"/>
+		<text name="el_disease_greasyPig" text="Epidermite essudativa"/>
+		<text name="el_disease_scours" text="Diarrea neonatale"/>
+		<text name="el_disease_internalParasites" text="Parassiti interni"/>
+		<text name="el_disease_flystrike" text="Miasi"/>
+		<text name="el_disease_clostridial" text="Clostridiosi"/>
+		<text name="el_disease_twinLambDisease" text="Tossiemia gravidica"/>
+		<text name="el_disease_coccidiosis" text="Coccidiosi"/>
+		<text name="el_disease_mareks" text="Malattia di Marek"/>
+		<text name="el_disease_newcastle" text="Malattia di Newcastle"/>
+		<text name="el_disease_infectiousBronchitis" text="Bronchite infettiva"/>
+
+		<!-- Descrizioni malattie -->
+		<text name="el_disease_mastitis_desc" text="Infezione batterica della mammella causando infiammazione e ridotta qualità del latte. Richiede trattamento rapido."/>
+		<text name="el_disease_cvm_desc" text="Malformazione vertebrale complessa genetica. I vitelli muoiono poco dopo la nascita. I portatori trasmettono il gene."/>
+		<text name="el_disease_footAndMouth_desc" text="Malattia virale altamente contagiosa con febbre e vesciche. Richiede quarantena immediata."/>
+		<text name="el_disease_ped_desc" text="Malattia virale devastante con diarrea grave, letale per i suinetti. Si diffonde tramite mangime contaminato."/>
+		<text name="el_disease_avianFlu_desc" text="Malattia respiratoria virale. I ceppi altamente patogeni causano morte massiccia improvvisa."/>
+		<text name="el_disease_colic_desc" text="Dolore addominale da gas lieve a torsione intestinale mortale. Principale causa di morte nei cavalli."/>
+		<text name="el_disease_laminitis_desc" text="Infiammazione dolorosa dello zoccolo da alimentazione ricca o stress. Può causare zoppia permanente."/>
+		<text name="el_disease_arthritis_desc" text="Malattia articolare degenerativa nei cavalli anziani. Causa dolore cronico e rigidità."/>
+		<text name="el_disease_egus_desc" text="Sindrome da ulcera gastrica nei cavalli stressati. Causa perdita di appetito e dimagrimento."/>
+		<text name="el_disease_equineAsthma_desc" text="Condizione respiratoria allergica cronica da polvere. Causa tosse e difficoltà respiratorie."/>
+		<text name="el_disease_brd_desc" text="Malattia respiratoria bovina, spesso dopo trasporto. Malattia più costosa nell'allevamento bovino."/>
+		<text name="el_disease_bvd_desc" text="Sopprime il sistema immunitario e causa aborti. I vitelli persistentemente infetti diffondono il virus per tutta la vita."/>
+		<text name="el_disease_footRot_desc" text="Infezione batterica causando gravi danni allo zoccolo e zoppia. Comune in condizioni umide."/>
+		<text name="el_disease_johnes_desc" text="Infezione intestinale cronica incurabile. Perdita di peso progressiva. Nessun trattamento disponibile."/>
+		<text name="el_disease_prrs_desc" text="Una delle malattie suine più devastanti al mondo. Causa fallimento riproduttivo e polmonite grave."/>
+		<text name="el_disease_asf_desc" text="Malattia virale emorragica con quasi 100% di mortalità. Nessun vaccino. Richiede abbattimento immediato."/>
+		<text name="el_disease_swineInfluenza_desc" text="Malattia respiratoria con febbre e tosse. Bassa mortalità ma rallenta notevolmente la crescita."/>
+		<text name="el_disease_greasyPig_desc" text="Infezione cutanea batterica nei suinetti. La pelle si copre di liquido grasso scuro."/>
+		<text name="el_disease_scours_desc" text="Diarrea nei suinetti causando rapida disidratazione e morte. Principale causa di mortalità dei suinetti."/>
+		<text name="el_disease_internalParasites_desc" text="Vermi gastrici e distomi epatici causano anemia e perdita di peso. Maggiore sfida sanitaria per le pecore."/>
+		<text name="el_disease_flystrike_desc" text="Le mosche depongono uova nella lana umida. I vermi mangiano carne viva. Può uccidere rapidamente."/>
+		<text name="el_disease_clostridial_desc" text="Batteri del suolo rilasciano tossine mortali. Morte improvvisa spesso negli agnelli più sani. Prevenibile con vaccinazione."/>
+		<text name="el_disease_twinLambDisease_desc" text="Tossiemia gravidica in tarda gravidanza con gemelli. Ipoglicemia causa sintomi neurologici."/>
+		<text name="el_disease_coccidiosis_desc" text="Malattia parassitaria intestinale con feci sanguinolente. Alta mortalità nei pulcini non trattati."/>
+		<text name="el_disease_mareks_desc" text="Cancro virale altamente contagioso con tumori. Sintomo classico: paralisi con zampe divaricate. Incurabile."/>
+		<text name="el_disease_newcastle_desc" text="Malattia virale acuta che colpisce sistemi respiratorio, nervoso e digestivo. Collo storto, ansimare e paralisi."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Malattia respiratoria virale altamente contagiosa. Danneggia permanentemente il tratto riproduttivo."/>
 
 		<!-- MESSAGES -->
 		<text name="el_messageTitle_pregnancy" text="Gravidanza"/>

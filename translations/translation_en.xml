@@ -183,6 +183,7 @@
 		<text name="el_ui_applyAllMonitor" text="Apply All Monitors"/>
 		<text name="el_ui_removeAllMonitor" text="Remove All Monitors"/>
 		<text name="el_ui_fee" text="Fee"/>
+		<text name="el_ui_description" text="Description"/>
 
 		<text name="el_ui_leftEarTag" text="Left Ear Tag"/>
 		<text name="el_ui_rightEarTag" text="Right Ear Tag"/>
@@ -628,9 +629,60 @@
 		<text name="el_disease_ped" text="Porcine Epidemic Diarrhoea"/>
 		
 		<text name="el_disease_avianFlu" text="Avian Influenza"/>
-		
-		
-		
+
+		<text name="el_disease_colic" text="Colic"/>
+		<text name="el_disease_laminitis" text="Laminitis"/>
+		<text name="el_disease_arthritis" text="Arthritis"/>
+		<text name="el_disease_egus" text="Gastric Ulcer Syndrome"/>
+		<text name="el_disease_equineAsthma" text="Equine Asthma"/>
+		<text name="el_disease_brd" text="Bovine Respiratory Disease"/>
+		<text name="el_disease_bvd" text="Bovine Viral Diarrhea"/>
+		<text name="el_disease_footRot" text="Foot Rot"/>
+		<text name="el_disease_johnes" text="Johne's Disease"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="African Swine Fever"/>
+		<text name="el_disease_swineInfluenza" text="Swine Influenza"/>
+		<text name="el_disease_greasyPig" text="Greasy Pig Disease"/>
+		<text name="el_disease_scours" text="Scours"/>
+		<text name="el_disease_internalParasites" text="Internal Parasites"/>
+		<text name="el_disease_flystrike" text="Flystrike"/>
+		<text name="el_disease_clostridial" text="Clostridial Disease"/>
+		<text name="el_disease_twinLambDisease" text="Twin Lamb Disease"/>
+		<text name="el_disease_coccidiosis" text="Coccidiosis"/>
+		<text name="el_disease_mareks" text="Marek's Disease"/>
+		<text name="el_disease_newcastle" text="Newcastle Disease"/>
+		<text name="el_disease_infectiousBronchitis" text="Infectious Bronchitis"/>
+
+		<!-- Disease Descriptions -->
+		<text name="el_disease_mastitis_desc" text="Bacterial infection of the udder causing inflammation, pain, and reduced milk quality. Affects lactating females and requires prompt treatment to prevent chronic damage."/>
+		<text name="el_disease_cvm_desc" text="Complex Vertebral Malformation is a genetic condition causing severe spinal defects. Calves typically die shortly after birth. Carriers can produce normally but may pass the gene to offspring."/>
+		<text name="el_disease_footAndMouth_desc" text="Highly contagious viral disease causing fever and blisters around the mouth and hooves. Severely impacts production and welfare. Requires immediate quarantine and treatment."/>
+		<text name="el_disease_ped_desc" text="Porcine Epidemic Diarrhea is a devastating viral disease causing severe watery diarrhea, especially deadly in young piglets. Spreads rapidly through contaminated feed and equipment."/>
+		<text name="el_disease_avianFlu_desc" text="Viral respiratory disease ranging from mild to highly lethal strains. High-pathogenic forms cause sudden mass death. Zoonotic risk requires biosecurity measures."/>
+		<text name="el_disease_colic_desc" text="Abdominal pain ranging from mild gas to life-threatening intestinal twisting. Leading cause of death in horses. Requires immediate veterinary attention for severe cases."/>
+		<text name="el_disease_laminitis_desc" text="Painful inflammation of hoof tissues often triggered by rich feed, stress, or metabolic issues. Can cause permanent lameness and requires strict dietary management."/>
+		<text name="el_disease_arthritis_desc" text="Degenerative joint disease common in aging and performance horses. Causes chronic pain, stiffness, and reduced mobility. Management focuses on pain relief and controlled exercise."/>
+		<text name="el_disease_egus_desc" text="Equine Gastric Ulcer Syndrome affects horses in high-stress environments. Causes poor appetite, weight loss, and behavioral changes. Common in performance horses."/>
+		<text name="el_disease_equineAsthma_desc" text="Chronic allergic respiratory condition triggered by dust and mold in hay or bedding. Causes coughing, difficulty breathing, and exercise intolerance."/>
+		<text name="el_disease_brd_desc" text="Bovine Respiratory Disease, often called 'shipping fever', is the most costly disease in beef cattle. Combination of stress, viruses, and bacteria causing pneumonia."/>
+		<text name="el_disease_bvd_desc" text="Bovine Viral Diarrhea suppresses the immune system and causes reproductive failure. Persistently infected calves spread virus their entire lives and must be identified."/>
+		<text name="el_disease_footRot_desc" text="Bacterial infection causing severe hoof damage and lameness. Common in wet, muddy conditions. Affected animals graze on their knees and lose weight rapidly."/>
+		<text name="el_disease_johnes_desc" text="Chronic, incurable bacterial infection of the intestines causing progressive weight loss and diarrhea. No treatment available, symptoms may not appear for years."/>
+		<text name="el_disease_prrs_desc" text="Porcine Reproductive and Respiratory Syndrome is one of the most economically damaging swine diseases globally. Causes reproductive failure in sows and severe pneumonia in piglets."/>
+		<text name="el_disease_asf_desc" text="African Swine Fever is a hemorrhagic viral disease with near 100% mortality. No vaccine or cure exists. Devastating to swine populations, requires immediate culling."/>
+		<text name="el_disease_swineInfluenza_desc" text="Respiratory disease causing fever, lethargy, and coughing. Low mortality but spreads instantly through barns and significantly slows growth rates."/>
+		<text name="el_disease_greasyPig_desc" text="Bacterial skin infection common in piglets where skin becomes covered in greasy, dark fluid. Caused by bacteria entering through cuts or abrasions."/>
+		<text name="el_disease_scours_desc" text="Bacterial or viral diarrhea in piglets leading to rapid dehydration and death. Leading cause of piglet mortality. Requires immediate rehydration and treatment."/>
+		<text name="el_disease_internalParasites_desc" text="Stomach worms and liver flukes causing anemia, weight loss, and bottle jaw. The biggest health challenge for sheep. Dewormer resistance is a major concern."/>
+		<text name="el_disease_flystrike_desc" text="Blowflies lay eggs in damp wool around the tail. Hatching maggots eat living flesh and release toxins. Can kill rapidly if undetected."/>
+		<text name="el_disease_clostridial_desc" text="Soil bacteria releasing deadly toxins causing sudden death, often in the healthiest, fastest-growing lambs. Entirely preventable with vaccination."/>
+		<text name="el_disease_twinLambDisease_desc" text="Pregnancy toxemia occurs in late pregnancy when ewes carrying multiple lambs cannot eat enough energy. Leads to low blood sugar, neurological symptoms, and coma."/>
+		<text name="el_disease_coccidiosis_desc" text="Parasitic disease damaging intestinal lining, causing bloody droppings and huddled appearance. High mortality in young chicks if left untreated."/>
+		<text name="el_disease_mareks_desc" text="Highly contagious viral cancer causing tumors in nerves and organs. Classic symptom is paralysis with legs stretched in opposite directions. No cure available."/>
+		<text name="el_disease_newcastle_desc" text="Acute viral disease affecting respiratory, nervous, and digestive systems. Symptoms include twisted necks, gasping, and paralysis. Highly contagious and often fatal."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Highly contagious viral respiratory disease causing sneezing and gasping in chicks. Permanently damages reproductive tract, leading to wrinkled, poor-quality eggs."/>
+
+
 		<!--  MESSAGES  -->
 
 

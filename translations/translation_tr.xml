@@ -184,6 +184,7 @@
 		<text name="el_ui_applyAllMonitor" text="Tüm İzlenenlere Uygula"/>
 		<text name="el_ui_removeAllMonitor" text="Tüm İzlenenleri Kaldır"/>
 		<text name="el_ui_fee" text="Ücret"/>
+		<text name="el_ui_description" text="Açıklama"/>
 
 		<text name="el_ui_leftEarTag" text="Sol Kulak Etiketi"/>
 		<text name="el_ui_rightEarTag" text="Sağ Kulak Etiketi"/>
@@ -625,6 +626,58 @@
 		<text name="el_disease_ped" text="Domuz Epidemik İshalli"/>
 
 		<text name="el_disease_avianFlu" text="Kuş Gribi"/>
+
+		<text name="el_disease_colic" text="Kolik"/>
+		<text name="el_disease_laminitis" text="Laminitis"/>
+		<text name="el_disease_arthritis" text="Artrit"/>
+		<text name="el_disease_egus" text="Mide Ülseri Sendromu"/>
+		<text name="el_disease_equineAsthma" text="At Astımı"/>
+		<text name="el_disease_brd" text="Sığır Solunum Yolu Hastalığı"/>
+		<text name="el_disease_bvd" text="Sığır Viral Diyaresi"/>
+		<text name="el_disease_footRot" text="Tırnak Çürüğü"/>
+		<text name="el_disease_johnes" text="Johne Hastalığı"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="Afrika Domuz Vebası"/>
+		<text name="el_disease_swineInfluenza" text="Domuz Gribi"/>
+		<text name="el_disease_greasyPig" text="Yağlı Domuz Hastalığı"/>
+		<text name="el_disease_scours" text="Yavru İshali"/>
+		<text name="el_disease_internalParasites" text="İç Parazitler"/>
+		<text name="el_disease_flystrike" text="Miyaz"/>
+		<text name="el_disease_clostridial" text="Klostridyal Hastalıklar"/>
+		<text name="el_disease_twinLambDisease" text="İkiz Kuzu Hastalığı"/>
+		<text name="el_disease_coccidiosis" text="Koksidiyoz"/>
+		<text name="el_disease_mareks" text="Marek Hastalığı"/>
+		<text name="el_disease_newcastle" text="Newcastle Hastalığı"/>
+		<text name="el_disease_infectiousBronchitis" text="Bulaşıcı Bronşit"/>
+
+		<!-- Hastalık açıklamaları -->
+		<text name="el_disease_mastitis_desc" text="Meme enfeksiyonu, iltihaplanma ve süt kalitesinde düşüşe neden olur. Hızlı tedavi gerektirir."/>
+		<text name="el_disease_cvm_desc" text="Genetik omurga deformasyonu. Buzağılar doğumdan kısa süre sonra ölür. Taşıyıcılar geni aktarır."/>
+		<text name="el_disease_footAndMouth_desc" text="Ateş ve kabarcıklarla gelen oldukça bulaşıcı viral hastalık. Acil karantina gerektirir."/>
+		<text name="el_disease_ped_desc" text="Yavru domuzlar için ölümcül, şiddetli ishal yapan yıkıcı viral hastalık. Kontamine yemle yayılır."/>
+		<text name="el_disease_avianFlu_desc" text="Viral solunum yolu hastalığı. Yüksek patojen suşlar ani toplu ölüme neden olur."/>
+		<text name="el_disease_colic_desc" text="Hafif gazdan hayati tehlike yaratan bağırsak burulmasına kadar karın ağrısı. Atlarda başlıca ölüm nedeni."/>
+		<text name="el_disease_laminitis_desc" text="Zengin yem veya stres nedeniyle oluşan ağrılı toynak iltihabı. Kalıcı topallığa neden olabilir."/>
+		<text name="el_disease_arthritis_desc" text="Yaşlanan atlarda dejeneratif eklem hastalığı. Kronik ağrı ve sertliğe neden olur."/>
+		<text name="el_disease_egus_desc" text="Stresli atlarda mide ülseri sendromu. İştah kaybı ve kilo kaybına neden olur."/>
+		<text name="el_disease_equineAsthma_desc" text="Tozdan kaynaklanan kronik alerjik solunum rahatsızlığı. Öksürük ve nefes alma güçlüğüne neden olur."/>
+		<text name="el_disease_brd_desc" text="Sığır solunum yolu hastalığı, genellikle taşımadan sonra. Sığırcılıkta en maliyetli hastalık."/>
+		<text name="el_disease_bvd_desc" text="Bağışıklık sistemini baskılar ve düşüklere neden olur. Kalıcı enfekte buzağılar yaşam boyu virüs yayar."/>
+		<text name="el_disease_footRot_desc" text="Ciddi tırnak hasarı ve topallığa neden olan bakteriyel enfeksiyon. Nemli koşullarda yaygındır."/>
+		<text name="el_disease_johnes_desc" text="Kronik, tedavi edilemez bağırsak enfeksiyonu. İlerleyici kilo kaybı. Tedavi mevcut değil."/>
+		<text name="el_disease_prrs_desc" text="Dünyada en yıkıcı domuz hastalıklarından biri. Üreme başarısızlığı ve şiddetli zatürreye neden olur."/>
+		<text name="el_disease_asf_desc" text="Neredeyse %100 ölüm oranıyla hemorajik viral hastalık. Aşı yok. Acil kesim gerektirir."/>
+		<text name="el_disease_swineInfluenza_desc" text="Ateş ve öksürükle gelen solunum yolu hastalığı. Düşük ölüm oranı ama büyümeyi önemli ölçüde yavaşlatır."/>
+		<text name="el_disease_greasyPig_desc" text="Yavru domuzlarda bakteriyel deri enfeksiyonu. Deri yağlı, koyu sıvıyla kaplanır."/>
+		<text name="el_disease_scours_desc" text="Yavru domuzlarda hızlı dehidrasyona ve ölüme yol açan ishal. Yavru domuz ölümlerinin başlıca nedeni."/>
+		<text name="el_disease_internalParasites_desc" text="Mide kurtları ve karaciğer kelebeği anemi ve kilo kaybına neden olur. Koyunlar için en büyük sağlık sorunu."/>
+		<text name="el_disease_flystrike_desc" text="Sinekler nemli yüne yumurta bırakır. Kurtçuklar canlı eti yer. Hızla öldürebilir."/>
+		<text name="el_disease_clostridial_desc" text="Toprak bakterileri ölümcül toksinler salgılar. Ani ölüm genellikle en sağlıklı kuzularda. Aşıyla önlenebilir."/>
+		<text name="el_disease_twinLambDisease_desc" text="İkizlerle geç gebelikte gebelik toksemisi. Düşük kan şekeri nörolojik semptomlara neden olur."/>
+		<text name="el_disease_coccidiosis_desc" text="Kanlı dışkılamayla bağırsak parazit hastalığı. Tedavi edilmeyen civcivlerde yüksek ölüm oranı."/>
+		<text name="el_disease_mareks_desc" text="Tümörlerle oldukça bulaşıcı viral kanser. Klasik semptom: bacaklar açıkken felç. Tedavisi yok."/>
+		<text name="el_disease_newcastle_desc" text="Solunum, sinir ve sindirim sistemlerini etkileyen akut viral hastalık. Bükülmüş boyun, nefes darlığı ve felç."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Oldukça bulaşıcı viral solunum yolu hastalığı. Üreme yoluna kalıcı zarar verir."/>
 
 
 
