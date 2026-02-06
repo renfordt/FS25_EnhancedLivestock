@@ -1,5 +1,9 @@
 # Release Notes
 
+## v1.1.2.0
+
+- Fixed a bug where the animals of AnimalPackage Vanilla Edition do not appear in the trailer
+
 ## v1.1.1.0
 
 - Adjusted translations to comply to PEGI 3

@@ -309,7 +309,16 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 		-- not the mod root directory
 		local configDirectory = configFilename:match("(.*[/\\])") or directory
 
-		if self:loadAnimalConfig(animalType, configDirectory, configFilename) then
+		-- For external mods (like AnimalPackage), they may use absolute paths from mod root
+		-- instead of relative paths from config file. Detect this by checking if directory != modDirectory.
+		-- If we're loading from an external mod, use the base directory. Otherwise, use configDirectory.
+		local assetBaseDirectory = configDirectory
+		if directory ~= modDirectory then
+			-- External mod: use base directory for asset resolution (paths are from mod root)
+			assetBaseDirectory = directory
+		end
+
+		if self:loadAnimalConfig(animalType, assetBaseDirectory, configFilename) then
 
 			if self:loadSubTypes(animalType, xmlFile, key, directory) then
 

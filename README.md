@@ -34,6 +34,11 @@ Transform your breeding program with the addition of male animals:
 - Uses vanilla models (no custom 3D models required)
 - **Highland Cattle bull** now available as a male variant
 
+> [!NOTE]
+> This mod currently uses female vanilla models only.
+>
+> We would love to include a male version! If you’re interested in contributing a male counterpart using vanilla assets, please reach out—we welcome your help.
+
 ### 👀 Visual Animals
 Enhanced animal visualization system:
 - **Increased capacity** from 25 (vanilla) up to **200 visual animals** per husbandry
