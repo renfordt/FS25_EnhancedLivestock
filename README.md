@@ -147,9 +147,13 @@ Event tracking for your husbandries:
 - **AI Herdsman actions** - Log automated management decisions
 
 ### 🥩 Butcher Integration
-Seamless integration with EPP Butcher mod:
-- **Direct slaughter** - send animals to butcher directly from the animal screen
-- **Automatic processing** - works with installed EPP Butcher placeables
+Seamless integration with EPP Butcher mods:
+- **Meat processing** - works with installed EPP Butcher placeables
+
+Tested mods:
+- [FS25_Butcher](https://drxml.itch.io/butcher-shop)
+- [FS25_Meat_Production](https://farmingsimulator25mods.com/the-butcher-v1-0-0-1/)
+- [FS25_Meat_Processing_Plant](https://www.kingmods.net/en/fs25/mods/66442/meat-processing-plant)
 
 ---
 
