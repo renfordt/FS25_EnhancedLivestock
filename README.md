@@ -14,9 +14,14 @@
 
 > [!NOTE]
 > This mod is based on the [FS25 Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) mod by [Arrow-kb](https://github.com/Arrow-kb), who has decided to cease all his mods.
-
-> [!NOTE]
 > Proudly cooperating with [FS25_RealisticLivestockRM](https://github.com/rittermod/FS25_RealisticLivestockRM) mod by [Ritter](https://github.com/rittermod).
+
+---
+
+
+> [!WARNING]
+> This repository hosts the Realistic Version of the mod. It contains accurate agricultural and veterinary terminology (e.g., Death, Insemination, Semen) that is restricted on the official ModHub due to PEGI ratings.
+> If you prefer the sanitized, family-friendly text required by Giants Software, please download the version available on the in-game ModHub. (Currently in release process)
 
 ---
 
