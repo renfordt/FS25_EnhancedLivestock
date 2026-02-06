@@ -80,10 +80,13 @@
 		<text name="el_ui_recoveringLastBirthBracketed" text="Nej (Er ved at komme sig efter sidste fødsel)"/>
 		<text name="el_ui_tooYoung" text="For Ung"/>
 		<text name="el_ui_tooYoungBracketed" text="Nej (For Ung)"/>
-		<text name="el_ui_pregnant" text="Drægtig"/>
-		<text name="el_ui_lactating" text="Diegivende"/>
+		<text name="el_ui_pregnant" text="Forventer unger"/>
+		<text name="el_ui_pregnant_github" text="Drægtig"/>
+		<text name="el_ui_lactating" text="Producerer mælk"/>
+		<text name="el_ui_lactating_github" text="Diegivende"/>
 		<text name="el_ui_canReproduce" text="Kan formere sig"/>
-		<text name="el_ui_impregnatedBy" text="Gjort drægtig af"/>
+		<text name="el_ui_impregnatedBy" text="Parret med"/>
+		<text name="el_ui_impregnatedBy_github" text="Gjort drægtig af"/>
 		<text name="el_ui_unknown" text="Ukendt"/>
 		<text name="el_ui_yes" text="Ja"/>
 		<text name="el_ui_no" text="Nej"/>
@@ -102,7 +105,8 @@
 		<text name="el_ui_overall" text="Overall"/>
 		<text name="el_ui_rename" text="Skift navn"/>
 		<text name="el_ui_cantFindAnimal" text="Kunne ikke finde dyret"/>
-		<text name="el_ui_maleNumImpregnatable" text="Dyr i folden, der kan gøres drægtige"/>
+		<text name="el_ui_maleNumImpregnatable" text="Avlsdyr i folden"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Dyr i folden, der kan gøres drægtige"/>
 
 		<text name="el_ui_breederQuality" text="Avlskvalitet"/>
 		<text name="el_ui_birthday" text="Fødselsdag"/>
@@ -190,7 +194,8 @@
 
 		<text name="el_ui_formatMonths" text="%s måneder"/>
 		<text name="el_ui_formatMonth" text="%s måned"/>
-		<text name="el_ui_notPregnant" text="Ikke drægtig"/>
+		<text name="el_ui_notPregnant" text="Forventer ikke unger"/>
+		<text name="el_ui_notPregnant_github" text="Ikke drægtig"/>
 		<text name="el_ui_any" text="Alle"/>
 		<text name="el_ui_pregnancy" text="Drægtighed"/>
 		<text name="el_ui_productivity" text="Produktivitet"/>
@@ -278,7 +283,8 @@
 
 		<text name="el_insemination_male" text="Kun hunner kan gøres drægtige"/>
 		<text name="el_insemination_male_github" text="Kun hunner kan insemineres"/>
-		<text name="el_insemination_pregnant" text="Dette dyr er allerede drægtigt"/>
+		<text name="el_insemination_pregnant" text="Dette dyr forventer allerede unger"/>
+		<text name="el_insemination_pregnant_github" text="Dette dyr er allerede drægtigt"/>
 		<text name="el_insemination_animalType" text="Dyret skal være af samme art som faderen"/>
 		<text name="el_insemination_inseminated" text="Dette dyr er allerede blevet drægtiggjort ved assisteret avl"/>
 		<text name="el_insemination_inseminated_github" text="Dette dyr er allerede blevet insemineret"/>
@@ -560,12 +566,18 @@
 		<text name="el_help_monitors_2" text="Overvågning af mærker vil resultere i, at du får vist vigtige oplysninger, herunder sundhed, vægt, laktation, produktion samt behov for halm, foder og vand."/>
 		<text name="el_help_monitors_3" text="Det koster et lille månedligt abonnement at sætte et mærke på et dyr, afhængigt af dyrets art. Hvis du vælger at fjerne mærket, vil det blive fjernet i starten af ​​den næste måned."/>
 
-		<text name="el_help_pregnancy_title" text="Drægtighed"/>
-		<text name="el_help_pregnancy_1" text="Alle Hunner kræver mindst én han for potentielt at blive drægtige. Begge dyr skal have den rette alder og sundhedstilstand og skal være af samme art. Avl mellem forskellige racer (f.eks.: Holsteinko og Angustyr) er tilladt."/>
-		<text name="el_help_pregnancy_2" text="Indavl er ikke tilladt. Hvis en han og en hun er direkte beslægtede, vil det ikke være muligt at avle på dem."/>
-		<text name="el_help_pregnancy_3" text="Chancen for, at en hun bliver gravid, afhænger af både hendes og hannens fertilitet. En hun med højere fertilitet har også en betydeligt højere chance for at få flere afkom på én gang."/>
-		<text name="el_help_pregnancy_4" text="Når en hun bliver drægtig, begynder hun at bære sine afkom. Du kan se den forventede drægtighedsdato og antallet af afkom ved at se på dyret i folden eller ved at klikke på hende i dyremenuen."/>
-		<text name="el_help_pregnancy_5" text="Når hun når sin terminsdato, vil hun føde sine unger. De nyfødte har dog en vis chance for at blive fjernet, ligesom moderen, hvis graviditeten går dårligt. Nyfødte, der er født i en overfyldt sti, vil blive solgt automatisk."/>
+		<text name="el_help_pregnancy_title" text="At få unger"/>
+		<text name="el_help_pregnancy_title_github" text="Drægtighed"/>
+		<text name="el_help_pregnancy_1" text="Hunner kræver mindst én han for at få unger. Begge dyr skal være sunde og have den rette alder, og skal være af samme art. Avl mellem forskellige racer (f.eks.: Holsteinko og Angustyr) er tilladt."/>
+		<text name="el_help_pregnancy_1_github" text="Alle hunner kræver mindst én han for potentielt at blive drægtige. Begge dyr skal have den rette alder og sundhedstilstand og skal være af samme art. Avl mellem forskellige racer (f.eks.: Holsteinko og Angustyr) er tilladt."/>
+		<text name="el_help_pregnancy_2" text="Nære slægtninge vil ikke parre sig. Hvis en han og en hun er direkte beslægtede, vil de ikke avle sammen."/>
+		<text name="el_help_pregnancy_2_github" text="Indavl er ikke tilladt. Hvis en han og en hun er direkte beslægtede, vil det ikke være muligt at avle på dem."/>
+		<text name="el_help_pregnancy_3" text="Chancen for, at en hun får unger, afhænger af både hendes og hannens fertilitet. En hun med højere fertilitet har også en betydeligt højere chance for at få flere afkom på én gang."/>
+		<text name="el_help_pregnancy_3_github" text="Chancen for, at en hun bliver drægtig, afhænger af både hendes og hannens fertilitet. En hun med højere fertilitet har også en betydeligt højere chance for at få flere afkom på én gang."/>
+		<text name="el_help_pregnancy_4" text="Når en hun forventer unger, begynder hun at bære sine afkom. Du kan se den forventede fødselsdato og antallet af afkom ved at se på dyret i folden eller ved at klikke på hende i dyremenuen."/>
+		<text name="el_help_pregnancy_4_github" text="Når en hun bliver drægtig, begynder hun at bære sine afkom. Du kan se den forventede drægtighedsdato og antallet af afkom ved at se på dyret i folden eller ved at klikke på hende i dyremenuen."/>
+		<text name="el_help_pregnancy_5" text="Når hun når sin fødselsdato, vil de nye unger ankomme. Der er dog en lille chance for, at ungerne eller moderen kan mistes, hvis der opstår komplikationer. Unger, der er født i en overfyldt fold, vil blive solgt automatisk."/>
+		<text name="el_help_pregnancy_5_github" text="Når hun når sin terminsdato, vil hun føde sine unger. De nyfødte har dog en vis chance for at blive fjernet, ligesom moderen, hvis drægtigheden går dårligt. Nyfødte, der er født i en overfyldt fold, vil blive solgt automatisk."/>
 
 		<text name="el_help_production_title" text="Produktion"/>
 		<text name="el_help_production_1" text="Køer af enhver race vil først begynde at producere mælk efter fødslen. Når koen har født, vil den producere mælk eksponentielt i 3 måneder, hvorefter dens produktion langsomt vil falde i de næste 6 måneder. 10 måneder efter drægtigheden vil koen stoppe med at producere mælk indtil sin næste drægtighed."/>
@@ -579,7 +591,8 @@
 		<text name="el_help_genetics_title" text="Genetik"/>
 		<text name="el_help_genetics_1" text="Hvert dyr har 4 forskellige genetiske værdier; stofskifte, fertilitet, sundhed og kvalitet. Genetikken blandes mellem mor og far og gives derefter videre til deres afkom."/>
 		<text name="el_help_genetics_2" text="Stofskiftet påvirker dyrets evne til at omdanne føde til vægt, og påvirker den mængde, det spiser."/>
-		<text name="el_help_genetics_3" text="Fertilitet påvirker dyrets chance for at blive drægtig, eller at få en hun drægtig, og antallet af afkom, det vil producere."/>
+		<text name="el_help_genetics_3" text="Fertilitet påvirker chancen for at få unger med succes, og antallet af afkom, forældrene vil producere."/>
+		<text name="el_help_genetics_3_github" text="Fertilitet påvirker dyrets chance for at blive drægtig, eller at få en hun drægtig, og antallet af afkom, det vil producere."/>
 		<text name="el_help_genetics_4" text="Sundhed påvirker dyrets helbred og dets chance for at blive fjernet hver måned. Et dyr med højere sundhedsgenetik vil også have en længere levetid."/>
 		<text name="el_help_genetics_5" text="Kvaliteten påvirker selve dyrets værdi, et dyr med højere kvalitet vil sælges for meget mere."/>
 		<text name="el_help_genetics_6" text="Kvæg, får og kyllinger har også produktionsgenetik, som påvirker, hvor meget mælk/æg/uld de producerer."/>

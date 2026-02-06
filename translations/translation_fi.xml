@@ -83,10 +83,13 @@
 		<text name="el_ui_recoveringLastBirthBracketed" text="Ei (toipumassa viimeisimmästä synnytyksestä)"/>
 		<text name="el_ui_tooYoung" text="Liian nuori"/>
 		<text name="el_ui_tooYoungBracketed" text="Ei (liian nuori)"/>
-		<text name="el_ui_pregnant" text="Tiineenä"/>
-		<text name="el_ui_lactating" text="Imettävä"/>
+		<text name="el_ui_pregnant" text="Odottaa poikasia"/>
+		<text name="el_ui_pregnant_github" text="Tiineenä"/>
+		<text name="el_ui_lactating" text="Tuottaa maitoa"/>
+		<text name="el_ui_lactating_github" text="Laktoi"/>
 		<text name="el_ui_canReproduce" text="Voi lisääntyä"/>
-		<text name="el_ui_impregnatedBy" text="Siittänyt"/>
+		<text name="el_ui_impregnatedBy" text="Pariutunut"/>
+		<text name="el_ui_impregnatedBy_github" text="Siementänyt"/>
 		<text name="el_ui_unknown" text="Ei tiedossa"/>
 		<text name="el_ui_yes" text="Kyllä"/>
 		<text name="el_ui_no" text="Ei"/>
@@ -105,7 +108,8 @@
 		<text name="el_ui_overall" text="Kokonais"/>
 		<text name="el_ui_rename" text="Vaihda nimi"/>
 		<text name="el_ui_cantFindAnimal" text="Eläintä ei löytynyt"/>
-		<text name="el_ui_maleNumImpregnatable" text="Siitettäviä eläimiä aitauksessa"/>
+		<text name="el_ui_maleNumImpregnatable" text="Jalostettavat eläimet aitauksessa"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Siemennettävät eläimet aitauksessa"/>
 
 		<text name="el_ui_breederQuality" text="Siittäjän laatu"/>
 		<text name="el_ui_birthday" text="Syntynyt"/>
@@ -193,7 +197,8 @@
 
 		<text name="el_ui_formatMonths" text="%s kuukautta"/>
 		<text name="el_ui_formatMonth" text="%s kuukausi"/>
-		<text name="el_ui_notPregnant" text="Ei tiineenä"/>
+		<text name="el_ui_notPregnant" text="Ei odota poikasia"/>
+		<text name="el_ui_notPregnant_github" text="Ei tiineenä"/>
 		<text name="el_ui_any" text="Mikä tahansa"/>
 		<text name="el_ui_pregnancy" text="Tiineys"/>
 		<text name="el_ui_productivity" text="Tuottavuus"/>
@@ -283,7 +288,8 @@
 
 		<text name="el_insemination_male" text="Vain naaraspuoliset eläimet voidaan keinosiementää"/>
 		<text name="el_insemination_male_github" text="Vain naaraspuoliset eläimet voidaan keinosiementää"/>
-		<text name="el_insemination_pregnant" text="Tämä eläin on jo tiineenä"/>
+		<text name="el_insemination_pregnant" text="Tämä eläin odottaa jo poikasia"/>
+		<text name="el_insemination_pregnant_github" text="Tämä eläin on jo tiineenä"/>
 		<text name="el_insemination_animalType" text="Eläimen täytyy olla samaa lajia kuin isä"/>
 		<text name="el_insemination_inseminated" text="Tämä eläin on jo saanut keinosiemennyksen"/>
 		<text name="el_insemination_inseminated_github" text="Tämä eläin on jo saanut keinosiemennyksen"/>
@@ -566,12 +572,18 @@
 		<text name="el_help_monitors_2" text="Seurantalaitteen avulla sinulle näytetään tärkeitä tietoja, mm. terveys, paino, imetys, tuotanto sekä olkien, ruoan ja veden tarve."/>
 		<text name="el_help_monitors_3" text="Laitteen kiinnittämisestä peritään pieni kuukausimaksun eläimen lajin mukaan. Jos päätät poistaa laitteen, niin se poistetaan seuraavan kuun alussa."/>
 
-		<text name="el_help_pregnancy_title" text="Tiineys"/>
-		<text name="el_help_pregnancy_1" text="Kaikki naaraspuoliset eläimet tarvitsevat vähintään yhden uroseläimen tullakseen tiineeksi. Molempien eläinten on oltava oikean ikäisiä, terveitä sekä samaa lajia. Jalostus eri rotujen välillä (esim. holstein-lehmä ja angushärkä) on sallittua."/>
-		<text name="el_help_pregnancy_2" text="Sukusiitos ei ole sallittua. Jos uros ja naaras ovat suoraan sukua, he eivät lisäänny yhdessä."/>
-		<text name="el_help_pregnancy_3" text="Naaraan mahdollisuus tulla tiineeksi riippuu kummankin hedelmällisyydestä. Naaralla, jolla on korkeampi hedelmällisyys, on myös huomattavasti suurempi mahdollisuus tuottaa kerralla enemmän jälkeläisiä."/>
-		<text name="el_help_pregnancy_4" text="Kun naaras tulee tiineeksi, alkaa se kantamaan jälkeläisiä. Näet odotetun tiineyden päivämäärän ja jälkeläisten lukumäärän katsomalla eläintä karsinassa tai klikkaamalla sitä eläinvalikosta."/>
-		<text name="el_help_pregnancy_5" text="Naaras poikii odottettuna päivänä. Vastasyntyneillä on kuitenkin tietty mahdollisuus poistua, kuten myös emolla, jos raskaus sujuu huonosti. Ahtaaseen karsinaan syntyneet vastasyntyneet myydään automaattisesti."/>
+		<text name="el_help_pregnancy_title" text="Poikasten kasvatus"/>
+		<text name="el_help_pregnancy_title_github" text="Tiineys"/>
+		<text name="el_help_pregnancy_1" text="Naaraseläimet tarvitsevat vähintään yhden uroseläimen saadakseen poikasia. Molempien eläinten on oltava terveitä ja oikean ikäisiä, sekä samaa lajia. Jalostus eri rotujen välillä (esim. holstein-lehmä ja angussoni) on sallittua."/>
+		<text name="el_help_pregnancy_1_github" text="Kaikki naaraspuoliset eläimet tarvitsevat vähintään yhden uroseläimen tullakseen tiineeksi. Molempien eläinten on oltava oikean ikäisiä, terveitä sekä samaa lajia. Jalostus eri rotujen välillä (esim. holstein-lehmä ja angussoni) on sallittua."/>
+		<text name="el_help_pregnancy_2" text="Lähisukulaiset eivät pariu. Jos uros ja naaras ovat suoraan sukua, he eivät lisäänny yhdessä."/>
+		<text name="el_help_pregnancy_2_github" text="Sukusiitos ei ole sallittua. Jos uros ja naaras ovat suoraan sukua, he eivät lisäänny yhdessä."/>
+		<text name="el_help_pregnancy_3" text="Naaraan mahdollisuus saada poikasia riippuu molempien vanhempien hedelmällisyydestä. Naaralla, jolla on korkeampi hedelmällisyys, on myös huomattavasti suurempi mahdollisuus tuottaa kerralla enemmän jälkeläisiä."/>
+		<text name="el_help_pregnancy_3_github" text="Naaraan mahdollisuus tulla tiineeksi riippuu kummankin hedelmällisyydestä. Naaralla, jolla on korkeampi hedelmällisyys, on myös huomattavasti suurempi mahdollisuus tuottaa kerralla enemmän jälkeläisiä."/>
+		<text name="el_help_pregnancy_4" text="Kun naaras odottaa poikasia, alkaa se kantamaan jälkeläisiä. Näet odotetun poikimispäivän ja jälkeläisten lukumäärän katsomalla eläintä karsinassa tai valitsemalla sen eläinvalikosta."/>
+		<text name="el_help_pregnancy_4_github" text="Kun naaras tulee tiineeksi, alkaa se kantamaan jälkeläisiä. Näet odotetun tiineyden päivämäärän ja jälkeläisten lukumäärän katsomalla eläintä karsinassa tai klikkaamalla sitä eläinvalikosta."/>
+		<text name="el_help_pregnancy_5" text="Kun se saavuttaa poikimispäivän, uudet poikaset syntyvät. On kuitenkin pieni mahdollisuus, että poikaset tai emo menehtyy komplikaatioissa. Ahtaaseen karsinaan syntyneet poikaset myydään automaattisesti."/>
+		<text name="el_help_pregnancy_5_github" text="Naaras poikii odottettuna päivänä. Vastasyntyneillä on kuitenkin tietty mahdollisuus poistua, kuten myös emolla, jos tiineys sujuu huonosti. Ahtaaseen karsinaan syntyneet vastasyntyneet myydään automaattisesti."/>
 
 		<text name="el_help_production_title" text="Tuottavuus"/>
 		<text name="el_help_production_1" text="Kaikkien rotujen lehmät alkavat tuottaa maitoa vasta poikimisen jälkeen. Kun lehmä on poikinut, se tuottaa maitoa eksponentiaalisesti 3 kuukauden ajan, minkä jälkeen tuotanto laskee hitaasti seuraavan 6 kuukauden ajan. 10 kuukautta tiineyden jälkeen lehmä lopettaa maidontuotannon seuraavaan tiineyteen asti."/>
@@ -585,7 +597,8 @@
 		<text name="el_help_genetics_title" text="Genetiikka"/>
 		<text name="el_help_genetics_1" text="Jokaisella eläimellä on 4 erilaista geneettistä arvoa: aineenvaihdunta, hedelmällisyys, terveys ja laatu. Genetiikka sekoitetaan emon ja isän välillä ja välitetään sitten poikasille."/>
 		<text name="el_help_genetics_2" text="Aineenvaihdunta vaikuttaa eläimen kykyyn muuntaa ruokaa painoksi ja vaikuttaa sen syömään määrään."/>
-		<text name="el_help_genetics_3" text="Hedelmällisyys vaikuttaa naaraan mahdollisuuteen tulla tiineeksi ja poikasten määrään, sekä uuroksen mahdollisuutta saattaa naaras tiineeksi."/>
+		<text name="el_help_genetics_3" text="Hedelmällisyys vaikuttaa onnistuneen poikasvaiheen mahdollisuuteen ja vanhempien tuottamien jälkeläisten määrään."/>
+		<text name="el_help_genetics_3_github" text="Hedelmällisyys vaikuttaa naaraan mahdollisuuteen tulla tiineeksi ja poikasten määrään, sekä uroksen mahdollisuuteen saattaa naaras tiineeksi."/>
 		<text name="el_help_genetics_4" text="Terveys vaikuttaa eläimen terveyteen ja sen mahdollisuuteen poistua joka kuukausi. Eläimillä, joilla on korkeampi terveysgenetiikka, on myös pidempi elinikä."/>
 		<text name="el_help_genetics_5" text="Laatu vaikuttaa itse eläimen arvoon, laadukkaammasta eläimestä saa korkeamman hinnan."/>
 		<text name="el_help_genetics_6" text="Nautaeläimillä, lampailla ja kanoilla on myös tuotantogenetiikkaa, joka vaikuttaa siihen, kuinka paljon maitoa/munia/villaa ne tuottavat."/>

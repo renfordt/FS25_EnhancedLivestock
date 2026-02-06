@@ -82,10 +82,13 @@
         <text name="el_ui_recoveringLastBirthBracketed" text="Nie (rekonwalescencja po ostatnim porodzie)"/>
         <text name="el_ui_tooYoung" text="Zbyt młody"/>
         <text name="el_ui_tooYoungBracketed" text="Nie (zbyt młody)"/>
-        <text name="el_ui_pregnant" text="W ciąży"/>
-        <text name="el_ui_lactating" text="Laktacja"/>
+        <text name="el_ui_pregnant" text="Oczekuje potomstwa"/>
+		<text name="el_ui_pregnant_github" text="W ciąży"/>
+		<text name="el_ui_lactating" text="Produkcja mleka"/>
+		<text name="el_ui_lactating_github" text="Laktacja"/>
         <text name="el_ui_canReproduce" text="Może się rozmnażać"/>
-        <text name="el_ui_impregnatedBy" text="Zapłodniona przez"/>
+        <text name="el_ui_impregnatedBy" text="W parze z"/>
+		<text name="el_ui_impregnatedBy_github" text="Zapłodniona przez"/>
         <text name="el_ui_unknown" text="Nieznany"/>
         <text name="el_ui_yes" text="Tak"/>
         <text name="el_ui_no" text="Nie"/>
@@ -104,7 +107,8 @@
 		<text name="el_ui_overall" text="Ogólnie"/>
 		<text name="el_ui_rename" text="Zmień nazwę"/>
 		<text name="el_ui_cantFindAnimal" text="Nie można znaleźć zwierzęcia"/>
-		<text name="el_ui_maleNumImpregnatable" text="Zwierzęta w kojcach, które można zapłodnić"/>
+		<text name="el_ui_maleNumImpregnatable" text="Zwierzęta do rozrodu w kojcu"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Zwierzęta możliwe do zapłodnienia w kojcu"/>
 
 		<text name="el_ui_breederQuality" text="Jakość hodowcy"/>
 		<text name="el_ui_birthday" text="Urodziny"/>
@@ -192,7 +196,8 @@
 
 		<text name="el_ui_formatMonths" text="%s miesięcy"/>
 		<text name="el_ui_formatMonth" text="%s miesiąc"/>
-		<text name="el_ui_notPregnant" text="Brak ciąży"/>
+		<text name="el_ui_notPregnant" text="Nie oczekuje potomstwa"/>
+		<text name="el_ui_notPregnant_github" text="Brak ciąży"/>
 		<text name="el_ui_any" text="Dowolny"/>
 		<text name="el_ui_pregnancy" text="Ciąża"/>
 		<text name="el_ui_productivity" text="Produktywność"/>
@@ -281,7 +286,8 @@
 
 		<text name="el_insemination_male" text="Tylko samice mogą być rozmnażane"/>
 		<text name="el_insemination_male_github" text="Tylko samice mogą być sztucznie zapładniane"/>
-		<text name="el_insemination_pregnant" text="To zwierzę jest już w ciąży"/>
+		<text name="el_insemination_pregnant" text="To zwierzę oczekuje już potomstwa"/>
+		<text name="el_insemination_pregnant_github" text="To zwierzę jest już w ciąży"/>
 		<text name="el_insemination_animalType" text="Zwierzę musi być tego samego gatunku co ojciec"/>
 		<text name="el_insemination_inseminated" text="To zwierzę zostało już rozmnożone"/>
 		<text name="el_insemination_inseminated_github" text="To zwierzę zostało już sztucznie zapłodnione"/>
@@ -564,12 +570,18 @@
 		<text name="el_help_monitors_2" text="Kolczyki monitorujące wyświetlają ważne informacje, w tym zdrowie, wagę, laktację, produkcję oraz zapotrzebowanie na słomę, jedzenie i wodę."/>
 		<text name="el_help_monitors_3" text="Założenie kolczyka zwierzęciu wiąże się z małą miesięczną subskrypcją zależną od gatunku zwierzęcia. Jeśli zdecydujesz się usunąć kolczyk, zostanie on usunięty na początku następnego miesiąca."/>
 
-		<text name="el_help_pregnancy_title" text="Ciąża"/>
-		<text name="el_help_pregnancy_1" text="Wszystkie samice wymagają co najmniej 1 samca, aby potencjalnie zajść w ciążę. Oba zwierzęta muszą być w odpowiednim wieku, zdrowe i należeć do tego samego gatunku. Krzyżowanie różnych ras (np. krowy holsztyńskiej i byka angus) jest dozwolone."/>
-		<text name="el_help_pregnancy_2" text="Inbred (chów wsobny) jest niedozwolony. Jeśli samiec i samica są bezpośrednio spokrewnieni, nie będą się rozmnażać."/>
-		<text name="el_help_pregnancy_3" text="Szansa na zajście w ciążę zależy od płodności samicy i samca. Samica o wyższej płodności ma również znacznie większą szansę na wydanie większej liczby potomstwa naraz."/>
-		<text name="el_help_pregnancy_4" text="Gdy samica zajdzie w ciążę, zacznie nosić potomstwo. Możesz zobaczyć oczekiwaną datę porodu i liczbę potomstwa, patrząc na zwierzę w kojcu lub klikając na nie w menu zwierząt."/>
-		<text name="el_help_pregnancy_5" text="Gdy nadejdzie termin porodu, samica wyda na świat młode. Istnieje jednak pewna szansa na usunięcie noworodków, a także matki, jeśli ciąża przebiegnie źle. Noworodki urodzone w przepełnionym kojcu zostaną automatycznie sprzedane."/>
+		<text name="el_help_pregnancy_title" text="Wychowywanie potomstwa"/>
+		<text name="el_help_pregnancy_title_github" text="Ciąża"/>
+		<text name="el_help_pregnancy_1" text="Samice wymagają co najmniej 1 samca, aby mieć potomstwo. Oba zwierzęta muszą być zdrowe, w odpowiednim wieku i należeć do tego samego gatunku. Krzyżowanie różnych ras (np. krowy holsztyńskiej i byka angus) jest dozwolone."/>
+		<text name="el_help_pregnancy_1_github" text="Wszystkie samice wymagają co najmniej 1 samca, aby potencjalnie zajść w ciążę. Oba zwierzęta muszą być w odpowiednim wieku, zdrowe i należeć do tego samego gatunku. Krzyżowanie różnych ras (np. krowy holsztyńskiej i byka angus) jest dozwolone."/>
+		<text name="el_help_pregnancy_2" text="Bliscy krewni nie będą się parzyć. Jeśli samiec i samica są bezpośrednio spokrewnieni, nie będą się rozmnażać."/>
+		<text name="el_help_pregnancy_2_github" text="Inbred (chów wsobny) jest niedozwolony. Jeśli samiec i samica są bezpośrednio spokrewnieni, nie będą się rozmnażać."/>
+		<text name="el_help_pregnancy_3" text="Szansa na to, że samica będzie oczekiwać potomstwa, zależy od płodności obojga rodziców. Samica o wyższej płodności ma również znacznie większą szansę na urodzenie większej liczby młodych naraz."/>
+		<text name="el_help_pregnancy_3_github" text="Szansa na zajście w ciążę zależy od płodności samicy i samca. Samica o wyższej płodności ma również znacznie większą szansę na wydanie większej liczby potomstwa naraz."/>
+		<text name="el_help_pregnancy_4" text="Gdy samica oczekuje potomstwa, zaczyna nosić swoje młode. Możesz zobaczyć przewidywaną datę porodu i liczbę oczekiwanych młodych, patrząc na zwierzę w kojcu lub wybierając je w menu zwierząt."/>
+		<text name="el_help_pregnancy_4_github" text="Gdy samica zajdzie w ciążę, zacznie nosić potomstwo. Możesz zobaczyć oczekiwaną datę porodu i liczbę potomstwa, patrząc na zwierzę w kojcu lub klikając na nie w menu zwierząt."/>
+		<text name="el_help_pregnancy_5" text="Gdy nadejdzie termin porodu, pojawią się nowe młode. Istnieje jednak niewielka szansa, że młode lub matka zostaną utracone w przypadku komplikacji. Młode urodzone w przepełnionym kojcu zostaną automatycznie sprzedane."/>
+		<text name="el_help_pregnancy_5_github" text="Gdy nadejdzie termin porodu, samica wyda na świat młode. Istnieje jednak pewna szansa na usunięcie noworodków, a także matki, jeśli ciąża przebiegnie źle. Noworodki urodzone w przepełnionym kojcu zostaną automatycznie sprzedane."/>
 
 		<text name="el_help_production_title" text="Produkcja"/>
 		<text name="el_help_production_1" text="Krowy dowolnej rasy zaczną dawać mleko dopiero po porodzie. Po porodzie krowa będzie produkować mleko wykładniczo przez 3 miesiące, następnie jej produkcja będzie powoli spadać przez kolejne 6 miesięcy. 10 miesięcy po zajściu w ciążę krowa przestanie dawać mleko aż do następnego porodu."/>
@@ -583,7 +595,8 @@
 		<text name="el_help_genetics_title" text="Genetyka"/>
 		<text name="el_help_genetics_1" text="Każde zwierzę ma 4 różne wartości genetyczne: metabolizm, płodność, zdrowie i jakość. Geny są mieszane między matką a ojcem, a następnie przekazywane dzieciom."/>
 		<text name="el_help_genetics_2" text="Metabolizm wpływa na zdolność zwierzęcia do zamiany paszy na wagę oraz na ilość spożywanego pokarmu."/>
-		<text name="el_help_genetics_3" text="Płodność wpływa na szansę zajścia samicy w ciążę (lub zapłodnienia samicy przez samca) oraz na liczbę potomstwa."/>
+		<text name="el_help_genetics_3" text="Płodność wpływa na szansę pomyślnego posiadania młodych oraz na liczbę potomstwa, które spłodzą rodzice."/>
+		<text name="el_help_genetics_3_github" text="Płodność wpływa na szansę zajścia samicy w ciążę (lub zapłodnienia samicy przez samca) oraz na liczbę potomstwa."/>
 		<text name="el_help_genetics_4" text="Zdrowie wpływa na ogólną kondycję zwierzęcia i szansę na jego usunięcie w każdym miesiącu. Zwierzę o lepszej genetyce zdrowia będzie miało również dłuższą żywotność."/>
 		<text name="el_help_genetics_5" text="Jakość wpływa na wartość samego zwierzęcia; zwierzę o wyższej jakości zostanie sprzedane za znacznie wyższą cenę."/>
 		<text name="el_help_genetics_6" text="Bydło, owce i kury mają również genetykę produkcyjną, która wpływa na ilość produkowanego mleka/jaj/wełny."/>

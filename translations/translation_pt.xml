@@ -82,10 +82,13 @@
 		<text name="el_ui_recoveringLastBirthBracketed" text="Não (a recuperar do último parto)"/>
         <text name="el_ui_tooYoung" text="Muito novo"/>
         <text name="el_ui_tooYoungBracketed" text="Não (muito novo)"/>
-        <text name="el_ui_pregnant" text="Prenha"/>
-        <text name="el_ui_lactating" text="Em lactação"/>
+        <text name="el_ui_pregnant" text="Esperando"/>
+		<text name="el_ui_pregnant_github" text="Prenha"/>
+        <text name="el_ui_lactating" text="Produzindo Leite"/>
+		<text name="el_ui_lactating_github" text="Em lactação"/>
         <text name="el_ui_canReproduce" text="Pode reproduzir"/>
-        <text name="el_ui_impregnatedBy" text="Engravidada por"/>
+        <text name="el_ui_impregnatedBy" text="Emparelhada com"/>
+		<text name="el_ui_impregnatedBy_github" text="Inseminada por"/>
         <text name="el_ui_unknown" text="Desconhecido"/>
         <text name="el_ui_yes" text="Sim"/>
         <text name="el_ui_no" text="Não"/>
@@ -104,8 +107,9 @@
 		<text name="el_ui_overall" text="Em geral"/>
 		<text name="el_ui_rename" text="Alterar nome"/>
 		<text name="el_ui_cantFindAnimal" text="Não é possível encontrar o animal"/>
-		<text name="el_ui_maleNumImpregnatable" text="Engravida os animais no curral"/>
-		
+		<text name="el_ui_maleNumImpregnatable" text="Animais reproduzíveis no curral"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Animais insemináveis no curral"/>
+
 		<text name="el_ui_breederQuality" text="Qualidade de Reprodutor"/>
 		<text name="el_ui_birthday" text="Data de Nascimento"/>
 		<text name="el_ui_pregnancyExpected" text="Data Esperada"/>
@@ -192,7 +196,8 @@
 
 		<text name="el_ui_formatMonths" text="%s meses"/>
 		<text name="el_ui_formatMonth" text="%s mês"/>
-		<text name="el_ui_notPregnant" text="Não prenha"/>
+		<text name="el_ui_notPregnant" text="Não esperando"/>
+		<text name="el_ui_notPregnant_github" text="Não prenha"/>
 		<text name="el_ui_any" text="Qualquer"/>
 		<text name="el_ui_pregnancy" text="Gravidez"/>
 		<text name="el_ui_productivity" text="Produtividade"/>
@@ -281,7 +286,8 @@
 
 	<text name="el_insemination_male" text="Apenas as fêmeas podem ser cruzadas"/>
 		<text name="el_insemination_male_github" text="Apenas as fêmeas podem ser inseminadas artificialmente"/>
-	<text name="el_insemination_pregnant" text="Este animal já está prenha"/>
+	<text name="el_insemination_pregnant" text="Este animal já está esperando filhotes"/>
+		<text name="el_insemination_pregnant_github" text="Este animal já está prenha"/>
 	<text name="el_insemination_animalType" text="O animal deve ser da mesma espécie que o pai"/>
 	<text name="el_insemination_inseminated" text="Este animal já foi cruzado"/>
 		<text name="el_insemination_inseminated_github" text="Este animal já foi inseminado artificialmente"/>
@@ -564,12 +570,18 @@
 		<text name="el_help_monitors_2" text="Os brincos de monitorização farão com que informações importantes te sejam mostradas, incluindo saúde, peso, lactação, produção e necessidades de palha, comida e água."/>
 		<text name="el_help_monitors_3" text="Aplicar um brinco a um animal custará uma pequena assinatura mensal baseada na espécie do animal. Se optares por remover o brinco, ele será removido no início do mês seguinte."/>
 
-		<text name="el_help_pregnancy_title" text="Gravidez"/>
-		<text name="el_help_pregnancy_1" text="Todos os animais fêmeas requerem pelo menos 1 animal macho para poderem ficar prenhas. Ambos os animais devem ter a idade e saúde corretas, e devem ser da mesma espécie. O cruzamento entre diferentes raças (ex: vaca Holstein e touro Angus) é permitido."/>
-		<text name="el_help_pregnancy_2" text="Consanguinidade não é permitida. Se um macho e uma fêmea forem diretamente aparentados, não se cruzarão."/>
-		<text name="el_help_pregnancy_3" text="A probabilidade de uma fêmea ficar prenha depende da fertilidade dela e do macho. Uma fêmea com maior fertilidade também tem uma probabilidade significativamente maior de produzir mais crias de uma só vez."/>
-		<text name="el_help_pregnancy_4" text="Assim que uma fêmea fica prenha, ela começará a carregar as suas crias. Podes ver a data esperada do parto e o número de crias olhando para o animal no cercado, ou clicando nela no menu de animais."/>
-		<text name="el_help_pregnancy_5" text="Quando ela atingir a data do parto, dará à luz as suas crias. No entanto, os recém-nascidos têm uma certa probabilidade de serem removidos, assim como a mãe se a gravidez correr mal. Recém-nascidos que nasçam num cercado superlotado serão vendidos automaticamente."/>
+		<text name="el_help_pregnancy_title" text="Criação de Filhotes"/>
+		<text name="el_help_pregnancy_title_github" text="Gravidez"/>
+		<text name="el_help_pregnancy_1" text="Os animais fêmeas requerem pelo menos 1 animal macho para ter bebês. Ambos os animais devem ser saudáveis e ter a idade correta, e devem ser da mesma espécie. O cruzamento entre diferentes raças (ex: vaca Holstein e touro Angus) é permitido."/>
+		<text name="el_help_pregnancy_1_github" text="Todos os animais fêmeas requerem pelo menos 1 animal macho para poderem ficar prenhas. Ambos os animais devem ter a idade e saúde corretas, e devem ser da mesma espécie. O cruzamento entre diferentes raças (ex: vaca Holstein e touro Angus) é permitido."/>
+		<text name="el_help_pregnancy_2" text="Parentes próximos não se acasalam. Se um macho e uma fêmea forem diretamente aparentados, não se cruzarão."/>
+		<text name="el_help_pregnancy_2_github" text="Consanguinidade não é permitida. Se um macho e uma fêmea forem diretamente aparentados, não se cruzarão."/>
+		<text name="el_help_pregnancy_3" text="A probabilidade de uma fêmea esperar um bebê depende da fertilidade de ambos os pais. Uma fêmea com maior fertilidade também tem uma probabilidade significativamente maior de produzir mais crias de uma só vez."/>
+		<text name="el_help_pregnancy_3_github" text="A probabilidade de uma fêmea ficar prenha depende da fertilidade dela e do macho. Uma fêmea com maior fertilidade também tem uma probabilidade significativamente maior de produzir mais crias de uma só vez."/>
+		<text name="el_help_pregnancy_4" text="Assim que uma fêmea está esperando, ela começará a carregar as suas crias. Podes ver a data esperada do parto e o número de crias esperando olhando para o animal no cercado, ou selecionando-a no menu de animais."/>
+		<text name="el_help_pregnancy_4_github" text="Assim que uma fêmea fica prenha, ela começará a carregar as suas crias. Podes ver a data esperada do parto e o número de crias olhando para o animal no cercado, ou clicando nela no menu de animais."/>
+		<text name="el_help_pregnancy_5" text="Quando ela atingir a data do parto, os novos bebês chegarão. No entanto, há uma pequena chance de os bebês ou a mãe serem perdidos se houver complicações. Bebês nascidos num cercado superlotado serão vendidos automaticamente."/>
+		<text name="el_help_pregnancy_5_github" text="Quando ela atingir a data do parto, dará à luz as suas crias. No entanto, os recém-nascidos têm uma certa probabilidade de serem removidos, assim como a mãe se a gravidez correr mal. Recém-nascidos que nasçam num cercado superlotado serão vendidos automaticamente."/>
 
 		<text name="el_help_production_title" text="Produção"/>
 		<text name="el_help_production_1" text="Vacas de qualquer raça apenas começarão a produzir leite após o parto. Assim que der à luz, a vaca produzirá leite exponencialmente durante 3 meses, depois a sua produção cairá lentamente nos 6 meses seguintes. 10 meses após a gravidez, a vaca parará de produzir leite até à sua próxima gravidez."/>
@@ -583,7 +595,8 @@
 		<text name="el_help_genetics_title" text="Genética"/>
 		<text name="el_help_genetics_1" text="Cada animal tem 4 valores genéticos diferentes: metabolismo, fertilidade, saúde e qualidade. A genética é misturada entre a mãe e o pai e depois passada para os seus filhos."/>
 		<text name="el_help_genetics_2" text="O metabolismo afeta a capacidade do animal de converter comida em peso, e afeta a quantidade que come."/>
-		<text name="el_help_genetics_3" text="A fertilidade afeta a probabilidade de o animal ficar prenha, ou de engravidar uma fêmea, e o número de crias que produzirá."/>
+		<text name="el_help_genetics_3" text="A fertilidade afeta a probabilidade de ter bebês com sucesso, e o número de descendentes que os pais produzirão."/>
+		<text name="el_help_genetics_3_github" text="A fertilidade afeta a probabilidade de o animal ficar prenha, ou de engravidar uma fêmea, e o número de crias que produzirá."/>
 		<text name="el_help_genetics_4" text="A saúde afeta a saúde do animal e a sua probabilidade de ser removido a cada mês. Um animal com genética de saúde superior também terá uma esperança de vida mais longa."/>
 		<text name="el_help_genetics_5" text="A qualidade afeta o valor do próprio animal; um animal com qualidade superior será vendido por muito mais."/>
 		<text name="el_help_genetics_6" text="Gado, ovelhas e galinhas também têm genética de produção, que afeta a quantidade de leite/ovos/lã que produzem."/>

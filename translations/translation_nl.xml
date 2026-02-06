@@ -82,10 +82,13 @@
 		<text name="el_ui_recoveringLastBirthBracketed" text="Nee (herstellend van bevalling)"/>
 		<text name="el_ui_tooYoung" text="Te jong"/>
 		<text name="el_ui_tooYoungBracketed" text="Nee (te jong)"/>
-		<text name="el_ui_pregnant" text="Drachtig"/>
-		<text name="el_ui_lactating" text="Melkgevend"/>
+        <text name="el_ui_pregnant" text="Verwacht nakomelingen"/>
+		<text name="el_ui_pregnant_github" text="Drachtig"/>
+		<text name="el_ui_lactating" text="Melkproductie"/>
+		<text name="el_ui_lactating_github" text="Lactatie"/>
 		<text name="el_ui_canReproduce" text="Kan voortplanten"/>
-		<text name="el_ui_impregnatedBy" text="Bevrucht door"/>
+		<text name="el_ui_impregnatedBy" text="Gepaard met"/>
+		<text name="el_ui_impregnatedBy_github" text="Geïnsemineerd door"/>
 		<text name="el_ui_unknown" text="Onbekend"/>
 		<text name="el_ui_yes" text="Ja"/>
 		<text name="el_ui_no" text="Nee"/>
@@ -104,7 +107,8 @@
 		<text name="el_ui_overall" text="Algemeen"/>
 		<text name="el_ui_rename" text="Verander naam"/>
 		<text name="el_ui_cantFindAnimal" text="Kon dier niet vinden"/>
-		<text name="el_ui_maleNumImpregnatable" text="Bevruchtbare dieren in hok"/>
+		<text name="el_ui_maleNumImpregnatable" text="Fokbare dieren in hok"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Insemineerbare dieren in hok"/>
 
 		<text name="el_ui_breederQuality" text="Fokkerskwaliteit"/>
 		<text name="el_ui_birthday" text="Verjaardag"/>
@@ -192,7 +196,8 @@
 
 		<text name="el_ui_formatMonths" text="%s maanden"/>
 		<text name="el_ui_formatMonth" text="%s maand"/>
-		<text name="el_ui_notPregnant" text="Niet drachtig"/>
+		<text name="el_ui_notPregnant" text="Geen nakomelingen verwacht"/>
+		<text name="el_ui_notPregnant_github" text="Niet drachtig"/>
 		<text name="el_ui_any" text="Elke"/>
 		<text name="el_ui_pregnancy" text="Dracht"/>
 		<text name="el_ui_productivity" text="Productiviteit"/>
@@ -281,7 +286,8 @@
 
 		<text name="el_insemination_male" text="Alleen vrouwtjes kunnen worden gefokt met geassisteerde voortplanting"/>
 		<text name="el_insemination_male_github" text="Alleen vrouwtjes kunnen kunstmatig geïnsemineerd worden"/>
-		<text name="el_insemination_pregnant" text="Dit dier is al drachtig"/>
+		<text name="el_insemination_pregnant" text="Dit dier verwacht al nakomelingen"/>
+		<text name="el_insemination_pregnant_github" text="Dit dier is al drachtig"/>
 		<text name="el_insemination_animalType" text="Dier moet van dezelfde soort zijn als de vader"/>
 		<text name="el_insemination_inseminated" text="Dit dier is al gefokt met geassisteerde voortplanting"/>
 		<text name="el_insemination_inseminated_github" text="Dit dier is al kunstmatig geïnsemineerd"/>
@@ -562,12 +568,18 @@
 		<text name="el_help_monitors_2" text="Het monitoren van tags zal ertoe leiden dat belangrijke informatie aan u wordt getoond, waaronder gezondheid, gewicht, lactatie, productie en stro-, voedsel- en watervereisten."/>
 		<text name="el_help_monitors_3" text="Door een tag op een dier toe te passen, kost je een klein maandelijks abonnement op basis van de soort van het dier. Als u ervoor kiest om de tag te verwijderen, wordt de tag aan het begin van de volgende maand verwijderd."/>
 
-		<text name="el_help_pregnancy_title" text="Dracht"/>
-		<text name="el_help_pregnancy_1" text="Vrouwelijke dieren hebben allemaal minimaal 1 mannelijk dier nodig om mogelijk drachtig te worden. Beide dieren moeten van de juiste leeftijd en gezondheid zijn en van dezelfde soort zijn. Kruisen tussen verschillende rassen (bijv. Holstein-koe en Angus-stier) is toegestaan."/>
-		<text name="el_help_pregnancy_2" text="Inteelt is niet toegestaan. Als een mannetje en een vrouwtje direct aan elkaar verwant zijn, zullen ze niet samen fokken."/>
-		<text name="el_help_pregnancy_3" text="De kans voor een vrouwtje om drachtig te worden hangt af van zowel haar eigen vruchtbaarheid als die van het mannetje. Een vrouwtje met een hogere vruchtbaarheid heeft ook een aanzienlijk hogere kans om meer nakomelingen tegelijk te produceren."/>
-		<text name="el_help_pregnancy_4" text="Zodra een vrouwtje drachtig wordt, begint ze haar nakomelingen te dragen. U kunt de verwachte bevallingsdatum en het aantal nakomelingen bekijken door naar het dier in de stal te kijken, of door op haar te klikken in het diermenu."/>
-		<text name="el_help_pregnancy_5" text="Wanneer ze haar bevallingsdatum bereikt, zal ze haar jongen baren. De pasgeborenen hebben echter een zekere kans om te worden verwijderd, net als de moeder als de dracht slecht verloopt. Pasgeborenen die in een overvolle stal worden geboren, worden automatisch verkocht."/>
+		<text name="el_help_pregnancy_title" text="Nakomelingen grootbrengen"/>
+		<text name="el_help_pregnancy_title_github" text="Dracht"/>
+		<text name="el_help_pregnancy_1" text="Vrouwelijke dieren hebben minimaal 1 mannelijk dier nodig om baby's te krijgen. Beide dieren moeten gezond zijn en van de juiste leeftijd, en moeten van dezelfde soort zijn. Kruisen tussen verschillende rassen (bijv. Holstein-koe en Angus-stier) is toegestaan."/>
+		<text name="el_help_pregnancy_1_github" text="Vrouwelijke dieren hebben allemaal minimaal 1 mannelijk dier nodig om mogelijk drachtig te worden. Beide dieren moeten van de juiste leeftijd en gezondheid zijn en van dezelfde soort zijn. Kruisen tussen verschillende rassen (bijv. Holstein-koe en Angus-stier) is toegestaan."/>
+		<text name="el_help_pregnancy_2" text="Nabije familieleden paren niet. Als een mannetje en een vrouwtje direct aan elkaar verwant zijn, zullen ze niet samen fokken."/>
+		<text name="el_help_pregnancy_2_github" text="Inteelt is niet toegestaan. Als een mannetje en een vrouwtje direct aan elkaar verwant zijn, zullen ze niet samen fokken."/>
+		<text name="el_help_pregnancy_3" text="De kans voor een vrouwtje om een baby te verwachten hangt af van de vruchtbaarheid van beide ouders. Een vrouwtje met een hogere vruchtbaarheid heeft ook een veel grotere kans om meer baby's tegelijk te krijgen."/>
+		<text name="el_help_pregnancy_3_github" text="De kans voor een vrouwtje om drachtig te worden hangt af van zowel haar eigen vruchtbaarheid als die van het mannetje. Een vrouwtje met een hogere vruchtbaarheid heeft ook een aanzienlijk hogere kans om meer nakomelingen tegelijk te produceren."/>
+		<text name="el_help_pregnancy_4" text="Zodra een vrouwtje nakomelingen verwacht, begint ze haar kleintjes te dragen. U kunt de bevallingsdatum en het aantal verwachte baby's bekijken door naar het dier in de stal te kijken, of door haar te selecteren in het diermenu."/>
+		<text name="el_help_pregnancy_4_github" text="Zodra een vrouwtje drachtig wordt, begint ze haar nakomelingen te dragen. U kunt de verwachte bevallingsdatum en het aantal nakomelingen bekijken door naar het dier in de stal te kijken, of door op haar te klikken in het diermenu."/>
+		<text name="el_help_pregnancy_5" text="Wanneer ze haar bevallingsdatum bereikt, zullen de nieuwe baby's arriveren. Er is echter een kleine kans dat de baby's of de moeder verloren gaan bij complicaties. Baby's die in een overvolle stal worden geboren, worden automatisch verkocht."/>
+		<text name="el_help_pregnancy_5_github" text="Wanneer ze haar bevallingsdatum bereikt, zal ze haar jongen baren. De pasgeborenen hebben echter een zekere kans om te worden verwijderd, net als de moeder als de dracht slecht verloopt. Pasgeborenen die in een overvolle stal worden geboren, worden automatisch verkocht."/>
 
 		<text name="el_help_production_title" text="Productie"/>
 		<text name="el_help_production_1" text="Koeien van elk ras beginnen pas melk te produceren na de bevalling. Zodra ze is bevallen, zal de koe 3 maanden lang een toenemende hoeveelheid melk produceren, waarna haar productie de komende 6 maanden langzaam zal dalen. 10 maanden na de bevalling stopt de koe met het produceren van melk tot haar volgende bevalling."/>
@@ -581,7 +593,8 @@
 		<text name="el_help_genetics_title" text="Genetica"/>
 		<text name="el_help_genetics_1" text="Elk dier heeft 4 verschillende genetische waarden: Metabolisme, vruchtbaarheid, gezondheid en kwaliteit. Genetica is een mix van de moeder en de vader en wordt vervolgens doorgegeven aan hun kinderen."/>
 		<text name="el_help_genetics_2" text="Het metabolisme beïnvloedt het vermogen van het dier om voedsel om te zetten in gewicht en beïnvloedt de hoeveelheid die het eet."/>
-		<text name="el_help_genetics_3" text="Vruchtbaarheid beïnvloedt de kans van het dier om drachtig te worden, of een vrouwtje te bevruchten, en het aantal nakomelingen dat het zal produceren."/>
+		<text name="el_help_genetics_3" text="Vruchtbaarheid beïnvloedt de kans op het succesvol krijgen van baby's en het aantal nakomelingen dat de ouders zullen produceren."/>
+		<text name="el_help_genetics_3_github" text="Vruchtbaarheid beïnvloedt de kans van het dier om drachtig te worden, of een vrouwtje te bevruchten, en het aantal nakomelingen dat het zal produceren."/>
 		<text name="el_help_genetics_4" text="Gezondheid beïnvloedt de algemene gezondheid van het dier en de kans om elke maand te worden verwijderd. Een dier met betere gezondheidsgenetica zal ook een langere levensduur hebben."/>
 		<text name="el_help_genetics_5" text="Kwaliteit beïnvloedt de waarde van het dier zelf; een dier met hogere kwaliteit zal voor veel meer worden verkocht."/>
 		<text name="el_help_genetics_6" text="Vee, schapen en kippen hebben ook productiegenetica, die invloed heeft op hoeveel melk/wol/eieren ze produceren."/>

@@ -75,10 +75,13 @@
 		<text name="el_ui_recoveringLastBirthBracketed" text="No (in recupero dall'ultimo parto)"/>
 		<text name="el_ui_tooYoung" text="Troppo giovane"/>
 		<text name="el_ui_tooYoungBracketed" text="No (troppo giovane)"/>
-		<text name="el_ui_pregnant" text="Gravida"/>
-		<text name="el_ui_lactating" text="In allattamento"/>
+        <text name="el_ui_pregnant" text="In attesa"/>
+		<text name="el_ui_pregnant_github" text="Gravida"/>
+		<text name="el_ui_lactating" text="Produzione latte"/>
+		<text name="el_ui_lactating_github" text="In lattazione"/>
 		<text name="el_ui_canReproduce" text="Può riprodursi"/>
-		<text name="el_ui_impregnatedBy" text="Fecondata da"/>
+		<text name="el_ui_impregnatedBy" text="Accoppiata con"/>
+		<text name="el_ui_impregnatedBy_github" text="Inseminata da"/>
 		<text name="el_ui_unknown" text="Sconosciuto"/>
 		<text name="el_ui_yes" text="Sì"/>
 		<text name="el_ui_no" text="No"/>
@@ -97,7 +100,8 @@
 		<text name="el_ui_overall" text="Totale"/>
 		<text name="el_ui_rename" text="Cambia nome"/>
 		<text name="el_ui_cantFindAnimal" text="Impossibile trovare l'animale"/>
-		<text name="el_ui_maleNumImpregnatable" text="Animali fecondabili nel recinto"/>
+		<text name="el_ui_maleNumImpregnatable" text="Animali riproducibili nel recinto"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Animali inseminabili nel recinto"/>
 
 		<text name="el_ui_breederQuality" text="Qualità allevatore"/>
 		<text name="el_ui_birthday" text="Data di nascita"/>
@@ -185,7 +189,8 @@
 
 		<text name="el_ui_formatMonths" text="%s mesi"/>
 		<text name="el_ui_formatMonth" text="%s mese"/>
-		<text name="el_ui_notPregnant" text="Non gravida"/>
+		<text name="el_ui_notPregnant" text="Nessuna attesa"/>
+		<text name="el_ui_notPregnant_github" text="Non gravida"/>
 		<text name="el_ui_any" text="Qualsiasi"/>
 		<text name="el_ui_pregnancy" text="Gravidanza"/>
 		<text name="el_ui_productivity" text="Produttività"/>
@@ -271,7 +276,8 @@
 
 		<text name="el_insemination_male" text="Solo le femmine possono essere riprodotte con riproduzione assistita"/>
 		<text name="el_insemination_male_github" text="Solo le femmine possono essere inseminate artificialmente"/>
-		<text name="el_insemination_pregnant" text="Questo animale è già gravido"/>
+		<text name="el_insemination_pregnant" text="Questo animale è già in attesa di piccoli"/>
+		<text name="el_insemination_pregnant_github" text="Questo animale è già gravido"/>
 		<text name="el_insemination_animalType" text="L'animale deve essere della stessa specie del padre"/>
 		<text name="el_insemination_inseminated" text="Questo animale è già stato riprodotto con riproduzione assistita"/>
 		<text name="el_insemination_inseminated_github" text="Questo animale è già stato inseminato artificialmente"/>
@@ -548,12 +554,18 @@
 		<text name="el_help_monitors_2" text="Le marche di monitoraggio permettono di visualizzare informazioni cruciali, tra cui salute, peso, lattazione, produzione e i fabbisogni di paglia, cibo e acqua."/>
 		<text name="el_help_monitors_3" text="L'applicazione di una marca comporta un piccolo costo di abbonamento mensile basato sulla specie. Se decidi di rimuovere la marca, la disattivazione avverrà all'inizio del mese successivo."/>
 
-		<text name="el_help_pregnancy_title" text="Gravidanza"/>
-		<text name="el_help_pregnancy_1" text="Le femmine richiedono la presenza di almeno un maschio per poter iniziare una gravidanza. Entrambi i capi devono avere l'età e lo stato di salute idonei e appartenere alla stessa specie. Gli incroci tra razze diverse (es. vacca Holstein e toro Angus) sono consentiti."/>
-		<text name="el_help_pregnancy_2" text="L'inbreeding (consanguineità) non è permesso. Se un maschio e una femmina hanno una parentela diretta, non si riprodurranno tra loro."/>
-		<text name="el_help_pregnancy_3" text="La probabilità di concepimento dipende dalla fertilità di entrambi i capi. Una femmina con fertilità elevata ha inoltre una probabilità significativamente maggiore di avere parti plurimi."/>
-		<text name="el_help_pregnancy_4" text="Una volta fecondata, la femmina inizierà il periodo di gestazione. Puoi visualizzare la data prevista per il parto e il numero di nascituri osservando l'animale nel recinto o selezionandolo nel menu animali."/>
-		<text name="el_help_pregnancy_5" text="Al termine della gestazione, avverrà il parto. Tuttavia, i nuovi nati hanno una certa probabilità di non sopravvivere, così come la madre se la gravidanza presenta complicazioni. I piccoli nati in un recinto sovraffollato verranno venduti automaticamente."/>
+		<text name="el_help_pregnancy_title" text="Allevamento della prole"/>
+		<text name="el_help_pregnancy_title_github" text="Gravidanza"/>
+		<text name="el_help_pregnancy_1" text="Le femmine richiedono la presenza di almeno un maschio per poter avere piccoli. Entrambi i capi devono avere l'età e lo stato di salute idonei e appartenere alla stessa specie. Gli incroci tra razze diverse (es. vacca Holstein e toro Angus) sono consentiti."/>
+		<text name="el_help_pregnancy_1_github" text="Le femmine richiedono la presenza di almeno un maschio per poter iniziare una gravidanza. Entrambi i capi devono avere l'età e lo stato di salute idonei e appartenere alla stessa specie. Gli incroci tra razze diverse (es. vacca Holstein e toro Angus) sono consentiti."/>
+		<text name="el_help_pregnancy_2" text="I parenti stretti non si accoppieranno. Se un maschio e una femmina hanno una parentela diretta, non si riprodurranno tra loro."/>
+		<text name="el_help_pregnancy_2_github" text="L'inbreeding (consanguineità) non è permesso. Se un maschio e una femmina hanno una parentela diretta, non si riprodurranno tra loro."/>
+		<text name="el_help_pregnancy_3" text="La probabilità per una femmina di attendere un piccolo dipende dalla fertilità di entrambi i genitori. Una femmina con fertilità elevata ha inoltre una probabilità molto maggiore di avere più piccoli alla volta."/>
+		<text name="el_help_pregnancy_3_github" text="La probabilità di concepimento dipende dalla fertilità di entrambi i capi. Una femmina con fertilità elevata ha inoltre una probabilità significativamente maggiore di avere parti plurimi."/>
+		<text name="el_help_pregnancy_4" text="Una volta che una femmina è in attesa, inizierà a portare i suoi piccoli. Puoi visualizzare la data prevista per il parto e il numero di nascituri osservando l'animale nel recinto o selezionandolo nel menu animali."/>
+		<text name="el_help_pregnancy_4_github" text="Una volta fecondata, la femmina inizierà il periodo di gestazione. Puoi visualizzare la data prevista per il parto e il numero di nascituri osservando l'animale nel recinto o selezionandolo nel menu animali."/>
+		<text name="el_help_pregnancy_5" text="Al termine della gestazione, arriveranno i nuovi nati. Tuttavia, c'è una piccola probabilità che i piccoli o la madre vadano persi in caso di complicazioni. I piccoli nati in un recinto sovraffollato verranno venduti automaticamente."/>
+		<text name="el_help_pregnancy_5_github" text="Al termine della gestazione, avverrà il parto. Tuttavia, i nuovi nati hanno una certa probabilità di non sopravvivere, così come la madre se la gravidanza presenta complicazioni. I piccoli nati in un recinto sovraffollato verranno venduti automaticamente."/>
 
 		<text name="el_help_production_title" text="Produzione"/>
 		<text name="el_help_production_1" text="Le vacche di qualsiasi razza iniziano a produrre latte solo dopo il parto. Dopo la nascita, la produzione aumenterà esponenzialmente per 3 mesi, per poi calare lentamente nei successivi 6 mesi. A 10 mesi dal parto, la vacca smetterà di produrre latte fino alla gravidanza successiva."/>
@@ -567,7 +579,8 @@
 		<text name="el_help_genetics_title" text="Genetica"/>
 		<text name="el_help_genetics_1" text="Ogni animale possiede 4 diversi valori genetici: metabolismo, fertilità, salute e qualità. Il patrimonio genetico è un mix tra quello della madre e quello del padre, trasmesso poi alla prole."/>
 		<text name="el_help_genetics_2" text="Il metabolismo influenza la capacità dell'animale di convertire il cibo in peso corporeo e determina la quantità di alimento consumato."/>
-		<text name="el_help_genetics_3" text="La fertilità influisce sulle probabilità di concepimento e sul numero di piccoli nati per ogni parto."/>
+		<text name="el_help_genetics_3" text="La fertilità influisce sulle probabilità di riuscire ad avere piccoli e sul numero di nascituri che i genitori produrranno."/>
+		<text name="el_help_genetics_3_github" text="La fertilità influisce sulle probabilità di concepimento e sul numero di piccoli nati per ogni parto."/>
 		<text name="el_help_genetics_4" text="La salute influisce sulla resistenza fisica e sulle probabilità di decesso mensile. Un animale con una genetica sanitaria superiore avrà anche una longevità maggiore."/>
 		<text name="el_help_genetics_5" text="La qualità determina il valore intrinseco del capo: un animale di alta qualità verrà venduto a un prezzo molto più elevato."/>
 		<text name="el_help_genetics_6" text="Bovini, ovini e polli possiedono anche una genetica di produzione, che determina la resa di latte, uova o lana."/>

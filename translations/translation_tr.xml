@@ -82,10 +82,13 @@
         <text name="el_ui_recoveringLastBirthBracketed" text="Hayır (son doğumdan sonra iyileşme)"/>
         <text name="el_ui_tooYoung" text="Çok genç"/>
         <text name="el_ui_tooYoungBracketed" text="Hayır (çok genç)"/>
-        <text name="el_ui_pregnant" text="Hamile"/>
-        <text name="el_ui_lactating" text="Süt Salgılama"/>
+        <text name="el_ui_pregnant" text="Yavru Bekliyor"/>
+		<text name="el_ui_pregnant_github" text="Hamile"/>
+        <text name="el_ui_lactating" text="Süt Üretiyor"/>
+		<text name="el_ui_lactating_github" text="Süt Salgılama"/>
         <text name="el_ui_canReproduce" text="Üreyebilir"/>
-        <text name="el_ui_impregnatedBy" text="Tarafından Hamile"/>
+        <text name="el_ui_impregnatedBy" text="Eşleşti"/>
+		<text name="el_ui_impregnatedBy_github" text="Tarafından Gebe Bırakıldı"/>
         <text name="el_ui_unknown" text="Bilinmiyor"/>
         <text name="el_ui_yes" text="Evet"/>
         <text name="el_ui_no" text="Hayır"/>
@@ -104,8 +107,9 @@
 		<text name="el_ui_overall" text="Toplam"/>
 		<text name="el_ui_rename" text="İsim Değiştir"/>
 		<text name="el_ui_cantFindAnimal" text="Hayvan bulunamadı"/>
-		<text name="el_ui_maleNumImpregnatable" text="Ağılda hamile olmayan hayvanlar"/>
-		
+		<text name="el_ui_maleNumImpregnatable" text="Ağıldaki üretilebilir hayvanlar"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Ağılda gebe bırakılabilir hayvanlar"/>
+
 		<text name="el_ui_breederQuality" text="Damızlık Kalitesi"/>
 		<text name="el_ui_birthday" text="Doğum Günü"/>
 		<text name="el_ui_pregnancyExpected" text="Beklenen"/>
@@ -192,7 +196,8 @@
 
 		<text name="el_ui_formatMonths" text="%s ay"/>
 		<text name="el_ui_formatMonth" text="%s ay"/>
-		<text name="el_ui_notPregnant" text="Hamile Değil"/>
+		<text name="el_ui_notPregnant" text="Yavru Beklemiyor"/>
+		<text name="el_ui_notPregnant_github" text="Hamile Değil"/>
 		<text name="el_ui_any" text="Herhangi"/>
 		<text name="el_ui_pregnancy" text="Hamilelik"/>
 		<text name="el_ui_productivity" text="Üretkenlik"/>
@@ -282,7 +287,8 @@
 
 		<text name="el_insemination_male" text="Sadece dişiler yapay tohumlanabilir"/>
 		<text name="el_insemination_male_github" text="Sadece dişiler yapay tohumlanabilir"/>
-		<text name="el_insemination_pregnant" text="Bu hayvan zaten hamile"/>
+		<text name="el_insemination_pregnant" text="Bu hayvan zaten yavru bekliyor"/>
+		<text name="el_insemination_pregnant_github" text="Bu hayvan zaten hamile"/>
 		<text name="el_insemination_animalType" text="Hayvan baba ile aynı türden olmalı"/>
 		<text name="el_insemination_inseminated" text="Bu hayvan zaten yapay tohumlanmış"/>
 		<text name="el_insemination_inseminated_github" text="Bu hayvan zaten yapay tohumlanmış"/>
@@ -562,12 +568,18 @@
 		<text name="el_help_monitors_2" text="Etiketleri izlediğinizde, sağlık, ağırlık, emzirme, üretim ve saman, yiyecek ve su gereksinimleri dahil olmak üzere önemli bilgiler size gösterilecektir."/>
 		<text name="el_help_monitors_3" text="Bir hayvana etiket uygulamak, hayvanın türüne bağlı olarak size küçük bir aylık aboneliğe mal olacaktır. Etiketi kaldırmayı seçerseniz, etiket bir sonraki ayın başında kaldırılacaktır."/>
 		
-		<text name="el_help_pregnancy_title" text="Hamilelik"/>
-		<text name="el_help_pregnancy_1" text="Dişi hayvanların hepsinin potansiyel olarak hamile kalabilmesi için en az 1 erkek hayvana ihtiyacı vardır. Her iki hayvan da doğru yaşta ve sağlıkta olmalı ve aynı türden olmalıdır. Farklı ırklar arasında üremeye izin verilir (örneğin: holstein ineği ve angus boğası)."/>
-		<text name="el_help_pregnancy_2" text="Akraba evliliklerine izin verilmez. Eğer bir erkek ve bir dişi doğrudan akraba ise, birlikte üremeyeceklerdir."/>
-		<text name="el_help_pregnancy_3" text="Bir dişinin hamile kalma şansı hem kendisinin hem de erkeğin doğurganlığına bağlıdır. Daha yüksek doğurganlığa sahip bir dişinin aynı anda daha fazla yavru üretme şansı da önemli ölçüde daha yüksektir."/>
-		<text name="el_help_pregnancy_4" text="Bir dişi hamile kaldığında yavrularını taşımaya başlayacaktır. Beklenen gebelik tarihini ve yavru sayısını ağıldaki hayvana bakarak veya hayvan menüsünde üzerine tıklayarak görebilirsiniz."/>
-		<text name="el_help_pregnancy_5" text="İnekler doğum tarihine ulaştığında yavrularını dünyaya getirecektir. Ancak, hamileliğin kötü gitmesi durumunda annenin olduğu gibi yeni doğanların da belirli bir kaldırılma şansı vardır. Aşırı kalabalık bir ağılda doğan yavrular otomatik olarak satılacaktır."/>
+		<text name="el_help_pregnancy_title" text="Yavru Yetiştirme"/>
+		<text name="el_help_pregnancy_title_github" text="Hamilelik"/>
+		<text name="el_help_pregnancy_1" text="Dişi hayvanların bebek sahibi olması için en az 1 erkek hayvana ihtiyacı vardır. Her iki hayvan da sağlıklı ve doğru yaşta olmalı ve aynı türden olmalıdır. Farklı ırklar arasında üremeye (örneğin: Holstein ineği ve Angus boğası) izin verilir."/>
+		<text name="el_help_pregnancy_1_github" text="Dişi hayvanların hepsinin potansiyel olarak hamile kalabilmesi için en az 1 erkek hayvana ihtiyacı vardır. Her iki hayvan da doğru yaşta ve sağlıkta olmalı ve aynı türden olmalıdır. Farklı ırklar arasında üremeye izin verilir (örneğin: holstein ineği ve angus boğası)."/>
+		<text name="el_help_pregnancy_2" text="Yakın akrabalar eşleşmez. Eğer bir erkek ve bir dişi doğrudan akraba ise, birlikte üremeyeceklerdir."/>
+		<text name="el_help_pregnancy_2_github" text="Akraba evliliklerine izin verilmez. Eğer bir erkek ve bir dişi doğrudan akraba ise, birlikte üremeyeceklerdir."/>
+		<text name="el_help_pregnancy_3" text="Bir dişinin yavru bekleme şansı her iki ebeveynin doğurganlığına bağlıdır. Daha yüksek doğurganlığa sahip bir dişinin aynı anda daha fazla yavru sahibi olma şansı da çok daha yüksektir."/>
+		<text name="el_help_pregnancy_3_github" text="Bir dişinin hamile kalma şansı hem kendisinin hem de erkeğin doğurganlığına bağlıdır. Daha yüksek doğurganlığa sahip bir dişinin aynı anda daha fazla yavru üretme şansı da önemli ölçüde daha yüksektir."/>
+		<text name="el_help_pregnancy_4" text="Bir dişi yavru beklemeye başladığında, yavrularını taşımaya başlayacaktır. Beklenen doğum tarihini ve beklenen yavru sayısını ağıldaki hayvana bakarak veya hayvan menüsünde onu seçerek görebilirsiniz."/>
+		<text name="el_help_pregnancy_4_github" text="Bir dişi hamile kaldığında yavrularını taşımaya başlayacaktır. Beklenen gebelik tarihini ve yavru sayısını ağıldaki hayvana bakarak veya hayvan menüsünde üzerine tıklayarak görebilirsiniz."/>
+		<text name="el_help_pregnancy_5" text="Doğum tarihine ulaştığında yeni bebekler gelecektir. Ancak komplikasyonlar olursa bebeklerin veya annenin kaybedilmesi ihtimali düşüktür. Aşırı kalabalık bir ağılda doğan bebekler otomatik olarak satılacaktır."/>
+		<text name="el_help_pregnancy_5_github" text="İnekler doğum tarihine ulaştığında yavrularını dünyaya getirecektir. Ancak, hamileliğin kötü gitmesi durumunda annenin olduğu gibi yeni doğanların da belirli bir kaldırılma şansı vardır. Aşırı kalabalık bir ağılda doğan yavrular otomatik olarak satılacaktır."/>
 
 		<text name="el_help_production_title" text="Üretim"/>
 		<text name="el_help_production_1" text="Her türden inek ancak doğum yaptıktan sonra süt üretmeye başlayacaktır. İnek doğum yaptıktan sonra 3 ay boyunca katlanarak süt üretecek, ardından sonraki 6 ay boyunca üretimi yavaşça düşecektir. Hamilelikten 10 ay sonra, inek bir sonraki hamileliğine kadar süt üretimini durduracaktır."/>
@@ -581,7 +593,8 @@
 		<text name="el_help_genetics_title" text="Genetik"/>
 		<text name="el_help_genetics_1" text="Her hayvanın 4 farklı genetik değeri vardır; metabolizma, doğurganlık, sağlık ve kalite. Genetik anne ve baba arasında karıştırılır ve daha sonra çocuklarına aktarılır."/>
 		<text name="el_help_genetics_2" text="Metabolizma, hayvanın gıdayı ağırlığa dönüştürme kabiliyetini ve yediği miktarı etkiler."/>
-		<text name="el_help_genetics_3" text="Doğurganlık, hayvanın hamile kalma veya bir dişiyi hamile bırakma şansını ve üreteceği yavru sayısını etkiler."/>
+		<text name="el_help_genetics_3" text="Doğurganlık, başarılı bir şekilde bebek sahibi olma şansını ve ebeveynlerin üreteceği yavru sayısını etkiler."/>
+		<text name="el_help_genetics_3_github" text="Doğurganlık, hayvanın hamile kalma veya bir dişiyi hamile bırakma şansını ve üreteceği yavru sayısını etkiler."/>
 		<text name="el_help_genetics_4" text="Sağlık, hayvanın sağlığını ve her ay kaldırılma şansını etkiler. Daha sağlıklı genetiğe sahip bir hayvanın ömrü de daha uzun olacaktır."/>
 		<text name="el_help_genetics_5" text="Kalite hayvanın kendi değerini etkiler, daha kaliteli bir hayvan çok daha fazla fiyata satılacaktır."/>
 		<text name="el_help_genetics_6" text="Sığır, koyun ve tavuğun da üretim genetiği vardır ve bu da ne kadar süt/yumurta/yün ürettiklerini etkiler."/>
