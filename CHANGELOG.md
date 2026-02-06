@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.1.1.0
+
+- Adjusted translations to comply to PEGI 3
+- Fixed a bug during saving the settings
+
 ## v1.1.0.0
 
 - EPP Market integration - process animals directly from the animal screen

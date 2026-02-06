@@ -14,9 +14,14 @@
 
 > [!NOTE]
 > This mod is based on the [FS25 Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) mod by [Arrow-kb](https://github.com/Arrow-kb), who has decided to cease all his mods.
-
-> [!NOTE]
 > Proudly cooperating with [FS25_RealisticLivestockRM](https://github.com/rittermod/FS25_RealisticLivestockRM) mod by [Ritter](https://github.com/rittermod).
+
+---
+
+
+> [!WARNING]
+> This repository hosts the Realistic Version of the mod. It contains accurate agricultural and veterinary terminology (e.g., Death, Insemination, Semen) that is restricted on the official ModHub due to PEGI ratings.
+> If you prefer the sanitized, family-friendly text required by Giants Software, please download the version available on the in-game ModHub. (Currently in release process)
 
 ---
 
@@ -147,9 +152,13 @@ Event tracking for your husbandries:
 - **AI Herdsman actions** - Log automated management decisions
 
 ### 🥩 Butcher Integration
-Seamless integration with EPP Butcher mod:
-- **Direct slaughter** - send animals to butcher directly from the animal screen
-- **Automatic processing** - works with installed EPP Butcher placeables
+Seamless integration with EPP Butcher mods:
+- **Meat processing** - works with installed EPP Butcher placeables
+
+Tested mods:
+- [FS25_Butcher](https://drxml.itch.io/butcher-shop)
+- [FS25_Meat_Production](https://farmingsimulator25mods.com/the-butcher-v1-0-0-1/)
+- [FS25_Meat_Processing_Plant](https://www.kingmods.net/en/fs25/mods/66442/meat-processing-plant)
 
 ---
 

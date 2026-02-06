@@ -81,10 +81,13 @@
 		<text name="el_ui_recoveringLastBirthBracketed" text="Ne (zotavuje se z posledního porodu)"/>
 		<text name="el_ui_tooYoung" text="Příliš mladé"/>
 		<text name="el_ui_tooYoungBracketed" text="Ne (příliš mladé)"/>
-		<text name="el_ui_pregnant" text="Březí"/>
-		<text name="el_ui_lactating" text="Kojící"/>
+		<text name="el_ui_pregnant" text="Čeká potomky"/>
+		<text name="el_ui_pregnant_github" text="Březí"/>
+		<text name="el_ui_lactating" text="Produkující mléko"/>
+		<text name="el_ui_lactating_github" text="Laktující"/>
 		<text name="el_ui_canReproduce" text="Možnost reprodukce"/>
-		<text name="el_ui_impregnatedBy" text="Oplodněn/a kým"/>
+		<text name="el_ui_impregnatedBy" text="Spárována s"/>
+		<text name="el_ui_impregnatedBy_github" text="Oplodněn/a kým"/>
 		<text name="el_ui_unknown" text="Neznámé"/>
 		<text name="el_ui_yes" text="Ano"/>
 		<text name="el_ui_no" text="Ne"/>
@@ -103,7 +106,8 @@
 		<text name="el_ui_overall" text="Celkově"/>
 		<text name="el_ui_rename" text="Změnit jméno"/>
 		<text name="el_ui_cantFindAnimal" text="Zvíře nenalezeno"/>
-		<text name="el_ui_maleNumImpregnatable" text="Zvířata ve výběhu schopná oplodnění"/>
+		<text name="el_ui_maleNumImpregnatable" text="Zvířata k chovu ve výběhu"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Zvířata ve výběhu schopná oplodnění"/>
 
 		<text name="el_ui_breederQuality" text="Chovatelská kvalita"/>
 		<text name="el_ui_birthday" text="Narozeniny"/>
@@ -191,7 +195,8 @@
 
 		<text name="el_ui_formatMonths" text="%s měsíců"/>
 		<text name="el_ui_formatMonth" text="%s měsíc"/>
-		<text name="el_ui_notPregnant" text="Není březí"/>
+		<text name="el_ui_notPregnant" text="Nečeká potomky"/>
+		<text name="el_ui_notPregnant_github" text="Není březí"/>
 		<text name="el_ui_any" text="Jakýkoli"/>
 		<text name="el_ui_pregnancy" text="Březost"/>
 		<text name="el_ui_productivity" text="Produktivita"/>
@@ -280,7 +285,8 @@
 
 		<text name="el_insemination_male" text="Pouze samice mohou být chovány"/>
 		<text name="el_insemination_male_github" text="Pouze samice mohou být uměle inseminovány"/>
-		<text name="el_insemination_pregnant" text="Toto zvíře je již březí"/>
+		<text name="el_insemination_pregnant" text="Toto zvíře již čeká potomky"/>
+		<text name="el_insemination_pregnant_github" text="Toto zvíře je již březí"/>
 		<text name="el_insemination_animalType" text="Zvíře musí být stejného druhu jako otec"/>
 		<text name="el_insemination_inseminated" text="Toto zvíře již bylo chováno"/>
 		<text name="el_insemination_inseminated_github" text="Toto zvíře již bylo uměle inseminováno"/>
@@ -563,12 +569,18 @@
 		<text name="el_help_monitors_2" text="Sledování značek vám poskytne důležité informace, včetně informací o zdravotním stavu, hmotnosti, laktaci, produkci a požadavcích na slámu, krmivo a vodu."/>
 		<text name="el_help_monitors_3" text="Aplikace značky na zvíře vás bude stát malé měsíční předplatné podle druhu zvířete. Pokud se rozhodnete značku odstranit, bude odstraněna na začátku následujícího měsíce."/>
 
-		<text name="el_help_pregnancy_title" text="Těhotenství"/>
-		<text name="el_help_pregnancy_1" text="Všechny samice potřebují alespoň jednoho samce, aby mohly zabřeznout. Obě zvířata musí být správného věku a zdravotního stavu a musí být stejného druhu. Chov mezi různými plemeny (např. holštýnská kráva a býk plemene angus) je povolen."/>
-		<text name="el_help_pregnancy_2" text="Příbuzenská plemenitba není povolena. Pokud jsou samec a samice v přímém příbuzenském vztahu, nebudou se spolu pářit."/>
-		<text name="el_help_pregnancy_3" text="Šance samice na otěhotnění závisí na její plodnosti i na plodnosti samce. Samice s vyšší plodností má také výrazně vyšší šanci, že se jí narodí více potomků najednou."/>
-		<text name="el_help_pregnancy_4" text="Jakmile samice zabřezne, začne nosit potomky. Předpokládané datum březosti a počet potomků si můžete prohlédnout při pohledu na zvíře v ohradě nebo kliknutím na něj v nabídce zvířat."/>
-		<text name="el_help_pregnancy_5" text="Až dosáhne termínu porodu, porodí své děti. Novorozenci však mají určitou šanci, že budou odebráni, stejně jako matka, pokud těhotenství probíhá špatně. Novorozenci, kteří se narodí v přeplněné ohradě, budou automaticky prodáni."/>
+		<text name="el_help_pregnancy_title" text="Odchov potomstva"/>
+		<text name="el_help_pregnancy_title_github" text="Těhotenství"/>
+		<text name="el_help_pregnancy_1" text="Samice vyžadují alespoň jednoho samce, aby mohly mít potomky. Obě zvířata musí být zdravá a správného věku, a musí být stejného druhu. Chov mezi různými plemeny (např. holštýnská kráva a býk plemene angus) je povolen."/>
+		<text name="el_help_pregnancy_1_github" text="Všechny samice potřebují alespoň jednoho samce, aby mohly zabřeznout. Obě zvířata musí být správného věku a zdravotního stavu a musí být stejného druhu. Chov mezi různými plemeny (např. holštýnská kráva a býk plemene angus) je povolen."/>
+		<text name="el_help_pregnancy_2" text="Blízké příbuzné se nespáří. Pokud jsou samec a samice v přímém příbuzenském vztahu, nebudou se spolu množit."/>
+		<text name="el_help_pregnancy_2_github" text="Příbuzenská plemenitba není povolena. Pokud jsou samec a samice v přímém příbuzenském vztahu, nebudou se spolu pářit."/>
+		<text name="el_help_pregnancy_3" text="Šance samice mít potomky závisí na plodnosti obou rodičů. Samice s vyšší plodností má také mnohem větší šanci, že porodí více potomků najednou."/>
+		<text name="el_help_pregnancy_3_github" text="Šance samice zabřeznout závisí na její plodnosti i na plodnosti samce. Samice s vyšší plodností má také výrazně vyšší šanci, že se jí narodí více potomků najednou."/>
+		<text name="el_help_pregnancy_4" text="Jakmile samice čeká potomky, začne je nosit. Předpokládaný termín a počet očekávaných mláďat můžete vidět při pohledu na zvíře v ohradě nebo výběrem v nabídce zvířat."/>
+		<text name="el_help_pregnancy_4_github" text="Jakmile samice zabřezne, začne nosit potomky. Předpokládané datum březosti a počet potomků si můžete prohlédnout při pohledu na zvíře v ohradě nebo kliknutím na něj v nabídce zvířat."/>
+		<text name="el_help_pregnancy_5" text="Když dosáhne termínu, narodí se nová mláďata. Existuje však malá šance, že mláďata nebo matka mohou být ztraceny, pokud nastanou komplikace. Mláďata narozená v přeplněné ohradě budou automaticky prodána."/>
+		<text name="el_help_pregnancy_5_github" text="Až dosáhne termínu porodu, porodí své děti. Novorozenci však mají určitou šanci, že budou odebráni, stejně jako matka, pokud těhotenství probíhá špatně. Novorozenci, kteří se narodí v přeplněné ohradě, budou automaticky prodáni."/>
 
 		<text name="el_help_production_title" text="Produkce"/>
 		<text name="el_help_production_1" text="Krávy jakéhokoli plemene začnou produkovat mléko až po porodu. Po porodu bude kráva produkovat mléko exponenciálně po dobu 3 měsíců, poté bude její produkce po dobu dalších 6 měsíců pomalu klesat. Po 10 měsících od zabřeznutí kráva přestane produkovat mléko až do dalšího zabřeznutí."/>
@@ -582,7 +594,8 @@
 		<text name="el_help_genetics_title" text="Genetika"/>
 		<text name="el_help_genetics_1" text="Každé zvíře má 4 různé genetické hodnoty: metabolismus, plodnost, zdraví a kvalitu. Genetika se mísí mezi matkou a otcem a poté se předává jejich dětem."/>
 		<text name="el_help_genetics_2" text="Metabolismus ovlivňuje schopnost zvířete přeměnit potravu na hmotnost a ovlivňuje množství, které zvíře sní."/>
-		<text name="el_help_genetics_3" text="Plodnost ovlivňuje šanci zvířete zabřeznout nebo zabřeznutí samice a počet potomků, které zplodí."/>
+		<text name="el_help_genetics_3" text="Plodnost ovlivňuje šanci na úspěšné mládě a počet potomků, které rodiče vyprodukují."/>
+		<text name="el_help_genetics_3_github" text="Plodnost ovlivňuje šanci zvířete zabřeznout nebo zabřeznutí samice a počet potomků, které zplodí."/>
 		<text name="el_help_genetics_4" text="Zdravotní stav ovlivňuje zdraví zvířete a jeho šanci na odstranění každý měsíc. Zvíře s vyšší zdravotní genetikou bude mít také delší životnost."/>
 		<text name="el_help_genetics_5" text="Kvalita ovlivňuje hodnotu samotného zvířete, zvíře s vyšší kvalitou se prodává za mnohem vyšší cenu."/>
 		<text name="el_help_genetics_6" text="Skot, ovce a kuřata mají také produkční genetiku, která ovlivňuje množství mléka/vajíček/vlny, které produkují."/>

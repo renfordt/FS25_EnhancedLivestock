@@ -82,10 +82,13 @@
         <text name="el_ui_recoveringLastBirthBracketed" text="Non (en convalescence depuis le dernier accouchement)"/>
         <text name="el_ui_tooYoung" text="Trop jeune"/>
         <text name="el_ui_tooYoungBracketed" text="Non (trop jeune)"/>
-        <text name="el_ui_pregnant" text="Enceinte"/>
-        <text name="el_ui_lactating" text="Allaitement"/>
+        <text name="el_ui_pregnant" text="Attente de petits"/>
+		<text name="el_ui_pregnant_github" text="Enceinte"/>
+        <text name="el_ui_lactating" text="Production de lait"/>
+		<text name="el_ui_lactating_github" text="Lactation"/>
         <text name="el_ui_canReproduce" text="Peut se reproduire"/>
-        <text name="el_ui_impregnatedBy" text="Imprégné par"/>
+        <text name="el_ui_impregnatedBy" text="Accouplée avec"/>
+		<text name="el_ui_impregnatedBy_github" text="Inséminée par"/>
         <text name="el_ui_unknown" text="Inconnu"/>
         <text name="el_ui_yes" text="Oui"/>
         <text name="el_ui_no" text="Non"/>
@@ -104,7 +107,8 @@
 		<text name="el_ui_overall" text="Globalement"/>
 		<text name="el_ui_rename" text="Changer de nom"/>
 		<text name="el_ui_cantFindAnimal" text="Impossible de trouver l'animal"/>
-		<text name="el_ui_maleNumImpregnatable" text="Animaux imprégnables dans un enclos"/>
+		<text name="el_ui_maleNumImpregnatable" text="Animaux reproductibles dans l'enclos"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Animaux inséminables dans l'enclos"/>
 
 		<text name="el_ui_breederQuality" text="Qualité de l'éleveur"/>
 		<text name="el_ui_birthday" text="Anniversaire"/>
@@ -192,7 +196,8 @@
 
 		<text name="el_ui_formatMonths" text="%s mois"/>
 		<text name="el_ui_formatMonth" text="%s mois"/>
-		<text name="el_ui_notPregnant" text="Non enceinte"/>
+		<text name="el_ui_notPregnant" text="Pas d'attente de petits"/>
+		<text name="el_ui_notPregnant_github" text="Non enceinte"/>
 		<text name="el_ui_any" text="N'importe quel"/>
 		<text name="el_ui_pregnancy" text="Grossesse"/>
 		<text name="el_ui_productivity" text="Productivité"/>
@@ -281,7 +286,8 @@
 
 		<text name="el_insemination_male" text="Seules les femelles peuvent être reproduites"/>
 		<text name="el_insemination_male_github" text="Seules les femelles peuvent être inséminées artificiellement"/>
-		<text name="el_insemination_pregnant" text="Cet animal est déjà enceinte"/>
+		<text name="el_insemination_pregnant" text="Cet animal attend déjà des petits"/>
+		<text name="el_insemination_pregnant_github" text="Cet animal est déjà enceinte"/>
 		<text name="el_insemination_animalType" text="L'animal doit être de la même espèce que le père"/>
 		<text name="el_insemination_inseminated" text="Cet animal a déjà été reproduit"/>
 		<text name="el_insemination_inseminated_github" text="Cet animal a déjà été inséminé artificiellement"/>
@@ -564,12 +570,18 @@
 		<text name="el_help_monitors_2" text="La surveillance des étiquettes vous permettra d'obtenir des informations importantes, notamment sur la santé, le poids, la lactation, la production et les besoins en paille, en nourriture et en eau."/>
 		<text name="el_help_monitors_3" text="L'apposition d'une balise sur un animal vous coûtera un petit abonnement mensuel basé sur l'espèce de l'animal. Si vous décidez de retirer la balise, elle sera retirée au début du mois suivant."/>
 
-		<text name="el_help_pregnancy_title" text="Grossesse"/>
-		<text name="el_help_pregnancy_1" text="Les femelles ont toutes besoin d'au moins un mâle pour pouvoir tomber enceintes. Les deux animaux doivent avoir l'âge et la santé requis et doivent appartenir à la même espèce. La reproduction entre races différentes (par exemple : vache holstein et taureau angus) est autorisée."/>
-		<text name="el_help_pregnancy_2" text="La consanguinité n'est pas autorisée. Si un mâle et une femelle sont directement apparentés, ils ne se reproduiront pas ensemble."/>
-		<text name="el_help_pregnancy_3" text="Les chances de grossesse d'une femme dépendent de sa fertilité et de celle de l'homme. Une femelle plus fertile a également beaucoup plus de chances de produire plus de descendants à la fois."/>
-		<text name="el_help_pregnancy_4" text="Une fois qu'une femelle est enceinte, elle commence à porter sa progéniture. Vous pouvez voir la date prévue de la gestation et le nombre de petits en regardant l'animal dans l'enclos ou en cliquant sur lui dans le menu des animaux."/>
-		<text name="el_help_pregnancy_5" text="À la date prévue, elle donnera naissance à ses bébés. Cependant, les nouveau-nés ont une certaine chance d'être retirés, tout comme la mère si la grossesse se déroule mal. Les nouveau-nés qui naissent dans un enclos surpeuplé sont automatiquement vendus."/>
+		<text name="el_help_pregnancy_title" text="Élevage de la progéniture"/>
+		<text name="el_help_pregnancy_title_github" text="Grossesse"/>
+		<text name="el_help_pregnancy_1" text="Les femelles ont toutes besoin d'au moins un mâle pour pouvoir avoir des petits. Les deux animaux doivent avoir l'âge et la santé requis et doivent appartenir à la même espèce. La reproduction entre races différentes (par exemple : vache holstein et taureau angus) est autorisée."/>
+		<text name="el_help_pregnancy_1_github" text="Les femelles ont toutes besoin d'au moins un mâle pour pouvoir tomber enceintes. Les deux animaux doivent avoir l'âge et la santé requis et doivent appartenir à la même espèce. La reproduction entre races différentes (par exemple : vache holstein et taureau angus) est autorisée."/>
+		<text name="el_help_pregnancy_2" text="Les parents proches ne s'accoupleront pas. Si un mâle et une femelle sont directement apparentés, ils ne se reproduiront pas ensemble."/>
+		<text name="el_help_pregnancy_2_github" text="La consanguinité n'est pas autorisée. Si un mâle et une femelle sont directement apparentés, ils ne se reproduiront pas ensemble."/>
+		<text name="el_help_pregnancy_3" text="La chance pour une femelle d'attendre un petit dépend de la fertilité des deux parents. Une femelle plus fertile a également beaucoup plus de chances d'avoir plus de petits à la fois."/>
+		<text name="el_help_pregnancy_3_github" text="Les chances de grossesse d'une femelle dépendent de sa fertilité et de celle du mâle. Une femelle plus fertile a également beaucoup plus de chances de produire plus de descendants à la fois."/>
+		<text name="el_help_pregnancy_4" text="Une fois qu'une femelle attend des petits, elle commence à porter ses petits. Vous pouvez voir la date prévue et le nombre de petits attendus en regardant l'animal dans l'enclos ou en la sélectionnant dans le menu des animaux."/>
+		<text name="el_help_pregnancy_4_github" text="Une fois qu'une femelle est enceinte, elle commence à porter sa progéniture. Vous pouvez voir la date prévue de la gestation et le nombre de petits en regardant l'animal dans l'enclos ou en cliquant sur elle dans le menu des animaux."/>
+		<text name="el_help_pregnancy_5" text="Lorsqu'elle atteint sa date prévue, les nouveaux petits arrivent. Cependant, il y a une petite chance que les petits ou la mère soient perdus en cas de complications. Les petits nés dans un enclos surpeuplé seront vendus automatiquement."/>
+		<text name="el_help_pregnancy_5_github" text="À la date prévue, elle donnera naissance à ses bébés. Cependant, les nouveau-nés ont une certaine chance d'être retirés, tout comme la mère si la grossesse se déroule mal. Les nouveau-nés qui naissent dans un enclos surpeuplé sont automatiquement vendus."/>
 
 		<text name="el_help_production_title" text="Production"/>
 		<text name="el_help_production_1" text="Les vaches, quelle que soit leur race, ne commencent à produire du lait qu'après avoir mis bas. Une fois qu'elle a mis bas, la vache produit du lait de manière exponentielle pendant 3 mois, puis sa production diminue lentement pendant les 6 mois suivants. 10 mois après la grossesse, la vache cesse de produire du lait jusqu'à sa prochaine grossesse."/>
@@ -583,7 +595,8 @@
 		<text name="el_help_genetics_title" text="Génétique"/>
 		<text name="el_help_genetics_1" text="Chaque animal possède quatre valeurs génétiques différentes : le métabolisme, la fertilité, la santé et la qualité. Les gènes sont mélangés entre la mère et le père, puis transmis à leurs enfants."/>
 		<text name="el_help_genetics_2" text="Le métabolisme affecte la capacité de l'animal à convertir la nourriture en poids, et affecte la quantité qu'il mange."/>
-		<text name="el_help_genetics_3" text="La fertilité affecte les chances de l'animal de tomber enceinte ou de mettre une femelle enceinte, ainsi que le nombre de descendants qu'il produira."/>
+		<text name="el_help_genetics_3" text="La fertilité affecte les chances de réussir à avoir des petits et le nombre de descendants que les parents produiront."/>
+		<text name="el_help_genetics_3_github" text="La fertilité affecte les chances de l'animal de tomber enceinte ou de mettre une femelle enceinte, ainsi que le nombre de descendants qu'il produira."/>
 		<text name="el_help_genetics_4" text="La santé a une incidence sur la santé de l'animal et sur ses chances d'être retiré chaque mois. Un animal en meilleure santé génétique aura également une durée de vie plus longue."/>
 		<text name="el_help_genetics_5" text="La qualité influe sur la valeur de l'animal lui-même. Un animal de qualité supérieure se vendra beaucoup plus cher."/>
 		<text name="el_help_genetics_6" text="Les bovins, les ovins et les poulets ont également une génétique de production, qui influe sur la quantité de lait, d'œufs ou de laine qu'ils produisent."/>

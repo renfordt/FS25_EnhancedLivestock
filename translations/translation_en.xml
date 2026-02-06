@@ -81,10 +81,13 @@
         <text name="el_ui_recoveringLastBirthBracketed" text="No (recovering from last birth)"/>
         <text name="el_ui_tooYoung" text="Too young"/>
         <text name="el_ui_tooYoungBracketed" text="No (too young)"/>
-        <text name="el_ui_pregnant" text="Pregnant"/>
-        <text name="el_ui_lactating" text="Lactating"/>
+        <text name="el_ui_pregnant" text="Expecting"/>
+		<text name="el_ui_pregnant_github" text="Pregnant"/>
+        <text name="el_ui_lactating" text="Producing Milk"/>
+		<text name="el_ui_lactating_github" text="Lactating"/>
         <text name="el_ui_canReproduce" text="Can reproduce"/>
-        <text name="el_ui_impregnatedBy" text="Impregnated by"/>
+        <text name="el_ui_impregnatedBy" text="Paired with"/>
+		<text name="el_ui_impregnatedBy_github" text="Impregnated by"/>
         <text name="el_ui_unknown" text="Unknown"/>
         <text name="el_ui_yes" text="Yes"/>
         <text name="el_ui_no" text="No"/>
@@ -103,7 +106,8 @@
 		<text name="el_ui_overall" text="Overall"/>
 		<text name="el_ui_rename" text="Change Name"/>
 		<text name="el_ui_cantFindAnimal" text="Could not find animal"/>
-		<text name="el_ui_maleNumImpregnatable" text="Impregnatable animals in pen"/>
+		<text name="el_ui_maleNumImpregnatable" text="Breedable animals in pen"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Impregnatable animals in pen"/>
 		
 		<text name="el_ui_breederQuality" text="Breeder Quality"/>
 		<text name="el_ui_birthday" text="Birthday"/>
@@ -191,7 +195,8 @@
 		
 		<text name="el_ui_formatMonths" text="%s months"/>
 		<text name="el_ui_formatMonth" text="%s month"/>
-		<text name="el_ui_notPregnant" text="Not Pregnant"/>
+		<text name="el_ui_notPregnant" text="Not Expecting"/>
+		<text name="el_ui_notPregnant_github" text="Not Pregnant"/>
 		<text name="el_ui_any" text="Any"/>
 		<text name="el_ui_pregnancy" text="Pregnancy"/>
 		<text name="el_ui_productivity" text="Productivity"/>
@@ -281,7 +286,8 @@
 		
 		<text name="el_insemination_male" text="Only females can be bred"/>
 		<text name="el_insemination_male_github" text="Only females can be artificially inseminated"/>
-		<text name="el_insemination_pregnant" text="This animal is already pregnant"/>
+		<text name="el_insemination_pregnant" text="This animal is already expecting childs"/>
+		<text name="el_insemination_pregnant_github" text="This animal is already pregnant"/>
 		<text name="el_insemination_animalType" text="Animal must be of the same species as the father"/>
 		<text name="el_insemination_inseminated" text="This animal has already been bred"/>
 		<text name="el_insemination_inseminated_github" text="This animal has already been artificially inseminated"/>
@@ -564,13 +570,19 @@
 		<text name="el_help_monitors_1" text="In order to see the majority of an animal's statistics, you need to apply a monitoring tag to it, which can be done through the animal menu (where you buy and sell animals). Monitoring tags are also visually shown on the animal, on their left ear next to their ID tag."/>
 		<text name="el_help_monitors_2" text="Monitoring tags will result in important information being shown to you, including health, weight, lactation, production, and straw, food and water requirements."/>
 		<text name="el_help_monitors_3" text="Applying a tag to an animal will cost you a small monthly subscription based on the animal's species. If you choose to remove the tag, the tag will be removed at the start of the next month."/>
-		
-		<text name="el_help_pregnancy_title" text="Pregnancy"/>
-		<text name="el_help_pregnancy_1" text="Female animals all require at least 1 male animal in order to potentially become pregnant. Both animals must be of the correct age and health, and must be from the same species. Breeding between different breeds (eg: holstein cow and angus bull) is allowed."/>
-		<text name="el_help_pregnancy_2" text="Inbreeding is not allowed. If a male and a female are directly related, they will not breed together."/>
-		<text name="el_help_pregnancy_3" text="The chance for a female to become pregnant depends upon both her and the male's fertility. A female with higher fertility also has a significantly higher chance of producing more offspring at once."/>
-		<text name="el_help_pregnancy_4" text="Once a female becomes pregnant, she will start to carry her offspring. You can view the expected date of pregnancy and the number of offspring by looking at the animal in the pen, or by clicking on her in the animal menu."/>
-		<text name="el_help_pregnancy_5" text="When she reaches her due date, she will give birth to her babies. However, the newborns have a certain chance of being removed, as does the mother if the pregnancy goes badly. Newborns that are born in an overcrowded pen will be sold automatically."/>
+
+		<text name="el_help_pregnancy_title" text="Raising Offspring"/>
+		<text name="el_help_pregnancy_title_github" text="Pregnancy"/>
+		<text name="el_help_pregnancy_1" text="Female animals require at least 1 male animal to have babies. Both animals must be healthy and of the correct age, and must be from the same species. Breeding between different breeds (e.g., Holstein cow and Angus bull) is allowed."/>
+		<text name="el_help_pregnancy_1_github" text="Female animals all require at least 1 male animal in order to potentially become pregnant. Both animals must be of the correct age and health, and must be from the same species. Breeding between different breeds (eg: holstein cow and angus bull) is allowed."/>
+		<text name="el_help_pregnancy_2" text="Close relatives will not pair. If a male and a female are directly related, they will not breed together."/>
+		<text name="el_help_pregnancy_2_github" text="Inbreeding is not allowed. If a male and a female are directly related, they will not breed together."/>
+		<text name="el_help_pregnancy_3" text="The chance for a female to expect a baby depends on both parents' fertility. A female with higher fertility also has a much better chance of having more babies at once."/>
+		<text name="el_help_pregnancy_3_github" text="The chance for a female to become pregnant depends upon both her and the male's fertility. A female with higher fertility also has a significantly higher chance of producing more offspring at once."/>
+		<text name="el_help_pregnancy_4" text="Once a female is expecting, she will start to carry her little ones. You can view the due date and the number of expected babies by looking at the animal in the pen, or by selecting her in the animal menu."/>
+		<text name="el_help_pregnancy_4_github" text="Once a female becomes pregnant, she will start to carry her offspring. You can view the expected date of pregnancy and the number of offspring by looking at the animal in the pen, or by clicking on her in the animal menu."/>
+		<text name="el_help_pregnancy_5" text="When she reaches her due date, the new babies will arrive. However, there is a small chance the babies or the mother could be lost if there are complications. Babies born in an overcrowded pen will be sold automatically."/>
+		<text name="el_help_pregnancy_5_github" text="When she reaches her due date, she will give birth to her babies. However, the newborns have a certain chance of being removed, as does the mother if the pregnancy goes badly. Newborns that are born in an overcrowded pen will be sold automatically."/>
 
 		<text name="el_help_production_title" text="Production"/>
 		<text name="el_help_production_1" text="Cows of any breed will only begin to produce milk after giving birth. Once she has given birth, the cow will produce milk exponentially for 3 months, then her production will slowly drop for the next 6 months. 10 months after pregnancy, the cow will stop producing milk until her next pregnancy."/>
@@ -584,7 +596,8 @@
 		<text name="el_help_genetics_title" text="Genetics"/>
 		<text name="el_help_genetics_1" text="Each animal has 4 different genetic values; metabolism, fertility, health and quality. Genetics are mixed between the mother and father and then passed down to their children."/>
 		<text name="el_help_genetics_2" text="Metabolism affects the animal's ability to convert food into weight, and affects the amount it eats."/>
-		<text name="el_help_genetics_3" text="Fertility affects the animal's chance of getting pregnant, or getting a female pregnant, and the number of offspring it will produce."/>
+		<text name="el_help_genetics_3" text="Fertility affects the chance of successfully having babies, and the number of offspring the parents will produce."/>
+		<text name="el_help_genetics_3_github" text="Fertility affects the animal's chance of getting pregnant, or getting a female pregnant, and the number of offspring it will produce."/>
 		<text name="el_help_genetics_4" text="Health affects the animal's health and its chance of being removed each month. An animal with higher health genetics will also have a longer lifespan."/>
 		<text name="el_help_genetics_5" text="Quality affects the value of the animal itself, an animal with higher quality will sell for much more."/>
 		<text name="el_help_genetics_6" text="Cattle, sheep and chicken also have production genetics, which affects how much milk/eggs/wool they produce."/>

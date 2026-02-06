@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>renfordt</author>
-    <version>1.1.0.0</version>
+    <version>1.1.1.0</version>
     <title>
         <en>Enhanced Livestock</en>
         <de>Verbesserter Viehbestand</de>
@@ -85,10 +85,14 @@ Enhanced Animal Dealer
 - Pregnant animals available - chance to purchase pregnant stock
 - Quality-based pricing - farm quality affects animal traits and cost
 
+Changelog 1.1.1.0:
+- Adjusted translations to comply to PEGI 3
+- Fixed a bug during saving the settings
+
 Changelog 1.1.0.0:
-- EPP Market integration - process animals directly from the animal screen
+- EPP Market integration - process animals
 - Ear tag text reintroduced with toggle setting for visibility
-- FontLibrary integration with shader-based fallback
+- optional FontLibrary integration with shader-based fallback
 - Several smaller bug fixes and improvements
  ]]>
         </en>
@@ -170,10 +174,14 @@ Verbesserter Tierhändler
 - Trächtige Tiere verfügbar - Chance auf Kauf trächtiger Tiere
 - Qualitätsbasierte Preise - Farmqualität beeinflusst Tiermerkmale und Kosten
 
+Changelog 1.1.1.0:
+- Übersetzungen an PEGI 3 angepasst
+- Fehler behoben beim Speichern der Einstellungen
+
 Changelog 1.1.0.0:
-- EPP Markt Integration - Tiere direkt vom Tierbildschirm verarbeiten
+- EPP Markt Integration
 - Ohrmarkentext wiedereingeführt mit Einstellung zur Sichtbarkeit
-- FontLibrary-Integration mit Shader-basiertem Fallback
+- Optionale FontLibrary-Integration mit Shader-basiertem Fallback
 - Mehrere kleinere Bugfixes und Verbesserungen
 ]]>
         </de>
@@ -254,6 +262,10 @@ Marchand d'animaux ameliore
 - Genetique unique - chaque animal a des traits individuels affectant le prix
 - Animaux gestants disponibles - chance d'acheter du betail gestant
 - Prix bases sur la qualite - la qualite de la ferme affecte les traits et le cout des animaux
+
+Changelog 1.1.1.0:
+- Traductions ajustées pour se conformer à PEGI 3
+- Correction d'un bug lors de la sauvegarde des paramètres
 
 Changelog 1.1.0.0:
 - Integration EPP Marche - transformer les animaux directement depuis l'ecran des animaux

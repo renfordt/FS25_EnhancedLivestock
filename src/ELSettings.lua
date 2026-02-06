@@ -296,19 +296,20 @@ function ELSettings.saveToXMLFile(name, state)
 		ELSettings.isSaving = true
 
 		local path = g_currentMission.missionInfo.savegameDirectory .. "/elSettings.xml"
-		local xmlFile = XMLFile.create("elSettings", path, "settings")
+		local xmlFile = XMLFile.create("elSettings", path, "ElSettings")
 
 		if xmlFile ~= nil then
 
+			xmlFile:setInt("ElSettings#version", 1)
 			for settingName, setting in pairs(ELSettings.SETTINGS) do
 
 				if setting.ignore then
 					continue
 				end
-				xmlFile:setInt("settings." .. settingName .. "#value", setting.state or setting.default)
+				xmlFile:setInt("ElSettings." .. settingName .. "#value", setting.state or setting.default)
 
 				if settingName == "useCustomAnimals" and setting.state == 2 and ELSettings.animalsXMLPath ~= nil then
-					xmlFile:setString("settings.useCustomAnimals#path", ELSettings.animalsXMLPath)
+					xmlFile:setString("ElSettings.useCustomAnimals#path", ELSettings.animalsXMLPath)
 				end
 
 			end

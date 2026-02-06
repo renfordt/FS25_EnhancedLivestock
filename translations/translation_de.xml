@@ -82,10 +82,13 @@
 		<text name="el_ui_recoveringLastBirthBracketed" text="Nein (erholt sich von der letzten Geburt)"/>
 		<text name="el_ui_tooYoung" text="Zu jung"/>
 		<text name="el_ui_tooYoungBracketed" text="Nein (zu jung)"/>
-		<text name="el_ui_pregnant" text="Schwanger"/>
-		<text name="el_ui_lactating" text="Säugend"/>
+		<text name="el_ui_pregnant" text="Erwartet Nachwuchs"/>
+		<text name="el_ui_pregnant_github" text="Trächtig"/>
+		<text name="el_ui_lactating" text="Produziert Milch"/>
+		<text name="el_ui_lactating_github" text="Laktierend"/>
 		<text name="el_ui_canReproduce" text="Kann reproduzieren"/>
-		<text name="el_ui_impregnatedBy" text="Befruchtet durch"/>
+		<text name="el_ui_impregnatedBy" text="Gepaart mit"/>
+		<text name="el_ui_impregnatedBy_github" text="Geschwängert von"/>
 		<text name="el_ui_unknown" text="Unbekannt"/>
 		<text name="el_ui_yes" text="Ja"/>
 		<text name="el_ui_no" text="Nein"/>
@@ -104,7 +107,8 @@
 		<text name="el_ui_overall" text="Insgesamt"/>
 		<text name="el_ui_rename" text="Name ändern"/>
 		<text name="el_ui_cantFindAnimal" text="Konnte kein Tier finden"/>
-		<text name="el_ui_maleNumImpregnatable" text="Befruchtbare Tiere im Pferch"/>
+		<text name="el_ui_maleNumImpregnatable" text="Zuchtfähige Tiere im Pferch"/>
+		<text name="el_ui_maleNumImpregnatable_github" text="Befruchtbare Tiere im Pferch"/>
 
 		<text name="el_ui_breederQuality" text="Qualität des Züchters"/>
 		<text name="el_ui_birthday" text="Geburtstag"/>
@@ -192,7 +196,8 @@
 
 		<text name="el_ui_formatMonths" text="%s Monate"/>
 		<text name="el_ui_formatMonth" text="%s Monat"/>
-		<text name="el_ui_notPregnant" text="Nicht schwanger"/>
+		<text name="el_ui_notPregnant" text="Erwartet keinen Nachwuchs"/>
+		<text name="el_ui_notPregnant_github" text="Nicht trächtig"/>
 		<text name="el_ui_any" text="Alle"/>
 		<text name="el_ui_pregnancy" text="Schwangerschaft"/>
 		<text name="el_ui_productivity" text="Produktivität"/>
@@ -280,7 +285,8 @@
 
 		<text name="el_insemination_male" text="Nur weibliche Tiere können gezüchtet werden."/>
 		<text name="el_insemination_male_github" text="Nur weibliche Tiere können künstlich befruchtet werden."/>
-		<text name="el_insemination_pregnant" text="Dieses Tier ist bereits trächtig."/>
+		<text name="el_insemination_pregnant" text="Dieses Tier erwartet bereits Nachwuchs"/>
+		<text name="el_insemination_pregnant_github" text="Dieses Tier ist bereits trächtig"/>
 		<text name="el_insemination_animalType" text="Das Tier muss derselben Art angehören wie der Vater."/>
 		<text name="el_insemination_inseminated" text="Dieses Tier wurde bereits gezüchtet."/>
 		<text name="el_insemination_inseminated_github" text="Dieses Tier wurde bereits künstlich befruchtet."/>
@@ -558,12 +564,18 @@
 		<text name="el_help_monitors_2" text="Durch die Überwachung der Etiketten erhalten Sie wichtige Informationen über Gesundheit, Gewicht, Laktation, Produktion, Stroh-, Futter- und Wasserbedarf."/>
 		<text name="el_help_monitors_3" text="Das Anbringen einer Markierung an einem Tier kostet Sie einen kleinen Monatsbeitrag, der sich nach der Tierart richtet. Wenn Sie sich entscheiden, die Markierung zu entfernen, wird sie zu Beginn des nächsten Monats wieder entfernt."/>
 
-		<text name="el_help_pregnancy_title" text="Schwangerschaft"/>
-		<text name="el_help_pregnancy_1" text="Weibliche Tiere benötigen alle mindestens ein männliches Tier, um trächtig werden zu können. Beide Tiere müssen das richtige Alter und die richtige Gesundheit haben und von der gleichen Art sein. Die Zucht zwischen verschiedenen Rassen (z. B. Holsteinkuh und Angusbulle) ist erlaubt."/>
-		<text name="el_help_pregnancy_2" text="Inzucht ist nicht erlaubt. Wenn ein Männchen und ein Weibchen direkt miteinander verwandt sind, werden sie sich nicht gemeinsam fortpflanzen."/>
-		<text name="el_help_pregnancy_3" text="Die Wahrscheinlichkeit, dass ein Weibchen schwanger wird, hängt sowohl von ihrer als auch von der Fruchtbarkeit des Männchens ab. Ein Weibchen mit höherer Fruchtbarkeit hat auch eine deutlich höhere Chance, mehr Nachkommen auf einmal zu produzieren."/>
-		<text name="el_help_pregnancy_4" text="Sobald ein Weibchen trächtig wird, beginnt es, seine Nachkommen auszutragen. Sie können das voraussichtliche Datum der Trächtigkeit und die Anzahl der Nachkommen sehen, indem Sie das Tier im Gehege betrachten oder es im Tiermenü anklicken."/>
-		<text name="el_help_pregnancy_5" text="Wenn sie ihren Geburtstermin erreicht, wird sie ihre Babys zur Welt bringen. Die Neugeborenen haben jedoch eine gewisse Chance, entfernt zu werden, ebenso wie die Mutter, wenn die Schwangerschaft schlecht verläuft. Neugeborene, die in einem überfüllten Stall geboren werden, werden automatisch verkauft."/>
+		<text name="el_help_pregnancy_title" text="Nachwuchs aufziehen"/>
+		<text name="el_help_pregnancy_title_github" text="Trächtigkeit"/>
+		<text name="el_help_pregnancy_1" text="Weibliche Tiere benötigen mindestens 1 männliches Tier, um Nachwuchs zu bekommen. Beide Tiere müssen gesund und im richtigen Alter sein und der gleichen Art angehören. Zucht zwischen verschiedenen Rassen (z.B. Holsteinkuh und Angusbulle) ist erlaubt."/>
+		<text name="el_help_pregnancy_1_github" text="Weibliche Tiere benötigen alle mindestens ein männliches Tier, um trächtig werden zu können. Beide Tiere müssen das richtige Alter und die richtige Gesundheit haben und von der gleichen Art sein. Die Zucht zwischen verschiedenen Rassen (z. B. Holsteinkuh und Angusbulle) ist erlaubt."/>
+		<text name="el_help_pregnancy_2" text="Nahe Verwandte werden sich nicht paaren. Wenn ein Männchen und ein Weibchen direkt miteinander verwandt sind, werden sie sich nicht zusammen fortpflanzen."/>
+		<text name="el_help_pregnancy_2_github" text="Inzucht ist nicht erlaubt. Wenn ein Männchen und ein Weibchen direkt miteinander verwandt sind, werden sie sich nicht gemeinsam fortpflanzen."/>
+		<text name="el_help_pregnancy_3" text="Die Wahrscheinlichkeit, dass ein Weibchen Nachwuchs erwartet, hängt von der Fruchtbarkeit beider Elternteile ab. Ein Weibchen mit höherer Fruchtbarkeit hat auch eine deutlich höhere Chance, mehr Nachwuchs auf einmal zu bekommen."/>
+		<text name="el_help_pregnancy_3_github" text="Die Wahrscheinlichkeit, dass ein Weibchen trächtig wird, hängt sowohl von ihrer als auch von der Fruchtbarkeit des Männchens ab. Ein Weibchen mit höherer Fruchtbarkeit hat auch eine deutlich höhere Chance, mehr Nachkommen auf einmal zu produzieren."/>
+		<text name="el_help_pregnancy_4" text="Sobald ein Weibchen Nachwuchs erwartet, beginnt es, die Kleinen auszutragen. Sie können das voraussichtliche Datum und die Anzahl der erwarteten Babys sehen, indem Sie das Tier im Gehege betrachten oder es im Tiermenü auswählen."/>
+		<text name="el_help_pregnancy_4_github" text="Sobald ein Weibchen trächtig wird, beginnt es, seine Nachkommen auszutragen. Sie können das voraussichtliche Datum der Trächtigkeit und die Anzahl der Nachkommen sehen, indem Sie das Tier im Gehege betrachten oder es im Tiermenü anklicken."/>
+		<text name="el_help_pregnancy_5" text="Wenn sie ihren Geburtstermin erreicht, kommen die neuen Babys zur Welt. Es besteht jedoch eine geringe Wahrscheinlichkeit, dass die Babys oder die Mutter bei Komplikationen verloren gehen könnten. Babys, die in einem überfüllten Gehege geboren werden, werden automatisch verkauft."/>
+		<text name="el_help_pregnancy_5_github" text="Wenn sie ihren Geburtstermin erreicht, wird sie ihre Babys zur Welt bringen. Die Neugeborenen haben jedoch eine gewisse Chance, entfernt zu werden, ebenso wie die Mutter, wenn die Schwangerschaft schlecht verläuft. Neugeborene, die in einem überfüllten Stall geboren werden, werden automatisch verkauft."/>
 
 		<text name="el_help_production_title" text="Produktion"/>
 		<text name="el_help_production_1" text="Kühe jeder Rasse fangen erst nach der Geburt an, Milch zu produzieren. Nach der Geburt produziert die Kuh 3 Monate lang exponentiell Milch, dann nimmt die Produktion in den nächsten 6 Monaten langsam ab. 10 Monate nach der Trächtigkeit stellt die Kuh die Milchproduktion bis zu ihrer nächsten Trächtigkeit ein."/>
@@ -577,7 +589,8 @@
 		<text name="el_help_genetics_title" text="Genetik"/>
 		<text name="el_help_genetics_1" text="Jedes Tier hat 4 verschiedene genetische Werte: Stoffwechsel, Fruchtbarkeit, Gesundheit und Qualität. Die Genetik wird zwischen Mutter und Vater gemischt und dann an die Kinder weitergegeben."/>
 		<text name="el_help_genetics_2" text="Der Stoffwechsel wirkt sich auf die Fähigkeit des Tieres aus, Nahrung in Gewicht umzuwandeln, und beeinflusst die Menge, die es frisst."/>
-		<text name="el_help_genetics_3" text="Die Fruchtbarkeit wirkt sich auf die Wahrscheinlichkeit aus, dass ein Tier trächtig wird oder ein Weibchen trächtig wird, und auf die Anzahl der Nachkommen, die es produzieren wird."/>
+		<text name="el_help_genetics_3" text="Die Fruchtbarkeit beeinflusst die Wahrscheinlichkeit, erfolgreich Nachwuchs zu bekommen, und die Anzahl der Nachkommen, die die Eltern haben werden."/>
+		<text name="el_help_genetics_3_github" text="Die Fruchtbarkeit wirkt sich auf die Wahrscheinlichkeit aus, dass ein Tier trächtig wird oder ein Weibchen trächtig macht, und auf die Anzahl der Nachkommen, die es haben wird."/>
 		<text name="el_help_genetics_4" text="Der Gesundheitszustand wirkt sich auf die Gesundheit des Tieres und die Wahrscheinlichkeit aus, dass es jeden Monat entnommen wird. Ein Tier mit einer besseren Gesundheitsgenetik hat auch eine längere Lebensdauer."/>
 		<text name="el_help_genetics_5" text="Die Qualität wirkt sich auf den Wert des Tieres selbst aus, ein Tier mit höherer Qualität wird zu einem viel höheren Preis verkauft."/>
 		<text name="el_help_genetics_6" text="Rinder, Schafe und Hühner haben auch eine genetische Veranlagung, die sich darauf auswirkt, wie viel Milch, Eier oder Wolle sie produzieren."/>
