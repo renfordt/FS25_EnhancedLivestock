@@ -22,6 +22,7 @@ function PlaceableHusbandryMilk:updateInputAndOutput(superFunc, animals)
 	end
 
 	spec.activeFillTypes = {}
+	spec.hasMilkProduction = false
 
 	for _, animal in pairs(animals) do
 
@@ -36,6 +37,7 @@ function PlaceableHusbandryMilk:updateInputAndOutput(superFunc, animals)
 				spec.litersPerHour[milk.fillType] = spec.litersPerHour[milk.fillType] + animal:getOutput("milk")
 
 				table.addElement(spec.activeFillTypes, milk.fillType)
+				spec.hasMilkProduction = true
 
 			end
 
