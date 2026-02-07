@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.1.3.0
+
+- Fixed a bug not showing milk storage
+
+
 ## v1.1.2.0
 
 - Fixed a bug where the animals of AnimalPackage Vanilla Edition do not appear in the trailer
