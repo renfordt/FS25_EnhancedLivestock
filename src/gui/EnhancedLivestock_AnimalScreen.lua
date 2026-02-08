@@ -569,6 +569,32 @@ function AnimalScreen:onAIListSelectionChanged()
 		self.aiGeneticsTitle[i]:setText(g_i18n:getText("el_ui_" .. key))
 		self.aiGeneticsValue[i]:setText(g_i18n:getText("el_ui_genetics_" .. text))
 
+		-- Set colors based on genetics quality
+		local quality = "el_ui_genetics_" .. text
+
+		if quality == "el_ui_genetics_extremelyLow" or quality == "el_ui_genetics_extremelyBad" then
+			self.aiGeneticsTitle[i]:setTextColor(1, 0, 0, 1)
+			self.aiGeneticsValue[i]:setTextColor(1, 0, 0, 1)
+		elseif quality == "el_ui_genetics_veryLow" or quality == "el_ui_genetics_veryBad" then
+			self.aiGeneticsTitle[i]:setTextColor(1, 0.2, 0, 1)
+			self.aiGeneticsValue[i]:setTextColor(1, 0.2, 0, 1)
+		elseif quality == "el_ui_genetics_low" or quality == "el_ui_genetics_bad" then
+			self.aiGeneticsTitle[i]:setTextColor(1, 0.52, 0, 1)
+			self.aiGeneticsValue[i]:setTextColor(1, 0.52, 0, 1)
+		elseif quality == "el_ui_genetics_average" then
+			self.aiGeneticsTitle[i]:setTextColor(1, 1, 0, 1)
+			self.aiGeneticsValue[i]:setTextColor(1, 1, 0, 1)
+		elseif quality == "el_ui_genetics_high" or quality == "el_ui_genetics_good" then
+			self.aiGeneticsTitle[i]:setTextColor(0.52, 1, 0, 1)
+			self.aiGeneticsValue[i]:setTextColor(0.52, 1, 0, 1)
+		elseif quality == "el_ui_genetics_veryHigh" or quality == "el_ui_genetics_veryGood" then
+			self.aiGeneticsTitle[i]:setTextColor(0.2, 1, 0, 1)
+			self.aiGeneticsValue[i]:setTextColor(0.2, 1, 0, 1)
+		else
+			self.aiGeneticsTitle[i]:setTextColor(0, 1, 0, 1)
+			self.aiGeneticsValue[i]:setTextColor(0, 1, 0, 1)
+		end
+
 		i = i + 1
 
 	end
