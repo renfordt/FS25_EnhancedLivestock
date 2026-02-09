@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.1.4.0
+
+- Fix bug in settings save mechanism
+- Added Chinese translation
+
 ## v1.1.3.0
 
 - Fixed a bug not showing milk storage
