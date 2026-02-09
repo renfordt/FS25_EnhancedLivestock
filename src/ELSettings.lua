@@ -274,7 +274,7 @@ function ELSettings.loadFromXMLFile()
 			end
 
 			if name == "useCustomAnimals" and setting.state == 2 then
-				ELSettings.animalsXMLPath = xmlFile:getString("settings.useCustomAnimals#path")
+				ELSettings.animalsXMLPath = xmlFile:getString(key .. ".useCustomAnimals#path")
 			end
 
 		end
@@ -287,7 +287,7 @@ end
 
 function ELSettings.saveToXMLFile(name, state)
 
-	if ELSettings.isSaving or g_currentMission.missionInfo == nil or g_currentMission.missionInfo.savegameDirectory == nil then
+	if ELSettings.isSaving or g_currentMission == nil or g_currentMission.missionInfo == nil or g_currentMission.missionInfo.savegameDirectory == nil then
 		return
 	end
 
@@ -296,7 +296,8 @@ function ELSettings.saveToXMLFile(name, state)
 		ELSettings.isSaving = true
 
 		local path = g_currentMission.missionInfo.savegameDirectory .. "/elSettings.xml"
-		local xmlFile = XMLFile.create("elSettings", path, "ElSettings")
+		-- Use unique object name for save to avoid conflicts with load handle
+		local xmlFile = XMLFile.create("elSettingsSave", path, "ElSettings")
 
 		if xmlFile ~= nil then
 
@@ -314,15 +315,14 @@ function ELSettings.saveToXMLFile(name, state)
 
 			end
 
-			local saved = xmlFile:save(false, true)
-
+			xmlFile:save(false, true)
 			xmlFile:delete()
 
 		end
 
-	end
+		ELSettings.isSaving = false
 
-	ELSettings.isSaving = false
+	end
 
 end
 
@@ -545,7 +545,7 @@ function ELSettings.applyDefaultSettings()
 
 			for _, s in pairs(ELSettings.SETTINGS) do
 				if s.dependancy and s.dependancy.name == name and s.element ~= nil then
-					s.element:setDisabled(s.dependancy.state ~= state)
+					s.element:setDisabled(s.dependancy.state ~= setting.state)
 				end
 			end
 		end

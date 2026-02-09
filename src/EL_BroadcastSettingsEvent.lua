@@ -83,7 +83,9 @@ function EL_BroadcastSettingsEvent:run(connection)
 			if setting.ignore then
 				continue
 			end
-			setting.element:setState(setting.state)
+			if setting.element ~= nil then
+				setting.element:setState(setting.state)
+			end
 			if setting.callback ~= nil then
 				setting.callback(name, setting.values[setting.state])
 			end
@@ -105,7 +107,7 @@ function EL_BroadcastSettingsEvent:run(connection)
 
 		for _, s in pairs(ELSettings.SETTINGS) do
 			if s.dependancy and s.dependancy.name == self.setting and s.element ~= nil then
-				s.element:setDisabled(s.dependancy.state ~= state)
+				s.element:setDisabled(s.dependancy.state ~= setting.state)
 			end
 		end
 
