@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>renfordt</author>
-    <version>1.1.3.0</version>
+    <version>1.1.4.0</version>
     <title>
         <en>Enhanced Livestock</en>
         <de>Verbesserter Viehbestand</de>
@@ -84,6 +84,10 @@ Enhanced Animal Dealer
 - Unique genetics - every animal has individual traits affecting price
 - Pregnant animals available - chance to purchase pregnant stock
 - Quality-based pricing - farm quality affects animal traits and cost
+
+Changelog 1.1.4.0:
+- Fix bug in settings save mechanism
+- Added Chinese translation
 
 Changelog 1.1.3.0:
 - Fixed a bug not showing milk storage
@@ -180,6 +184,10 @@ Verbesserter Tierhändler
 - Trächtige Tiere verfügbar - Chance auf Kauf trächtiger Tiere
 - Qualitätsbasierte Preise - Farmqualität beeinflusst Tiermerkmale und Kosten
 
+Changelog 1.1.4.0:
+- Fehler beim Speichern der Einstellungen behoben
+- Chinesische Übersetzung hinzugefügt
+
 Changelog 1.1.3.0:
 - Fehler bei Anzeige von Milchspeicher behoben
 
@@ -274,6 +282,10 @@ Marchand d'animaux ameliore
 - Genetique unique - chaque animal a des traits individuels affectant le prix
 - Animaux gestants disponibles - chance d'acheter du betail gestant
 - Prix bases sur la qualite - la qualite de la ferme affecte les traits et le cout des animaux
+
+Changelog 1.1.4.0:
+- Bug de sauvegarde des paramètres résolu
+- Traduction en chinois ajoutée
 
 Changelog 1.1.3.0:
 - Correction de l'affichage du stockage de lait
