@@ -498,6 +498,7 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 	local monitor = { ["active"] = xmlFile:getBool(key .. ".monitor#active", false), ["removed"] = xmlFile:getBool(key .. ".monitor#removed", false) }
 
 	local isCastrated = xmlFile:getBool(key .. "#isCastrated", false)
+	local lastSemenCollectionDay = xmlFile:getInt(key .. "#lastSemenCollectionDay", 0)
 
 	local diseases = {}
 
@@ -523,7 +524,8 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 			["name"] = xmlFile:getString(key .. ".insemination#name"),
 			["subTypeIndex"] = xmlFile:getInt(key .. ".insemination#subTypeIndex"),
 			["genetics"] = {},
-			["success"] = xmlFile:getFloat(key .. ".insemination#success")
+			["success"] = xmlFile:getFloat(key .. ".insemination#success"),
+			["semenType"] = xmlFile:getInt(key .. ".insemination#semenType", SemenType.CONVENTIONAL)
 		}
 
 		insemination.genetics.metabolism = xmlFile:getFloat(key .. ".insemination.genetics#metabolism")
@@ -538,6 +540,7 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 	--local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, impregnatedById, pos, name, dirt, fitness, riding, farmId, weight, metabolism, impregnatedByMetabolism, impregnatedByProductivity, productivity, quality, impregnatedByMeatQuality, impregnatedByHealth, impregnatedByFertility, healthGenetics, fertility, variation, children)
 
 	animal:setBirthday(birthday)
+	animal.lastSemenCollectionDay = lastSemenCollectionDay
 
 	if pregnancy ~= nil and #pregnancy.pregnancies > 0 then
 		animal.pregnancy = pregnancy
@@ -710,6 +713,7 @@ function Animal:saveToXMLFile(xmlFile, key)
 		xmlFile:setString(key .. ".insemination#name", insemination.name)
 		xmlFile:setInt(key .. ".insemination#subTypeIndex", insemination.subTypeIndex)
 		xmlFile:setFloat(key .. ".insemination#success", insemination.success)
+		xmlFile:setInt(key .. ".insemination#semenType", insemination.semenType or SemenType.CONVENTIONAL)
 		xmlFile:setFloat(key .. ".insemination.genetics#metabolism", insemination.genetics.metabolism)
 		xmlFile:setFloat(key .. ".insemination.genetics#quality", insemination.genetics.quality)
 		xmlFile:setFloat(key .. ".insemination.genetics#health", insemination.genetics.health)
@@ -725,6 +729,10 @@ function Animal:saveToXMLFile(xmlFile, key)
 
 	if self.isCastrated then
 		xmlFile:setBool(key .. "#isCastrated", true)
+	end
+
+	if self.lastSemenCollectionDay ~= nil and self.lastSemenCollectionDay > 0 then
+		xmlFile:setInt(key .. "#lastSemenCollectionDay", self.lastSemenCollectionDay)
 	end
 
 	for i, disease in pairs(self.diseases) do
@@ -868,6 +876,7 @@ function Animal:writeStream(streamId, connection)
 	streamWriteFloat32(streamId, self.monitor.fee or 5)
 
 	streamWriteBool(streamId, self.isCastrated or false)
+	streamWriteUInt16(streamId, self.lastSemenCollectionDay or 0)
 
 	streamWriteUInt8(streamId, #self.diseases)
 
@@ -887,6 +896,7 @@ function Animal:writeStream(streamId, connection)
 		streamWriteString(streamId, self.insemination.name)
 		streamWriteUInt8(streamId, self.insemination.subTypeIndex)
 		streamWriteFloat32(streamId, self.insemination.success)
+		streamWriteUInt8(streamId, self.insemination.semenType or SemenType.CONVENTIONAL)
 		streamWriteFloat32(streamId, self.insemination.genetics.metabolism)
 		streamWriteFloat32(streamId, self.insemination.genetics.health)
 		streamWriteFloat32(streamId, self.insemination.genetics.fertility)
@@ -1051,6 +1061,7 @@ function Animal:readStream(streamId, connection)
 	}
 
 	self.isCastrated = streamReadBool(streamId)
+	self.lastSemenCollectionDay = streamReadUInt16(streamId)
 
 	local numDiseases = streamReadUInt8(streamId)
 	local diseases = {}
@@ -1080,7 +1091,8 @@ function Animal:readStream(streamId, connection)
 			["name"] = streamReadString(streamId),
 			["subTypeIndex"] = streamReadUInt8(streamId),
 			["genetics"] = {},
-			["success"] = streamReadFloat32(streamId)
+			["success"] = streamReadFloat32(streamId),
+			["semenType"] = streamReadUInt8(streamId)
 		}
 
 		insemination.genetics.metabolism = streamReadFloat32(streamId)
@@ -2531,8 +2543,26 @@ function Animal:createPregnancy(childNum, month, year, father)
 
 	for i = 1, childNum do
 
+		-- Determine gender based on semen type
+		local gender
+		local genderRoll = math.random()
 
-		local gender = math.random() >= 0.5 and "male" or "female"
+		if self.insemination ~= nil and self.insemination.semenType ~= nil then
+			if self.insemination.semenType == SemenType.SEXED_FEMALE then
+				-- 90% chance female
+				gender = (genderRoll < 0.90) and "female" or "male"
+			elseif self.insemination.semenType == SemenType.SEXED_MALE then
+				-- 90% chance male
+				gender = (genderRoll < 0.90) and "male" or "female"
+			else
+				-- Natural 50/50 split for conventional
+				gender = (genderRoll >= 0.5) and "male" or "female"
+			end
+		else
+			-- Natural 50/50 split (no insemination data)
+			gender = (genderRoll >= 0.5) and "male" or "female"
+		end
+
 		local subTypeIndex
 
 		if fatherSubTypeIndex ~= nil and math.random() >= 0.5 then
@@ -3528,7 +3558,7 @@ function Animal:getCanBeInseminatedByAnimal(animal)
 
 end
 
-function Animal:setInsemination(animal)
+function Animal:setInsemination(animal, semenType)
 
 	self.insemination = {
 		["country"] = animal.country,
@@ -3537,7 +3567,8 @@ function Animal:setInsemination(animal)
 		["genetics"] = animal.genetics,
 		["name"] = animal.name,
 		["subTypeIndex"] = animal.subTypeIndex,
-		["success"] = animal.success
+		["success"] = animal.success,
+		["semenType"] = semenType or SemenType.CONVENTIONAL
 	}
 
 end

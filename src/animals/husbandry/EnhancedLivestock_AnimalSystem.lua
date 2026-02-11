@@ -3,6 +3,50 @@ EnhancedLivestock_AnimalSystem = {}
 local modName = g_currentModName
 local modDirectory = g_currentModDirectory
 
+-- Bull Status Tier System
+BullTier = {
+	YOUNG_GENOMIC = 1,
+	PROVEN = 2,
+	ELITE = 3,
+	LEGEND = 4
+}
+
+-- Stock limits by tier
+BullTierStockLimits = {
+	[BullTier.YOUNG_GENOMIC] = {
+		initialStock = 500,
+		maxPerPurchase = 200,
+		restockRate = "daily",
+		restockAmount = 100
+	},
+	[BullTier.PROVEN] = {
+		initialStock = 200,
+		maxPerPurchase = 100,
+		restockRate = "daily",
+		restockAmount = 50
+	},
+	[BullTier.ELITE] = {
+		initialStock = 50,
+		maxPerPurchase = 20,
+		restockRate = "weekly",
+		restockAmount = 10
+	},
+	[BullTier.LEGEND] = {
+		initialStock = 5,
+		maxPerPurchase = 5,
+		restockRate = "never",
+		restockAmount = 0
+	}
+}
+
+-- Tier-based price multipliers
+BullTierPriceMultipliers = {
+	[BullTier.YOUNG_GENOMIC] = 1.0,
+	[BullTier.PROVEN] = 1.5,
+	[BullTier.ELITE] = 4.0,
+	[BullTier.LEGEND] = 20.0
+}
+
 local function getDaysInMonth(month)
 	local daysPerMonth = EnhancedLivestock ~= nil and EnhancedLivestock.DAYS_PER_MONTH or nil
 	if daysPerMonth == nil then
@@ -490,6 +534,28 @@ function EnhancedLivestock_AnimalSystem:loadSubType(superFunc, animalType, subTy
 	subType.targetWeight = xmlFile:getFloat(key .. "#targetWeight", height * radius * 300)
 	subType.minWeight = xmlFile:getFloat(key .. "#minWeight", height * radius * 50)
 
+	-- Load breed-specific tier probabilities for AI animals
+	if xmlFile:hasProperty(key .. ".ai.tierProbabilities") then
+		subType.tierProbabilities = {}
+		xmlFile:iterate(key .. ".ai.tierProbabilities.tier", function(_, tierKey)
+			local tierName = xmlFile:getString(tierKey .. "#name")
+			local probability = xmlFile:getFloat(tierKey .. "#probability", 0)
+
+			-- Map tier name to tier index
+			local tierMap = {
+				["YOUNG_GENOMIC"] = BullTier.YOUNG_GENOMIC,
+				["PROVEN"] = BullTier.PROVEN,
+				["ELITE"] = BullTier.ELITE,
+				["LEGEND"] = BullTier.LEGEND
+			}
+
+			local tierIndex = tierMap[tierName]
+			if tierIndex ~= nil then
+				subType.tierProbabilities[tierIndex] = probability
+			end
+		end)
+	end
+
 	for _, visual in pairs(subType.visuals) do
 
 		if visual.textureIndexes == nil then
@@ -973,6 +1039,22 @@ function AnimalSystem:loadFromXMLFile()
 			animal.success = xmlFile:getFloat(key .. "#success", 0.65)
 			animal.isAIAnimal = true
 
+			-- Load bull tier data
+			animal.bullTier = xmlFile:getInt(key .. "#bullTier", BullTier.PROVEN)
+			animal.availableStraws = xmlFile:getInt(key .. "#availableStraws", nil)
+			animal.maxStrawsPerPurchase = xmlFile:getInt(key .. "#maxStrawsPerPurchase", nil)
+			animal.lastRestockDay = xmlFile:getInt(key .. "#lastRestockDay", 0)
+
+			-- Initialize stock if not loaded (for backward compatibility)
+			if animal.availableStraws == nil and animal.bullTier ~= nil then
+				local limits = BullTierStockLimits[animal.bullTier]
+				if limits ~= nil then
+					animal.availableStraws = limits.initialStock
+					animal.maxStrawsPerPurchase = limits.maxPerPurchase
+					animal.lastRestockDay = 0
+				end
+			end
+
 			xmlFile:iterate(key .. ".favourites.player", function(_, favKey)
 				local userId = xmlFile:getString(favKey .. "#userId", nil)
 				local value = xmlFile:getBool(favKey .. "#value", false)
@@ -1082,6 +1164,20 @@ function AnimalSystem:saveToXMLFile(_)
 		animal:saveToXMLFile(xmlFile, key)
 
 		xmlFile:setFloat(key .. "#success", animal.success or 0.65)
+
+		-- Save bull tier data
+		if animal.bullTier ~= nil then
+			xmlFile:setInt(key .. "#bullTier", animal.bullTier)
+		end
+		if animal.availableStraws ~= nil then
+			xmlFile:setInt(key .. "#availableStraws", animal.availableStraws)
+		end
+		if animal.maxStrawsPerPurchase ~= nil then
+			xmlFile:setInt(key .. "#maxStrawsPerPurchase", animal.maxStrawsPerPurchase)
+		end
+		if animal.lastRestockDay ~= nil then
+			xmlFile:setInt(key .. "#lastRestockDay", animal.lastRestockDay)
+		end
 
 		local i = 0
 
@@ -1689,6 +1785,31 @@ function AnimalSystem:onDayChanged()
 
 		for _, animal in pairs(animals) do
 			animal:onDayChanged(nil, self.isServer, day, month, year, currentDayInPeriod, daysPerPeriod, true)
+
+			-- Restock AI animal semen based on tier
+			if animal.bullTier ~= nil and animal.availableStraws ~= nil then
+				local limits = BullTierStockLimits[animal.bullTier]
+				local currentDay = environment.currentMonotonicDay
+
+				if limits ~= nil then
+					if limits.restockRate == "daily" then
+						animal.availableStraws = math.min(
+							animal.availableStraws + limits.restockAmount,
+							limits.initialStock
+						)
+						animal.lastRestockDay = currentDay
+
+					elseif limits.restockRate == "weekly" then
+						if currentDay - animal.lastRestockDay >= 7 then
+							animal.availableStraws = math.min(
+								animal.availableStraws + limits.restockAmount,
+								limits.initialStock
+							)
+							animal.lastRestockDay = currentDay
+						end
+					end
+				end
+			end
 		end
 
 	end
@@ -1958,23 +2079,69 @@ function AnimalSystem:createNewAIAnimal(animalTypeIndex)
 	:: number % 7) + 1
 	uniqueId = checkDigit .. uniqueId
 
+	-- Step 1: Assign bull tier based on farm quality
+	-- Higher quality farms produce better tier bulls
+	local baseTierProbabilities = subType.tierProbabilities or {
+		[BullTier.YOUNG_GENOMIC] = 0.50,
+		[BullTier.PROVEN] = 0.35,
+		[BullTier.ELITE] = 0.13,
+		[BullTier.LEGEND] = 0.02
+	}
 
-	local geneticsModifier = farmQuality * 1000
+	-- Adjust probabilities based on farm quality (quality ranges from ~1.35 to ~1.75)
+	-- Higher quality shifts probability toward better tiers
+	local qualityFactor = math.clamp((farmQuality - 1.35) / (1.75 - 1.35), 0, 1)  -- Normalize to [0, 1]
+
+	local tierProbabilities = {
+		[BullTier.YOUNG_GENOMIC] = baseTierProbabilities[BullTier.YOUNG_GENOMIC] * (1 - qualityFactor * 0.4),
+		[BullTier.PROVEN] = baseTierProbabilities[BullTier.PROVEN],
+		[BullTier.ELITE] = baseTierProbabilities[BullTier.ELITE] * (1 + qualityFactor * 1.5),
+		[BullTier.LEGEND] = baseTierProbabilities[BullTier.LEGEND] * (1 + qualityFactor * 3.0)
+	}
+
+	-- Normalize probabilities to sum to 1.0
+	local totalProb = 0
+	for _, prob in pairs(tierProbabilities) do
+		totalProb = totalProb + prob
+	end
+	for tier, prob in pairs(tierProbabilities) do
+		tierProbabilities[tier] = prob / totalProb
+	end
+
+	local bullTier = BullTier.PROVEN  -- Fallback default
+	local tierRoll = math.random()
+	local cumulative = 0
+	for tier = 1, 4 do
+		cumulative = cumulative + (tierProbabilities[tier] or 0)
+		if tierRoll <= cumulative then
+			bullTier = tier
+			break
+		end
+	end
+
+	-- Step 2: Generate genetics directly from tier ranges
+	local tierGeneticsRanges = {
+		[BullTier.YOUNG_GENOMIC] = { min = 1.10, max = 1.75 },
+		[BullTier.PROVEN] = { min = 1.10, max = 1.5 },
+		[BullTier.ELITE] = { min = 1.50, max = 1.64 },
+		[BullTier.LEGEND] = { min = 1.65, max = 1.75 }
+	}
+
+	local range = tierGeneticsRanges[bullTier]
 	local genetics = {
-		["metabolism"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
-		["quality"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
-		["fertility"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
-		["health"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75)
+		["metabolism"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max),
+		["quality"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max),
+		["fertility"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max),
+		["health"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max)
 	}
 
 	if animalTypeIndex == AnimalType.COW or animalTypeIndex == AnimalType.SHEEP or animalTypeIndex == AnimalType.CHICKEN then
-		genetics.productivity = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75)
+		genetics.productivity = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max)
 	end
-
 
 	local name = g_currentMission.animalNameSystem:getRandomName("male")
 
-
+	-- Step 3: Create animal with tier-based genetics
 	local animal = Animal.new(age, math.clamp((math.random(650, 1000) / 10) * genetics.health, 75, 100), 0, "male", subTypeIndex, 0, false, false, false, nil, nil, nil, nil, nil, name, nil, nil, nil, nil, nil, genetics)
 
 	animal.farmId = tostring(farmId)
@@ -1991,8 +2158,25 @@ function AnimalSystem:createNewAIAnimal(animalTypeIndex)
 	animal.variation = variationIndex
 
 	animal.favouritedBy = {}
-	animal.success = math.clamp((math.random(35, 50) * genetics.fertility) / 100, 0.5, 1)
 	animal.isAIAnimal = true
+	animal.bullTier = bullTier
+
+	-- Step 4: Calculate success rate from FINAL genetics
+	-- Map fertility [1.3, 1.75] to success [~65%, ~100%] with small random variation
+	-- This ensures higher fertility always results in higher success rates
+	local normalizedFertility = math.clamp((genetics.fertility - 1.3) / (1.75 - 1.3), 0, 1)
+	local baseSuccess = 0.65 + (normalizedFertility * 0.35)
+	-- Add ±2.5% random variation to avoid identical success rates
+	local variation = 0.975 + (math.random() * 0.05)
+	animal.success = math.clamp(baseSuccess * variation, 0.5, 1)
+
+	-- Initialize stock tracking
+	local limits = BullTierStockLimits[animal.bullTier]
+	if limits ~= nil then
+		animal.availableStraws = limits.initialStock
+		animal.maxStrawsPerPurchase = limits.maxPerPurchase
+		animal.lastRestockDay = 0
+	end
 
 	return animal
 

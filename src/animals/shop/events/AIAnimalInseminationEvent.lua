@@ -84,7 +84,7 @@ function AIAnimalInseminationEvent:run(connection)
 
 					if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 
-						animal:setInsemination(dewar.animal)
+						animal:setInsemination(dewar.animal, dewar.semenType)
 						dewar:changeStraws(-1)
 
 						break

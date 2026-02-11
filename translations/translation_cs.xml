@@ -1,68 +1,71 @@
 <l10n>
-	<texts>
-		<!-- COWS -->
-		
-		<text name="fillType_bull" text="种公牛"/>
-		<text name="fillType_bull_swiss_brown" text="瑞士褐牛种公牛"/>
-		<text name="fillType_bull_holstein" text="荷斯坦种公牛"/>
-		<text name="fillType_bull_angus" text="安格斯种公牛"/>
-		<text name="fillType_bull_limousin" text="利木赞种公牛"/>
-		<text name="fillType_cow_hereford" text="赫里福德牛"/>
-		<text name="fillType_bull_hereford" text="赫里福德种公牛"/>
-		<text name="fillType_cow_highland_cattle" text="高地牛"/>
-		<text name="fillType_bull_highland_cattle" text="高地牛种公牛"/>
-		<text name="animal_descriptionBullFeed" text="种公牛喜食草、干草和全混合日粮（TMR）。"/>
-		<text name="animal_descriptionBullYoung" text="这是一头雄性犊牛。"/>
-		<text name="animal_descriptionBullReproduction" text="健康且超过12个月的种公牛可以繁殖。"/>
+    <texts>
+        <!-- COWS -->
 
-		<!-- WATER BUFFALOS -->
+        <text name="fillType_bull" text="种公牛"/>
+        <text name="fillType_bull_swiss_brown" text="瑞士褐牛种公牛"/>
+        <text name="fillType_bull_holstein" text="荷斯坦种公牛"/>
+        <text name="fillType_bull_angus" text="安格斯种公牛"/>
+        <text name="fillType_bull_limousin" text="利木赞种公牛"/>
+        <text name="fillType_cow_hereford" text="赫里福德牛"/>
+        <text name="fillType_bull_hereford" text="赫里福德种公牛"/>
+        <text name="fillType_cow_highland_cattle" text="高地牛"/>
+        <text name="fillType_bull_highland_cattle" text="高地牛种公牛"/>
+        <text name="animal_descriptionBullFeed" text="种公牛喜食草、干草和全混合日粮（TMR）。"/>
+        <text name="animal_descriptionBullYoung" text="这是一头雄性犊牛。"/>
+        <text name="animal_descriptionBullReproduction" text="健康且超过12个月的种公牛可以繁殖。"/>
 
-		<text name="fillType_bull_waterbuffalo" text="水牛种公牛"/>
+        <!-- WATER BUFFALOS -->
 
-		<!-- PIGS -->
-		
-		<text name="fillType_boar" text="种公猪"/>
-		<text name="fillType_boar_landrace" text="长白种公猪"/>
-		<text name="fillType_boar_black_pied" text="黑白花种公猪"/>
-		<text name="fillType_boar_berkshire" text="伯克夏种公猪"/>
-		<text name="animal_descriptionBoarReproduction" text="健康且超过8个月的种公猪可以繁殖。"/>
-		<text name="animal_descriptionBoarFeed" text="种公猪几乎什么都吃，可喂食玉米、小麦、大麦、油菜籽、向日葵、大豆、土豆、高粱和甜菜。"/>
-		<text name="animal_descriptionBoarYoung" text="这是一头雄性仔猪。"/>
+        <text name="fillType_bull_waterbuffalo" text="水牛种公牛"/>
 
-		<!-- SHEEP -->
-		
-		<text name="fillType_ram" text="种公羊"/>
-		<text name="fillType_ram_landrace" text="本特海姆地方种公羊"/>
-		<text name="fillType_ram_steinschaf" text="施泰因羊种公羊"/>
-		<text name="fillType_ram_black_welsh" text="威尔士黑山羊种公羊"/>
-		<text name="fillType_ram_swiss_mountain" text="瑞士黑褐山羊种公羊"/>
-		<text name="animal_descriptionRamFeed" text="种公羊吃草和干草。"/>
-		<text name="animal_descriptionRamYoung" text="这是一只雄性羔羊。"/>
-		<text name="animal_descriptionRamReproduction" text="健康且超过5个月的种公羊可以繁殖。"/>
+        <!-- PIGS -->
 
-		<!-- GOATS -->
+        <text name="fillType_boar" text="种公猪"/>
+        <text name="fillType_boar_landrace" text="长白种公猪"/>
+        <text name="fillType_boar_black_pied" text="黑白花种公猪"/>
+        <text name="fillType_boar_berkshire" text="伯克夏种公猪"/>
+        <text name="animal_descriptionBoarReproduction" text="健康且超过8个月的种公猪可以繁殖。"/>
+        <text name="animal_descriptionBoarFeed" text="种公猪几乎什么都吃，可喂食玉米、小麦、大麦、油菜籽、向日葵、大豆、土豆、高粱和甜菜。"/>
+        <text name="animal_descriptionBoarYoung" text="这是一头雄性仔猪。"/>
 
-		<text name="fillType_ram_goat" text="山羊种公羊"/>
-		
-		<!-- HORSES -->
-		
-		<text name="fillType_stallion" text="种马"/>
-		<text name="fillType_stallion_gray" text="灰色种马"/>
-		<text name="fillType_stallion_pinto" text="花斑种马"/>
-		<text name="fillType_stallion_palomino" text="帕洛米诺种马"/>
-		<text name="fillType_stallion_chestnut" text="栗色种马"/>
-		<text name="fillType_stallion_bay" text="枣红色种马"/>
-		<text name="fillType_stallion_black" text="黑色种马"/>
-		<text name="fillType_stallion_seal_brown" text="深褐色种马"/>
-		<text name="fillType_stallion_dun" text="沙色种马"/>
-		<text name="animal_descriptionStallionFeed" text="种马喜食干草、燕麦和高粱。"/>
-		<text name="animal_descriptionStallionProfit" text="种马可以出售获利。"/>
-		<text name="animal_descriptionStallionReproduction" text="健康且超过36个月的种马可以繁殖。"/>
+        <!-- SHEEP -->
+
+        <text name="fillType_ram" text="种公羊"/>
+        <text name="fillType_ram_landrace" text="本特海姆地方种公羊"/>
+        <text name="fillType_ram_steinschaf" text="施泰因羊种公羊"/>
+        <text name="fillType_ram_black_welsh" text="威尔士黑山羊种公羊"/>
+        <text name="fillType_ram_swiss_mountain" text="瑞士黑褐山羊种公羊"/>
+        <text name="animal_descriptionRamFeed" text="种公羊吃草和干草。"/>
+        <text name="animal_descriptionRamYoung" text="这是一只雄性羔羊。"/>
+        <text name="animal_descriptionRamReproduction" text="健康且超过5个月的种公羊可以繁殖。"/>
+
+        <!-- GOATS -->
+
+        <text name="fillType_ram_goat" text="山羊种公羊"/>
+
+        <!-- HORSES -->
+
+        <text name="fillType_stallion" text="种马"/>
+        <text name="fillType_stallion_gray" text="灰色种马"/>
+        <text name="fillType_stallion_pinto" text="花斑种马"/>
+        <text name="fillType_stallion_palomino" text="帕洛米诺种马"/>
+        <text name="fillType_stallion_chestnut" text="栗色种马"/>
+        <text name="fillType_stallion_bay" text="枣红色种马"/>
+        <text name="fillType_stallion_black" text="黑色种马"/>
+        <text name="fillType_stallion_seal_brown" text="深褐色种马"/>
+        <text name="fillType_stallion_dun" text="沙色种马"/>
+        <text name="animal_descriptionStallionFeed" text="种马喜食干草、燕麦和高粱。"/>
+        <text name="animal_descriptionStallionProfit" text="种马可以出售获利。"/>
+        <text name="animal_descriptionStallionReproduction" text="健康且超过36个月的种马可以繁殖。"/>
 
 
         <!-- UI -->
-		
+
         <text name="input_VisualAnimalsDialog" text="更改可视动物数量"/>
+        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
+        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
+        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
         <text name="el_button_apply" text="应用"/>
         <text name="el_button_confirm" text="确认"/>
         <text name="el_button_recommended" text="推荐"/>
@@ -70,8 +73,8 @@
         <text name="el_button_random" text="随机"/>
         <text name="el_dialog_title" text="设置最大可视动物数量"/>
 
-		<text name="el_ui_dependency_missing" text="缺少依赖"/>
-		<text name="el_ui_dependency_missing_installed" text="缺少依赖项，请安装。"/>
+        <text name="el_ui_dependency_missing" text="缺少依赖"/>
+        <text name="el_ui_dependency_missing_installed" text="缺少依赖项，请安装。"/>
 
         <text name="el_ui_unhealthy" text="健康状况过低"/>
         <text name="el_ui_unhealthyBracketed" text="否（健康过低）"/>
@@ -82,12 +85,12 @@
         <text name="el_ui_tooYoung" text="年龄过小"/>
         <text name="el_ui_tooYoungBracketed" text="否（年龄过小）"/>
         <text name="el_ui_pregnant" text="怀孕中"/>
-		<text name="el_ui_pregnant_github" text="怀孕"/>
+        <text name="el_ui_pregnant_github" text="怀孕"/>
         <text name="el_ui_lactating" text="产奶中"/>
-		<text name="el_ui_lactating_github" text="泌乳期"/>
+        <text name="el_ui_lactating_github" text="泌乳期"/>
         <text name="el_ui_canReproduce" text="可繁殖"/>
         <text name="el_ui_impregnatedBy" text="配种对象"/>
-		<text name="el_ui_impregnatedBy_github" text="受孕来源"/>
+        <text name="el_ui_impregnatedBy_github" text="受孕来源"/>
         <text name="el_ui_unknown" text="未知"/>
         <text name="el_ui_yes" text="是"/>
         <text name="el_ui_no" text="否"/>
@@ -99,628 +102,652 @@
         <text name="el_ui_male" text="雄性"/>
         <text name="el_ui_female" text="雌性"/>
         <text name="el_ui_weight" text="体重"/>
-		<text name="el_ui_targetWeight" text="目标体重"/>
+        <text name="el_ui_targetWeight" text="目标体重"/>
         <text name="el_ui_value" text="价值"/>
         <text name="el_ui_valuePerKilo" text="每公斤价值"/>
-		<text name="el_ui_genetics" text="遗传"/>
-		<text name="el_ui_overall" text="综合"/>
-		<text name="el_ui_rename" text="更改名称"/>
-		<text name="el_ui_cantFindAnimal" text="未找到动物"/>
-		<text name="el_ui_maleNumImpregnatable" text="围栏内可配种动物"/>
-		<text name="el_ui_maleNumImpregnatable_github" text="围栏内可受孕动物"/>
-		
-		<text name="el_ui_breederQuality" text="育种品质"/>
-		<text name="el_ui_birthday" text="出生日期"/>
-		<text name="el_ui_pregnancyExpected" text="预产"/>
-		<text name="el_ui_pregnancyExpecting" text="妊娠中"/>
-		<text name="el_ui_pregnancyBaby" text="幼崽"/>
-		<text name="el_ui_pregnancyBabies" text="幼崽"/>
-		<text name="el_ui_animalOrigin" text="来源"/>
-		<text name="el_ui_months" text="个月"/>
-		<text name="el_ui_month" text="个月"/>
-		<text name="el_ui_years" text="年"/>
-		<text name="el_ui_year" text="年"/>
-
-		<text name="el_ui_milk" text="产奶量"/>
-		<text name="el_ui_wool" text="产毛量"/>
-		<text name="el_ui_eggs" text="产蛋量"/>
-		<text name="el_ui_metabolism" text="新陈代谢"/>
-		<text name="el_ui_meat" text="肉品质"/>
-		<text name="el_ui_meat_github" text="肉品质"/>
-		<text name="el_ui_quality" text="品质"/>
-		<text name="el_ui_quality_github" text="肉品质"/>
-		<text name="el_ui_health" text="健康"/>
-		<text name="el_ui_fertility" text="生育力"/>
-
-		<text name="el_ui_genetics_infertile" text="不育"/>
-		<text name="el_ui_genetics_extremelyLow" text="极低"/>
-		<text name="el_ui_genetics_veryLow" text="很低"/>
-		<text name="el_ui_genetics_low" text="低"/>
-		<text name="el_ui_genetics_average" text="平均"/>
-		<text name="el_ui_genetics_high" text="高"/>
-		<text name="el_ui_genetics_veryHigh" text="很高"/>
-		<text name="el_ui_genetics_extremelyHigh" text="极高"/>
-		<text name="el_ui_genetics_highest" text="最高"/>
-
-		<text name="el_ui_genetics_extremelyBad" text="极差"/>
-		<text name="el_ui_genetics_veryBad" text="很差"/>
-		<text name="el_ui_genetics_bad" text="差"/>
-		<text name="el_ui_genetics_good" text="良好"/>
-		<text name="el_ui_genetics_veryGood" text="很好"/>
-		<text name="el_ui_genetics_extremelyGood" text="极佳"/>
-		
-		<text name="el_ui_buySelected" text="购买选中"/>
-		<text name="el_ui_sellSelected" text="出售选中"/>
-		<text name="el_ui_moveSelected" text="移动选中"/>
-		<text name="el_ui_buyConfirmation" text="确定以 %s 购买 %s 只动物？" tag="format"/>
-		<text name="el_ui_sellConfirmation" text="确定以 %s 出售 %s 只动物？" tag="format"/>
-		<text name="el_ui_moveConfirmation" text="确定移动 %s 只动物？" tag="format"/>
-		<text name="el_ui_buyBulkResult" text="已以 %s 购买 %s 只动物" tag="format"/>
-		<text name="el_ui_sellBulkResult" text="已以 %s 出售 %s 只动物" tag="format"/>
-		<text name="el_ui_moveBulkResult" text="已移动 %s 只动物" tag="format"/>
-
-		<text name="el_ui_monitor" text="监控"/>
-		<text name="el_ui_monitorSubscriptions" text="监控订阅"/>
-		<text name="finance_monitorSubscriptions" text="监控订阅"/>
-		<text name="el_ui_monitorFee" text="监控费用"/>
-		<text name="el_ui_applyMonitor" text="应用监控"/>
-		<text name="el_ui_removeMonitor" text="移除监控"/>
-		<text name="el_ui_input_food" text="饲料"/>
-		<text name="el_ui_input_water" text="水"/>
-		<text name="el_ui_input_straw" text="垫草"/>
-		<text name="el_ui_output_milk" text="牛奶"/>
-		<text name="el_ui_output_manure" text="固体粪肥"/>
-		<text name="el_ui_output_liquidManure" text="液态粪肥"/>
-		<text name="el_ui_output_pallets_eggs" text="鸡蛋"/>
-		<text name="el_ui_output_pallets_wool" text="羊毛"/>
-		<text name="el_ui_output_pallets_goatMilk" text="山羊奶"/>
-		<text name="el_ui_amountPerDay" text="%.0fL / 天" tag="format"/>
-		<text name="el_ui_feePerMonth" text="%s / 月" tag="format"/>
-		
-		<text name="el_ui_animalType" text="类型"/>
-		<text name="el_ui_amountMonitored" text="监控数量"/>
-		<text name="el_ui_production" text="产品"/>
-		<text name="el_ui_applyAllMonitor" text="应用全部监控"/>
-		<text name="el_ui_removeAllMonitor" text="移除全部监控"/>
-		<text name="el_ui_fee" text="费用"/>
-
-		<text name="el_ui_leftEarTag" text="左耳标"/>
-		<text name="el_ui_rightEarTag" text="右耳标"/>
-		<text name="el_ui_backgroundColour" text="背景颜色"/>
-		<text name="el_ui_backgroundHue" text="背景色相"/>
-		<text name="el_ui_backgroundRgb" text="背景RGB"/>
-		<text name="el_ui_textColour" text="文字颜色"/>
-		<text name="el_ui_textHue" text="文字色相"/>
-		<text name="el_ui_textRgb" text="文字RGB"/>
-		
-		<text name="el_ui_formatMonths" text="%s 个月"/>
-		<text name="el_ui_formatMonth" text="%s 个月"/>
-		<text name="el_ui_notPregnant" text="未怀孕"/>
-		<text name="el_ui_notPregnant_github" text="未怀孕"/>
-		<text name="el_ui_any" text="任意"/>
-		<text name="el_ui_pregnancy" text="妊娠"/>
-		<text name="el_ui_productivity" text="生产效率"/>
-		<text name="el_ui_selectAll" text="全选"/>
-		<text name="el_ui_selectNone" text="取消选择"/>
-		<text name="el_ui_filters" text="筛选"/>
-		<text name="el_ui_doesntHaveName" text="无名称"/>
-		<text name="el_ui_doesHaveName" text="有名称"/>
-		
-		<text name="el_ui_castrated" text="已绝育"/>
-		<text name="el_ui_castrated_github" text="已阉割"/>
-		<text name="el_ui_castrate" text="绝育"/>
-		<text name="el_ui_castrate_github" text="阉割"/>
-		
-		<text name="el_ui_importance" text="重要性"/>
-		<text name="el_ui_type" text="类型"/>
-		<text name="el_ui_date" text="日期"/>
-		<text name="el_ui_message" text="消息"/>
-		<text name="el_ui_messages" text="消息"/>
-		<text name="el_ui_unknownCauses" text="未知原因"/>
-		<text name="el_ui_messageNumber" text="%s-%s / %s"/>
-		<text name="el_ui_deleteMessage" text="删除消息"/>
-		<text name="el_ui_unreadMessages" text="畜舍 '%s' 有未读消息！"/>
-		<text name="el_ui_herdsman" text="牧场管理员"/>
-		<text name="el_ui_budget" text="预算"/>
-		<text name="el_ui_budgetType" text="预算类型"/>
-		<text name="el_ui_fixed" text="固定"/>
-		<text name="el_ui_percentage" text="百分比"/>
-		<text name="el_ui_maxAnimals" text="最大动物数量"/>
-		<text name="el_ui_infinite" text="无限"/>
-		<text name="el_ui_herdsmanRecentlyBought" text="牧场管理员最近购买"/>
-		<text name="el_ui_previousWage" text="之前工资"/>
-		<text name="el_ui_herdsmanWages" text="牧场管理员工资"/>
-		<text name="finance_herdsmanWages" text="牧场管理员工资"/>
-		<text name="el_ui_medicine" text="药品"/>
-		<text name="finance_medicine" text="药品"/>
-		<text name="el_ui_semenPurchase" text="育种样本购买"/>
-		<text name="el_ui_semenPurchase_github" text="精液购买"/>
-		<text name="finance_semenPurchase" text="育种样本购买"/>
-		<text name="finance_semenPurchase_github" text="精液购买"/>
-		<text name="el_ui_noDiseases" text="无疾病"/>
-		<text name="el_ui_onlyDiseases" text="仅显示疾病"/>
-		<text name="el_ui_naming" text="命名"/>
-		<text name="el_ui_alphabetical" text="按字母排序"/>
-		<text name="el_ui_breed" text="品种"/>
-		<text name="el_ui_dontMark" text="不标记"/>
-		<text name="el_ui_mark" text="标记"/>
-		<text name="el_ui_unmark" text="取消标记"/>
-		<text name="el_ui_favourite" text="收藏"/>
-		<text name="el_ui_unFavourite" text="取消收藏"/>
-		<text name="el_ui_quantity" text="数量"/>
-		<text name="el_ui_dewar" text="液氮罐"/>
-		<text name="el_ui_semenPurchase_successful" text="育种样本购买成功，可在商店领取"/>
-		<text name="el_ui_semenPurchase_successful_github" text="精液购买成功，可在商店领取"/>
-		<text name="el_ui_semenPurchase_unsuccessful" text="育种样本购买失败"/>
-		<text name="el_ui_semenPurchase_unsuccessful_github" text="精液购买失败"/>
-		<text name="el_ui_earTag" text="耳标"/>
-		<text name="el_ui_species" text="物种"/>
-		<text name="el_ui_strawSingle" text="育种样本管"/>
-		<text name="el_ui_strawMultiple" text="精液管"/>
-		<text name="el_ui_artificialInsemination" text="辅助繁殖"/>
-		<text name="el_ui_artificialInsemination_github" text="人工授精"/>
-		<text name="el_ui_semenPurchaseNoPermission" text="你没有交易动物或购买育种样本的权限。"/>
-		<text name="el_ui_semenPurchaseNoPermission_github" text="你没有交易动物或购买精液的权限。"/>
-		<text name="el_ui_semenPurchaseNoMoney" text="资金不足，无法购买该育种样本。"/>
-		<text name="el_ui_semenPurchaseNoMoney_github" text="资金不足，无法购买该精液。"/>
-		<text name="el_ui_takeStraw" text="取出育种样本管"/>
-		<text name="el_ui_inseminateAnimal" text="繁殖 %s"/>
-		<text name="el_ui_inseminateAnimal_github" text="授精 %s"/>
-		<text name="el_ui_inseminate" text="繁殖"/>
-		<text name="el_ui_inseminate_github" text="授精"/>
-		<text name="el_ui_strawEmpty" text="该精液管为空"/>
-		<text name="el_ui_averageSuccessColon" text="平均成功率："/>
-		<text name="el_ui_averageSuccess" text="平均成功率"/>
-		<text name="el_ui_success" text="成功率"/>
-		<text name="el_ui_save" text="保存"/>
-		<text name="el_ui_load" text="加载"/>
-		<text name="el_ui_saveProfile" text="保存配置"/>
-		<text name="el_ui_loadProfile" text="加载配置"/>
-		
-		<text name="el_ui_healthy" text="健康"/>
-		<text name="el_ui_hasDisease" text="有疾病"/>
-		<text name="el_ui_diseasedAnimals" text="患病动物"/>
-		
-		
-		<text name="el_insemination_male" text="只有雌性动物可以繁殖"/>
-		<text name="el_insemination_male_github" text="只有雌性动物可以进行人工授精"/>
-		<text name="el_insemination_pregnant" text="该动物已经怀孕"/>
-		<text name="el_insemination_pregnant_github" text="该动物已经怀孕"/>
-		<text name="el_insemination_animalType" text="动物必须与父本为同一物种"/>
-		<text name="el_insemination_inseminated" text="该动物已经进行过繁殖"/>
-		<text name="el_insemination_inseminated_github" text="该动物已经进行过人工授精"/>
-		<text name="el_insemination_recovering" text="该动物仍在恢复期"/>
-		<text name="el_insemination_father" text="不允许近亲繁殖"/>
-		<text name="el_insemination_young" text="该动物太年轻，无法繁殖"/>
-		<text name="el_insemination_young_github" text="该动物太年轻，无法进行人工授精"/>
-		
-		
-		<text name="el_mark_aiManager_sell" text="牧场管理员标记为出售"/>
-		<text name="el_mark_aiManager_castrate" text="牧场管理员标记为绝育"/>
-		<text name="el_mark_aiManager_castrate_github" text="牧场管理员标记为阉割"/>
-		<text name="el_mark_aiManager_disease" text="牧场管理员标记为治疗"/>
-		<text name="el_mark_aiManager_ai" text="牧场管理员标记为辅助繁殖"/>
-		<text name="el_mark_aiManager_ai_github" text="牧场管理员标记为人工授精"/>
-		<text name="el_mark_player" text="玩家标记"/>
-		
-		
-		<!-- AI - BUYING -->
-		
-		
-		<text name="el_ui_herdsmanTooltip_buy_enabled_1" text="牧场管理员不会购买动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_enabled_2" text="牧场管理员会购买动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="购买预算为固定金额"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="购买预算为农场资金的百分比"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="牧场管理员每天最多花费 %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="牧场管理员每天最多花费农场资金的 %s"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="牧场管理员每天最多购买 %s 只动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_breed" text="牧场管理员只购买 %s 品种的动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_breed_any" text="牧场管理员会购买任何品种的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_diseases_1" text="牧场管理员只购买无疾病的动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_diseases_2" text="牧场管理员会购买有疾病的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_gender_1" text="牧场管理员只购买雌性动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_2" text="牧场管理员会购买雌性和雄性动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_3" text="牧场管理员只购买雄性动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_age_equal" text="牧场管理员只购买年龄为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_age_range" text="牧场管理员只购买年龄在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_quality_equal" text="牧场管理员只购买品质为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_quality_range" text="牧场管理员只购买品质在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="牧场管理员只购买生育力为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_fertility_range" text="牧场管理员只购买生育力在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_health_equal" text="牧场管理员只购买健康值为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_health_range" text="牧场管理员只购买健康值在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="牧场管理员只购买产奶量为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_productivity_range" text="牧场管理员只购买产奶量在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="牧场管理员只购买代谢率为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="牧场管理员只购买代谢率在 %s 到 %s 之间的动物"/>		
-		
-
-		<!-- AI - SELLING -->
-		
-		
-		<text name="el_ui_herdsmanTooltip_sell_enabled_1" text="牧场管理员不会出售动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_enabled_2" text="牧场管理员会出售动物"/>
-
-		<text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="牧场管理员每天最多出售 %s 只动物"/>
-
-		<text name="el_ui_herdsmanTooltip_sell_mark_1" text="牧场管理员不会标记动物出售"/>
-		<text name="el_ui_herdsmanTooltip_sell_mark_2" text="牧场管理员会标记动物出售"/>
-
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="牧场管理员会出售有疾病或无疾病的动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="牧场管理员只出售有疾病的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_sell_gender_1" text="牧场管理员只出售雌性动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_2" text="牧场管理员会出售雌性和雄性动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_3" text="牧场管理员只出售雄性动物"/>
-
-		<text name="el_ui_herdsmanTooltip_sell_age_equal" text="牧场管理员只出售年龄为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_age_range" text="牧场管理员只出售年龄在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_sell_quality_equal" text="牧场管理员只出售品质为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_quality_range" text="牧场管理员只出售品质在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="牧场管理员只出售生育力为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_fertility_range" text="牧场管理员只出售生育力在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_sell_health_equal" text="牧场管理员只出售健康值为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_health_range" text="牧场管理员只出售健康值在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="牧场管理员只出售产奶量为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_productivity_range" text="牧场管理员只出售产奶量在 %s 到 %s 之间的动物"/>
-		
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="牧场管理员只出售代谢率为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="牧场管理员只出售代谢率在 %s 到 %s 之间的动物"/>
-		
-
-		<!-- AI - NEUTERING -->
-
-
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="牧场管理员不会对动物进行绝育"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="牧场管理员不会阉割动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="牧场管理员会对动物进行绝育"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="牧场管理员会阉割动物"/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="牧场管理员不会标记动物阉割"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="牧场管理员不会标记动物阉割"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="牧场管理员会标记动物阉割"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="牧场管理员会标记动物阉割"/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="牧场管理员会绝育有疾病或无疾病的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="牧场管理员会阉割有疾病或无疾病的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="牧场管理员只绝育有疾病的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="牧场管理员只阉割有疾病的动物"/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="牧场管理员只绝育年龄为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="牧场管理员只阉割年龄为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="牧场管理员只绝育年龄在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="牧场管理员只阉割年龄在 %s 到 %s 之间的动物"/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="牧场管理员只绝育品质为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="牧场管理员只阉割品质为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="牧场管理员只绝育品质在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="牧场管理员只阉割品质在 %s 到 %s 之间的动物"/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="牧场管理员只绝育生育力为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="牧场管理员只阉割生育力为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="牧场管理员只绝育生育力在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="牧场管理员只阉割生育力在 %s 到 %s 之间的动物"/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="牧场管理员只绝育健康值为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="牧场管理员只阉割健康值为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="牧场管理员只绝育健康值在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="牧场管理员只阉割健康值在 %s 到 %s 之间的动物"/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="牧场管理员只绝育产奶量为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="牧场管理员只阉割产奶量为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="牧场管理员只绝育产奶量在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="牧场管理员只阉割产奶量在 %s 到 %s 之间的动物"/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="牧场管理员只绝育代谢率为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="牧场管理员只阉割代谢率为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="牧场管理员只绝育代谢率在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="牧场管理员只阉割代谢率在 %s 到 %s 之间的动物"/>
-		
-
-		<!-- AI - NAMING -->
-		
-
-		<text name="el_ui_herdsmanTooltip_naming_enabled_1" text="牧场管理员不会给动物命名"/>
-		<text name="el_ui_herdsmanTooltip_naming_enabled_2" text="牧场管理员会给动物命名"/>
-
-		<text name="el_ui_herdsmanTooltip_naming_convention_1" text="牧场管理员会随机给动物命名"/>
-		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="牧场管理员会按字母顺序给动物命名"/>
-
-
-		<!-- AI - ASSISTED BREEDING -->
-
-
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="牧场管理员不会人工繁殖动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="牧场管理员不会对动物进行人工授精"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="牧场管理员会人工繁殖动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="牧场管理员会对动物进行人工授精"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="牧场管理员每天最多人工繁殖 %s 只动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="牧场管理员每天最多对 %s 只动物进行人工授精"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="牧场管理员不会标记动物进行人工繁殖"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="牧场管理员不会标记动物进行人工授精"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="牧场管理员会标记动物进行人工繁殖"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="牧场管理员会标记动物进行人工授精"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="牧场管理员会人工繁殖有疾病或无疾病的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="牧场管理员会对有疾病或无疾病的动物进行人工授精"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="牧场管理员只人工繁殖有疾病的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="牧场管理员只对有疾病的动物进行人工授精"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_semen" text="牧场管理员将使用来自 %s 的繁殖样本"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="牧场管理员将使用来自 %s 的精液"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="牧场管理员将使用任何可用的繁殖样本"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="牧场管理员将使用任何可用的精液"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="牧场管理员只人工繁殖年龄为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="牧场管理员只对年龄为 %s 的动物进行人工授精"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range" text="牧场管理员只人工繁殖年龄在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="牧场管理员只对年龄在 %s 到 %s 之间的动物进行人工授精"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="牧场管理员只人工繁殖品质为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="牧场管理员只对品质为 %s 的动物进行人工授精"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="牧场管理员只人工繁殖品质在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="牧场管理员只对品质在 %s 到 %s 之间的动物进行人工授精"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="牧场管理员只人工繁殖生育力为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="牧场管理员只对生育力为 %s 的动物进行人工授精"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="牧场管理员只人工繁殖生育力在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="牧场管理员只对生育力在 %s 到 %s 之间的动物进行人工授精"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="牧场管理员只人工繁殖健康值为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="牧场管理员只对健康值为 %s 的动物进行人工授精"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range" text="牧场管理员只人工繁殖健康值在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="牧场管理员只对健康值在 %s 到 %s 之间的动物进行人工授精"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="牧场管理员只人工繁殖产奶量为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="牧场管理员只对产奶量为 %s 的动物进行人工授精"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="牧场管理员只人工繁殖产奶量在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="牧场管理员只对产奶量在 %s 到 %s 之间的动物进行人工授精"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="牧场管理员只人工繁殖代谢率为 %s 的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="牧场管理员只对代谢率为 %s 的动物进行人工授精"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="牧场管理员只人工繁殖代谢率在 %s 到 %s 之间的动物"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="牧场管理员只对代谢率在 %s 到 %s 之间的动物进行人工授精"/>
-
-
-
-		<!--  SETTINGS  -->
-		
-
-		<text name="el_settings" text="增强型动物"/>
-
-		<text name="el_settings_off" text="关闭"/>
-		<text name="el_settings_on" text="开启"/>
-
-		<text name="el_settings_deathEnabled_label" text="动物移除"/>
-		<text name="el_settings_deathEnabled_label_github" text="动物死亡"/>
-		<text name="el_settings_deathEnabled_tooltip_1" text="动物不会因怀孕、健康、年龄或意外被移除"/>
-		<text name="el_settings_deathEnabled_tooltip_1_github" text="动物不会因怀孕、健康、年龄或意外死亡"/>
-		<text name="el_settings_deathEnabled_tooltip_2" text="动物会因怀孕、健康、年龄或意外被移除"/>
-		<text name="el_settings_deathEnabled_tooltip_2_github" text="动物会因怀孕、健康、年龄或意外死亡"/>
-
-		<text name="el_settings_accidentsChance_label" text="意外概率"/>
-		<text name="el_settings_accidentsChance_tooltip" text="调整动物因随机意外被移除的概率"/>
-		<text name="el_settings_accidentsChance_tooltip_github" text="调整动物因随机意外死亡的概率"/>
-
-		<text name="el_settings_foodScale_label" text="食物消耗比例"/>
-		<text name="el_settings_foodScale_tooltip" text="调整动物的食物消耗量"/>
-
-		<text name="el_settings_maxDealerAnimals_label" text="交易商最大库存"/>
-		<text name="el_settings_maxDealerAnimals_tooltip" text="调整动物交易商每种动物类型的最大库存数量"/>
-
-		<text name="el_settings_resetDealer_label" text="重置动物交易商"/>
-		<text name="el_settings_resetDealer_tooltip" text="移除交易商所有动物并用新动物补充库存"/>
-		<text name="el_settings_resetDealer_text" text="重置动物交易商"/>
-
-		<text name="el_settings_tagColour_label" text="更改耳标颜色"/>
-		<text name="el_settings_tagColour_tooltip" text="更改动物耳标的颜色"/>
-		<text name="el_settings_tagColour_text" text="更改耳标颜色"/>
-
-		<text name="el_settings_exportCSV_label" text="导出为 CSV"/>
-		<text name="el_settings_exportCSV_tooltip" text="将动物数据导出为 CSV 文件"/>
-		<text name="el_settings_exportCSV_text" text="导出为 CSV"/>
-
-		<text name="el_settings_maxNumMessages_label" text="最大消息数量"/>
-		<text name="el_settings_maxNumMessages_tooltip" text="设置消息最大数量会占用更多存档空间，超过限制后最早的消息会被删除。"/>
-
-		<text name="el_settings_diseasesEnabled_label" text="启用疾病"/>
-		<text name="el_settings_diseasesEnabled_tooltip_1" text="动物不会感染或遗传疾病"/>
-		<text name="el_settings_diseasesEnabled_tooltip_2" text="动物可以感染或遗传疾病"/>
-
-		<text name="el_settings_diseasesChance_label" text="疾病概率"/>
-		<text name="el_settings_diseasesChance_tooltip" text="调整动物感染疾病的概率"/>
-
-		<text name="el_settings_useCustomAnimals_label" text="使用自定义动物"/>
-		<text name="el_settings_useCustomAnimals_tooltip_1" text="使用增强型动物模型（需要重启）"/>
-		<text name="el_settings_useCustomAnimals_tooltip_2" text="使用自定义动物模型（需要重启，必须解压）"/>
-
-		<text name="el_settings_animalsXML_label" text="设置动物 XML 路径"/>
-		<text name="el_settings_animalsXML_tooltip" text="设置自定义动物 XML 文件的路径"/>
-		<text name="el_settings_animalsXML_text" text="设置动物 XML 路径"/>
-
-		<text name="el_settings_earTagTextEnabled_label" text="耳标文本"/>
-		<text name="el_settings_earTagTextEnabled_tooltip" text="切换动物耳标上文本的显示"/>
-
-
-		
-		<!--  HELP  -->
-
-
-		<text name="el_help_monitors_title" text="监控标签"/>
-		<text name="el_help_monitors_1" text="要查看动物的大部分统计数据，需要给动物佩戴监控标签，可通过动物菜单（购买和出售动物的地方）进行操作。监控标签也会在动物身上显示，在其左耳的编号耳标旁边。"/>
-		<text name="el_help_monitors_2" text="监控标签会显示重要信息，包括健康、体重、泌乳量、产量以及稻草、食物和水的需求。"/>
-		<text name="el_help_monitors_3" text="给动物佩戴标签会产生少量每月订阅费用，费用根据动物种类而定。如果选择移除标签，标签将在下个月初被移除。"/>
-
-		<text name="el_help_pregnancy_title" text="繁育"/>
-		<text name="el_help_pregnancy_title_github" text="怀孕"/>
-		<text name="el_help_pregnancy_1" text="雌性动物至少需要 1 只雄性动物才能繁殖。两只动物必须健康且达到合适年龄，且必须属于同一物种。不同品种之间的交配（例如荷斯坦奶牛与安格斯公牛）是允许的。"/>
-		<text name="el_help_pregnancy_1_github" text="雌性动物至少需要 1 只雄性动物才能怀孕。两只动物必须达到合适的年龄和健康水平，并且属于同一物种。不同品种之间的交配（例如荷斯坦奶牛与安格斯公牛）是允许的。"/>
-		<text name="el_help_pregnancy_2" text="近亲不会交配。如果雄性和雌性动物直接相关，它们将不会繁殖。"/>
-		<text name="el_help_pregnancy_2_github" text="不允许近亲繁殖。如果雄性和雌性动物直接相关，它们将不会繁殖。"/>
-		<text name="el_help_pregnancy_3" text="雌性怀孕的几率取决于父母双方的生育力。生育力更高的雌性更有可能一次产下更多后代。"/>
-		<text name="el_help_pregnancy_3_github" text="雌性怀孕的几率取决于其自身及雄性的生育力。生育力较高的雌性更可能一次产下更多后代。"/>
-		<text name="el_help_pregnancy_4" text="一旦雌性怀孕，她将开始怀胎。可以在圈舍查看动物，或者在动物菜单中选择她，查看预产期和预计后代数量。"/>
-		<text name="el_help_pregnancy_4_github" text="一旦雌性怀孕，她将开始怀胎。可通过在圈舍查看动物或在动物菜单中点击她，查看预产期和预计后代数量。"/>
-		<text name="el_help_pregnancy_5" text="当雌性到达预产期时，将分娩新生小动物。但如果出现并发症，幼崽或母体有小概率丧失。在过于拥挤的圈舍中出生的幼崽会被自动出售。"/>
-		<text name="el_help_pregnancy_5_github" text="当雌性到达预产期时，她会产下幼崽。但新生动物有一定几率被移除，如果怀孕情况不佳，母体也可能丧失。在过于拥挤的圈舍中出生的幼崽会被自动出售。"/>
-
-		<text name="el_help_production_title" text="产量"/>
-		<text name="el_help_production_1" text="任何品种的奶牛在分娩后才开始产奶。产后前三个月产奶量呈指数增长，随后六个月逐渐下降。怀孕 10 个月后，奶牛将停止产奶，直至下一次怀孕。"/>
-		<text name="el_help_production_2" text="绵羊在温暖的月份产羊毛。在低于 12°C 的寒冷月份，它们不会产羊毛。"/>
-		<text name="el_help_production_3" text="奶、羊毛和蛋的产量还受动物遗传因素影响。具有优良产量遗传的动物产量更高，而遗传较差的动物几乎无法产出。"/>
-
-		<text name="el_help_weight_title" text="体重"/>
-		<text name="el_help_weight_1" text="动物的体重受食物和饮水量影响。每种物种和品种都有自身平均体重，这会影响每只动物的体重。"/>
-		<text name="el_help_weight_2" text="体重会增加动物价值，体重过低会影响其每月被移除的几率。"/>
-
-		<text name="el_help_genetics_title" text="遗传"/>
-		<text name="el_help_genetics_1" text="每只动物都有 4 个遗传值：代谢率、生育力、健康和品质。遗传会在父母间混合，并传递给后代。"/>
-		<text name="el_help_genetics_2" text="代谢率影响动物将食物转化为体重的能力，并影响其食量。"/>
-		<text name="el_help_genetics_3" text="生育力影响动物成功繁殖的几率，以及父母能产生的后代数量。"/>
-		<text name="el_help_genetics_3_github" text="生育力影响动物怀孕的几率，或让雌性怀孕的几率，以及其能产生的后代数量。"/>
-		<text name="el_help_genetics_4" text="健康影响动物的健康状况及其每月被移除的几率。健康遗传值高的动物寿命更长。"/>
-		<text name="el_help_genetics_5" text="品质影响动物自身的价值，品质高的动物售价更高。"/>
-		<text name="el_help_genetics_6" text="牛、羊和鸡还有产量遗传值，影响它们的奶、蛋和羊毛产量。"/>
-
-
-
-		<!--  DISEASES  -->
-		
-	
-		<text name="el_ui_immune" text="免疫"/>
-		<text name="el_ui_startTreatment" text="开始治疗"/>
-		<text name="el_ui_resumeTreatment" text="继续治疗"/>
-		<text name="el_ui_stopTreatment" text="停止治疗"/>
-		<text name="el_ui_duration" text="持续时间"/>
-		<text name="el_ui_beingTreated" text="正在治疗"/>
-		<text name="el_ui_notTreated" text="未治疗"/>
-		<text name="el_ui_carrier" text="携带者"/>
-
-		<text name="el_diseases" text="疾病"/>
-		<text name="el_disease" text="疾病"/>
-
-		<text name="el_disease_mastitis" text="乳房炎"/>
-
-		<text name="el_disease_cvm" text="猪瘟病毒（CVM）"/>
-
-		<text name="el_disease_footAndMouth" text="口蹄疫"/>
-		
-		<text name="el_disease_ped" text="猪流行性腹泻"/>
-		
-		<text name="el_disease_avianFlu" text="禽流感"/>
-		
-		
-		
-		<!--  MESSAGES  -->
-
-
-		<text name="el_messageTitle_pregnancy" text="繁育"/>
-		<text name="el_messageTitle_death" text="移除"/>
-		<text name="el_messageTitle_death_github" text="死亡"/>
-		<text name="el_messageTitle_disease" text="疾病"/>
-		<text name="el_messageTitle_name" text="名称"/>
-		<text name="el_messageTitle_movement" text="移动"/>
-		<text name="el_messageTitle_aiManager" text="牧场管理者"/>
-		<text name="el_messageTitle_insemination" text="辅助繁育"/>
-		<text name="el_messageTitle_insemination_github" text="人工授精"/>
-		
-		<text name="el_message_pregnancySingle" text="产下 1 只幼崽"/>
-		<text name="el_message_pregnancyMultiple" text="产下 %s 只幼崽"/>
-		<text name="el_message_pregnancySold" text="由于圈舍过于拥挤，%s 只幼崽以 %s 被出售"/>
-		<text name="el_message_pregnancyDied" text="%s 只幼崽在出生时被移除"/>
-		<text name="el_message_pregnancyDied_github" text="%s 只幼崽出生时死亡"/>
-		<text name="el_message_death" text="因 %s 被移除"/>
-		<text name="el_message_death_github" text="因 %s 死亡"/>
-		<text name="el_message_diseaseContracted" text="感染 %s"/>
-		<text name="el_message_diseaseCured" text="治愈 %s"/>
-		<text name="el_message_diseaseTreatment_start" text="开始治疗 %s 于 %s"/>
-		<text name="el_message_diseaseTreatment_resume" text="继续治疗 %s 于 %s"/>
-		<text name="el_message_diseaseTreatment_stop" text="停止治疗 %s"/>
-		<text name="el_message_nameChange" text="名称从 '%s' 更改为 '%s'"/>
-		<text name="el_message_nameAdded" text="赋予名称 '%s'"/>
-		<text name="el_message_nameDeleted" text="移除名称 '%s'"/>
-		<text name="el_message_boughtAnimals_single" text="购买 1 只动物，花费 %s"/>
-		<text name="el_message_boughtAnimals_multiple" text="购买 %s 只动物，花费 %s"/>
-		<text name="el_message_soldAnimals_single" text="出售 1 只动物，收入 %s"/>
-		<text name="el_message_soldAnimals_multiple" text="出售 %s 只动物，收入 %s"/>
-		<text name="el_message_movedAnimalsTo_single" text="将 1 只动物移动到 %s"/>
-		<text name="el_message_movedAnimalsTo_multiple" text="将 %s 只动物移动到 %s"/>
-		<text name="el_message_movedAnimalsFrom_single" text="从 %s 移动 1 只动物"/>
-		<text name="el_message_movedAnimalsFrom_multiple" text="从 %s 移动 %s 只动物"/>
-		<text name="el_message_aiManager_boughtAnimals_single" text="牧场管理者购买 1 只动物，花费 %s"/>
-		<text name="el_message_aiManager_boughtAnimals_multiple" text="牧场管理者购买 %s 只动物，花费 %s"/>
-		<text name="el_message_aiManager_soldAnimals_single" text="牧场管理者出售 1 只动物，收入 %s"/>
-		<text name="el_message_aiManager_soldAnimals_multiple" text="牧场管理者出售 %s 只动物，收入 %s"/>
-		<text name="el_message_aiManager_castrated_single" text="牧场管理者阉割 1 只动物"/>
-		<text name="el_message_aiManager_castrated_single_github" text="牧场管理者为 1 只动物实施阉割"/>
-		<text name="el_message_aiManager_castrated_multiple" text="牧场管理者阉割 %s 只动物"/>
-		<text name="el_message_aiManager_castrated_multiple_github" text="牧场管理者为 %s 只动物实施阉割"/>
-		<text name="el_message_aiManager_named_single" text="牧场管理者为 1 只动物命名"/>
-		<text name="el_message_aiManager_named_multiple" text="牧场管理者为 %s 只动物命名"/>
-		<text name="el_message_aiManager_mark_sell_single" text="牧场管理者标记 1 只动物出售"/>
-		<text name="el_message_aiManager_mark_sell_multiple" text="牧场管理者标记 %s 只动物出售"/>
-		<text name="el_message_aiManager_mark_castrate_single" text="牧场管理者标记 1 只动物进行阉割"/>
-		<text name="el_message_aiManager_mark_castrate_single_github" text="牧场管理者标记 1 只动物进行阉割"/>
-		<text name="el_message_aiManager_mark_castrate_multiple" text="牧场管理者标记 %s 只动物进行阉割"/>
-		<text name="el_message_aiManager_mark_castrate_multiple_github" text="牧场管理者标记 %s 只动物进行阉割"/>
-		<text name="el_message_aiManager_mark_disease_single" text="牧场管理者标记 1 只动物进行治疗"/>
-		<text name="el_message_aiManager_mark_disease_multiple" text="牧场管理者标记 %s 只动物进行治疗"/>
-		<text name="el_message_insemination_success" text="繁育成功"/>
-		<text name="el_message_insemination_success_github" text="人工授精成功"/>
-		<text name="el_message_insemination_fail" text="繁育失败"/>
-		<text name="el_message_insemination_fail_github" text="人工授精失败"/>
-		<text name="el_message_aiManager_mark_ai_single" text="牧场管理者标记 1 只动物进行繁育"/>
-		<text name="el_message_aiManager_mark_ai_single_github" text="牧场管理者标记 1 只动物进行人工授精"/>
-		<text name="el_message_aiManager_mark_ai_multiple" text="牧场管理者标记 %s 只动物进行繁育"/>
-		<text name="el_message_aiManager_mark_ai_multiple_github" text="牧场管理者标记 %s 只动物进行人工授精"/>
-		<text name="el_message_aiManager_ai_single" text="牧场管理者完成 1 只动物的繁育"/>
-		<text name="el_message_aiManager_ai_single_github" text="牧场管理者完成 1 只动物的人工授精"/>
-		<text name="el_message_aiManager_ai_multiple" text="牧场管理者完成 %s 只动物的繁育"/>
-		<text name="el_message_aiManager_ai_multiple_github" text="牧场管理者完成 %s 只动物的人工授精"/>
-		
-		
-		
-		<!--  DEATHS  -->
-
-
-		<text name="el_death_pregnancy" text="孕期异常"/>
-		<text name="el_death_health" text="健康低下"/>
-		<text name="el_death_age" text="高龄"/>
-		<text name="el_death_accident" text="意外事故"/>
-
-		<!-- EPP BUTCHER INTEGRATION -->
-
-		<text name="el_epp_butcher_processed" text="动物在屠宰场处理：%s 公斤 %s"/>
-		<text name="el_epp_butcher_delivered" text="%s 已送往屠宰场 (%.2fx %s)"/>
-
-		<!-- MIGRATION -->
-
-		<text name="el_conflict_title" text="检测到模组冲突"/>
-		<text name="el_mod_conflict_message" text="以下模组与“增强型动物”存在冲突，无法同时使用：%s &#10;&#10;请禁用冲突模组并重启游戏。"/>
-
-		<text name="el_migration_title" text="数据迁移提示"/>
-		<text name="el_migration_message" text="在此存档中检测到先前的 Realistic Livestock 数据。游戏保存时，您的设置、动物数据、Dewars（液氮罐）工具以及人工授精吸管工具将会自动迁移到增强型动物模组。"/>
-		<text name="el_migration_files_found" text="发现的数据文件："/>
-		<text name="el_migration_continue" text="继续"/>
-		<text name="el_migration_quit" text="退出"/>
-
-	</texts>
+        <text name="el_ui_genetics" text="遗传"/>
+        <text name="el_ui_overall" text="综合"/>
+        <text name="el_ui_rename" text="更改名称"/>
+        <text name="el_ui_cantFindAnimal" text="未找到动物"/>
+        <text name="el_ui_maleNumImpregnatable" text="围栏内可配种动物"/>
+        <text name="el_ui_maleNumImpregnatable_github" text="围栏内可受孕动物"/>
+
+        <text name="el_ui_breederQuality" text="育种品质"/>
+        <text name="el_ui_birthday" text="出生日期"/>
+        <text name="el_ui_pregnancyExpected" text="预产"/>
+        <text name="el_ui_pregnancyExpecting" text="妊娠中"/>
+        <text name="el_ui_pregnancyBaby" text="幼崽"/>
+        <text name="el_ui_pregnancyBabies" text="幼崽"/>
+        <text name="el_ui_animalOrigin" text="来源"/>
+        <text name="el_ui_months" text="个月"/>
+        <text name="el_ui_month" text="个月"/>
+        <text name="el_ui_years" text="年"/>
+        <text name="el_ui_year" text="年"/>
+
+        <text name="el_ui_milk" text="产奶量"/>
+        <text name="el_ui_wool" text="产毛量"/>
+        <text name="el_ui_eggs" text="产蛋量"/>
+        <text name="el_ui_metabolism" text="新陈代谢"/>
+        <text name="el_ui_meat" text="肉品质"/>
+        <text name="el_ui_meat_github" text="肉品质"/>
+        <text name="el_ui_quality" text="品质"/>
+        <text name="el_ui_quality_github" text="肉品质"/>
+        <text name="el_ui_health" text="健康"/>
+        <text name="el_ui_fertility" text="生育力"/>
+
+        <text name="el_ui_genetics_infertile" text="不育"/>
+        <text name="el_ui_genetics_extremelyLow" text="极低"/>
+        <text name="el_ui_genetics_veryLow" text="很低"/>
+        <text name="el_ui_genetics_low" text="低"/>
+        <text name="el_ui_genetics_average" text="平均"/>
+        <text name="el_ui_genetics_high" text="高"/>
+        <text name="el_ui_genetics_veryHigh" text="很高"/>
+        <text name="el_ui_genetics_extremelyHigh" text="极高"/>
+        <text name="el_ui_genetics_highest" text="最高"/>
+        <text name="el_ui_genetics_unknown" text="Unknown"/>
+
+        <text name="el_ui_genetics_extremelyBad" text="极差"/>
+        <text name="el_ui_genetics_veryBad" text="很差"/>
+        <text name="el_ui_genetics_bad" text="差"/>
+        <text name="el_ui_genetics_good" text="良好"/>
+        <text name="el_ui_genetics_veryGood" text="很好"/>
+        <text name="el_ui_genetics_extremelyGood" text="极佳"/>
+
+        <text name="el_ui_buySelected" text="购买选中"/>
+        <text name="el_ui_sellSelected" text="出售选中"/>
+        <text name="el_ui_moveSelected" text="移动选中"/>
+        <text name="el_ui_buyConfirmation" text="确定以 %s 购买 %s 只动物？" tag="format"/>
+        <text name="el_ui_sellConfirmation" text="确定以 %s 出售 %s 只动物？" tag="format"/>
+        <text name="el_ui_moveConfirmation" text="确定移动 %s 只动物？" tag="format"/>
+        <text name="el_ui_buyBulkResult" text="已以 %s 购买 %s 只动物" tag="format"/>
+        <text name="el_ui_sellBulkResult" text="已以 %s 出售 %s 只动物" tag="format"/>
+        <text name="el_ui_moveBulkResult" text="已移动 %s 只动物" tag="format"/>
+
+        <text name="el_ui_monitor" text="监控"/>
+        <text name="el_ui_monitorSubscriptions" text="监控订阅"/>
+        <text name="finance_monitorSubscriptions" text="监控订阅"/>
+        <text name="el_ui_monitorFee" text="监控费用"/>
+        <text name="el_ui_applyMonitor" text="应用监控"/>
+        <text name="el_ui_removeMonitor" text="移除监控"/>
+        <text name="el_ui_input_food" text="饲料"/>
+        <text name="el_ui_input_water" text="水"/>
+        <text name="el_ui_input_straw" text="垫草"/>
+        <text name="el_ui_output_milk" text="牛奶"/>
+        <text name="el_ui_output_manure" text="固体粪肥"/>
+        <text name="el_ui_output_liquidManure" text="液态粪肥"/>
+        <text name="el_ui_output_pallets_eggs" text="鸡蛋"/>
+        <text name="el_ui_output_pallets_wool" text="羊毛"/>
+        <text name="el_ui_output_pallets_goatMilk" text="山羊奶"/>
+        <text name="el_ui_amountPerDay" text="%.0fL / 天" tag="format"/>
+        <text name="el_ui_feePerMonth" text="%s / 月" tag="format"/>
+
+        <text name="el_ui_animalType" text="类型"/>
+        <text name="el_ui_amountMonitored" text="监控数量"/>
+        <text name="el_ui_production" text="产品"/>
+        <text name="el_ui_applyAllMonitor" text="应用全部监控"/>
+        <text name="el_ui_removeAllMonitor" text="移除全部监控"/>
+        <text name="el_ui_fee" text="费用"/>
+
+        <text name="el_ui_leftEarTag" text="左耳标"/>
+        <text name="el_ui_rightEarTag" text="右耳标"/>
+        <text name="el_ui_backgroundColour" text="背景颜色"/>
+        <text name="el_ui_backgroundHue" text="背景色相"/>
+        <text name="el_ui_backgroundRgb" text="背景RGB"/>
+        <text name="el_ui_textColour" text="文字颜色"/>
+        <text name="el_ui_textHue" text="文字色相"/>
+        <text name="el_ui_textRgb" text="文字RGB"/>
+
+        <text name="el_ui_formatMonths" text="%s 个月"/>
+        <text name="el_ui_formatMonth" text="%s 个月"/>
+        <text name="el_ui_notPregnant" text="未怀孕"/>
+        <text name="el_ui_notPregnant_github" text="未怀孕"/>
+        <text name="el_ui_any" text="任意"/>
+        <text name="el_ui_pregnancy" text="妊娠"/>
+        <text name="el_ui_productivity" text="生产效率"/>
+        <text name="el_ui_selectAll" text="全选"/>
+        <text name="el_ui_selectNone" text="取消选择"/>
+        <text name="el_ui_filters" text="筛选"/>
+        <text name="el_ui_doesntHaveName" text="无名称"/>
+        <text name="el_ui_doesHaveName" text="有名称"/>
+
+        <text name="el_ui_castrated" text="已绝育"/>
+        <text name="el_ui_castrated_github" text="已阉割"/>
+        <text name="el_ui_castrate" text="绝育"/>
+        <text name="el_ui_castrate_github" text="阉割"/>
+
+        <text name="el_ui_importance" text="重要性"/>
+        <text name="el_ui_type" text="类型"/>
+        <text name="el_ui_date" text="日期"/>
+        <text name="el_ui_message" text="消息"/>
+        <text name="el_ui_messages" text="消息"/>
+        <text name="el_ui_unknownCauses" text="未知原因"/>
+        <text name="el_ui_messageNumber" text="%s-%s / %s"/>
+        <text name="el_ui_deleteMessage" text="删除消息"/>
+        <text name="el_ui_unreadMessages" text="畜舍 '%s' 有未读消息！"/>
+        <text name="el_ui_herdsman" text="牧场管理员"/>
+        <text name="el_ui_budget" text="预算"/>
+        <text name="el_ui_budgetType" text="预算类型"/>
+        <text name="el_ui_fixed" text="固定"/>
+        <text name="el_ui_percentage" text="百分比"/>
+        <text name="el_ui_maxAnimals" text="最大动物数量"/>
+        <text name="el_ui_infinite" text="无限"/>
+        <text name="el_ui_herdsmanRecentlyBought" text="牧场管理员最近购买"/>
+        <text name="el_ui_previousWage" text="之前工资"/>
+        <text name="el_ui_herdsmanWages" text="牧场管理员工资"/>
+        <text name="finance_herdsmanWages" text="牧场管理员工资"/>
+        <text name="el_ui_medicine" text="药品"/>
+        <text name="finance_medicine" text="药品"/>
+        <text name="el_ui_semenPurchase" text="育种样本购买"/>
+        <text name="el_ui_semenPurchase_github" text="精液购买"/>
+        <text name="finance_semenPurchase" text="育种样本购买"/>
+        <text name="finance_semenPurchase_github" text="精液购买"/>
+        <text name="el_ui_noDiseases" text="无疾病"/>
+        <text name="el_ui_onlyDiseases" text="仅显示疾病"/>
+        <text name="el_ui_naming" text="命名"/>
+        <text name="el_ui_alphabetical" text="按字母排序"/>
+        <text name="el_ui_breed" text="品种"/>
+        <text name="el_ui_dontMark" text="不标记"/>
+        <text name="el_ui_mark" text="标记"/>
+        <text name="el_ui_unmark" text="取消标记"/>
+        <text name="el_ui_favourite" text="收藏"/>
+        <text name="el_ui_unFavourite" text="取消收藏"/>
+        <text name="el_ui_quantity" text="数量"/>
+        <text name="el_ui_dewar" text="液氮罐"/>
+        <text name="el_ui_semenPurchase_successful" text="育种样本购买成功，可在商店领取"/>
+        <text name="el_ui_semenPurchase_successful_github" text="精液购买成功，可在商店领取"/>
+        <text name="el_ui_semenPurchase_unsuccessful" text="育种样本购买失败"/>
+        <text name="el_ui_semenPurchase_unsuccessful_github" text="精液购买失败"/>
+        <text name="el_ui_earTag" text="耳标"/>
+        <text name="el_ui_species" text="物种"/>
+        <text name="el_ui_strawSingle" text="育种样本管"/>
+        <text name="el_ui_strawMultiple" text="精液管"/>
+        <text name="el_ui_artificialInsemination" text="辅助繁殖"/>
+        <text name="el_ui_artificialInsemination_github" text="人工授精"/>
+        <text name="el_ui_semenPurchaseNoPermission" text="你没有交易动物或购买育种样本的权限。"/>
+        <text name="el_ui_semenPurchaseNoPermission_github" text="你没有交易动物或购买精液的权限。"/>
+        <text name="el_ui_semenPurchaseNoMoney" text="资金不足，无法购买该育种样本。"/>
+        <text name="el_ui_semenPurchaseNoMoney_github" text="资金不足，无法购买该精液。"/>
+        <text name="el_ui_takeStraw" text="取出育种样本管"/>
+        <text name="el_ui_inseminateAnimal" text="繁殖 %s"/>
+        <text name="el_ui_inseminateAnimal_github" text="授精 %s"/>
+        <text name="el_ui_inseminate" text="繁殖"/>
+        <text name="el_ui_inseminate_github" text="授精"/>
+        <text name="el_ui_strawEmpty" text="该精液管为空"/>
+        <text name="el_ui_averageSuccessColon" text="平均成功率："/>
+        <text name="el_ui_averageSuccess" text="平均成功率"/>
+        <text name="el_ui_success" text="成功率"/>
+        <text name="el_ui_semen" text="Sample"/>
+        <text name="el_ui_semen_github" text="Semen"/>
+        <text name="el_ui_actual" text="Actual"/>
+        <text name="el_ui_save" text="保存"/>
+        <text name="el_ui_load" text="加载"/>
+        <text name="el_ui_saveProfile" text="保存配置"/>
+        <text name="el_ui_loadProfile" text="加载配置"/>
+
+        <text name="el_ui_healthy" text="健康"/>
+        <text name="el_ui_hasDisease" text="有疾病"/>
+        <text name="el_ui_diseasedAnimals" text="患病动物"/>
+
+
+        <text name="el_insemination_male" text="只有雌性动物可以繁殖"/>
+        <text name="el_insemination_male_github" text="只有雌性动物可以进行人工授精"/>
+        <text name="el_insemination_pregnant" text="该动物已经怀孕"/>
+        <text name="el_insemination_pregnant_github" text="该动物已经怀孕"/>
+        <text name="el_insemination_animalType" text="动物必须与父本为同一物种"/>
+        <text name="el_insemination_inseminated" text="该动物已经进行过繁殖"/>
+        <text name="el_insemination_inseminated_github" text="该动物已经进行过人工授精"/>
+        <text name="el_insemination_recovering" text="该动物仍在恢复期"/>
+        <text name="el_insemination_father" text="不允许近亲繁殖"/>
+        <text name="el_insemination_young" text="该动物太年轻，无法繁殖"/>
+        <text name="el_insemination_young_github" text="该动物太年轻，无法进行人工授精"/>
+
+
+        <text name="el_mark_aiManager_sell" text="牧场管理员标记为出售"/>
+        <text name="el_mark_aiManager_castrate" text="牧场管理员标记为绝育"/>
+        <text name="el_mark_aiManager_castrate_github" text="牧场管理员标记为阉割"/>
+        <text name="el_mark_aiManager_disease" text="牧场管理员标记为治疗"/>
+        <text name="el_mark_aiManager_ai" text="牧场管理员标记为辅助繁殖"/>
+        <text name="el_mark_aiManager_ai_github" text="牧场管理员标记为人工授精"/>
+        <text name="el_mark_player" text="玩家标记"/>
+
+
+        <!-- AI - BUYING -->
+
+
+        <text name="el_ui_herdsmanTooltip_buy_enabled_1" text="牧场管理员不会购买动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_enabled_2" text="牧场管理员会购买动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="购买预算为固定金额"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="购买预算为农场资金的百分比"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="牧场管理员每天最多花费 %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="牧场管理员每天最多花费农场资金的 %s"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="牧场管理员每天最多购买 %s 只动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_breed" text="牧场管理员只购买 %s 品种的动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_breed_any" text="牧场管理员会购买任何品种的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_diseases_1" text="牧场管理员只购买无疾病的动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_diseases_2" text="牧场管理员会购买有疾病的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_gender_1" text="牧场管理员只购买雌性动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_2" text="牧场管理员会购买雌性和雄性动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_3" text="牧场管理员只购买雄性动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_age_equal" text="牧场管理员只购买年龄为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_age_range" text="牧场管理员只购买年龄在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_quality_equal" text="牧场管理员只购买品质为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_quality_range" text="牧场管理员只购买品质在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="牧场管理员只购买生育力为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_fertility_range" text="牧场管理员只购买生育力在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_health_equal" text="牧场管理员只购买健康值为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_health_range" text="牧场管理员只购买健康值在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="牧场管理员只购买产奶量为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_productivity_range" text="牧场管理员只购买产奶量在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="牧场管理员只购买代谢率为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="牧场管理员只购买代谢率在 %s 到 %s 之间的动物"/>
+
+
+        <!-- AI - SELLING -->
+
+
+        <text name="el_ui_herdsmanTooltip_sell_enabled_1" text="牧场管理员不会出售动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_enabled_2" text="牧场管理员会出售动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="牧场管理员每天最多出售 %s 只动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_1" text="牧场管理员不会标记动物出售"/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_2" text="牧场管理员会标记动物出售"/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="牧场管理员会出售有疾病或无疾病的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="牧场管理员只出售有疾病的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_1" text="牧场管理员只出售雌性动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_2" text="牧场管理员会出售雌性和雄性动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_3" text="牧场管理员只出售雄性动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_age_equal" text="牧场管理员只出售年龄为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_age_range" text="牧场管理员只出售年龄在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_equal" text="牧场管理员只出售品质为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_range" text="牧场管理员只出售品质在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="牧场管理员只出售生育力为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_range" text="牧场管理员只出售生育力在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_health_equal" text="牧场管理员只出售健康值为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_health_range" text="牧场管理员只出售健康值在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="牧场管理员只出售产奶量为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_range" text="牧场管理员只出售产奶量在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="牧场管理员只出售代谢率为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="牧场管理员只出售代谢率在 %s 到 %s 之间的动物"/>
+
+
+        <!-- AI - NEUTERING -->
+
+
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="牧场管理员不会对动物进行绝育"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="牧场管理员不会阉割动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="牧场管理员会对动物进行绝育"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="牧场管理员会阉割动物"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1" text="牧场管理员不会标记动物阉割"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="牧场管理员不会标记动物阉割"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2" text="牧场管理员会标记动物阉割"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="牧场管理员会标记动物阉割"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="牧场管理员会绝育有疾病或无疾病的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="牧场管理员会阉割有疾病或无疾病的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="牧场管理员只绝育有疾病的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="牧场管理员只阉割有疾病的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal" text="牧场管理员只绝育年龄为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="牧场管理员只阉割年龄为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range" text="牧场管理员只绝育年龄在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="牧场管理员只阉割年龄在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="牧场管理员只绝育品质为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="牧场管理员只阉割品质为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range" text="牧场管理员只绝育品质在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="牧场管理员只阉割品质在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="牧场管理员只绝育生育力为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="牧场管理员只阉割生育力为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="牧场管理员只绝育生育力在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="牧场管理员只阉割生育力在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal" text="牧场管理员只绝育健康值为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="牧场管理员只阉割健康值为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range" text="牧场管理员只绝育健康值在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="牧场管理员只阉割健康值在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="牧场管理员只绝育产奶量为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="牧场管理员只阉割产奶量为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="牧场管理员只绝育产奶量在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="牧场管理员只阉割产奶量在 %s 到 %s 之间的动物"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="牧场管理员只绝育代谢率为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="牧场管理员只阉割代谢率为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="牧场管理员只绝育代谢率在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="牧场管理员只阉割代谢率在 %s 到 %s 之间的动物"/>
+
+
+        <!-- AI - NAMING -->
+
+
+        <text name="el_ui_herdsmanTooltip_naming_enabled_1" text="牧场管理员不会给动物命名"/>
+        <text name="el_ui_herdsmanTooltip_naming_enabled_2" text="牧场管理员会给动物命名"/>
+
+        <text name="el_ui_herdsmanTooltip_naming_convention_1" text="牧场管理员会随机给动物命名"/>
+        <text name="el_ui_herdsmanTooltip_naming_convention_2" text="牧场管理员会按字母顺序给动物命名"/>
+
+
+        <!-- AI - ASSISTED BREEDING -->
+
+
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1" text="牧场管理员不会人工繁殖动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="牧场管理员不会对动物进行人工授精"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2" text="牧场管理员会人工繁殖动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="牧场管理员会对动物进行人工授精"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="牧场管理员每天最多人工繁殖 %s 只动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="牧场管理员每天最多对 %s 只动物进行人工授精"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_mark_1" text="牧场管理员不会标记动物进行人工繁殖"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="牧场管理员不会标记动物进行人工授精"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2" text="牧场管理员会标记动物进行人工繁殖"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="牧场管理员会标记动物进行人工授精"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="牧场管理员会人工繁殖有疾病或无疾病的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="牧场管理员会对有疾病或无疾病的动物进行人工授精"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="牧场管理员只人工繁殖有疾病的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="牧场管理员只对有疾病的动物进行人工授精"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_semen" text="牧场管理员将使用来自 %s 的繁殖样本"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_github" text="牧场管理员将使用来自 %s 的精液"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any" text="牧场管理员将使用任何可用的繁殖样本"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="牧场管理员将使用任何可用的精液"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_age_equal" text="牧场管理员只人工繁殖年龄为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="牧场管理员只对年龄为 %s 的动物进行人工授精"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range" text="牧场管理员只人工繁殖年龄在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range_github" text="牧场管理员只对年龄在 %s 到 %s 之间的动物进行人工授精"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal" text="牧场管理员只人工繁殖品质为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="牧场管理员只对品质为 %s 的动物进行人工授精"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range" text="牧场管理员只人工繁殖品质在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="牧场管理员只对品质在 %s 到 %s 之间的动物进行人工授精"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="牧场管理员只人工繁殖生育力为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="牧场管理员只对生育力为 %s 的动物进行人工授精"/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range" text="牧场管理员只人工繁殖生育力在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="牧场管理员只对生育力在 %s 到 %s 之间的动物进行人工授精"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_health_equal" text="牧场管理员只人工繁殖健康值为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="牧场管理员只对健康值为 %s 的动物进行人工授精"/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range" text="牧场管理员只人工繁殖健康值在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range_github" text="牧场管理员只对健康值在 %s 到 %s 之间的动物进行人工授精"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="牧场管理员只人工繁殖产奶量为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="牧场管理员只对产奶量为 %s 的动物进行人工授精"/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range" text="牧场管理员只人工繁殖产奶量在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="牧场管理员只对产奶量在 %s 到 %s 之间的动物进行人工授精"/>
+
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="牧场管理员只人工繁殖代谢率为 %s 的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="牧场管理员只对代谢率为 %s 的动物进行人工授精"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="牧场管理员只人工繁殖代谢率在 %s 到 %s 之间的动物"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="牧场管理员只对代谢率在 %s 到 %s 之间的动物进行人工授精"/>
+
+        <!-- AI Rework System: Bull Tier Names -->
+        <text name="el_ui_bullTier_youngGenomic" text="Young (Genomic)"/>
+        <text name="el_ui_bullTier_proven" text="Proven"/>
+        <text name="el_ui_bullTier_elite" text="Elite"/>
+        <text name="el_ui_bullTier_legend" text="Legend"/>
+
+        <!-- AI Rework System: Semen Types -->
+        <text name="el_ui_semenType" text="Sample Type"/>
+        <text name="el_ui_semenType_github" text="Semen Type"/>
+        <text name="el_ui_semenType_conventional" text="Conventional"/>
+        <text name="el_ui_semenType_sexedFemale" text="Sexed (Female)"/>
+        <text name="el_ui_semenType_sexedMale" text="Sexed (Male)"/>
+
+        <!-- AI Rework System: Nitrogen System -->
+        <text name="el_ui_nitrogenLevel" text="Nitrogen Level"/>
+        <text name="el_warning_criticalNitrogen" text="CRITICAL: Nitrogen Empty!"/>
+        <text name="el_warning_dewarSpoiled" text="Dewar %s spoiled due to nitrogen depletion"/>
+        <text name="el_warning_thermalDamage" text="Semen fertility reduced due to thermal exposure"/>
+        <text name="el_action_refillNitrogen" text="Refill Nitrogen ($50)"/>
+        <text name="el_info_nitrogenAlreadyFull" text="Nitrogen level is already full"/>
+        <text name="el_notification_nitrogenRefilled" text="Nitrogen refilled for %s"/>
+
+        <!-- AI Rework System: Stock Management -->
+        <text name="el_ui_strawsAvailable" text="%d straws available"/>
+        <text name="el_ui_limitedStock" text="Limited stock: only %d available"/>
+        <text name="el_error_insufficientSemenStock" text="Not enough semen in stock"/>
+        <text name="el_error_noSexedSemenAvailable" text="No sexed semen available for this bull"/>
+
+        <!-- AI Rework System: Selling Semen -->
+        <text name="el_ui_sellSemen" text="Sell Semen"/>
+        <text name="el_error_onlyMalesCanSellSemen" text="Only male animals can sell semen"/>
+        <text name="el_error_animalTooYoung" text="Animal is too young to sell semen"/>
+        <text name="el_error_semenCollectionCooldown" text="Bull needs to rest before next semen collection"/>
+        <text name="el_notification_semenSold" text="Sold %d straws from %s for %s"/>
+
+        <!--  SETTINGS  -->
+
+
+        <text name="el_settings" text="增强型动物"/>
+
+        <text name="el_settings_off" text="关闭"/>
+        <text name="el_settings_on" text="开启"/>
+
+        <text name="el_settings_deathEnabled_label" text="动物移除"/>
+        <text name="el_settings_deathEnabled_label_github" text="动物死亡"/>
+        <text name="el_settings_deathEnabled_tooltip_1" text="动物不会因怀孕、健康、年龄或意外被移除"/>
+        <text name="el_settings_deathEnabled_tooltip_1_github" text="动物不会因怀孕、健康、年龄或意外死亡"/>
+        <text name="el_settings_deathEnabled_tooltip_2" text="动物会因怀孕、健康、年龄或意外被移除"/>
+        <text name="el_settings_deathEnabled_tooltip_2_github" text="动物会因怀孕、健康、年龄或意外死亡"/>
+
+        <text name="el_settings_accidentsChance_label" text="意外概率"/>
+        <text name="el_settings_accidentsChance_tooltip" text="调整动物因随机意外被移除的概率"/>
+        <text name="el_settings_accidentsChance_tooltip_github" text="调整动物因随机意外死亡的概率"/>
+
+        <text name="el_settings_foodScale_label" text="食物消耗比例"/>
+        <text name="el_settings_foodScale_tooltip" text="调整动物的食物消耗量"/>
+
+        <text name="el_settings_maxDealerAnimals_label" text="交易商最大库存"/>
+        <text name="el_settings_maxDealerAnimals_tooltip" text="调整动物交易商每种动物类型的最大库存数量"/>
+
+        <text name="el_settings_resetDealer_label" text="重置动物交易商"/>
+        <text name="el_settings_resetDealer_tooltip" text="移除交易商所有动物并用新动物补充库存"/>
+        <text name="el_settings_resetDealer_text" text="重置动物交易商"/>
+
+        <text name="el_settings_tagColour_label" text="更改耳标颜色"/>
+        <text name="el_settings_tagColour_tooltip" text="更改动物耳标的颜色"/>
+        <text name="el_settings_tagColour_text" text="更改耳标颜色"/>
+
+        <text name="el_settings_exportCSV_label" text="导出为 CSV"/>
+        <text name="el_settings_exportCSV_tooltip" text="将动物数据导出为 CSV 文件"/>
+        <text name="el_settings_exportCSV_text" text="导出为 CSV"/>
+
+        <text name="el_settings_maxNumMessages_label" text="最大消息数量"/>
+        <text name="el_settings_maxNumMessages_tooltip" text="设置消息最大数量会占用更多存档空间，超过限制后最早的消息会被删除。"/>
+
+        <text name="el_settings_diseasesEnabled_label" text="启用疾病"/>
+        <text name="el_settings_diseasesEnabled_tooltip_1" text="动物不会感染或遗传疾病"/>
+        <text name="el_settings_diseasesEnabled_tooltip_2" text="动物可以感染或遗传疾病"/>
+
+        <text name="el_settings_diseasesChance_label" text="疾病概率"/>
+        <text name="el_settings_diseasesChance_tooltip" text="调整动物感染疾病的概率"/>
+
+        <text name="el_settings_useCustomAnimals_label" text="使用自定义动物"/>
+        <text name="el_settings_useCustomAnimals_tooltip_1" text="使用增强型动物模型（需要重启）"/>
+        <text name="el_settings_useCustomAnimals_tooltip_2" text="使用自定义动物模型（需要重启，必须解压）"/>
+
+        <text name="el_settings_animalsXML_label" text="设置动物 XML 路径"/>
+        <text name="el_settings_animalsXML_tooltip" text="设置自定义动物 XML 文件的路径"/>
+        <text name="el_settings_animalsXML_text" text="设置动物 XML 路径"/>
+
+        <text name="el_settings_earTagTextEnabled_label" text="耳标文本"/>
+        <text name="el_settings_earTagTextEnabled_tooltip" text="切换动物耳标上文本的显示"/>
+
+
+        <!--  HELP  -->
+
+
+        <text name="el_help_monitors_title" text="监控标签"/>
+        <text name="el_help_monitors_1" text="要查看动物的大部分统计数据，需要给动物佩戴监控标签，可通过动物菜单（购买和出售动物的地方）进行操作。监控标签也会在动物身上显示，在其左耳的编号耳标旁边。"/>
+        <text name="el_help_monitors_2" text="监控标签会显示重要信息，包括健康、体重、泌乳量、产量以及稻草、食物和水的需求。"/>
+        <text name="el_help_monitors_3" text="给动物佩戴标签会产生少量每月订阅费用，费用根据动物种类而定。如果选择移除标签，标签将在下个月初被移除。"/>
+
+        <text name="el_help_pregnancy_title" text="繁育"/>
+        <text name="el_help_pregnancy_title_github" text="怀孕"/>
+        <text name="el_help_pregnancy_1" text="雌性动物至少需要 1 只雄性动物才能繁殖。两只动物必须健康且达到合适年龄，且必须属于同一物种。不同品种之间的交配（例如荷斯坦奶牛与安格斯公牛）是允许的。"/>
+        <text name="el_help_pregnancy_1_github" text="雌性动物至少需要 1 只雄性动物才能怀孕。两只动物必须达到合适的年龄和健康水平，并且属于同一物种。不同品种之间的交配（例如荷斯坦奶牛与安格斯公牛）是允许的。"/>
+        <text name="el_help_pregnancy_2" text="近亲不会交配。如果雄性和雌性动物直接相关，它们将不会繁殖。"/>
+        <text name="el_help_pregnancy_2_github" text="不允许近亲繁殖。如果雄性和雌性动物直接相关，它们将不会繁殖。"/>
+        <text name="el_help_pregnancy_3" text="雌性怀孕的几率取决于父母双方的生育力。生育力更高的雌性更有可能一次产下更多后代。"/>
+        <text name="el_help_pregnancy_3_github" text="雌性怀孕的几率取决于其自身及雄性的生育力。生育力较高的雌性更可能一次产下更多后代。"/>
+        <text name="el_help_pregnancy_4" text="一旦雌性怀孕，她将开始怀胎。可以在圈舍查看动物，或者在动物菜单中选择她，查看预产期和预计后代数量。"/>
+        <text name="el_help_pregnancy_4_github" text="一旦雌性怀孕，她将开始怀胎。可通过在圈舍查看动物或在动物菜单中点击她，查看预产期和预计后代数量。"/>
+        <text name="el_help_pregnancy_5" text="当雌性到达预产期时，将分娩新生小动物。但如果出现并发症，幼崽或母体有小概率丧失。在过于拥挤的圈舍中出生的幼崽会被自动出售。"/>
+        <text name="el_help_pregnancy_5_github" text="当雌性到达预产期时，她会产下幼崽。但新生动物有一定几率被移除，如果怀孕情况不佳，母体也可能丧失。在过于拥挤的圈舍中出生的幼崽会被自动出售。"/>
+
+        <text name="el_help_production_title" text="产量"/>
+        <text name="el_help_production_1" text="任何品种的奶牛在分娩后才开始产奶。产后前三个月产奶量呈指数增长，随后六个月逐渐下降。怀孕 10 个月后，奶牛将停止产奶，直至下一次怀孕。"/>
+        <text name="el_help_production_2" text="绵羊在温暖的月份产羊毛。在低于 12°C 的寒冷月份，它们不会产羊毛。"/>
+        <text name="el_help_production_3" text="奶、羊毛和蛋的产量还受动物遗传因素影响。具有优良产量遗传的动物产量更高，而遗传较差的动物几乎无法产出。"/>
+
+        <text name="el_help_weight_title" text="体重"/>
+        <text name="el_help_weight_1" text="动物的体重受食物和饮水量影响。每种物种和品种都有自身平均体重，这会影响每只动物的体重。"/>
+        <text name="el_help_weight_2" text="体重会增加动物价值，体重过低会影响其每月被移除的几率。"/>
+
+        <text name="el_help_genetics_title" text="遗传"/>
+        <text name="el_help_genetics_1" text="每只动物都有 4 个遗传值：代谢率、生育力、健康和品质。遗传会在父母间混合，并传递给后代。"/>
+        <text name="el_help_genetics_2" text="代谢率影响动物将食物转化为体重的能力，并影响其食量。"/>
+        <text name="el_help_genetics_3" text="生育力影响动物成功繁殖的几率，以及父母能产生的后代数量。"/>
+        <text name="el_help_genetics_3_github" text="生育力影响动物怀孕的几率，或让雌性怀孕的几率，以及其能产生的后代数量。"/>
+        <text name="el_help_genetics_4" text="健康影响动物的健康状况及其每月被移除的几率。健康遗传值高的动物寿命更长。"/>
+        <text name="el_help_genetics_5" text="品质影响动物自身的价值，品质高的动物售价更高。"/>
+        <text name="el_help_genetics_6" text="牛、羊和鸡还有产量遗传值，影响它们的奶、蛋和羊毛产量。"/>
+
+
+        <!--  DISEASES  -->
+
+
+        <text name="el_ui_immune" text="免疫"/>
+        <text name="el_ui_startTreatment" text="开始治疗"/>
+        <text name="el_ui_resumeTreatment" text="继续治疗"/>
+        <text name="el_ui_stopTreatment" text="停止治疗"/>
+        <text name="el_ui_duration" text="持续时间"/>
+        <text name="el_ui_beingTreated" text="正在治疗"/>
+        <text name="el_ui_notTreated" text="未治疗"/>
+        <text name="el_ui_carrier" text="携带者"/>
+
+        <text name="el_diseases" text="疾病"/>
+        <text name="el_disease" text="疾病"/>
+
+        <text name="el_disease_mastitis" text="乳房炎"/>
+        <text name="el_disease_cvm" text="猪瘟病毒（CVM）"/>
+        <text name="el_disease_footAndMouth" text="口蹄疫"/>
+        <text name="el_disease_ped" text="猪流行性腹泻"/>
+        <text name="el_disease_avianFlu" text="禽流感"/>
+
+
+        <!--  MESSAGES  -->
+
+        <text name="el_messageTitle_pregnancy" text="繁育"/>
+        <text name="el_messageTitle_death" text="移除"/>
+        <text name="el_messageTitle_death_github" text="死亡"/>
+        <text name="el_messageTitle_disease" text="疾病"/>
+        <text name="el_messageTitle_name" text="名称"/>
+        <text name="el_messageTitle_movement" text="移动"/>
+        <text name="el_messageTitle_aiManager" text="牧场管理者"/>
+        <text name="el_messageTitle_insemination" text="辅助繁育"/>
+        <text name="el_messageTitle_insemination_github" text="人工授精"/>
+
+        <text name="el_message_pregnancySingle" text="产下 1 只幼崽"/>
+        <text name="el_message_pregnancyMultiple" text="产下 %s 只幼崽"/>
+        <text name="el_message_pregnancySold" text="由于圈舍过于拥挤，%s 只幼崽以 %s 被出售"/>
+        <text name="el_message_pregnancyDied" text="%s 只幼崽在出生时被移除"/>
+        <text name="el_message_pregnancyDied_github" text="%s 只幼崽出生时死亡"/>
+        <text name="el_message_death" text="因 %s 被移除"/>
+        <text name="el_message_death_github" text="因 %s 死亡"/>
+        <text name="el_message_diseaseContracted" text="感染 %s"/>
+        <text name="el_message_diseaseCured" text="治愈 %s"/>
+        <text name="el_message_diseaseTreatment_start" text="开始治疗 %s 于 %s"/>
+        <text name="el_message_diseaseTreatment_resume" text="继续治疗 %s 于 %s"/>
+        <text name="el_message_diseaseTreatment_stop" text="停止治疗 %s"/>
+        <text name="el_message_nameChange" text="名称从 '%s' 更改为 '%s'"/>
+        <text name="el_message_nameAdded" text="赋予名称 '%s'"/>
+        <text name="el_message_nameDeleted" text="移除名称 '%s'"/>
+        <text name="el_message_boughtAnimals_single" text="购买 1 只动物，花费 %s"/>
+        <text name="el_message_boughtAnimals_multiple" text="购买 %s 只动物，花费 %s"/>
+        <text name="el_message_soldAnimals_single" text="出售 1 只动物，收入 %s"/>
+        <text name="el_message_soldAnimals_multiple" text="出售 %s 只动物，收入 %s"/>
+        <text name="el_message_movedAnimalsTo_single" text="将 1 只动物移动到 %s"/>
+        <text name="el_message_movedAnimalsTo_multiple" text="将 %s 只动物移动到 %s"/>
+        <text name="el_message_movedAnimalsFrom_single" text="从 %s 移动 1 只动物"/>
+        <text name="el_message_movedAnimalsFrom_multiple" text="从 %s 移动 %s 只动物"/>
+        <text name="el_message_aiManager_boughtAnimals_single" text="牧场管理者购买 1 只动物，花费 %s"/>
+        <text name="el_message_aiManager_boughtAnimals_multiple" text="牧场管理者购买 %s 只动物，花费 %s"/>
+        <text name="el_message_aiManager_soldAnimals_single" text="牧场管理者出售 1 只动物，收入 %s"/>
+        <text name="el_message_aiManager_soldAnimals_multiple" text="牧场管理者出售 %s 只动物，收入 %s"/>
+        <text name="el_message_aiManager_castrated_single" text="牧场管理者阉割 1 只动物"/>
+        <text name="el_message_aiManager_castrated_single_github" text="牧场管理者为 1 只动物实施阉割"/>
+        <text name="el_message_aiManager_castrated_multiple" text="牧场管理者阉割 %s 只动物"/>
+        <text name="el_message_aiManager_castrated_multiple_github" text="牧场管理者为 %s 只动物实施阉割"/>
+        <text name="el_message_aiManager_named_single" text="牧场管理者为 1 只动物命名"/>
+        <text name="el_message_aiManager_named_multiple" text="牧场管理者为 %s 只动物命名"/>
+        <text name="el_message_aiManager_mark_sell_single" text="牧场管理者标记 1 只动物出售"/>
+        <text name="el_message_aiManager_mark_sell_multiple" text="牧场管理者标记 %s 只动物出售"/>
+        <text name="el_message_aiManager_mark_castrate_single" text="牧场管理者标记 1 只动物进行阉割"/>
+        <text name="el_message_aiManager_mark_castrate_single_github" text="牧场管理者标记 1 只动物进行阉割"/>
+        <text name="el_message_aiManager_mark_castrate_multiple" text="牧场管理者标记 %s 只动物进行阉割"/>
+        <text name="el_message_aiManager_mark_castrate_multiple_github" text="牧场管理者标记 %s 只动物进行阉割"/>
+        <text name="el_message_aiManager_mark_disease_single" text="牧场管理者标记 1 只动物进行治疗"/>
+        <text name="el_message_aiManager_mark_disease_multiple" text="牧场管理者标记 %s 只动物进行治疗"/>
+        <text name="el_message_insemination_success" text="繁育成功"/>
+        <text name="el_message_insemination_success_github" text="人工授精成功"/>
+        <text name="el_message_insemination_fail" text="繁育失败"/>
+        <text name="el_message_insemination_fail_github" text="人工授精失败"/>
+        <text name="el_message_aiManager_mark_ai_single" text="牧场管理者标记 1 只动物进行繁育"/>
+        <text name="el_message_aiManager_mark_ai_single_github" text="牧场管理者标记 1 只动物进行人工授精"/>
+        <text name="el_message_aiManager_mark_ai_multiple" text="牧场管理者标记 %s 只动物进行繁育"/>
+        <text name="el_message_aiManager_mark_ai_multiple_github" text="牧场管理者标记 %s 只动物进行人工授精"/>
+        <text name="el_message_aiManager_ai_single" text="牧场管理者完成 1 只动物的繁育"/>
+        <text name="el_message_aiManager_ai_single_github" text="牧场管理者完成 1 只动物的人工授精"/>
+        <text name="el_message_aiManager_ai_multiple" text="牧场管理者完成 %s 只动物的繁育"/>
+        <text name="el_message_aiManager_ai_multiple_github" text="牧场管理者完成 %s 只动物的人工授精"/>
+
+
+        <!--  DEATHS  -->
+
+
+        <text name="el_death_pregnancy" text="孕期异常"/>
+        <text name="el_death_health" text="健康低下"/>
+        <text name="el_death_age" text="高龄"/>
+        <text name="el_death_accident" text="意外事故"/>
+
+        <!-- Dependencies -->
+
+        <text name="el_ui_dependencies_missing" text="Enhanced Livestock requires the following dependencies:"/>
+        <text name="el_ui_dependency_missing_notInstalled" text="- %s (Not installed)"/>
+        <text name="el_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum required: %s)"/>
+
+        <!-- EPP BUTCHER INTEGRATION -->
+
+        <text name="el_epp_butcher_processed" text="动物在屠宰场处理：%s 公斤 %s"/>
+        <text name="el_epp_butcher_delivered" text="%s 已送往屠宰场 (%.2fx %s)"/>
+
+        <!-- MIGRATION -->
+
+        <text name="el_conflict_title" text="检测到模组冲突"/>
+        <text name="el_mod_conflict_message" text="以下模组与“增强型动物”存在冲突，无法同时使用：%s &#10;&#10;请禁用冲突模组并重启游戏。"/>
+
+        <text name="el_migration_title" text="数据迁移提示"/>
+        <text name="el_migration_message" text="在此存档中检测到先前的 Realistic Livestock 数据。游戏保存时，您的设置、动物数据、Dewars（液氮罐）工具以及人工授精吸管工具将会自动迁移到增强型动物模组。"/>
+        <text name="el_migration_files_found" text="发现的数据文件："/>
+        <text name="el_migration_continue" text="继续"/>
+        <text name="el_migration_quit" text="退出"/>
+
+    </texts>
 </l10n>

@@ -549,7 +549,7 @@ function AnimalInfoDialog:updateContent(farmId, uniqueId, useChildren)
 			canReproduce = g_i18n:getText("el_ui_tooYoungBracketed")
 		elseif parent.isParent and parent.monthsSinceLastBirth <= 2 then
 			canReproduce = g_i18n:getText("el_ui_recoveringLastBirthBracketed")
-		elseif not EnhancedLivestock.hasMaleAnimalInPen(parent.clusterSystem.owner.spec_husbandryAnimals, subType.name) and not parent.isPregnant then
+		elseif parent.clusterSystem ~= nil and parent.clusterSystem.owner ~= nil and parent.clusterSystem.owner.spec_husbandryAnimals ~= nil and not EnhancedLivestock.hasMaleAnimalInPen(parent.clusterSystem.owner.spec_husbandryAnimals, subType.name) and not parent.isPregnant then
 			canReproduce = g_i18n:getText("el_ui_noMaleAnimalBracketed")
 		elseif healthFactor < subType.reproductionMinHealth then
 			canReproduce = g_i18n:getText("el_ui_unhealthyBracketed")
@@ -580,7 +580,7 @@ function AnimalInfoDialog:updateContent(farmId, uniqueId, useChildren)
 			table.insert(advancedStatsTexts, text)
 		end
 
-		if parent.clusterSystem ~= nil and parent.clusterSystem.owner.spec_husbandryMilk ~= nil and parent.age >= 12 then
+		if parent.clusterSystem ~= nil and parent.clusterSystem.owner ~= nil and parent.clusterSystem.owner.spec_husbandryMilk ~= nil and parent.age >= 12 then
 			text = {
 				title = g_i18n:getText("el_ui_lactating"),
 				text = parent.isLactating and g_i18n:getText("el_ui_yes") or g_i18n:getText("el_ui_no")

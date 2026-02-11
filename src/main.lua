@@ -61,8 +61,10 @@ source(modDirectory .. "src/animals/shop/EnhancedLivestock_AnimalItemStock.lua")
 
 -- SECTION 8: Events (General)
 source(modDirectory .. "src/events/DewarManagerStateEvent.lua")
+source(modDirectory .. "src/events/DewarNitrogenRefillEvent.lua")
 source(modDirectory .. "src/events/HusbandryMessageStateEvent.lua")
 source(modDirectory .. "src/events/ReturnStrawEvent.lua")
+source(modDirectory .. "src/events/SemenSellEvent.lua")
 
 -- SECTION 9: Farms
 source(modDirectory .. "src/farms/FarmManager.lua")

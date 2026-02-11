@@ -444,6 +444,8 @@
 					<Text profile="fs25_animalMoneyValue" position="-90px 100px" id="aiGeneticsValue[4]"/>
 					<Text profile="fs25_animalMoneyTitle" position="0px 70px" id="aiGeneticsTitle[5]" text="$l10n_el_ui_productivity"/>
 					<Text profile="fs25_animalMoneyValue" position="-90px 70px" id="aiGeneticsValue[5]"/>
+					<Text profile="fs25_animalMoneyTitle" position="0px 40px" id="aiGeneticsTitle[6]"/>
+					<Text profile="fs25_animalMoneyValue" position="-90px 40px" id="aiGeneticsValue[6]"/>
 				</GuiElement>
 
 				<GuiElement profile="el_aiGeneticsBox">
@@ -455,6 +457,12 @@
 					<Text profile="fs25_animalAmountSelectorTitle" text="$l10n_el_ui_quantity"/>
 					<Bitmap profile="fs25_animalAmountSelectorSeparator"/>
 					<MultiTextOption profile="fs25_animalAmountSelector" id="aiQuantitySelector" onClick="onClickChangeAIQuantity" width="100%"/>
+				</GuiElement>
+
+				<GuiElement profile="fs25_animalAmountSelectorBox" position="0px 240px" width="450px">
+					<Text profile="fs25_animalAmountSelectorTitle" text="$l10n_el_ui_semenType"/>
+					<Bitmap profile="fs25_animalAmountSelectorSeparator"/>
+					<MultiTextOption profile="fs25_animalAmountSelector" id="aiSemenTypeSelector" onClick="onClickChangeSemenType" width="100%"/>
 				</GuiElement>
 
 				<GuiElement profile="fs25_animalAmountSelectorBox" position="0px 240px" width="450px">
@@ -845,13 +853,16 @@
 		<Button profile="buttonMenuSwitch" text="$l10n_el_ui_castrate" onClick="onClickCastrate" id="buttonCastrate">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="elButtonMenuExtra2" text="$l10n_el_ui_applyMonitor" onClick="onClickMonitor" id="buttonMonitor">
+		<Button profile="elButtonMenuExtra5" text="$l10n_el_ui_sellSemen" onClick="onClickSellSemen" id="buttonSellSemen">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="elButtonMenuExtra2" text="$l10n_el_ui_artificialInsemination" onClick="onClickArtificialInsemination" id="buttonArtificialInsemination">
+		<Button profile="elButtonMenuExtra4" text="$l10n_el_ui_applyMonitor" onClick="onClickMonitor" id="buttonMonitor">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="elButtonMenuExtra2" text="$l10n_el_ui_mark" onClick="onClickMark" id="buttonMark">
+		<Button profile="elButtonMenuExtra5" text="$l10n_el_ui_artificialInsemination" onClick="onClickArtificialInsemination" id="buttonArtificialInsemination">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
+		<Button profile="elButtonMenuExtra3" text="$l10n_el_ui_mark" onClick="onClickMark" id="buttonMark">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonSelect" text="$l10n_el_ui_selectAll" onClick="onClickToggleSelectAll" id="buttonToggleSelectAll">
@@ -933,6 +944,18 @@
 
 		<Profile name="elButtonMenuExtra2" extends="fs25_wideButton" with="touchButton">
 			<inputAction value="MENU_EXTRA_2"/>
+		</Profile>
+
+		<Profile name="elButtonMenuExtra3" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="MENU_EXTRA_3"/>
+		</Profile>
+
+		<Profile name="elButtonMenuExtra4" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="MENU_EXTRA_4"/>
+		</Profile>
+
+		<Profile name="elButtonMenuExtra5" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="MENU_EXTRA_5"/>
 		</Profile>
 
 		<Profile name="el_animalScreenScrollingLayout" extends="emptyPanel" with="anchorStretchingYRight">

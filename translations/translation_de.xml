@@ -1,720 +1,753 @@
 <l10n>
-	<texts>
-		<!-- COWS -->
-
-		<text name="fillType_bull" text="Bullen"/>
-		<text name="fillType_bull_swiss_brown" text="Brown-Swiss Bullen"/>
-		<text name="fillType_bull_holstein" text="Holstein Bullen"/>
-		<text name="fillType_bull_angus" text="Angus Bullen"/>
-		<text name="fillType_bull_limousin" text="Limousin Bullen"/>
-		<text name="fillType_cow_hereford" text="Hereford"/>
-		<text name="fillType_bull_hereford" text="Hereford Bullen"/>
-		<text name="fillType_cow_highland_cattle" text="Hochlandrind"/>
-		<text name="fillType_bull_highland_cattle" text="Hochlandrind Bullen"/>
-		<text name="animal_descriptionBullFeed" text="Bullen mögen Gras, Heu und TMR."/>
-		<text name="animal_descriptionBullYoung" text="Das ist ein männliches Kalb."/>
-		<text name="animal_descriptionBullReproduction" text="Bullen, die gesund und älter als 12 Monate sind, können sich fortpflanzen."/>
-
-		<!-- WATER BUFFALOS -->
-
-		<text name="fillType_bull_waterbuffalo" text="Wasserbüffelbulle"/>
-
-		<!-- PIGS -->
-
-		<text name="fillType_boar" text="Eber"/>
-		<text name="fillType_boar_landrace" text="Deutsches Landschwein Eber"/>
-		<text name="fillType_boar_black_pied" text="Buntes Bentheimer Eber"/>
-		<text name="fillType_boar_berkshire" text="Berkshire Eber"/>
-		<text name="animal_descriptionBoarReproduction" text="Gesunde Eber, die älter als 8 Monate sind, können sich fortpflanzen."/>
-		<text name="animal_descriptionBoarFeed" text="Eber fressen fast alles. Sie können ihnen Mais, Weizen, Gerste, Raps, Sonnenblumen, Sojabohnen, Kartoffeln, Sorghum und Zuckerrüben füttern."/>
-		<text name="animal_descriptionBoarYoung" text="Dies ist ein männliches Ferkel."/>
-
-		<!-- SHEEP -->
-
-		<text name="fillType_ram" text="Schafbock"/>
-		<text name="fillType_ram_landrace" text="Bentheimer Landschafbock"/>
-		<text name="fillType_ram_steinschaf" text="Alpiner Steinschafbock"/>
-		<text name="fillType_ram_black_welsh" text="Walliser Schwarznasenschafbock"/>
-		<text name="fillType_ram_swiss_mountain" text="Schwarz-Brauner Bergschafbock"/>
-		<text name="animal_descriptionRamFeed" text="Schafböcke fressen Gras und Heu."/>
-		<text name="animal_descriptionRamYoung" text="Dies ist ein männliches Lamm."/>
-		<text name="animal_descriptionRamReproduction" text="Gesunde Schafböcke, die älter als 5 Monate sind, können sich fortpflanzen."/>
-
-		<!-- GOATS -->
-
-		<text name="fillType_ram_goat" text="Ziegenbock"/>
-
-		<!-- HORSES -->
-
-		<text name="fillType_stallion" text="Hengst"/>
-		<text name="fillType_stallion_gray" text="Schimmel Hengst"/>
-		<text name="fillType_stallion_pinto" text="Schecke Hengst"/>
-		<text name="fillType_stallion_palomino" text="Isabell Hengst"/>
-		<text name="fillType_stallion_chestnut" text="Fuchs Hengst"/>
-		<text name="fillType_stallion_bay" text="Brauner Hengst"/>
-		<text name="fillType_stallion_black" text="Rappe Hengst"/>
-		<text name="fillType_stallion_seal_brown" text="Schwarzbrauner Hengst"/>
-		<text name="fillType_stallion_dun" text="Falbe Hengst"/>
-		<text name="animal_descriptionStallionFeed" text="Hengste mögen Heu, Hafer und Hirse."/>
-		<text name="animal_descriptionStallionProfit" text="Hengste können mit Gewinn verkauft werden."/>
-		<text name="animal_descriptionStallionReproduction" text="Hengste, die gesund und älter als 36 Monate sind, können sich fortpflanzen."/>
-
-
-		<!-- UI -->
-
-
-		<text name="input_VisualAnimalsDialog" text="Anzahl der visuellen Tiere ändern"/>
-		<text name="el_button_apply" text="Anwenden"/>
-		<text name="el_button_confirm" text="Bestätigen"/>
-		<text name="el_button_recommended" text="Empfohlen"/>
-		<text name="el_button_cancel" text="Abbrechen"/>
-		<text name="el_button_random" text="Zufällig"/>
-		<text name="el_dialog_title" text="Maximale Anzahl visueller Tiere"/>
-
-		<text name="el_ui_dependency_missing" text="Fehlende Abhängigkeit"/>
-		<text name="el_ui_dependency_missing_installed" text="Fehlende Abhängigkeit installiert"/>
-
-		<text name="el_ui_unhealthy" text="Zu ungesund"/>
-		<text name="el_ui_unhealthyBracketed" text="Nein (zu ungesund)"/>
-		<text name="el_ui_noMaleAnimal" text="Kein geeignetes männliches Tier"/>
-		<text name="el_ui_noMaleAnimalBracketed" text="Nein (kein geeignetes männliches Tier)"/>
-		<text name="el_ui_recoveringLastBirth" text="Erholen von der letzten Geburt"/>
-		<text name="el_ui_recoveringLastBirthBracketed" text="Nein (erholt sich von der letzten Geburt)"/>
-		<text name="el_ui_tooYoung" text="Zu jung"/>
-		<text name="el_ui_tooYoungBracketed" text="Nein (zu jung)"/>
-		<text name="el_ui_pregnant" text="Erwartet Nachwuchs"/>
-		<text name="el_ui_pregnant_github" text="Trächtig"/>
-		<text name="el_ui_lactating" text="Produziert Milch"/>
-		<text name="el_ui_lactating_github" text="Laktierend"/>
-		<text name="el_ui_canReproduce" text="Kann reproduzieren"/>
-		<text name="el_ui_impregnatedBy" text="Gepaart mit"/>
-		<text name="el_ui_impregnatedBy_github" text="Geschwängert von"/>
-		<text name="el_ui_unknown" text="Unbekannt"/>
-		<text name="el_ui_yes" text="Ja"/>
-		<text name="el_ui_no" text="Nein"/>
-		<text name="el_ui_mother" text="Mutter"/>
-		<text name="el_ui_father" text="Vater"/>
-		<text name="el_ui_uniqueId" text="Eindeutige ID"/>
-		<text name="el_ui_farmId" text="Bauernhof ID"/>
-		<text name="el_ui_gender" text="Geschlecht"/>
-		<text name="el_ui_male" text="Männlich"/>
-		<text name="el_ui_female" text="Weiblich"/>
-		<text name="el_ui_weight" text="Gewicht"/>
-		<text name="el_ui_targetWeight" text="Zielgewicht"/>
-		<text name="el_ui_value" text="Wert"/>
-		<text name="el_ui_valuePerKilo" text="Wert pro kg"/>
-		<text name="el_ui_genetics" text="Genetik"/>
-		<text name="el_ui_overall" text="Insgesamt"/>
-		<text name="el_ui_rename" text="Name ändern"/>
-		<text name="el_ui_cantFindAnimal" text="Konnte kein Tier finden"/>
-		<text name="el_ui_maleNumImpregnatable" text="Zuchtfähige Tiere im Pferch"/>
-		<text name="el_ui_maleNumImpregnatable_github" text="Befruchtbare Tiere im Pferch"/>
-
-		<text name="el_ui_breederQuality" text="Qualität des Züchters"/>
-		<text name="el_ui_birthday" text="Geburtstag"/>
-		<text name="el_ui_pregnancyExpected" text="Erwartet"/>
-		<text name="el_ui_pregnancyExpecting" text="Erwarten Sie"/>
-		<text name="el_ui_pregnancyBaby" text="Baby"/>
-		<text name="el_ui_pregnancyBabies" text="Babies"/>
-		<text name="el_ui_animalOrigin" text="Herkunft"/>
-		<text name="el_ui_months" text="Monate"/>
-		<text name="el_ui_month" text="Monat"/>
-		<text name="el_ui_years" text="Jahre"/>
-		<text name="el_ui_year" text="Jahr"/>
-
-		<text name="el_ui_milk" text="Milcherzeugung"/>
-		<text name="el_ui_wool" text="Produktion von Wolle"/>
-		<text name="el_ui_eggs" text="Eierproduktion"/>
-		<text name="el_ui_metabolism" text="Stoffwechsel"/>
-		<text name="el_ui_meat" text="Qualität"/>
-		<text name="el_ui_meat_github" text="Fleischqualität"/>
-		<text name="el_ui_quality" text="Qualität"/>
-		<text name="el_ui_quality_github" text="Fleischqualität"/>
-		<text name="el_ui_health" text="Gesundheit"/>
-		<text name="el_ui_fertility" text="Fruchtbarkeit"/>
-
-		<text name="el_ui_genetics_infertile" text="Unfruchtbar"/>
-		<text name="el_ui_genetics_extremelyLow" text="Extrem niedrig"/>
-		<text name="el_ui_genetics_veryLow" text="Sehr niedrig"/>
-		<text name="el_ui_genetics_low" text="Niedrig"/>
-		<text name="el_ui_genetics_average" text="Durchschnitt"/>
-		<text name="el_ui_genetics_high" text="Hoch"/>
-		<text name="el_ui_genetics_veryHigh" text="Sehr hoch"/>
-		<text name="el_ui_genetics_extremelyHigh" text="Extrem hoch"/>
-		<text name="el_ui_genetics_highest" text="Maximum"/>
-
-		<text name="el_ui_genetics_extremelyBad" text="Extrem schlecht"/>
-		<text name="el_ui_genetics_veryBad" text="Sehr schlecht"/>
-		<text name="el_ui_genetics_bad" text="Schlecht"/>
-		<text name="el_ui_genetics_good" text="Gut"/>
-		<text name="el_ui_genetics_veryGood" text="Sehr gut"/>
-		<text name="el_ui_genetics_extremelyGood" text="Extrem gut"/>
-
-		<text name="el_ui_buySelected" text="Auswahl kaufen"/>
-		<text name="el_ui_sellSelected" text="Auswahl verkaufen"/>
-		<text name="el_ui_moveSelected" text="Auswahl verschieben"/>
-		<text name="el_ui_buyConfirmation" text="Bist Du sicher, dass Du %s Tiere für %s kaufen willst?" tag="format"/>
-		<text name="el_ui_sellConfirmation" text="Bist Du sicher, dass Du %s Tiere für %s verkaufen willst?" tag="format"/>
-		<text name="el_ui_moveConfirmation" text="Bist Du sicher, dass Du %s Tiere für %s verschieben willst?" tag="format"/>
-		<text name="el_ui_buyBulkResult" text="%s Tiere für %s gekauft" tag="format"/>
-		<text name="el_ui_sellBulkResult" text="%s Tiere für %s verkauft" tag="format"/>
-		<text name="el_ui_moveBulkResult" text="%s Tiere verschoben" tag="format"/>
-
-		<text name="el_ui_monitor" text="Monitor"/>
-		<text name="el_ui_monitorSubscriptions" text="Monitor-Abonnements"/>
-		<text name="finance_monitorSubscriptions" text="Monitor-Abonnements"/>
-		<text name="el_ui_monitorFee" text="Monitor-Gebühr"/>
-		<text name="el_ui_applyMonitor" text="Monitor anwenden"/>
-		<text name="el_ui_removeMonitor" text="Monitor entfernen"/>
-		<text name="el_ui_input_food" text="Futter"/>
-		<text name="el_ui_input_water" text="Wasser"/>
-		<text name="el_ui_input_straw" text="Stroh"/>
-		<text name="el_ui_output_milk" text="Milch"/>
-		<text name="el_ui_output_manure" text="Mist"/>
-		<text name="el_ui_output_liquidManure" text="Gülle"/>
-		<text name="el_ui_output_pallets_eggs" text="Eier"/>
-		<text name="el_ui_output_pallets_wool" text="Wolle"/>
-		<text name="el_ui_output_pallets_goatMilk" text="Ziegenmilch"/>
-		<text name="el_ui_amountPerDay" text="%.0fL / Tag" tag="format"/>
-		<text name="el_ui_feePerMonth" text="%s / Monat" tag="format"/>
-
-		<text name="el_ui_animalType" text="Typ"/>
-		<text name="el_ui_amountMonitored" text="Überwacht"/>
-		<text name="el_ui_production" text="Produkte"/>
-		<text name="el_ui_applyAllMonitor" text="Alle Monitore anwenden"/>
-		<text name="el_ui_removeAllMonitor" text="Alle Monitore entfernen"/>
-		<text name="el_ui_fee" text="Gebühr"/>
-
-		<text name="el_ui_leftEarTag" text="Linkes Ohr-Etikett"/>
-		<text name="el_ui_rightEarTag" text="Rechte Ohrmarke"/>
-		<text name="el_ui_backgroundColour" text="Hintergrundfarbe"/>
-		<text name="el_ui_backgroundHue" text="Hintergrund Hue"/>
-		<text name="el_ui_backgroundRgb" text="Hintergrund RGB"/>
-		<text name="el_ui_textColour" text="Textfarbe"/>
-		<text name="el_ui_textHue" text="Text Hue"/>
-		<text name="el_ui_textRgb" text="Text RGB"/>
-
-		<text name="el_ui_formatMonths" text="%s Monate"/>
-		<text name="el_ui_formatMonth" text="%s Monat"/>
-		<text name="el_ui_notPregnant" text="Erwartet keinen Nachwuchs"/>
-		<text name="el_ui_notPregnant_github" text="Nicht trächtig"/>
-		<text name="el_ui_any" text="Alle"/>
-		<text name="el_ui_pregnancy" text="Schwangerschaft"/>
-		<text name="el_ui_productivity" text="Produktivität"/>
-		<text name="el_ui_selectAll" text="Alle auswählen"/>
-		<text name="el_ui_selectNone" text="Keine auswählen"/>
-		<text name="el_ui_filters" text="Filter"/>
-		<text name="el_ui_doesntHaveName" text="Ohne Namen"/>
-		<text name="el_ui_doesHaveName" text="Hat Namen"/>
-
-
-
-		<text name="el_ui_castrated" text="Sterilisiert"/>
-		<text name="el_ui_castrated_github" text="Kastriert"/>
-		<text name="el_ui_castrate" text="Sterilisieren"/>
-		<text name="el_ui_castrate_github" text="Kastrieren"/>
-		<text name="el_ui_importance" text="Bedeutung"/>
-		<text name="el_ui_type" text="Typ"/>
-		<text name="el_ui_date" text="Datum"/>
-		<text name="el_ui_message" text="Nachricht"/>
-		<text name="el_ui_messages" text="Nachrichten"/>
-		<text name="el_ui_unknownCauses" text="unbekannte Ursachen"/>
-		<text name="el_ui_messageNumber" text="%s-%s von %s"/>
-		<text name="el_ui_deleteMessage" text="Nachricht Löschen"/>
-		<text name="el_ui_unreadMessages" text="Husbandry '%s' hat ungelesene Nachrichten!"/>
-		<text name="el_ui_herdsman" text="Hirte"/>
-		<text name="el_ui_budget" text="Budget"/>
-		<text name="el_ui_budgetType" text="Budgetart"/>
-		<text name="el_ui_fixed" text="Behoben"/>
-		<text name="el_ui_percentage" text="Prozent"/>
-		<text name="el_ui_maxAnimals" text="Max Tiere"/>
-		<text name="el_ui_infinite" text="Unendlich"/>
-		<text name="el_ui_herdsmanRecentlyBought" text="Kürzlich getätigter Kauf eines Hirten"/>
-		<text name="el_ui_previousWage" text="Vorheriges Gehalt"/>
-		<text name="el_ui_herdsmanWages" text="Hirtenlöhne"/>
-		<text name="finance_herdsmanWages" text="Hirtenlöhne"/>
-		<text name="el_ui_medicine" text="Medizin"/>
-		<text name="finance_medicine" text="Medizin"/>
-		<text name="el_ui_semenPurchase" text="Kauf von Zuchtmaterial"/>
-		<text name="el_ui_semenPurchase_github" text="Spermienkauf"/>
-		<text name="finance_semenPurchase" text="Kauf von Zuchtmaterial"/>
-		<text name="finance_semenPurchase_github" text="Spermienkauf"/>
-		<text name="el_ui_noDiseases" text="Keine Krankheiten"/>
-		<text name="el_ui_onlyDiseases" text="Nur Krankheiten"/>
-		<text name="el_ui_naming" text="Benennung"/>
-		<text name="el_ui_alphabetical" text="Alphabetisch"/>
-		<text name="el_ui_breed" text="Rasse"/>
-		<text name="el_ui_dontMark" text="Nicht markieren"/>
-		<text name="el_ui_mark" text="Markieren"/>
-		<text name="el_ui_unmark" text="Markierung aufheben"/>
-		<text name="el_ui_favourite" text="Favorit"/>
-		<text name="el_ui_unFavourite" text="Nicht favorisiert"/>
-		<text name="el_ui_quantity" text="Menge"/>
-		<text name="el_ui_dewar" text="Dewar"/>
-		<text name="el_ui_semenPurchase_successful" text="Zuchtmaterial erfolgreich gekauft. Sie können es im Laden abholen."/>
-		<text name="el_ui_semenPurchase_successful_github" text="Samen erfolgreich gekauft. Sie können ihn im Laden abholen."/>
-		<text name="el_ui_semenPurchase_unsuccessful" text="Zuchtmaterial konnte nicht gekauft werden."/>
-		<text name="el_ui_semenPurchase_unsuccessful_github" text="Samen konnte nicht gekauft werden."/>
-		<text name="el_ui_earTag" text="Ohrmarke"/>
-		<text name="el_ui_species" text="Arten"/>
-		<text name="el_ui_strawSingle" text="Straw"/>
-		<text name="el_ui_strawMultiple" text="Straws"/>
-		<text name="el_ui_artificialInsemination" text="Unterstützte Zucht"/>
-		<text name="el_ui_artificialInsemination_github" text="Künstliche Befruchtung"/>
-		<text name="el_ui_semenPurchaseNoPermission" text="Sie haben keine Genehmigung, um Tiere zu handeln oder Zuchtmaterial zu kaufen."/>
-		<text name="el_ui_semenPurchaseNoPermission_github" text="Sie haben keine Genehmigung, um Tiere zu handeln oder Sperma zu kaufen."/>
-		<text name="el_ui_semenPurchaseNoMoney" text="Sie haben nicht genug Geld, um dieses Zuchtmaterial zu kaufen."/>
-		<text name="el_ui_semenPurchaseNoMoney_github" text="Sie haben nicht genug Geld, um dieses Sperma zu kaufen."/>
-		<text name="el_ui_takeStraw" text="Straw nehmen"/>
-		<text name="el_ui_inseminateAnimal" text="Züchten %s"/>
-		<text name="el_ui_inseminateAnimal_github" text="Besamen %s"/>
-		<text name="el_ui_inseminate" text="Züchten"/>
-		<text name="el_ui_inseminate_github" text="Besamen"/>
-		<text name="el_ui_strawEmpty" text="Dieser Straw ist leer."/>
-		<text name="el_ui_averageSuccessColon" text="Durchschnittlicher Erfolg: "/>
-		<text name="el_ui_averageSuccess" text="Durchschnittlicher Erfolg"/>
-		<text name="el_ui_success" text="Erfolg"/>
-		<text name="el_ui_save" text="Speichern"/>
-		<text name="el_ui_load" text="Laden"/>
-		<text name="el_ui_saveProfile" text="Profil speichern"/>
-		<text name="el_ui_loadProfile" text="Lastprofil"/>
-
-		<text name="el_ui_healthy" text="Gesund"/>
-		<text name="el_ui_hasDisease" text="Hat Krankheit"/>
-		<text name="el_ui_diseasedAnimals" text="Kranke Tiere"/>
-
-		<text name="el_insemination_male" text="Nur weibliche Tiere können gezüchtet werden."/>
-		<text name="el_insemination_male_github" text="Nur weibliche Tiere können künstlich befruchtet werden."/>
-		<text name="el_insemination_pregnant" text="Dieses Tier erwartet bereits Nachwuchs"/>
-		<text name="el_insemination_pregnant_github" text="Dieses Tier ist bereits trächtig"/>
-		<text name="el_insemination_animalType" text="Das Tier muss derselben Art angehören wie der Vater."/>
-		<text name="el_insemination_inseminated" text="Dieses Tier wurde bereits gezüchtet."/>
-		<text name="el_insemination_inseminated_github" text="Dieses Tier wurde bereits künstlich befruchtet."/>
-		<text name="el_insemination_recovering" text="Dieses Tier erholt sich noch von seiner letzten Schwangerschaft."/>
-		<text name="el_insemination_father" text="Inzucht ist nicht erlaubt."/>
-		<text name="el_insemination_young" text="Dieses Tier ist zu jung für die Zucht."/>
-		<text name="el_insemination_young_github" text="Dieses Tier ist zu jung, um künstlich befruchtet zu werden."/>
-
-		<text name="el_mark_aiManager_sell" text="Hirte zum Verkauf gekennzeichnet"/>
-		<text name="el_mark_aiManager_castrate" text="Hirte zur Sterilisation markiert"/>
-		<text name="el_mark_aiManager_castrate_github" text="Hirte zur Kastration markiert"/>
-		<text name="el_mark_aiManager_disease" text="Hirte zur Behandlung markiert"/>
-		<text name="el_mark_aiManager_ai" text="Hirte für unterstützte Zucht markiert"/>
-		<text name="el_mark_aiManager_ai_github" text="Hirte für künstliche Befruchtung markiert"/>
-		<text name="el_mark_player" text="Vom Spieler markiert"/>
-
-		<!-- AI - BUYING -->
-
-		<text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Der Hirte wird keine Tiere kaufen."/>
-		<text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Der Hirte wird Tiere kaufen."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Das Einkaufsbudget ist ein fester Betrag."/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Das Einkaufsbudget ist ein Prozentsatz des Geldes Ihres Betriebs."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Der Hirte wird bis zu %s pro Tag ausgeben."/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Der Hirte gibt täglich bis zu %s des Geldes Ihrer Farm aus."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Der Hirte wird bis zu %s Tiere pro Tag kaufen."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_breed" text="Der Hirte wird nur %s Tiere kaufen."/>
-		<text name="el_ui_herdsmanTooltip_buy_breed_any" text="Der Hirte wird jede Rasse kaufen."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Der Hirte kauft nur Tiere, die frei von Krankheiten sind."/>
-		<text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Der Hirte wird Tiere unabhängig von Krankheiten kaufen."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_gender_1" text="Der Hirte wird nur weibliche Tiere kaufen."/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_2" text="Der Hirte wird weibliche und männliche Tiere kaufen."/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_3" text="Der Hirte wird nur männliche Tiere kaufen."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_age_equal" text="Der Hirte kauft nur Tiere, die %s alt sind."/>
-		<text name="el_ui_herdsmanTooltip_buy_age_range" text="Der Viehzüchter kauft nur Tiere, die zwischen %s und %s alt sind."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Der Hirte kauft nur Tiere mit einer Qualität von %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_quality_range" text="Der Viehzüchter kauft nur Tiere mit einer Qualität zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Der Hirte kauft nur Tiere mit einer Fruchtbarkeit von %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Der Viehzüchter kauft nur Tiere mit einer Fruchtbarkeit zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_health_equal" text="Der Hirte kauft nur Tiere mit einer Gesundheit von %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_health_range" text="Der Hirte kauft nur Tiere mit einem Gesundheitszustand zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Der Hirte kauft nur Tiere mit einer Produktivität von %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Der Viehzüchter kauft nur Tiere mit einer Produktivität zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Der Hirte kauft nur Tiere mit einem Stoffwechsel von %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Der Viehzüchter kauft nur Tiere mit einem Stoffwechsel zwischen %s und %s."/>
-
-
-		<!-- AI - SELLING -->
-
-
-		<text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Der Hirte wird keine Tiere verkaufen."/>
-		<text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Der Hirte wird Tiere verkaufen."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Der Hirte wird bis zu %s Tiere pro Tag verkaufen."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_mark_1" text="Der Hirte wird die zum Verkauf stehenden Tiere nicht kennzeichnen."/>
-		<text name="el_ui_herdsmanTooltip_sell_mark_2" text="Der Hirte wird die Tiere markieren, die verkauft werden sollen."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Der Hirte wird Tiere unabhängig von Krankheiten verkaufen."/>
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Der Hirte verkauft nur Tiere mit einer Krankheit."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_gender_1" text="Der Hirte verkauft nur weibliche Tiere."/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_2" text="Der Hirte wird weibliche und männliche Tiere verkaufen."/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_3" text="Der Hirte verkauft nur männliche Tiere."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_age_equal" text="Der Hirte verkauft nur Tiere, die %s alt sind."/>
-		<text name="el_ui_herdsmanTooltip_sell_age_range" text="Der Hirte verkauft nur Tiere, die zwischen %s und %s alt sind."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Der Hirte verkauft nur Tiere mit einer Qualität von %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_quality_range" text="Der Hirte verkauft nur Tiere mit einer Qualität zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Der Hirte verkauft nur Tiere mit einer Fruchtbarkeit von %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Der Hirte verkauft nur Tiere mit einer Fruchtbarkeit zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_health_equal" text="Der Hirte verkauft nur Tiere mit einer Gesundheit von %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_health_range" text="Der Hirte verkauft nur Tiere mit einem Gesundheitszustand zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Der Hirte verkauft nur Tiere mit einer Produktivität von %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Der Hirte verkauft nur Tiere mit einer Produktivität zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Der Hirte verkauft nur Tiere mit einem Stoffwechsel von %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Der Hirte verkauft nur Tiere mit einem Stoffwechsel zwischen %s und %s."/>
-
-
-		<!-- AI - CASTRATING -->
-
-
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Der Hirte wird keine Tiere sterilisieren."/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Der Hirte wird keine Tiere kastrieren."/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Der Hirte wird Tiere sterilisieren."/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Der Hirte wird Tiere kastrieren."/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Der Hirte wird die Tiere nicht zur Sterilisation markieren."/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Der Hirte wird die Tiere nicht zur Kastration markieren."/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Der Hirte wird die Tiere zur Sterilisation markieren."/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Der Hirte wird die Tiere zur Kastration markieren."/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Der Hirte wird Tiere unabhängig von Krankheiten sterilisieren."/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Der Hirte wird Tiere unabhängig von Krankheiten kastrieren."/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Der Hirte sterilisiert nur Tiere, die an einer Krankheit leiden."/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Der Hirte kastriert nur Tiere, die an einer Krankheit leiden."/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Der Hirte sterilisiert nur Tiere, die %s alt sind."/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Der Hirte kastriert nur Tiere, die %s alt sind."/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="Der Hirte sterilisiert nur Tiere, die zwischen %s und %s alt sind."/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Der Hirte kastriert nur Tiere, die zwischen %s und %s alt sind."/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Der Hirte sterilisiert nur Tiere mit einer Qualität von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Der Hirte kastriert nur Tiere mit einer Qualität von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Der Hirte sterilisiert nur Tiere mit einer Qualität zwischen %s und %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Der Hirte kastriert nur Tiere mit einer Qualität zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Der Hirte sterilisiert nur Tiere mit einer Fruchtbarkeit von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Der Hirte kastriert nur Tiere mit einer Fruchtbarkeit von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Der Hirte sterilisiert nur Tiere mit einer Fruchtbarkeit zwischen %s und %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Der Hirte kastriert nur Tiere mit einer Fruchtbarkeit zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Der Hirte sterilisiert nur Tiere mit einer Gesundheit von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Der Hirte kastriert nur Tiere mit einer Gesundheit von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="Der Hirte sterilisiert nur Tiere, deren Gesundheitszustand zwischen %s und %s liegt."/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Der Hirte kastriert nur Tiere, deren Gesundheitszustand zwischen %s und %s liegt."/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Der Hirte sterilisiert nur Tiere mit einer Produktivität von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Der Hirte kastriert nur Tiere mit einer Produktivität von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Der Hirte sterilisiert nur Tiere mit einer Produktivität zwischen %s und %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Der Hirte kastriert nur Tiere mit einer Produktivität zwischen %s und %s."/>
-
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Der Hirte sterilisiert nur Tiere mit einem Stoffwechsel von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Der Hirte kastriert nur Tiere mit einem Stoffwechsel von %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Der Hirte sterilisiert nur Tiere mit einem Stoffwechsel zwischen %s und %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Der Hirte kastriert nur Tiere mit einem Stoffwechsel zwischen %s und %s."/>
-
-
-		<!-- AI - NAMING -->
-
-
-		<text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Der Hirte wird die Tiere nicht benennen."/>
-		<text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Der Hirte wird die Tiere benennen."/>
-
-		<text name="el_ui_herdsmanTooltip_naming_convention_1" text="Der Hirte wird die Tiere nach dem Zufallsprinzip benennen."/>
-		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="Der Hirte wird die Tiere alphabetisch benennen."/>
-
-
-		<!-- AI - AI -->
-
-
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Der Hirte wird keine Tiere züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Der Hirte wird keine Tiere künstlich befruchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Der Hirte wird Tiere züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Der Hirte wird Tiere besamen."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Der Hirte wird bis zu %s Tiere pro Tag züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Der Hirte wird bis zu %s Tiere pro Tag besamen."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="Der Hirte wird die zu züchtenden Tiere nicht kennzeichnen."/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Der Hirte wird die zu besamenden Tiere nicht kennzeichnen."/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="Der Hirte wird die zu züchtenden Tiere markieren."/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Der Hirte wird die zu besamenden Tiere markieren."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Der Hirte wird Tiere unabhängig von Krankheiten züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Der Hirte wird Tiere unabhängig von Krankheiten besamen."/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Der Hirte wird nur Tiere mit einer Krankheit züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Der Hirte wird nur Tiere mit einer Krankheit besamen."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_semen" text="Der Hirte wird Zuchtmaterial von %s verwenden."/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="Der Hirte wird Sperma von %s verwenden."/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="Der Hirte wird jedes brauchbare Zuchtmaterial verwenden."/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Der Hirte wird jedes brauchbare Sperma verwenden."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="Der Hirte wird nur Tiere züchten, die %s alt sind."/>
-		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Der Hirte wird nur Tiere besamen, die %s alt sind."/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range" text="Der Hirte wird nur Tiere züchten, die zwischen %s und %s alt sind."/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Der Hirte wird nur Tiere besamen, die zwischen %s und %s alt sind."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Der Hirte wird nur Tiere mit einer Qualität von %s züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Der Hirte wird nur Tiere mit einer Qualität von %s besamen."/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="Der Hirte wird nur Tiere mit einer Qualität zwischen %s und %s züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Der Hirte wird nur Tiere mit einer Qualität zwischen %s und %s besamen."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Der Hirte wird nur Tiere mit einer Fruchtbarkeit von %s züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Der Hirte wird nur Tiere mit einer Fruchtbarkeit von %s besamen."/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Der Hirte wird nur Tiere mit einer Fruchtbarkeit zwischen %s und %s züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Der Hirte wird nur Tiere mit einer Fruchtbarkeit zwischen %s und %s besamen."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="Der Hirte wird nur Tiere mit einer Gesundheit von %s züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Der Hirte wird nur Tiere mit einer Gesundheit von %s besamen."/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range" text="Der Hirte wird nur Tiere mit einem Gesundheitszustand zwischen %s und %s züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Der Hirte wird nur Tiere mit einem Gesundheitszustand zwischen %s und %s besamen."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Der Hirte wird nur Tiere mit einer Produktivität von %s züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Der Hirte wird nur Tiere mit einer Produktivität von %s besamen."/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Der Hirte wird nur Tiere mit einer Produktivität zwischen %s und %s züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Der Hirte wird nur Tiere mit einer Produktivität zwischen %s und %s besamen."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Der Hirte wird nur Tiere mit %s-Stoffwechsel züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Der Hirte wird nur Tiere mit %s-Stoffwechsel besamen."/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Der Hirte wird nur Tiere mit einem Stoffwechsel zwischen %s und %s züchten."/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Der Hirte wird nur Tiere mit einem Stoffwechsel zwischen %s und %s besamen."/>
-
-
-		<!--  SETTINGS  -->
-
-
-		<text name="el_settings" text="Enhanced Livestock"/>
-
-		<text name="el_settings_off" text="Aus"/>
-		<text name="el_settings_on" text="An"/>
-
-		<text name="el_settings_deathEnabled_label" text="Tierentfernung"/>
-		<text name="el_settings_deathEnabled_label_github" text="Tiertod"/>
-		<text name="el_settings_deathEnabled_tooltip_1" text="Tiere werden nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen entfernt."/>
-		<text name="el_settings_deathEnabled_tooltip_1_github" text="Tiere sterben nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen."/>
-		<text name="el_settings_deathEnabled_tooltip_2" text="Tiere werden aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen entfernt."/>
-		<text name="el_settings_deathEnabled_tooltip_2_github" text="Tiere sterben aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen."/>
-
-		<text name="el_settings_accidentsChance_label" text="Unfallwahrscheinlichkeit"/>
-		<text name="el_settings_accidentsChance_tooltip" text="Änderung der Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen entfernt werden"/>
-		<text name="el_settings_accidentsChance_tooltip_github" text="Änderung der Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen sterben"/>
-
-		<text name="el_settings_foodScale_label" text="Futtermenge"/>
-		<text name="el_settings_foodScale_tooltip" text="Die Menge der von Tieren gefressenen Nahrung verändern"/>
-
-		<text name="el_settings_maxDealerAnimals_label" text="Maximale Händler-Tiere"/>
-		<text name="el_settings_maxDealerAnimals_tooltip" text="Ändern Sie die maximale Anzahl der Tiere, die der Tierhändler pro Tierart auf Lager hat"/>
-
-		<text name="el_settings_resetDealer_label" text="Tierhändler zurücksetzen"/>
-		<text name="el_settings_resetDealer_tooltip" text="Entfernen Sie alle Tiere des Händlers und füllen Sie den Bestand mit neuen Tieren auf"/>
-		<text name="el_settings_resetDealer_text" text="Tierhändler zurücksetzen"/>
-
-		<text name="el_settings_tagColour_label" text="Tag-Farbe ändern"/>
-		<text name="el_settings_tagColour_tooltip" text="Ändern Sie die Farbe der Ohrmarken."/>
-		<text name="el_settings_tagColour_text" text="Tag-Farbe ändern"/>
-
-		<text name="el_settings_exportCSV_label" text="Als CSV exportieren"/>
-		<text name="el_settings_exportCSV_tooltip" text="Statistiken in CSV exportieren"/>
-		<text name="el_settings_exportCSV_text" text="Als CSV exportieren"/>
-
-		<text name="el_settings_maxNumMessages_label" text="Maximale Anzahl von Nachrichten"/>
-		<text name="el_settings_maxNumMessages_tooltip" text="Ein höherer Wert führt dazu, dass Ihr Speicherordner mehr Speicherplatz beansprucht. Sobald diese Grenze erreicht ist, werden die ältesten Nachrichten gelöscht."/>
-
-		<text name="el_settings_diseasesEnabled_label" text="Aktivierte Krankheiten"/>
-		<text name="el_settings_diseasesEnabled_tooltip_1" text="Tiere können keine Krankheiten bekommen oder vererben."/>
-		<text name="el_settings_diseasesEnabled_tooltip_2" text="Tiere können Krankheiten bekommen oder vererben."/>
-
-		<text name="el_settings_diseasesChance_label" text="Krankheitsrisiko"/>
-		<text name="el_settings_diseasesChance_tooltip" text="Die Wahrscheinlichkeit ändern, dass Tiere Krankheiten bekommen"/>
-
-		<text name="el_settings_useCustomAnimals_label" text="Benutzerdefinierte Tiere verwenden"/>
-		<text name="el_settings_useCustomAnimals_tooltip_1" text="Verwenden Sie EnhancedLivestock-Tiermodelle (erfordert Neustart)"/>
-		<text name="el_settings_useCustomAnimals_tooltip_2" text="Benutzerdefinierte Tiermodelle verwenden (erfordert Neustart, muss entpackt werden)"/>
-
-		<text name="el_settings_animalsXML_label" text="XML-Pfad für Tiere festlegen"/>
-		<text name="el_settings_animalsXML_tooltip" text="Pfad zu einer benutzerdefinierten XML-Datei für Tiere festlegen"/>
-		<text name="el_settings_animalsXML_text" text="XML-Pfad für Tiere festlegen"/>
-
-		<text name="el_settings_earTagTextEnabled_label" text="Ohrmarken-Text"/>
-		<text name="el_settings_earTagTextEnabled_tooltip" text="Anzeige von Text auf Tier-Ohrmarken ein-/ausschalten"/>
-
-		<!--  HELP  -->
-
-
-		<text name="el_help_monitors_title" text="Monitore"/>
-		<text name="el_help_monitors_1" text="Um die meisten Statistiken eines Tieres zu sehen, müssen Sie ihm ein Überwachungsetikett zuweisen, was Sie über das Tiermenü (wo Sie Tiere kaufen und verkaufen) tun können. Überwachungsmarken werden auch visuell am Tier angezeigt, und zwar am linken Ohr neben der ID-Marke."/>
-		<text name="el_help_monitors_2" text="Durch die Überwachung der Etiketten erhalten Sie wichtige Informationen über Gesundheit, Gewicht, Laktation, Produktion, Stroh-, Futter- und Wasserbedarf."/>
-		<text name="el_help_monitors_3" text="Das Anbringen einer Markierung an einem Tier kostet Sie einen kleinen Monatsbeitrag, der sich nach der Tierart richtet. Wenn Sie sich entscheiden, die Markierung zu entfernen, wird sie zu Beginn des nächsten Monats wieder entfernt."/>
-
-		<text name="el_help_pregnancy_title" text="Nachwuchs aufziehen"/>
-		<text name="el_help_pregnancy_title_github" text="Trächtigkeit"/>
-		<text name="el_help_pregnancy_1" text="Weibliche Tiere benötigen mindestens 1 männliches Tier, um Nachwuchs zu bekommen. Beide Tiere müssen gesund und im richtigen Alter sein und der gleichen Art angehören. Zucht zwischen verschiedenen Rassen (z.B. Holsteinkuh und Angusbulle) ist erlaubt."/>
-		<text name="el_help_pregnancy_1_github" text="Weibliche Tiere benötigen alle mindestens ein männliches Tier, um trächtig werden zu können. Beide Tiere müssen das richtige Alter und die richtige Gesundheit haben und von der gleichen Art sein. Die Zucht zwischen verschiedenen Rassen (z. B. Holsteinkuh und Angusbulle) ist erlaubt."/>
-		<text name="el_help_pregnancy_2" text="Nahe Verwandte werden sich nicht paaren. Wenn ein Männchen und ein Weibchen direkt miteinander verwandt sind, werden sie sich nicht zusammen fortpflanzen."/>
-		<text name="el_help_pregnancy_2_github" text="Inzucht ist nicht erlaubt. Wenn ein Männchen und ein Weibchen direkt miteinander verwandt sind, werden sie sich nicht gemeinsam fortpflanzen."/>
-		<text name="el_help_pregnancy_3" text="Die Wahrscheinlichkeit, dass ein Weibchen Nachwuchs erwartet, hängt von der Fruchtbarkeit beider Elternteile ab. Ein Weibchen mit höherer Fruchtbarkeit hat auch eine deutlich höhere Chance, mehr Nachwuchs auf einmal zu bekommen."/>
-		<text name="el_help_pregnancy_3_github" text="Die Wahrscheinlichkeit, dass ein Weibchen trächtig wird, hängt sowohl von ihrer als auch von der Fruchtbarkeit des Männchens ab. Ein Weibchen mit höherer Fruchtbarkeit hat auch eine deutlich höhere Chance, mehr Nachkommen auf einmal zu produzieren."/>
-		<text name="el_help_pregnancy_4" text="Sobald ein Weibchen Nachwuchs erwartet, beginnt es, die Kleinen auszutragen. Sie können das voraussichtliche Datum und die Anzahl der erwarteten Babys sehen, indem Sie das Tier im Gehege betrachten oder es im Tiermenü auswählen."/>
-		<text name="el_help_pregnancy_4_github" text="Sobald ein Weibchen trächtig wird, beginnt es, seine Nachkommen auszutragen. Sie können das voraussichtliche Datum der Trächtigkeit und die Anzahl der Nachkommen sehen, indem Sie das Tier im Gehege betrachten oder es im Tiermenü anklicken."/>
-		<text name="el_help_pregnancy_5" text="Wenn sie ihren Geburtstermin erreicht, kommen die neuen Babys zur Welt. Es besteht jedoch eine geringe Wahrscheinlichkeit, dass die Babys oder die Mutter bei Komplikationen verloren gehen könnten. Babys, die in einem überfüllten Gehege geboren werden, werden automatisch verkauft."/>
-		<text name="el_help_pregnancy_5_github" text="Wenn sie ihren Geburtstermin erreicht, wird sie ihre Babys zur Welt bringen. Die Neugeborenen haben jedoch eine gewisse Chance, entfernt zu werden, ebenso wie die Mutter, wenn die Schwangerschaft schlecht verläuft. Neugeborene, die in einem überfüllten Stall geboren werden, werden automatisch verkauft."/>
-
-		<text name="el_help_production_title" text="Produktion"/>
-		<text name="el_help_production_1" text="Kühe jeder Rasse fangen erst nach der Geburt an, Milch zu produzieren. Nach der Geburt produziert die Kuh 3 Monate lang exponentiell Milch, dann nimmt die Produktion in den nächsten 6 Monaten langsam ab. 10 Monate nach der Trächtigkeit stellt die Kuh die Milchproduktion bis zu ihrer nächsten Trächtigkeit ein."/>
-		<text name="el_help_production_2" text="Schafe produzieren in warmen Monaten Wolle. In kalten Monaten, unter 12 °C, produzieren sie keine Wolle."/>
-		<text name="el_help_production_3" text="Die Milch-, Woll- und Eierproduktion wird auch durch die Genetik des Tieres beeinflusst. Ein Tier mit einer guten Genetik wird mehr produzieren, während ein Tier mit einer schlechten Genetik nicht viel produzieren wird."/>
-
-		<text name="el_help_weight_title" text="Gewicht"/>
-		<text name="el_help_weight_1" text="Tiere haben ein bestimmtes Gewicht, das davon abhängt, wie viel sie essen und trinken. Jede Art und Rasse hat ihr eigenes Durchschnittsgewicht, das sich auf das Gewicht eines jeden Tieres auswirkt."/>
-		<text name="el_help_weight_2" text="Das Gewicht erhöht den Wert des Tieres, und ein niedriges Gewicht verringert die Wahrscheinlichkeit, dass es jeden Monat abgeholt wird."/>
-
-		<text name="el_help_genetics_title" text="Genetik"/>
-		<text name="el_help_genetics_1" text="Jedes Tier hat 4 verschiedene genetische Werte: Stoffwechsel, Fruchtbarkeit, Gesundheit und Qualität. Die Genetik wird zwischen Mutter und Vater gemischt und dann an die Kinder weitergegeben."/>
-		<text name="el_help_genetics_2" text="Der Stoffwechsel wirkt sich auf die Fähigkeit des Tieres aus, Nahrung in Gewicht umzuwandeln, und beeinflusst die Menge, die es frisst."/>
-		<text name="el_help_genetics_3" text="Die Fruchtbarkeit beeinflusst die Wahrscheinlichkeit, erfolgreich Nachwuchs zu bekommen, und die Anzahl der Nachkommen, die die Eltern haben werden."/>
-		<text name="el_help_genetics_3_github" text="Die Fruchtbarkeit wirkt sich auf die Wahrscheinlichkeit aus, dass ein Tier trächtig wird oder ein Weibchen trächtig macht, und auf die Anzahl der Nachkommen, die es haben wird."/>
-		<text name="el_help_genetics_4" text="Der Gesundheitszustand wirkt sich auf die Gesundheit des Tieres und die Wahrscheinlichkeit aus, dass es jeden Monat entnommen wird. Ein Tier mit einer besseren Gesundheitsgenetik hat auch eine längere Lebensdauer."/>
-		<text name="el_help_genetics_5" text="Die Qualität wirkt sich auf den Wert des Tieres selbst aus, ein Tier mit höherer Qualität wird zu einem viel höheren Preis verkauft."/>
-		<text name="el_help_genetics_6" text="Rinder, Schafe und Hühner haben auch eine genetische Veranlagung, die sich darauf auswirkt, wie viel Milch, Eier oder Wolle sie produzieren."/>
-
-
-
-		<!--  DISEASES  -->
-
-
-		<text name="el_ui_immune" text="Immun"/>
-		<text name="el_ui_startTreatment" text="Behandlung beginnen"/>
-		<text name="el_ui_resumeTreatment" text="Behandlung fortsetzen"/>
-		<text name="el_ui_stopTreatment" text="Behandlung beenden"/>
-		<text name="el_ui_duration" text="Dauer"/>
-		<text name="el_ui_beingTreated" text="Behandelt werden"/>
-		<text name="el_ui_notTreated" text="Nicht behandelt"/>
-		<text name="el_ui_carrier" text="Träger"/>
-
-		<text name="el_diseases" text="Krankheiten"/>
-		<text name="el_disease" text="Krankheit"/>
-
-		<text name="el_disease_mastitis" text="Mastitis"/>
-
-		<text name="el_disease_cvm" text="CVM"/>
-
-		<text name="el_disease_footAndMouth" text="Maul- und Klauenseuche"/>
-
-		<text name="el_disease_ped" text="Porzine Epizootische Diarrhoe"/>
-
-		<text name="el_disease_avianFlu" text="Geflügelpes"/>
-
-
-
-		<!--  MESSAGES  -->
-
-
-		<text name="el_messageTitle_pregnancy" text="Schwangerschaft"/>
-		<text name="el_messageTitle_death" text="Entfernung"/>
-		<text name="el_messageTitle_death_github" text="Tod"/>
-		<text name="el_messageTitle_disease" text="Krankheit"/>
-		<text name="el_messageTitle_name" text="Name"/>
-		<text name="el_messageTitle_movement" text="Bewegung"/>
-		<text name="el_messageTitle_aiManager" text="Hirte"/>
-		<text name="el_messageTitle_insemination" text="Unterstützte Zucht"/>
-		<text name="el_messageTitle_insemination_github" text="Künstliche Befruchtung"/>
-
-		<text name="el_message_pregnancySingle" text="1 Baby zur Welt gebracht"/>
-		<text name="el_message_pregnancyMultiple" text="Geburt von %s Babys"/>
-		<text name="el_message_pregnancySold" text="%s Babys wurden aufgrund von Überbelegung für %s verkauft."/>
-		<text name="el_message_pregnancyDied" text="%s Babys wurden bei der Geburt entfernt."/>
-		<text name="el_message_pregnancyDied_github" text="%s Babys starben bei der Geburt"/>
-		<text name="el_message_death" text="Entfernt aufgrund von %s"/>
-		<text name="el_message_death_github" text="Gestorben aufgrund von %s"/>
-		<text name="el_message_diseaseContracted" text="An %s erkrankt"/>
-		<text name="el_message_diseaseCured" text="Geheilt von %s"/>
-		<text name="el_message_diseaseTreatment_start" text="Behandlung für %s begonnen bei %s"/>
-		<text name="el_message_diseaseTreatment_resume" text="Behandlung für %s bei %s wieder aufgenommen"/>
-		<text name="el_message_diseaseTreatment_stop" text="Behandlung für %s abgebrochen"/>
-		<text name="el_message_nameChange" text="Name von '%s' in '%s' geändert"/>
-		<text name="el_message_nameAdded" text="Name zu '%s' geändert."/>
-		<text name="el_message_nameDeleted" text="Der Name „%s“ wurde entfernt."/>
-		<text name="el_message_boughtAnimals_single" text="1 Tier wurde für %s gekauft."/>
-		<text name="el_message_boughtAnimals_multiple" text="%s Tiere wurden für %s gekauft."/>
-		<text name="el_message_soldAnimals_single" text="1 Tier wurde für %s verkauft."/>
-		<text name="el_message_soldAnimals_multiple" text="%s Tiere wurden für %s verkauft."/>
-		<text name="el_message_movedAnimalsTo_single" text="1 Tier wurde nach %s gebracht."/>
-		<text name="el_message_movedAnimalsTo_multiple" text="%s Tiere wurden nach %s gebracht."/>
-		<text name="el_message_movedAnimalsFrom_single" text="1 Tier wurde von %s umgesiedelt."/>
-		<text name="el_message_movedAnimalsFrom_multiple" text="%s Tiere wurden aus %s umgesiedelt."/>
-		<text name="el_message_aiManager_boughtAnimals_single" text="Hirte hat 1 Tier für %s gekauft"/>
-		<text name="el_message_aiManager_boughtAnimals_multiple" text="Hirte kaufte %s Tiere für %s"/>
-		<text name="el_message_aiManager_soldAnimals_single" text="Hirte verkaufte 1 Tier für %s"/>
-		<text name="el_message_aiManager_soldAnimals_multiple" text="Hirte verkaufte %s Tiere für %s"/>
-		<text name="el_message_aiManager_castrated_single" text="Hirte hat 1 Tier sterilisiert"/>
-		<text name="el_message_aiManager_castrated_single_github" text="Hirte hat 1 Tier kastriert"/>
-		<text name="el_message_aiManager_castrated_multiple" text="Der Hirte hat %s Tiere sterilisiert."/>
-		<text name="el_message_aiManager_castrated_multiple_github" text="Der Hirte hat %s Tiere kastriert."/>
-		<text name="el_message_aiManager_named_single" text="Hirte benannte 1 Tier"/>
-		<text name="el_message_aiManager_named_multiple" text="Hirte hat %s Tiere benannt"/>
-		<text name="el_message_aiManager_mark_sell_single" text="Hirte hat 1 Tier zum Verkauf gekennzeichnet"/>
-		<text name="el_message_aiManager_mark_sell_multiple" text="Der Hirte hat %s Tiere zum Verkauf gekennzeichnet."/>
-		<text name="el_message_aiManager_mark_castrate_single" text="Hirte hat 1 Tier zur Sterilisation markiert"/>
-		<text name="el_message_aiManager_mark_castrate_single_github" text="Hirte hat 1 Tier zur Kastration markiert"/>
-		<text name="el_message_aiManager_mark_castrate_multiple" text="Der Hirte hat %s Tiere zur Sterilisation markiert."/>
-		<text name="el_message_aiManager_mark_castrate_multiple_github" text="Der Hirte hat %s Tiere zur Kastration markiert."/>
-		<text name="el_message_aiManager_mark_disease_single" text="Hirte hat 1 Tier zur Behandlung markiert"/>
-		<text name="el_message_aiManager_mark_disease_multiple" text="Der Hirte hat %s Tiere zur Behandlung markiert."/>
-		<text name="el_message_insemination_success" text="Die Zucht war erfolgreich."/>
-		<text name="el_message_insemination_success_github" text="Die Befruchtung war erfolgreich."/>
-		<text name="el_message_insemination_fail" text="Die Zucht war nicht erfolgreich."/>
-		<text name="el_message_insemination_fail_github" text="Die Befruchtung war nicht erfolgreich."/>
-		<text name="el_message_aiManager_mark_ai_single" text="Hirte hat 1 Tier zur Zucht markiert"/>
-		<text name="el_message_aiManager_mark_ai_single_github" text="Hirte hat 1 Tier zur Besamung markiert"/>
-		<text name="el_message_aiManager_mark_ai_multiple" text="Der Hirte hat %s Tiere zur Zucht markiert."/>
-		<text name="el_message_aiManager_mark_ai_multiple_github" text="Der Hirte hat %s Tiere zur Besamung markiert."/>
-		<text name="el_message_aiManager_ai_single" text="Hirte züchtete 1 Tier"/>
-		<text name="el_message_aiManager_ai_single_github" text="Hirte besamte 1 Tier"/>
-		<text name="el_message_aiManager_ai_multiple" text="Hirte züchtete %s Tiere"/>
-		<text name="el_message_aiManager_ai_multiple_github" text="Hirte besamte %s Tiere"/>
-
-
-		<!--  DEATHS  -->
-
-
-		<text name="el_death_pregnancy" text="eine schlechte Schwangerschaft"/>
-		<text name="el_death_health" text="geringe Gesundheit"/>
-		<text name="el_death_age" text="Alter"/>
-		<text name="el_death_accident" text="ein Unfall"/>
-
-		<!-- EPP BUTCHER INTEGRATION -->
-
-		<text name="el_epp_butcher_processed" text="Tier beim Metzger verarbeitet: %s kg %s"/>
-		<text name="el_epp_butcher_delivered" text="%s zum Metzger geliefert (%.2fx %s)"/>
-
-		<!-- MIGRATION -->
-
-		<text name="el_conflict_title" text="Mod-Konflikt erkannt"/>
-		<text name="el_mod_conflict_message" text="Die folgenden Mod(s) stehen in Konflikt mit 'Enhanced Livestock' und können nicht zusammen verwendet werden: %s &#10;&#10;Bitte deaktivieren Sie die konfliktverursachenden Mod(s) und starten Sie das Spiel neu."/>
-
-		<text name="el_migration_title" text="Hinweis zur Datenmigration"/>
-		<text name="el_migration_message" text="In diesem Spielstand wurden frühere Realistic Livestock-Daten gefunden. Ihre Einstellungen, Tierdaten, Dewars und AI Straw-Handwerkzeuge werden automatisch zu Enhanced Livestock migriert, wenn das Spiel speichert."/>
-		<text name="el_migration_files_found" text="Gefundene Datendateien:"/>
-		<text name="el_migration_continue" text="Fortfahren"/>
-		<text name="el_migration_quit" text="Beenden"/>
-
-	</texts>
+    <texts>
+        <!-- COWS -->
+
+        <text name="fillType_bull" text="Bullen"/>
+        <text name="fillType_bull_swiss_brown" text="Brown-Swiss Bullen"/>
+        <text name="fillType_bull_holstein" text="Holstein Bullen"/>
+        <text name="fillType_bull_angus" text="Angus Bullen"/>
+        <text name="fillType_bull_limousin" text="Limousin Bullen"/>
+        <text name="fillType_cow_hereford" text="Hereford"/>
+        <text name="fillType_bull_hereford" text="Hereford Bullen"/>
+        <text name="fillType_cow_highland_cattle" text="Hochlandrind"/>
+        <text name="fillType_bull_highland_cattle" text="Hochlandrind Bullen"/>
+        <text name="animal_descriptionBullFeed" text="Bullen mögen Gras, Heu und TMR."/>
+        <text name="animal_descriptionBullYoung" text="Das ist ein männliches Kalb."/>
+        <text name="animal_descriptionBullReproduction" text="Bullen, die gesund und älter als 12 Monate sind, können sich fortpflanzen."/>
+
+        <!-- WATER BUFFALOS -->
+
+        <text name="fillType_bull_waterbuffalo" text="Wasserbüffelbulle"/>
+
+        <!-- PIGS -->
+
+        <text name="fillType_boar" text="Eber"/>
+        <text name="fillType_boar_landrace" text="Deutsches Landschwein Eber"/>
+        <text name="fillType_boar_black_pied" text="Buntes Bentheimer Eber"/>
+        <text name="fillType_boar_berkshire" text="Berkshire Eber"/>
+        <text name="animal_descriptionBoarReproduction" text="Gesunde Eber, die älter als 8 Monate sind, können sich fortpflanzen."/>
+        <text name="animal_descriptionBoarFeed" text="Eber fressen fast alles. Sie können ihnen Mais, Weizen, Gerste, Raps, Sonnenblumen, Sojabohnen, Kartoffeln, Sorghum und Zuckerrüben füttern."/>
+        <text name="animal_descriptionBoarYoung" text="Dies ist ein männliches Ferkel."/>
+
+        <!-- SHEEP -->
+
+        <text name="fillType_ram" text="Schafbock"/>
+        <text name="fillType_ram_landrace" text="Bentheimer Landschafbock"/>
+        <text name="fillType_ram_steinschaf" text="Alpiner Steinschafbock"/>
+        <text name="fillType_ram_black_welsh" text="Walliser Schwarznasenschafbock"/>
+        <text name="fillType_ram_swiss_mountain" text="Schwarz-Brauner Bergschafbock"/>
+        <text name="animal_descriptionRamFeed" text="Schafböcke fressen Gras und Heu."/>
+        <text name="animal_descriptionRamYoung" text="Dies ist ein männliches Lamm."/>
+        <text name="animal_descriptionRamReproduction" text="Gesunde Schafböcke, die älter als 5 Monate sind, können sich fortpflanzen."/>
+
+        <!-- GOATS -->
+
+        <text name="fillType_ram_goat" text="Ziegenbock"/>
+
+        <!-- HORSES -->
+
+        <text name="fillType_stallion" text="Hengst"/>
+        <text name="fillType_stallion_gray" text="Schimmel Hengst"/>
+        <text name="fillType_stallion_pinto" text="Schecke Hengst"/>
+        <text name="fillType_stallion_palomino" text="Isabell Hengst"/>
+        <text name="fillType_stallion_chestnut" text="Fuchs Hengst"/>
+        <text name="fillType_stallion_bay" text="Brauner Hengst"/>
+        <text name="fillType_stallion_black" text="Rappe Hengst"/>
+        <text name="fillType_stallion_seal_brown" text="Schwarzbrauner Hengst"/>
+        <text name="fillType_stallion_dun" text="Falbe Hengst"/>
+        <text name="animal_descriptionStallionFeed" text="Hengste mögen Heu, Hafer und Hirse."/>
+        <text name="animal_descriptionStallionProfit" text="Hengste können mit Gewinn verkauft werden."/>
+        <text name="animal_descriptionStallionReproduction" text="Hengste, die gesund und älter als 36 Monate sind, können sich fortpflanzen."/>
+
+
+        <!-- UI -->
+
+        <text name="input_VisualAnimalsDialog" text="Anzahl der visuellen Tiere ändern"/>
+        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
+        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
+        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="el_button_apply" text="Anwenden"/>
+        <text name="el_button_confirm" text="Bestätigen"/>
+        <text name="el_button_recommended" text="Empfohlen"/>
+        <text name="el_button_cancel" text="Abbrechen"/>
+        <text name="el_button_random" text="Zufällig"/>
+        <text name="el_dialog_title" text="Maximale Anzahl visueller Tiere"/>
+
+        <text name="el_ui_dependency_missing" text="Fehlende Abhängigkeit"/>
+        <text name="el_ui_dependency_missing_installed" text="Fehlende Abhängigkeit installiert"/>
+
+        <text name="el_ui_unhealthy" text="Zu ungesund"/>
+        <text name="el_ui_unhealthyBracketed" text="Nein (zu ungesund)"/>
+        <text name="el_ui_noMaleAnimal" text="Kein geeignetes männliches Tier"/>
+        <text name="el_ui_noMaleAnimalBracketed" text="Nein (kein geeignetes männliches Tier)"/>
+        <text name="el_ui_recoveringLastBirth" text="Erholen von der letzten Geburt"/>
+        <text name="el_ui_recoveringLastBirthBracketed" text="Nein (erholt sich von der letzten Geburt)"/>
+        <text name="el_ui_tooYoung" text="Zu jung"/>
+        <text name="el_ui_tooYoungBracketed" text="Nein (zu jung)"/>
+        <text name="el_ui_pregnant" text="Erwartet Nachwuchs"/>
+        <text name="el_ui_pregnant_github" text="Trächtig"/>
+        <text name="el_ui_lactating" text="Produziert Milch"/>
+        <text name="el_ui_lactating_github" text="Laktierend"/>
+        <text name="el_ui_canReproduce" text="Kann reproduzieren"/>
+        <text name="el_ui_impregnatedBy" text="Gepaart mit"/>
+        <text name="el_ui_impregnatedBy_github" text="Geschwängert von"/>
+        <text name="el_ui_unknown" text="Unbekannt"/>
+        <text name="el_ui_yes" text="Ja"/>
+        <text name="el_ui_no" text="Nein"/>
+        <text name="el_ui_mother" text="Mutter"/>
+        <text name="el_ui_father" text="Vater"/>
+        <text name="el_ui_uniqueId" text="Eindeutige ID"/>
+        <text name="el_ui_farmId" text="Bauernhof ID"/>
+        <text name="el_ui_gender" text="Geschlecht"/>
+        <text name="el_ui_male" text="Männlich"/>
+        <text name="el_ui_female" text="Weiblich"/>
+        <text name="el_ui_weight" text="Gewicht"/>
+        <text name="el_ui_targetWeight" text="Zielgewicht"/>
+        <text name="el_ui_value" text="Wert"/>
+        <text name="el_ui_valuePerKilo" text="Wert pro kg"/>
+        <text name="el_ui_genetics" text="Genetik"/>
+        <text name="el_ui_overall" text="Insgesamt"/>
+        <text name="el_ui_rename" text="Name ändern"/>
+        <text name="el_ui_cantFindAnimal" text="Konnte kein Tier finden"/>
+        <text name="el_ui_maleNumImpregnatable" text="Zuchtfähige Tiere im Pferch"/>
+        <text name="el_ui_maleNumImpregnatable_github" text="Befruchtbare Tiere im Pferch"/>
+
+        <text name="el_ui_breederQuality" text="Qualität des Züchters"/>
+        <text name="el_ui_birthday" text="Geburtstag"/>
+        <text name="el_ui_pregnancyExpected" text="Erwartet"/>
+        <text name="el_ui_pregnancyExpecting" text="Erwarten Sie"/>
+        <text name="el_ui_pregnancyBaby" text="Baby"/>
+        <text name="el_ui_pregnancyBabies" text="Babies"/>
+        <text name="el_ui_animalOrigin" text="Herkunft"/>
+        <text name="el_ui_months" text="Monate"/>
+        <text name="el_ui_month" text="Monat"/>
+        <text name="el_ui_years" text="Jahre"/>
+        <text name="el_ui_year" text="Jahr"/>
+
+        <text name="el_ui_milk" text="Milcherzeugung"/>
+        <text name="el_ui_wool" text="Produktion von Wolle"/>
+        <text name="el_ui_eggs" text="Eierproduktion"/>
+        <text name="el_ui_metabolism" text="Stoffwechsel"/>
+        <text name="el_ui_meat" text="Qualität"/>
+        <text name="el_ui_meat_github" text="Fleischqualität"/>
+        <text name="el_ui_quality" text="Qualität"/>
+        <text name="el_ui_quality_github" text="Fleischqualität"/>
+        <text name="el_ui_health" text="Gesundheit"/>
+        <text name="el_ui_fertility" text="Fruchtbarkeit"/>
+
+        <text name="el_ui_genetics_infertile" text="Unfruchtbar"/>
+        <text name="el_ui_genetics_extremelyLow" text="Extrem niedrig"/>
+        <text name="el_ui_genetics_veryLow" text="Sehr niedrig"/>
+        <text name="el_ui_genetics_low" text="Niedrig"/>
+        <text name="el_ui_genetics_average" text="Durchschnitt"/>
+        <text name="el_ui_genetics_high" text="Hoch"/>
+        <text name="el_ui_genetics_veryHigh" text="Sehr hoch"/>
+        <text name="el_ui_genetics_extremelyHigh" text="Extrem hoch"/>
+        <text name="el_ui_genetics_highest" text="Maximum"/>
+        <text name="el_ui_genetics_unknown" text="Unbekannt"/>
+
+        <text name="el_ui_genetics_extremelyBad" text="Extrem schlecht"/>
+        <text name="el_ui_genetics_veryBad" text="Sehr schlecht"/>
+        <text name="el_ui_genetics_bad" text="Schlecht"/>
+        <text name="el_ui_genetics_good" text="Gut"/>
+        <text name="el_ui_genetics_veryGood" text="Sehr gut"/>
+        <text name="el_ui_genetics_extremelyGood" text="Extrem gut"/>
+
+        <text name="el_ui_buySelected" text="Auswahl kaufen"/>
+        <text name="el_ui_sellSelected" text="Auswahl verkaufen"/>
+        <text name="el_ui_moveSelected" text="Auswahl verschieben"/>
+        <text name="el_ui_buyConfirmation" text="Bist Du sicher, dass Du %s Tiere für %s kaufen willst?" tag="format"/>
+        <text name="el_ui_sellConfirmation" text="Bist Du sicher, dass Du %s Tiere für %s verkaufen willst?" tag="format"/>
+        <text name="el_ui_moveConfirmation" text="Bist Du sicher, dass Du %s Tiere für %s verschieben willst?" tag="format"/>
+        <text name="el_ui_buyBulkResult" text="%s Tiere für %s gekauft" tag="format"/>
+        <text name="el_ui_sellBulkResult" text="%s Tiere für %s verkauft" tag="format"/>
+        <text name="el_ui_moveBulkResult" text="%s Tiere verschoben" tag="format"/>
+
+        <text name="el_ui_monitor" text="Monitor"/>
+        <text name="el_ui_monitorSubscriptions" text="Monitor-Abonnements"/>
+        <text name="finance_monitorSubscriptions" text="Monitor-Abonnements"/>
+        <text name="el_ui_monitorFee" text="Monitor-Gebühr"/>
+        <text name="el_ui_applyMonitor" text="Monitor anwenden"/>
+        <text name="el_ui_removeMonitor" text="Monitor entfernen"/>
+        <text name="el_ui_input_food" text="Futter"/>
+        <text name="el_ui_input_water" text="Wasser"/>
+        <text name="el_ui_input_straw" text="Stroh"/>
+        <text name="el_ui_output_milk" text="Milch"/>
+        <text name="el_ui_output_manure" text="Mist"/>
+        <text name="el_ui_output_liquidManure" text="Gülle"/>
+        <text name="el_ui_output_pallets_eggs" text="Eier"/>
+        <text name="el_ui_output_pallets_wool" text="Wolle"/>
+        <text name="el_ui_output_pallets_goatMilk" text="Ziegenmilch"/>
+        <text name="el_ui_amountPerDay" text="%.0fL / Tag" tag="format"/>
+        <text name="el_ui_feePerMonth" text="%s / Monat" tag="format"/>
+
+        <text name="el_ui_animalType" text="Typ"/>
+        <text name="el_ui_amountMonitored" text="Überwacht"/>
+        <text name="el_ui_production" text="Produkte"/>
+        <text name="el_ui_applyAllMonitor" text="Alle Monitore anwenden"/>
+        <text name="el_ui_removeAllMonitor" text="Alle Monitore entfernen"/>
+        <text name="el_ui_fee" text="Gebühr"/>
+
+        <text name="el_ui_leftEarTag" text="Linkes Ohr-Etikett"/>
+        <text name="el_ui_rightEarTag" text="Rechte Ohrmarke"/>
+        <text name="el_ui_backgroundColour" text="Hintergrundfarbe"/>
+        <text name="el_ui_backgroundHue" text="Hintergrund Hue"/>
+        <text name="el_ui_backgroundRgb" text="Hintergrund RGB"/>
+        <text name="el_ui_textColour" text="Textfarbe"/>
+        <text name="el_ui_textHue" text="Text Hue"/>
+        <text name="el_ui_textRgb" text="Text RGB"/>
+
+        <text name="el_ui_formatMonths" text="%s Monate"/>
+        <text name="el_ui_formatMonth" text="%s Monat"/>
+        <text name="el_ui_notPregnant" text="Erwartet keinen Nachwuchs"/>
+        <text name="el_ui_notPregnant_github" text="Nicht trächtig"/>
+        <text name="el_ui_any" text="Alle"/>
+        <text name="el_ui_pregnancy" text="Schwangerschaft"/>
+        <text name="el_ui_productivity" text="Produktivität"/>
+        <text name="el_ui_selectAll" text="Alle auswählen"/>
+        <text name="el_ui_selectNone" text="Keine auswählen"/>
+        <text name="el_ui_filters" text="Filter"/>
+        <text name="el_ui_doesntHaveName" text="Ohne Namen"/>
+        <text name="el_ui_doesHaveName" text="Hat Namen"/>
+
+        <text name="el_ui_castrated" text="Sterilisiert"/>
+        <text name="el_ui_castrated_github" text="Kastriert"/>
+        <text name="el_ui_castrate" text="Sterilisieren"/>
+        <text name="el_ui_castrate_github" text="Kastrieren"/>
+
+        <text name="el_ui_importance" text="Bedeutung"/>
+        <text name="el_ui_type" text="Typ"/>
+        <text name="el_ui_date" text="Datum"/>
+        <text name="el_ui_message" text="Nachricht"/>
+        <text name="el_ui_messages" text="Nachrichten"/>
+        <text name="el_ui_unknownCauses" text="unbekannte Ursachen"/>
+        <text name="el_ui_messageNumber" text="%s-%s von %s"/>
+        <text name="el_ui_deleteMessage" text="Nachricht Löschen"/>
+        <text name="el_ui_unreadMessages" text="Husbandry '%s' hat ungelesene Nachrichten!"/>
+        <text name="el_ui_herdsman" text="Hirte"/>
+        <text name="el_ui_budget" text="Budget"/>
+        <text name="el_ui_budgetType" text="Budgetart"/>
+        <text name="el_ui_fixed" text="Behoben"/>
+        <text name="el_ui_percentage" text="Prozent"/>
+        <text name="el_ui_maxAnimals" text="Max Tiere"/>
+        <text name="el_ui_infinite" text="Unendlich"/>
+        <text name="el_ui_herdsmanRecentlyBought" text="Kürzlich getätigter Kauf eines Hirten"/>
+        <text name="el_ui_previousWage" text="Vorheriges Gehalt"/>
+        <text name="el_ui_herdsmanWages" text="Hirtenlöhne"/>
+        <text name="finance_herdsmanWages" text="Hirtenlöhne"/>
+        <text name="el_ui_medicine" text="Medizin"/>
+        <text name="finance_medicine" text="Medizin"/>
+        <text name="el_ui_semenPurchase" text="Kauf von Zuchtmaterial"/>
+        <text name="el_ui_semenPurchase_github" text="Spermienkauf"/>
+        <text name="finance_semenPurchase" text="Kauf von Zuchtmaterial"/>
+        <text name="finance_semenPurchase_github" text="Spermienkauf"/>
+        <text name="el_ui_noDiseases" text="Keine Krankheiten"/>
+        <text name="el_ui_onlyDiseases" text="Nur Krankheiten"/>
+        <text name="el_ui_naming" text="Benennung"/>
+        <text name="el_ui_alphabetical" text="Alphabetisch"/>
+        <text name="el_ui_breed" text="Rasse"/>
+        <text name="el_ui_dontMark" text="Nicht markieren"/>
+        <text name="el_ui_mark" text="Markieren"/>
+        <text name="el_ui_unmark" text="Markierung aufheben"/>
+        <text name="el_ui_favourite" text="Favorit"/>
+        <text name="el_ui_unFavourite" text="Nicht favorisiert"/>
+        <text name="el_ui_quantity" text="Menge"/>
+        <text name="el_ui_dewar" text="Dewar"/>
+        <text name="el_ui_semenPurchase_successful" text="Zuchtmaterial erfolgreich gekauft. Sie können es im Laden abholen."/>
+        <text name="el_ui_semenPurchase_successful_github" text="Samen erfolgreich gekauft. Sie können ihn im Laden abholen."/>
+        <text name="el_ui_semenPurchase_unsuccessful" text="Zuchtmaterial konnte nicht gekauft werden."/>
+        <text name="el_ui_semenPurchase_unsuccessful_github" text="Samen konnte nicht gekauft werden."/>
+        <text name="el_ui_earTag" text="Ohrmarke"/>
+        <text name="el_ui_species" text="Arten"/>
+        <text name="el_ui_strawSingle" text="Straw"/>
+        <text name="el_ui_strawMultiple" text="Straws"/>
+        <text name="el_ui_artificialInsemination" text="Unterstützte Zucht"/>
+        <text name="el_ui_artificialInsemination_github" text="Künstliche Befruchtung"/>
+        <text name="el_ui_semenPurchaseNoPermission" text="Sie haben keine Genehmigung, um Tiere zu handeln oder Zuchtmaterial zu kaufen."/>
+        <text name="el_ui_semenPurchaseNoPermission_github" text="Sie haben keine Genehmigung, um Tiere zu handeln oder Sperma zu kaufen."/>
+        <text name="el_ui_semenPurchaseNoMoney" text="Sie haben nicht genug Geld, um dieses Zuchtmaterial zu kaufen."/>
+        <text name="el_ui_semenPurchaseNoMoney_github" text="Sie haben nicht genug Geld, um dieses Sperma zu kaufen."/>
+        <text name="el_ui_takeStraw" text="Straw nehmen"/>
+        <text name="el_ui_inseminateAnimal" text="Züchten %s"/>
+        <text name="el_ui_inseminateAnimal_github" text="Besamen %s"/>
+        <text name="el_ui_inseminate" text="Züchten"/>
+        <text name="el_ui_inseminate_github" text="Besamen"/>
+        <text name="el_ui_strawEmpty" text="Dieser Straw ist leer."/>
+        <text name="el_ui_averageSuccessColon" text="Durchschnittlicher Erfolg: "/>
+        <text name="el_ui_averageSuccess" text="Durchschnittlicher Erfolg"/>
+        <text name="el_ui_success" text="Erfolg"/>
+        <text name="el_ui_semen" text="Probe"/>
+        <text name="el_ui_semen_github" text="Sperma"/>
+        <text name="el_ui_actual" text="Tatsächlich"/>
+        <text name="el_ui_save" text="Speichern"/>
+        <text name="el_ui_load" text="Laden"/>
+        <text name="el_ui_saveProfile" text="Profil speichern"/>
+        <text name="el_ui_loadProfile" text="Lastprofil"/>
+
+        <text name="el_ui_healthy" text="Gesund"/>
+        <text name="el_ui_hasDisease" text="Hat Krankheit"/>
+        <text name="el_ui_diseasedAnimals" text="Kranke Tiere"/>
+
+
+        <text name="el_insemination_male" text="Nur weibliche Tiere können gezüchtet werden."/>
+        <text name="el_insemination_male_github" text="Nur weibliche Tiere können künstlich befruchtet werden."/>
+        <text name="el_insemination_pregnant" text="Dieses Tier erwartet bereits Nachwuchs"/>
+        <text name="el_insemination_pregnant_github" text="Dieses Tier ist bereits trächtig"/>
+        <text name="el_insemination_animalType" text="Das Tier muss derselben Art angehören wie der Vater."/>
+        <text name="el_insemination_inseminated" text="Dieses Tier wurde bereits gezüchtet."/>
+        <text name="el_insemination_inseminated_github" text="Dieses Tier wurde bereits künstlich befruchtet."/>
+        <text name="el_insemination_recovering" text="Dieses Tier erholt sich noch von seiner letzten Schwangerschaft."/>
+        <text name="el_insemination_father" text="Inzucht ist nicht erlaubt."/>
+        <text name="el_insemination_young" text="Dieses Tier ist zu jung für die Zucht."/>
+        <text name="el_insemination_young_github" text="Dieses Tier ist zu jung, um künstlich befruchtet zu werden."/>
+
+
+        <text name="el_mark_aiManager_sell" text="Hirte zum Verkauf gekennzeichnet"/>
+        <text name="el_mark_aiManager_castrate" text="Hirte zur Sterilisation markiert"/>
+        <text name="el_mark_aiManager_castrate_github" text="Hirte zur Kastration markiert"/>
+        <text name="el_mark_aiManager_disease" text="Hirte zur Behandlung markiert"/>
+        <text name="el_mark_aiManager_ai" text="Hirte für unterstützte Zucht markiert"/>
+        <text name="el_mark_aiManager_ai_github" text="Hirte für künstliche Befruchtung markiert"/>
+        <text name="el_mark_player" text="Vom Spieler markiert"/>
+
+
+        <!-- AI - BUYING -->
+
+
+        <text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Der Hirte wird keine Tiere kaufen."/>
+        <text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Der Hirte wird Tiere kaufen."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Das Einkaufsbudget ist ein fester Betrag."/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Das Einkaufsbudget ist ein Prozentsatz des Geldes Ihres Betriebs."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Der Hirte wird bis zu %s pro Tag ausgeben."/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Der Hirte gibt täglich bis zu %s des Geldes Ihrer Farm aus."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Der Hirte wird bis zu %s Tiere pro Tag kaufen."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_breed" text="Der Hirte wird nur %s Tiere kaufen."/>
+        <text name="el_ui_herdsmanTooltip_buy_breed_any" text="Der Hirte wird jede Rasse kaufen."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Der Hirte kauft nur Tiere, die frei von Krankheiten sind."/>
+        <text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Der Hirte wird Tiere unabhängig von Krankheiten kaufen."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_gender_1" text="Der Hirte wird nur weibliche Tiere kaufen."/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_2" text="Der Hirte wird weibliche und männliche Tiere kaufen."/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_3" text="Der Hirte wird nur männliche Tiere kaufen."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_age_equal" text="Der Hirte kauft nur Tiere, die %s alt sind."/>
+        <text name="el_ui_herdsmanTooltip_buy_age_range" text="Der Viehzüchter kauft nur Tiere, die zwischen %s und %s alt sind."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Der Hirte kauft nur Tiere mit einer Qualität von %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_quality_range" text="Der Viehzüchter kauft nur Tiere mit einer Qualität zwischen %s und %s."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Der Hirte kauft nur Tiere mit einer Fruchtbarkeit von %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Der Viehzüchter kauft nur Tiere mit einer Fruchtbarkeit zwischen %s und %s."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_health_equal" text="Der Hirte kauft nur Tiere mit einer Gesundheit von %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_health_range" text="Der Hirte kauft nur Tiere mit einem Gesundheitszustand zwischen %s und %s."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Der Hirte kauft nur Tiere mit einer Produktivität von %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Der Viehzüchter kauft nur Tiere mit einer Produktivität zwischen %s und %s."/>
+
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Der Hirte kauft nur Tiere mit einem Stoffwechsel von %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Der Viehzüchter kauft nur Tiere mit einem Stoffwechsel zwischen %s und %s."/>
+
+
+        <!-- AI - SELLING -->
+
+
+        <text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Der Hirte wird keine Tiere verkaufen."/>
+        <text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Der Hirte wird Tiere verkaufen."/>
+        <text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Der Hirte wird bis zu %s Tiere pro Tag verkaufen."/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_1" text="Der Hirte wird die zum Verkauf stehenden Tiere nicht kennzeichnen."/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_2" text="Der Hirte wird die Tiere markieren, die verkauft werden sollen."/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Der Hirte wird Tiere unabhängig von Krankheiten verkaufen."/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Der Hirte verkauft nur Tiere mit einer Krankheit."/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_1" text="Der Hirte verkauft nur weibliche Tiere."/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_2" text="Der Hirte wird weibliche und männliche Tiere verkaufen."/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_3" text="Der Hirte verkauft nur männliche Tiere."/>
+        <text name="el_ui_herdsmanTooltip_sell_age_equal" text="Der Hirte verkauft nur Tiere, die %s alt sind."/>
+        <text name="el_ui_herdsmanTooltip_sell_age_range" text="Der Hirte verkauft nur Tiere, die zwischen %s und %s alt sind."/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Der Hirte verkauft nur Tiere mit einer Qualität von %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_range" text="Der Hirte verkauft nur Tiere mit einer Qualität zwischen %s und %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Der Hirte verkauft nur Tiere mit einer Fruchtbarkeit von %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Der Hirte verkauft nur Tiere mit einer Fruchtbarkeit zwischen %s und %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_health_equal" text="Der Hirte verkauft nur Tiere mit einer Gesundheit von %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_health_range" text="Der Hirte verkauft nur Tiere mit einem Gesundheitszustand zwischen %s und %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Der Hirte verkauft nur Tiere mit einer Produktivität von %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Der Hirte verkauft nur Tiere mit einer Produktivität zwischen %s und %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Der Hirte verkauft nur Tiere mit einem Stoffwechsel von %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Der Hirte verkauft nur Tiere mit einem Stoffwechsel zwischen %s und %s."/>
+
+
+        <!-- AI - NEUTERING -->
+
+
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Der Hirte wird keine Tiere sterilisieren."/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Der Hirte wird keine Tiere kastrieren."/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Der Hirte wird Tiere sterilisieren."/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Der Hirte wird Tiere kastrieren."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Der Hirte wird die Tiere nicht zur Sterilisation markieren."/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Der Hirte wird die Tiere nicht zur Kastration markieren."/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Der Hirte wird die Tiere zur Sterilisation markieren."/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Der Hirte wird die Tiere zur Kastration markieren."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Der Hirte wird Tiere unabhängig von Krankheiten sterilisieren."/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Der Hirte wird Tiere unabhängig von Krankheiten kastrieren."/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Der Hirte sterilisiert nur Tiere, die an einer Krankheit leiden."/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Der Hirte kastriert nur Tiere, die an einer Krankheit leiden."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Der Hirte sterilisiert nur Tiere, die %s alt sind."/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Der Hirte kastriert nur Tiere, die %s alt sind."/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range" text="Der Hirte sterilisiert nur Tiere, die zwischen %s und %s alt sind."/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Der Hirte kastriert nur Tiere, die zwischen %s und %s alt sind."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Der Hirte sterilisiert nur Tiere mit einer Qualität von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Der Hirte kastriert nur Tiere mit einer Qualität von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Der Hirte sterilisiert nur Tiere mit einer Qualität zwischen %s und %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Der Hirte kastriert nur Tiere mit einer Qualität zwischen %s und %s."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Der Hirte sterilisiert nur Tiere mit einer Fruchtbarkeit von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Der Hirte kastriert nur Tiere mit einer Fruchtbarkeit von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Der Hirte sterilisiert nur Tiere mit einer Fruchtbarkeit zwischen %s und %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Der Hirte kastriert nur Tiere mit einer Fruchtbarkeit zwischen %s und %s."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Der Hirte sterilisiert nur Tiere mit einer Gesundheit von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Der Hirte kastriert nur Tiere mit einer Gesundheit von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range" text="Der Hirte sterilisiert nur Tiere, deren Gesundheitszustand zwischen %s und %s liegt."/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Der Hirte kastriert nur Tiere, deren Gesundheitszustand zwischen %s und %s liegt."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Der Hirte sterilisiert nur Tiere mit einer Produktivität von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Der Hirte kastriert nur Tiere mit einer Produktivität von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Der Hirte sterilisiert nur Tiere mit einer Produktivität zwischen %s und %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Der Hirte kastriert nur Tiere mit einer Produktivität zwischen %s und %s."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Der Hirte sterilisiert nur Tiere mit einem Stoffwechsel von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Der Hirte kastriert nur Tiere mit einem Stoffwechsel von %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Der Hirte sterilisiert nur Tiere mit einem Stoffwechsel zwischen %s und %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Der Hirte kastriert nur Tiere mit einem Stoffwechsel zwischen %s und %s."/>
+
+
+        <!-- AI - NAMING -->
+
+
+        <text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Der Hirte wird die Tiere nicht benennen."/>
+        <text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Der Hirte wird die Tiere benennen."/>
+
+        <text name="el_ui_herdsmanTooltip_naming_convention_1" text="Der Hirte wird die Tiere nach dem Zufallsprinzip benennen."/>
+        <text name="el_ui_herdsmanTooltip_naming_convention_2" text="Der Hirte wird die Tiere alphabetisch benennen."/>
+
+
+        <!-- AI - ASSISTED BREEDING -->
+
+
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Der Hirte wird keine Tiere züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Der Hirte wird keine Tiere künstlich befruchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Der Hirte wird Tiere züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Der Hirte wird Tiere besamen."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Der Hirte wird bis zu %s Tiere pro Tag züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Der Hirte wird bis zu %s Tiere pro Tag besamen."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_mark_1" text="Der Hirte wird die zu züchtenden Tiere nicht kennzeichnen."/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Der Hirte wird die zu besamenden Tiere nicht kennzeichnen."/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2" text="Der Hirte wird die zu züchtenden Tiere markieren."/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Der Hirte wird die zu besamenden Tiere markieren."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Der Hirte wird Tiere unabhängig von Krankheiten züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Der Hirte wird Tiere unabhängig von Krankheiten besamen."/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Der Hirte wird nur Tiere mit einer Krankheit züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Der Hirte wird nur Tiere mit einer Krankheit besamen."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_semen" text="Der Hirte wird Zuchtmaterial von %s verwenden."/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_github" text="Der Hirte wird Sperma von %s verwenden."/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any" text="Der Hirte wird jedes brauchbare Zuchtmaterial verwenden."/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Der Hirte wird jedes brauchbare Sperma verwenden."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_age_equal" text="Der Hirte wird nur Tiere züchten, die %s alt sind."/>
+        <text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Der Hirte wird nur Tiere besamen, die %s alt sind."/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range" text="Der Hirte wird nur Tiere züchten, die zwischen %s und %s alt sind."/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Der Hirte wird nur Tiere besamen, die zwischen %s und %s alt sind."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Der Hirte wird nur Tiere mit einer Qualität von %s züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Der Hirte wird nur Tiere mit einer Qualität von %s besamen."/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range" text="Der Hirte wird nur Tiere mit einer Qualität zwischen %s und %s züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Der Hirte wird nur Tiere mit einer Qualität zwischen %s und %s besamen."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Der Hirte wird nur Tiere mit einer Fruchtbarkeit von %s züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Der Hirte wird nur Tiere mit einer Fruchtbarkeit von %s besamen."/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Der Hirte wird nur Tiere mit einer Fruchtbarkeit zwischen %s und %s züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Der Hirte wird nur Tiere mit einer Fruchtbarkeit zwischen %s und %s besamen."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_health_equal" text="Der Hirte wird nur Tiere mit einer Gesundheit von %s züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Der Hirte wird nur Tiere mit einer Gesundheit von %s besamen."/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range" text="Der Hirte wird nur Tiere mit einem Gesundheitszustand zwischen %s und %s züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Der Hirte wird nur Tiere mit einem Gesundheitszustand zwischen %s und %s besamen."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Der Hirte wird nur Tiere mit einer Produktivität von %s züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Der Hirte wird nur Tiere mit einer Produktivität von %s besamen."/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Der Hirte wird nur Tiere mit einer Produktivität zwischen %s und %s züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Der Hirte wird nur Tiere mit einer Produktivität zwischen %s und %s besamen."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Der Hirte wird nur Tiere mit %s-Stoffwechsel züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Der Hirte wird nur Tiere mit %s-Stoffwechsel besamen."/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Der Hirte wird nur Tiere mit einem Stoffwechsel zwischen %s und %s züchten."/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Der Hirte wird nur Tiere mit einem Stoffwechsel zwischen %s und %s besamen."/>
+
+        <!-- AI Rework System: Bull Tier Names -->
+        <text name="el_ui_bullTier_youngGenomic" text="Young (Genomic)"/>
+        <text name="el_ui_bullTier_proven" text="Proven"/>
+        <text name="el_ui_bullTier_elite" text="Elite"/>
+        <text name="el_ui_bullTier_legend" text="Legend"/>
+
+        <!-- AI Rework System: Semen Types -->
+        <text name="el_ui_semenType" text="Sample Type"/>
+        <text name="el_ui_semenType_github" text="Semen Type"/>
+        <text name="el_ui_semenType_conventional" text="Conventional"/>
+        <text name="el_ui_semenType_sexedFemale" text="Sexed (Female)"/>
+        <text name="el_ui_semenType_sexedMale" text="Sexed (Male)"/>
+
+        <!-- AI Rework System: Nitrogen System -->
+        <text name="el_ui_nitrogenLevel" text="Nitrogen Level"/>
+        <text name="el_warning_criticalNitrogen" text="CRITICAL: Nitrogen Empty!"/>
+        <text name="el_warning_dewarSpoiled" text="Dewar %s spoiled due to nitrogen depletion"/>
+        <text name="el_warning_thermalDamage" text="Semen fertility reduced due to thermal exposure"/>
+        <text name="el_action_refillNitrogen" text="Refill Nitrogen ($50)"/>
+        <text name="el_info_nitrogenAlreadyFull" text="Nitrogen level is already full"/>
+        <text name="el_notification_nitrogenRefilled" text="Nitrogen refilled for %s"/>
+
+        <!-- AI Rework System: Stock Management -->
+        <text name="el_ui_strawsAvailable" text="%d straws available"/>
+        <text name="el_ui_limitedStock" text="Limited stock: only %d available"/>
+        <text name="el_error_insufficientSemenStock" text="Not enough semen in stock"/>
+        <text name="el_error_noSexedSemenAvailable" text="No sexed semen available for this bull"/>
+
+        <!-- AI Rework System: Selling Semen -->
+        <text name="el_ui_sellSemen" text="Sell Semen"/>
+        <text name="el_error_onlyMalesCanSellSemen" text="Only male animals can sell semen"/>
+        <text name="el_error_animalTooYoung" text="Animal is too young to sell semen"/>
+        <text name="el_error_semenCollectionCooldown" text="Bull needs to rest before next semen collection"/>
+        <text name="el_notification_semenSold" text="Sold %d straws from %s for %s"/>
+
+        <!--  SETTINGS  -->
+
+
+        <text name="el_settings" text="Enhanced Livestock"/>
+
+        <text name="el_settings_off" text="Aus"/>
+        <text name="el_settings_on" text="An"/>
+
+        <text name="el_settings_deathEnabled_label" text="Tierentfernung"/>
+        <text name="el_settings_deathEnabled_label_github" text="Tiertod"/>
+        <text name="el_settings_deathEnabled_tooltip_1" text="Tiere werden nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen entfernt."/>
+        <text name="el_settings_deathEnabled_tooltip_1_github" text="Tiere sterben nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen."/>
+        <text name="el_settings_deathEnabled_tooltip_2" text="Tiere werden aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen entfernt."/>
+        <text name="el_settings_deathEnabled_tooltip_2_github" text="Tiere sterben aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen."/>
+
+        <text name="el_settings_accidentsChance_label" text="Unfallwahrscheinlichkeit"/>
+        <text name="el_settings_accidentsChance_tooltip" text="Änderung der Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen entfernt werden"/>
+        <text name="el_settings_accidentsChance_tooltip_github" text="Änderung der Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen sterben"/>
+
+        <text name="el_settings_foodScale_label" text="Futtermenge"/>
+        <text name="el_settings_foodScale_tooltip" text="Die Menge der von Tieren gefressenen Nahrung verändern"/>
+
+        <text name="el_settings_maxDealerAnimals_label" text="Maximale Händler-Tiere"/>
+        <text name="el_settings_maxDealerAnimals_tooltip" text="Ändern Sie die maximale Anzahl der Tiere, die der Tierhändler pro Tierart auf Lager hat"/>
+
+        <text name="el_settings_resetDealer_label" text="Tierhändler zurücksetzen"/>
+        <text name="el_settings_resetDealer_tooltip" text="Entfernen Sie alle Tiere des Händlers und füllen Sie den Bestand mit neuen Tieren auf"/>
+        <text name="el_settings_resetDealer_text" text="Tierhändler zurücksetzen"/>
+
+        <text name="el_settings_tagColour_label" text="Tag-Farbe ändern"/>
+        <text name="el_settings_tagColour_tooltip" text="Ändern Sie die Farbe der Ohrmarken."/>
+        <text name="el_settings_tagColour_text" text="Tag-Farbe ändern"/>
+
+        <text name="el_settings_exportCSV_label" text="Als CSV exportieren"/>
+        <text name="el_settings_exportCSV_tooltip" text="Statistiken in CSV exportieren"/>
+        <text name="el_settings_exportCSV_text" text="Als CSV exportieren"/>
+
+        <text name="el_settings_maxNumMessages_label" text="Maximale Anzahl von Nachrichten"/>
+        <text name="el_settings_maxNumMessages_tooltip" text="Ein höherer Wert führt dazu, dass Ihr Speicherordner mehr Speicherplatz beansprucht. Sobald diese Grenze erreicht ist, werden die ältesten Nachrichten gelöscht."/>
+
+        <text name="el_settings_diseasesEnabled_label" text="Aktivierte Krankheiten"/>
+        <text name="el_settings_diseasesEnabled_tooltip_1" text="Tiere können keine Krankheiten bekommen oder vererben."/>
+        <text name="el_settings_diseasesEnabled_tooltip_2" text="Tiere können Krankheiten bekommen oder vererben."/>
+
+        <text name="el_settings_diseasesChance_label" text="Krankheitsrisiko"/>
+        <text name="el_settings_diseasesChance_tooltip" text="Die Wahrscheinlichkeit ändern, dass Tiere Krankheiten bekommen"/>
+
+        <text name="el_settings_useCustomAnimals_label" text="Benutzerdefinierte Tiere verwenden"/>
+        <text name="el_settings_useCustomAnimals_tooltip_1" text="Verwenden Sie EnhancedLivestock-Tiermodelle (erfordert Neustart)"/>
+        <text name="el_settings_useCustomAnimals_tooltip_2" text="Benutzerdefinierte Tiermodelle verwenden (erfordert Neustart, muss entpackt werden)"/>
+
+        <text name="el_settings_animalsXML_label" text="XML-Pfad für Tiere festlegen"/>
+        <text name="el_settings_animalsXML_tooltip" text="Pfad zu einer benutzerdefinierten XML-Datei für Tiere festlegen"/>
+        <text name="el_settings_animalsXML_text" text="XML-Pfad für Tiere festlegen"/>
+
+        <text name="el_settings_earTagTextEnabled_label" text="Ohrmarken-Text"/>
+        <text name="el_settings_earTagTextEnabled_tooltip" text="Anzeige von Text auf Tier-Ohrmarken ein-/ausschalten"/>
+
+
+        <!--  HELP  -->
+
+
+        <text name="el_help_monitors_title" text="Monitore"/>
+        <text name="el_help_monitors_1" text="Um die meisten Statistiken eines Tieres zu sehen, müssen Sie ihm ein Überwachungsetikett zuweisen, was Sie über das Tiermenü (wo Sie Tiere kaufen und verkaufen) tun können. Überwachungsmarken werden auch visuell am Tier angezeigt, und zwar am linken Ohr neben der ID-Marke."/>
+        <text name="el_help_monitors_2" text="Durch die Überwachung der Etiketten erhalten Sie wichtige Informationen über Gesundheit, Gewicht, Laktation, Produktion, Stroh-, Futter- und Wasserbedarf."/>
+        <text name="el_help_monitors_3" text="Das Anbringen einer Markierung an einem Tier kostet Sie einen kleinen Monatsbeitrag, der sich nach der Tierart richtet. Wenn Sie sich entscheiden, die Markierung zu entfernen, wird sie zu Beginn des nächsten Monats wieder entfernt."/>
+
+        <text name="el_help_pregnancy_title" text="Nachwuchs aufziehen"/>
+        <text name="el_help_pregnancy_title_github" text="Trächtigkeit"/>
+        <text name="el_help_pregnancy_1" text="Weibliche Tiere benötigen mindestens 1 männliches Tier, um Nachwuchs zu bekommen. Beide Tiere müssen gesund und im richtigen Alter sein und der gleichen Art angehören. Zucht zwischen verschiedenen Rassen (z.B. Holsteinkuh und Angusbulle) ist erlaubt."/>
+        <text name="el_help_pregnancy_1_github" text="Weibliche Tiere benötigen alle mindestens ein männliches Tier, um trächtig werden zu können. Beide Tiere müssen das richtige Alter und die richtige Gesundheit haben und von der gleichen Art sein. Die Zucht zwischen verschiedenen Rassen (z. B. Holsteinkuh und Angusbulle) ist erlaubt."/>
+        <text name="el_help_pregnancy_2" text="Nahe Verwandte werden sich nicht paaren. Wenn ein Männchen und ein Weibchen direkt miteinander verwandt sind, werden sie sich nicht zusammen fortpflanzen."/>
+        <text name="el_help_pregnancy_2_github" text="Inzucht ist nicht erlaubt. Wenn ein Männchen und ein Weibchen direkt miteinander verwandt sind, werden sie sich nicht gemeinsam fortpflanzen."/>
+        <text name="el_help_pregnancy_3" text="Die Wahrscheinlichkeit, dass ein Weibchen Nachwuchs erwartet, hängt von der Fruchtbarkeit beider Elternteile ab. Ein Weibchen mit höherer Fruchtbarkeit hat auch eine deutlich höhere Chance, mehr Nachwuchs auf einmal zu bekommen."/>
+        <text name="el_help_pregnancy_3_github" text="Die Wahrscheinlichkeit, dass ein Weibchen trächtig wird, hängt sowohl von ihrer als auch von der Fruchtbarkeit des Männchens ab. Ein Weibchen mit höherer Fruchtbarkeit hat auch eine deutlich höhere Chance, mehr Nachkommen auf einmal zu produzieren."/>
+        <text name="el_help_pregnancy_4" text="Sobald ein Weibchen Nachwuchs erwartet, beginnt es, die Kleinen auszutragen. Sie können das voraussichtliche Datum und die Anzahl der erwarteten Babys sehen, indem Sie das Tier im Gehege betrachten oder es im Tiermenü auswählen."/>
+        <text name="el_help_pregnancy_4_github" text="Sobald ein Weibchen trächtig wird, beginnt es, seine Nachkommen auszutragen. Sie können das voraussichtliche Datum der Trächtigkeit und die Anzahl der Nachkommen sehen, indem Sie das Tier im Gehege betrachten oder es im Tiermenü anklicken."/>
+        <text name="el_help_pregnancy_5" text="Wenn sie ihren Geburtstermin erreicht, kommen die neuen Babys zur Welt. Es besteht jedoch eine geringe Wahrscheinlichkeit, dass die Babys oder die Mutter bei Komplikationen verloren gehen könnten. Babys, die in einem überfüllten Gehege geboren werden, werden automatisch verkauft."/>
+        <text name="el_help_pregnancy_5_github" text="Wenn sie ihren Geburtstermin erreicht, wird sie ihre Babys zur Welt bringen. Die Neugeborenen haben jedoch eine gewisse Chance, entfernt zu werden, ebenso wie die Mutter, wenn die Schwangerschaft schlecht verläuft. Neugeborene, die in einem überfüllten Stall geboren werden, werden automatisch verkauft."/>
+
+        <text name="el_help_production_title" text="Produktion"/>
+        <text name="el_help_production_1" text="Kühe jeder Rasse fangen erst nach der Geburt an, Milch zu produzieren. Nach der Geburt produziert die Kuh 3 Monate lang exponentiell Milch, dann nimmt die Produktion in den nächsten 6 Monaten langsam ab. 10 Monate nach der Trächtigkeit stellt die Kuh die Milchproduktion bis zu ihrer nächsten Trächtigkeit ein."/>
+        <text name="el_help_production_2" text="Schafe produzieren in warmen Monaten Wolle. In kalten Monaten, unter 12 °C, produzieren sie keine Wolle."/>
+        <text name="el_help_production_3" text="Die Milch-, Woll- und Eierproduktion wird auch durch die Genetik des Tieres beeinflusst. Ein Tier mit einer guten Genetik wird mehr produzieren, während ein Tier mit einer schlechten Genetik nicht viel produzieren wird."/>
+
+        <text name="el_help_weight_title" text="Gewicht"/>
+        <text name="el_help_weight_1" text="Tiere haben ein bestimmtes Gewicht, das davon abhängt, wie viel sie essen und trinken. Jede Art und Rasse hat ihr eigenes Durchschnittsgewicht, das sich auf das Gewicht eines jeden Tieres auswirkt."/>
+        <text name="el_help_weight_2" text="Das Gewicht erhöht den Wert des Tieres, und ein niedriges Gewicht verringert die Wahrscheinlichkeit, dass es jeden Monat abgeholt wird."/>
+
+        <text name="el_help_genetics_title" text="Genetik"/>
+        <text name="el_help_genetics_1" text="Jedes Tier hat 4 verschiedene genetische Werte: Stoffwechsel, Fruchtbarkeit, Gesundheit und Qualität. Die Genetik wird zwischen Mutter und Vater gemischt und dann an die Kinder weitergegeben."/>
+        <text name="el_help_genetics_2" text="Der Stoffwechsel wirkt sich auf die Fähigkeit des Tieres aus, Nahrung in Gewicht umzuwandeln, und beeinflusst die Menge, die es frisst."/>
+        <text name="el_help_genetics_3" text="Die Fruchtbarkeit beeinflusst die Wahrscheinlichkeit, erfolgreich Nachwuchs zu bekommen, und die Anzahl der Nachkommen, die die Eltern haben werden."/>
+        <text name="el_help_genetics_3_github" text="Die Fruchtbarkeit wirkt sich auf die Wahrscheinlichkeit aus, dass ein Tier trächtig wird oder ein Weibchen trächtig macht, und auf die Anzahl der Nachkommen, die es haben wird."/>
+        <text name="el_help_genetics_4" text="Der Gesundheitszustand wirkt sich auf die Gesundheit des Tieres und die Wahrscheinlichkeit aus, dass es jeden Monat entnommen wird. Ein Tier mit einer besseren Gesundheitsgenetik hat auch eine längere Lebensdauer."/>
+        <text name="el_help_genetics_5" text="Die Qualität wirkt sich auf den Wert des Tieres selbst aus, ein Tier mit höherer Qualität wird zu einem viel höheren Preis verkauft."/>
+        <text name="el_help_genetics_6" text="Rinder, Schafe und Hühner haben auch eine genetische Veranlagung, die sich darauf auswirkt, wie viel Milch, Eier oder Wolle sie produzieren."/>
+
+
+        <!--  DISEASES  -->
+
+
+        <text name="el_ui_immune" text="Immun"/>
+        <text name="el_ui_startTreatment" text="Behandlung beginnen"/>
+        <text name="el_ui_resumeTreatment" text="Behandlung fortsetzen"/>
+        <text name="el_ui_stopTreatment" text="Behandlung beenden"/>
+        <text name="el_ui_duration" text="Dauer"/>
+        <text name="el_ui_beingTreated" text="Behandelt werden"/>
+        <text name="el_ui_notTreated" text="Nicht behandelt"/>
+        <text name="el_ui_carrier" text="Träger"/>
+
+        <text name="el_diseases" text="Krankheiten"/>
+        <text name="el_disease" text="Krankheit"/>
+
+        <text name="el_disease_mastitis" text="Mastitis"/>
+        <text name="el_disease_cvm" text="CVM"/>
+        <text name="el_disease_footAndMouth" text="Maul- und Klauenseuche"/>
+        <text name="el_disease_ped" text="Porzine Epizootische Diarrhoe"/>
+        <text name="el_disease_avianFlu" text="Geflügelpes"/>
+
+
+        <!--  MESSAGES  -->
+
+        <text name="el_messageTitle_pregnancy" text="Schwangerschaft"/>
+        <text name="el_messageTitle_death" text="Entfernung"/>
+        <text name="el_messageTitle_death_github" text="Tod"/>
+        <text name="el_messageTitle_disease" text="Krankheit"/>
+        <text name="el_messageTitle_name" text="Name"/>
+        <text name="el_messageTitle_movement" text="Bewegung"/>
+        <text name="el_messageTitle_aiManager" text="Hirte"/>
+        <text name="el_messageTitle_insemination" text="Unterstützte Zucht"/>
+        <text name="el_messageTitle_insemination_github" text="Künstliche Befruchtung"/>
+
+        <text name="el_message_pregnancySingle" text="1 Baby zur Welt gebracht"/>
+        <text name="el_message_pregnancyMultiple" text="Geburt von %s Babys"/>
+        <text name="el_message_pregnancySold" text="%s Babys wurden aufgrund von Überbelegung für %s verkauft."/>
+        <text name="el_message_pregnancyDied" text="%s Babys wurden bei der Geburt entfernt."/>
+        <text name="el_message_pregnancyDied_github" text="%s Babys starben bei der Geburt"/>
+        <text name="el_message_death" text="Entfernt aufgrund von %s"/>
+        <text name="el_message_death_github" text="Gestorben aufgrund von %s"/>
+        <text name="el_message_diseaseContracted" text="An %s erkrankt"/>
+        <text name="el_message_diseaseCured" text="Geheilt von %s"/>
+        <text name="el_message_diseaseTreatment_start" text="Behandlung für %s begonnen bei %s"/>
+        <text name="el_message_diseaseTreatment_resume" text="Behandlung für %s bei %s wieder aufgenommen"/>
+        <text name="el_message_diseaseTreatment_stop" text="Behandlung für %s abgebrochen"/>
+        <text name="el_message_nameChange" text="Name von '%s' in '%s' geändert"/>
+        <text name="el_message_nameAdded" text="Name zu '%s' geändert."/>
+        <text name="el_message_nameDeleted" text="Der Name „%s“ wurde entfernt."/>
+        <text name="el_message_boughtAnimals_single" text="1 Tier wurde für %s gekauft."/>
+        <text name="el_message_boughtAnimals_multiple" text="%s Tiere wurden für %s gekauft."/>
+        <text name="el_message_soldAnimals_single" text="1 Tier wurde für %s verkauft."/>
+        <text name="el_message_soldAnimals_multiple" text="%s Tiere wurden für %s verkauft."/>
+        <text name="el_message_movedAnimalsTo_single" text="1 Tier wurde nach %s gebracht."/>
+        <text name="el_message_movedAnimalsTo_multiple" text="%s Tiere wurden nach %s gebracht."/>
+        <text name="el_message_movedAnimalsFrom_single" text="1 Tier wurde von %s umgesiedelt."/>
+        <text name="el_message_movedAnimalsFrom_multiple" text="%s Tiere wurden aus %s umgesiedelt."/>
+        <text name="el_message_aiManager_boughtAnimals_single" text="Hirte hat 1 Tier für %s gekauft"/>
+        <text name="el_message_aiManager_boughtAnimals_multiple" text="Hirte kaufte %s Tiere für %s"/>
+        <text name="el_message_aiManager_soldAnimals_single" text="Hirte verkaufte 1 Tier für %s"/>
+        <text name="el_message_aiManager_soldAnimals_multiple" text="Hirte verkaufte %s Tiere für %s"/>
+        <text name="el_message_aiManager_castrated_single" text="Hirte hat 1 Tier sterilisiert"/>
+        <text name="el_message_aiManager_castrated_single_github" text="Hirte hat 1 Tier kastriert"/>
+        <text name="el_message_aiManager_castrated_multiple" text="Der Hirte hat %s Tiere sterilisiert."/>
+        <text name="el_message_aiManager_castrated_multiple_github" text="Der Hirte hat %s Tiere kastriert."/>
+        <text name="el_message_aiManager_named_single" text="Hirte benannte 1 Tier"/>
+        <text name="el_message_aiManager_named_multiple" text="Hirte hat %s Tiere benannt"/>
+        <text name="el_message_aiManager_mark_sell_single" text="Hirte hat 1 Tier zum Verkauf gekennzeichnet"/>
+        <text name="el_message_aiManager_mark_sell_multiple" text="Der Hirte hat %s Tiere zum Verkauf gekennzeichnet."/>
+        <text name="el_message_aiManager_mark_castrate_single" text="Hirte hat 1 Tier zur Sterilisation markiert"/>
+        <text name="el_message_aiManager_mark_castrate_single_github" text="Hirte hat 1 Tier zur Kastration markiert"/>
+        <text name="el_message_aiManager_mark_castrate_multiple" text="Der Hirte hat %s Tiere zur Sterilisation markiert."/>
+        <text name="el_message_aiManager_mark_castrate_multiple_github" text="Der Hirte hat %s Tiere zur Kastration markiert."/>
+        <text name="el_message_aiManager_mark_disease_single" text="Hirte hat 1 Tier zur Behandlung markiert"/>
+        <text name="el_message_aiManager_mark_disease_multiple" text="Der Hirte hat %s Tiere zur Behandlung markiert."/>
+        <text name="el_message_insemination_success" text="Die Zucht war erfolgreich."/>
+        <text name="el_message_insemination_success_github" text="Die Befruchtung war erfolgreich."/>
+        <text name="el_message_insemination_fail" text="Die Zucht war nicht erfolgreich."/>
+        <text name="el_message_insemination_fail_github" text="Die Befruchtung war nicht erfolgreich."/>
+        <text name="el_message_aiManager_mark_ai_single" text="Hirte hat 1 Tier zur Zucht markiert"/>
+        <text name="el_message_aiManager_mark_ai_single_github" text="Hirte hat 1 Tier zur Besamung markiert"/>
+        <text name="el_message_aiManager_mark_ai_multiple" text="Der Hirte hat %s Tiere zur Zucht markiert."/>
+        <text name="el_message_aiManager_mark_ai_multiple_github" text="Der Hirte hat %s Tiere zur Besamung markiert."/>
+        <text name="el_message_aiManager_ai_single" text="Hirte züchtete 1 Tier"/>
+        <text name="el_message_aiManager_ai_single_github" text="Hirte besamte 1 Tier"/>
+        <text name="el_message_aiManager_ai_multiple" text="Hirte züchtete %s Tiere"/>
+        <text name="el_message_aiManager_ai_multiple_github" text="Hirte besamte %s Tiere"/>
+
+
+        <!--  DEATHS  -->
+
+
+        <text name="el_death_pregnancy" text="eine schlechte Schwangerschaft"/>
+        <text name="el_death_health" text="geringe Gesundheit"/>
+        <text name="el_death_age" text="Alter"/>
+        <text name="el_death_accident" text="ein Unfall"/>
+
+        <!-- Dependencies -->
+
+        <text name="el_ui_dependencies_missing" text="Enhanced Livestock erfordert folgende Abhängigkeiten:"/>
+        <text name="el_ui_dependency_missing_notInstalled" text="- %s (Nicht installiert)"/>
+        <text name="el_ui_dependency_missing_installed" text="- %s (Installiert: %s, Min. benötigt: %s)"/>
+
+        <!-- EPP BUTCHER INTEGRATION -->
+
+        <text name="el_epp_butcher_processed" text="Tier beim Metzger verarbeitet: %s kg %s"/>
+        <text name="el_epp_butcher_delivered" text="%s zum Metzger geliefert (%.2fx %s)"/>
+
+        <!-- MIGRATION -->
+
+        <text name="el_conflict_title" text="Mod-Konflikt erkannt"/>
+        <text name="el_mod_conflict_message" text="Die folgenden Mod(s) stehen in Konflikt mit 'Enhanced Livestock' und können nicht zusammen verwendet werden: %s &#10;&#10;Bitte deaktivieren Sie die konfliktverursachenden Mod(s) und starten Sie das Spiel neu."/>
+
+        <text name="el_migration_title" text="Hinweis zur Datenmigration"/>
+        <text name="el_migration_message" text="In diesem Spielstand wurden frühere Realistic Livestock-Daten gefunden. Ihre Einstellungen, Tierdaten, Dewars und AI Straw-Handwerkzeuge werden automatisch zu Enhanced Livestock migriert, wenn das Spiel speichert."/>
+        <text name="el_migration_files_found" text="Gefundene Datendateien:"/>
+        <text name="el_migration_continue" text="Fortfahren"/>
+        <text name="el_migration_quit" text="Beenden"/>
+
+    </texts>
 </l10n>
