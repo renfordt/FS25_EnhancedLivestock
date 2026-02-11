@@ -59,7 +59,7 @@ function AnimalAIDialog:onClickOk()
 		if dewar:getUniqueId() == uniqueId then
 
 			dewar:changeStraws(-1)
-			self.animal:setInsemination(dewar.animal)
+			self.animal:setInsemination(dewar.animal, dewar.semenType)
 			break
 
 		end
@@ -80,6 +80,16 @@ function AnimalAIDialog:updateDewars()
 
 	local farmDewars = g_dewarManager:getDewarsByFarm(self.farmId)
 	self.dewars = farmDewars and table.clone(farmDewars[self.animalTypeIndex], 5) or {}
+
+	-- Pre-calculate actual probability for each dewar based on mother's fertility
+	local motherFertility = self.animal.genetics.fertility or 1.0
+	local fertilityCheckRate = 1 - (2 - motherFertility) * 0.25
+
+	for _, dewar in pairs(self.dewars) do
+		if dewar.animal ~= nil then
+			dewar.actualProbability = fertilityCheckRate * dewar.animal.success
+		end
+	end
 
 	self:resetButtonStates()
 	self.dewarList:reloadData()
@@ -137,13 +147,21 @@ function AnimalAIDialog:populateCellForItemInSection(list, section, index, cell)
 	cell:getAttribute("straws"):setText(dewar.straws)
 	cell:getAttribute("success"):setText(string.format("%s%%", tostring(math.round(animal.success * 100))))
 
+	-- Display the pre-calculated actual probability (semen success × mother's fertility factor)
+	cell:getAttribute("actual"):setText(string.format("%s%%", tostring(math.round(dewar.actualProbability * 100))))
+
 	cell:getAttribute("productivity"):setText("N/A")
 
 	for type, value in pairs(animal.genetics) do
 
 		local valueText
 
-		if value >= 1.65 then
+		-- For Young (Genomic) bulls, fertility is unproven and should be shown as "Unknown"
+		local isUnknownFertility = (type == "fertility" and animal.bullTier == BullTier.YOUNG_GENOMIC)
+
+		if isUnknownFertility then
+			valueText = "unknown"
+		elseif value >= 1.65 then
 			valueText = "extremelyHigh"
 		elseif value >= 1.4 then
 			valueText = "veryHigh"
@@ -173,6 +191,7 @@ function AnimalAIDialog:resetButtonStates()
 		[self.subTypeButton] = { ["sorter"] = false, ["target"] = "animal|subTypeIndex", ["pos"] = "35px" },
 		[self.strawsButton] = { ["sorter"] = false, ["target"] = "straws", ["pos"] = "12px" },
 		[self.successButton] = { ["sorter"] = false, ["target"] = "animal|success", ["pos"] = "12px" },
+		[self.actualButton] = { ["sorter"] = false, ["target"] = "actualProbability", ["pos"] = "12px" },
 		[self.metabolismButton] = { ["sorter"] = false, ["target"] = "animal|genetics|metabolism", ["pos"] = "22px" },
 		[self.qualityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|quality", ["pos"] = "36px" },
 		[self.healthButton] = { ["sorter"] = false, ["target"] = "animal|genetics|health", ["pos"] = "36px" },

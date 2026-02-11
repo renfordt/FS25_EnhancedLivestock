@@ -304,7 +304,7 @@
 				</food>
 			</input>
 			<output>
-				
+
 				<manure>
 					<key ageMonth="0" value="20"/>
 					<key ageMonth="18" value="175"/>
@@ -314,6 +314,14 @@
 					<key ageMonth="18" value="215"/>
 				</liquidManure>
 			</output>
+			<ai>
+				<tierProbabilities>
+					<tier name="YOUNG_GENOMIC" probability="0.40"/>
+					<tier name="PROVEN" probability="0.35"/>
+					<tier name="ELITE" probability="0.20"/>
+					<tier name="LEGEND" probability="0.05"/>
+				</tierProbabilities>
+			</ai>
 		</subType>
 		<subType subType="COW_ANGUS" fillTypeName="COW_ANGUS" gender="female" minWeight="32.0" targetWeight="700.0" maxWeight="1200.0" breed="ANGUS">
 			<visuals>
@@ -463,6 +471,14 @@
 					<key ageMonth="18" value="225"/>
 				</liquidManure>
 			</output>
+			<ai>
+				<tierProbabilities>
+					<tier name="YOUNG_GENOMIC" probability="0.55"/>
+					<tier name="PROVEN" probability="0.35"/>
+					<tier name="ELITE" probability="0.08"/>
+					<tier name="LEGEND" probability="0.02"/>
+				</tierProbabilities>
+			</ai>
 		</subType>
 		<subType subType="COW_LIMOUSIN" fillTypeName="COW_LIMOUSIN" gender="female" minWeight="36.0" targetWeight="630.0" maxWeight="1200.0" breed="LIMOUSIN">
 			<visuals>
@@ -908,6 +924,14 @@
 					<key ageMonth="18" value="230"/>
 				</liquidManure>
 			</output>
+			<ai>
+				<tierProbabilities>
+					<tier name="YOUNG_GENOMIC" probability="0.60"/>
+					<tier name="PROVEN" probability="0.30"/>
+					<tier name="ELITE" probability="0.09"/>
+					<tier name="LEGEND" probability="0.01"/>
+				</tierProbabilities>
+			</ai>
 		</subType>
 		<subType subType="COW_WATERBUFFALO" fillTypeName="COW_WATERBUFFALO" gender="female" statsBreeding="breedWaterBuffaloCount" minWeight="35.0" targetWeight="425.0" maxWeight="1200.0" breed="WATER_BUFFALO">
 			<visuals>

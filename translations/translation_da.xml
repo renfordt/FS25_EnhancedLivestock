@@ -1,630 +1,656 @@
 <l10n>
     <texts>
-        <!-- KØER -->
+        <!-- COWS -->
 
-		<text name="fillType_bull" text="Tyr"/>
-		<text name="fillType_bull_swiss_brown" text="Schweizisk brunkvæg Tyr"/>
-		<text name="fillType_bull_holstein" text="Holstein Tyr"/>
-		<text name="fillType_bull_angus" text="Angus Tyr"/>
-		<text name="fillType_bull_limousin" text="Limousine Tyr"/>
-		<text name="fillType_cow_hereford" text="Hereford"/>
-		<text name="fillType_bull_hereford" text="Hereford Tyr"/>
-		<text name="fillType_cow_highland_cattle" text="Highland Kvæg"/>
-		<text name="fillType_bull_highland_cattle" text="Highland Tyr"/>
-		<text name="animal_descriptionBullFeed" text="Tyrer kan godt lide græs hø og TMR."/>
-		<text name="animal_descriptionBullYoung" text="Dette er en tyrekalv."/>
-		<text name="animal_descriptionBullReproduction" text="Tyrer der er raske og ældre end 12 måneder kan formerer sig."/>
+		<text name="fillType_bull" text="Tyr" />
+		<text name="fillType_bull_swiss_brown" text="Schweizisk brunkvæg Tyr" />
+		<text name="fillType_bull_holstein" text="Holstein Tyr" />
+		<text name="fillType_bull_angus" text="Angus Tyr" />
+		<text name="fillType_bull_limousin" text="Limousine Tyr" />
+		<text name="fillType_cow_hereford" text="Hereford" />
+		<text name="fillType_bull_hereford" text="Hereford Tyr" />
+		<text name="fillType_cow_highland_cattle" text="Highland Kvæg" />
+		<text name="fillType_bull_highland_cattle" text="Highland Tyr" />
+		<text name="animal_descriptionBullFeed" text="Tyrer kan godt lide græs hø og TMR." />
+		<text name="animal_descriptionBullYoung" text="Dette er en tyrekalv." />
+		<text name="animal_descriptionBullReproduction" text="Tyrer der er raske og ældre end 12 måneder kan formerer sig." />
 
-		<!-- WATER BUFFALOS -->
+        <!-- WATER BUFFALOS -->
 
-		<text name="fillType_bull_waterbuffalo" text="Vand Bøffel Tyr"/>
+		<text name="fillType_bull_waterbuffalo" text="Vand Bøffel Tyr" />
 
 		<!-- PIGS -->
 
-		<text name="fillType_boar" text="Orne"/>
-		<text name="fillType_boar_landrace" text="Landrace Orne"/>
-		<text name="fillType_boar_black_pied" text="Sort broget Orne"/>
-		<text name="fillType_boar_berkshire" text="Berkshire Orne"/>
-		<text name="animal_descriptionBoarReproduction" text="Orner der er raske og ældre end 8 måneder kan formerer sig."/>
-		<text name="animal_descriptionBoarFeed" text="Orner spiser næsten alt. Du kan fodre dem med majs, hvede, byg, raps, solsikker, soyabønner, kartofler, sorghum and sugar beets."/>
-		<text name="animal_descriptionBoarYoung" text="Dette er en smågris."/>
+		<text name="fillType_boar" text="Orne" />
+		<text name="fillType_boar_landrace" text="Landrace Orne" />
+		<text name="fillType_boar_black_pied" text="Sort broget Orne" />
+		<text name="fillType_boar_berkshire" text="Berkshire Orne" />
+		<text name="animal_descriptionBoarReproduction" text="Orner der er raske og ældre end 8 måneder kan formerer sig." />
+		<text name="animal_descriptionBoarFeed" text="Orner spiser næsten alt. Du kan fodre dem med majs, hvede, byg, raps, solsikker, soyabønner, kartofler, sorghum and sugar beets." />
+		<text name="animal_descriptionBoarYoung" text="Dette er en smågris." />
 
 		<!-- SHEEP -->
 
-		<text name="fillType_ram" text="Vædder"/>
-		<text name="fillType_ram_landrace" text="Vædder af Bentheimer landrace"/>
-		<text name="fillType_ram_steinschaf" text="Steinschaf-vædder"/>
-		<text name="fillType_ram_black_welsh" text="Sort walisisk bjergvædder"/>
-		<text name="fillType_ram_swiss_mountain" text="Schweizisk sortbrun bjergvædder"/>
-		<text name="animal_descriptionRamFeed" text="Væddere spiser græs og hø."/>
-		<text name="animal_descriptionRamYoung" text="Dette er et vædderlam."/>
-		<text name="animal_descriptionRamReproduction" text="Væddere, der er sunde og ældre end 5 måneder, kan formere sig."/>
+		<text name="fillType_ram" text="Vædder" />
+		<text name="fillType_ram_landrace" text="Vædder af Bentheimer landrace" />
+		<text name="fillType_ram_steinschaf" text="Steinschaf-vædder" />
+		<text name="fillType_ram_black_welsh" text="Sort walisisk bjergvædder" />
+		<text name="fillType_ram_swiss_mountain" text="Schweizisk sortbrun bjergvædder" />
+		<text name="animal_descriptionRamFeed" text="Væddere spiser græs og hø." />
+		<text name="animal_descriptionRamYoung" text="Dette er et vædderlam." />
+		<text name="animal_descriptionRamReproduction" text="Væddere, der er sunde og ældre end 5 måneder, kan formere sig." />
 
 		<!-- GOATS -->
 
-		<text name="fillType_ram_goat" text="Gedebuk"/>
+		<text name="fillType_ram_goat" text="Gedebuk" />
 
 		<!-- HORSES -->
 
-		<text name="fillType_stallion" text="Hingst"/>
-		<text name="fillType_stallion_gray" text="Grå Hingst"/>
-		<text name="fillType_stallion_pinto" text="Pintofarvet hingst"/>
-		<text name="fillType_stallion_palomino" text="Palomino-hingst"/>
-		<text name="fillType_stallion_chestnut" text="Rød hingst"/>
-		<text name="fillType_stallion_bay" text="Brun hingst"/>
-		<text name="fillType_stallion_black" text="Sort hingst"/>
-		<text name="fillType_stallion_seal_brown" text="sortbrun hingst"/>
-		<text name="fillType_stallion_dun" text="Dunfarvet hingst"/>
-		<text name="animal_descriptionStallionFeed" text="Hingste kan lide hø, havre og durra."/>
-		<text name="animal_descriptionStallionProfit" text="Hingste kan sælges med fortjeneste."/>
-		<text name="animal_descriptionStallionReproduction" text="Hingste, der er sunde og ældre end 36 måneder, kan formere sig."/>
+		<text name="fillType_stallion" text="Hingst" />
+		<text name="fillType_stallion_gray" text="Grå Hingst" />
+		<text name="fillType_stallion_pinto" text="Pintofarvet hingst" />
+		<text name="fillType_stallion_palomino" text="Palomino-hingst" />
+		<text name="fillType_stallion_chestnut" text="Rød hingst" />
+		<text name="fillType_stallion_bay" text="Brun hingst" />
+		<text name="fillType_stallion_black" text="Sort hingst" />
+		<text name="fillType_stallion_seal_brown" text="sortbrun hingst" />
+		<text name="fillType_stallion_dun" text="Dunfarvet hingst" />
+		<text name="animal_descriptionStallionFeed" text="Hingste kan lide hø, havre og durra." />
+		<text name="animal_descriptionStallionProfit" text="Hingste kan sælges med fortjeneste." />
+		<text name="animal_descriptionStallionReproduction" text="Hingste, der er sunde og ældre end 36 måneder, kan formere sig." />
 
-		<!-- UI -->
 
-		<text name="el_ui_dependency_missing" text="Manglende afhængighed"/>
-		<text name="el_ui_dependency_missing_installed" text="Manglende afhængighed installeret"/>
+        <!-- UI -->
 
-		<text name="input_VisualAnimalsDialog" text="Ændr antallet af viste dyr"/>
-		<text name="el_button_apply" text="Tilføj"/>
-		<text name="el_button_confirm" text="Bekræft"/>
-		<text name="el_button_recommended" text="Anbefalet"/>
-		<text name="el_button_cancel" text="Afvis"/>
-		<text name="el_button_random" text="tilfældigt"/>
-		<text name="el_dialog_title" text="Indstil maksimalt antal viste dyr"/>
+		<text name="input_VisualAnimalsDialog" text="Ændr antallet af viste dyr" />
+		<text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
+		<text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
+		<text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+		<text name="el_button_apply" text="Tilføj" />
+		<text name="el_button_confirm" text="Bekræft" />
+		<text name="el_button_recommended" text="Anbefalet" />
+		<text name="el_button_cancel" text="Afvis" />
+		<text name="el_button_random" text="tilfældigt" />
+		<text name="el_dialog_title" text="Indstil maksimalt antal viste dyr" />
 
-		<text name="el_ui_unhealthy" text="Alt for usunde"/>
-		<text name="el_ui_unhealthyBracketed" text="Nej (Alt for usunde)"/>
-		<text name="el_ui_noMaleAnimal" text="ingen egnet han"/>
-		<text name="el_ui_noMaleAnimalBracketed" text="Nej (ingen egnet han)"/>
-		<text name="el_ui_recoveringLastBirth" text="Er ved at komme sig efter sidste fødsel"/>
-		<text name="el_ui_recoveringLastBirthBracketed" text="Nej (Er ved at komme sig efter sidste fødsel)"/>
-		<text name="el_ui_tooYoung" text="For Ung"/>
-		<text name="el_ui_tooYoungBracketed" text="Nej (For Ung)"/>
-		<text name="el_ui_pregnant" text="Forventer unger"/>
-		<text name="el_ui_pregnant_github" text="Drægtig"/>
-		<text name="el_ui_lactating" text="Producerer mælk"/>
-		<text name="el_ui_lactating_github" text="Diegivende"/>
-		<text name="el_ui_canReproduce" text="Kan formere sig"/>
-		<text name="el_ui_impregnatedBy" text="Parret med"/>
-		<text name="el_ui_impregnatedBy_github" text="Gjort drægtig af"/>
-		<text name="el_ui_unknown" text="Ukendt"/>
-		<text name="el_ui_yes" text="Ja"/>
-		<text name="el_ui_no" text="Nej"/>
-		<text name="el_ui_mother" text="Mor"/>
-		<text name="el_ui_father" text="Far"/>
-		<text name="el_ui_uniqueId" text="Unique ID"/>
-		<text name="el_ui_farmId" text="Farm ID"/>
-		<text name="el_ui_gender" text="Køn"/>
-		<text name="el_ui_male" text="Han"/>
-		<text name="el_ui_female" text="Hun"/>
-		<text name="el_ui_weight" text="Vægt"/>
-		<text name="el_ui_targetWeight" text="Målvægt"/>
-		<text name="el_ui_value" text="Værdi"/>
-		<text name="el_ui_valuePerKilo" text="Værdi per kg"/>
-		<text name="el_ui_genetics" text="Genetik"/>
-		<text name="el_ui_overall" text="Overall"/>
-		<text name="el_ui_rename" text="Skift navn"/>
-		<text name="el_ui_cantFindAnimal" text="Kunne ikke finde dyret"/>
-		<text name="el_ui_maleNumImpregnatable" text="Avlsdyr i folden"/>
-		<text name="el_ui_maleNumImpregnatable_github" text="Dyr i folden, der kan gøres drægtige"/>
+		<text name="el_ui_dependency_missing" text="Manglende afhængighed" />
+		<text name="el_ui_dependency_missing_installed" text="Manglende afhængighed installeret" />
 
-		<text name="el_ui_breederQuality" text="Avlskvalitet"/>
-		<text name="el_ui_birthday" text="Fødselsdag"/>
-		<text name="el_ui_pregnancyExpected" text="Forventet"/>
-		<text name="el_ui_pregnancyExpecting" text="Drægtig"/>
-		<text name="el_ui_pregnancyBaby" text="baby"/>
-		<text name="el_ui_pregnancyBabies" text="babyer"/>
-		<text name="el_ui_animalOrigin" text="Oprindelse"/>
-		<text name="el_ui_months" text="måneder"/>
-		<text name="el_ui_month" text="måned"/>
-		<text name="el_ui_years" text="år"/>
-		<text name="el_ui_year" text="år"/>
+		<text name="el_ui_unhealthy" text="Alt for usunde" />
+		<text name="el_ui_unhealthyBracketed" text="Nej (Alt for usunde)" />
+		<text name="el_ui_noMaleAnimal" text="ingen egnet han" />
+		<text name="el_ui_noMaleAnimalBracketed" text="Nej (ingen egnet han)" />
+		<text name="el_ui_recoveringLastBirth" text="Er ved at komme sig efter sidste fødsel" />
+		<text name="el_ui_recoveringLastBirthBracketed" text="Nej (Er ved at komme sig efter sidste fødsel)" />
+		<text name="el_ui_tooYoung" text="For Ung" />
+		<text name="el_ui_tooYoungBracketed" text="Nej (For Ung)" />
+		<text name="el_ui_pregnant" text="Forventer unger" />
+		<text name="el_ui_pregnant_github" text="Drægtig" />
+		<text name="el_ui_lactating" text="Producerer mælk" />
+		<text name="el_ui_lactating_github" text="Diegivende" />
+		<text name="el_ui_canReproduce" text="Kan formere sig" />
+		<text name="el_ui_impregnatedBy" text="Parret med" />
+		<text name="el_ui_impregnatedBy_github" text="Gjort drægtig af" />
+		<text name="el_ui_unknown" text="Ukendt" />
+		<text name="el_ui_yes" text="Ja" />
+		<text name="el_ui_no" text="Nej" />
+		<text name="el_ui_mother" text="Mor" />
+		<text name="el_ui_father" text="Far" />
+		<text name="el_ui_uniqueId" text="Unique ID" />
+		<text name="el_ui_farmId" text="Farm ID" />
+		<text name="el_ui_gender" text="Køn" />
+		<text name="el_ui_male" text="Han" />
+		<text name="el_ui_female" text="Hun" />
+		<text name="el_ui_weight" text="Vægt" />
+		<text name="el_ui_targetWeight" text="Målvægt" />
+		<text name="el_ui_value" text="Værdi" />
+		<text name="el_ui_valuePerKilo" text="Værdi per kg" />
+		<text name="el_ui_genetics" text="Genetik" />
+		<text name="el_ui_overall" text="Overall" />
+		<text name="el_ui_rename" text="Skift navn" />
+		<text name="el_ui_cantFindAnimal" text="Kunne ikke finde dyret" />
+		<text name="el_ui_maleNumImpregnatable" text="Avlsdyr i folden" />
+		<text name="el_ui_maleNumImpregnatable_github" text="Dyr i folden, der kan gøres drægtige" />
 
-		<text name="el_ui_milk" text="Mælkeproduktion"/>
-		<text name="el_ui_wool" text="Uldproduktion"/>
-		<text name="el_ui_eggs" text="Ægproduktion"/>
-		<text name="el_ui_metabolism" text="Stofskifte"/>
-		<text name="el_ui_meat" text="Kvalitet"/>
-		<text name="el_ui_meat_github" text="Kødkvalitet"/>
-		<text name="el_ui_quality" text="Kvalitet"/>
-		<text name="el_ui_quality_github" text="Kødkvalitet"/>
-		<text name="el_ui_health" text="Helbred"/>
-		<text name="el_ui_fertility" text="Frugtbarhed"/>
+		<text name="el_ui_breederQuality" text="Avlskvalitet" />
+		<text name="el_ui_birthday" text="Fødselsdag" />
+		<text name="el_ui_pregnancyExpected" text="Forventet" />
+		<text name="el_ui_pregnancyExpecting" text="Drægtig" />
+		<text name="el_ui_pregnancyBaby" text="baby" />
+		<text name="el_ui_pregnancyBabies" text="babyer" />
+		<text name="el_ui_animalOrigin" text="Oprindelse" />
+		<text name="el_ui_months" text="måneder" />
+		<text name="el_ui_month" text="måned" />
+		<text name="el_ui_years" text="år" />
+		<text name="el_ui_year" text="år" />
 
-		<text name="el_ui_genetics_infertile" text="Ufrugtbar"/>
-		<text name="el_ui_genetics_extremelyLow" text="Extrem lav"/>
-		<text name="el_ui_genetics_veryLow" text="Meget lav"/>
-		<text name="el_ui_genetics_low" text="Lav"/>
-		<text name="el_ui_genetics_average" text="Middel"/>
-		<text name="el_ui_genetics_high" text="Høj"/>
-		<text name="el_ui_genetics_veryHigh" text="Meget høj"/>
-		<text name="el_ui_genetics_extremelyHigh" text="Extrem høj"/>
-		<text name="el_ui_genetics_highest" text="Højest"/>
+		<text name="el_ui_milk" text="Mælkeproduktion" />
+		<text name="el_ui_wool" text="Uldproduktion" />
+		<text name="el_ui_eggs" text="Ægproduktion" />
+		<text name="el_ui_metabolism" text="Stofskifte" />
+		<text name="el_ui_meat" text="Kvalitet" />
+		<text name="el_ui_meat_github" text="Kødkvalitet" />
+		<text name="el_ui_quality" text="Kvalitet" />
+		<text name="el_ui_quality_github" text="Kødkvalitet" />
+		<text name="el_ui_health" text="Helbred" />
+		<text name="el_ui_fertility" text="Frugtbarhed" />
 
-		<text name="el_ui_genetics_extremelyBad" text="Extrem dårlig"/>
-		<text name="el_ui_genetics_veryBad" text="Meget dårlig"/>
-		<text name="el_ui_genetics_bad" text="dårlig"/>
-		<text name="el_ui_genetics_good" text="God"/>
-		<text name="el_ui_genetics_veryGood" text="Meget god"/>
-		<text name="el_ui_genetics_extremelyGood" text="Extrem god"/>
+		<text name="el_ui_genetics_infertile" text="Ufrugtbar" />
+		<text name="el_ui_genetics_extremelyLow" text="Extrem lav" />
+		<text name="el_ui_genetics_veryLow" text="Meget lav" />
+		<text name="el_ui_genetics_low" text="Lav" />
+		<text name="el_ui_genetics_average" text="Middel" />
+		<text name="el_ui_genetics_high" text="Høj" />
+		<text name="el_ui_genetics_veryHigh" text="Meget høj" />
+		<text name="el_ui_genetics_extremelyHigh" text="Extrem høj" />
+		<text name="el_ui_genetics_highest" text="Højest" />
+		<text name="el_ui_genetics_unknown" text="Unknown"/>
 
-		<text name="el_ui_buySelected" text="Køb valgte"/>
-		<text name="el_ui_sellSelected" text="Sælg valgte"/>
-		<text name="el_ui_moveSelected" text="Flyt valgte"/>
-		<text name="el_ui_buyConfirmation" text="Er du sikker på, at du vil købe %s dyr for %s?" tag="format"/>
-		<text name="el_ui_sellConfirmation" text="Er du sikker på, at du vil sælge %s dyr for %s?" tag="format"/>
-		<text name="el_ui_moveConfirmation" text="Er du sikker på, at du vil flytte %s dyr?" tag="format"/>
-		<text name="el_ui_buyBulkResult" text="%s dyr købt for %s" tag="format"/>
-		<text name="el_ui_sellBulkResult" text="%s dyr solgt for %s" tag="format"/>
-		<text name="el_ui_moveBulkResult" text="%s dyr flyttet" tag="format"/>
+		<text name="el_ui_genetics_extremelyBad" text="Extrem dårlig" />
+		<text name="el_ui_genetics_veryBad" text="Meget dårlig" />
+		<text name="el_ui_genetics_bad" text="dårlig" />
+		<text name="el_ui_genetics_good" text="God" />
+		<text name="el_ui_genetics_veryGood" text="Meget god" />
+		<text name="el_ui_genetics_extremelyGood" text="Extrem god" />
 
-		<text name="el_ui_monitor" text="Overvågning"/>
-		<text name="el_ui_monitorSubscriptions" text="Overvåg abonnementer"/>
-		<text name="finance_monitorSubscriptions" text="Overvåg abonnementer"/>
-		<text name="el_ui_monitorFee" text="Gebyr for overvågning"/>
-		<text name="el_ui_applyMonitor" text="Tilføj overvågning"/>
-		<text name="el_ui_removeMonitor" text="Fjern overvågning"/>
-		<text name="el_ui_input_food" text="Mad"/>
-		<text name="el_ui_input_water" text="Vand"/>
-		<text name="el_ui_input_straw" text="Halm"/>
-		<text name="el_ui_output_milk" text="Mælk"/>
-		<text name="el_ui_output_manure" text="Møj"/>
-		<text name="el_ui_output_liquidManure" text="Gylle"/>
-		<text name="el_ui_output_pallets_eggs" text="Æg"/>
-		<text name="el_ui_output_pallets_wool" text="Uld"/>
-		<text name="el_ui_output_pallets_goatMilk" text="Gede Mælk"/>
-		<text name="el_ui_amountPerDay" text="%.0fL / dag" tag="format"/>
-		<text name="el_ui_feePerMonth" text="%s / måned" tag="format"/>
+		<text name="el_ui_buySelected" text="Køb valgte" />
+		<text name="el_ui_sellSelected" text="Sælg valgte" />
+		<text name="el_ui_moveSelected" text="Flyt valgte" />
+		<text name="el_ui_buyConfirmation" text="Er du sikker på, at du vil købe %s dyr for %s?" tag="format" />
+		<text name="el_ui_sellConfirmation" text="Er du sikker på, at du vil sælge %s dyr for %s?" tag="format" />
+		<text name="el_ui_moveConfirmation" text="Er du sikker på, at du vil flytte %s dyr?" tag="format" />
+		<text name="el_ui_buyBulkResult" text="%s dyr købt for %s" tag="format" />
+		<text name="el_ui_sellBulkResult" text="%s dyr solgt for %s" tag="format" />
+		<text name="el_ui_moveBulkResult" text="%s dyr flyttet" tag="format" />
 
-		<text name="el_ui_animalType" text="Type"/>
-		<text name="el_ui_amountMonitored" text="overvåget"/>
-		<text name="el_ui_production" text="Produkt"/>
-		<text name="el_ui_applyAllMonitor" text="Anvend alle overvågninger"/>
-		<text name="el_ui_removeAllMonitor" text="Fjern alle overvågninger"/>
-		<text name="el_ui_fee" text="Gebyr"/>
+		<text name="el_ui_monitor" text="Overvågning" />
+		<text name="el_ui_monitorSubscriptions" text="Overvåg abonnementer" />
+		<text name="finance_monitorSubscriptions" text="Overvåg abonnementer" />
+		<text name="el_ui_monitorFee" text="Gebyr for overvågning" />
+		<text name="el_ui_applyMonitor" text="Tilføj overvågning" />
+		<text name="el_ui_removeMonitor" text="Fjern overvågning" />
+		<text name="el_ui_input_food" text="Mad" />
+		<text name="el_ui_input_water" text="Vand" />
+		<text name="el_ui_input_straw" text="Halm" />
+		<text name="el_ui_output_milk" text="Mælk" />
+		<text name="el_ui_output_manure" text="Møj" />
+		<text name="el_ui_output_liquidManure" text="Gylle" />
+		<text name="el_ui_output_pallets_eggs" text="Æg" />
+		<text name="el_ui_output_pallets_wool" text="Uld" />
+		<text name="el_ui_output_pallets_goatMilk" text="Gede Mælk" />
+		<text name="el_ui_amountPerDay" text="%.0fL / dag" tag="format" />
+		<text name="el_ui_feePerMonth" text="%s / måned" tag="format" />
+
+		<text name="el_ui_animalType" text="Type" />
+		<text name="el_ui_amountMonitored" text="overvåget" />
+		<text name="el_ui_production" text="Produkt" />
+		<text name="el_ui_applyAllMonitor" text="Anvend alle overvågninger" />
+		<text name="el_ui_removeAllMonitor" text="Fjern alle overvågninger" />
+		<text name="el_ui_fee" text="Gebyr" />
 		<text name="el_ui_description" text="Beskrivelse"/>
 
-		<text name="el_ui_leftEarTag" text="Venstre øremærke"/>
-		<text name="el_ui_rightEarTag" text="Højre øremærke"/>
-		<text name="el_ui_backgroundColour" text="Baggrundsfarve"/>
-		<text name="el_ui_backgroundHue" text="Baggrund Hue"/>
-		<text name="el_ui_backgroundRgb" text="Baggrund RGB"/>
-		<text name="el_ui_textColour" text="Tekst Colour"/>
-		<text name="el_ui_textHue" text="Tekst Hue"/>
-		<text name="el_ui_textRgb" text="Tekst RGB"/>
+		<text name="el_ui_leftEarTag" text="Venstre øremærke" />
+		<text name="el_ui_rightEarTag" text="Højre øremærke" />
+		<text name="el_ui_backgroundColour" text="Baggrundsfarve" />
+		<text name="el_ui_backgroundHue" text="Baggrund Hue" />
+		<text name="el_ui_backgroundRgb" text="Baggrund RGB" />
+		<text name="el_ui_textColour" text="Tekst Colour" />
+		<text name="el_ui_textHue" text="Tekst Hue" />
+		<text name="el_ui_textRgb" text="Tekst RGB" />
 
-		<text name="el_ui_formatMonths" text="%s måneder"/>
-		<text name="el_ui_formatMonth" text="%s måned"/>
-		<text name="el_ui_notPregnant" text="Forventer ikke unger"/>
-		<text name="el_ui_notPregnant_github" text="Ikke drægtig"/>
-		<text name="el_ui_any" text="Alle"/>
-		<text name="el_ui_pregnancy" text="Drægtighed"/>
-		<text name="el_ui_productivity" text="Produktivitet"/>
-		<text name="el_ui_selectAll" text="Vælg alle"/>
-		<text name="el_ui_selectNone" text="Vælg ingen"/>
-		<text name="el_ui_filters" text="Filtre"/>
-		<text name="el_ui_doesntHaveName" text="Ingen navn"/>
-		<text name="el_ui_doesHaveName" text="Har Navn"/>
+		<text name="el_ui_formatMonths" text="%s måneder" />
+		<text name="el_ui_formatMonth" text="%s måned" />
+		<text name="el_ui_notPregnant" text="Forventer ikke unger" />
+		<text name="el_ui_notPregnant_github" text="Ikke drægtig" />
+		<text name="el_ui_any" text="Alle" />
+		<text name="el_ui_pregnancy" text="Drægtighed" />
+		<text name="el_ui_productivity" text="Produktivitet" />
+		<text name="el_ui_selectAll" text="Vælg alle" />
+		<text name="el_ui_selectNone" text="Vælg ingen" />
+		<text name="el_ui_filters" text="Filtre" />
+		<text name="el_ui_doesntHaveName" text="Ingen navn" />
+		<text name="el_ui_doesHaveName" text="Har Navn" />
 
-		<text name="el_ui_castrated" text="Steriliseret"/>
-		<text name="el_ui_castrated_github" text="Kastreret"/>
-		<text name="el_ui_castrate" text="Sterilisér"/>
-		<text name="el_ui_castrate_github" text="Kastrér"/>
+		<text name="el_ui_castrated" text="Steriliseret" />
+		<text name="el_ui_castrated_github" text="Kastreret" />
+		<text name="el_ui_castrate" text="Sterilisér" />
+		<text name="el_ui_castrate_github" text="Kastrér" />
 
-		<text name="el_ui_importance" text="Vigtighed"/>
-		<text name="el_ui_type" text="Type"/>
-		<text name="el_ui_date" text="Dato"/>
-		<text name="el_ui_message" text="Beskeder"/>
-		<text name="el_ui_messages" text="Beskeder"/>
-		<text name="el_ui_unknownCauses" text="ukendte årsager"/>
-		<text name="el_ui_messageNumber" text="%s-%s of %s"/>
-		<text name="el_ui_deleteMessage" text="Slet besked"/>
-		<text name="el_ui_unreadMessages" text="Dyrehold '%s' har ulæste beskeder!"/>
-		<text name="el_ui_herdsman" text="Kvæghyrde"/>
-		<text name="el_ui_budget" text="Budget"/>
-		<text name="el_ui_budgetType" text="Budget Type"/>
-		<text name="el_ui_fixed" text="Fixed"/>
-		<text name="el_ui_percentage" text="Procent"/>
-		<text name="el_ui_maxAnimals" text="Max dyr"/>
-		<text name="el_ui_infinite" text="Uendelig"/>
-		<text name="el_ui_herdsmanRecentlyBought" text="Seneste lønbetaling til dyrepasser"/>
-		<text name="el_ui_previousWage" text="Forgående løninger"/>
-		<text name="el_ui_herdsmanWages" text="dyrpasser lønninger"/>
-		<text name="finance_herdsmanWages" text="dyrpasser lønninger"/>
-		<text name="el_ui_medicine" text="Medicin"/>
-		<text name="finance_medicine" text="Medicin"/>
-		<text name="el_ui_semenPurchase" text="Sæd indkøb"/>
-		<text name="el_ui_semenPurchase_github" text="Sæd køb"/>
-		<text name="finance_semenPurchase" text="Sæd indkøb"/>
-		<text name="finance_semenPurchase_github" text="Sæd køb"/>
-		<text name="el_ui_noDiseases" text="Ingen sygdomme"/>
-		<text name="el_ui_onlyDiseases" text="Kun sygdomme"/>
-		<text name="el_ui_naming" text="Navngivning"/>
-		<text name="el_ui_alphabetical" text="Alfabetisk"/>
-		<text name="el_ui_breed" text="Race"/>
-		<text name="el_ui_dontMark" text="Marker ikke"/>
-		<text name="el_ui_mark" text="Marker"/>
-		<text name="el_ui_unmark" text="Fjern markering"/>
-		<text name="el_ui_favourite" text="Favorit"/>
-		<text name="el_ui_unFavourite" text="Fjern favorit"/>
-		<text name="el_ui_quantity" text="Antal"/>
-		<text name="el_ui_dewar" text="Dewar"/>
-		<text name="el_ui_semenPurchase_successful" text="Sæd blev købt med succes. Du kan afhente det i butikken."/>
-		<text name="el_ui_semenPurchase_successful_github" text="Sæd er købt med succes. Du kan afhente det i butikken."/>
-		<text name="el_ui_semenPurchase_unsuccessful" text="Sæd kunne ikke købes."/>
+		<text name="el_ui_importance" text="Vigtighed" />
+		<text name="el_ui_type" text="Type" />
+		<text name="el_ui_date" text="Dato" />
+		<text name="el_ui_message" text="Beskeder" />
+		<text name="el_ui_messages" text="Beskeder" />
+		<text name="el_ui_unknownCauses" text="ukendte årsager" />
+		<text name="el_ui_messageNumber" text="%s-%s of %s" />
+		<text name="el_ui_deleteMessage" text="Slet besked" />
+		<text name="el_ui_unreadMessages" text="Dyrehold '%s' har ulæste beskeder!" />
+		<text name="el_ui_herdsman" text="Kvæghyrde" />
+		<text name="el_ui_budget" text="Budget" />
+		<text name="el_ui_budgetType" text="Budget Type" />
+		<text name="el_ui_fixed" text="Fixed" />
+		<text name="el_ui_percentage" text="Procent" />
+		<text name="el_ui_maxAnimals" text="Max dyr" />
+		<text name="el_ui_infinite" text="Uendelig" />
+		<text name="el_ui_herdsmanRecentlyBought" text="Seneste lønbetaling til dyrepasser" />
+		<text name="el_ui_previousWage" text="Forgående løninger" />
+		<text name="el_ui_herdsmanWages" text="dyrpasser lønninger" />
+		<text name="finance_herdsmanWages" text="dyrpasser lønninger" />
+		<text name="el_ui_medicine" text="Medicin" />
+		<text name="finance_medicine" text="Medicin" />
+		<text name="el_ui_semenPurchase" text="Sæd indkøb" />
+		<text name="el_ui_semenPurchase_github" text="Sæd køb" />
+		<text name="finance_semenPurchase" text="Sæd indkøb" />
+		<text name="finance_semenPurchase_github" text="Sæd køb" />
+		<text name="el_ui_noDiseases" text="Ingen sygdomme" />
+		<text name="el_ui_onlyDiseases" text="Kun sygdomme" />
+		<text name="el_ui_naming" text="Navngivning" />
+		<text name="el_ui_alphabetical" text="Alfabetisk" />
+		<text name="el_ui_breed" text="Race" />
+		<text name="el_ui_dontMark" text="Marker ikke" />
+		<text name="el_ui_mark" text="Marker" />
+		<text name="el_ui_unmark" text="Fjern markering" />
+		<text name="el_ui_favourite" text="Favorit" />
+		<text name="el_ui_unFavourite" text="Fjern favorit" />
+		<text name="el_ui_quantity" text="Antal" />
+		<text name="el_ui_dewar" text="Dewar" />
+		<text name="el_ui_semenPurchase_successful" text="Sæd blev købt med succes. Du kan afhente det i butikken." />
+		<text name="el_ui_semenPurchase_successful_github" text="Sæd er købt med succes. Du kan afhente det i butikken." />
+		<text name="el_ui_semenPurchase_unsuccessful" text="Sæd kunne ikke købes." />
 		<text name="el_ui_semenPurchase_unsuccessful_github" text="Sæd kunne ikke købes." />
-		<text name="el_ui_earTag" text="Øremærke"/>
-		<text name="el_ui_species" text="Race"/>
-		<text name="el_ui_strawSingle" text="halm"/>
-		<text name="el_ui_strawMultiple" text="halm"/>
-		<text name="el_ui_artificialInsemination" text="Assisteret avl"/>
-		<text name="el_ui_artificialInsemination_github" text="Kunstig insemination"/>
-		<text name="el_ui_semenPurchaseNoPermission" text="Du mangler tilladelse til at handle med dyr eller købe sæd."/>
-		<text name="el_ui_semenPurchaseNoPermission_github" text="Du har ikke tilladelse til at handle med dyr eller købe sæd."/>
-		<text name="el_ui_semenPurchaseNoMoney" text="Du har ikke penge nok til at købe denne potion sæd."/>
-		<text name="el_ui_semenPurchaseNoMoney_github" text="Du har ikke penge nok til at købe denne potion sæd."/>
-		<text name="el_ui_takeStraw" text="Tag sprøjte"/>
-		<text name="el_ui_inseminateAnimal" text="Avl %s"/>
-		<text name="el_ui_inseminateAnimal_github" text="Insiminer %s"/>
-		<text name="el_ui_inseminate" text="Avl"/>
-		<text name="el_ui_inseminate_github" text="Insiminer"/>
-		<text name="el_ui_strawEmpty" text="Denne sprøjte er tom"/>
-		<text name="el_ui_averageSuccessColon" text="Middel Succes: "/>
-		<text name="el_ui_averageSuccess" text="Middel Succes"/>
-		<text name="el_ui_success" text="Sucess"/>
-		<text name="el_ui_save" text="Save"/>
-		<text name="el_ui_load" text="Load"/>
-		<text name="el_ui_saveProfile" text="Save Profile"/>
-		<text name="el_ui_loadProfile" text="Load Profile"/>
+		<text name="el_ui_earTag" text="Øremærke" />
+		<text name="el_ui_species" text="Race" />
+		<text name="el_ui_strawSingle" text="halm" />
+		<text name="el_ui_strawMultiple" text="halm" />
+		<text name="el_ui_artificialInsemination" text="Assisteret avl" />
+		<text name="el_ui_artificialInsemination_github" text="Kunstig insemination" />
+		<text name="el_ui_semenPurchaseNoPermission" text="Du mangler tilladelse til at handle med dyr eller købe sæd." />
+		<text name="el_ui_semenPurchaseNoPermission_github" text="Du har ikke tilladelse til at handle med dyr eller købe sæd." />
+		<text name="el_ui_semenPurchaseNoMoney" text="Du har ikke penge nok til at købe denne potion sæd." />
+		<text name="el_ui_semenPurchaseNoMoney_github" text="Du har ikke penge nok til at købe denne potion sæd." />
+		<text name="el_ui_takeStraw" text="Tag sprøjte" />
+		<text name="el_ui_inseminateAnimal" text="Avl %s" />
+		<text name="el_ui_inseminateAnimal_github" text="Insiminer %s" />
+		<text name="el_ui_inseminate" text="Avl" />
+		<text name="el_ui_inseminate_github" text="Insiminer" />
+		<text name="el_ui_strawEmpty" text="Denne sprøjte er tom" />
+		<text name="el_ui_averageSuccessColon" text="Middel Succes: " />
+		<text name="el_ui_averageSuccess" text="Middel Succes" />
+		<text name="el_ui_success" text="Sucess" />
+		<text name="el_ui_semen" text="Sample"/>
+		<text name="el_ui_semen_github" text="Semen"/>
+		<text name="el_ui_actual" text="Actual"/>
+		<text name="el_ui_save" text="Save" />
+		<text name="el_ui_load" text="Load" />
+		<text name="el_ui_saveProfile" text="Save Profile" />
+		<text name="el_ui_loadProfile" text="Load Profile" />
 
-		<text name="el_ui_healthy" text="Rask"/>
-		<text name="el_ui_hasDisease" text="er syg"/>
-		<text name="el_ui_diseasedAnimals" text="Syge dyr"/>
-
-
-		<text name="el_insemination_male" text="Kun hunner kan gøres drægtige"/>
-		<text name="el_insemination_male_github" text="Kun hunner kan insemineres"/>
-		<text name="el_insemination_pregnant" text="Dette dyr forventer allerede unger"/>
-		<text name="el_insemination_pregnant_github" text="Dette dyr er allerede drægtigt"/>
-		<text name="el_insemination_animalType" text="Dyret skal være af samme art som faderen"/>
-		<text name="el_insemination_inseminated" text="Dette dyr er allerede blevet drægtiggjort ved assisteret avl"/>
-		<text name="el_insemination_inseminated_github" text="Dette dyr er allerede blevet insemineret"/>
-		<text name="el_insemination_recovering" text="Dette dyr er stadig ved at komme sig efter sin forrige drægtighed"/>
-		<text name="el_insemination_father" text="Indavl er ikke tilladt"/>
-		<text name="el_insemination_young" text="Dette dyr er for ungt til at blive drægtiggjort ved assisteret avl"/>
-		<text name="el_insemination_young_github" text="Dette dyr er for ungt til at blive insemineret"/>
+		<text name="el_ui_healthy" text="Rask" />
+		<text name="el_ui_hasDisease" text="er syg" />
+		<text name="el_ui_diseasedAnimals" text="Syge dyr" />
 
 
-		<text name="el_mark_aiManager_sell" text="Dyrepasser markeret til salg"/>
-		<text name="el_mark_aiManager_castrate" text="Dyrepasser markeret til sterilisering"/>
-		<text name="el_mark_aiManager_castrate_github" text="Dyrepasser markeret til kastrering"/>
-		<text name="el_mark_aiManager_disease" text="Dyrepasser markeret til behandling"/>
-		<text name="el_mark_aiManager_ai" text="Dyrepasser markeret til assisteret avl"/>
-		<text name="el_mark_aiManager_ai_github" text="Dyrepasser markeret til kunstig insemination"/>
-		<text name="el_mark_player" text="Markeret af Spiller"/>
+		<text name="el_insemination_male" text="Kun hunner kan gøres drægtige" />
+		<text name="el_insemination_male_github" text="Kun hunner kan insemineres" />
+		<text name="el_insemination_pregnant" text="Dette dyr forventer allerede unger" />
+		<text name="el_insemination_pregnant_github" text="Dette dyr er allerede drægtigt" />
+		<text name="el_insemination_animalType" text="Dyret skal være af samme art som faderen" />
+		<text name="el_insemination_inseminated" text="Dette dyr er allerede blevet drægtiggjort ved assisteret avl" />
+		<text name="el_insemination_inseminated_github" text="Dette dyr er allerede blevet insemineret" />
+		<text name="el_insemination_recovering" text="Dette dyr er stadig ved at komme sig efter sin forrige drægtighed" />
+		<text name="el_insemination_father" text="Indavl er ikke tilladt" />
+		<text name="el_insemination_young" text="Dette dyr er for ungt til at blive drægtiggjort ved assisteret avl" />
+		<text name="el_insemination_young_github" text="Dette dyr er for ungt til at blive insemineret" />
+
+
+		<text name="el_mark_aiManager_sell" text="Dyrepasser markeret til salg" />
+		<text name="el_mark_aiManager_castrate" text="Dyrepasser markeret til sterilisering" />
+		<text name="el_mark_aiManager_castrate_github" text="Dyrepasser markeret til kastrering" />
+		<text name="el_mark_aiManager_disease" text="Dyrepasser markeret til behandling" />
+		<text name="el_mark_aiManager_ai" text="Dyrepasser markeret til assisteret avl" />
+		<text name="el_mark_aiManager_ai_github" text="Dyrepasser markeret til kunstig insemination" />
+		<text name="el_mark_player" text="Markeret af Spiller" />
 
 
 		<!-- AI - BUYING -->
 
 
-		<text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Dyrepasseren vil ikke købe dyr"/>
-		<text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Dyrepasseren vil købe dyr"/>
+		<text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Dyrepasseren vil ikke købe dyr" />
+		<text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Dyrepasseren vil købe dyr" />
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Indkøbsbudgettet er et fast beløb"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Indkøbsbudgettet er en procentdel af din gårds penge"/>
+		<text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Indkøbsbudgettet er et fast beløb" />
+		<text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Indkøbsbudgettet er en procentdel af din gårds penge" />
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Dyrepasseren vil bruge op til %s om dagen"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Dyrepasseren vil bruge op til %s af din gårds penge om dagen"/>
+		<text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Dyrepasseren vil bruge op til %s om dagen" />
+		<text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Dyrepasseren vil bruge op til %s af din gårds penge om dagen" />
 
-		<text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Dyrepasseren vil købe op til %s dyr om dagen"/>
+		<text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Dyrepasseren vil købe op til %s dyr om dagen" />
 
-		<text name="el_ui_herdsmanTooltip_buy_breed" text="Dyrepasseren vil kun købe %s dyr"/>
-		<text name="el_ui_herdsmanTooltip_buy_breed_any" text="Dyrepasseren vil købe enhver race"/>
+		<text name="el_ui_herdsmanTooltip_buy_breed" text="Dyrepasseren vil kun købe %s dyr" />
+		<text name="el_ui_herdsmanTooltip_buy_breed_any" text="Dyrepasseren vil købe enhver race" />
 
-		<text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Dyrepasseren vil kun købe dyr uden sygdomme"/>
-		<text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Dyrepasseren vil købe dyr uanset sygdomme"/>
+		<text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Dyrepasseren vil kun købe dyr uden sygdomme" />
+		<text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Dyrepasseren vil købe dyr uanset sygdomme" />
 
-		<text name="el_ui_herdsmanTooltip_buy_gender_1" text="Dyrepasseren vil kun købe hunner."/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_2" text="Dyrepasseren vil købe både hunner og hanner."/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_3" text="Dyrepasseren vil kun købe hanner."/>
+		<text name="el_ui_herdsmanTooltip_buy_gender_1" text="Dyrepasseren vil kun købe hunner." />
+		<text name="el_ui_herdsmanTooltip_buy_gender_2" text="Dyrepasseren vil købe både hunner og hanner." />
+		<text name="el_ui_herdsmanTooltip_buy_gender_3" text="Dyrepasseren vil kun købe hanner." />
 
-		<text name="el_ui_herdsmanTooltip_buy_age_equal" text="Dyrpasseren vil kun købe dyr, der er %s gamle."/>
-		<text name="el_ui_herdsmanTooltip_buy_age_range" text="Dyrpasseren vil kun købe dyr, der er mellem %s og %s gamle."/>
+		<text name="el_ui_herdsmanTooltip_buy_age_equal" text="Dyrpasseren vil kun købe dyr, der er %s gamle." />
+		<text name="el_ui_herdsmanTooltip_buy_age_range" text="Dyrpasseren vil kun købe dyr, der er mellem %s og %s gamle." />
 
-		<text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Dyrepasseren vil kun købe dyr med %s kvalitet."/>
-		<text name="el_ui_herdsmanTooltip_buy_quality_range" text="Dyrepasseren vil kun købe dyr med en kvalitet på mellem %s og %s."/>
+		<text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Dyrepasseren vil kun købe dyr med %s kvalitet." />
+		<text name="el_ui_herdsmanTooltip_buy_quality_range" text="Dyrepasseren vil kun købe dyr med en kvalitet på mellem %s og %s." />
 
-		<text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Dyrepasseren vil kun købe dyr med %s frugtbarhed."/>
-		<text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Dyrepasseren vil kun købe dyr med en frugtbarhed på mellem %s og %s."/>
+		<text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Dyrepasseren vil kun købe dyr med %s frugtbarhed." />
+		<text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Dyrepasseren vil kun købe dyr med en frugtbarhed på mellem %s og %s." />
 
-		<text name="el_ui_herdsmanTooltip_buy_health_equal" text="Dyrepasseren vil kun købe dyr med %s sundhed."/>
-		<text name="el_ui_herdsmanTooltip_buy_health_range" text="Dyrepasseren vil kun købe dyr med en sundhed på mellem %s og %s."/>
+		<text name="el_ui_herdsmanTooltip_buy_health_equal" text="Dyrepasseren vil kun købe dyr med %s sundhed." />
+		<text name="el_ui_herdsmanTooltip_buy_health_range" text="Dyrepasseren vil kun købe dyr med en sundhed på mellem %s og %s." />
 
-		<text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Dyrepasseren vil kun købe dyr med %s produktivitet."/>
-		<text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Dyrepasseren vil kun købe dyr med en produktivitet på mellem %s og %s."/>
+		<text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Dyrepasseren vil kun købe dyr med %s produktivitet." />
+		<text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Dyrepasseren vil kun købe dyr med en produktivitet på mellem %s og %s." />
 
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Dyrepasseren vil kun købe dyr med %s stofskifte."/>
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Dyrepasseren vil kun købe dyr med et stofskifte på mellem %s og %s."/>
+		<text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Dyrepasseren vil kun købe dyr med %s stofskifte." />
+		<text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Dyrepasseren vil kun købe dyr med et stofskifte på mellem %s og %s." />
 
 
 		<!-- AI - SELLING -->
 
 
-		<text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Dyrepasseren vil ikke sælge dyr."/>
-		<text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Dyrepasseren vil godt sælge dyr."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Dyrepasseren vil sælge op til %s dyr om dagen."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_mark_1" text="Dyrepasseren vil ikke markere dyr til salg."/>
-		<text name="el_ui_herdsmanTooltip_sell_mark_2" text="Dyrepasseren vil markere dyr til salg."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Dyrepasseren vil sælge dyr uanset hvilken sygdom de har."/>
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Dyrepasseren vil kun sælge syge dyr."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_gender_1" text="Dyrepasseren vil kun sælge hunner."/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_2" text="Dyrepasseren vil sælge hunner og hanner"/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_3" text="Dyrepasseren vil kun sælge hanner"/>
-
-		<text name="el_ui_herdsmanTooltip_sell_age_equal" text="Dyrepasseren vil kun sælge gamle dyr."/>
-		<text name="el_ui_herdsmanTooltip_sell_age_range" text="Dyrepasseren vil kun sælge dyr, der er mellem %s og %s gamle."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Dyrepasseren vil kun sælge dyr med %s kvalitet."/>
-		<text name="el_ui_herdsmanTooltip_sell_quality_range" text="Dyrepasseren vil kun sælge dyr med en kvalitet på mellem %s og %s."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Dyrepasseren vil kun sælge dyr med %s frugtbarhed."/>
-		<text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Dyrepasseren vil kun sælge dyr med en frugtbarhed på mellem %s og %s."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_health_equal" text="Dyrepasseren vil kun sælge dyr med %s sundhed."/>
-		<text name="el_ui_herdsmanTooltip_sell_health_range" text="Dyrepasseren vil kun sælge dyr med en sundhed på mellem %s og %s."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Dyrepasseren vil kun sælge dyr med %s produktivitet."/>
-		<text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Dyrepasseren vil kun sælge dyr med en produktivitet på mellem %s og %s."/>
-
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Dyrepasseren vil kun sælge dyr med %s stofskifte."/>
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Dyrepasseren vil kun sælge dyr med et stofskifte på mellem %s og %s."/>
+		<text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Dyrepasseren vil ikke sælge dyr." />
+		<text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Dyrepasseren vil godt sælge dyr." />
+		<text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Dyrepasseren vil sælge op til %s dyr om dagen." />
+		<text name="el_ui_herdsmanTooltip_sell_mark_1" text="Dyrepasseren vil ikke markere dyr til salg." />
+		<text name="el_ui_herdsmanTooltip_sell_mark_2" text="Dyrepasseren vil markere dyr til salg." />
+		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Dyrepasseren vil sælge dyr uanset hvilken sygdom de har." />
+		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Dyrepasseren vil kun sælge syge dyr." />
+		<text name="el_ui_herdsmanTooltip_sell_gender_1" text="Dyrepasseren vil kun sælge hunner." />
+		<text name="el_ui_herdsmanTooltip_sell_gender_2" text="Dyrepasseren vil sælge hunner og hanner" />
+		<text name="el_ui_herdsmanTooltip_sell_gender_3" text="Dyrepasseren vil kun sælge hanner" />
+		<text name="el_ui_herdsmanTooltip_sell_age_equal" text="Dyrepasseren vil kun sælge gamle dyr." />
+		<text name="el_ui_herdsmanTooltip_sell_age_range" text="Dyrepasseren vil kun sælge dyr, der er mellem %s og %s gamle." />
+		<text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Dyrepasseren vil kun sælge dyr med %s kvalitet." />
+		<text name="el_ui_herdsmanTooltip_sell_quality_range" text="Dyrepasseren vil kun sælge dyr med en kvalitet på mellem %s og %s." />
+		<text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Dyrepasseren vil kun sælge dyr med %s frugtbarhed." />
+		<text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Dyrepasseren vil kun sælge dyr med en frugtbarhed på mellem %s og %s." />
+		<text name="el_ui_herdsmanTooltip_sell_health_equal" text="Dyrepasseren vil kun sælge dyr med %s sundhed." />
+		<text name="el_ui_herdsmanTooltip_sell_health_range" text="Dyrepasseren vil kun sælge dyr med en sundhed på mellem %s og %s." />
+		<text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Dyrepasseren vil kun sælge dyr med %s produktivitet." />
+		<text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Dyrepasseren vil kun sælge dyr med en produktivitet på mellem %s og %s." />
+		<text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Dyrepasseren vil kun sælge dyr med %s stofskifte." />
+		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Dyrepasseren vil kun sælge dyr med et stofskifte på mellem %s og %s." />
 
 
-		<!-- AI - CASTRATING -->
+		!-- AI - NEUTERING -->
 
 
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Dyrepasseren vil ikke sterilisere"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Dyrepasseren vil ikke kastrer"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Dyrepasseren vil godt steriliser"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Dyrepasseren vil godt kastrer"/>
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Dyrepasseren vil ikke sterilisere" />
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Dyrepasseren vil ikke kastrer" />
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Dyrepasseren vil godt steriliser" />
+		<text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Dyrepasseren vil godt kastrer" />
 
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Dyrepasseren vil ikke markerer for sterilisation"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Dyrepasseren vil ikke markerer for kastaration"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Dyrepasseren vil godt markerer for sterilisation"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Dyrepasseren vil godt markerer for kastaration"/>
+		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Dyrepasseren vil ikke markerer for sterilisation" />
+		<text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Dyrepasseren vil ikke markerer for kastaration" />
+		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Dyrepasseren vil godt markerer for sterilisation" />
+		<text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Dyrepasseren vil godt markerer for kastaration" />
 
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Dyrepasseren vil sterilisere dyr uanset sygdomme"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Dyrepasseren vil kastrere dyr uanset sygdomme"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Dyrepasseren vil kun sterilisere syge dyr"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Dyrepasseren vil kun kastrerer syge dyr"/>
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Dyrepasseren vil sterilisere dyr uanset sygdomme" />
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Dyrepasseren vil kastrere dyr uanset sygdomme" />
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Dyrepasseren vil kun sterilisere syge dyr" />
+		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Dyrepasseren vil kun kastrerer syge dyr" />
 
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Dyrepasseren vil kun steriliserer dyr der er %s gammel"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Dyrepasseren vil kun kastrer dyr der er %s gammel"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="Dyrepasseren vil kun steriliserer dyr, der er mellem %s og %s gammel."/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Dyrepasseren vil kun kastrerer dyr, der er mellem %s og %s gammel."/>
+		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Dyrepasseren vil kun steriliserer dyr der er %s gammel" />
+		<text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Dyrepasseren vil kun kastrer dyr der er %s gammel" />
+		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="Dyrepasseren vil kun steriliserer dyr, der er mellem %s og %s gammel." />
+		<text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Dyrepasseren vil kun kastrerer dyr, der er mellem %s og %s gammel." />
 
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Dyrepasseren vil kun steriliserer dyr med %s kvalitet."/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Dyrepasseren vil kun kastrerer dyr med %s kvalitet."/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Dyrepasseren vil kun steriliserer dyr med en kvalitet på mellem %s og %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Dyrepasseren vil kun kastrerer dyr med en kvalitet på mellem %s og %s."/>
+		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Dyrepasseren vil kun steriliserer dyr med %s kvalitet." />
+		<text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Dyrepasseren vil kun kastrerer dyr med %s kvalitet." />
+		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Dyrepasseren vil kun steriliserer dyr med en kvalitet på mellem %s og %s." />
+		<text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Dyrepasseren vil kun kastrerer dyr med en kvalitet på mellem %s og %s." />
 
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Dyrepasseren vil kun steriliserer dyr med %s frugtbarhed."/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Dyrepasseren vil kun kastrerer dyr med %s frugtbarhed."/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Dyrepasseren vil kun steriliser dyr med en produktivitet på mellem %s og %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Dyrepasseren vil kun kastrerer dyr med en produktivitet på mellem %s og %s."/>
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Dyrepasseren vil kun steriliserer dyr med %s frugtbarhed." />
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Dyrepasseren vil kun kastrerer dyr med %s frugtbarhed." />
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Dyrepasseren vil kun steriliser dyr med en produktivitet på mellem %s og %s." />
+		<text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Dyrepasseren vil kun kastrerer dyr med en produktivitet på mellem %s og %s." />
 
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Dyrepasseren vil kun sterilisere dyr med %s helbred"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Dyrepasseren kastrerer kun dyr med %s helbred"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="Dyrepasseren vil kun sterilisere dyr med et helbred mellem %s og %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Dyrepasseren kastrerer kun dyr med et helbred mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Dyrepasseren vil kun sterilisere dyr med %s helbred" />
+		<text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Dyrepasseren kastrerer kun dyr med %s helbred" />
+		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="Dyrepasseren vil kun sterilisere dyr med et helbred mellem %s og %s" />
+		<text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Dyrepasseren kastrerer kun dyr med et helbred mellem %s og %s" />
 
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Dyrepasseren vil kun sterilisere dyr med %s produktivitet"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Dyrepasseren kastrerer kun dyr med %s produktivitet"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Dyrepasseren vil kun sterilisere dyr med en produktivitet mellem %s og %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Dyrepasseren vil kun kastrere dyr med en produktivitet mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Dyrepasseren vil kun sterilisere dyr med %s produktivitet" />
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Dyrepasseren kastrerer kun dyr med %s produktivitet" />
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Dyrepasseren vil kun sterilisere dyr med en produktivitet mellem %s og %s" />
+		<text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Dyrepasseren vil kun kastrere dyr med en produktivitet mellem %s og %s" />
 
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Dyrepasseren vil kun sterilisere dyr med %s stofskifte"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Dyrepasseren kastrerer kun dyr med %s stofskifte"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Dyrepasseren vil kun sterilisere dyr med et stofskifte mellem %s og %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Dyrepasseren kastrerer kun dyr med en stofskifte mellem %s og %s"/>
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Dyrepasseren vil kun sterilisere dyr med %s stofskifte" />
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Dyrepasseren kastrerer kun dyr med %s stofskifte" />
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Dyrepasseren vil kun sterilisere dyr med et stofskifte mellem %s og %s" />
+		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Dyrepasseren kastrerer kun dyr med en stofskifte mellem %s og %s" />
 
 
 		<!-- AI - NAMING -->
 
 
-		<text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Dyrepasseren vil ikke navngive dyrene"/>
-		<text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Dyrepasseren vil godt navngive dyrene"/>
+		<text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Dyrepasseren vil ikke navngive dyrene" />
+		<text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Dyrepasseren vil godt navngive dyrene" />
 
-		<text name="el_ui_herdsmanTooltip_naming_convention_1" text="Dyrepasseren vil navngive dyrene tilfældigt"/>
-		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="Dyrepasseren vil navngive dyrene alfabetisk"/>
-
-
-		<!-- AI - AI -->
+		<text name="el_ui_herdsmanTooltip_naming_convention_1" text="Dyrepasseren vil navngive dyrene tilfældigt" />
+		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="Dyrepasseren vil navngive dyrene alfabetisk" />
 
 
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Dyrepasseren vil ikke lave assisteret avl af dyrerne"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Dyrepasseren vil ikke lave assisteret inseminering(AI) af dyrerne"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Dyrepasseren vil godt lave assisteret avl af dyrerne"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Dyrepasseren vil godt lave assisteret inseminering(AI) af dyrerne"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Dyrepasseren vil avle op til %s dyr om dagen"/>
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Dyrepasseren vil lave AI op til %s dyr om dagen"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="Dyrepasseren vil ikke mærke dyrerne til inseminering"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Dyrepasseren vil ikke mærke dyrerne, der skal insemineres"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="Dyrepasseren vil godt mærke dyrerne til Inseminering"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Dyrepasseren vil godt mærke dyrerne der skal insemineres"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Dyrepasseren vil avle dyrerne uanset sygdomme"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Dyrepasseren vil AI-behandle dyrerne uanset sygdomme"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Dyrepasseren vil kun avle dyrerne med en sygdom"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Dyrepasseren vil kun AI-behandle dyrerne med en sygdom"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_semen" text="Dyrepasseren vil bruge sæd fra %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="Dyrepasseren vil bruge sæd fra %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable male juice"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Dyrepasseren vil bruge enhver levedygtig sæd"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="Dyrepasseren vil kun avle dyr, der er %s gamle"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Dyrepasseren vil kun AI-behandle dyr, der er %s gamle"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range" text="Dyrepasseren vil kun avle dyr, der er mellem %s og %s gamle"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Dyrepasseren vil kun AI-behandle dyr, der er mellem %s og %s gamle"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Dyrepasseren vil kun avle dyr med %s kvalitet"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s kvalitet"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="Dyrepasseren vil kun avle dyr med en kvalitet mellem %s og %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en kvalitet mellem %s og %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Dyrepasseren vil kun avle dyr med %s frugtbarhed"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s frugtbarhed"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Dyrepasseren vil kun avle dyr med en frugtbarhed mellem %s og %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en frugtbarhed mellem %s og %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="Dyrepasseren vil kun avle dyr med %s helbred"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s helbred"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range" text="Dyrepasseren vil kun avle dyr med et helbred mellem %s og %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Dyrepasseren vil kun AI-behandle dyr med et helbred mellem %s og %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Dyrepasseren vil kun avle dyr med %s produktivitet"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s produktivitet"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Dyrepasseren vil kun avle dyr med en produktivitet mellem %s og %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en produktivitet mellem %s og %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Dyrepasseren vil kun avle dyr med %s stofskifte"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s stofskifte"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Dyrepasseren vil kun avle dyr med en stofskifte mellem %s og %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en stofskifte mellem %s og %s"/>
+		<!-- AI - ASSISTED BREEDING -->
 
 
+		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Dyrepasseren vil ikke lave assisteret avl af dyrerne" />
+		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Dyrepasseren vil ikke lave assisteret inseminering(AI) af dyrerne" />
+		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Dyrepasseren vil godt lave assisteret avl af dyrerne" />
+		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Dyrepasseren vil godt lave assisteret inseminering(AI) af dyrerne" />
+
+		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Dyrepasseren vil avle op til %s dyr om dagen" />
+		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Dyrepasseren vil lave AI op til %s dyr om dagen" />
+
+		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="Dyrepasseren vil ikke mærke dyrerne til inseminering" />
+		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Dyrepasseren vil ikke mærke dyrerne, der skal insemineres" />
+		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="Dyrepasseren vil godt mærke dyrerne til Inseminering" />
+		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Dyrepasseren vil godt mærke dyrerne der skal insemineres" />
+
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Dyrepasseren vil avle dyrerne uanset sygdomme" />
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Dyrepasseren vil AI-behandle dyrerne uanset sygdomme" />
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Dyrepasseren vil kun avle dyrerne med en sygdom" />
+		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Dyrepasseren vil kun AI-behandle dyrerne med en sygdom" />
+
+		<text name="el_ui_herdsmanTooltip_ai_semen" text="Dyrepasseren vil bruge sæd fra %s" />
+		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="Dyrepasseren vil bruge sæd fra %s" />
+		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="The herdsman will use any viable male juice" />
+		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Dyrepasseren vil bruge enhver levedygtig sæd" />
+
+		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="Dyrepasseren vil kun avle dyr, der er %s gamle" />
+		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Dyrepasseren vil kun AI-behandle dyr, der er %s gamle" />
+		<text name="el_ui_herdsmanTooltip_ai_age_range" text="Dyrepasseren vil kun avle dyr, der er mellem %s og %s gamle" />
+		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Dyrepasseren vil kun AI-behandle dyr, der er mellem %s og %s gamle" />
+
+		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Dyrepasseren vil kun avle dyr med %s kvalitet" />
+		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s kvalitet" />
+		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="Dyrepasseren vil kun avle dyr med en kvalitet mellem %s og %s" />
+		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en kvalitet mellem %s og %s" />
+
+		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Dyrepasseren vil kun avle dyr med %s frugtbarhed" />
+		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s frugtbarhed" />
+		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Dyrepasseren vil kun avle dyr med en frugtbarhed mellem %s og %s" />
+		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en frugtbarhed mellem %s og %s" />
+
+		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="Dyrepasseren vil kun avle dyr med %s helbred" />
+		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s helbred" />
+		<text name="el_ui_herdsmanTooltip_ai_health_range" text="Dyrepasseren vil kun avle dyr med et helbred mellem %s og %s" />
+		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Dyrepasseren vil kun AI-behandle dyr med et helbred mellem %s og %s" />
+
+		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Dyrepasseren vil kun avle dyr med %s produktivitet" />
+		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s produktivitet" />
+		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Dyrepasseren vil kun avle dyr med en produktivitet mellem %s og %s" />
+		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en produktivitet mellem %s og %s" />
+
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Dyrepasseren vil kun avle dyr med %s stofskifte" />
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Dyrepasseren vil kun AI-behandle dyr med %s stofskifte" />
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Dyrepasseren vil kun avle dyr med en stofskifte mellem %s og %s" />
+		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Dyrepasseren vil kun AI-behandle dyr med en stofskifte mellem %s og %s" />
+
+		<!-- AI Rework System: Bull Tier Names -->
+		<text name="el_ui_bullTier_youngGenomic" text="Young (Genomic)"/>
+		<text name="el_ui_bullTier_proven" text="Proven"/>
+		<text name="el_ui_bullTier_elite" text="Elite"/>
+		<text name="el_ui_bullTier_legend" text="Legend"/>
+
+		<!-- AI Rework System: Semen Types -->
+		<text name="el_ui_semenType" text="Sample Type"/>
+		<text name="el_ui_semenType_github" text="Semen Type"/>
+		<text name="el_ui_semenType_conventional" text="Conventional"/>
+		<text name="el_ui_semenType_sexedFemale" text="Sexed (Female)"/>
+		<text name="el_ui_semenType_sexedMale" text="Sexed (Male)"/>
+
+		<!-- AI Rework System: Nitrogen System -->
+		<text name="el_ui_nitrogenLevel" text="Nitrogen Level"/>
+		<text name="el_warning_criticalNitrogen" text="CRITICAL: Nitrogen Empty!"/>
+		<text name="el_warning_dewarSpoiled" text="Dewar %s spoiled due to nitrogen depletion"/>
+		<text name="el_warning_thermalDamage" text="Semen fertility reduced due to thermal exposure"/>
+		<text name="el_action_refillNitrogen" text="Refill Nitrogen ($50)"/>
+		<text name="el_info_nitrogenAlreadyFull" text="Nitrogen level is already full"/>
+		<text name="el_notification_nitrogenRefilled" text="Nitrogen refilled for %s"/>
+
+		<!-- AI Rework System: Stock Management -->
+		<text name="el_ui_strawsAvailable" text="%d straws available"/>
+		<text name="el_ui_limitedStock" text="Limited stock: only %d available"/>
+		<text name="el_error_insufficientSemenStock" text="Not enough semen in stock"/>
+		<text name="el_error_noSexedSemenAvailable" text="No sexed semen available for this bull"/>
+
+		<!-- AI Rework System: Selling Semen -->
+		<text name="el_ui_sellSemen" text="Sell Semen"/>
+		<text name="el_error_onlyMalesCanSellSemen" text="Only male animals can sell semen"/>
+		<text name="el_error_animalTooYoung" text="Animal is too young to sell semen"/>
+		<text name="el_error_semenCollectionCooldown" text="Bull needs to rest before next semen collection"/>
+		<text name="el_notification_semenSold" text="Sold %d straws from %s for %s"/>
 
 		<!--  SETTINGS  -->
 
 
-		<text name="el_settings" text="Enhanced Livestock"/>
+		<text name="el_settings" text="Enhanced Livestock" />
 
-		<text name="el_settings_off" text="Off"/>
-		<text name="el_settings_on" text="On"/>
+		<text name="el_settings_off" text="Off" />
+		<text name="el_settings_on" text="On" />
 
-		<text name="el_settings_deathEnabled_label" text="Fjernelse af dyr"/>
-		<text name="el_settings_deathEnabled_label_github" text="Dødsfald"/>
-		<text name="el_settings_deathEnabled_tooltip_1" text="Dyr vil ikke blive fjernet på grund af graviditet, helbred, alder eller ulykker"/>
-		<text name="el_settings_deathEnabled_tooltip_1_github" text="Dyr vil ikke dø på grund af graviditet, helbred, alder eller ulykker"/>
-		<text name="el_settings_deathEnabled_tooltip_2" text="Dyr vil blive fjernet på grund af graviditet, helbred, alder eller ulykker"/>
-		<text name="el_settings_deathEnabled_tooltip_2_github" text="Dyr vil dø på grund af graviditet, helbred, alder eller ulykker"/>
+		<text name="el_settings_deathEnabled_label" text="Fjernelse af dyr" />
+		<text name="el_settings_deathEnabled_label_github" text="Dødsfald" />
+		<text name="el_settings_deathEnabled_tooltip_1" text="Dyr vil ikke blive fjernet på grund af graviditet, helbred, alder eller ulykker" />
+		<text name="el_settings_deathEnabled_tooltip_1_github" text="Dyr vil ikke dø på grund af graviditet, helbred, alder eller ulykker" />
+		<text name="el_settings_deathEnabled_tooltip_2" text="Dyr vil blive fjernet på grund af graviditet, helbred, alder eller ulykker" />
+		<text name="el_settings_deathEnabled_tooltip_2_github" text="Dyr vil dø på grund af graviditet, helbred, alder eller ulykker" />
 
-		<text name="el_settings_accidentsChance_label" text="Ulykkesrisiko"/>
-		<text name="el_settings_accidentsChance_tooltip" text="Ændre sandsynligheden for, at dyr fjernes på grund af tilfældige ulykker"/>
-		<text name="el_settings_accidentsChance_tooltip_github" text="Ændre sandsynligheden for, at dyr dør på grund af tilfældige ulykker"/>
+		<text name="el_settings_accidentsChance_label" text="Ulykkesrisiko" />
+		<text name="el_settings_accidentsChance_tooltip" text="Ændre sandsynligheden for, at dyr fjernes på grund af tilfældige ulykker" />
+		<text name="el_settings_accidentsChance_tooltip_github" text="Ændre sandsynligheden for, at dyr dør på grund af tilfældige ulykker" />
 
-		<text name="el_settings_foodScale_label" text="Madvægt"/>
-		<text name="el_settings_foodScale_tooltip" text="Ændre mængden af ​​mad, som dyrerne spiser"/>
+		<text name="el_settings_foodScale_label" text="Madvægt" />
+		<text name="el_settings_foodScale_tooltip" text="Ændre mængden af ​​mad, som dyrerne spiser" />
 
-		<text name="el_settings_maxDealerAnimals_label" text="Maks. antal Dyr Forhandler"/>
-		<text name="el_settings_maxDealerAnimals_tooltip" text="Ændr det maksimale antal dyr, som dyrehandleren må have på lager pr. dyretype"/>
+		<text name="el_settings_maxDealerAnimals_label" text="Maks. antal Dyr Forhandler" />
+		<text name="el_settings_maxDealerAnimals_tooltip" text="Ændr det maksimale antal dyr, som dyrehandleren må have på lager pr. dyretype" />
 
-		<text name="el_settings_resetDealer_label" text="Nulstil Dyrhandlen"/>
-		<text name="el_settings_resetDealer_tooltip" text="Fjern alle forhandlerens dyr og genopfyld lageret med nye dyr"/>
-		<text name="el_settings_resetDealer_text" text="Nulstil Dyrhandlen"/>
+		<text name="el_settings_resetDealer_label" text="Nulstil Dyrhandlen" />
+		<text name="el_settings_resetDealer_tooltip" text="Fjern alle forhandlerens dyr og genopfyld lageret med nye dyr" />
+		<text name="el_settings_resetDealer_text" text="Nulstil Dyrhandlen" />
 
-		<text name="el_settings_tagColour_label" text="Skift Øremærkes farve"/>
-		<text name="el_settings_tagColour_tooltip" text="Skift øremærkets farve"/>
-		<text name="el_settings_tagColour_text" text="Skift øremærkets farve"/>
+		<text name="el_settings_tagColour_label" text="Skift Øremærkes farve" />
+		<text name="el_settings_tagColour_tooltip" text="Skift øremærkets farve" />
+		<text name="el_settings_tagColour_text" text="Skift øremærkets farve" />
 
-		<text name="el_settings_exportCSV_label" text="eksporter til CSV"/>
-		<text name="el_settings_exportCSV_tooltip" text="Eksporter stats til CSV"/>
-		<text name="el_settings_exportCSV_text" text="Eksporter til CSV"/>
+		<text name="el_settings_exportCSV_label" text="eksporter til CSV" />
+		<text name="el_settings_exportCSV_tooltip" text="Eksporter stats til CSV" />
+		<text name="el_settings_exportCSV_text" text="Eksporter til CSV" />
 
-		<text name="el_settings_maxNumMessages_label" text="Maks. antal beskeder"/>
-		<text name="el_settings_maxNumMessages_tooltip" text="Et højere antal vil resultere i, at dit save game optager mere plads. Når denne grænse er nået, slettes de tidligste beskeder."/>
+		<text name="el_settings_maxNumMessages_label" text="Maks. antal beskeder" />
+		<text name="el_settings_maxNumMessages_tooltip" text="Et højere antal vil resultere i, at dit save game optager mere plads. Når denne grænse er nået, slettes de tidligste beskeder." />
 
-		<text name="el_settings_diseasesEnabled_label" text="Sygdomme aktiveret"/>
-		<text name="el_settings_diseasesEnabled_tooltip_1" text="Dyrerne kan ikke blive smittet med eller arve sygdomme"/>
-		<text name="el_settings_diseasesEnabled_tooltip_2" text="Dyrerne kan blive smittet med eller arve sygdomme"/>
+		<text name="el_settings_diseasesEnabled_label" text="Sygdomme aktiveret" />
+		<text name="el_settings_diseasesEnabled_tooltip_1" text="Dyrerne kan ikke blive smittet med eller arve sygdomme" />
+		<text name="el_settings_diseasesEnabled_tooltip_2" text="Dyrerne kan blive smittet med eller arve sygdomme" />
 
-		<text name="el_settings_diseasesChance_label" text="Sygdomsrisiko"/>
-		<text name="el_settings_diseasesChance_tooltip" text="Ændre sandsynligheden for, at dyrerne blive syge"/>
+		<text name="el_settings_diseasesChance_label" text="Sygdomsrisiko" />
+		<text name="el_settings_diseasesChance_tooltip" text="Ændre sandsynligheden for, at dyrerne blive syge" />
 
-		<text name="el_settings_useCustomAnimals_label" text="Brug brugerdefinerede dyr"/>
-		<text name="el_settings_useCustomAnimals_tooltip_1" text="Brug Realistisk Dyrhold dyremodeller (kræver genstart)"/>
-		<text name="el_settings_useCustomAnimals_tooltip_2" text="Brug brugerdefinerede dyremodeller (kræver genstart, skal udpakkes)"/>
+		<text name="el_settings_useCustomAnimals_label" text="Brug brugerdefinerede dyr" />
+		<text name="el_settings_useCustomAnimals_tooltip_1" text="Brug Realistisk Dyrhold dyremodeller (kræver genstart)" />
+		<text name="el_settings_useCustomAnimals_tooltip_2" text="Brug brugerdefinerede dyremodeller (kræver genstart, skal udpakkes)" />
 
-		<text name="el_settings_animalsXML_label" text="Angiv XML-sti for dyr"/>
-		<text name="el_settings_animalsXML_tooltip" text="Angiv sti til en brugerdefineret dyr XML-fil"/>
-		<text name="el_settings_animalsXML_text" text="Angiv XML-sti for dyr"/>
+		<text name="el_settings_animalsXML_label" text="Angiv XML-sti for dyr" />
+		<text name="el_settings_animalsXML_tooltip" text="Angiv sti til en brugerdefineret dyr XML-fil" />
+		<text name="el_settings_animalsXML_text" text="Angiv XML-sti for dyr" />
 
-		<text name="el_settings_earTagTextEnabled_label" text="Øremærketekst"/>
-		<text name="el_settings_earTagTextEnabled_tooltip" text="Slå visning af tekst på dyreøremærker til/fra"/>
+		<text name="el_settings_earTagTextEnabled_label" text="Øremærketekst" />
+		<text name="el_settings_earTagTextEnabled_tooltip" text="Slå visning af tekst på dyreøremærker til/fra" />
+
 
 		<!--  HELP  -->
 
 
-		<text name="el_help_monitors_title" text="Overvågning"/>
-		<text name="el_help_monitors_1" text="For at se størstedelen af ​​et dyrs statistikker skal du tilføje et overvågningsmærke til det, hvilket kan gøres via dyremenuen (hvor du køber og sælger dyr). Overvågningsmærker vises også visuelt på dyret, på deres venstre øre ved siden af ​​deres ID-mærke."/>
-		<text name="el_help_monitors_2" text="Overvågning af mærker vil resultere i, at du får vist vigtige oplysninger, herunder sundhed, vægt, laktation, produktion samt behov for halm, foder og vand."/>
-		<text name="el_help_monitors_3" text="Det koster et lille månedligt abonnement at sætte et mærke på et dyr, afhængigt af dyrets art. Hvis du vælger at fjerne mærket, vil det blive fjernet i starten af ​​den næste måned."/>
+		<text name="el_help_monitors_title" text="Overvågning" />
+		<text name="el_help_monitors_1" text="For at se størstedelen af ​​et dyrs statistikker skal du tilføje et overvågningsmærke til det, hvilket kan gøres via dyremenuen (hvor du køber og sælger dyr). Overvågningsmærker vises også visuelt på dyret, på deres venstre øre ved siden af ​​deres ID-mærke." />
+		<text name="el_help_monitors_2" text="Overvågning af mærker vil resultere i, at du får vist vigtige oplysninger, herunder sundhed, vægt, laktation, produktion samt behov for halm, foder og vand." />
+		<text name="el_help_monitors_3" text="Det koster et lille månedligt abonnement at sætte et mærke på et dyr, afhængigt af dyrets art. Hvis du vælger at fjerne mærket, vil det blive fjernet i starten af ​​den næste måned." />
 
-		<text name="el_help_pregnancy_title" text="At få unger"/>
-		<text name="el_help_pregnancy_title_github" text="Drægtighed"/>
-		<text name="el_help_pregnancy_1" text="Hunner kræver mindst én han for at få unger. Begge dyr skal være sunde og have den rette alder, og skal være af samme art. Avl mellem forskellige racer (f.eks.: Holsteinko og Angustyr) er tilladt."/>
-		<text name="el_help_pregnancy_1_github" text="Alle hunner kræver mindst én han for potentielt at blive drægtige. Begge dyr skal have den rette alder og sundhedstilstand og skal være af samme art. Avl mellem forskellige racer (f.eks.: Holsteinko og Angustyr) er tilladt."/>
-		<text name="el_help_pregnancy_2" text="Nære slægtninge vil ikke parre sig. Hvis en han og en hun er direkte beslægtede, vil de ikke avle sammen."/>
-		<text name="el_help_pregnancy_2_github" text="Indavl er ikke tilladt. Hvis en han og en hun er direkte beslægtede, vil det ikke være muligt at avle på dem."/>
-		<text name="el_help_pregnancy_3" text="Chancen for, at en hun får unger, afhænger af både hendes og hannens fertilitet. En hun med højere fertilitet har også en betydeligt højere chance for at få flere afkom på én gang."/>
-		<text name="el_help_pregnancy_3_github" text="Chancen for, at en hun bliver drægtig, afhænger af både hendes og hannens fertilitet. En hun med højere fertilitet har også en betydeligt højere chance for at få flere afkom på én gang."/>
-		<text name="el_help_pregnancy_4" text="Når en hun forventer unger, begynder hun at bære sine afkom. Du kan se den forventede fødselsdato og antallet af afkom ved at se på dyret i folden eller ved at klikke på hende i dyremenuen."/>
-		<text name="el_help_pregnancy_4_github" text="Når en hun bliver drægtig, begynder hun at bære sine afkom. Du kan se den forventede drægtighedsdato og antallet af afkom ved at se på dyret i folden eller ved at klikke på hende i dyremenuen."/>
-		<text name="el_help_pregnancy_5" text="Når hun når sin fødselsdato, vil de nye unger ankomme. Der er dog en lille chance for, at ungerne eller moderen kan mistes, hvis der opstår komplikationer. Unger, der er født i en overfyldt fold, vil blive solgt automatisk."/>
-		<text name="el_help_pregnancy_5_github" text="Når hun når sin terminsdato, vil hun føde sine unger. De nyfødte har dog en vis chance for at blive fjernet, ligesom moderen, hvis drægtigheden går dårligt. Nyfødte, der er født i en overfyldt fold, vil blive solgt automatisk."/>
+		<text name="el_help_pregnancy_title" text="At få unger" />
+		<text name="el_help_pregnancy_title_github" text="Drægtighed" />
+		<text name="el_help_pregnancy_1" text="Hunner kræver mindst én han for at få unger. Begge dyr skal være sunde og have den rette alder, og skal være af samme art. Avl mellem forskellige racer (f.eks.: Holsteinko og Angustyr) er tilladt." />
+		<text name="el_help_pregnancy_1_github" text="Alle hunner kræver mindst én han for potentielt at blive drægtige. Begge dyr skal have den rette alder og sundhedstilstand og skal være af samme art. Avl mellem forskellige racer (f.eks.: Holsteinko og Angustyr) er tilladt." />
+		<text name="el_help_pregnancy_2" text="Nære slægtninge vil ikke parre sig. Hvis en han og en hun er direkte beslægtede, vil de ikke avle sammen." />
+		<text name="el_help_pregnancy_2_github" text="Indavl er ikke tilladt. Hvis en han og en hun er direkte beslægtede, vil det ikke være muligt at avle på dem." />
+		<text name="el_help_pregnancy_3" text="Chancen for, at en hun får unger, afhænger af både hendes og hannens fertilitet. En hun med højere fertilitet har også en betydeligt højere chance for at få flere afkom på én gang." />
+		<text name="el_help_pregnancy_3_github" text="Chancen for, at en hun bliver drægtig, afhænger af både hendes og hannens fertilitet. En hun med højere fertilitet har også en betydeligt højere chance for at få flere afkom på én gang." />
+		<text name="el_help_pregnancy_4" text="Når en hun forventer unger, begynder hun at bære sine afkom. Du kan se den forventede fødselsdato og antallet af afkom ved at se på dyret i folden eller ved at klikke på hende i dyremenuen." />
+		<text name="el_help_pregnancy_4_github" text="Når en hun bliver drægtig, begynder hun at bære sine afkom. Du kan se den forventede drægtighedsdato og antallet af afkom ved at se på dyret i folden eller ved at klikke på hende i dyremenuen." />
+		<text name="el_help_pregnancy_5" text="Når hun når sin fødselsdato, vil de nye unger ankomme. Der er dog en lille chance for, at ungerne eller moderen kan mistes, hvis der opstår komplikationer. Unger, der er født i en overfyldt fold, vil blive solgt automatisk." />
+		<text name="el_help_pregnancy_5_github" text="Når hun når sin terminsdato, vil hun føde sine unger. De nyfødte har dog en vis chance for at blive fjernet, ligesom moderen, hvis drægtigheden går dårligt. Nyfødte, der er født i en overfyldt fold, vil blive solgt automatisk." />
 
-		<text name="el_help_production_title" text="Produktion"/>
-		<text name="el_help_production_1" text="Køer af enhver race vil først begynde at producere mælk efter fødslen. Når koen har født, vil den producere mælk eksponentielt i 3 måneder, hvorefter dens produktion langsomt vil falde i de næste 6 måneder. 10 måneder efter drægtigheden vil koen stoppe med at producere mælk indtil sin næste drægtighed."/>
-		<text name="el_help_production_2" text="Får producerer uld i de varme måneder. I de kolde måneder, under 12 grader, producerer de ikke uld."/>
-		<text name="el_help_production_3" text="Mælke-, uld- og ægproduktion påvirkes yderligere af dyrets genetik. Et dyr med god produktionsgenetik vil producere mere, hvorimod dyr med dårlig genetik slet ikke vil producere meget."/>
+		<text name="el_help_production_title" text="Produktion" />
+		<text name="el_help_production_1" text="Køer af enhver race vil først begynde at producere mælk efter fødslen. Når koen har født, vil den producere mælk eksponentielt i 3 måneder, hvorefter dens produktion langsomt vil falde i de næste 6 måneder. 10 måneder efter drægtigheden vil koen stoppe med at producere mælk indtil sin næste drægtighed." />
+		<text name="el_help_production_2" text="Får producerer uld i de varme måneder. I de kolde måneder, under 12 grader, producerer de ikke uld." />
+		<text name="el_help_production_3" text="Mælke-, uld- og ægproduktion påvirkes yderligere af dyrets genetik. Et dyr med god produktionsgenetik vil producere mere, hvorimod dyr med dårlig genetik slet ikke vil producere meget." />
 
-		<text name="el_help_weight_title" text="Vægt"/>
-		<text name="el_help_weight_1" text="Dyr har en bestemt vægt, som påvirkes af, hvor meget de spiser og drikker. Hver art og race har sin egen gennemsnitsvægt, som påvirker hvert dyrs vægt."/>
-		<text name="el_help_weight_2" text="Vægt øger dyrets værdi, og en lav vægt påvirker dets chance for at blive fjernet hver måned."/>
+		<text name="el_help_weight_title" text="Vægt" />
+		<text name="el_help_weight_1" text="Dyr har en bestemt vægt, som påvirkes af, hvor meget de spiser og drikker. Hver art og race har sin egen gennemsnitsvægt, som påvirker hvert dyrs vægt." />
+		<text name="el_help_weight_2" text="Vægt øger dyrets værdi, og en lav vægt påvirker dets chance for at blive fjernet hver måned." />
 
-		<text name="el_help_genetics_title" text="Genetik"/>
-		<text name="el_help_genetics_1" text="Hvert dyr har 4 forskellige genetiske værdier; stofskifte, fertilitet, sundhed og kvalitet. Genetikken blandes mellem mor og far og gives derefter videre til deres afkom."/>
-		<text name="el_help_genetics_2" text="Stofskiftet påvirker dyrets evne til at omdanne føde til vægt, og påvirker den mængde, det spiser."/>
-		<text name="el_help_genetics_3" text="Fertilitet påvirker chancen for at få unger med succes, og antallet af afkom, forældrene vil producere."/>
-		<text name="el_help_genetics_3_github" text="Fertilitet påvirker dyrets chance for at blive drægtig, eller at få en hun drægtig, og antallet af afkom, det vil producere."/>
-		<text name="el_help_genetics_4" text="Sundhed påvirker dyrets helbred og dets chance for at blive fjernet hver måned. Et dyr med højere sundhedsgenetik vil også have en længere levetid."/>
-		<text name="el_help_genetics_5" text="Kvaliteten påvirker selve dyrets værdi, et dyr med højere kvalitet vil sælges for meget mere."/>
-		<text name="el_help_genetics_6" text="Kvæg, får og kyllinger har også produktionsgenetik, som påvirker, hvor meget mælk/æg/uld de producerer."/>
-
+		<text name="el_help_genetics_title" text="Genetik" />
+		<text name="el_help_genetics_1" text="Hvert dyr har 4 forskellige genetiske værdier; stofskifte, fertilitet, sundhed og kvalitet. Genetikken blandes mellem mor og far og gives derefter videre til deres afkom." />
+		<text name="el_help_genetics_2" text="Stofskiftet påvirker dyrets evne til at omdanne føde til vægt, og påvirker den mængde, det spiser." />
+		<text name="el_help_genetics_3" text="Fertilitet påvirker chancen for at få unger med succes, og antallet af afkom, forældrene vil producere." />
+		<text name="el_help_genetics_3_github" text="Fertilitet påvirker dyrets chance for at blive drægtig, eller at få en hun drægtig, og antallet af afkom, det vil producere." />
+		<text name="el_help_genetics_4" text="Sundhed påvirker dyrets helbred og dets chance for at blive fjernet hver måned. Et dyr med højere sundhedsgenetik vil også have en længere levetid." />
+		<text name="el_help_genetics_5" text="Kvaliteten påvirker selve dyrets værdi, et dyr med højere kvalitet vil sælges for meget mere." />
+		<text name="el_help_genetics_6" text="Kvæg, får og kyllinger har også produktionsgenetik, som påvirker, hvor meget mælk/æg/uld de producerer." />
 
 
 		<!--  DISEASES  -->
 
 
-		<text name="el_ui_immune" text="Immun"/>
-		<text name="el_ui_startTreatment" text="Start behandling"/>
-		<text name="el_ui_resumeTreatment" text="Genoptag behandling"/>
-		<text name="el_ui_stopTreatment" text="Stop behandling"/>
-		<text name="el_ui_duration" text="Varighed"/>
-		<text name="el_ui_beingTreated" text="Under Behandling"/>
-		<text name="el_ui_notTreated" text="Ikke Behandlet"/>
-		<text name="el_ui_carrier" text="Sygdomsbærer"/>
+		<text name="el_ui_immune" text="Immun" />
+		<text name="el_ui_startTreatment" text="Start behandling" />
+		<text name="el_ui_resumeTreatment" text="Genoptag behandling" />
+		<text name="el_ui_stopTreatment" text="Stop behandling" />
+		<text name="el_ui_duration" text="Varighed" />
+		<text name="el_ui_beingTreated" text="Under Behandling" />
+		<text name="el_ui_notTreated" text="Ikke Behandlet" />
+		<text name="el_ui_carrier" text="Sygdomsbærer" />
 
-		<text name="el_diseases" text="Sygdomme"/>
-		<text name="el_disease" text="Sygdom"/>
+		<text name="el_diseases" text="Sygdomme" />
+		<text name="el_disease" text="Sygdom" />
 
-		<text name="el_disease_mastitis" text="Mastitis"/>
-
-		<text name="el_disease_cvm" text="CVM"/>
-
-		<text name="el_disease_footAndMouth" text="Mund og Klov"/>
-
-		<text name="el_disease_ped" text="Porchine diarré hos svin"/>
-
-		<text name="el_disease_avianFlu" text="Fugleinfluenza"/>
-
+		<text name="el_disease_mastitis" text="Mastitis" />
+		<text name="el_disease_cvm" text="CVM" />
+		<text name="el_disease_footAndMouth" text="Mund og Klov" />
+		<text name="el_disease_ped" text="Porchine diarré hos svin" />
+		<text name="el_disease_avianFlu" text="Fugleinfluenza" />
 		<text name="el_disease_colic" text="Kolik"/>
 		<text name="el_disease_laminitis" text="Forfangenhed"/>
 		<text name="el_disease_arthritis" text="Gigt"/>
@@ -678,99 +704,102 @@
 		<text name="el_disease_infectiousBronchitis_desc" text="Meget smitsom viral luftvejssygdom. Beskadiger reproduktionstrakt permanent."/>
 
 
-
 		<!--  MESSAGES  -->
 
+		<text name="el_messageTitle_pregnancy" text="Drægtig" />
+		<text name="el_messageTitle_death" text="Fjernes" />
+		<text name="el_messageTitle_death_github" text="Død" />
+		<text name="el_messageTitle_disease" text="Sygdom" />
+		<text name="el_messageTitle_name" text="Navn" />
+		<text name="el_messageTitle_movement" text="Bevægelse" />
+		<text name="el_messageTitle_aiManager" text="Dyrpasser" />
+		<text name="el_messageTitle_insemination" text="Assisteret avl" />
+		<text name="el_messageTitle_insemination_github" text="Kunstig insemination" />
 
-		<text name="el_messageTitle_pregnancy" text="Drægtig"/>
-		<text name="el_messageTitle_death" text="Fjernes"/>
-		<text name="el_messageTitle_death_github" text="Død"/>
-		<text name="el_messageTitle_disease" text="Sygdom"/>
-		<text name="el_messageTitle_name" text="Navn"/>
-		<text name="el_messageTitle_movement" text="Bevægelse"/>
-		<text name="el_messageTitle_aiManager" text="Dyrpasser"/>
-		<text name="el_messageTitle_insemination" text="Assisteret avl"/>
-		<text name="el_messageTitle_insemination_github" text="Kunstig insemination"/>
-
-		<text name="el_message_pregnancySingle" text="Fødte 1 baby"/>
-		<text name="el_message_pregnancyMultiple" text="Fødte %s babyer"/>
-		<text name="el_message_pregnancySold" text="%s Babyer blev solgt for %s på grund af overbelægning"/>
-		<text name="el_message_pregnancyDied" text="%s babyer blev fjernet ved fødslen"/>
-		<text name="el_message_pregnancyDied_github" text="%s babyer døde ved fødslen"/>
-		<text name="el_message_death" text="Fjernet pga. %s"/>
-		<text name="el_message_death_github" text="Døde pga. %s"/>
-		<text name="el_message_diseaseContracted" text="Smittet %s"/>
-		<text name="el_message_diseaseCured" text="Helbredt for %s"/>
-		<text name="el_message_diseaseTreatment_start" text="Startet behandling for %s ved %s"/>
-		<text name="el_message_diseaseTreatment_resume" text="Genoptog behandling for %s ved %s"/>
-		<text name="el_message_diseaseTreatment_stop" text="Stoppet behandling for %s"/>
-		<text name="el_message_nameChange" text="Navn ændret fra '%s' til '%s'"/>
-		<text name="el_message_nameAdded" text="Fik navn '%s'"/>
-		<text name="el_message_nameDeleted" text="navn '%s' blev fjernet"/>
-		<text name="el_message_boughtAnimals_single" text="1 dyr blev købt for %s"/>
-		<text name="el_message_boughtAnimals_multiple" text="%s dyrerne blev købt til %s"/>
-		<text name="el_message_soldAnimals_single" text="1 dyr blev solgt for %s"/>
-		<text name="el_message_soldAnimals_multiple" text="%s dyrerne blev solgt for %s"/>
-		<text name="el_message_movedAnimalsTo_single" text="1 dyr blev flyttet til %s"/>
-		<text name="el_message_movedAnimalsTo_multiple" text="%s Dyrerne blev flyttet til %s"/>
-		<text name="el_message_movedAnimalsFrom_single" text="1 dyr blev flyttet fra %s"/>
-		<text name="el_message_movedAnimalsFrom_multiple" text="%s dyrerne blev flyttet fra %s"/>
-		<text name="el_message_aiManager_boughtAnimals_single" text="Dyrpasser købte et dyr for %s"/>
-		<text name="el_message_aiManager_boughtAnimals_multiple" text="Hyrden købte %s dyr for %s"/>
-		<text name="el_message_aiManager_soldAnimals_single" text="Hyrden solgte et dyr for %s"/>
-		<text name="el_message_aiManager_soldAnimals_multiple" text="Hyrden solgte %s dyrerne for %s"/>
-		<text name="el_message_aiManager_castrated_single" text="Hyrden steriliserede et dyr"/>
-		<text name="el_message_aiManager_castrated_single_github" text="Hyrden kastrerede et dyr"/>
-		<text name="el_message_aiManager_castrated_multiple" text="Hyrden steriliserede %s dyr"/>
-		<text name="el_message_aiManager_castrated_multiple_github" text="Hyrden kastrerede %s dyr"/>
-		<text name="el_message_aiManager_named_single" text="Hyrden navngav 1 dyr"/>
-		<text name="el_message_aiManager_named_multiple" text="Hyrden navngav %s dyr"/>
-		<text name="el_message_aiManager_mark_sell_single" text="Hyrden har mærket et dyr for salg"/>
-		<text name="el_message_aiManager_mark_sell_multiple" text="Hyrden har mærket %s dyr til salg"/>
-		<text name="el_message_aiManager_mark_castrate_single" text="Hyrden har mærket 1 dyr til sterilisering"/>
-		<text name="el_message_aiManager_mark_castrate_single_github" text="Hyrden har mærket 1 dyr til kastration"/>
-		<text name="el_message_aiManager_mark_castrate_multiple" text="Hyrden har mærket %s dyr til sterilisering"/>
-		<text name="el_message_aiManager_mark_castrate_multiple_github" text="Hyrden har mærket %s dyr til kastration"/>
-		<text name="el_message_aiManager_mark_disease_single" text="Hyrden har mræket et dyr for behandling"/>
-		<text name="el_message_aiManager_mark_disease_multiple" text="Hyrden har mærket %s dyr for behandling"/>
-		<text name="el_message_insemination_success" text="Assisteret insemination var en succes"/>
-		<text name="el_message_insemination_success_github" text="Inseminering var en success"/>
-		<text name="el_message_insemination_fail" text="Assisteret insemination gik galt"/>
-		<text name="el_message_insemination_fail_github" text="Inseminering gik galt"/>
-		<text name="el_message_aiManager_mark_ai_single" text="Hyrden har mærket 1 dyr til AI"/>
-		<text name="el_message_aiManager_mark_ai_single_github" text="Dyrpasser markerede 1 dyr til AI"/>
-		<text name="el_message_aiManager_mark_ai_multiple" text="Hyrden har mærket %s dyr til AI"/>
-		<text name="el_message_aiManager_mark_ai_multiple_github" text="Dyrpasser markerede %s dyr til AI"/>
-		<text name="el_message_aiManager_ai_single" text="Hyrden har med succes gjort et dyr drægtig"/>
-		<text name="el_message_aiManager_ai_single_github" text="Hyrden inseminerede 1 dyr"/>
-		<text name="el_message_aiManager_ai_multiple" text="Hyrden har med succes gjort %s dyr drægtige"/>
-		<text name="el_message_aiManager_ai_multiple_github" text="Hyrden inseminerede %s dyr"/>
-
+		<text name="el_message_pregnancySingle" text="Fødte 1 baby" />
+		<text name="el_message_pregnancyMultiple" text="Fødte %s babyer" />
+		<text name="el_message_pregnancySold" text="%s Babyer blev solgt for %s på grund af overbelægning" />
+		<text name="el_message_pregnancyDied" text="%s babyer blev fjernet ved fødslen" />
+		<text name="el_message_pregnancyDied_github" text="%s babyer døde ved fødslen" />
+		<text name="el_message_death" text="Fjernet pga. %s" />
+		<text name="el_message_death_github" text="Døde pga. %s" />
+		<text name="el_message_diseaseContracted" text="Smittet %s" />
+		<text name="el_message_diseaseCured" text="Helbredt for %s" />
+		<text name="el_message_diseaseTreatment_start" text="Startet behandling for %s ved %s" />
+		<text name="el_message_diseaseTreatment_resume" text="Genoptog behandling for %s ved %s" />
+		<text name="el_message_diseaseTreatment_stop" text="Stoppet behandling for %s" />
+		<text name="el_message_nameChange" text="Navn ændret fra '%s' til '%s'" />
+		<text name="el_message_nameAdded" text="Fik navn '%s'" />
+		<text name="el_message_nameDeleted" text="navn '%s' blev fjernet" />
+		<text name="el_message_boughtAnimals_single" text="1 dyr blev købt for %s" />
+		<text name="el_message_boughtAnimals_multiple" text="%s dyrerne blev købt til %s" />
+		<text name="el_message_soldAnimals_single" text="1 dyr blev solgt for %s" />
+		<text name="el_message_soldAnimals_multiple" text="%s dyrerne blev solgt for %s" />
+		<text name="el_message_movedAnimalsTo_single" text="1 dyr blev flyttet til %s" />
+		<text name="el_message_movedAnimalsTo_multiple" text="%s Dyrerne blev flyttet til %s" />
+		<text name="el_message_movedAnimalsFrom_single" text="1 dyr blev flyttet fra %s" />
+		<text name="el_message_movedAnimalsFrom_multiple" text="%s dyrerne blev flyttet fra %s" />
+		<text name="el_message_aiManager_boughtAnimals_single" text="Dyrpasser købte et dyr for %s" />
+		<text name="el_message_aiManager_boughtAnimals_multiple" text="Hyrden købte %s dyr for %s" />
+		<text name="el_message_aiManager_soldAnimals_single" text="Hyrden solgte et dyr for %s" />
+		<text name="el_message_aiManager_soldAnimals_multiple" text="Hyrden solgte %s dyrerne for %s" />
+		<text name="el_message_aiManager_castrated_single" text="Hyrden steriliserede et dyr" />
+		<text name="el_message_aiManager_castrated_single_github" text="Hyrden kastrerede et dyr" />
+		<text name="el_message_aiManager_castrated_multiple" text="Hyrden steriliserede %s dyr" />
+		<text name="el_message_aiManager_castrated_multiple_github" text="Hyrden kastrerede %s dyr" />
+		<text name="el_message_aiManager_named_single" text="Hyrden navngav 1 dyr" />
+		<text name="el_message_aiManager_named_multiple" text="Hyrden navngav %s dyr" />
+		<text name="el_message_aiManager_mark_sell_single" text="Hyrden har mærket et dyr for salg" />
+		<text name="el_message_aiManager_mark_sell_multiple" text="Hyrden har mærket %s dyr til salg" />
+		<text name="el_message_aiManager_mark_castrate_single" text="Hyrden har mærket 1 dyr til sterilisering" />
+		<text name="el_message_aiManager_mark_castrate_single_github" text="Hyrden har mærket 1 dyr til kastration" />
+		<text name="el_message_aiManager_mark_castrate_multiple" text="Hyrden har mærket %s dyr til sterilisering" />
+		<text name="el_message_aiManager_mark_castrate_multiple_github" text="Hyrden har mærket %s dyr til kastration" />
+		<text name="el_message_aiManager_mark_disease_single" text="Hyrden har mræket et dyr for behandling" />
+		<text name="el_message_aiManager_mark_disease_multiple" text="Hyrden har mærket %s dyr for behandling" />
+		<text name="el_message_insemination_success" text="Assisteret insemination var en succes" />
+		<text name="el_message_insemination_success_github" text="Inseminering var en success" />
+		<text name="el_message_insemination_fail" text="Assisteret insemination gik galt" />
+		<text name="el_message_insemination_fail_github" text="Inseminering gik galt" />
+		<text name="el_message_aiManager_mark_ai_single" text="Hyrden har mærket 1 dyr til AI" />
+		<text name="el_message_aiManager_mark_ai_single_github" text="Dyrpasser markerede 1 dyr til AI" />
+		<text name="el_message_aiManager_mark_ai_multiple" text="Hyrden har mærket %s dyr til AI" />
+		<text name="el_message_aiManager_mark_ai_multiple_github" text="Dyrpasser markerede %s dyr til AI" />
+		<text name="el_message_aiManager_ai_single" text="Hyrden har med succes gjort et dyr drægtig" />
+		<text name="el_message_aiManager_ai_single_github" text="Hyrden inseminerede 1 dyr" />
+		<text name="el_message_aiManager_ai_multiple" text="Hyrden har med succes gjort %s dyr drægtige" />
+		<text name="el_message_aiManager_ai_multiple_github" text="Hyrden inseminerede %s dyr" />
 
 
 		<!--  DEATHS  -->
 
 
-		<text name="el_death_pregnancy" text="En dårlig graviditet"/>
-		<text name="el_death_health" text="Lavt helbred"/>
-		<text name="el_death_age" text="Alderdom"/>
-		<text name="el_death_accident" text="Ulykke"/>
+		<text name="el_death_pregnancy" text="En dårlig graviditet" />
+		<text name="el_death_health" text="Lavt helbred" />
+		<text name="el_death_age" text="Alderdom" />
+		<text name="el_death_accident" text="Ulykke" />
+
+		<!-- Dependencies -->
+
+		<text name="el_ui_dependencies_missing" text="Enhanced Livestock requires the following dependencies:"/>
+		<text name="el_ui_dependency_missing_notInstalled" text="- %s (Not installed)"/>
+		<text name="el_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum required: %s)"/>
 
 		<!-- EPP BUTCHER INTEGRATION -->
 
-		<text name="el_epp_butcher_processed" text="Dyr behandlet hos slagter: %s kg %s"/>
-		<text name="el_epp_butcher_delivered" text="%s leveret til slagter (%.2fx %s)"/>
+		<text name="el_epp_butcher_processed" text="Dyr behandlet hos slagter: %s kg %s" />
+		<text name="el_epp_butcher_delivered" text="%s leveret til slagter (%.2fx %s)" />
 
 		<!-- MIGRATION -->
 
-		<text name="el_conflict_title" text="Mod-konflikt opdaget"/>
-		<text name="el_mod_conflict_message" text="Følgende mod(s) er i konflikt med 'Enhanced Livestock' og kan ikke bruges sammen: %s &#10;&#10;Deaktiver venligst de konfliktende mod(s) og genstart spillet."/>
+		<text name="el_conflict_title" text="Mod-konflikt opdaget" />
+		<text name="el_mod_conflict_message" text="Følgende mod(s) er i konflikt med 'Enhanced Livestock' og kan ikke bruges sammen: %s &#10;&#10;Deaktiver venligst de konfliktende mod(s) og genstart spillet." />
 
-		<text name="el_migration_title" text="Meddelelse om datamigrering"/>
-		<text name="el_migration_message" text="Tidligere Realistic Livestock-data blev fundet i denne gemte fil. Dine indstillinger, dyredata, Dewars og AI Straw-håndværktøj vil automatisk blive migreret til Enhanced Livestock, når spillet gemmer."/>
-		<text name="el_migration_files_found" text="Fundne datafiler:"/>
-		<text name="el_migration_continue" text="Fortsæt"/>
-		<text name="el_migration_quit" text="Afslut"/>
+		<text name="el_migration_title" text="Meddelelse om datamigrering" />
+		<text name="el_migration_message" text="Tidligere Realistic Livestock-data blev fundet i denne gemte fil. Dine indstillinger, dyredata, Dewars og AI Straw-håndværktøj vil automatisk blive migreret til Enhanced Livestock, når spillet gemmer." />
+		<text name="el_migration_files_found" text="Fundne datafiler:" />
+		<text name="el_migration_continue" text="Fortsæt" />
+		<text name="el_migration_quit" text="Afslut" />
 
-	</texts>
+    </texts>
 </l10n>

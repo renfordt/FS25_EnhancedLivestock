@@ -202,11 +202,14 @@ FinanceStats.statNameToIndex["medicine"] = #FinanceStats.statNames
 function EnhancedLivestock.loadMap()
 
 	EnhancedLivestock.mapAreaCode = EnhancedLivestock.MAP_TO_AREA_CODE[g_currentMission.missionInfo.mapTitle] or 1
-	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "rlHelpIcons")
+	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "elHelpIcons")
 	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/icons.xml", "enhanced_livestock")
 	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/fileTypeIcons.xml", "fileTypeIcons")
 	g_elConsoleCommandManager = ELConsoleCommandManager.new()
 	g_diseaseManager = DiseaseManager.new()
+
+	-- Subscribe DewarManager to day changed event for nitrogen degradation
+	g_messageCenter:subscribe(MessageType.DAY_CHANGED, g_dewarManager.onDayChanged, g_dewarManager)
 
 	MoneyType.HERDSMAN_WAGES = MoneyType.register("herdsmanWages", "el_ui_herdsmanWages")
 	MoneyType.LAST_ID = MoneyType.LAST_ID + 1
@@ -1076,7 +1079,11 @@ function EnhancedLivestock.hasMaleAnimalInPen(spec, subT, female)
 	end
 
 	local clusterSystem = spec.clusterSystem or spec
-	if clusterSystem == nil or clusterSystem.getAnimals == nil or clusterSystem:getAnimals() == nil or female.genetics.fertility <= 0 then
+	if clusterSystem == nil or clusterSystem.getAnimals == nil or clusterSystem:getAnimals() == nil then
+		return false
+	end
+
+	if female ~= nil and female.genetics.fertility <= 0 then
 		return false
 	end
 

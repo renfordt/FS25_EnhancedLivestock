@@ -222,6 +222,14 @@ function EnhancedLivestock_AnimalScreen:onGuiSetupFinished()
 
 	self.aiQuantitySelector:setTexts(aiQuantityTexts)
 
+	-- Initialize semen type selector
+	local semenTypeTexts = {
+		g_i18n:getText("el_ui_semenType_conventional"),
+		g_i18n:getText("el_ui_semenType_sexedFemale"),
+		g_i18n:getText("el_ui_semenType_sexedMale")
+	}
+	self.aiSemenTypeSelector:setTexts(semenTypeTexts)
+
 end
 
 AnimalScreen.onGuiSetupFinished = Utils.appendedFunction(AnimalScreen.onGuiSetupFinished, EnhancedLivestock_AnimalScreen.onGuiSetupFinished)
@@ -365,6 +373,9 @@ function AnimalScreen:onClickAIMode()
 	self.buttonDeleteMessage:setVisible(false)
 	self.buttonApplyHerdsmanSettings:setVisible(false)
 	self.buttonCastrate:setVisible(false)
+	if self.buttonSellSemen ~= nil then
+		self.buttonSellSemen:setVisible(false)
+	end
 	self.buttonBuyAI:setVisible(true)
 	self.buttonFavourite:setVisible(true)
 
@@ -416,6 +427,23 @@ function AnimalScreen:onClickBuyAI()
 		return
 	end
 
+	local quantity = AnimalScreen.DEWAR_QUANTITIES[self.aiQuantitySelector:getState()]
+	local semenType = self.selectedSemenType or SemenType.CONVENTIONAL
+
+	-- Clamp quantity to available stock (quantity selector should already limit this)
+	local maxAvailableQuantity = animal.availableStraws or 1000
+	if semenType == SemenType.SEXED_FEMALE or semenType == SemenType.SEXED_MALE then
+		maxAvailableQuantity = math.floor((animal.availableStraws or 1000) * 0.1)
+	end
+
+	-- Final safety clamp in case selector state is out of sync
+	quantity = math.min(quantity, maxAvailableQuantity)
+
+	if quantity < 1 then
+		-- Not enough stock available
+		return
+	end
+
 	local spawnPlaces, usedPlaces = g_currentMission.storeSpawnPlaces, g_currentMission.usedStorePlaces
 
 	local x, y, z, place, width = PlacementUtil.getPlace(spawnPlaces, { ["width"] = 1, ["height"] = 2.5, ["length"] = 1, ["widthOffset"] = 0.5, ["lengthOffset"] = 0.5 }, usedPlaces, true, true, false, true)
@@ -428,12 +456,25 @@ function AnimalScreen:onClickBuyAI()
 
 	local farmId = g_localPlayer.farmId
 
-	local quantity = AnimalScreen.DEWAR_QUANTITIES[self.aiQuantitySelector:getState()]
-	local price = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * quantity * Dewar.PRICE_PER_STRAW * animal.success * 2.25
+	local basePrice = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * animal.success * 2.25
 
 	for _, value in pairs(animal.genetics) do
-		price = price * value
+		basePrice = basePrice * value
 	end
+
+	-- Apply tier-based price multiplier
+	if animal.bullTier ~= nil and BullTierPriceMultipliers ~= nil then
+		local tierMultiplier = BullTierPriceMultipliers[animal.bullTier] or 1.0
+		basePrice = basePrice * tierMultiplier
+	end
+
+	-- Apply sexed semen price increase
+	local pricePerStraw = Dewar.PRICE_PER_STRAW
+	if semenType == SemenType.SEXED_FEMALE or semenType == SemenType.SEXED_MALE then
+		pricePerStraw = pricePerStraw + 20
+	end
+
+	local price = basePrice * quantity * pricePerStraw
 
 	local errorCode
 
@@ -443,7 +484,9 @@ function AnimalScreen:onClickBuyAI()
 		errorCode = AnimalBuyEvent.BUY_ERROR_NOT_ENOUGH_MONEY
 	else
 		errorCode = AnimalBuyEvent.BUY_SUCCESS
-		g_client:getServerConnection():sendEvent(SemenBuyEvent.new(animal, quantity, -price, farmId, { x, y, z }, { 0, 0, 0 }), true)
+		g_client:getServerConnection():sendEvent(SemenBuyEvent.new(animal, quantity, -price, farmId, { x, y, z }, { 0, 0, 0 }, semenType), true)
+
+		-- Note: Stock deduction happens in SemenBuyEvent:run() on server
 	end
 
 	self:onSemenBought(errorCode)
@@ -534,23 +577,94 @@ function AnimalScreen:onAIListSelectionChanged()
 
 	self.aiInfoContainer:setVisible(true)
 
-	self.aiSuccessValue:setText(string.format("%s%%", tostring(math.round(animal.success * 100))))
+	-- For Young (Genomic) bulls, success rate is unproven and should be shown as "Unknown"
+	if animal.bullTier == BullTier.YOUNG_GENOMIC then
+		self.aiSuccessValue:setText(g_i18n:getText("el_ui_genetics_unknown"))
+	else
+		self.aiSuccessValue:setText(string.format("%s%%", tostring(math.round(animal.success * 100))))
+	end
 
-	for i = 1, #self.aiGeneticsTitle do
+	-- Display tier and stock information in a compact format using just one slot
+	-- This preserves space for all genetics to be displayed
+	local displayTierInfo = false
+	if animal.bullTier ~= nil then
+		displayTierInfo = true
+
+		local tierName = ""
+		if animal.bullTier == BullTier.YOUNG_GENOMIC then
+			tierName = g_i18n:getText("el_ui_bullTier_youngGenomic")
+		elseif animal.bullTier == BullTier.PROVEN then
+			tierName = g_i18n:getText("el_ui_bullTier_proven")
+		elseif animal.bullTier == BullTier.ELITE then
+			tierName = g_i18n:getText("el_ui_bullTier_elite")
+		elseif animal.bullTier == BullTier.LEGEND then
+			tierName = g_i18n:getText("el_ui_bullTier_legend")
+		end
+
+		-- Combine tier and stock info into one line
+		local tierStockText = tierName
+		if animal.availableStraws ~= nil then
+			local isLowStock = animal.availableStraws < (animal.maxStrawsPerPurchase or 100) * 0.2
+			tierStockText = tierStockText .. string.format(" (%d%s)", animal.availableStraws, isLowStock and " ⚠" or "")
+		end
+
+		-- Use first genetics display slot for combined tier/stock info
+		if #self.aiGeneticsTitle > 0 then
+			self.aiGeneticsTitle[1]:setVisible(true)
+			self.aiGeneticsValue[1]:setVisible(true)
+			self.aiGeneticsTitle[1]:setText("Tier")
+			self.aiGeneticsValue[1]:setText(tierStockText)
+
+			-- Color code by tier (use warning color if low stock)
+			local isLowStock = animal.availableStraws ~= nil and animal.availableStraws < (animal.maxStrawsPerPurchase or 100) * 0.2
+
+			if isLowStock then
+				self.aiGeneticsTitle[1]:setTextColor(1, 0.5, 0, 1)  -- Orange warning
+				self.aiGeneticsValue[1]:setTextColor(1, 0.5, 0, 1)
+			elseif animal.bullTier == BullTier.LEGEND then
+				self.aiGeneticsTitle[1]:setTextColor(1, 0.84, 0, 1)  -- Gold
+				self.aiGeneticsValue[1]:setTextColor(1, 0.84, 0, 1)
+			elseif animal.bullTier == BullTier.ELITE then
+				self.aiGeneticsTitle[1]:setTextColor(0.58, 0, 0.83, 1)  -- Purple
+				self.aiGeneticsValue[1]:setTextColor(0.58, 0, 0.83, 1)
+			elseif animal.bullTier == BullTier.PROVEN then
+				self.aiGeneticsTitle[1]:setTextColor(0, 0.5, 1, 1)  -- Blue
+				self.aiGeneticsValue[1]:setTextColor(0, 0.5, 1, 1)
+			else
+				self.aiGeneticsTitle[1]:setTextColor(0.5, 0.5, 0.5, 1)  -- Gray
+				self.aiGeneticsValue[1]:setTextColor(0.5, 0.5, 0.5, 1)
+			end
+		end
+	end
+
+	-- Start genetics display from slot 2 if tier info is shown, slot 1 otherwise
+	local startIndex = displayTierInfo and 2 or 1
+
+	-- Hide genetics slots that aren't used yet
+	for i = startIndex, #self.aiGeneticsTitle do
 		self.aiGeneticsTitle[i]:setVisible(false)
 		self.aiGeneticsValue[i]:setVisible(false)
 	end
 
-	local i = 1
+	local i = startIndex
 
 	for key, value in pairs(animal.genetics) do
+
+		if i > #self.aiGeneticsTitle then
+			break
+		end
 
 		self.aiGeneticsTitle[i]:setVisible(true)
 		self.aiGeneticsValue[i]:setVisible(true)
 
+		-- For Young (Genomic) bulls, fertility is unproven and should be shown as "Unknown"
+		local isUnknownFertility = (key == "fertility" and animal.bullTier == BullTier.YOUNG_GENOMIC)
+
 		local text
 
-		if value >= 1.65 then
+		if isUnknownFertility then
+			text = "unknown"
+		elseif value >= 1.65 then
 			text = "extremelyHigh"
 		elseif value >= 1.4 then
 			text = "veryHigh"
@@ -572,7 +686,11 @@ function AnimalScreen:onAIListSelectionChanged()
 		-- Set colors based on genetics quality
 		local quality = "el_ui_genetics_" .. text
 
-		if quality == "el_ui_genetics_extremelyLow" or quality == "el_ui_genetics_extremelyBad" then
+		if isUnknownFertility then
+			-- Gray color for unknown fertility
+			self.aiGeneticsTitle[i]:setTextColor(0.6, 0.6, 0.6, 1)
+			self.aiGeneticsValue[i]:setTextColor(0.6, 0.6, 0.6, 1)
+		elseif quality == "el_ui_genetics_extremelyLow" or quality == "el_ui_genetics_extremelyBad" then
 			self.aiGeneticsTitle[i]:setTextColor(1, 0, 0, 1)
 			self.aiGeneticsValue[i]:setTextColor(1, 0, 0, 1)
 		elseif quality == "el_ui_genetics_veryLow" or quality == "el_ui_genetics_veryBad" then
@@ -599,8 +717,77 @@ function AnimalScreen:onAIListSelectionChanged()
 
 	end
 
+	-- Initialize semen type selector
+	self.selectedSemenType = SemenType.CONVENTIONAL
+	self.aiSemenTypeSelector:setState(1)
+
+	-- Update quantity selector limits based on stock
+	self:updateQuantitySelectorLimits()
+
 	self.aiQuantitySelector:setState(1)
 	self:onClickChangeAIQuantity(1)
+
+end
+
+function AnimalScreen:updateQuantitySelectorLimits()
+
+	if self.aiAnimals == nil or self.aiAnimalTypeIndex == nil or self.aiAnimals[self.aiAnimalTypeIndex] == nil then
+		return
+	end
+
+	local animal = self.aiAnimals[self.aiAnimalTypeIndex][self.aiList.selectedIndex]
+
+	if animal == nil or animal.availableStraws == nil then
+		return
+	end
+
+	local semenType = self.selectedSemenType or SemenType.CONVENTIONAL
+
+	-- Calculate max available based on semen type
+	local maxAvailableQuantity = animal.availableStraws
+	if semenType == SemenType.SEXED_FEMALE or semenType == SemenType.SEXED_MALE then
+		-- Sexed semen limited to 10% of conventional stock
+		maxAvailableQuantity = math.floor(animal.availableStraws * 0.1)
+	end
+
+	-- Also respect per-purchase limits
+	maxAvailableQuantity = math.min(maxAvailableQuantity, animal.maxStrawsPerPurchase or 1000)
+
+	-- Find the highest valid quantity index
+	local maxValidIndex = 1
+	for i, qty in ipairs(AnimalScreen.DEWAR_QUANTITIES) do
+		if qty <= maxAvailableQuantity then
+			maxValidIndex = i
+		else
+			break
+		end
+	end
+
+	-- Limit the quantity selector range
+	if maxValidIndex < #AnimalScreen.DEWAR_QUANTITIES then
+		-- Create a limited text list for the selector
+		local limitedTexts = {}
+		for i = 1, maxValidIndex do
+			local qty = AnimalScreen.DEWAR_QUANTITIES[i]
+			table.insert(limitedTexts, string.format("%s %s", qty, g_i18n:getText("el_ui_straw" .. (qty == 1 and "Single" or "Multiple"))))
+		end
+
+		-- Update selector texts to show only available quantities
+		self.aiQuantitySelector:setTexts(limitedTexts)
+	else
+		-- All quantities available, use full list
+		local aiQuantityTexts = {}
+		for _, quantity in pairs(AnimalScreen.DEWAR_QUANTITIES) do
+			table.insert(aiQuantityTexts, string.format("%s %s", quantity, g_i18n:getText("el_ui_straw" .. (quantity == 1 and "Single" or "Multiple"))))
+		end
+		self.aiQuantitySelector:setTexts(aiQuantityTexts)
+	end
+
+	-- Ensure current state is within valid range
+	local currentState = self.aiQuantitySelector:getState()
+	if currentState > maxValidIndex then
+		self.aiQuantitySelector:setState(maxValidIndex)
+	end
 
 end
 
@@ -609,13 +796,46 @@ function AnimalScreen:onClickChangeAIQuantity(state)
 	local animal = self.aiAnimals[self.aiAnimalTypeIndex][self.aiList.selectedIndex]
 
 	local quantity = AnimalScreen.DEWAR_QUANTITIES[state]
-	local price = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * quantity * animal.success * 2.25
+	local basePrice = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * animal.success * 2.25
 
 	for _, value in pairs(animal.genetics) do
-		price = price * value
+		basePrice = basePrice * value
 	end
 
-	self.aiQuantityPrice:setText(g_i18n:formatMoney(price * Dewar.PRICE_PER_STRAW, 2, true, true))
+	-- Apply tier-based price multiplier
+	if animal.bullTier ~= nil and BullTierPriceMultipliers ~= nil then
+		local tierMultiplier = BullTierPriceMultipliers[animal.bullTier] or 1.0
+		basePrice = basePrice * tierMultiplier
+	end
+
+	-- Apply sexed semen price increase (+$20 per straw)
+	local pricePerStraw = Dewar.PRICE_PER_STRAW
+	if self.selectedSemenType == SemenType.SEXED_FEMALE or self.selectedSemenType == SemenType.SEXED_MALE then
+		pricePerStraw = pricePerStraw + 20
+	end
+
+	local totalPrice = basePrice * quantity * pricePerStraw
+
+	self.aiQuantityPrice:setText(g_i18n:formatMoney(totalPrice, 2, true, true))
+
+end
+
+function AnimalScreen:onClickChangeSemenType(state)
+
+	-- Map selector state to SemenType enum
+	if state == 1 then
+		self.selectedSemenType = SemenType.CONVENTIONAL
+	elseif state == 2 then
+		self.selectedSemenType = SemenType.SEXED_FEMALE
+	elseif state == 3 then
+		self.selectedSemenType = SemenType.SEXED_MALE
+	end
+
+	-- Update quantity limits (sexed semen has 10% stock limit)
+	self:updateQuantitySelectorLimits()
+
+	-- Recalculate price with new semen type
+	self:onClickChangeAIQuantity(self.aiQuantitySelector:getState())
 
 end
 
@@ -669,6 +889,9 @@ function AnimalScreen:onClickLogMode()
 	self.buttonDeleteMessage:setVisible(true)
 	self.buttonApplyHerdsmanSettings:setVisible(false)
 	self.buttonCastrate:setVisible(false)
+	if self.buttonSellSemen ~= nil then
+		self.buttonSellSemen:setVisible(false)
+	end
 	self.buttonBuyAI:setVisible(false)
 	self.buttonFavourite:setVisible(false)
 
@@ -737,6 +960,9 @@ function AnimalScreen:onClickHerdsmanMode()
 	self.buttonDeleteMessage:setVisible(false)
 	self.buttonApplyHerdsmanSettings:setVisible(true)
 	self.buttonCastrate:setVisible(false)
+	if self.buttonSellSemen ~= nil then
+		self.buttonSellSemen:setVisible(false)
+	end
 	self.buttonBuyAI:setVisible(false)
 	self.buttonFavourite:setVisible(false)
 
@@ -1192,6 +1418,9 @@ function EnhancedLivestock_AnimalScreen:onClickBuyMode(a, b)
 	self.buttonToggleSelectAll:setText(g_i18n:getText("el_ui_selectAll"))
 	self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("el_ui_moveSelected") or g_i18n:getText("el_ui_buySelected"))
 	self.buttonCastrate:setVisible(false)
+	if self.buttonSellSemen ~= nil then
+		self.buttonSellSemen:setVisible(false)
+	end
 	self.buttonDeleteMessage:setVisible(false)
 	self.buttonDiseases:setVisible(false)
 	self.buttonFilters:setVisible(true)
@@ -1228,6 +1457,9 @@ function EnhancedLivestock_AnimalScreen:onClickSellMode(a, b)
 	self.buttonToggleSelectAll:setText(g_i18n:getText("el_ui_selectAll"))
 	self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("el_ui_moveSelected") or g_i18n:getText("el_ui_sellSelected"))
 	self.buttonCastrate:setVisible(false)
+	if self.buttonSellSemen ~= nil then
+		self.buttonSellSemen:setVisible(false)
+	end
 	self.buttonDeleteMessage:setVisible(false)
 	self.buttonDiseases:setVisible(false)
 	self.buttonFilters:setVisible(true)
@@ -1404,23 +1636,30 @@ function EnhancedLivestock_AnimalScreen:onClickAnimalInfo(button)
 		return
 	end
 
-	local uniqueId = animal[target .. "Id"]
+	local parentIdentifiers = animal[target .. "Id"]
 
-	if uniqueId == "-1" then
+	if parentIdentifiers == "-1" then
 		return
 	end
 
-	local farmId = ""
-	local i = string.find(uniqueId, " ")
+	-- Parse identifier format: "areacode farmId uniqueId" (e.g., "DE 1 12345")
+	local parts = {}
+	for part in string.gmatch(parentIdentifiers, "%S+") do
+		table.insert(parts, part)
+	end
 
-	farmId = string.sub(uniqueId, 1, i - 1)
-	uniqueId = string.sub(uniqueId, i + 1)
+	if #parts < 3 then
+		return
+	end
+
+	local farmId = parts[2]
+	local uniqueId = parts[3]
 
 	if uniqueId == nil or farmId == nil then
 		return
 	end
 
-	AnimalInfoDialog.show(farmId, uniqueId, nil, animalType, animal:getIdentifiers())
+	AnimalInfoDialog.show(farmId, uniqueId, nil, animalType, parentIdentifiers)
 
 end
 
@@ -1535,6 +1774,89 @@ function AnimalScreen:onClickCastrate()
 
 end
 
+function AnimalScreen:onClickSellSemen()
+
+	local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
+
+	if item == nil then
+		return
+	end
+
+	local animal = item.animal or item.cluster
+
+	if animal == nil then
+		return
+	end
+
+	-- Validate: Must be male
+	if animal.gender ~= "male" then
+		InfoDialog.show(
+			g_i18n:getText("el_error_onlyMalesCanSellSemen"),
+			nil,
+			nil,
+			DialogElement.TYPE_WARNING,
+			nil,
+			nil,
+			true
+		)
+		return
+	end
+
+	-- Validate: Must be old enough to reproduce
+	local subType = g_currentMission.animalSystem:getSubTypeByIndex(animal.subTypeIndex)
+	if animal.age < subType.reproductionMinAgeMonth then
+		InfoDialog.show(
+			g_i18n:getText("el_error_animalTooYoung"),
+			nil,
+			nil,
+			DialogElement.TYPE_WARNING,
+			nil,
+			nil,
+			true
+		)
+		return
+	end
+
+	-- Safety check: Cooldown (1 in-game day between collections)
+	-- Button should already be disabled, but check anyway
+	local currentDay = g_currentMission.environment.currentMonotonicDay
+	local lastCollectionDay = animal.lastSemenCollectionDay or 0
+	if currentDay - lastCollectionDay < 1 then
+		return
+	end
+
+	-- Calculate sell price (65% of buy price)
+	-- Base price calculation similar to AI purchase
+	-- Calculate success rate from bull's fertility genetics (same formula as AI bulls)
+	local normalizedFertility = math.clamp((animal.genetics.fertility - 1.3) / (1.75 - 1.3), 0, 1)
+	local success = 0.65 + (normalizedFertility * 0.35)
+	local buyPrice = g_currentMission.animalSystem:getFarmSemenPrice(animal.birthday.country, animal.farmId) * success * 2.25
+
+	-- Apply genetics multiplier
+	for _, value in pairs(animal.genetics) do
+		buyPrice = buyPrice * value
+	end
+
+	-- Apply tier multiplier (same as buy price)
+	if animal.bullTier ~= nil then
+		local tierMultiplier = BullTierPriceMultipliers[animal.bullTier] or 1.0
+		buyPrice = buyPrice * tierMultiplier
+	end
+
+	-- Sell price is 65% of buy price
+	local quantity = 10  -- Sell 10 straws at a time
+	local sellPrice = buyPrice * 0.65 * quantity
+
+	-- Send sell event
+	SemenSellEvent.sendEvent(animal, quantity, sellPrice)
+
+	-- Disable button (cooldown is now active)
+	if self.buttonSellSemen ~= nil then
+		self.buttonSellSemen:setDisabled(true)
+	end
+
+end
+
 function EnhancedLivestock_AnimalScreen:onListSelectionChanged(superFunc, list)
 
 	if list == self.sourceList or list == self.targetList then
@@ -1559,6 +1881,9 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 		local item
 		self.buttonCastrate:setVisible(false)
 		self.buttonMark:setVisible(false)
+		if self.buttonSellSemen ~= nil then
+			self.buttonSellSemen:setVisible(false)
+		end
 
 		if self.filteredItems == nil then
 
@@ -1694,6 +2019,24 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 					self.buttonCastrate:setVisible(true)
 					self.buttonCastrate:setDisabled(animal.isCastrated)
 				end
+
+				-- Show sell semen button for male animals that are old enough
+				if self.buttonSellSemen ~= nil then
+					local subType = g_currentMission.animalSystem:getSubTypeByIndex(animal.subTypeIndex)
+					local canSellSemen = animal.gender == "male" and animal.age >= subType.reproductionMinAgeMonth and not animal.isCastrated
+					self.buttonSellSemen:setVisible(canSellSemen)
+					if canSellSemen then
+						-- Disable if cooldown hasn't passed (1 day between collections)
+						local currentDay = g_currentMission.environment.currentMonotonicDay
+						local lastCollectionDay = animal.lastSemenCollectionDay or 0
+						local onCooldown = (currentDay - lastCollectionDay) < 1
+						self.buttonSellSemen:setDisabled(onCooldown)
+					end
+				end
+
+				-- Show artificial insemination button only for female animals
+				local canInseminate = animal.gender == "female" and animal.animalTypeIndex ~= AnimalType.CHICKEN
+				self.buttonArtificialInsemination:setVisible(canInseminate)
 
 				self.buttonMonitor:setText(g_i18n:getText("el_ui_" .. (animal.monitor.active and "remove" or "apply") .. "Monitor"))
 				self.buttonMonitor:setDisabled(animal.monitor.removed)
@@ -1865,7 +2208,7 @@ function EnhancedLivestock_AnimalScreen:updateScreen(superFunc, state)
 	self.buttonSell:setVisible(not self.isInfoMode and not self.isBuyMode)
 	self.buttonRename:setVisible(self.isInfoMode)
 	self.buttonMonitor:setVisible(self.isInfoMode)
-	self.buttonArtificialInsemination:setVisible(self.isInfoMode)
+	self.buttonArtificialInsemination:setVisible(false) -- Visibility set in updateInfoBox based on gender
 
 	if hasAnimals then
 		self:updatePrice()
@@ -1992,6 +2335,21 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
 			name = string.format("%s %s %s", EnhancedLivestock.AREA_CODES[animal.birthday.country].code, animal.farmId, animal.uniqueId)
 		end
 
+		-- Add tier badge to name
+		if animal.bullTier ~= nil then
+			local tierBadge = ""
+			if animal.bullTier == BullTier.LEGEND then
+				tierBadge = "[L]"  -- Legend
+			elseif animal.bullTier == BullTier.ELITE then
+				tierBadge = "[E]"  -- Elite
+			elseif animal.bullTier == BullTier.PROVEN then
+				tierBadge = "[P]"  -- Proven
+			else
+				tierBadge = "[Y]"  -- Young
+			end
+			name = tierBadge .. " " .. name
+		end
+
 		local visual = g_currentMission.animalSystem:getVisualByAge(animal.subTypeIndex, animal.age)
 
 		cell:getAttribute("name"):setText(name)
@@ -2022,7 +2380,29 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
 			geneticsText = "veryBad"
 		end
 
-		cell:getAttribute("price"):setText(g_i18n:getText("el_ui_genetics_" .. geneticsText))
+		-- Display tier and stock information instead of just genetics
+		local tierText = ""
+		if animal.bullTier ~= nil then
+			if animal.bullTier == BullTier.YOUNG_GENOMIC then
+				tierText = g_i18n:getText("el_ui_bullTier_youngGenomic")
+			elseif animal.bullTier == BullTier.PROVEN then
+				tierText = g_i18n:getText("el_ui_bullTier_proven")
+			elseif animal.bullTier == BullTier.ELITE then
+				tierText = g_i18n:getText("el_ui_bullTier_elite")
+			elseif animal.bullTier == BullTier.LEGEND then
+				tierText = g_i18n:getText("el_ui_bullTier_legend")
+			end
+		end
+
+		local stockText = ""
+		if animal.availableStraws ~= nil then
+			stockText = string.format(" (%d)", animal.availableStraws)
+		end
+
+		-- Combine tier, genetics quality, and stock
+		local displayText = tierText .. " - " .. g_i18n:getText("el_ui_genetics_" .. geneticsText) .. stockText
+
+		cell:getAttribute("price"):setText(displayText)
 
 		local uniqueUserId = g_localPlayer:getUniqueId()
 		local isFavourite = animal.favouritedBy[uniqueUserId] ~= nil and animal.favouritedBy[uniqueUserId]

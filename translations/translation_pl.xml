@@ -1,78 +1,80 @@
 <l10n>
-	<texts>
-		<!-- COWS -->
-		
-		<text name="fillType_bull" text="Byk"/>
-		<text name="fillType_bull_swiss_brown" text="Byk rasy Brown-Swiss"/>
-		<text name="fillType_bull_holstein" text="Byk rasy holsztyńskiej"/>
-		<text name="fillType_bull_angus" text="Byk rasy Angus"/>
-		<text name="fillType_bull_limousin" text="Byk rasy Limousin"/>
-		<text name="fillType_cow_hereford" text="Hereford"/>
-		<text name="fillType_bull_hereford" text="Byk rasy Hereford"/>
-		<text name="fillType_cow_highland_cattle" text="Szkocka krowa wysokogórska (Highland)"/>
-		<text name="fillType_bull_highland_cattle" text="Byk rasy Highland"/>
-		<text name="animal_descriptionBullFeed" text="Byki lubią trawę, siano i TMR."/>
-		<text name="animal_descriptionBullYoung" text="Jest to cielę płci męskiej."/>
-		<text name="animal_descriptionBullReproduction" text="Byki, które są zdrowe i starsze niż 12 miesięcy, mogą się rozmnażać."/>
+    <texts>
+        <!-- COWS -->
 
-		<!-- WATER BUFFALOS -->
+        <text name="fillType_bull" text="Byk"/>
+        <text name="fillType_bull_swiss_brown" text="Byk rasy Brown-Swiss"/>
+        <text name="fillType_bull_holstein" text="Byk rasy holsztyńskiej"/>
+        <text name="fillType_bull_angus" text="Byk rasy Angus"/>
+        <text name="fillType_bull_limousin" text="Byk rasy Limousin"/>
+        <text name="fillType_cow_hereford" text="Hereford"/>
+        <text name="fillType_bull_hereford" text="Byk rasy Hereford"/>
+        <text name="fillType_cow_highland_cattle" text="Szkocka krowa wysokogórska (Highland)"/>
+        <text name="fillType_bull_highland_cattle" text="Byk rasy Highland"/>
+        <text name="animal_descriptionBullFeed" text="Byki lubią trawę, siano i TMR."/>
+        <text name="animal_descriptionBullYoung" text="Jest to cielę płci męskiej."/>
+        <text name="animal_descriptionBullReproduction" text="Byki, które są zdrowe i starsze niż 12 miesięcy, mogą się rozmnażać."/>
 
-		<text name="fillType_bull_waterbuffalo" text="Byk bawoła wodnego"/>
+        <!-- WATER BUFFALOS -->
 
-		<!-- PIGS -->
-		
-		<text name="fillType_boar" text="Dzik"/>
-		<text name="fillType_boar_landrace" text="Knur rasy Landrace"/>
-		<text name="fillType_boar_black_pied" text="Knur rasy Czarnopstry"/>
-		<text name="fillType_boar_berkshire" text="Knur rasy Berkshire"/>
-		<text name="animal_descriptionBoarReproduction" text="Knury, które są zdrowe i mają więcej niż 8 miesięcy, mogą się rozmnażać."/>
-		<text name="animal_descriptionBoarFeed" text="Dziki jedzą prawie wszystko. Można je karmić kukurydzą, pszenicą, jęczmieniem, rzepakiem, słonecznikiem, soją, ziemniakami, sorgo i burakami cukrowymi."/>
-		<text name="animal_descriptionBoarYoung" text="Jest to prosię płci męskiej."/>
+        <text name="fillType_bull_waterbuffalo" text="Byk bawoła wodnego"/>
 
-		<!-- SHEEP -->
-		
-		<text name="fillType_ram" text="Baran"/>
-		<text name="fillType_ram_landrace" text="Baran rasy Bentheim"/>
-		<text name="fillType_ram_steinschaf" text="Baran rasy Steinschaf"/>
-		<text name="fillType_ram_black_welsh" text="Baran rasy Black Welsh Mountain"/>
-		<text name="fillType_ram_swiss_mountain" text="Szwajcarski baran górski (czarno-brązowy)"/>
-		<text name="animal_descriptionRamFeed" text="Barany jedzą trawę i siano."/>
-		<text name="animal_descriptionRamYoung" text="Jest to jagnię płci męskiej."/>
-		<text name="animal_descriptionRamReproduction" text="Barany, które są zdrowe i starsze niż 5 miesięcy, mogą się rozmnażać."/>
+        <!-- PIGS -->
 
-		<!-- GOATS -->
+        <text name="fillType_boar" text="Dzik"/>
+        <text name="fillType_boar_landrace" text="Knur rasy Landrace"/>
+        <text name="fillType_boar_black_pied" text="Knur rasy Czarnopstry"/>
+        <text name="fillType_boar_berkshire" text="Knur rasy Berkshire"/>
+        <text name="animal_descriptionBoarReproduction" text="Knury, które są zdrowe i mają więcej niż 8 miesięcy, mogą się rozmnażać."/>
+        <text name="animal_descriptionBoarFeed" text="Dziki jedzą prawie wszystko. Można je karmić kukurydzą, pszenicą, jęczmieniem, rzepakiem, słonecznikiem, soją, ziemniakami, sorgo i burakami cukrowymi."/>
+        <text name="animal_descriptionBoarYoung" text="Jest to prosię płci męskiej."/>
 
-		<text name="fillType_ram_goat" text="Cap"/>
-		
-		<!-- HORSES -->
-		
-		<text name="fillType_stallion" text="Ogier"/>
-		<text name="fillType_stallion_gray" text="Ogier siwy"/>
-		<text name="fillType_stallion_pinto" text="Ogier pinto"/>
-		<text name="fillType_stallion_palomino" text="Ogier palomino"/>
-		<text name="fillType_stallion_chestnut" text="Ogier kasztanowaty"/>
-		<text name="fillType_stallion_bay" text="Ogier gniady"/>
-		<text name="fillType_stallion_black" text="Ogier kary"/>
-		<text name="fillType_stallion_seal_brown" text="Ogier skarogniady"/>
-		<text name="fillType_stallion_dun" text="Ogier bułany"/>
-		<text name="animal_descriptionStallionFeed" text="Ogiery lubią siano, owies i sorgo."/>
-		<text name="animal_descriptionStallionProfit" text="Ogiery mogą być sprzedawane z zyskiem."/>
-		<text name="animal_descriptionStallionReproduction" text="Ogiery, które są zdrowe i mają więcej niż 36 miesięcy, mogą się rozmnażać."/>
+        <!-- SHEEP -->
+
+        <text name="fillType_ram" text="Baran"/>
+        <text name="fillType_ram_landrace" text="Baran rasy Bentheim"/>
+        <text name="fillType_ram_steinschaf" text="Baran rasy Steinschaf"/>
+        <text name="fillType_ram_black_welsh" text="Baran rasy Black Welsh Mountain"/>
+        <text name="fillType_ram_swiss_mountain" text="Szwajcarski baran górski (czarno-brązowy)"/>
+        <text name="animal_descriptionRamFeed" text="Barany jedzą trawę i siano."/>
+        <text name="animal_descriptionRamYoung" text="Jest to jagnię płci męskiej."/>
+        <text name="animal_descriptionRamReproduction" text="Barany, które są zdrowe i starsze niż 5 miesięcy, mogą się rozmnażać."/>
+
+        <!-- GOATS -->
+
+        <text name="fillType_ram_goat" text="Cap"/>
+
+        <!-- HORSES -->
+
+        <text name="fillType_stallion" text="Ogier"/>
+        <text name="fillType_stallion_gray" text="Ogier siwy"/>
+        <text name="fillType_stallion_pinto" text="Ogier pinto"/>
+        <text name="fillType_stallion_palomino" text="Ogier palomino"/>
+        <text name="fillType_stallion_chestnut" text="Ogier kasztanowaty"/>
+        <text name="fillType_stallion_bay" text="Ogier gniady"/>
+        <text name="fillType_stallion_black" text="Ogier kary"/>
+        <text name="fillType_stallion_seal_brown" text="Ogier skarogniady"/>
+        <text name="fillType_stallion_dun" text="Ogier bułany"/>
+        <text name="animal_descriptionStallionFeed" text="Ogiery lubią siano, owies i sorgo."/>
+        <text name="animal_descriptionStallionProfit" text="Ogiery mogą być sprzedawane z zyskiem."/>
+        <text name="animal_descriptionStallionReproduction" text="Ogiery, które są zdrowe i mają więcej niż 36 miesięcy, mogą się rozmnażać."/>
 
 
         <!-- UI -->
 
-		
         <text name="input_VisualAnimalsDialog" text="Zmień liczbę widocznych zwierząt"/>
+        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
+        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
+        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
         <text name="el_button_apply" text="Zastosuj"/>
-		<text name="el_button_confirm" text="Potwierdzenie"/>
+        <text name="el_button_confirm" text="Potwierdzenie"/>
         <text name="el_button_recommended" text="Zalecane"/>
         <text name="el_button_cancel" text="Anuluj"/>
-		<text name="el_button_random" text="Losowo"/>
+        <text name="el_button_random" text="Losowo"/>
         <text name="el_dialog_title" text="Ustaw maksymalną liczbę zwierząt wizualnych"/>
 
-		<text name="el_ui_dependency_missing" text="Brakująca zależność"/>
-		<text name="el_ui_dependency_missing_installed" text="Brakująca zainstalowana zależność"/>
+        <text name="el_ui_dependency_missing" text="Brakująca zależność"/>
+        <text name="el_ui_dependency_missing_installed" text="Brakująca zainstalowana zależność"/>
 
         <text name="el_ui_unhealthy" text="Zbyt niezdrowe"/>
         <text name="el_ui_unhealthyBracketed" text="Nie (zbyt niezdrowe)"/>
@@ -83,12 +85,12 @@
         <text name="el_ui_tooYoung" text="Zbyt młody"/>
         <text name="el_ui_tooYoungBracketed" text="Nie (zbyt młody)"/>
         <text name="el_ui_pregnant" text="Oczekuje potomstwa"/>
-		<text name="el_ui_pregnant_github" text="W ciąży"/>
-		<text name="el_ui_lactating" text="Produkcja mleka"/>
-		<text name="el_ui_lactating_github" text="Laktacja"/>
+        <text name="el_ui_pregnant_github" text="W ciąży"/>
+        <text name="el_ui_lactating" text="Produkcja mleka"/>
+        <text name="el_ui_lactating_github" text="Laktacja"/>
         <text name="el_ui_canReproduce" text="Może się rozmnażać"/>
         <text name="el_ui_impregnatedBy" text="W parze z"/>
-		<text name="el_ui_impregnatedBy_github" text="Zapłodniona przez"/>
+        <text name="el_ui_impregnatedBy_github" text="Zapłodniona przez"/>
         <text name="el_ui_unknown" text="Nieznany"/>
         <text name="el_ui_yes" text="Tak"/>
         <text name="el_ui_no" text="Nie"/>
@@ -97,538 +99,557 @@
         <text name="el_ui_uniqueId" text="Unikalny identyfikator"/>
         <text name="el_ui_farmId" text="Identyfikator gospodarstwa"/>
         <text name="el_ui_gender" text="Płeć"/>
-		<text name="el_ui_male" text="Samiec"/>
-		<text name="el_ui_female" text="Samica"/>
-		<text name="el_ui_weight" text="Waga"/>
-		<text name="el_ui_targetWeight" text="Waga docelowa"/>
-		<text name="el_ui_value" text="Wartość"/>
-		<text name="el_ui_valuePerKilo" text="Wartość na kg"/>
-		<text name="el_ui_genetics" text="Genetyka"/>
-		<text name="el_ui_overall" text="Ogólnie"/>
-		<text name="el_ui_rename" text="Zmień nazwę"/>
-		<text name="el_ui_cantFindAnimal" text="Nie można znaleźć zwierzęcia"/>
-		<text name="el_ui_maleNumImpregnatable" text="Zwierzęta do rozrodu w kojcu"/>
-		<text name="el_ui_maleNumImpregnatable_github" text="Zwierzęta możliwe do zapłodnienia w kojcu"/>
+        <text name="el_ui_male" text="Samiec"/>
+        <text name="el_ui_female" text="Samica"/>
+        <text name="el_ui_weight" text="Waga"/>
+        <text name="el_ui_targetWeight" text="Waga docelowa"/>
+        <text name="el_ui_value" text="Wartość"/>
+        <text name="el_ui_valuePerKilo" text="Wartość na kg"/>
+        <text name="el_ui_genetics" text="Genetyka"/>
+        <text name="el_ui_overall" text="Ogólnie"/>
+        <text name="el_ui_rename" text="Zmień nazwę"/>
+        <text name="el_ui_cantFindAnimal" text="Nie można znaleźć zwierzęcia"/>
+        <text name="el_ui_maleNumImpregnatable" text="Zwierzęta do rozrodu w kojcu"/>
+        <text name="el_ui_maleNumImpregnatable_github" text="Zwierzęta możliwe do zapłodnienia w kojcu"/>
 
-		<text name="el_ui_breederQuality" text="Jakość hodowcy"/>
-		<text name="el_ui_birthday" text="Urodziny"/>
-		<text name="el_ui_pregnancyExpected" text="Oczekiwany"/>
-		<text name="el_ui_pregnancyExpecting" text="Oczekiwanie"/>
-		<text name="el_ui_pregnancyBaby" text="dziecko"/>
-		<text name="el_ui_pregnancyBabies" text="dzieci"/>
-		<text name="el_ui_animalOrigin" text="Pochodzenie"/>
-		<text name="el_ui_months" text="miesiące"/>
-		<text name="el_ui_month" text="miesiąc"/>
-		<text name="el_ui_years" text="lata"/>
-		<text name="el_ui_year" text="rok"/>
+        <text name="el_ui_breederQuality" text="Jakość hodowcy"/>
+        <text name="el_ui_birthday" text="Urodziny"/>
+        <text name="el_ui_pregnancyExpected" text="Oczekiwany"/>
+        <text name="el_ui_pregnancyExpecting" text="Oczekiwanie"/>
+        <text name="el_ui_pregnancyBaby" text="dziecko"/>
+        <text name="el_ui_pregnancyBabies" text="dzieci"/>
+        <text name="el_ui_animalOrigin" text="Pochodzenie"/>
+        <text name="el_ui_months" text="miesiące"/>
+        <text name="el_ui_month" text="miesiąc"/>
+        <text name="el_ui_years" text="lata"/>
+        <text name="el_ui_year" text="rok"/>
 
-		<text name="el_ui_milk" text="Produkcja mleka"/>
-		<text name="el_ui_wool" text="Produkcja wełny"/>
-		<text name="el_ui_eggs" text="Produkcja jaj"/>
-		<text name="el_ui_metabolism" text="Metabolizm"/>
-		<text name="el_ui_meat" text="Jakość"/>
-		<text name="el_ui_meat_github" text="Jakość mięsa"/>
-		<text name="el_ui_quality" text="Jakość"/>
-		<text name="el_ui_quality_github" text="Jakość mięsa"/>
-		<text name="el_ui_health" text="Zdrowie"/>
-		<text name="el_ui_fertility" text="Płodność"/>
+        <text name="el_ui_milk" text="Produkcja mleka"/>
+        <text name="el_ui_wool" text="Produkcja wełny"/>
+        <text name="el_ui_eggs" text="Produkcja jaj"/>
+        <text name="el_ui_metabolism" text="Metabolizm"/>
+        <text name="el_ui_meat" text="Jakość"/>
+        <text name="el_ui_meat_github" text="Jakość mięsa"/>
+        <text name="el_ui_quality" text="Jakość"/>
+        <text name="el_ui_quality_github" text="Jakość mięsa"/>
+        <text name="el_ui_health" text="Zdrowie"/>
+        <text name="el_ui_fertility" text="Płodność"/>
 
-		<text name="el_ui_genetics_infertile" text="Bezpłodny"/>
-		<text name="el_ui_genetics_extremelyLow" text="Niezwykle niski"/>
-		<text name="el_ui_genetics_veryLow" text="Bardzo niski"/>
-		<text name="el_ui_genetics_low" text="Niski"/>
-		<text name="el_ui_genetics_average" text="Średni"/>
-		<text name="el_ui_genetics_high" text="Wysoki"/>
-		<text name="el_ui_genetics_veryHigh" text="Bardzo wysoki"/>
-		<text name="el_ui_genetics_extremelyHigh" text="Niezwykle wysoki"/>
-		<text name="el_ui_genetics_highest" text="Najwyższy"/>
+        <text name="el_ui_genetics_infertile" text="Bezpłodny"/>
+        <text name="el_ui_genetics_extremelyLow" text="Niezwykle niski"/>
+        <text name="el_ui_genetics_veryLow" text="Bardzo niski"/>
+        <text name="el_ui_genetics_low" text="Niski"/>
+        <text name="el_ui_genetics_average" text="Średni"/>
+        <text name="el_ui_genetics_high" text="Wysoki"/>
+        <text name="el_ui_genetics_veryHigh" text="Bardzo wysoki"/>
+        <text name="el_ui_genetics_extremelyHigh" text="Niezwykle wysoki"/>
+        <text name="el_ui_genetics_highest" text="Najwyższy"/>
+        <text name="el_ui_genetics_unknown" text="Unknown"/>
 
-		<text name="el_ui_genetics_extremelyBad" text="Niezwykle źle"/>
-		<text name="el_ui_genetics_veryBad" text="Bardzo źle"/>
-		<text name="el_ui_genetics_bad" text="Zły"/>
-		<text name="el_ui_genetics_good" text="Dobry"/>
-		<text name="el_ui_genetics_veryGood" text="Bardzo dobry"/>
-		<text name="el_ui_genetics_extremelyGood" text="Niezwykle dobry"/>
+        <text name="el_ui_genetics_extremelyBad" text="Niezwykle źle"/>
+        <text name="el_ui_genetics_veryBad" text="Bardzo źle"/>
+        <text name="el_ui_genetics_bad" text="Zły"/>
+        <text name="el_ui_genetics_good" text="Dobry"/>
+        <text name="el_ui_genetics_veryGood" text="Bardzo dobry"/>
+        <text name="el_ui_genetics_extremelyGood" text="Niezwykle dobry"/>
 
-		<text name="el_ui_buySelected" text="Kup zaznaczone"/>
-		<text name="el_ui_sellSelected" text="Sprzedaj zaznaczone"/>
-		<text name="el_ui_moveSelected" text="Przenieś zaznaczone"/>
-		<text name="el_ui_buyConfirmation" text="Czy na pewno chcesz kupić %s zwierząt za %s?" tag="format"/>
-		<text name="el_ui_sellConfirmation" text="Czy na pewno chcesz sprzedać %s zwierząt za %s?" tag="format"/>
-		<text name="el_ui_moveConfirmation" text="Czy na pewno chcesz przenieść %s zwierząt?" tag="format"/>
-		<text name="el_ui_buyBulkResult" text="Zakupiono %s zwierząt za %s" tag="format"/>
-		<text name="el_ui_sellBulkResult" text="Sprzedano %s zwierząt za %s" tag="format"/>
-		<text name="el_ui_moveBulkResult" text="Przeniesiono %s zwierząt" tag="format"/>
+        <text name="el_ui_buySelected" text="Kup zaznaczone"/>
+        <text name="el_ui_sellSelected" text="Sprzedaj zaznaczone"/>
+        <text name="el_ui_moveSelected" text="Przenieś zaznaczone"/>
+        <text name="el_ui_buyConfirmation" text="Czy na pewno chcesz kupić %s zwierząt za %s?" tag="format"/>
+        <text name="el_ui_sellConfirmation" text="Czy na pewno chcesz sprzedać %s zwierząt za %s?" tag="format"/>
+        <text name="el_ui_moveConfirmation" text="Czy na pewno chcesz przenieść %s zwierząt?" tag="format"/>
+        <text name="el_ui_buyBulkResult" text="Zakupiono %s zwierząt za %s" tag="format"/>
+        <text name="el_ui_sellBulkResult" text="Sprzedano %s zwierząt za %s" tag="format"/>
+        <text name="el_ui_moveBulkResult" text="Przeniesiono %s zwierząt" tag="format"/>
 
-		<text name="el_ui_monitor" text="Monitoruj"/>
-		<text name="el_ui_monitorSubscriptions" text="Subskrypcje monitorowania"/>
-		<text name="finance_monitorSubscriptions" text="Subskrypcje monitorowania"/>
-		<text name="el_ui_monitorFee" text="Opłata za monitorowanie"/>
-		<text name="el_ui_applyMonitor" text="Zastosuj monitorowanie"/>
-		<text name="el_ui_removeMonitor" text="Usuń monitorowanie"/>
-		<text name="el_ui_input_food" text="Jedzenie"/>
-		<text name="el_ui_input_water" text="Woda"/>
-		<text name="el_ui_input_straw" text="Słoma"/>
-		<text name="el_ui_output_milk" text="Mleko"/>
-		<text name="el_ui_output_manure" text="Obornik"/>
-		<text name="el_ui_output_liquidManure" text="Gnojowica"/>
-		<text name="el_ui_output_pallets_eggs" text="Jajka"/>
-		<text name="el_ui_output_pallets_wool" text="Wełna"/>
-		<text name="el_ui_output_pallets_goatMilk" text="Mleko kozie"/>
-		<text name="el_ui_amountPerDay" text="%.0fL / dzień" tag="format"/>
-		<text name="el_ui_feePerMonth" text="%s / miesiąc" tag="format"/>
+        <text name="el_ui_monitor" text="Monitoruj"/>
+        <text name="el_ui_monitorSubscriptions" text="Subskrypcje monitorowania"/>
+        <text name="finance_monitorSubscriptions" text="Subskrypcje monitorowania"/>
+        <text name="el_ui_monitorFee" text="Opłata za monitorowanie"/>
+        <text name="el_ui_applyMonitor" text="Zastosuj monitorowanie"/>
+        <text name="el_ui_removeMonitor" text="Usuń monitorowanie"/>
+        <text name="el_ui_input_food" text="Jedzenie"/>
+        <text name="el_ui_input_water" text="Woda"/>
+        <text name="el_ui_input_straw" text="Słoma"/>
+        <text name="el_ui_output_milk" text="Mleko"/>
+        <text name="el_ui_output_manure" text="Obornik"/>
+        <text name="el_ui_output_liquidManure" text="Gnojowica"/>
+        <text name="el_ui_output_pallets_eggs" text="Jajka"/>
+        <text name="el_ui_output_pallets_wool" text="Wełna"/>
+        <text name="el_ui_output_pallets_goatMilk" text="Mleko kozie"/>
+        <text name="el_ui_amountPerDay" text="%.0fL / dzień" tag="format"/>
+        <text name="el_ui_feePerMonth" text="%s / miesiąc" tag="format"/>
 
-		<text name="el_ui_animalType" text="Typ"/>
-		<text name="el_ui_amountMonitored" text="Monitorowane"/>
-		<text name="el_ui_production" text="Produkty"/>
-		<text name="el_ui_applyAllMonitor" text="Zastosuj wszystkie monitory"/>
-		<text name="el_ui_removeAllMonitor" text="Usuń wszystkie monitory"/>
-		<text name="el_ui_fee" text="Opłata"/>
+        <text name="el_ui_animalType" text="Typ"/>
+        <text name="el_ui_amountMonitored" text="Monitorowane"/>
+        <text name="el_ui_production" text="Produkty"/>
+        <text name="el_ui_applyAllMonitor" text="Zastosuj wszystkie monitory"/>
+        <text name="el_ui_removeAllMonitor" text="Usuń wszystkie monitory"/>
+        <text name="el_ui_fee" text="Opłata"/>
 		<text name="el_ui_description" text="Opis"/>
 
-		<text name="el_ui_leftEarTag" text="Lewy kolczyk"/>
-		<text name="el_ui_rightEarTag" text="Prawy kolczyk"/>
-		<text name="el_ui_backgroundColour" text="Kolor tła"/>
-		<text name="el_ui_backgroundHue" text="Odcień tła"/>
-		<text name="el_ui_backgroundRgb" text="RGB tła"/>
-		<text name="el_ui_textColour" text="Kolor tekstu"/>
-		<text name="el_ui_textHue" text="Odcień tekstu"/>
-		<text name="el_ui_textRgb" text="RGB tekstu"/>
-
-		<text name="el_ui_formatMonths" text="%s miesięcy"/>
-		<text name="el_ui_formatMonth" text="%s miesiąc"/>
-		<text name="el_ui_notPregnant" text="Nie oczekuje potomstwa"/>
-		<text name="el_ui_notPregnant_github" text="Brak ciąży"/>
-		<text name="el_ui_any" text="Dowolny"/>
-		<text name="el_ui_pregnancy" text="Ciąża"/>
-		<text name="el_ui_productivity" text="Produktywność"/>
-		<text name="el_ui_selectAll" text="Zaznacz wszystko"/>
-		<text name="el_ui_selectNone" text="Odznacz wszystko"/>
-		<text name="el_ui_filters" text="Filtry"/>
-		<text name="el_ui_doesntHaveName" text="Brak imienia"/>
-		<text name="el_ui_doesHaveName" text="Ma imię"/>
-
-
-
-		<text name="el_ui_castrated" text="Wykastrowany"/>
-		<text name="el_ui_castrated_github" text="Wykastrowany"/>
-		<text name="el_ui_castrate" text="Kastruj"/>
-		<text name="el_ui_castrate_github" text="Kastruj"/>
-		<text name="el_ui_importance" text="Ważność"/>
-		<text name="el_ui_type" text="Typ"/>
-		<text name="el_ui_date" text="Data"/>
-		<text name="el_ui_message" text="Wiadomość"/>
-		<text name="el_ui_messages" text="Wiadomości"/>
-		<text name="el_ui_unknownCauses" text="nieznane przyczyny"/>
-		<text name="el_ui_messageNumber" text="%s-%s z %s"/>
-		<text name="el_ui_deleteMessage" text="Usuń wiadomość"/>
-		<text name="el_ui_unreadMessages" text="Gospodarstwo '%s' ma nieprzeczytane wiadomości!"/>
-		<text name="el_ui_herdsman" text="Pastuch"/>
-		<text name="el_ui_budget" text="Budżet"/>
-		<text name="el_ui_budgetType" text="Typ budżetu"/>
-		<text name="el_ui_fixed" text="Stały"/>
-		<text name="el_ui_percentage" text="Procentowy"/>
-		<text name="el_ui_maxAnimals" text="Maks. zwierząt"/>
-		<text name="el_ui_infinite" text="Nieskończony"/>
-		<text name="el_ui_herdsmanRecentlyBought" text="Ostatni zakup pastucha"/>
-		<text name="el_ui_previousWage" text="Poprzednia płaca"/>
-		<text name="el_ui_herdsmanWages" text="Płace pastucha"/>
-		<text name="finance_herdsmanWages" text="Płace pastucha"/>
-		<text name="el_ui_medicine" text="Lekarstwa"/>
-		<text name="finance_medicine" text="Lekarstwa"/>
-		<text name="el_ui_semenPurchase" text="Zakup próbki hodowlanej"/>
-		<text name="el_ui_semenPurchase_github" text="Zakup nasienia"/>
-		<text name="finance_semenPurchase" text="Zakup próbki hodowlanej"/>
-		<text name="finance_semenPurchase_github" text="Zakup nasienia"/>
-		<text name="el_ui_noDiseases" text="Brak chorób"/>
-		<text name="el_ui_onlyDiseases" text="Tylko choroby"/>
-		<text name="el_ui_naming" text="Nazywanie"/>
-		<text name="el_ui_alphabetical" text="Alfabetycznie"/>
-		<text name="el_ui_breed" text="Rasa"/>
-		<text name="el_ui_dontMark" text="Nie oznaczaj"/>
-		<text name="el_ui_mark" text="Oznacz"/>
-		<text name="el_ui_unmark" text="Odznacz"/>
-		<text name="el_ui_favourite" text="Ulubione"/>
-		<text name="el_ui_unFavourite" text="Usuń z ulubionych"/>
-		<text name="el_ui_quantity" text="Ilość"/>
-		<text name="el_ui_dewar" text="Dewar"/>
-		<text name="el_ui_semenPurchase_successful" text="Próbka hodowlana została pomyślnie zakupiona. Możesz ją odebrać w sklepie"/>
-		<text name="el_ui_semenPurchase_successful_github" text="Nasienie zostało pomyślnie zakupione. Możesz je odebrać w sklepie"/>
-		<text name="el_ui_semenPurchase_unsuccessful" text="Nie udało się zakupić próbki hodowlanej"/>
-		<text name="el_ui_semenPurchase_unsuccessful_github" text="Nie udało się zakupić nasienia"/>
-		<text name="el_ui_earTag" text="Kolczyk"/>
-		<text name="el_ui_species" text="Gatunek"/>
-		<text name="el_ui_strawSingle" text="Słomka"/>
-		<text name="el_ui_strawMultiple" text="Słomki"/>
-		<text name="el_ui_artificialInsemination" text="Wspomagany rozród"/>
-	<text name="el_ui_artificialInsemination_github" text="Sztuczne zapłodnienie"/>
-		<text name="el_ui_semenPurchaseNoPermission" text="Nie masz uprawnień do handlu zwierzętami ani zakupu próbek hodowlanych."/>
-		<text name="el_ui_semenPurchaseNoPermission_github" text="Nie masz uprawnień do handlu zwierzętami ani zakupu nasienia."/>
-		<text name="el_ui_semenPurchaseNoMoney" text="Nie masz wystarczającej ilości pieniędzy, aby zakupić tę próbkę hodowlaną."/>
-		<text name="el_ui_semenPurchaseNoMoney_github" text="Nie masz wystarczającej ilości pieniędzy, aby zakupić to nasienie."/>
-		<text name="el_ui_takeStraw" text="Weź słomkę"/>
-		<text name="el_ui_inseminateAnimal" text="Rozmnażaj %s"/>
-		<text name="el_ui_inseminateAnimal_github" text="Zapłodnij %s"/>
-		<text name="el_ui_inseminate" text="Rozmnażaj"/>
-		<text name="el_ui_inseminate_github" text="Zapłodnij"/>
-		<text name="el_ui_strawEmpty" text="Ta słomka jest pusta"/>
-		<text name="el_ui_averageSuccessColon" text="Średni sukces: "/>
-		<text name="el_ui_averageSuccess" text="Średni sukces"/>
-		<text name="el_ui_success" text="Sukces"/>
-		<text name="el_ui_save" text="Zapisz"/>
-		<text name="el_ui_load" text="Wczytaj"/>
-		<text name="el_ui_saveProfile" text="Zapisz profil"/>
-		<text name="el_ui_loadProfile" text="Wczytaj profil"/>
-
-		<text name="el_ui_healthy" text="Zdrowy"/>
-		<text name="el_ui_hasDisease" text="Chory"/>
-		<text name="el_ui_diseasedAnimals" text="Chore zwierzęta"/>
-
-
-		<text name="el_insemination_male" text="Tylko samice mogą być rozmnażane"/>
-		<text name="el_insemination_male_github" text="Tylko samice mogą być sztucznie zapładniane"/>
-		<text name="el_insemination_pregnant" text="To zwierzę oczekuje już potomstwa"/>
-		<text name="el_insemination_pregnant_github" text="To zwierzę jest już w ciąży"/>
-		<text name="el_insemination_animalType" text="Zwierzę musi być tego samego gatunku co ojciec"/>
-		<text name="el_insemination_inseminated" text="To zwierzę zostało już rozmnożone"/>
-		<text name="el_insemination_inseminated_github" text="To zwierzę zostało już sztucznie zapłodnione"/>
-		<text name="el_insemination_recovering" text="To zwierzę wciąż powraca do zdrowia po poprzedniej ciąży"/>
-		<text name="el_insemination_father" text="Inbred jest niedozwolony"/>
-		<text name="el_insemination_young" text="To zwierzę jest zbyt młode na rozród"/>
-		<text name="el_insemination_young_github" text="To zwierzę jest zbyt młode na sztuczne zapłodnienie"/>
+        <text name="el_ui_leftEarTag" text="Lewy kolczyk"/>
+        <text name="el_ui_rightEarTag" text="Prawy kolczyk"/>
+        <text name="el_ui_backgroundColour" text="Kolor tła"/>
+        <text name="el_ui_backgroundHue" text="Odcień tła"/>
+        <text name="el_ui_backgroundRgb" text="RGB tła"/>
+        <text name="el_ui_textColour" text="Kolor tekstu"/>
+        <text name="el_ui_textHue" text="Odcień tekstu"/>
+        <text name="el_ui_textRgb" text="RGB tekstu"/>
+
+        <text name="el_ui_formatMonths" text="%s miesięcy"/>
+        <text name="el_ui_formatMonth" text="%s miesiąc"/>
+        <text name="el_ui_notPregnant" text="Nie oczekuje potomstwa"/>
+        <text name="el_ui_notPregnant_github" text="Brak ciąży"/>
+        <text name="el_ui_any" text="Dowolny"/>
+        <text name="el_ui_pregnancy" text="Ciąża"/>
+        <text name="el_ui_productivity" text="Produktywność"/>
+        <text name="el_ui_selectAll" text="Zaznacz wszystko"/>
+        <text name="el_ui_selectNone" text="Odznacz wszystko"/>
+        <text name="el_ui_filters" text="Filtry"/>
+        <text name="el_ui_doesntHaveName" text="Brak imienia"/>
+        <text name="el_ui_doesHaveName" text="Ma imię"/>
+
+        <text name="el_ui_castrated" text="Wykastrowany"/>
+        <text name="el_ui_castrated_github" text="Wykastrowany"/>
+        <text name="el_ui_castrate" text="Kastruj"/>
+        <text name="el_ui_castrate_github" text="Kastruj"/>
+
+        <text name="el_ui_importance" text="Ważność"/>
+        <text name="el_ui_type" text="Typ"/>
+        <text name="el_ui_date" text="Data"/>
+        <text name="el_ui_message" text="Wiadomość"/>
+        <text name="el_ui_messages" text="Wiadomości"/>
+        <text name="el_ui_unknownCauses" text="nieznane przyczyny"/>
+        <text name="el_ui_messageNumber" text="%s-%s z %s"/>
+        <text name="el_ui_deleteMessage" text="Usuń wiadomość"/>
+        <text name="el_ui_unreadMessages" text="Gospodarstwo '%s' ma nieprzeczytane wiadomości!"/>
+        <text name="el_ui_herdsman" text="Pastuch"/>
+        <text name="el_ui_budget" text="Budżet"/>
+        <text name="el_ui_budgetType" text="Typ budżetu"/>
+        <text name="el_ui_fixed" text="Stały"/>
+        <text name="el_ui_percentage" text="Procentowy"/>
+        <text name="el_ui_maxAnimals" text="Maks. zwierząt"/>
+        <text name="el_ui_infinite" text="Nieskończony"/>
+        <text name="el_ui_herdsmanRecentlyBought" text="Ostatni zakup pastucha"/>
+        <text name="el_ui_previousWage" text="Poprzednia płaca"/>
+        <text name="el_ui_herdsmanWages" text="Płace pastucha"/>
+        <text name="finance_herdsmanWages" text="Płace pastucha"/>
+        <text name="el_ui_medicine" text="Lekarstwa"/>
+        <text name="finance_medicine" text="Lekarstwa"/>
+        <text name="el_ui_semenPurchase" text="Zakup próbki hodowlanej"/>
+        <text name="el_ui_semenPurchase_github" text="Zakup nasienia"/>
+        <text name="finance_semenPurchase" text="Zakup próbki hodowlanej"/>
+        <text name="finance_semenPurchase_github" text="Zakup nasienia"/>
+        <text name="el_ui_noDiseases" text="Brak chorób"/>
+        <text name="el_ui_onlyDiseases" text="Tylko choroby"/>
+        <text name="el_ui_naming" text="Nazywanie"/>
+        <text name="el_ui_alphabetical" text="Alfabetycznie"/>
+        <text name="el_ui_breed" text="Rasa"/>
+        <text name="el_ui_dontMark" text="Nie oznaczaj"/>
+        <text name="el_ui_mark" text="Oznacz"/>
+        <text name="el_ui_unmark" text="Odznacz"/>
+        <text name="el_ui_favourite" text="Ulubione"/>
+        <text name="el_ui_unFavourite" text="Usuń z ulubionych"/>
+        <text name="el_ui_quantity" text="Ilość"/>
+        <text name="el_ui_dewar" text="Dewar"/>
+        <text name="el_ui_semenPurchase_successful" text="Próbka hodowlana została pomyślnie zakupiona. Możesz ją odebrać w sklepie"/>
+        <text name="el_ui_semenPurchase_successful_github" text="Nasienie zostało pomyślnie zakupione. Możesz je odebrać w sklepie"/>
+        <text name="el_ui_semenPurchase_unsuccessful" text="Nie udało się zakupić próbki hodowlanej"/>
+        <text name="el_ui_semenPurchase_unsuccessful_github" text="Nie udało się zakupić nasienia"/>
+        <text name="el_ui_earTag" text="Kolczyk"/>
+        <text name="el_ui_species" text="Gatunek"/>
+        <text name="el_ui_strawSingle" text="Słomka"/>
+        <text name="el_ui_strawMultiple" text="Słomki"/>
+        <text name="el_ui_artificialInsemination" text="Wspomagany rozród"/>
+        <text name="el_ui_artificialInsemination_github" text="Sztuczne zapłodnienie"/>
+        <text name="el_ui_semenPurchaseNoPermission" text="Nie masz uprawnień do handlu zwierzętami ani zakupu próbek hodowlanych."/>
+        <text name="el_ui_semenPurchaseNoPermission_github" text="Nie masz uprawnień do handlu zwierzętami ani zakupu nasienia."/>
+        <text name="el_ui_semenPurchaseNoMoney" text="Nie masz wystarczającej ilości pieniędzy, aby zakupić tę próbkę hodowlaną."/>
+        <text name="el_ui_semenPurchaseNoMoney_github" text="Nie masz wystarczającej ilości pieniędzy, aby zakupić to nasienie."/>
+        <text name="el_ui_takeStraw" text="Weź słomkę"/>
+        <text name="el_ui_inseminateAnimal" text="Rozmnażaj %s"/>
+        <text name="el_ui_inseminateAnimal_github" text="Zapłodnij %s"/>
+        <text name="el_ui_inseminate" text="Rozmnażaj"/>
+        <text name="el_ui_inseminate_github" text="Zapłodnij"/>
+        <text name="el_ui_strawEmpty" text="Ta słomka jest pusta"/>
+        <text name="el_ui_averageSuccessColon" text="Średni sukces: "/>
+        <text name="el_ui_averageSuccess" text="Średni sukces"/>
+        <text name="el_ui_success" text="Sukces"/>
+        <text name="el_ui_semen" text="Sample"/>
+        <text name="el_ui_semen_github" text="Semen"/>
+        <text name="el_ui_actual" text="Actual"/>
+        <text name="el_ui_save" text="Zapisz"/>
+        <text name="el_ui_load" text="Wczytaj"/>
+        <text name="el_ui_saveProfile" text="Zapisz profil"/>
+        <text name="el_ui_loadProfile" text="Wczytaj profil"/>
+
+        <text name="el_ui_healthy" text="Zdrowy"/>
+        <text name="el_ui_hasDisease" text="Chory"/>
+        <text name="el_ui_diseasedAnimals" text="Chore zwierzęta"/>
+
+
+        <text name="el_insemination_male" text="Tylko samice mogą być rozmnażane"/>
+        <text name="el_insemination_male_github" text="Tylko samice mogą być sztucznie zapładniane"/>
+        <text name="el_insemination_pregnant" text="To zwierzę oczekuje już potomstwa"/>
+        <text name="el_insemination_pregnant_github" text="To zwierzę jest już w ciąży"/>
+        <text name="el_insemination_animalType" text="Zwierzę musi być tego samego gatunku co ojciec"/>
+        <text name="el_insemination_inseminated" text="To zwierzę zostało już rozmnożone"/>
+        <text name="el_insemination_inseminated_github" text="To zwierzę zostało już sztucznie zapłodnione"/>
+        <text name="el_insemination_recovering" text="To zwierzę wciąż powraca do zdrowia po poprzedniej ciąży"/>
+        <text name="el_insemination_father" text="Inbred jest niedozwolony"/>
+        <text name="el_insemination_young" text="To zwierzę jest zbyt młode na rozród"/>
+        <text name="el_insemination_young_github" text="To zwierzę jest zbyt młode na sztuczne zapłodnienie"/>
 
 
-		<text name="el_mark_aiManager_sell" text="Pastuch oznaczył do sprzedaży"/>
-		<text name="el_mark_aiManager_castrate" text="Pastuch oznaczył do kastracji"/>
-		<text name="el_mark_aiManager_castrate_github" text="Pastuch oznaczył do kastracji"/>
-		<text name="el_mark_aiManager_disease" text="Pastuch oznaczył do leczenia"/>
-		<text name="el_mark_aiManager_ai" text="Pastuch oznaczył do wspomaganego rozrodu"/>
-		<text name="el_mark_aiManager_ai_github" text="Pastuch oznaczył do sztucznego zapłodnienia"/>
-		<text name="el_mark_player" text="Oznaczone przez gracza"/>
+        <text name="el_mark_aiManager_sell" text="Pastuch oznaczył do sprzedaży"/>
+        <text name="el_mark_aiManager_castrate" text="Pastuch oznaczył do kastracji"/>
+        <text name="el_mark_aiManager_castrate_github" text="Pastuch oznaczył do kastracji"/>
+        <text name="el_mark_aiManager_disease" text="Pastuch oznaczył do leczenia"/>
+        <text name="el_mark_aiManager_ai" text="Pastuch oznaczył do wspomaganego rozrodu"/>
+        <text name="el_mark_aiManager_ai_github" text="Pastuch oznaczył do sztucznego zapłodnienia"/>
+        <text name="el_mark_player" text="Oznaczone przez gracza"/>
 
 
-		<!-- AI - BUYING -->
+        <!-- AI - BUYING -->
 
 
-		<text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Pastuch nie będzie kupował zwierząt"/>
-		<text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Pastuch będzie kupował zwierzęta"/>
+        <text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Pastuch nie będzie kupował zwierząt"/>
+        <text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Pastuch będzie kupował zwierzęta"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Budżet na zakupy jest stałą kwotą"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Budżet na zakupy jest procentem pieniędzy gospodarstwa"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Budżet na zakupy jest stałą kwotą"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Budżet na zakupy jest procentem pieniędzy gospodarstwa"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Pastuch wyda do %s dziennie"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Pastuch wyda do %s pieniędzy gospodarstwa dziennie"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Pastuch wyda do %s dziennie"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Pastuch wyda do %s pieniędzy gospodarstwa dziennie"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Pastuch kupi do %s zwierząt dziennie"/>
+        <text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Pastuch kupi do %s zwierząt dziennie"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_breed" text="Pastuch będzie kupował tylko zwierzęta rasy %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_breed_any" text="Pastuch będzie kupował dowolną rasę"/>
+        <text name="el_ui_herdsmanTooltip_buy_breed" text="Pastuch będzie kupował tylko zwierzęta rasy %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_breed_any" text="Pastuch będzie kupował dowolną rasę"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Pastuch będzie kupował tylko zwierzęta bez żadnych chorób"/>
-		<text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Pastuch będzie kupował zwierzęta bez względu na choroby"/>
+        <text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Pastuch będzie kupował tylko zwierzęta bez żadnych chorób"/>
+        <text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Pastuch będzie kupował zwierzęta bez względu na choroby"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_gender_1" text="Pastuch będzie kupował tylko samice"/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_2" text="Pastuch będzie kupował samice i samce"/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_3" text="Pastuch będzie kupował tylko samce"/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_1" text="Pastuch będzie kupował tylko samice"/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_2" text="Pastuch będzie kupował samice i samce"/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_3" text="Pastuch będzie kupował tylko samce"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_age_equal" text="Pastuch będzie kupował tylko zwierzęta w wieku %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_age_range" text="Pastuch będzie kupował tylko zwierzęta w wieku od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_age_equal" text="Pastuch będzie kupował tylko zwierzęta w wieku %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_age_range" text="Pastuch będzie kupował tylko zwierzęta w wieku od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Pastuch będzie kupował tylko zwierzęta o jakości %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_quality_range" text="Pastuch będzie kupował tylko zwierzęta o jakości od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Pastuch będzie kupował tylko zwierzęta o jakości %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_quality_range" text="Pastuch będzie kupował tylko zwierzęta o jakości od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Pastuch będzie kupował tylko zwierzęta o płodności %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Pastuch będzie kupował tylko zwierzęta o płodności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Pastuch będzie kupował tylko zwierzęta o płodności %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Pastuch będzie kupował tylko zwierzęta o płodności od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_health_equal" text="Pastuch będzie kupował tylko zwierzęta o zdrowiu %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_health_range" text="Pastuch będzie kupował tylko zwierzęta o zdrowiu od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_health_equal" text="Pastuch będzie kupował tylko zwierzęta o zdrowiu %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_health_range" text="Pastuch będzie kupował tylko zwierzęta o zdrowiu od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Pastuch będzie kupował tylko zwierzęta o produktywności %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Pastuch będzie kupował tylko zwierzęta o produktywności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Pastuch będzie kupował tylko zwierzęta o produktywności %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Pastuch będzie kupował tylko zwierzęta o produktywności od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Pastuch będzie kupował tylko zwierzęta o metabolizmie %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Pastuch będzie kupował tylko zwierzęta o metabolizmie od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Pastuch będzie kupował tylko zwierzęta o metabolizmie %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Pastuch będzie kupował tylko zwierzęta o metabolizmie od %s do %s"/>
 
 
-		<!-- AI - SELLING -->
+        <!-- AI - SELLING -->
 
 
-		<text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Pastuch nie będzie sprzedawał zwierząt"/>
-		<text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Pastuch będzie sprzedawał zwierzęta"/>
+        <text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Pastuch nie będzie sprzedawał zwierząt"/>
+        <text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Pastuch będzie sprzedawał zwierzęta"/>
+        <text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Pastuch sprzeda do %s zwierząt dziennie"/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_1" text="Pastuch nie będzie oznaczał zwierząt do sprzedaży"/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_2" text="Pastuch będzie oznaczał zwierzęta do sprzedaży"/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Pastuch będzie sprzedawał zwierzęta bez względu na choroby"/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Pastuch będzie sprzedawał tylko zwierzęta z chorobą"/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_1" text="Pastuch będzie sprzedawał tylko samice"/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_2" text="Pastuch będzie sprzedawał samice i samce"/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_3" text="Pastuch będzie sprzedawał tylko samce"/>
+        <text name="el_ui_herdsmanTooltip_sell_age_equal" text="Pastuch będzie sprzedawał tylko zwierzęta w wieku %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_age_range" text="Pastuch będzie sprzedawał tylko zwierzęta w wieku od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o jakości %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_range" text="Pastuch będzie sprzedawał tylko zwierzęta o jakości od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o płodności %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Pastuch będzie sprzedawał tylko zwierzęta o płodności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_health_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o zdrowiu %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_health_range" text="Pastuch będzie sprzedawał tylko zwierzęta o zdrowiu od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o produktywności %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Pastuch będzie sprzedawał tylko zwierzęta o produktywności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o metabolizmie %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Pastuch będzie sprzedawał tylko zwierzęta o metabolizmie od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Pastuch sprzeda do %s zwierząt dziennie"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_mark_1" text="Pastuch nie będzie oznaczał zwierząt do sprzedaży"/>
-		<text name="el_ui_herdsmanTooltip_sell_mark_2" text="Pastuch będzie oznaczał zwierzęta do sprzedaży"/>
+        <!-- AI - CASTRATING -->
 
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Pastuch będzie sprzedawał zwierzęta bez względu na choroby"/>
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Pastuch będzie sprzedawał tylko zwierzęta z chorobą"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_gender_1" text="Pastuch będzie sprzedawał tylko samice"/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_2" text="Pastuch będzie sprzedawał samice i samce"/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_3" text="Pastuch będzie sprzedawał tylko samce"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Pastuch nie będzie kastrował zwierząt"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Pastuch nie będzie kastrował zwierząt"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Pastuch będzie kastrował zwierzęta"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Pastuch będzie kastrował zwierzęta"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_age_equal" text="Pastuch będzie sprzedawał tylko zwierzęta w wieku %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_age_range" text="Pastuch będzie sprzedawał tylko zwierzęta w wieku od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Pastuch nie będzie oznaczał zwierząt do kastracji"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Pastuch nie będzie oznaczał zwierząt do kastracji"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Pastuch będzie oznaczał zwierzęta do kastracji"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Pastuch będzie oznaczał zwierzęta do kastracji"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o jakości %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_quality_range" text="Pastuch będzie sprzedawał tylko zwierzęta o jakości od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Pastuch będzie kastrował zwierzęta bez względu na choroby"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Pastuch będzie kastrował zwierzęta bez względu na choroby"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Pastuch będzie kastrował tylko zwierzęta z chorobą"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Pastuch będzie kastrował tylko zwierzęta z chorobą"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o płodności %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Pastuch będzie sprzedawał tylko zwierzęta o płodności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Pastuch będzie kastrował tylko zwierzęta w wieku %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Pastuch będzie kastrował tylko zwierzęta w wieku %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range" text="Pastuch będzie kastrował tylko zwierzęta w wieku od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Pastuch będzie kastrował tylko zwierzęta w wieku od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_health_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o zdrowiu %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_health_range" text="Pastuch będzie sprzedawał tylko zwierzęta o zdrowiu od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Pastuch będzie kastrował tylko zwierzęta o jakości %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o jakości %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Pastuch będzie kastrował tylko zwierzęta o jakości od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Pastuch będzie kastrował tylko zwierzęta o jakości od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o produktywności %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Pastuch będzie sprzedawał tylko zwierzęta o produktywności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Pastuch będzie kastrował tylko zwierzęta o płodności %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o płodności %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Pastuch będzie kastrował tylko zwierzęta o płodności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Pastuch będzie kastrował tylko zwierzęta o płodności od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Pastuch będzie sprzedawał tylko zwierzęta o metabolizmie %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Pastuch będzie sprzedawał tylko zwierzęta o metabolizmie od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Pastuch będzie kastrował tylko zwierzęta o zdrowiu %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o zdrowiu %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range" text="Pastuch będzie kastrował tylko zwierzęta o zdrowiu od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Pastuch będzie kastrował tylko zwierzęta o zdrowiu od %s do %s"/>
 
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Pastuch będzie kastrował tylko zwierzęta o produktywności %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o produktywności %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Pastuch będzie kastrował tylko zwierzęta o produktywności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Pastuch będzie kastrował tylko zwierzęta o produktywności od %s do %s"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Pastuch będzie kastrował tylko zwierzęta o metabolizmie %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o metabolizmie %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Pastuch będzie kastrował tylko zwierzęta o metabolizmie od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Pastuch będzie kastrował tylko zwierzęta o metabolizmie od %s do %s"/>
+
+
+        <!-- AI - NAMING -->
+
+
+        <text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Pastuch nie będzie nadawał imion zwierzętom"/>
+        <text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Pastuch będzie nadawał imiona zwierzętom"/>
 
-		<!-- AI - CASTRATING -->
+        <text name="el_ui_herdsmanTooltip_naming_convention_1" text="Pastuch będzie nadawał imiona losowo"/>
+        <text name="el_ui_herdsmanTooltip_naming_convention_2" text="Pastuch będzie nadawał imiona alfabetycznie"/>
 
 
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Pastuch nie będzie kastrował zwierząt"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Pastuch nie będzie kastrował zwierząt"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Pastuch będzie kastrował zwierzęta"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Pastuch będzie kastrował zwierzęta"/>
+        <!-- AI - ASSISTED BREEDING -->
 
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Pastuch nie będzie oznaczał zwierząt do kastracji"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Pastuch nie będzie oznaczał zwierząt do kastracji"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Pastuch będzie oznaczał zwierzęta do kastracji"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Pastuch będzie oznaczał zwierzęta do kastracji"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Pastuch będzie kastrował zwierzęta bez względu na choroby"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Pastuch będzie kastrował zwierzęta bez względu na choroby"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Pastuch będzie kastrował tylko zwierzęta z chorobą"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Pastuch będzie kastrował tylko zwierzęta z chorobą"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Pastuch nie będzie rozmnażał zwierząt"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Pastuch nie będzie rozmnażał zwierząt"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Pastuch będzie rozmnażał zwierzęta"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Pastuch będzie rozmnażał zwierzęta"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Pastuch będzie kastrował tylko zwierzęta w wieku %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Pastuch będzie kastrował tylko zwierzęta w wieku %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="Pastuch będzie kastrował tylko zwierzęta w wieku od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Pastuch będzie kastrował tylko zwierzęta w wieku od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Pastuch będzie rozmnażał do %s zwierząt dziennie"/>
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Pastuch będzie rozmnażał do %s zwierząt dziennie"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Pastuch będzie kastrował tylko zwierzęta o jakości %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o jakości %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Pastuch będzie kastrował tylko zwierzęta o jakości od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Pastuch będzie kastrował tylko zwierzęta o jakości od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_1" text="Pastuch nie będzie oznaczał zwierząt do rozmnażania"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Pastuch nie będzie oznaczał zwierząt do rozmnażania"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2" text="Pastuch będzie oznaczał zwierzęta do rozmnażania"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Pastuch będzie oznaczał zwierzęta do rozmnażania"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Pastuch będzie kastrował tylko zwierzęta o płodności %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o płodności %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Pastuch będzie kastrował tylko zwierzęta o płodności od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Pastuch będzie kastrował tylko zwierzęta o płodności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Pastuch będzie rozmnażał zwierzęta bez względu na choroby"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Pastuch będzie rozmnażał zwierzęta bez względu na choroby"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Pastuch będzie rozmnażał tylko zwierzęta z chorobą"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Pastuch będzie rozmnażał tylko zwierzęta z chorobą"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Pastuch będzie kastrował tylko zwierzęta o zdrowiu %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o zdrowiu %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="Pastuch będzie kastrował tylko zwierzęta o zdrowiu od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Pastuch będzie kastrował tylko zwierzęta o zdrowiu od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen" text="Pastuch będzie używał próbek hodowlanych od %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_github" text="Pastuch będzie używał nasienia od %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any" text="Pastuch będzie używał dowolnych dostępnych próbek hodowlanych"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Pastuch będzie używał dowolnego dostępnego nasienia"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Pastuch będzie kastrował tylko zwierzęta o produktywności %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o produktywności %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Pastuch będzie kastrował tylko zwierzęta o produktywności od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Pastuch będzie kastrował tylko zwierzęta o produktywności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_equal" text="Pastuch będzie rozmnażał tylko zwierzęta w wieku %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta w wieku %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range" text="Pastuch będzie rozmnażał tylko zwierzęta w wieku od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta w wieku od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Pastuch będzie kastrował tylko zwierzęta o metabolizmie %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Pastuch będzie kastrował tylko zwierzęta o metabolizmie %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Pastuch będzie kastrował tylko zwierzęta o metabolizmie od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Pastuch będzie kastrował tylko zwierzęta o metabolizmie od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o jakości %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o jakości %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range" text="Pastuch będzie rozmnażał tylko zwierzęta o jakości od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o jakości od %s do %s"/>
 
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o płodności %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o płodności %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Pastuch będzie rozmnażał tylko zwierzęta o płodności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o płodności od %s do %s"/>
 
-		<!-- AI - NAMING -->
+        <text name="el_ui_herdsmanTooltip_ai_health_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o zdrowiu %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o zdrowiu %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range" text="Pastuch będzie rozmnażał tylko zwierzęta o zdrowiu od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o zdrowiu od %s do %s"/>
 
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o produktywności %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o produktywności %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Pastuch będzie rozmnażał tylko zwierzęta o produktywności od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o produktywności od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Pastuch nie będzie nadawał imion zwierzętom"/>
-		<text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Pastuch będzie nadawał imiona zwierzętom"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o metabolizmie %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o metabolizmie %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Pastuch będzie rozmnażał tylko zwierzęta o metabolizmie od %s do %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o metabolizmie od %s do %s"/>
 
-		<text name="el_ui_herdsmanTooltip_naming_convention_1" text="Pastuch będzie nadawał imiona losowo"/>
-		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="Pastuch będzie nadawał imiona alfabetycznie"/>
+        <!-- AI Rework System: Bull Tier Names -->
+        <text name="el_ui_bullTier_youngGenomic" text="Young (Genomic)"/>
+        <text name="el_ui_bullTier_proven" text="Proven"/>
+        <text name="el_ui_bullTier_elite" text="Elite"/>
+        <text name="el_ui_bullTier_legend" text="Legend"/>
 
+        <!-- AI Rework System: Semen Types -->
+        <text name="el_ui_semenType" text="Sample Type"/>
+        <text name="el_ui_semenType_github" text="Semen Type"/>
+        <text name="el_ui_semenType_conventional" text="Conventional"/>
+        <text name="el_ui_semenType_sexedFemale" text="Sexed (Female)"/>
+        <text name="el_ui_semenType_sexedMale" text="Sexed (Male)"/>
 
-		<!-- AI - AI -->
+        <!-- AI Rework System: Nitrogen System -->
+        <text name="el_ui_nitrogenLevel" text="Nitrogen Level"/>
+        <text name="el_warning_criticalNitrogen" text="CRITICAL: Nitrogen Empty!"/>
+        <text name="el_warning_dewarSpoiled" text="Dewar %s spoiled due to nitrogen depletion"/>
+        <text name="el_warning_thermalDamage" text="Semen fertility reduced due to thermal exposure"/>
+        <text name="el_action_refillNitrogen" text="Refill Nitrogen ($50)"/>
+        <text name="el_info_nitrogenAlreadyFull" text="Nitrogen level is already full"/>
+        <text name="el_notification_nitrogenRefilled" text="Nitrogen refilled for %s"/>
+
+        <!-- AI Rework System: Stock Management -->
+        <text name="el_ui_strawsAvailable" text="%d straws available"/>
+        <text name="el_ui_limitedStock" text="Limited stock: only %d available"/>
+        <text name="el_error_insufficientSemenStock" text="Not enough semen in stock"/>
+        <text name="el_error_noSexedSemenAvailable" text="No sexed semen available for this bull"/>
+
+        <!-- AI Rework System: Selling Semen -->
+        <text name="el_ui_sellSemen" text="Sell Semen"/>
+        <text name="el_error_onlyMalesCanSellSemen" text="Only male animals can sell semen"/>
+        <text name="el_error_animalTooYoung" text="Animal is too young to sell semen"/>
+        <text name="el_error_semenCollectionCooldown" text="Bull needs to rest before next semen collection"/>
+        <text name="el_notification_semenSold" text="Sold %d straws from %s for %s"/>
+
+        <!--  SETTINGS  -->
 
 
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Pastuch nie będzie rozmnażał zwierząt"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Pastuch nie będzie rozmnażał zwierząt"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Pastuch będzie rozmnażał zwierzęta"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Pastuch będzie rozmnażał zwierzęta"/>
+        <text name="el_settings" text="Enhanced Livestock"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Pastuch będzie rozmnażał do %s zwierząt dziennie"/>
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Pastuch będzie rozmnażał do %s zwierząt dziennie"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="Pastuch nie będzie oznaczał zwierząt do rozmnażania"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Pastuch nie będzie oznaczał zwierząt do rozmnażania"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="Pastuch będzie oznaczał zwierzęta do rozmnażania"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Pastuch będzie oznaczał zwierzęta do rozmnażania"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Pastuch będzie rozmnażał zwierzęta bez względu na choroby"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Pastuch będzie rozmnażał zwierzęta bez względu na choroby"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Pastuch będzie rozmnażał tylko zwierzęta z chorobą"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Pastuch będzie rozmnażał tylko zwierzęta z chorobą"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_semen" text="Pastuch będzie używał próbek hodowlanych od %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="Pastuch będzie używał nasienia od %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="Pastuch będzie używał dowolnych dostępnych próbek hodowlanych"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Pastuch będzie używał dowolnego dostępnego nasienia"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="Pastuch będzie rozmnażał tylko zwierzęta w wieku %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta w wieku %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range" text="Pastuch będzie rozmnażał tylko zwierzęta w wieku od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta w wieku od %s do %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o jakości %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o jakości %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="Pastuch będzie rozmnażał tylko zwierzęta o jakości od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o jakości od %s do %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o płodności %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o płodności %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Pastuch będzie rozmnażał tylko zwierzęta o płodności od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o płodności od %s do %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o zdrowiu %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o zdrowiu %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range" text="Pastuch będzie rozmnażał tylko zwierzęta o zdrowiu od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o zdrowiu od %s do %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o produktywności %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o produktywności %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Pastuch będzie rozmnażał tylko zwierzęta o produktywności od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o produktywności od %s do %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Pastuch będzie rozmnażał tylko zwierzęta o metabolizmie %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Pastuch będzie rozmnażał tylko zwierzęta o metabolizmie %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Pastuch będzie rozmnażał tylko zwierzęta o metabolizmie od %s do %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Pastuch będzie rozmnażał tylko zwierzęta o metabolizmie od %s do %s"/>
-
-
-
-
-		<!--  SETTINGS  -->
-
-
-		<text name="el_settings" text="Enhanced Livestock"/>
-
-		<text name="el_settings_off" text="Wył."/>
-		<text name="el_settings_on" text="Wł."/>
-
-		<text name="el_settings_deathEnabled_label" text="Usuwanie zwierząt"/>
-		<text name="el_settings_deathEnabled_label_github" text="Śmierć zwierząt"/>
-		<text name="el_settings_deathEnabled_tooltip_1" text="Zwierzęta nie będą usuwane z powodu ciąży, zdrowia, wieku lub wypadków"/>
-		<text name="el_settings_deathEnabled_tooltip_1_github" text="Zwierzęta nie umrą z powodu ciąży, zdrowia, wieku lub wypadków"/>
-		<text name="el_settings_deathEnabled_tooltip_2" text="Zwierzęta będą usuwane z powodu ciąży, zdrowia, wieku lub wypadków"/>
-		<text name="el_settings_deathEnabled_tooltip_2_github" text="Zwierzęta umrą z powodu ciąży, zdrowia, wieku lub wypadków"/>
-
-		<text name="el_settings_accidentsChance_label" text="Szansa na wypadek"/>
-		<text name="el_settings_accidentsChance_tooltip" text="Zmień prawdopodobieństwo usunięcia zwierząt z powodu losowych wypadków"/>
-		<text name="el_settings_accidentsChance_tooltip_github" text="Zmień prawdopodobieństwo śmierci zwierząt z powodu losowych wypadków"/>
-
-		<text name="el_settings_foodScale_label" text="Skala jedzenia"/>
-		<text name="el_settings_foodScale_tooltip" text="Zmień ilość jedzenia spożywanego przez zwierzęta"/>
-
-		<text name="el_settings_maxDealerAnimals_label" text="Maks. zwierząt u handlarza"/>
-		<text name="el_settings_maxDealerAnimals_tooltip" text="Zmień maksymalną liczbę zwierząt, jaką handlarz będzie miał na stanie dla każdego typu zwierzęcia"/>
-
-		<text name="el_settings_resetDealer_label" text="Zresetuj handlarza zwierząt"/>
-		<text name="el_settings_resetDealer_tooltip" text="Usuń wszystkie zwierzęta handlarza i uzupełnij zapasy nowymi zwierzętami"/>
-		<text name="el_settings_resetDealer_text" text="Zresetuj handlarza zwierząt"/>
-
-		<text name="el_settings_tagColour_label" text="Zmień kolor kolczyka"/>
-		<text name="el_settings_tagColour_tooltip" text="Zmień kolor kolczyków"/>
-		<text name="el_settings_tagColour_text" text="Zmień kolor kolczyka"/>
-
-		<text name="el_settings_exportCSV_label" text="Eksportuj do CSV"/>
-		<text name="el_settings_exportCSV_tooltip" text="Eksportuj statystyki do pliku CSV"/>
-		<text name="el_settings_exportCSV_text" text="Eksportuj do CSV"/>
-
-		<text name="el_settings_maxNumMessages_label" text="Maksymalna liczba wiadomości"/>
-		<text name="el_settings_maxNumMessages_tooltip" text="Wyższa kwota spowoduje, że folder zapisu będzie zajmował więcej miejsca. Po osiągnięciu tego limitu najwcześniejsze wiadomości zostaną usunięte."/>
-
-		<text name="el_settings_diseasesEnabled_label" text="Choroby włączone"/>
-		<text name="el_settings_diseasesEnabled_tooltip_1" text="Zwierzęta nie mogą zachorować ani odziedziczyć chorób"/>
-		<text name="el_settings_diseasesEnabled_tooltip_2" text="Zwierzęta mogą zachorować lub odziedziczyć choroby"/>
-
-		<text name="el_settings_diseasesChance_label" text="Szansa na chorobę"/>
-		<text name="el_settings_diseasesChance_tooltip" text="Zmień prawdopodobieństwo zarażenia się zwierząt chorobami"/>
-
-		<text name="el_settings_useCustomAnimals_label" text="Użyj własnych zwierząt"/>
-		<text name="el_settings_useCustomAnimals_tooltip_1" text="Użyj modeli zwierząt EnhancedLivestock (wymaga restartu)"/>
-		<text name="el_settings_useCustomAnimals_tooltip_2" text="Użyj własnych modeli zwierząt (eksperymentalne, wymaga restartu, muszą być rozpakowane)"/>
-
-		<text name="el_settings_animalsXML_label" text="Ustaw ścieżkę XML zwierząt"/>
-		<text name="el_settings_animalsXML_tooltip" text="Ustaw ścieżkę do własnego pliku XML zwierząt"/>
-		<text name="el_settings_animalsXML_text" text="Ustaw ścieżkę XML zwierząt"/>
-
-		<text name="el_settings_earTagTextEnabled_label" text="Tekst kolczyków"/>
-		<text name="el_settings_earTagTextEnabled_tooltip" text="Włącz/wyłącz wyświetlanie tekstu na kolczykach zwierząt"/>
-
-		<!--  HELP  -->
-
-
-		<text name="el_help_monitors_title" text="Monitory"/>
-		<text name="el_help_monitors_1" text="Aby zobaczyć większość statystyk zwierzęcia, musisz założyć mu kolczyk monitorujący, co można zrobić w menu zwierząt (tam, gdzie kupujesz i sprzedajesz zwierzęta). Kolczyki monitorujące są również widoczne na zwierzęciu, na lewym uchu obok kolczyka z numerem ID."/>
-		<text name="el_help_monitors_2" text="Kolczyki monitorujące wyświetlają ważne informacje, w tym zdrowie, wagę, laktację, produkcję oraz zapotrzebowanie na słomę, jedzenie i wodę."/>
-		<text name="el_help_monitors_3" text="Założenie kolczyka zwierzęciu wiąże się z małą miesięczną subskrypcją zależną od gatunku zwierzęcia. Jeśli zdecydujesz się usunąć kolczyk, zostanie on usunięty na początku następnego miesiąca."/>
-
-		<text name="el_help_pregnancy_title" text="Wychowywanie potomstwa"/>
-		<text name="el_help_pregnancy_title_github" text="Ciąża"/>
-		<text name="el_help_pregnancy_1" text="Samice wymagają co najmniej 1 samca, aby mieć potomstwo. Oba zwierzęta muszą być zdrowe, w odpowiednim wieku i należeć do tego samego gatunku. Krzyżowanie różnych ras (np. krowy holsztyńskiej i byka angus) jest dozwolone."/>
-		<text name="el_help_pregnancy_1_github" text="Wszystkie samice wymagają co najmniej 1 samca, aby potencjalnie zajść w ciążę. Oba zwierzęta muszą być w odpowiednim wieku, zdrowe i należeć do tego samego gatunku. Krzyżowanie różnych ras (np. krowy holsztyńskiej i byka angus) jest dozwolone."/>
-		<text name="el_help_pregnancy_2" text="Bliscy krewni nie będą się parzyć. Jeśli samiec i samica są bezpośrednio spokrewnieni, nie będą się rozmnażać."/>
-		<text name="el_help_pregnancy_2_github" text="Inbred (chów wsobny) jest niedozwolony. Jeśli samiec i samica są bezpośrednio spokrewnieni, nie będą się rozmnażać."/>
-		<text name="el_help_pregnancy_3" text="Szansa na to, że samica będzie oczekiwać potomstwa, zależy od płodności obojga rodziców. Samica o wyższej płodności ma również znacznie większą szansę na urodzenie większej liczby młodych naraz."/>
-		<text name="el_help_pregnancy_3_github" text="Szansa na zajście w ciążę zależy od płodności samicy i samca. Samica o wyższej płodności ma również znacznie większą szansę na wydanie większej liczby potomstwa naraz."/>
-		<text name="el_help_pregnancy_4" text="Gdy samica oczekuje potomstwa, zaczyna nosić swoje młode. Możesz zobaczyć przewidywaną datę porodu i liczbę oczekiwanych młodych, patrząc na zwierzę w kojcu lub wybierając je w menu zwierząt."/>
-		<text name="el_help_pregnancy_4_github" text="Gdy samica zajdzie w ciążę, zacznie nosić potomstwo. Możesz zobaczyć oczekiwaną datę porodu i liczbę potomstwa, patrząc na zwierzę w kojcu lub klikając na nie w menu zwierząt."/>
-		<text name="el_help_pregnancy_5" text="Gdy nadejdzie termin porodu, pojawią się nowe młode. Istnieje jednak niewielka szansa, że młode lub matka zostaną utracone w przypadku komplikacji. Młode urodzone w przepełnionym kojcu zostaną automatycznie sprzedane."/>
-		<text name="el_help_pregnancy_5_github" text="Gdy nadejdzie termin porodu, samica wyda na świat młode. Istnieje jednak pewna szansa na usunięcie noworodków, a także matki, jeśli ciąża przebiegnie źle. Noworodki urodzone w przepełnionym kojcu zostaną automatycznie sprzedane."/>
-
-		<text name="el_help_production_title" text="Produkcja"/>
-		<text name="el_help_production_1" text="Krowy dowolnej rasy zaczną dawać mleko dopiero po porodzie. Po porodzie krowa będzie produkować mleko wykładniczo przez 3 miesiące, następnie jej produkcja będzie powoli spadać przez kolejne 6 miesięcy. 10 miesięcy po zajściu w ciążę krowa przestanie dawać mleko aż do następnego porodu."/>
-		<text name="el_help_production_2" text="Owce będą produkować wełnę w ciepłych miesiącach. W miesiącach zimnych, poniżej 12°C, nie będą produkować wełny."/>
-		<text name="el_help_production_3" text="Produkcja mleka, wełny i jaj jest dodatkowo uzależniona od genetyki zwierzęcia. Zwierzę o dobrej genetyce produkcyjnej będzie dawać więcej, podczas gdy zwierzę o złej genetyce nie będzie produkować prawie wcale."/>
-
-		<text name="el_help_weight_title" text="Waga"/>
-		<text name="el_help_weight_1" text="Zwierzęta mają określoną wagę, na którą wpływ ma to, ile jedzą i piją. Każdy gatunek i rasa ma swoją średnią wagę, która wpływa na wagę każdego osobnika."/>
-		<text name="el_help_weight_2" text="Waga zwiększa wartość zwierzęcia, a niska waga wpływa na szansę na jego usunięcie w każdym miesiącu."/>
-
-		<text name="el_help_genetics_title" text="Genetyka"/>
-		<text name="el_help_genetics_1" text="Każde zwierzę ma 4 różne wartości genetyczne: metabolizm, płodność, zdrowie i jakość. Geny są mieszane między matką a ojcem, a następnie przekazywane dzieciom."/>
-		<text name="el_help_genetics_2" text="Metabolizm wpływa na zdolność zwierzęcia do zamiany paszy na wagę oraz na ilość spożywanego pokarmu."/>
-		<text name="el_help_genetics_3" text="Płodność wpływa na szansę pomyślnego posiadania młodych oraz na liczbę potomstwa, które spłodzą rodzice."/>
-		<text name="el_help_genetics_3_github" text="Płodność wpływa na szansę zajścia samicy w ciążę (lub zapłodnienia samicy przez samca) oraz na liczbę potomstwa."/>
-		<text name="el_help_genetics_4" text="Zdrowie wpływa na ogólną kondycję zwierzęcia i szansę na jego usunięcie w każdym miesiącu. Zwierzę o lepszej genetyce zdrowia będzie miało również dłuższą żywotność."/>
-		<text name="el_help_genetics_5" text="Jakość wpływa na wartość samego zwierzęcia; zwierzę o wyższej jakości zostanie sprzedane za znacznie wyższą cenę."/>
-		<text name="el_help_genetics_6" text="Bydło, owce i kury mają również genetykę produkcyjną, która wpływa na ilość produkowanego mleka/jaj/wełny."/>
-
-
-
-		<!--  DISEASES  -->
-
-
-		<text name="el_ui_immune" text="Odporny"/>
-		<text name="el_ui_startTreatment" text="Rozpocznij leczenie"/>
-		<text name="el_ui_resumeTreatment" text="Wznów leczenie"/>
-		<text name="el_ui_stopTreatment" text="Przerwij leczenie"/>
-		<text name="el_ui_duration" text="Czas trwania"/>
-		<text name="el_ui_beingTreated" text="W trakcie leczenia"/>
-		<text name="el_ui_notTreated" text="Nieleczone"/>
-		<text name="el_ui_carrier" text="Nosiciel"/>
-
-		<text name="el_diseases" text="Choroby"/>
-		<text name="el_disease" text="Choroba"/>
-
-		<text name="el_disease_mastitis" text="Zapalenie wymienia (Mastitis)"/>
-
-		<text name="el_disease_cvm" text="CVM"/>
-
-		<text name="el_disease_footAndMouth" text="Pryszczyca"/>
-
-		<text name="el_disease_ped" text="PED (Epidemiczna biegunka świń)"/>
-
-		<text name="el_disease_avianFlu" text="Ptasia grypa"/>
-
+        <text name="el_settings_off" text="Wył."/>
+        <text name="el_settings_on" text="Wł."/>
+
+        <text name="el_settings_deathEnabled_label" text="Usuwanie zwierząt"/>
+        <text name="el_settings_deathEnabled_label_github" text="Śmierć zwierząt"/>
+        <text name="el_settings_deathEnabled_tooltip_1" text="Zwierzęta nie będą usuwane z powodu ciąży, zdrowia, wieku lub wypadków"/>
+        <text name="el_settings_deathEnabled_tooltip_1_github" text="Zwierzęta nie umrą z powodu ciąży, zdrowia, wieku lub wypadków"/>
+        <text name="el_settings_deathEnabled_tooltip_2" text="Zwierzęta będą usuwane z powodu ciąży, zdrowia, wieku lub wypadków"/>
+        <text name="el_settings_deathEnabled_tooltip_2_github" text="Zwierzęta umrą z powodu ciąży, zdrowia, wieku lub wypadków"/>
+
+        <text name="el_settings_accidentsChance_label" text="Szansa na wypadek"/>
+        <text name="el_settings_accidentsChance_tooltip" text="Zmień prawdopodobieństwo usunięcia zwierząt z powodu losowych wypadków"/>
+        <text name="el_settings_accidentsChance_tooltip_github" text="Zmień prawdopodobieństwo śmierci zwierząt z powodu losowych wypadków"/>
+
+        <text name="el_settings_foodScale_label" text="Skala jedzenia"/>
+        <text name="el_settings_foodScale_tooltip" text="Zmień ilość jedzenia spożywanego przez zwierzęta"/>
+
+        <text name="el_settings_maxDealerAnimals_label" text="Maks. zwierząt u handlarza"/>
+        <text name="el_settings_maxDealerAnimals_tooltip" text="Zmień maksymalną liczbę zwierząt, jaką handlarz będzie miał na stanie dla każdego typu zwierzęcia"/>
+
+        <text name="el_settings_resetDealer_label" text="Zresetuj handlarza zwierząt"/>
+        <text name="el_settings_resetDealer_tooltip" text="Usuń wszystkie zwierzęta handlarza i uzupełnij zapasy nowymi zwierzętami"/>
+        <text name="el_settings_resetDealer_text" text="Zresetuj handlarza zwierząt"/>
+
+        <text name="el_settings_tagColour_label" text="Zmień kolor kolczyka"/>
+        <text name="el_settings_tagColour_tooltip" text="Zmień kolor kolczyków"/>
+        <text name="el_settings_tagColour_text" text="Zmień kolor kolczyka"/>
+
+        <text name="el_settings_exportCSV_label" text="Eksportuj do CSV"/>
+        <text name="el_settings_exportCSV_tooltip" text="Eksportuj statystyki do pliku CSV"/>
+        <text name="el_settings_exportCSV_text" text="Eksportuj do CSV"/>
+
+        <text name="el_settings_maxNumMessages_label" text="Maksymalna liczba wiadomości"/>
+        <text name="el_settings_maxNumMessages_tooltip" text="Wyższa kwota spowoduje, że folder zapisu będzie zajmował więcej miejsca. Po osiągnięciu tego limitu najwcześniejsze wiadomości zostaną usunięte."/>
+
+        <text name="el_settings_diseasesEnabled_label" text="Choroby włączone"/>
+        <text name="el_settings_diseasesEnabled_tooltip_1" text="Zwierzęta nie mogą zachorować ani odziedziczyć chorób"/>
+        <text name="el_settings_diseasesEnabled_tooltip_2" text="Zwierzęta mogą zachorować lub odziedziczyć choroby"/>
+
+        <text name="el_settings_diseasesChance_label" text="Szansa na chorobę"/>
+        <text name="el_settings_diseasesChance_tooltip" text="Zmień prawdopodobieństwo zarażenia się zwierząt chorobami"/>
+
+        <text name="el_settings_useCustomAnimals_label" text="Użyj własnych zwierząt"/>
+        <text name="el_settings_useCustomAnimals_tooltip_1" text="Użyj modeli zwierząt EnhancedLivestock (wymaga restartu)"/>
+        <text name="el_settings_useCustomAnimals_tooltip_2" text="Użyj własnych modeli zwierząt (eksperymentalne, wymaga restartu, muszą być rozpakowane)"/>
+
+        <text name="el_settings_animalsXML_label" text="Ustaw ścieżkę XML zwierząt"/>
+        <text name="el_settings_animalsXML_tooltip" text="Ustaw ścieżkę do własnego pliku XML zwierząt"/>
+        <text name="el_settings_animalsXML_text" text="Ustaw ścieżkę XML zwierząt"/>
+
+        <text name="el_settings_earTagTextEnabled_label" text="Tekst kolczyków"/>
+        <text name="el_settings_earTagTextEnabled_tooltip" text="Włącz/wyłącz wyświetlanie tekstu na kolczykach zwierząt"/>
+
+
+        <!--  HELP  -->
+
+        <text name="el_help_monitors_title" text="Monitory"/>
+        <text name="el_help_monitors_1" text="Aby zobaczyć większość statystyk zwierzęcia, musisz założyć mu kolczyk monitorujący, co można zrobić w menu zwierząt (tam, gdzie kupujesz i sprzedajesz zwierzęta). Kolczyki monitorujące są również widoczne na zwierzęciu, na lewym uchu obok kolczyka z numerem ID."/>
+        <text name="el_help_monitors_2" text="Kolczyki monitorujące wyświetlają ważne informacje, w tym zdrowie, wagę, laktację, produkcję oraz zapotrzebowanie na słomę, jedzenie i wodę."/>
+        <text name="el_help_monitors_3" text="Założenie kolczyka zwierzęciu wiąże się z małą miesięczną subskrypcją zależną od gatunku zwierzęcia. Jeśli zdecydujesz się usunąć kolczyk, zostanie on usunięty na początku następnego miesiąca."/>
+
+        <text name="el_help_pregnancy_title" text="Wychowywanie potomstwa"/>
+        <text name="el_help_pregnancy_title_github" text="Ciąża"/>
+        <text name="el_help_pregnancy_1" text="Samice wymagają co najmniej 1 samca, aby mieć potomstwo. Oba zwierzęta muszą być zdrowe, w odpowiednim wieku i należeć do tego samego gatunku. Krzyżowanie różnych ras (np. krowy holsztyńskiej i byka angus) jest dozwolone."/>
+        <text name="el_help_pregnancy_1_github" text="Wszystkie samice wymagają co najmniej 1 samca, aby potencjalnie zajść w ciążę. Oba zwierzęta muszą być w odpowiednim wieku, zdrowe i należeć do tego samego gatunku. Krzyżowanie różnych ras (np. krowy holsztyńskiej i byka angus) jest dozwolone."/>
+        <text name="el_help_pregnancy_2" text="Bliscy krewni nie będą się parzyć. Jeśli samiec i samica są bezpośrednio spokrewnieni, nie będą się rozmnażać."/>
+        <text name="el_help_pregnancy_2_github" text="Inbred (chów wsobny) jest niedozwolony. Jeśli samiec i samica są bezpośrednio spokrewnieni, nie będą się rozmnażać."/>
+        <text name="el_help_pregnancy_3" text="Szansa na to, że samica będzie oczekiwać potomstwa, zależy od płodności obojga rodziców. Samica o wyższej płodności ma również znacznie większą szansę na urodzenie większej liczby młodych naraz."/>
+        <text name="el_help_pregnancy_3_github" text="Szansa na zajście w ciążę zależy od płodności samicy i samca. Samica o wyższej płodności ma również znacznie większą szansę na wydanie większej liczby potomstwa naraz."/>
+        <text name="el_help_pregnancy_4" text="Gdy samica oczekuje potomstwa, zaczyna nosić swoje młode. Możesz zobaczyć przewidywaną datę porodu i liczbę oczekiwanych młodych, patrząc na zwierzę w kojcu lub wybierając je w menu zwierząt."/>
+        <text name="el_help_pregnancy_4_github" text="Gdy samica zajdzie w ciążę, zacznie nosić potomstwo. Możesz zobaczyć oczekiwaną datę porodu i liczbę potomstwa, patrząc na zwierzę w kojcu lub klikając na nie w menu zwierząt."/>
+        <text name="el_help_pregnancy_5" text="Gdy nadejdzie termin porodu, pojawią się nowe młode. Istnieje jednak niewielka szansa, że młode lub matka zostaną utracone w przypadku komplikacji. Młode urodzone w przepełnionym kojcu zostaną automatycznie sprzedane."/>
+        <text name="el_help_pregnancy_5_github" text="Gdy nadejdzie termin porodu, samica wyda na świat młode. Istnieje jednak pewna szansa na usunięcie noworodków, a także matki, jeśli ciąża przebiegnie źle. Noworodki urodzone w przepełnionym kojcu zostaną automatycznie sprzedane."/>
+
+        <text name="el_help_production_title" text="Produkcja"/>
+        <text name="el_help_production_1" text="Krowy dowolnej rasy zaczną dawać mleko dopiero po porodzie. Po porodzie krowa będzie produkować mleko wykładniczo przez 3 miesiące, następnie jej produkcja będzie powoli spadać przez kolejne 6 miesięcy. 10 miesięcy po zajściu w ciążę krowa przestanie dawać mleko aż do następnego porodu."/>
+        <text name="el_help_production_2" text="Owce będą produkować wełnę w ciepłych miesiącach. W miesiącach zimnych, poniżej 12°C, nie będą produkować wełny."/>
+        <text name="el_help_production_3" text="Produkcja mleka, wełny i jaj jest dodatkowo uzależniona od genetyki zwierzęcia. Zwierzę o dobrej genetyce produkcyjnej będzie dawać więcej, podczas gdy zwierzę o złej genetyce nie będzie produkować prawie wcale."/>
+
+        <text name="el_help_weight_title" text="Waga"/>
+        <text name="el_help_weight_1" text="Zwierzęta mają określoną wagę, na którą wpływ ma to, ile jedzą i piją. Każdy gatunek i rasa ma swoją średnią wagę, która wpływa na wagę każdego osobnika."/>
+        <text name="el_help_weight_2" text="Waga zwiększa wartość zwierzęcia, a niska waga wpływa na szansę na jego usunięcie w każdym miesiącu."/>
+
+        <text name="el_help_genetics_title" text="Genetyka"/>
+        <text name="el_help_genetics_1" text="Każde zwierzę ma 4 różne wartości genetyczne: metabolizm, płodność, zdrowie i jakość. Geny są mieszane między matką a ojcem, a następnie przekazywane dzieciom."/>
+        <text name="el_help_genetics_2" text="Metabolizm wpływa na zdolność zwierzęcia do zamiany paszy na wagę oraz na ilość spożywanego pokarmu."/>
+        <text name="el_help_genetics_3" text="Płodność wpływa na szansę pomyślnego posiadania młodych oraz na liczbę potomstwa, które spłodzą rodzice."/>
+        <text name="el_help_genetics_3_github" text="Płodność wpływa na szansę zajścia samicy w ciążę (lub zapłodnienia samicy przez samca) oraz na liczbę potomstwa."/>
+        <text name="el_help_genetics_4" text="Zdrowie wpływa na ogólną kondycję zwierzęcia i szansę na jego usunięcie w każdym miesiącu. Zwierzę o lepszej genetyce zdrowia będzie miało również dłuższą żywotność."/>
+        <text name="el_help_genetics_5" text="Jakość wpływa na wartość samego zwierzęcia; zwierzę o wyższej jakości zostanie sprzedane za znacznie wyższą cenę."/>
+        <text name="el_help_genetics_6" text="Bydło, owce i kury mają również genetykę produkcyjną, która wpływa na ilość produkowanego mleka/jaj/wełny."/>
+
+
+        <!--  DISEASES  -->
+
+
+        <text name="el_ui_immune" text="Odporny"/>
+        <text name="el_ui_startTreatment" text="Rozpocznij leczenie"/>
+        <text name="el_ui_resumeTreatment" text="Wznów leczenie"/>
+        <text name="el_ui_stopTreatment" text="Przerwij leczenie"/>
+        <text name="el_ui_duration" text="Czas trwania"/>
+        <text name="el_ui_beingTreated" text="W trakcie leczenia"/>
+        <text name="el_ui_notTreated" text="Nieleczone"/>
+        <text name="el_ui_carrier" text="Nosiciel"/>
+
+        <text name="el_diseases" text="Choroby"/>
+        <text name="el_disease" text="Choroba"/>
+
+        <text name="el_disease_mastitis" text="Zapalenie wymienia (Mastitis)"/>
+        <text name="el_disease_cvm" text="CVM"/>
+        <text name="el_disease_footAndMouth" text="Pryszczyca"/>
+        <text name="el_disease_ped" text="PED (Epidemiczna biegunka świń)"/>
+        <text name="el_disease_avianFlu" text="Ptasia grypa"/>
 		<text name="el_disease_colic" text="Kolka"/>
 		<text name="el_disease_laminitis" text="Ochwat"/>
 		<text name="el_disease_arthritis" text="Zapalenie stawów"/>
@@ -682,99 +703,102 @@
 		<text name="el_disease_infectiousBronchitis_desc" text="Wysoce zakaźna wirusowa choroba układu oddechowego. Trwale uszkadza układ rozrodczy."/>
 
 
+        <!--  MESSAGES  -->
 
-		<!--  MESSAGES  -->
+        <text name="el_messageTitle_pregnancy" text="Ciąża"/>
+        <text name="el_messageTitle_death" text="Usunięcie"/>
+        <text name="el_messageTitle_death_github" text="Śmierć"/>
+        <text name="el_messageTitle_disease" text="Choroba"/>
+        <text name="el_messageTitle_name" text="Imię"/>
+        <text name="el_messageTitle_movement" text="Przemieszczenie"/>
+        <text name="el_messageTitle_aiManager" text="Pastuch"/>
+        <text name="el_messageTitle_insemination" text="Wspomagany rozród"/>
+        <text name="el_messageTitle_insemination_github" text="Sztuczne zapłodnienie"/>
 
-
-		<text name="el_messageTitle_pregnancy" text="Ciąża"/>
-		<text name="el_messageTitle_death" text="Usunięcie"/>
-		<text name="el_messageTitle_death_github" text="Śmierć"/>
-		<text name="el_messageTitle_disease" text="Choroba"/>
-		<text name="el_messageTitle_name" text="Imię"/>
-		<text name="el_messageTitle_movement" text="Przemieszczenie"/>
-		<text name="el_messageTitle_aiManager" text="Pastuch"/>
-		<text name="el_messageTitle_insemination" text="Wspomagany rozród"/>
-		<text name="el_messageTitle_insemination_github" text="Sztuczne zapłodnienie"/>
-
-		<text name="el_message_pregnancySingle" text="Urodziło się 1 młode"/>
-		<text name="el_message_pregnancyMultiple" text="Urodziło się %s młodych"/>
-		<text name="el_message_pregnancySold" text="%s młodych zostało sprzedanych za %s z powodu przepełnienia"/>
-		<text name="el_message_pregnancyDied" text="%s młodych zostało usuniętych przy urodzeniu"/>
-		<text name="el_message_pregnancyDied_github" text="%s młodych padło przy urodzeniu"/>
-		<text name="el_message_death" text="Usunięto z powodu: %s"/>
-		<text name="el_message_death_github" text="Padło z powodu: %s"/>
-		<text name="el_message_diseaseContracted" text="Zachorowało na: %s"/>
-		<text name="el_message_diseaseCured" text="Wyleczono z: %s"/>
-		<text name="el_message_diseaseTreatment_start" text="Rozpoczęto leczenie %s w %s"/>
-		<text name="el_message_diseaseTreatment_resume" text="Wznowiono leczenie %s w %s"/>
-		<text name="el_message_diseaseTreatment_stop" text="Przerwano leczenie %s"/>
-		<text name="el_message_nameChange" text="Zmieniono imię z '%s' na '%s'"/>
-		<text name="el_message_nameAdded" text="Nadano imię '%s'"/>
-		<text name="el_message_nameDeleted" text="Imię '%s' zostało usunięte"/>
-		<text name="el_message_boughtAnimals_single" text="Zakupiono 1 zwierzę za %s"/>
-		<text name="el_message_boughtAnimals_multiple" text="Zakupiono %s zwierząt za %s"/>
-		<text name="el_message_soldAnimals_single" text="Sprzedano 1 zwierzę za %s"/>
-		<text name="el_message_soldAnimals_multiple" text="Sprzedano %s zwierząt za %s"/>
-		<text name="el_message_movedAnimalsTo_single" text="Przeniesiono 1 zwierzę do %s"/>
-		<text name="el_message_movedAnimalsTo_multiple" text="Przeniesiono %s zwierząt do %s"/>
-		<text name="el_message_movedAnimalsFrom_single" text="Przeniesiono 1 zwierzę z %s"/>
-		<text name="el_message_movedAnimalsFrom_multiple" text="Przeniesiono %s zwierząt z %s"/>
-		<text name="el_message_aiManager_boughtAnimals_single" text="Pastuch kupił 1 zwierzę za %s"/>
-		<text name="el_message_aiManager_boughtAnimals_multiple" text="Pastuch kupił %s zwierząt za %s"/>
-		<text name="el_message_aiManager_soldAnimals_single" text="Pastuch sprzedał 1 zwierzę za %s"/>
-		<text name="el_message_aiManager_soldAnimals_multiple" text="Pastuch sprzedał %s zwierząt za %s"/>
-		<text name="el_message_aiManager_castrated_single" text="Pastuch wykastrował 1 zwierzę"/>
-		<text name="el_message_aiManager_castrated_single_github" text="Pastuch wykastrował 1 zwierzę"/>
-		<text name="el_message_aiManager_castrated_multiple" text="Pastuch wykastrował %s zwierząt"/>
-		<text name="el_message_aiManager_castrated_multiple_github" text="Pastuch wykastrował %s zwierząt"/>
-		<text name="el_message_aiManager_named_single" text="Pastuch nadał imię 1 zwierzęciu"/>
-		<text name="el_message_aiManager_named_multiple" text="Pastuch nadał imiona %s zwierzętom"/>
-		<text name="el_message_aiManager_mark_sell_single" text="Pastuch oznaczył 1 zwierzę do sprzedaży"/>
-		<text name="el_message_aiManager_mark_sell_multiple" text="Pastuch oznaczył %s zwierząt do sprzedaży"/>
-		<text name="el_message_aiManager_mark_castrate_single" text="Pastuch oznaczył 1 zwierzę do kastracji"/>
-		<text name="el_message_aiManager_mark_castrate_single_github" text="Pastuch oznaczył 1 zwierzę do kastracji"/>
-		<text name="el_message_aiManager_mark_castrate_multiple" text="Pastuch oznaczył %s zwierząt do kastracji"/>
-		<text name="el_message_aiManager_mark_castrate_multiple_github" text="Pastuch oznaczył %s zwierząt do kastracji"/>
-		<text name="el_message_aiManager_mark_disease_single" text="Pastuch oznaczył 1 zwierzę do leczenia"/>
-		<text name="el_message_aiManager_mark_disease_multiple" text="Pastuch oznaczył %s zwierząt do leczenia"/>
-		<text name="el_message_insemination_success" text="Rozmnażanie zakończyło się sukcesem"/>
-		<text name="el_message_insemination_success_github" text="Sztuczne zapłodnienie zakończyło się sukcesem"/>
-		<text name="el_message_insemination_fail" text="Rozmnażanie nie powiodło się"/>
-		<text name="el_message_insemination_fail_github" text="Sztuczne zapłodnienie nie powiodło się"/>
-		<text name="el_message_aiManager_mark_ai_single" text="Pastuch oznaczył 1 zwierzę do rozmnażania"/>
-		<text name="el_message_aiManager_mark_ai_single_github" text="Pastuch oznaczył 1 zwierzę do sztucznego zapłodnienia"/>
-		<text name="el_message_aiManager_mark_ai_multiple" text="Pastuch oznaczył %s zwierząt do rozmnażania"/>
-		<text name="el_message_aiManager_mark_ai_multiple_github" text="Pastuch oznaczył %s zwierząt do sztucznego zapłodnienia"/>
-		<text name="el_message_aiManager_ai_single" text="Pastuch rozmnożył 1 zwierzę"/>
-		<text name="el_message_aiManager_ai_single_github" text="Pastuch zapłodnił 1 zwierzę"/>
-		<text name="el_message_aiManager_ai_multiple" text="Pastuch rozmnożył %s zwierząt"/>
-		<text name="el_message_aiManager_ai_multiple_github" text="Pastuch zapłodnił %s zwierząt"/>
+        <text name="el_message_pregnancySingle" text="Urodziło się 1 młode"/>
+        <text name="el_message_pregnancyMultiple" text="Urodziło się %s młodych"/>
+        <text name="el_message_pregnancySold" text="%s młodych zostało sprzedanych za %s z powodu przepełnienia"/>
+        <text name="el_message_pregnancyDied" text="%s młodych zostało usuniętych przy urodzeniu"/>
+        <text name="el_message_pregnancyDied_github" text="%s młodych padło przy urodzeniu"/>
+        <text name="el_message_death" text="Usunięto z powodu: %s"/>
+        <text name="el_message_death_github" text="Padło z powodu: %s"/>
+        <text name="el_message_diseaseContracted" text="Zachorowało na: %s"/>
+        <text name="el_message_diseaseCured" text="Wyleczono z: %s"/>
+        <text name="el_message_diseaseTreatment_start" text="Rozpoczęto leczenie %s w %s"/>
+        <text name="el_message_diseaseTreatment_resume" text="Wznowiono leczenie %s w %s"/>
+        <text name="el_message_diseaseTreatment_stop" text="Przerwano leczenie %s"/>
+        <text name="el_message_nameChange" text="Zmieniono imię z '%s' na '%s'"/>
+        <text name="el_message_nameAdded" text="Nadano imię '%s'"/>
+        <text name="el_message_nameDeleted" text="Imię '%s' zostało usunięte"/>
+        <text name="el_message_boughtAnimals_single" text="Zakupiono 1 zwierzę za %s"/>
+        <text name="el_message_boughtAnimals_multiple" text="Zakupiono %s zwierząt za %s"/>
+        <text name="el_message_soldAnimals_single" text="Sprzedano 1 zwierzę za %s"/>
+        <text name="el_message_soldAnimals_multiple" text="Sprzedano %s zwierząt za %s"/>
+        <text name="el_message_movedAnimalsTo_single" text="Przeniesiono 1 zwierzę do %s"/>
+        <text name="el_message_movedAnimalsTo_multiple" text="Przeniesiono %s zwierząt do %s"/>
+        <text name="el_message_movedAnimalsFrom_single" text="Przeniesiono 1 zwierzę z %s"/>
+        <text name="el_message_movedAnimalsFrom_multiple" text="Przeniesiono %s zwierząt z %s"/>
+        <text name="el_message_aiManager_boughtAnimals_single" text="Pastuch kupił 1 zwierzę za %s"/>
+        <text name="el_message_aiManager_boughtAnimals_multiple" text="Pastuch kupił %s zwierząt za %s"/>
+        <text name="el_message_aiManager_soldAnimals_single" text="Pastuch sprzedał 1 zwierzę za %s"/>
+        <text name="el_message_aiManager_soldAnimals_multiple" text="Pastuch sprzedał %s zwierząt za %s"/>
+        <text name="el_message_aiManager_castrated_single" text="Pastuch wykastrował 1 zwierzę"/>
+        <text name="el_message_aiManager_castrated_single_github" text="Pastuch wykastrował 1 zwierzę"/>
+        <text name="el_message_aiManager_castrated_multiple" text="Pastuch wykastrował %s zwierząt"/>
+        <text name="el_message_aiManager_castrated_multiple_github" text="Pastuch wykastrował %s zwierząt"/>
+        <text name="el_message_aiManager_named_single" text="Pastuch nadał imię 1 zwierzęciu"/>
+        <text name="el_message_aiManager_named_multiple" text="Pastuch nadał imiona %s zwierzętom"/>
+        <text name="el_message_aiManager_mark_sell_single" text="Pastuch oznaczył 1 zwierzę do sprzedaży"/>
+        <text name="el_message_aiManager_mark_sell_multiple" text="Pastuch oznaczył %s zwierząt do sprzedaży"/>
+        <text name="el_message_aiManager_mark_castrate_single" text="Pastuch oznaczył 1 zwierzę do kastracji"/>
+        <text name="el_message_aiManager_mark_castrate_single_github" text="Pastuch oznaczył 1 zwierzę do kastracji"/>
+        <text name="el_message_aiManager_mark_castrate_multiple" text="Pastuch oznaczył %s zwierząt do kastracji"/>
+        <text name="el_message_aiManager_mark_castrate_multiple_github" text="Pastuch oznaczył %s zwierząt do kastracji"/>
+        <text name="el_message_aiManager_mark_disease_single" text="Pastuch oznaczył 1 zwierzę do leczenia"/>
+        <text name="el_message_aiManager_mark_disease_multiple" text="Pastuch oznaczył %s zwierząt do leczenia"/>
+        <text name="el_message_insemination_success" text="Rozmnażanie zakończyło się sukcesem"/>
+        <text name="el_message_insemination_success_github" text="Sztuczne zapłodnienie zakończyło się sukcesem"/>
+        <text name="el_message_insemination_fail" text="Rozmnażanie nie powiodło się"/>
+        <text name="el_message_insemination_fail_github" text="Sztuczne zapłodnienie nie powiodło się"/>
+        <text name="el_message_aiManager_mark_ai_single" text="Pastuch oznaczył 1 zwierzę do rozmnażania"/>
+        <text name="el_message_aiManager_mark_ai_single_github" text="Pastuch oznaczył 1 zwierzę do sztucznego zapłodnienia"/>
+        <text name="el_message_aiManager_mark_ai_multiple" text="Pastuch oznaczył %s zwierząt do rozmnażania"/>
+        <text name="el_message_aiManager_mark_ai_multiple_github" text="Pastuch oznaczył %s zwierząt do sztucznego zapłodnienia"/>
+        <text name="el_message_aiManager_ai_single" text="Pastuch rozmnożył 1 zwierzę"/>
+        <text name="el_message_aiManager_ai_single_github" text="Pastuch zapłodnił 1 zwierzę"/>
+        <text name="el_message_aiManager_ai_multiple" text="Pastuch rozmnożył %s zwierząt"/>
+        <text name="el_message_aiManager_ai_multiple_github" text="Pastuch zapłodnił %s zwierząt"/>
 
 
+        <!--  DEATHS  -->
 
-		<!--  DEATHS  -->
 
+        <text name="el_death_pregnancy" text="zła ciąża"/>
+        <text name="el_death_health" text="słabe zdrowie"/>
+        <text name="el_death_age" text="podeszły wiek"/>
+        <text name="el_death_accident" text="wypadek"/>
 
-		<text name="el_death_pregnancy" text="zła ciąża"/>
-		<text name="el_death_health" text="słabe zdrowie"/>
-		<text name="el_death_age" text="podeszły wiek"/>
-		<text name="el_death_accident" text="wypadek"/>
+        <!-- Dependencies -->
 
-		<!-- EPP BUTCHER INTEGRATION -->
+        <text name="el_ui_dependencies_missing" text="Enhanced Livestock requires the following dependencies:"/>
+        <text name="el_ui_dependency_missing_notInstalled" text="- %s (Not installed)"/>
+        <text name="el_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum required: %s)"/>
 
-		<text name="el_epp_butcher_processed" text="Zwierzę przetworzone w rzeźni: %s kg %s"/>
-		<text name="el_epp_butcher_delivered" text="%s dostarczono do rzeźni (%.2fx %s)"/>
+        <!-- EPP BUTCHER INTEGRATION -->
 
-		<!-- MIGRATION -->
+        <text name="el_epp_butcher_processed" text="Zwierzę przetworzone w rzeźni: %s kg %s"/>
+        <text name="el_epp_butcher_delivered" text="%s dostarczono do rzeźni (%.2fx %s)"/>
 
-		<text name="el_conflict_title" text="Wykryto konflikt modów"/>
-		<text name="el_mod_conflict_message" text="Następujące mody są w konflikcie z 'Enhanced Livestock' i nie mogą być używane razem: %s &#10;&#10;Proszę wyłączyć konfliktujące mody i ponownie uruchomić grę."/>
+        <!-- MIGRATION -->
 
-		<text name="el_migration_title" text="Powiadomienie o migracji danych"/>
-		<text name="el_migration_message" text="W tym zapisie gry znaleziono poprzednie dane Realistic Livestock. Twoje ustawienia, dane zwierząt, Dewary i narzędzia ręczne AI Straw zostaną automatycznie zmigrowane do Enhanced Livestock podczas zapisywania gry."/>
-		<text name="el_migration_files_found" text="Znalezione pliki danych:"/>
-		<text name="el_migration_continue" text="Kontynuuj"/>
-		<text name="el_migration_quit" text="Wyjdź"/>
+        <text name="el_conflict_title" text="Wykryto konflikt modów"/>
+        <text name="el_mod_conflict_message" text="Następujące mody są w konflikcie z 'Enhanced Livestock' i nie mogą być używane razem: %s &#10;&#10;Proszę wyłączyć konfliktujące mody i ponownie uruchomić grę."/>
 
-	</texts>
+        <text name="el_migration_title" text="Powiadomienie o migracji danych"/>
+        <text name="el_migration_message" text="W tym zapisie gry znaleziono poprzednie dane Realistic Livestock. Twoje ustawienia, dane zwierząt, Dewary i narzędzia ręczne AI Straw zostaną automatycznie zmigrowane do Enhanced Livestock podczas zapisywania gry."/>
+        <text name="el_migration_files_found" text="Znalezione pliki danych:"/>
+        <text name="el_migration_continue" text="Kontynuuj"/>
+        <text name="el_migration_quit" text="Wyjdź"/>
+
+    </texts>
 </l10n>

@@ -1,633 +1,656 @@
 <l10n>
-	<texts>
-		<!-- COWS -->
+    <texts>
+        <!-- COWS -->
 
-		<text name="fillType_bull" text="Býk"/>
-		<text name="fillType_bull_swiss_brown" text="Býk plemene Švýcarské hnědé"/>
-		<text name="fillType_bull_holstein" text="Býk plemene Holštýn"/>
-		<text name="fillType_bull_angus" text="Býk plemene Angus"/>
-		<text name="fillType_bull_limousin" text="Býk plemene Limousin"/>
-		<text name="fillType_cow_hereford" text="Hereford"/>
-		<text name="fillType_bull_hereford" text="Herefordský býk"/>
-		<text name="fillType_cow_highland_cattle" text="Highland"/>
-		<text name="fillType_bull_highland_cattle" text="Býk plemene Highland"/>
-		<text name="animal_descriptionBullFeed" text="Býci mají rádi trávu, seno a TMR (směsná krmná dávka)."/>
-		<text name="animal_descriptionBullYoung" text="Toto je tele býčka."/>
-		<text name="animal_descriptionBullReproduction" text="Býci, kteří jsou zdraví a starší 12 měsíců, se mohou rozmnožovat."/>
+        <text name="fillType_bull" text="Býk"/>
+        <text name="fillType_bull_swiss_brown" text="Býk plemene Švýcarské hnědé"/>
+        <text name="fillType_bull_holstein" text="Býk plemene Holštýn"/>
+        <text name="fillType_bull_angus" text="Býk plemene Angus"/>
+        <text name="fillType_bull_limousin" text="Býk plemene Limousin"/>
+        <text name="fillType_cow_hereford" text="Hereford"/>
+        <text name="fillType_bull_hereford" text="Herefordský býk"/>
+        <text name="fillType_cow_highland_cattle" text="Highland"/>
+        <text name="fillType_bull_highland_cattle" text="Býk plemene Highland"/>
+        <text name="animal_descriptionBullFeed" text="Býci mají rádi trávu, seno a TMR (směsná krmná dávka)."/>
+        <text name="animal_descriptionBullYoung" text="Toto je tele býčka."/>
+        <text name="animal_descriptionBullReproduction" text="Býci, kteří jsou zdraví a starší 12 měsíců, se mohou rozmnožovat."/>
 
-		<!-- WATER BUFFALOS -->
+        <!-- WATER BUFFALOS -->
 
-		<text name="fillType_bull_waterbuffalo" text="Býk vodního buvola"/>
+        <text name="fillType_bull_waterbuffalo" text="Býk vodního buvola"/>
 
-		<!-- PIGS -->
+        <!-- PIGS -->
 
-		<text name="fillType_boar" text="Vepř"/>
-		<text name="fillType_boar_landrace" text="Vepř plemene Landrace"/>
-		<text name="fillType_boar_black_pied" text="Černostrakatý vepř"/>
-		<text name="fillType_boar_berkshire" text="Vepř plemene Berkshire"/>
-		<text name="animal_descriptionBoarReproduction" text="Vepři, kteří jsou zdraví a starší 8 měsíců, se mohou rozmnožovat."/>
-		<text name="animal_descriptionBoarFeed" text="Vepři žerou téměř všechno. Můžete je krmit kukuřicí, pšenicí, ječmenem, řepkou, slunečnicí, sójou, bramborami, čirokem a cukrovou řepou."/>
-		<text name="animal_descriptionBoarYoung" text="Toto je sele vepře."/>
+        <text name="fillType_boar" text="Vepř"/>
+        <text name="fillType_boar_landrace" text="Vepř plemene Landrace"/>
+        <text name="fillType_boar_black_pied" text="Černostrakatý vepř"/>
+        <text name="fillType_boar_berkshire" text="Vepř plemene Berkshire"/>
+        <text name="animal_descriptionBoarReproduction" text="Vepři, kteří jsou zdraví a starší 8 měsíců, se mohou rozmnožovat."/>
+        <text name="animal_descriptionBoarFeed" text="Vepři žerou téměř všechno. Můžete je krmit kukuřicí, pšenicí, ječmenem, řepkou, slunečnicí, sójou, bramborami, čirokem a cukrovou řepou."/>
+        <text name="animal_descriptionBoarYoung" text="Toto je sele vepře."/>
 
-		<!-- SHEEP -->
+        <!-- SHEEP -->
 
-		<text name="fillType_ram" text="Beran"/>
-		<text name="fillType_ram_landrace" text="Beran plemene Bentheim"/>
-		<text name="fillType_ram_steinschaf" text="Beran plemene Steinschaf"/>
-		<text name="fillType_ram_black_welsh" text="Beran plemene černé horské"/>
-		<text name="fillType_ram_swiss_mountain" text="Beran plemene černohnědé horské"/>
-		<text name="animal_descriptionRamFeed" text="Berani žerou trávu a seno."/>
-		<text name="animal_descriptionRamYoung" text="Toto je jehně berana."/>
-		<text name="animal_descriptionRamReproduction" text="Berani, kteří jsou zdraví a starší 5 měsíců, se mohou rozmnožovat."/>
+        <text name="fillType_ram" text="Beran"/>
+        <text name="fillType_ram_landrace" text="Beran plemene Bentheim"/>
+        <text name="fillType_ram_steinschaf" text="Beran plemene Steinschaf"/>
+        <text name="fillType_ram_black_welsh" text="Beran plemene černé horské"/>
+        <text name="fillType_ram_swiss_mountain" text="Beran plemene černohnědé horské"/>
+        <text name="animal_descriptionRamFeed" text="Berani žerou trávu a seno."/>
+        <text name="animal_descriptionRamYoung" text="Toto je jehně berana."/>
+        <text name="animal_descriptionRamReproduction" text="Berani, kteří jsou zdraví a starší 5 měsíců, se mohou rozmnožovat."/>
 
-		<!-- GOATS -->
+        <!-- GOATS -->
 
-		<text name="fillType_ram_goat" text="Kozel"/>
+        <text name="fillType_ram_goat" text="Kozel"/>
 
-		<!-- HORSES -->
+        <!-- HORSES -->
 
-		<text name="fillType_stallion" text="Hřebec"/>
-		<text name="fillType_stallion_gray" text="Hřebec šedák"/>
-		<text name="fillType_stallion_pinto" text="Strakatý hřebec"/>
-		<text name="fillType_stallion_palomino" text="Hřebec Palomino"/>
-		<text name="fillType_stallion_chestnut" text="Hřebec ryzák"/>
-		<text name="fillType_stallion_bay" text="Hřebec hnědák"/>
-		<text name="fillType_stallion_black" text="Hřebec vraník"/>
-		<text name="fillType_stallion_seal_brown" text="Tmavohnědý hřebec"/>
-		<text name="fillType_stallion_dun" text="Hřebec plavák"/>
-		<text name="animal_descriptionStallionFeed" text="Hřebci mají rádi seno, oves a čirok."/>
-		<text name="animal_descriptionStallionProfit" text="Hřebci se dají prodat se ziskem."/>
-		<text name="animal_descriptionStallionReproduction" text="Hřebci, kteří jsou zdraví a starší 36 měsíců, se mohou rozmnožovat."/>
+        <text name="fillType_stallion" text="Hřebec"/>
+        <text name="fillType_stallion_gray" text="Hřebec šedák"/>
+        <text name="fillType_stallion_pinto" text="Strakatý hřebec"/>
+        <text name="fillType_stallion_palomino" text="Hřebec Palomino"/>
+        <text name="fillType_stallion_chestnut" text="Hřebec ryzák"/>
+        <text name="fillType_stallion_bay" text="Hřebec hnědák"/>
+        <text name="fillType_stallion_black" text="Hřebec vraník"/>
+        <text name="fillType_stallion_seal_brown" text="Tmavohnědý hřebec"/>
+        <text name="fillType_stallion_dun" text="Hřebec plavák"/>
+        <text name="animal_descriptionStallionFeed" text="Hřebci mají rádi seno, oves a čirok."/>
+        <text name="animal_descriptionStallionProfit" text="Hřebci se dají prodat se ziskem."/>
+        <text name="animal_descriptionStallionReproduction" text="Hřebci, kteří jsou zdraví a starší 36 měsíců, se mohou rozmnožovat."/>
 
 
-		<!-- UI -->
+        <!-- UI -->
 
-		<text name="el_ui_dependency_missing" text="Chybějící závislost"/>
-		<text name="el_ui_dependency_missing_installed" text="Chybějící závislost nainstalována"/>
+        <text name="input_VisualAnimalsDialog" text="Změnit množství zobrazených zvířat"/>
+        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
+        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
+        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="el_button_apply" text="Použít"/>
+        <text name="el_button_confirm" text="Potvrdit"/>
+        <text name="el_button_recommended" text="Doporučené"/>
+        <text name="el_button_cancel" text="Zrušit"/>
+        <text name="el_button_random" text="Náhodné"/>
+        <text name="el_dialog_title" text="Nastavit maximální počet zobrazených zvířat"/>
 
-		<text name="input_VisualAnimalsDialog" text="Změnit množství zobrazených zvířat"/>
-		<text name="el_button_apply" text="Použít"/>
-		<text name="el_button_confirm" text="Potvrdit"/>
-		<text name="el_button_recommended" text="Doporučené"/>
-		<text name="el_button_cancel" text="Zrušit"/>
-		<text name="el_button_random" text="Náhodné"/>
-		<text name="el_dialog_title" text="Nastavit maximální počet zobrazených zvířat"/>
+        <text name="el_ui_dependency_missing" text="Chybějící závislost"/>
+        <text name="el_ui_dependency_missing_installed" text="Chybějící závislost nainstalována"/>
 
-		<text name="el_ui_unhealthy" text="Příliš nezdravé"/>
-		<text name="el_ui_unhealthyBracketed" text="Ne (příliš nezdravé)"/>
-		<text name="el_ui_noMaleAnimal" text="Žádný vhodný samec"/>
-		<text name="el_ui_noMaleAnimalBracketed" text="Ne (žádný vhodný samec)"/>
-		<text name="el_ui_recoveringLastBirth" text="Zotavuje se z posledního porodu"/>
-		<text name="el_ui_recoveringLastBirthBracketed" text="Ne (zotavuje se z posledního porodu)"/>
-		<text name="el_ui_tooYoung" text="Příliš mladé"/>
-		<text name="el_ui_tooYoungBracketed" text="Ne (příliš mladé)"/>
-		<text name="el_ui_pregnant" text="Čeká potomky"/>
-		<text name="el_ui_pregnant_github" text="Březí"/>
-		<text name="el_ui_lactating" text="Produkující mléko"/>
-		<text name="el_ui_lactating_github" text="Laktující"/>
-		<text name="el_ui_canReproduce" text="Možnost reprodukce"/>
-		<text name="el_ui_impregnatedBy" text="Spárována s"/>
-		<text name="el_ui_impregnatedBy_github" text="Oplodněn/a kým"/>
-		<text name="el_ui_unknown" text="Neznámé"/>
-		<text name="el_ui_yes" text="Ano"/>
-		<text name="el_ui_no" text="Ne"/>
-		<text name="el_ui_mother" text="Matka"/>
-		<text name="el_ui_father" text="Otec"/>
-		<text name="el_ui_uniqueId" text="Jedinečné ID"/>
-		<text name="el_ui_farmId" text="ID farmy"/>
-		<text name="el_ui_gender" text="Pohlaví"/>
-		<text name="el_ui_male" text="Samec"/>
-		<text name="el_ui_female" text="Samice"/>
-		<text name="el_ui_weight" text="Váha"/>
-		<text name="el_ui_targetWeight" text="Cílová váha"/>
-		<text name="el_ui_value" text="Hodnota"/>
-		<text name="el_ui_valuePerKilo" text="Hodnota za kg"/>
-		<text name="el_ui_genetics" text="Genetika"/>
-		<text name="el_ui_overall" text="Celkově"/>
-		<text name="el_ui_rename" text="Změnit jméno"/>
-		<text name="el_ui_cantFindAnimal" text="Zvíře nenalezeno"/>
-		<text name="el_ui_maleNumImpregnatable" text="Zvířata k chovu ve výběhu"/>
-		<text name="el_ui_maleNumImpregnatable_github" text="Zvířata ve výběhu schopná oplodnění"/>
+        <text name="el_ui_unhealthy" text="Příliš nezdravé"/>
+        <text name="el_ui_unhealthyBracketed" text="Ne (příliš nezdravé)"/>
+        <text name="el_ui_noMaleAnimal" text="Žádný vhodný samec"/>
+        <text name="el_ui_noMaleAnimalBracketed" text="Ne (žádný vhodný samec)"/>
+        <text name="el_ui_recoveringLastBirth" text="Zotavuje se z posledního porodu"/>
+        <text name="el_ui_recoveringLastBirthBracketed" text="Ne (zotavuje se z posledního porodu)"/>
+        <text name="el_ui_tooYoung" text="Příliš mladé"/>
+        <text name="el_ui_tooYoungBracketed" text="Ne (příliš mladé)"/>
+        <text name="el_ui_pregnant" text="Čeká potomky"/>
+        <text name="el_ui_pregnant_github" text="Březí"/>
+        <text name="el_ui_lactating" text="Produkující mléko"/>
+        <text name="el_ui_lactating_github" text="Laktující"/>
+        <text name="el_ui_canReproduce" text="Možnost reprodukce"/>
+        <text name="el_ui_impregnatedBy" text="Spárována s"/>
+        <text name="el_ui_impregnatedBy_github" text="Oplodněn/a kým"/>
+        <text name="el_ui_unknown" text="Neznámé"/>
+        <text name="el_ui_yes" text="Ano"/>
+        <text name="el_ui_no" text="Ne"/>
+        <text name="el_ui_mother" text="Matka"/>
+        <text name="el_ui_father" text="Otec"/>
+        <text name="el_ui_uniqueId" text="Jedinečné ID"/>
+        <text name="el_ui_farmId" text="ID farmy"/>
+        <text name="el_ui_gender" text="Pohlaví"/>
+        <text name="el_ui_male" text="Samec"/>
+        <text name="el_ui_female" text="Samice"/>
+        <text name="el_ui_weight" text="Váha"/>
+        <text name="el_ui_targetWeight" text="Cílová váha"/>
+        <text name="el_ui_value" text="Hodnota"/>
+        <text name="el_ui_valuePerKilo" text="Hodnota za kg"/>
+        <text name="el_ui_genetics" text="Genetika"/>
+        <text name="el_ui_overall" text="Celkově"/>
+        <text name="el_ui_rename" text="Změnit jméno"/>
+        <text name="el_ui_cantFindAnimal" text="Zvíře nenalezeno"/>
+        <text name="el_ui_maleNumImpregnatable" text="Zvířata k chovu ve výběhu"/>
+        <text name="el_ui_maleNumImpregnatable_github" text="Zvířata ve výběhu schopná oplodnění"/>
 
-		<text name="el_ui_breederQuality" text="Chovatelská kvalita"/>
-		<text name="el_ui_birthday" text="Narozeniny"/>
-		<text name="el_ui_pregnancyExpected" text="Porod"/>
-		<text name="el_ui_pregnancyExpecting" text="Čeká"/>
-		<text name="el_ui_pregnancyBaby" text="Mládě"/>
-		<text name="el_ui_pregnancyBabies" text="Mláďata"/>
-		<text name="el_ui_animalOrigin" text="Původ"/>
-		<text name="el_ui_months" text="měsíců"/>
-		<text name="el_ui_month" text="měsíc"/>
-		<text name="el_ui_years" text="roky"/>
-		<text name="el_ui_year" text="rok"/>
+        <text name="el_ui_breederQuality" text="Chovatelská kvalita"/>
+        <text name="el_ui_birthday" text="Narozeniny"/>
+        <text name="el_ui_pregnancyExpected" text="Porod"/>
+        <text name="el_ui_pregnancyExpecting" text="Čeká"/>
+        <text name="el_ui_pregnancyBaby" text="Mládě"/>
+        <text name="el_ui_pregnancyBabies" text="Mláďata"/>
+        <text name="el_ui_animalOrigin" text="Původ"/>
+        <text name="el_ui_months" text="měsíců"/>
+        <text name="el_ui_month" text="měsíc"/>
+        <text name="el_ui_years" text="roky"/>
+        <text name="el_ui_year" text="rok"/>
 
-		<text name="el_ui_milk" text="Produkce mléka"/>
-		<text name="el_ui_wool" text="Produkce vlny"/>
-		<text name="el_ui_eggs" text="Produkce vajec"/>
-		<text name="el_ui_metabolism" text="Životospráva"/>
-		<text name="el_ui_meat" text="Kvalita"/>
-		<text name="el_ui_meat_github" text="Kvalita masa"/>
-		<text name="el_ui_quality" text="Kvalita"/>
-		<text name="el_ui_quality_github" text="Kvalita masa"/>
-		<text name="el_ui_health" text="Kondice"/>
-		<text name="el_ui_fertility" text="Plodnost"/>
+        <text name="el_ui_milk" text="Produkce mléka"/>
+        <text name="el_ui_wool" text="Produkce vlny"/>
+        <text name="el_ui_eggs" text="Produkce vajec"/>
+        <text name="el_ui_metabolism" text="Životospráva"/>
+        <text name="el_ui_meat" text="Kvalita"/>
+        <text name="el_ui_meat_github" text="Kvalita masa"/>
+        <text name="el_ui_quality" text="Kvalita"/>
+        <text name="el_ui_quality_github" text="Kvalita masa"/>
+        <text name="el_ui_health" text="Kondice"/>
+        <text name="el_ui_fertility" text="Plodnost"/>
 
-		<text name="el_ui_genetics_infertile" text="Neplodná"/>
-		<text name="el_ui_genetics_extremelyLow" text="Extrémně nízká"/>
-		<text name="el_ui_genetics_veryLow" text="Velmi nízká"/>
-		<text name="el_ui_genetics_low" text="Nízká"/>
-		<text name="el_ui_genetics_average" text="Průměrná"/>
-		<text name="el_ui_genetics_high" text="Vysoká"/>
-		<text name="el_ui_genetics_veryHigh" text="Velmi vysoká"/>
-		<text name="el_ui_genetics_extremelyHigh" text="Extrémně vysoká"/>
-		<text name="el_ui_genetics_highest" text="Nejvyšší"/>
+        <text name="el_ui_genetics_infertile" text="Neplodná"/>
+        <text name="el_ui_genetics_extremelyLow" text="Extrémně nízká"/>
+        <text name="el_ui_genetics_veryLow" text="Velmi nízká"/>
+        <text name="el_ui_genetics_low" text="Nízká"/>
+        <text name="el_ui_genetics_average" text="Průměrná"/>
+        <text name="el_ui_genetics_high" text="Vysoká"/>
+        <text name="el_ui_genetics_veryHigh" text="Velmi vysoká"/>
+        <text name="el_ui_genetics_extremelyHigh" text="Extrémně vysoká"/>
+        <text name="el_ui_genetics_highest" text="Nejvyšší"/>
+        <text name="el_ui_genetics_unknown" text="Unknown"/>
 
-		<text name="el_ui_genetics_extremelyBad" text="Extrémně špatná"/>
-		<text name="el_ui_genetics_veryBad" text="Velmi špatná"/>
-		<text name="el_ui_genetics_bad" text="Špatná"/>
-		<text name="el_ui_genetics_good" text="Dobrá"/>
-		<text name="el_ui_genetics_veryGood" text="Velmi dobrá"/>
-		<text name="el_ui_genetics_extremelyGood" text="Extrémně dobrá"/>
+        <text name="el_ui_genetics_extremelyBad" text="Extrémně špatná"/>
+        <text name="el_ui_genetics_veryBad" text="Velmi špatná"/>
+        <text name="el_ui_genetics_bad" text="Špatná"/>
+        <text name="el_ui_genetics_good" text="Dobrá"/>
+        <text name="el_ui_genetics_veryGood" text="Velmi dobrá"/>
+        <text name="el_ui_genetics_extremelyGood" text="Extrémně dobrá"/>
 
-		<text name="el_ui_buySelected" text="Koupit vybrané"/>
-		<text name="el_ui_sellSelected" text="Prodat vybrané"/>
-		<text name="el_ui_moveSelected" text="Přesunout vybrané"/>
-		<text name="el_ui_buyConfirmation" text="Jste si jistý/á, že chcete koupit %s zvířat za %s?" tag="format"/>
-		<text name="el_ui_sellConfirmation" text="Jste si jistý/á, že chcete prodat %s zvířat za %s?" tag="format"/>
-		<text name="el_ui_moveConfirmation" text="Jste si jistý/á, že chcete přesunout %s zvířat?" tag="format"/>
-		<text name="el_ui_buyBulkResult" text="%s zvířat koupeno za %s" tag="format"/>
-		<text name="el_ui_sellBulkResult" text="%s zvířat prodáno za %s" tag="format"/>
-		<text name="el_ui_moveBulkResult" text="%s zvířat přesunuto" tag="format"/>
+        <text name="el_ui_buySelected" text="Koupit vybrané"/>
+        <text name="el_ui_sellSelected" text="Prodat vybrané"/>
+        <text name="el_ui_moveSelected" text="Přesunout vybrané"/>
+        <text name="el_ui_buyConfirmation" text="Jste si jistý/á, že chcete koupit %s zvířat za %s?" tag="format"/>
+        <text name="el_ui_sellConfirmation" text="Jste si jistý/á, že chcete prodat %s zvířat za %s?" tag="format"/>
+        <text name="el_ui_moveConfirmation" text="Jste si jistý/á, že chcete přesunout %s zvířat?" tag="format"/>
+        <text name="el_ui_buyBulkResult" text="%s zvířat koupeno za %s" tag="format"/>
+        <text name="el_ui_sellBulkResult" text="%s zvířat prodáno za %s" tag="format"/>
+        <text name="el_ui_moveBulkResult" text="%s zvířat přesunuto" tag="format"/>
 
-		<text name="el_ui_monitor" text="Monitoring"/>
-		<text name="el_ui_monitorSubscriptions" text="Monitorovaná předplatná"/>
-		<text name="finance_monitorSubscriptions" text="Monitorovaná předplatná"/>
-		<text name="el_ui_monitorFee" text="Poplatek za monitorování"/>
-		<text name="el_ui_applyMonitor" text="Použít monitor"/>
-		<text name="el_ui_removeMonitor" text="Odebrat monitor"/>
-		<text name="el_ui_input_food" text="Krmivo"/>
-		<text name="el_ui_input_water" text="Voda"/>
-		<text name="el_ui_input_straw" text="Sláma"/>
-		<text name="el_ui_output_milk" text="Mléko"/>
-		<text name="el_ui_output_manure" text="Hnůj"/>
-		<text name="el_ui_output_liquidManure" text="Močůvka"/>
-		<text name="el_ui_output_pallets_eggs" text="Vejce"/>
-		<text name="el_ui_output_pallets_wool" text="Vlna"/>
-		<text name="el_ui_output_pallets_goatMilk" text="Kozí mléko"/>
-		<text name="el_ui_amountPerDay" text="%.0fL / den" tag="format"/>
-		<text name="el_ui_feePerMonth" text="%s / měsíc" tag="format"/>
+        <text name="el_ui_monitor" text="Monitoring"/>
+        <text name="el_ui_monitorSubscriptions" text="Monitorovaná předplatná"/>
+        <text name="finance_monitorSubscriptions" text="Monitorovaná předplatná"/>
+        <text name="el_ui_monitorFee" text="Poplatek za monitorování"/>
+        <text name="el_ui_applyMonitor" text="Použít monitor"/>
+        <text name="el_ui_removeMonitor" text="Odebrat monitor"/>
+        <text name="el_ui_input_food" text="Krmivo"/>
+        <text name="el_ui_input_water" text="Voda"/>
+        <text name="el_ui_input_straw" text="Sláma"/>
+        <text name="el_ui_output_milk" text="Mléko"/>
+        <text name="el_ui_output_manure" text="Hnůj"/>
+        <text name="el_ui_output_liquidManure" text="Močůvka"/>
+        <text name="el_ui_output_pallets_eggs" text="Vejce"/>
+        <text name="el_ui_output_pallets_wool" text="Vlna"/>
+        <text name="el_ui_output_pallets_goatMilk" text="Kozí mléko"/>
+        <text name="el_ui_amountPerDay" text="%.0fL / den" tag="format"/>
+        <text name="el_ui_feePerMonth" text="%s / měsíc" tag="format"/>
 
-		<text name="el_ui_animalType" text="Typ"/>
-		<text name="el_ui_amountMonitored" text="Monitorováno"/>
-		<text name="el_ui_production" text="Produkty"/>
-		<text name="el_ui_applyAllMonitor" text="Použít všechny monitory"/>
-		<text name="el_ui_removeAllMonitor" text="Odebrat všechny monitory"/>
-		<text name="el_ui_fee" text="Poplatek"/>
+        <text name="el_ui_animalType" text="Typ"/>
+        <text name="el_ui_amountMonitored" text="Monitorováno"/>
+        <text name="el_ui_production" text="Produkty"/>
+        <text name="el_ui_applyAllMonitor" text="Použít všechny monitory"/>
+        <text name="el_ui_removeAllMonitor" text="Odebrat všechny monitory"/>
+        <text name="el_ui_fee" text="Poplatek"/>
 		<text name="el_ui_description" text="Popis"/>
 
-		<text name="el_ui_leftEarTag" text="Levá ušní značka"/>
-		<text name="el_ui_rightEarTag" text="Pravá ušní značka"/>
-		<text name="el_ui_backgroundColour" text="Barva pozadí"/>
-		<text name="el_ui_backgroundHue" text="Odstín pozadí"/>
-		<text name="el_ui_backgroundRgb" text="RGB pozadí"/>
-		<text name="el_ui_textColour" text="Barva textu"/>
-		<text name="el_ui_textHue" text="Odstín textu"/>
-		<text name="el_ui_textRgb" text="RGB textu"/>
-
-		<text name="el_ui_formatMonths" text="%s měsíců"/>
-		<text name="el_ui_formatMonth" text="%s měsíc"/>
-		<text name="el_ui_notPregnant" text="Nečeká potomky"/>
-		<text name="el_ui_notPregnant_github" text="Není březí"/>
-		<text name="el_ui_any" text="Jakýkoli"/>
-		<text name="el_ui_pregnancy" text="Březost"/>
-		<text name="el_ui_productivity" text="Produktivita"/>
-		<text name="el_ui_selectAll" text="Vybrat vše"/>
-		<text name="el_ui_selectNone" text="Zrušit výběr"/>
-		<text name="el_ui_filters" text="Filtry"/>
-		<text name="el_ui_doesntHaveName" text="Bez jména"/>
-		<text name="el_ui_doesHaveName" text="Má jméno"/>
-
-
-
-		<text name="el_ui_castrated" text="Vykastrovaný"/>
-		<text name="el_ui_castrated_github" text="Vykastrovaný"/>
-		<text name="el_ui_castrate" text="Vykastrovat"/>
-		<text name="el_ui_castrate_github" text="Vykastrovat"/>
-		<text name="el_ui_importance" text="Důležitost"/>
-		<text name="el_ui_type" text="Typ"/>
-		<text name="el_ui_date" text="Datum"/>
-		<text name="el_ui_message" text="Zpráva"/>
-		<text name="el_ui_messages" text="Zprávy"/>
-		<text name="el_ui_unknownCauses" text="neznámé příčiny"/>
-		<text name="el_ui_messageNumber" text="%s-%s z %s"/>
-		<text name="el_ui_deleteMessage" text="Smazat zprávu"/>
-		<text name="el_ui_unreadMessages" text="Chov '%s' má nepřečtené zprávy!"/>
-		<text name="el_ui_herdsman" text="Pasák"/>
-		<text name="el_ui_budget" text="Rozpočet"/>
-		<text name="el_ui_budgetType" text="Typ rozpočtu"/>
-		<text name="el_ui_fixed" text="Pevný"/>
-		<text name="el_ui_percentage" text="Procento"/>
-		<text name="el_ui_maxAnimals" text="Max zvířat"/>
-		<text name="el_ui_infinite" text="Nekonečno"/>
-		<text name="el_ui_herdsmanRecentlyBought" text="Nedávný nákup pasáka"/>
-		<text name="el_ui_previousWage" text="Předchozí mzda"/>
-		<text name="el_ui_herdsmanWages" text="Mzdy pasáka"/>
-		<text name="finance_herdsmanWages" text="Mzdy pasáka"/>
-		<text name="el_ui_medicine" text="Lék"/>
-		<text name="finance_medicine" text="Lék"/>
-		<text name="el_ui_semenPurchase" text="Nákup chovného vzorku"/>
-		<text name="el_ui_semenPurchase_github" text="Nákup spermatu"/>
-		<text name="finance_semenPurchase" text="Nákup chovného vzorku"/>
-		<text name="finance_semenPurchase_github" text="Nákup spermatu"/>
-		<text name="el_ui_noDiseases" text="Žádné nemoci"/>
-		<text name="el_ui_onlyDiseases" text="Pouze nemoci"/>
-		<text name="el_ui_naming" text="Pojmenování"/>
-		<text name="el_ui_alphabetical" text="Abecední"/>
-		<text name="el_ui_breed" text="Plemeno"/>
-		<text name="el_ui_dontMark" text="Neoznačovat"/>
-		<text name="el_ui_mark" text="Označit"/>
-		<text name="el_ui_unmark" text="Zrušit označení"/>
-		<text name="el_ui_favourite" text="Oblíbené"/>
-		<text name="el_ui_unFavourite" text="Odebrat z oblíbených"/>
-		<text name="el_ui_quantity" text="Množství"/>
-		<text name="el_ui_dewar" text="Dewarova nádoba"/>
-		<text name="el_ui_semenPurchase_successful" text="Chovný vzorek úspěšně zakoupen. Můžete si ho vyzvednout v obchodě"/>
-		<text name="el_ui_semenPurchase_successful_github" text="Sperma úspěšně zakoupeno. Můžete si ho vyzvednout v obchodě"/>
-		<text name="el_ui_semenPurchase_unsuccessful" text="Chovný vzorek nelze zakoupit"/>
-		<text name="el_ui_semenPurchase_unsuccessful_github" text="Sperma nelze zakoupit"/>
-		<text name="el_ui_earTag" text="Ušní značka"/>
-		<text name="el_ui_species" text="Druh"/>
-		<text name="el_ui_strawSingle" text="Peleta"/>
-		<text name="el_ui_strawMultiple" text="Pelety"/>
-		<text name="el_ui_artificialInsemination" text="Asistovaný chov"/>
-	<text name="el_ui_artificialInsemination_github" text="Umělá inseminace"/>
-		<text name="el_ui_semenPurchaseNoPermission" text="Nemáte oprávnění obchodovat se zvířaty nebo nakupovat chovné vzorky."/>
-		<text name="el_ui_semenPurchaseNoPermission_github" text="Nemáte oprávnění obchodovat se zvířaty nebo nakupovat sperma."/>
-		<text name="el_ui_semenPurchaseNoMoney" text="Nemáte dostatek peněz na nákup tohoto chovného vzorku."/>
-		<text name="el_ui_semenPurchaseNoMoney_github" text="Nemáte dostatek peněz na nákup tohoto spermatu."/>
-		<text name="el_ui_takeStraw" text="Vzít peletu"/>
-		<text name="el_ui_inseminateAnimal" text="Chovat %s"/>
-		<text name="el_ui_inseminateAnimal_github" text="Inseminovat %s"/>
-		<text name="el_ui_inseminate" text="Chovat"/>
-		<text name="el_ui_inseminate_github" text="Inseminovat"/>
-		<text name="el_ui_strawEmpty" text="Tato peleta je prázdná"/>
-		<text name="el_ui_averageSuccessColon" text="Průměrný úspěch: "/>
-		<text name="el_ui_averageSuccess" text="Průměrný úspěch"/>
-		<text name="el_ui_success" text="Úspěch"/>
-		<text name="el_ui_save" text="Uložit"/>
-		<text name="el_ui_load" text="Načíst"/>
-		<text name="el_ui_saveProfile" text="Uložit profil"/>
-		<text name="el_ui_loadProfile" text="Načíst profil"/>
-
-		<text name="el_ui_healthy" text="Zdravé"/>
-		<text name="el_ui_hasDisease" text="Má nemoc"/>
-		<text name="el_ui_diseasedAnimals" text="Nemocná zvířata"/>
-
-
-		<text name="el_insemination_male" text="Pouze samice mohou být chovány"/>
-		<text name="el_insemination_male_github" text="Pouze samice mohou být uměle inseminovány"/>
-		<text name="el_insemination_pregnant" text="Toto zvíře již čeká potomky"/>
-		<text name="el_insemination_pregnant_github" text="Toto zvíře je již březí"/>
-		<text name="el_insemination_animalType" text="Zvíře musí být stejného druhu jako otec"/>
-		<text name="el_insemination_inseminated" text="Toto zvíře již bylo chováno"/>
-		<text name="el_insemination_inseminated_github" text="Toto zvíře již bylo uměle inseminováno"/>
-		<text name="el_insemination_recovering" text="Toto zvíře se stále zotavuje z předchozího těhotenství"/>
-		<text name="el_insemination_father" text="Příbuzenská plemenitba není povolena"/>
-		<text name="el_insemination_young" text="Toto zvíře je příliš mladé na chov"/>
-		<text name="el_insemination_young_github" text="Toto zvíře je příliš mladé na umělou inseminaci"/>
+        <text name="el_ui_leftEarTag" text="Levá ušní značka"/>
+        <text name="el_ui_rightEarTag" text="Pravá ušní značka"/>
+        <text name="el_ui_backgroundColour" text="Barva pozadí"/>
+        <text name="el_ui_backgroundHue" text="Odstín pozadí"/>
+        <text name="el_ui_backgroundRgb" text="RGB pozadí"/>
+        <text name="el_ui_textColour" text="Barva textu"/>
+        <text name="el_ui_textHue" text="Odstín textu"/>
+        <text name="el_ui_textRgb" text="RGB textu"/>
+
+        <text name="el_ui_formatMonths" text="%s měsíců"/>
+        <text name="el_ui_formatMonth" text="%s měsíc"/>
+        <text name="el_ui_notPregnant" text="Nečeká potomky"/>
+        <text name="el_ui_notPregnant_github" text="Není březí"/>
+        <text name="el_ui_any" text="Jakýkoli"/>
+        <text name="el_ui_pregnancy" text="Březost"/>
+        <text name="el_ui_productivity" text="Produktivita"/>
+        <text name="el_ui_selectAll" text="Vybrat vše"/>
+        <text name="el_ui_selectNone" text="Zrušit výběr"/>
+        <text name="el_ui_filters" text="Filtry"/>
+        <text name="el_ui_doesntHaveName" text="Bez jména"/>
+        <text name="el_ui_doesHaveName" text="Má jméno"/>
+
+        <text name="el_ui_castrated" text="Vykastrovaný"/>
+        <text name="el_ui_castrated_github" text="Vykastrovaný"/>
+        <text name="el_ui_castrate" text="Vykastrovat"/>
+        <text name="el_ui_castrate_github" text="Vykastrovat"/>
+
+        <text name="el_ui_importance" text="Důležitost"/>
+        <text name="el_ui_type" text="Typ"/>
+        <text name="el_ui_date" text="Datum"/>
+        <text name="el_ui_message" text="Zpráva"/>
+        <text name="el_ui_messages" text="Zprávy"/>
+        <text name="el_ui_unknownCauses" text="neznámé příčiny"/>
+        <text name="el_ui_messageNumber" text="%s-%s z %s"/>
+        <text name="el_ui_deleteMessage" text="Smazat zprávu"/>
+        <text name="el_ui_unreadMessages" text="Chov '%s' má nepřečtené zprávy!"/>
+        <text name="el_ui_herdsman" text="Pasák"/>
+        <text name="el_ui_budget" text="Rozpočet"/>
+        <text name="el_ui_budgetType" text="Typ rozpočtu"/>
+        <text name="el_ui_fixed" text="Pevný"/>
+        <text name="el_ui_percentage" text="Procento"/>
+        <text name="el_ui_maxAnimals" text="Max zvířat"/>
+        <text name="el_ui_infinite" text="Nekonečno"/>
+        <text name="el_ui_herdsmanRecentlyBought" text="Nedávný nákup pasáka"/>
+        <text name="el_ui_previousWage" text="Předchozí mzda"/>
+        <text name="el_ui_herdsmanWages" text="Mzdy pasáka"/>
+        <text name="finance_herdsmanWages" text="Mzdy pasáka"/>
+        <text name="el_ui_medicine" text="Lék"/>
+        <text name="finance_medicine" text="Lék"/>
+        <text name="el_ui_semenPurchase" text="Nákup chovného vzorku"/>
+        <text name="el_ui_semenPurchase_github" text="Nákup spermatu"/>
+        <text name="finance_semenPurchase" text="Nákup chovného vzorku"/>
+        <text name="finance_semenPurchase_github" text="Nákup spermatu"/>
+        <text name="el_ui_noDiseases" text="Žádné nemoci"/>
+        <text name="el_ui_onlyDiseases" text="Pouze nemoci"/>
+        <text name="el_ui_naming" text="Pojmenování"/>
+        <text name="el_ui_alphabetical" text="Abecední"/>
+        <text name="el_ui_breed" text="Plemeno"/>
+        <text name="el_ui_dontMark" text="Neoznačovat"/>
+        <text name="el_ui_mark" text="Označit"/>
+        <text name="el_ui_unmark" text="Zrušit označení"/>
+        <text name="el_ui_favourite" text="Oblíbené"/>
+        <text name="el_ui_unFavourite" text="Odebrat z oblíbených"/>
+        <text name="el_ui_quantity" text="Množství"/>
+        <text name="el_ui_dewar" text="Dewarova nádoba"/>
+        <text name="el_ui_semenPurchase_successful" text="Chovný vzorek úspěšně zakoupen. Můžete si ho vyzvednout v obchodě"/>
+        <text name="el_ui_semenPurchase_successful_github" text="Sperma úspěšně zakoupeno. Můžete si ho vyzvednout v obchodě"/>
+        <text name="el_ui_semenPurchase_unsuccessful" text="Chovný vzorek nelze zakoupit"/>
+        <text name="el_ui_semenPurchase_unsuccessful_github" text="Sperma nelze zakoupit"/>
+        <text name="el_ui_earTag" text="Ušní značka"/>
+        <text name="el_ui_species" text="Druh"/>
+        <text name="el_ui_strawSingle" text="Peleta"/>
+        <text name="el_ui_strawMultiple" text="Pelety"/>
+        <text name="el_ui_artificialInsemination" text="Asistovaný chov"/>
+        <text name="el_ui_artificialInsemination_github" text="Umělá inseminace"/>
+        <text name="el_ui_semenPurchaseNoPermission" text="Nemáte oprávnění obchodovat se zvířaty nebo nakupovat chovné vzorky."/>
+        <text name="el_ui_semenPurchaseNoPermission_github" text="Nemáte oprávnění obchodovat se zvířaty nebo nakupovat sperma."/>
+        <text name="el_ui_semenPurchaseNoMoney" text="Nemáte dostatek peněz na nákup tohoto chovného vzorku."/>
+        <text name="el_ui_semenPurchaseNoMoney_github" text="Nemáte dostatek peněz na nákup tohoto spermatu."/>
+        <text name="el_ui_takeStraw" text="Vzít peletu"/>
+        <text name="el_ui_inseminateAnimal" text="Chovat %s"/>
+        <text name="el_ui_inseminateAnimal_github" text="Inseminovat %s"/>
+        <text name="el_ui_inseminate" text="Chovat"/>
+        <text name="el_ui_inseminate_github" text="Inseminovat"/>
+        <text name="el_ui_strawEmpty" text="Tato peleta je prázdná"/>
+        <text name="el_ui_averageSuccessColon" text="Průměrný úspěch: "/>
+        <text name="el_ui_averageSuccess" text="Průměrný úspěch"/>
+        <text name="el_ui_success" text="Úspěch"/>
+        <text name="el_ui_semen" text="Sample"/>
+        <text name="el_ui_semen_github" text="Semen"/>
+        <text name="el_ui_actual" text="Actual"/>
+        <text name="el_ui_save" text="Uložit"/>
+        <text name="el_ui_load" text="Načíst"/>
+        <text name="el_ui_saveProfile" text="Uložit profil"/>
+        <text name="el_ui_loadProfile" text="Načíst profil"/>
+
+        <text name="el_ui_healthy" text="Zdravé"/>
+        <text name="el_ui_hasDisease" text="Má nemoc"/>
+        <text name="el_ui_diseasedAnimals" text="Nemocná zvířata"/>
+
+
+        <text name="el_insemination_male" text="Pouze samice mohou být chovány"/>
+        <text name="el_insemination_male_github" text="Pouze samice mohou být uměle inseminovány"/>
+        <text name="el_insemination_pregnant" text="Toto zvíře již čeká potomky"/>
+        <text name="el_insemination_pregnant_github" text="Toto zvíře je již březí"/>
+        <text name="el_insemination_animalType" text="Zvíře musí být stejného druhu jako otec"/>
+        <text name="el_insemination_inseminated" text="Toto zvíře již bylo chováno"/>
+        <text name="el_insemination_inseminated_github" text="Toto zvíře již bylo uměle inseminováno"/>
+        <text name="el_insemination_recovering" text="Toto zvíře se stále zotavuje z předchozího těhotenství"/>
+        <text name="el_insemination_father" text="Příbuzenská plemenitba není povolena"/>
+        <text name="el_insemination_young" text="Toto zvíře je příliš mladé na chov"/>
+        <text name="el_insemination_young_github" text="Toto zvíře je příliš mladé na umělou inseminaci"/>
 
 
-		<text name="el_mark_aiManager_sell" text="Pasák označen k prodeji"/>
-		<text name="el_mark_aiManager_castrate" text="Pasák označen k vykastrování"/>
-		<text name="el_mark_aiManager_castrate_github" text="Pasák označen k vykastrování"/>
-		<text name="el_mark_aiManager_disease" text="Pasák označen k léčbě"/>
-		<text name="el_mark_aiManager_ai" text="Pasák označen k asistovanému chovu"/>
-		<text name="el_mark_aiManager_ai_github" text="Pasák označen k umělé inseminaci"/>
-		<text name="el_mark_player" text="Označeno hráčem"/>
+        <text name="el_mark_aiManager_sell" text="Pasák označen k prodeji"/>
+        <text name="el_mark_aiManager_castrate" text="Pasák označen k vykastrování"/>
+        <text name="el_mark_aiManager_castrate_github" text="Pasák označen k vykastrování"/>
+        <text name="el_mark_aiManager_disease" text="Pasák označen k léčbě"/>
+        <text name="el_mark_aiManager_ai" text="Pasák označen k asistovanému chovu"/>
+        <text name="el_mark_aiManager_ai_github" text="Pasák označen k umělé inseminaci"/>
+        <text name="el_mark_player" text="Označeno hráčem"/>
 
 
-		<!-- AI - BUYING -->
+        <!-- AI - BUYING -->
 
 
-		<text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Pasák nebude nakupovat zvířata"/>
-		<text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Pasák bude nakupovat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Pasák nebude nakupovat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Pasák bude nakupovat zvířata"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Rozpočet na nákup je pevná částka"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Rozpočet na nákup je procento z peněz vaší farmy"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Rozpočet na nákup je pevná částka"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Rozpočet na nákup je procento z peněz vaší farmy"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Pasák utratí až %s denně"/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Pasák utratí až %s z peněz vaší farmy denně"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Pasák utratí až %s denně"/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Pasák utratí až %s z peněz vaší farmy denně"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Pasák nakoupí až %s zvířat denně"/>
+        <text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Pasák nakoupí až %s zvířat denně"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_breed" text="Pasák nakoupí pouze %s zvířata"/>
-		<text name="el_ui_herdsmanTooltip_buy_breed_any" text="Pasák nakoupí jakékoli plemeno"/>
+        <text name="el_ui_herdsmanTooltip_buy_breed" text="Pasák nakoupí pouze %s zvířata"/>
+        <text name="el_ui_herdsmanTooltip_buy_breed_any" text="Pasák nakoupí jakékoli plemeno"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Pasák nakoupí pouze zvířata bez nemocí"/>
-		<text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Pasák nakoupí zvířata bez ohledu na nemoci"/>
+        <text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Pasák nakoupí pouze zvířata bez nemocí"/>
+        <text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Pasák nakoupí zvířata bez ohledu na nemoci"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_gender_1" text="Pasák nakoupí pouze samice"/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_2" text="Pasák nakoupí samice i samce"/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_3" text="Pasák nakoupí pouze samce"/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_1" text="Pasák nakoupí pouze samice"/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_2" text="Pasák nakoupí samice i samce"/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_3" text="Pasák nakoupí pouze samce"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_age_equal" text="Pasák nakoupí pouze zvířata stará %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_age_range" text="Pasák nakoupí pouze zvířata stará mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_age_equal" text="Pasák nakoupí pouze zvířata stará %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_age_range" text="Pasák nakoupí pouze zvířata stará mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Pasák nakoupí pouze zvířata s kvalitou %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_quality_range" text="Pasák nakoupí pouze zvířata s kvalitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Pasák nakoupí pouze zvířata s kvalitou %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_quality_range" text="Pasák nakoupí pouze zvířata s kvalitou mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Pasák nakoupí pouze zvířata s plodností %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Pasák nakoupí pouze zvířata s plodností mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Pasák nakoupí pouze zvířata s plodností %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Pasák nakoupí pouze zvířata s plodností mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_health_equal" text="Pasák nakoupí pouze zvířata se zdravím %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_health_range" text="Pasák nakoupí pouze zvířata se zdravím mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_health_equal" text="Pasák nakoupí pouze zvířata se zdravím %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_health_range" text="Pasák nakoupí pouze zvířata se zdravím mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Pasák nakoupí pouze zvířata s produktivitou %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Pasák nakoupí pouze zvířata s produktivitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Pasák nakoupí pouze zvířata s produktivitou %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Pasák nakoupí pouze zvířata s produktivitou mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Pasák nakoupí pouze zvířata s metabolismem %s"/>
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Pasák nakoupí pouze zvířata s metabolismem mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Pasák nakoupí pouze zvířata s metabolismem %s"/>
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Pasák nakoupí pouze zvířata s metabolismem mezi %s a %s"/>
 
 
-		<!-- AI - SELLING -->
+        <!-- AI - SELLING -->
 
 
-		<text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Pasák nebude prodávat zvířata"/>
-		<text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Pasák bude prodávat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Pasák nebude prodávat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Pasák bude prodávat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Pasák prodá až %s zvířat denně"/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_1" text="Pasák nebude označovat zvířata k prodeji"/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_2" text="Pasák bude označovat zvířata k prodeji"/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Pasák bude prodávat zvířata bez ohledu na nemoci"/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Pasák bude prodávat pouze zvířata s nemocí"/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_1" text="Pasák bude prodávat pouze samice"/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_2" text="Pasák bude prodávat samice i samce"/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_3" text="Pasák bude prodávat pouze samce"/>
+        <text name="el_ui_herdsmanTooltip_sell_age_equal" text="Pasák bude prodávat pouze zvířata stará %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_age_range" text="Pasák bude prodávat pouze zvířata stará mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Pasák bude prodávat pouze zvířata s kvalitou %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_range" text="Pasák bude prodávat pouze zvířata s kvalitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Pasák bude prodávat pouze zvířata s plodností %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Pasák bude prodávat pouze zvířata s plodností mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_health_equal" text="Pasák bude prodávat pouze zvířata se zdravím %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_health_range" text="Pasák bude prodávat pouze zvířata se zdravím mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Pasák bude prodávat pouze zvířata s produktivitou %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Pasák bude prodávat pouze zvířata s produktivitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Pasák bude prodávat pouze zvířata s metabolismem %s"/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Pasák bude prodávat pouze zvířata s metabolismem mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Pasák prodá až %s zvířat denně"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_mark_1" text="Pasák nebude označovat zvířata k prodeji"/>
-		<text name="el_ui_herdsmanTooltip_sell_mark_2" text="Pasák bude označovat zvířata k prodeji"/>
+        <!-- AI - CASTRATING -->
 
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Pasák bude prodávat zvířata bez ohledu na nemoci"/>
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Pasák bude prodávat pouze zvířata s nemocí"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_gender_1" text="Pasák bude prodávat pouze samice"/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_2" text="Pasák bude prodávat samice i samce"/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_3" text="Pasák bude prodávat pouze samce"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Pasák nebude kastrovat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Pasák nebude kastrovat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Pasák bude kastrovat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Pasák bude kastrovat zvířata"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_age_equal" text="Pasák bude prodávat pouze zvířata stará %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_age_range" text="Pasák bude prodávat pouze zvířata stará mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Pasák nebude označovat zvířata ke kastraci"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Pasák nebude označovat zvířata ke kastraci"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Pasák bude označovat zvířata ke kastraci"/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Pasák bude označovat zvířata ke kastraci"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Pasák bude prodávat pouze zvířata s kvalitou %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_quality_range" text="Pasák bude prodávat pouze zvířata s kvalitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Pasák bude kastrovat zvířata bez ohledu na nemoci"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Pasák bude kastrovat zvířata bez ohledu na nemoci"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Pasák bude kastrovat pouze zvířata s nemocí"/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Pasák bude kastrovat pouze zvířata s nemocí"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Pasák bude prodávat pouze zvířata s plodností %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Pasák bude prodávat pouze zvířata s plodností mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Pasák bude kastrovat pouze zvířata stará %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Pasák bude kastrovat pouze zvířata stará %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range" text="Pasák bude kastrovat pouze zvířata stará mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Pasák bude kastrovat pouze zvířata stará mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_health_equal" text="Pasák bude prodávat pouze zvířata se zdravím %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_health_range" text="Pasák bude prodávat pouze zvířata se zdravím mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Pasák bude kastrovat pouze zvířata s kvalitou %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Pasák bude kastrovat pouze zvířata s kvalitou %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Pasák bude kastrovat pouze zvířata s kvalitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Pasák bude kastrovat pouze zvířata s kvalitou mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Pasák bude prodávat pouze zvířata s produktivitou %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Pasák bude prodávat pouze zvířata s produktivitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Pasák bude kastrovat pouze zvířata s plodností %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Pasák bude kastrovat pouze zvířata s plodností %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Pasák bude kastrovat pouze zvířata s plodností mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Pasák bude kastrovat pouze zvířata s plodností mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Pasák bude prodávat pouze zvířata s metabolismem %s"/>
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Pasák bude prodávat pouze zvířata s metabolismem mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Pasák bude kastrovat pouze zvířata se zdravím %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Pasák bude kastrovat pouze zvířata se zdravím %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range" text="Pasák bude kastrovat pouze zvířata se zdravím mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Pasák bude kastrovat pouze zvířata se zdravím mezi %s a %s"/>
 
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Pasák bude kastrovat pouze zvířata s produktivitou %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Pasák bude kastrovat pouze zvířata s produktivitou %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Pasák bude kastrovat pouze zvířata s produktivitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Pasák bude kastrovat pouze zvířata s produktivitou mezi %s a %s"/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Pasák bude kastrovat pouze zvířata s metabolismem %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Pasák bude kastrovat pouze zvířata s metabolismem %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Pasák bude kastrovat pouze zvířata s metabolismem mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Pasák bude kastrovat pouze zvířata s metabolismem mezi %s a %s"/>
+
+
+        <!-- AI - NAMING -->
+
+
+        <text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Pasák nebude pojmenovávat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Pasák bude pojmenovávat zvířata"/>
 
-		<!-- AI - CASTRATING -->
+        <text name="el_ui_herdsmanTooltip_naming_convention_1" text="Pasák bude pojmenovávat zvířata náhodně"/>
+        <text name="el_ui_herdsmanTooltip_naming_convention_2" text="Pasák bude pojmenovávat zvířata abecedně"/>
 
 
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Pasák nebude kastrovat zvířata"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Pasák nebude kastrovat zvířata"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Pasák bude kastrovat zvířata"/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Pasák bude kastrovat zvířata"/>
+        <!-- AI - ASSISTED BREEDING -->
 
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Pasák nebude označovat zvířata ke kastraci"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Pasák nebude označovat zvířata ke kastraci"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Pasák bude označovat zvířata ke kastraci"/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Pasák bude označovat zvířata ke kastraci"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Pasák bude kastrovat zvířata bez ohledu na nemoci"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Pasák bude kastrovat zvířata bez ohledu na nemoci"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Pasák bude kastrovat pouze zvířata s nemocí"/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Pasák bude kastrovat pouze zvířata s nemocí"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Pasák nebude chovat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Pasák nebude chovat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Pasák bude chovat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Pasák bude chovat zvířata"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Pasák bude kastrovat pouze zvířata stará %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Pasák bude kastrovat pouze zvířata stará %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="Pasák bude kastrovat pouze zvířata stará mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Pasák bude kastrovat pouze zvířata stará mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Pasák bude chovat až %s zvířat denně"/>
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Pasák bude chovat až %s zvířat denně"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Pasák bude kastrovat pouze zvířata s kvalitou %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Pasák bude kastrovat pouze zvířata s kvalitou %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Pasák bude kastrovat pouze zvířata s kvalitou mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Pasák bude kastrovat pouze zvířata s kvalitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_1" text="Pasák nebude označovat zvířata k chovu"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Pasák nebude označovat zvířata k chovu"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2" text="Pasák bude označovat zvířata k chovu"/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Pasák bude označovat zvířata k chovu"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Pasák bude kastrovat pouze zvířata s plodností %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Pasák bude kastrovat pouze zvířata s plodností %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Pasák bude kastrovat pouze zvířata s plodností mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Pasák bude kastrovat pouze zvířata s plodností mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Pasák bude chovat zvířata bez ohledu na nemoci"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Pasák bude chovat zvířata bez ohledu na nemoci"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Pasák bude chovat pouze zvířata s nemocí"/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Pasák bude chovat pouze zvířata s nemocí"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Pasák bude kastrovat pouze zvířata se zdravím %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Pasák bude kastrovat pouze zvířata se zdravím %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="Pasák bude kastrovat pouze zvířata se zdravím mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Pasák bude kastrovat pouze zvířata se zdravím mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen" text="Pasák použije chovné vzorky z %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_github" text="Pasák použije sperma z %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any" text="Pasák použije jakékoli životaschopné chovné vzorky"/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Pasák použije jakékoli životaschopné sperma"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Pasák bude kastrovat pouze zvířata s produktivitou %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Pasák bude kastrovat pouze zvířata s produktivitou %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Pasák bude kastrovat pouze zvířata s produktivitou mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Pasák bude kastrovat pouze zvířata s produktivitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_equal" text="Pasák bude chovat pouze zvířata stará %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Pasák bude chovat pouze zvířata stará %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range" text="Pasák bude chovat pouze zvířata stará mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Pasák bude chovat pouze zvířata stará mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Pasák bude kastrovat pouze zvířata s metabolismem %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Pasák bude kastrovat pouze zvířata s metabolismem %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Pasák bude kastrovat pouze zvířata s metabolismem mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Pasák bude kastrovat pouze zvířata s metabolismem mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Pasák bude chovat pouze zvířata s kvalitou %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Pasák bude chovat pouze zvířata s kvalitou %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range" text="Pasák bude chovat pouze zvířata s kvalitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Pasák bude chovat pouze zvířata s kvalitou mezi %s a %s"/>
 
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Pasák bude chovat pouze zvířata s plodností %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Pasák bude chovat pouze zvířata s plodností %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Pasák bude chovat pouze zvířata s plodností mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Pasák bude chovat pouze zvířata s plodností mezi %s a %s"/>
 
-		<!-- AI - NAMING -->
+        <text name="el_ui_herdsmanTooltip_ai_health_equal" text="Pasák bude chovat pouze zvířata se zdravím %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Pasák bude chovat pouze zvířata se zdravím %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range" text="Pasák bude chovat pouze zvířata se zdravím mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Pasák bude chovat pouze zvířata se zdravím mezi %s a %s"/>
 
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Pasák bude chovat pouze zvířata s produktivitou %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Pasák bude chovat pouze zvířata s produktivitou %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Pasák bude chovat pouze zvířata s produktivitou mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Pasák bude chovat pouze zvířata s produktivitou mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Pasák nebude pojmenovávat zvířata"/>
-		<text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Pasák bude pojmenovávat zvířata"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Pasák bude chovat pouze zvířata s metabolismem %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Pasák bude chovat pouze zvířata s metabolismem %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Pasák bude chovat pouze zvířata s metabolismem mezi %s a %s"/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Pasák bude chovat pouze zvířata s metabolismem mezi %s a %s"/>
 
-		<text name="el_ui_herdsmanTooltip_naming_convention_1" text="Pasák bude pojmenovávat zvířata náhodně"/>
-		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="Pasák bude pojmenovávat zvířata abecedně"/>
+        <!-- AI Rework System: Bull Tier Names -->
+        <text name="el_ui_bullTier_youngGenomic" text="Young (Genomic)"/>
+        <text name="el_ui_bullTier_proven" text="Proven"/>
+        <text name="el_ui_bullTier_elite" text="Elite"/>
+        <text name="el_ui_bullTier_legend" text="Legend"/>
 
+        <!-- AI Rework System: Semen Types -->
+        <text name="el_ui_semenType" text="Sample Type"/>
+        <text name="el_ui_semenType_github" text="Semen Type"/>
+        <text name="el_ui_semenType_conventional" text="Conventional"/>
+        <text name="el_ui_semenType_sexedFemale" text="Sexed (Female)"/>
+        <text name="el_ui_semenType_sexedMale" text="Sexed (Male)"/>
 
-		<!-- AI - AI -->
+        <!-- AI Rework System: Nitrogen System -->
+        <text name="el_ui_nitrogenLevel" text="Nitrogen Level"/>
+        <text name="el_warning_criticalNitrogen" text="CRITICAL: Nitrogen Empty!"/>
+        <text name="el_warning_dewarSpoiled" text="Dewar %s spoiled due to nitrogen depletion"/>
+        <text name="el_warning_thermalDamage" text="Semen fertility reduced due to thermal exposure"/>
+        <text name="el_action_refillNitrogen" text="Refill Nitrogen ($50)"/>
+        <text name="el_info_nitrogenAlreadyFull" text="Nitrogen level is already full"/>
+        <text name="el_notification_nitrogenRefilled" text="Nitrogen refilled for %s"/>
 
+        <!-- AI Rework System: Stock Management -->
+        <text name="el_ui_strawsAvailable" text="%d straws available"/>
+        <text name="el_ui_limitedStock" text="Limited stock: only %d available"/>
+        <text name="el_error_insufficientSemenStock" text="Not enough semen in stock"/>
+        <text name="el_error_noSexedSemenAvailable" text="No sexed semen available for this bull"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Pasák nebude chovat zvířata"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Pasák nebude chovat zvířata"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Pasák bude chovat zvířata"/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Pasák bude chovat zvířata"/>
+        <!-- AI Rework System: Selling Semen -->
+        <text name="el_ui_sellSemen" text="Sell Semen"/>
+        <text name="el_error_onlyMalesCanSellSemen" text="Only male animals can sell semen"/>
+        <text name="el_error_animalTooYoung" text="Animal is too young to sell semen"/>
+        <text name="el_error_semenCollectionCooldown" text="Bull needs to rest before next semen collection"/>
+        <text name="el_notification_semenSold" text="Sold %d straws from %s for %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Pasák bude chovat až %s zvířat denně"/>
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Pasák bude chovat až %s zvířat denně"/>
+        <!--  SETTINGS  -->
 
-		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="Pasák nebude označovat zvířata k chovu"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Pasák nebude označovat zvířata k chovu"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="Pasák bude označovat zvířata k chovu"/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Pasák bude označovat zvířata k chovu"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Pasák bude chovat zvířata bez ohledu na nemoci"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Pasák bude chovat zvířata bez ohledu na nemoci"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Pasák bude chovat pouze zvířata s nemocí"/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Pasák bude chovat pouze zvířata s nemocí"/>
+        <text name="el_settings" text="Vylepšené hospodářské zvířectvo"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_semen" text="Pasák použije chovné vzorky z %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="Pasák použije sperma z %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="Pasák použije jakékoli životaschopné chovné vzorky"/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Pasák použije jakékoli životaschopné sperma"/>
+        <text name="el_settings_off" text="Vypnuto"/>
+        <text name="el_settings_on" text="Zapnuto"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="Pasák bude chovat pouze zvířata stará %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Pasák bude chovat pouze zvířata stará %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range" text="Pasák bude chovat pouze zvířata stará mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Pasák bude chovat pouze zvířata stará mezi %s a %s"/>
+        <text name="el_settings_deathEnabled_label" text="Úhyn zvířat"/>
+        <text name="el_settings_deathEnabled_label_github" text="Smrt zvířat"/>
+        <text name="el_settings_deathEnabled_tooltip_1" text="Zvířata nebudou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
+        <text name="el_settings_deathEnabled_tooltip_1_github" text="Zvířata nezemřou kvůli březosti, zdraví, věku nebo nehodám"/>
+        <text name="el_settings_deathEnabled_tooltip_2" text="Zvířata budou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
+        <text name="el_settings_deathEnabled_tooltip_2_github" text="Zvířata zemřou kvůli březosti, zdraví, věku nebo nehodám"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Pasák bude chovat pouze zvířata s kvalitou %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Pasák bude chovat pouze zvířata s kvalitou %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="Pasák bude chovat pouze zvířata s kvalitou mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Pasák bude chovat pouze zvířata s kvalitou mezi %s a %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Pasák bude chovat pouze zvířata s plodností %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Pasák bude chovat pouze zvířata s plodností %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Pasák bude chovat pouze zvířata s plodností mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Pasák bude chovat pouze zvířata s plodností mezi %s a %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="Pasák bude chovat pouze zvířata se zdravím %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Pasák bude chovat pouze zvířata se zdravím %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range" text="Pasák bude chovat pouze zvířata se zdravím mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Pasák bude chovat pouze zvířata se zdravím mezi %s a %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Pasák bude chovat pouze zvířata s produktivitou %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Pasák bude chovat pouze zvířata s produktivitou %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Pasák bude chovat pouze zvířata s produktivitou mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Pasák bude chovat pouze zvířata s produktivitou mezi %s a %s"/>
-
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Pasák bude chovat pouze zvířata s metabolismem %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Pasák bude chovat pouze zvířata s metabolismem %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Pasák bude chovat pouze zvířata s metabolismem mezi %s a %s"/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Pasák bude chovat pouze zvířata s metabolismem mezi %s a %s"/>
-
-
-
-
-		<!--  SETTINGS  -->
-
-
-		<text name="el_settings" text="Vylepšené hospodářské zvířectvo"/>
-
-		<text name="el_settings_off" text="Vypnuto"/>
-		<text name="el_settings_on" text="Zapnuto"/>
-
-		<text name="el_settings_deathEnabled_label" text="Úhyn zvířat"/>
-		<text name="el_settings_deathEnabled_label_github" text="Smrt zvířat"/>
-		<text name="el_settings_deathEnabled_tooltip_1" text="Zvířata nebudou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
-		<text name="el_settings_deathEnabled_tooltip_1_github" text="Zvířata nezemřou kvůli březosti, zdraví, věku nebo nehodám"/>
-		<text name="el_settings_deathEnabled_tooltip_2" text="Zvířata budou odstraňována kvůli březosti, zdraví, věku nebo nehodám"/>
-		<text name="el_settings_deathEnabled_tooltip_2_github" text="Zvířata zemřou kvůli březosti, zdraví, věku nebo nehodám"/>
-
-		<text name="el_settings_accidentsChance_label" text="Pravděpodobnost nehody"/>
-		<text name="el_settings_accidentsChance_tooltip" text="Změnit pravděpodobnost úhynu zvířat kvůli náhodným nehodám"/>
-		<text name="el_settings_accidentsChance_tooltip_github" text="Změnit pravděpodobnost smrti zvířat kvůli náhodným nehodám"/>
-		
-		<text name="el_settings_foodScale_label" text="Množství potravy"/>
-		<text name="el_settings_foodScale_tooltip" text="Změna množství potravy, kterou zvířata konzumují"/>
-
-		<text name="el_settings_maxDealerAnimals_label" text="Maximum zvířat u obchodníka"/>
-		<text name="el_settings_maxDealerAnimals_tooltip" text="Změna maximálního počtu zvířat, která bude mít prodejce zvířat na skladě pro každý typ zvířete."/>
-
-		<text name="el_settings_resetDealer_label" text="Resetovat obchodníka se zvířaty"/>
-		<text name="el_settings_resetDealer_tooltip" text="Odstranit všechna zvířata u prodejce a doplnit zásoby o nová zvířata"/>
-		<text name="el_settings_resetDealer_text" text="Resetovat obchodníka se zvířaty"/>
-
-		<text name="el_settings_tagColour_label" text="Změnit barvu značky"/>
-		<text name="el_settings_tagColour_tooltip" text="Změnit barvu ušních značek"/>
-		<text name="el_settings_tagColour_text" text="Změnit barvu značky"/>
-
-		<text name="el_settings_exportCSV_label" text="Exportovat do CSV"/>
-		<text name="el_settings_exportCSV_tooltip" text="Exportovat statistiky do CSV"/>
-		<text name="el_settings_exportCSV_text" text="Exportovat do CSV"/>
-
-		<text name="el_settings_maxNumMessages_label" text="Maximální počet zpráv"/>
-		<text name="el_settings_maxNumMessages_tooltip" text="Vyšší počet bude mít za následek, že vaše složka pro ukládání zabere více místa. Po dosažení tohoto limitu budou nejstarší zprávy smazány."/>
-
-		<text name="el_settings_diseasesEnabled_label" text="Nemoci povoleny"/>
-		<text name="el_settings_diseasesEnabled_tooltip_1" text="Zvířata nemohou chytit nebo zdědit nemoci"/>
-		<text name="el_settings_diseasesEnabled_tooltip_2" text="Zvířata mohou chytit nebo zdědit nemoci"/>
-
-		<text name="el_settings_diseasesChance_label" text="Šance na nemoc"/>
-		<text name="el_settings_diseasesChance_tooltip" text="Změnit pravděpodobnost, že zvířata onemocní"/>
-
-		<text name="el_settings_useCustomAnimals_label" text="Použít vlastní zvířata"/>
-		<text name="el_settings_useCustomAnimals_tooltip_1" text="Použít modely zvířat EnhancedLivestock (vyžaduje restart)"/>
-		<text name="el_settings_useCustomAnimals_tooltip_2" text="Použít vlastní modely zvířat (experimentální, vyžaduje restart, musí být rozbaleno)"/>
-
-		<text name="el_settings_animalsXML_label" text="Nastavit cestu k XML zvířat"/>
-		<text name="el_settings_animalsXML_tooltip" text="Nastavit cestu k vlastnímu souboru XML zvířat"/>
-		<text name="el_settings_animalsXML_text" text="Nastavit cestu k XML zvířat"/>
-
-		<text name="el_settings_earTagTextEnabled_label" text="Text ušních známek"/>
-		<text name="el_settings_earTagTextEnabled_tooltip" text="Zapnout/vypnout zobrazení textu na ušních známkách zvířat"/>
-
-		<!--  HELP  -->
-
-
-		<text name="el_help_monitors_title" text="Monitoring"/>
-		<text name="el_help_monitors_1" text="Abyste viděli většinu statistik zvířete, musíte na něj použít monitorovací značku, což lze provést v nabídce zvířat (kde nakupujete a prodáváte zvířata). Monitorovací štítky se na zvířeti zobrazují také vizuálně, a to na jeho levém uchu vedle identifikačního štítku."/>
-		<text name="el_help_monitors_2" text="Sledování značek vám poskytne důležité informace, včetně informací o zdravotním stavu, hmotnosti, laktaci, produkci a požadavcích na slámu, krmivo a vodu."/>
-		<text name="el_help_monitors_3" text="Aplikace značky na zvíře vás bude stát malé měsíční předplatné podle druhu zvířete. Pokud se rozhodnete značku odstranit, bude odstraněna na začátku následujícího měsíce."/>
-
-		<text name="el_help_pregnancy_title" text="Odchov potomstva"/>
-		<text name="el_help_pregnancy_title_github" text="Těhotenství"/>
-		<text name="el_help_pregnancy_1" text="Samice vyžadují alespoň jednoho samce, aby mohly mít potomky. Obě zvířata musí být zdravá a správného věku, a musí být stejného druhu. Chov mezi různými plemeny (např. holštýnská kráva a býk plemene angus) je povolen."/>
-		<text name="el_help_pregnancy_1_github" text="Všechny samice potřebují alespoň jednoho samce, aby mohly zabřeznout. Obě zvířata musí být správného věku a zdravotního stavu a musí být stejného druhu. Chov mezi různými plemeny (např. holštýnská kráva a býk plemene angus) je povolen."/>
-		<text name="el_help_pregnancy_2" text="Blízké příbuzné se nespáří. Pokud jsou samec a samice v přímém příbuzenském vztahu, nebudou se spolu množit."/>
-		<text name="el_help_pregnancy_2_github" text="Příbuzenská plemenitba není povolena. Pokud jsou samec a samice v přímém příbuzenském vztahu, nebudou se spolu pářit."/>
-		<text name="el_help_pregnancy_3" text="Šance samice mít potomky závisí na plodnosti obou rodičů. Samice s vyšší plodností má také mnohem větší šanci, že porodí více potomků najednou."/>
-		<text name="el_help_pregnancy_3_github" text="Šance samice zabřeznout závisí na její plodnosti i na plodnosti samce. Samice s vyšší plodností má také výrazně vyšší šanci, že se jí narodí více potomků najednou."/>
-		<text name="el_help_pregnancy_4" text="Jakmile samice čeká potomky, začne je nosit. Předpokládaný termín a počet očekávaných mláďat můžete vidět při pohledu na zvíře v ohradě nebo výběrem v nabídce zvířat."/>
-		<text name="el_help_pregnancy_4_github" text="Jakmile samice zabřezne, začne nosit potomky. Předpokládané datum březosti a počet potomků si můžete prohlédnout při pohledu na zvíře v ohradě nebo kliknutím na něj v nabídce zvířat."/>
-		<text name="el_help_pregnancy_5" text="Když dosáhne termínu, narodí se nová mláďata. Existuje však malá šance, že mláďata nebo matka mohou být ztraceny, pokud nastanou komplikace. Mláďata narozená v přeplněné ohradě budou automaticky prodána."/>
-		<text name="el_help_pregnancy_5_github" text="Až dosáhne termínu porodu, porodí své děti. Novorozenci však mají určitou šanci, že budou odebráni, stejně jako matka, pokud těhotenství probíhá špatně. Novorozenci, kteří se narodí v přeplněné ohradě, budou automaticky prodáni."/>
-
-		<text name="el_help_production_title" text="Produkce"/>
-		<text name="el_help_production_1" text="Krávy jakéhokoli plemene začnou produkovat mléko až po porodu. Po porodu bude kráva produkovat mléko exponenciálně po dobu 3 měsíců, poté bude její produkce po dobu dalších 6 měsíců pomalu klesat. Po 10 měsících od zabřeznutí kráva přestane produkovat mléko až do dalšího zabřeznutí."/>
-		<text name="el_help_production_2" text="Ovce produkují vlnu v teplých měsících. V chladných měsících, při teplotě pod 12 °C, vlnu neprodukují."/>
-		<text name="el_help_production_3" text="Produkci mléka, vlny a vajec dále ovlivňuje genetika zvířat. Zvíře s dobrou genetikou bude produkovat více, zatímco zvíře se špatnou genetikou nebude produkovat vůbec nic."/>
-
-		<text name="el_help_weight_title" text="Hmotnost"/>
-		<text name="el_help_weight_1" text="Zvířata mají určitou hmotnost, která je ovlivněna množstvím jejich potravy a pití. Každý druh a plemeno má svou vlastní průměrnou hmotnost, která ovlivňuje hmotnost každého zvířete."/>
-		<text name="el_help_weight_2" text="Hmotnost zvyšuje hodnotu zvířete a nízká hmotnost ovlivňuje šanci, že bude každý měsíc odebráno."/>
-
-		<text name="el_help_genetics_title" text="Genetika"/>
-		<text name="el_help_genetics_1" text="Každé zvíře má 4 různé genetické hodnoty: metabolismus, plodnost, zdraví a kvalitu. Genetika se mísí mezi matkou a otcem a poté se předává jejich dětem."/>
-		<text name="el_help_genetics_2" text="Metabolismus ovlivňuje schopnost zvířete přeměnit potravu na hmotnost a ovlivňuje množství, které zvíře sní."/>
-		<text name="el_help_genetics_3" text="Plodnost ovlivňuje šanci na úspěšné mládě a počet potomků, které rodiče vyprodukují."/>
-		<text name="el_help_genetics_3_github" text="Plodnost ovlivňuje šanci zvířete zabřeznout nebo zabřeznutí samice a počet potomků, které zplodí."/>
-		<text name="el_help_genetics_4" text="Zdravotní stav ovlivňuje zdraví zvířete a jeho šanci na odstranění každý měsíc. Zvíře s vyšší zdravotní genetikou bude mít také delší životnost."/>
-		<text name="el_help_genetics_5" text="Kvalita ovlivňuje hodnotu samotného zvířete, zvíře s vyšší kvalitou se prodává za mnohem vyšší cenu."/>
-		<text name="el_help_genetics_6" text="Skot, ovce a kuřata mají také produkční genetiku, která ovlivňuje množství mléka/vajíček/vlny, které produkují."/>
-
-
-
-		<!--  DISEASES  -->
-
-
-		<text name="el_ui_immune" text="Imunní"/>
-		<text name="el_ui_startTreatment" text="Zahájit léčbu"/>
-		<text name="el_ui_resumeTreatment" text="Pokračovat v léčbě"/>
-		<text name="el_ui_stopTreatment" text="Zastavit léčbu"/>
-		<text name="el_ui_duration" text="Trvání"/>
-		<text name="el_ui_beingTreated" text="Léčeno"/>
-		<text name="el_ui_notTreated" text="Neléčeno"/>
-		<text name="el_ui_carrier" text="Přenašeč"/>
-
-		<text name="el_diseases" text="Nemoci"/>
-		<text name="el_disease" text="Nemoc"/>
-
-		<text name="el_disease_mastitis" text="Mastitida"/>
-
-		<text name="el_disease_cvm" text="CVM"/>
-
-		<text name="el_disease_footAndMouth" text="Slintavka a kulhavka"/>
-
-		<text name="el_disease_ped" text="Prasečí epidemický průjem"/>
-
-		<text name="el_disease_avianFlu" text="Ptačí chřipka"/>
-
+        <text name="el_settings_accidentsChance_label" text="Pravděpodobnost nehody"/>
+        <text name="el_settings_accidentsChance_tooltip" text="Změnit pravděpodobnost úhynu zvířat kvůli náhodným nehodám"/>
+        <text name="el_settings_accidentsChance_tooltip_github" text="Změnit pravděpodobnost smrti zvířat kvůli náhodným nehodám"/>
+
+        <text name="el_settings_foodScale_label" text="Množství potravy"/>
+        <text name="el_settings_foodScale_tooltip" text="Změna množství potravy, kterou zvířata konzumují"/>
+
+        <text name="el_settings_maxDealerAnimals_label" text="Maximum zvířat u obchodníka"/>
+        <text name="el_settings_maxDealerAnimals_tooltip" text="Změna maximálního počtu zvířat, která bude mít prodejce zvířat na skladě pro každý typ zvířete."/>
+
+        <text name="el_settings_resetDealer_label" text="Resetovat obchodníka se zvířaty"/>
+        <text name="el_settings_resetDealer_tooltip" text="Odstranit všechna zvířata u prodejce a doplnit zásoby o nová zvířata"/>
+        <text name="el_settings_resetDealer_text" text="Resetovat obchodníka se zvířaty"/>
+
+        <text name="el_settings_tagColour_label" text="Změnit barvu značky"/>
+        <text name="el_settings_tagColour_tooltip" text="Změnit barvu ušních značek"/>
+        <text name="el_settings_tagColour_text" text="Změnit barvu značky"/>
+
+        <text name="el_settings_exportCSV_label" text="Exportovat do CSV"/>
+        <text name="el_settings_exportCSV_tooltip" text="Exportovat statistiky do CSV"/>
+        <text name="el_settings_exportCSV_text" text="Exportovat do CSV"/>
+
+        <text name="el_settings_maxNumMessages_label" text="Maximální počet zpráv"/>
+        <text name="el_settings_maxNumMessages_tooltip" text="Vyšší počet bude mít za následek, že vaše složka pro ukládání zabere více místa. Po dosažení tohoto limitu budou nejstarší zprávy smazány."/>
+
+        <text name="el_settings_diseasesEnabled_label" text="Nemoci povoleny"/>
+        <text name="el_settings_diseasesEnabled_tooltip_1" text="Zvířata nemohou chytit nebo zdědit nemoci"/>
+        <text name="el_settings_diseasesEnabled_tooltip_2" text="Zvířata mohou chytit nebo zdědit nemoci"/>
+
+        <text name="el_settings_diseasesChance_label" text="Šance na nemoc"/>
+        <text name="el_settings_diseasesChance_tooltip" text="Změnit pravděpodobnost, že zvířata onemocní"/>
+
+        <text name="el_settings_useCustomAnimals_label" text="Použít vlastní zvířata"/>
+        <text name="el_settings_useCustomAnimals_tooltip_1" text="Použít modely zvířat EnhancedLivestock (vyžaduje restart)"/>
+        <text name="el_settings_useCustomAnimals_tooltip_2" text="Použít vlastní modely zvířat (experimentální, vyžaduje restart, musí být rozbaleno)"/>
+
+        <text name="el_settings_animalsXML_label" text="Nastavit cestu k XML zvířat"/>
+        <text name="el_settings_animalsXML_tooltip" text="Nastavit cestu k vlastnímu souboru XML zvířat"/>
+        <text name="el_settings_animalsXML_text" text="Nastavit cestu k XML zvířat"/>
+
+        <text name="el_settings_earTagTextEnabled_label" text="Text ušních známek"/>
+        <text name="el_settings_earTagTextEnabled_tooltip" text="Zapnout/vypnout zobrazení textu na ušních známkách zvířat"/>
+
+
+        <!--  HELP  -->
+
+
+        <text name="el_help_monitors_title" text="Monitoring"/>
+        <text name="el_help_monitors_1" text="Abyste viděli většinu statistik zvířete, musíte na něj použít monitorovací značku, což lze provést v nabídce zvířat (kde nakupujete a prodáváte zvířata). Monitorovací štítky se na zvířeti zobrazují také vizuálně, a to na jeho levém uchu vedle identifikačního štítku."/>
+        <text name="el_help_monitors_2" text="Sledování značek vám poskytne důležité informace, včetně informací o zdravotním stavu, hmotnosti, laktaci, produkci a požadavcích na slámu, krmivo a vodu."/>
+        <text name="el_help_monitors_3" text="Aplikace značky na zvíře vás bude stát malé měsíční předplatné podle druhu zvířete. Pokud se rozhodnete značku odstranit, bude odstraněna na začátku následujícího měsíce."/>
+
+        <text name="el_help_pregnancy_title" text="Odchov potomstva"/>
+        <text name="el_help_pregnancy_title_github" text="Těhotenství"/>
+        <text name="el_help_pregnancy_1" text="Samice vyžadují alespoň jednoho samce, aby mohly mít potomky. Obě zvířata musí být zdravá a správného věku, a musí být stejného druhu. Chov mezi různými plemeny (např. holštýnská kráva a býk plemene angus) je povolen."/>
+        <text name="el_help_pregnancy_1_github" text="Všechny samice potřebují alespoň jednoho samce, aby mohly zabřeznout. Obě zvířata musí být správného věku a zdravotního stavu a musí být stejného druhu. Chov mezi různými plemeny (např. holštýnská kráva a býk plemene angus) je povolen."/>
+        <text name="el_help_pregnancy_2" text="Blízké příbuzné se nespáří. Pokud jsou samec a samice v přímém příbuzenském vztahu, nebudou se spolu množit."/>
+        <text name="el_help_pregnancy_2_github" text="Příbuzenská plemenitba není povolena. Pokud jsou samec a samice v přímém příbuzenském vztahu, nebudou se spolu pářit."/>
+        <text name="el_help_pregnancy_3" text="Šance samice mít potomky závisí na plodnosti obou rodičů. Samice s vyšší plodností má také mnohem větší šanci, že porodí více potomků najednou."/>
+        <text name="el_help_pregnancy_3_github" text="Šance samice zabřeznout závisí na její plodnosti i na plodnosti samce. Samice s vyšší plodností má také výrazně vyšší šanci, že se jí narodí více potomků najednou."/>
+        <text name="el_help_pregnancy_4" text="Jakmile samice čeká potomky, začne je nosit. Předpokládaný termín a počet očekávaných mláďat můžete vidět při pohledu na zvíře v ohradě nebo výběrem v nabídce zvířat."/>
+        <text name="el_help_pregnancy_4_github" text="Jakmile samice zabřezne, začne nosit potomky. Předpokládané datum březosti a počet potomků si můžete prohlédnout při pohledu na zvíře v ohradě nebo kliknutím na něj v nabídce zvířat."/>
+        <text name="el_help_pregnancy_5" text="Když dosáhne termínu, narodí se nová mláďata. Existuje však malá šance, že mláďata nebo matka mohou být ztraceny, pokud nastanou komplikace. Mláďata narozená v přeplněné ohradě budou automaticky prodána."/>
+        <text name="el_help_pregnancy_5_github" text="Až dosáhne termínu porodu, porodí své děti. Novorozenci však mají určitou šanci, že budou odebráni, stejně jako matka, pokud těhotenství probíhá špatně. Novorozenci, kteří se narodí v přeplněné ohradě, budou automaticky prodáni."/>
+
+        <text name="el_help_production_title" text="Produkce"/>
+        <text name="el_help_production_1" text="Krávy jakéhokoli plemene začnou produkovat mléko až po porodu. Po porodu bude kráva produkovat mléko exponenciálně po dobu 3 měsíců, poté bude její produkce po dobu dalších 6 měsíců pomalu klesat. Po 10 měsících od zabřeznutí kráva přestane produkovat mléko až do dalšího zabřeznutí."/>
+        <text name="el_help_production_2" text="Ovce produkují vlnu v teplých měsících. V chladných měsících, při teplotě pod 12 °C, vlnu neprodukují."/>
+        <text name="el_help_production_3" text="Produkci mléka, vlny a vajec dále ovlivňuje genetika zvířat. Zvíře s dobrou genetikou bude produkovat více, zatímco zvíře se špatnou genetikou nebude produkovat vůbec nic."/>
+
+        <text name="el_help_weight_title" text="Hmotnost"/>
+        <text name="el_help_weight_1" text="Zvířata mají určitou hmotnost, která je ovlivněna množstvím jejich potravy a pití. Každý druh a plemeno má svou vlastní průměrnou hmotnost, která ovlivňuje hmotnost každého zvířete."/>
+        <text name="el_help_weight_2" text="Hmotnost zvyšuje hodnotu zvířete a nízká hmotnost ovlivňuje šanci, že bude každý měsíc odebráno."/>
+
+        <text name="el_help_genetics_title" text="Genetika"/>
+        <text name="el_help_genetics_1" text="Každé zvíře má 4 různé genetické hodnoty: metabolismus, plodnost, zdraví a kvalitu. Genetika se mísí mezi matkou a otcem a poté se předává jejich dětem."/>
+        <text name="el_help_genetics_2" text="Metabolismus ovlivňuje schopnost zvířete přeměnit potravu na hmotnost a ovlivňuje množství, které zvíře sní."/>
+        <text name="el_help_genetics_3" text="Plodnost ovlivňuje šanci na úspěšné mládě a počet potomků, které rodiče vyprodukují."/>
+        <text name="el_help_genetics_3_github" text="Plodnost ovlivňuje šanci zvířete zabřeznout nebo zabřeznutí samice a počet potomků, které zplodí."/>
+        <text name="el_help_genetics_4" text="Zdravotní stav ovlivňuje zdraví zvířete a jeho šanci na odstranění každý měsíc. Zvíře s vyšší zdravotní genetikou bude mít také delší životnost."/>
+        <text name="el_help_genetics_5" text="Kvalita ovlivňuje hodnotu samotného zvířete, zvíře s vyšší kvalitou se prodává za mnohem vyšší cenu."/>
+        <text name="el_help_genetics_6" text="Skot, ovce a kuřata mají také produkční genetiku, která ovlivňuje množství mléka/vajíček/vlny, které produkují."/>
+
+
+        <!--  DISEASES  -->
+
+
+        <text name="el_ui_immune" text="Imunní"/>
+        <text name="el_ui_startTreatment" text="Zahájit léčbu"/>
+        <text name="el_ui_resumeTreatment" text="Pokračovat v léčbě"/>
+        <text name="el_ui_stopTreatment" text="Zastavit léčbu"/>
+        <text name="el_ui_duration" text="Trvání"/>
+        <text name="el_ui_beingTreated" text="Léčeno"/>
+        <text name="el_ui_notTreated" text="Neléčeno"/>
+        <text name="el_ui_carrier" text="Přenašeč"/>
+
+        <text name="el_diseases" text="Nemoci"/>
+        <text name="el_disease" text="Nemoc"/>
+
+        <text name="el_disease_mastitis" text="Mastitida"/>
+        <text name="el_disease_cvm" text="CVM"/>
+        <text name="el_disease_footAndMouth" text="Slintavka a kulhavka"/>
+        <text name="el_disease_ped" text="Prasečí epidemický průjem"/>
+        <text name="el_disease_avianFlu" text="Ptačí chřipka"/>
 		<text name="el_disease_colic" text="Kolika"/>
 		<text name="el_disease_laminitis" text="Laminitida"/>
 		<text name="el_disease_arthritis" text="Artritida"/>
@@ -681,99 +704,102 @@
 		<text name="el_disease_infectiousBronchitis_desc" text="Vysoce nakažlivé virové respirační onemocnění. Trvale poškozuje reprodukční trakt."/>
 
 
+        <!--  MESSAGES  -->
 
-		<!--  MESSAGES  -->
+        <text name="el_messageTitle_pregnancy" text="Těhotenství"/>
+        <text name="el_messageTitle_death" text="Odstranění"/>
+        <text name="el_messageTitle_death_github" text="Smrt"/>
+        <text name="el_messageTitle_disease" text="Nemoc"/>
+        <text name="el_messageTitle_name" text="Jméno"/>
+        <text name="el_messageTitle_movement" text="Pohyb"/>
+        <text name="el_messageTitle_aiManager" text="Pasák"/>
+        <text name="el_messageTitle_insemination" text="Asistovaný chov"/>
+        <text name="el_messageTitle_insemination_github" text="Umělá inseminace"/>
 
-
-		<text name="el_messageTitle_pregnancy" text="Těhotenství"/>
-		<text name="el_messageTitle_death" text="Odstranění"/>
-		<text name="el_messageTitle_death_github" text="Smrt"/>
-		<text name="el_messageTitle_disease" text="Nemoc"/>
-		<text name="el_messageTitle_name" text="Jméno"/>
-		<text name="el_messageTitle_movement" text="Pohyb"/>
-		<text name="el_messageTitle_aiManager" text="Pasák"/>
-		<text name="el_messageTitle_insemination" text="Asistovaný chov"/>
-		<text name="el_messageTitle_insemination_github" text="Umělá inseminace"/>
-
-		<text name="el_message_pregnancySingle" text="Porodila 1 mládě"/>
-		<text name="el_message_pregnancyMultiple" text="Porodila %s mláďat"/>
-		<text name="el_message_pregnancySold" text="%s mláďat bylo prodáno za %s kvůli přeplnění"/>
-		<text name="el_message_pregnancyDied" text="%s mláďat bylo odstraněno při narození"/>
-		<text name="el_message_pregnancyDied_github" text="%s mláďat zemřelo při narození"/>
-		<text name="el_message_death" text="Odstraněno kvůli %s"/>
-		<text name="el_message_death_github" text="Zemřelo kvůli %s"/>
-		<text name="el_message_diseaseContracted" text="Nakaženo %s"/>
-		<text name="el_message_diseaseCured" text="Vyléčeno z %s"/>
-		<text name="el_message_diseaseTreatment_start" text="Zahájena léčba %s u %s"/>
-		<text name="el_message_diseaseTreatment_resume" text="Obnovena léčba %s u %s"/>
-		<text name="el_message_diseaseTreatment_stop" text="Zastavena léčba %s"/>
-		<text name="el_message_nameChange" text="Jméno změněno z '%s' na '%s'"/>
-		<text name="el_message_nameAdded" text="Dáno jméno '%s'"/>
-		<text name="el_message_nameDeleted" text="Jméno '%s' bylo odstraněno"/>
-		<text name="el_message_boughtAnimals_single" text="1 zvíře bylo zakoupeno za %s"/>
-		<text name="el_message_boughtAnimals_multiple" text="%s zvířat bylo zakoupeno za %s"/>
-		<text name="el_message_soldAnimals_single" text="1 zvíře bylo prodáno za %s"/>
-		<text name="el_message_soldAnimals_multiple" text="%s zvířat bylo prodáno za %s"/>
-		<text name="el_message_movedAnimalsTo_single" text="1 zvíře bylo přesunuto do %s"/>
-		<text name="el_message_movedAnimalsTo_multiple" text="%s zvířat bylo přesunuto do %s"/>
-		<text name="el_message_movedAnimalsFrom_single" text="1 zvíře bylo přesunuto z %s"/>
-		<text name="el_message_movedAnimalsFrom_multiple" text="%s zvířat bylo přesunuto z %s"/>
-		<text name="el_message_aiManager_boughtAnimals_single" text="Pasák koupil 1 zvíře za %s"/>
-		<text name="el_message_aiManager_boughtAnimals_multiple" text="Pasák koupil %s zvířat za %s"/>
-		<text name="el_message_aiManager_soldAnimals_single" text="Pasák prodal 1 zvíře za %s"/>
-		<text name="el_message_aiManager_soldAnimals_multiple" text="Pasák prodal %s zvířat za %s"/>
-		<text name="el_message_aiManager_castrated_single" text="Pasák vykastroval 1 zvíře"/>
-		<text name="el_message_aiManager_castrated_single_github" text="Pasák vykastroval 1 zvíře"/>
-		<text name="el_message_aiManager_castrated_multiple" text="Pasák vykastroval %s zvířat"/>
-		<text name="el_message_aiManager_castrated_multiple_github" text="Pasák vykastroval %s zvířat"/>
-		<text name="el_message_aiManager_named_single" text="Pasák pojmenoval 1 zvíře"/>
-		<text name="el_message_aiManager_named_multiple" text="Pasák pojmenoval %s zvířat"/>
-		<text name="el_message_aiManager_mark_sell_single" text="Pasák označil 1 zvíře k prodeji"/>
-		<text name="el_message_aiManager_mark_sell_multiple" text="Pasák označil %s zvířat k prodeji"/>
-		<text name="el_message_aiManager_mark_castrate_single" text="Pasák označil 1 zvíře k vykastrování"/>
-		<text name="el_message_aiManager_mark_castrate_single_github" text="Pasák označil 1 zvíře k vykastrování"/>
-		<text name="el_message_aiManager_mark_castrate_multiple" text="Pasák označil %s zvířat k vykastrování"/>
-		<text name="el_message_aiManager_mark_castrate_multiple_github" text="Pasák označil %s zvířat k vykastrování"/>
-		<text name="el_message_aiManager_mark_disease_single" text="Pasák označil 1 zvíře k léčbě"/>
-		<text name="el_message_aiManager_mark_disease_multiple" text="Pasák označil %s zvířat k léčbě"/>
-		<text name="el_message_insemination_success" text="Chov byl úspěšný"/>
-		<text name="el_message_insemination_success_github" text="Inseminace byla úspěšná"/>
-		<text name="el_message_insemination_fail" text="Chov byl neúspěšný"/>
-		<text name="el_message_insemination_fail_github" text="Inseminace byla neúspěšná"/>
-		<text name="el_message_aiManager_mark_ai_single" text="Pasák označil 1 zvíře k chovu"/>
-		<text name="el_message_aiManager_mark_ai_single_github" text="Pasák označil 1 zvíře k AI"/>
-		<text name="el_message_aiManager_mark_ai_multiple" text="Pasák označil %s zvířat k chovu"/>
-		<text name="el_message_aiManager_mark_ai_multiple_github" text="Pasák označil %s zvířat k AI"/>
-		<text name="el_message_aiManager_ai_single" text="Pasák choval 1 zvíře"/>
-		<text name="el_message_aiManager_ai_single_github" text="Pasák inseminoval 1 zvíře"/>
-		<text name="el_message_aiManager_ai_multiple" text="Pasák choval %s zvířat"/>
-		<text name="el_message_aiManager_ai_multiple_github" text="Pasák inseminoval %s zvířat"/>
+        <text name="el_message_pregnancySingle" text="Porodila 1 mládě"/>
+        <text name="el_message_pregnancyMultiple" text="Porodila %s mláďat"/>
+        <text name="el_message_pregnancySold" text="%s mláďat bylo prodáno za %s kvůli přeplnění"/>
+        <text name="el_message_pregnancyDied" text="%s mláďat bylo odstraněno při narození"/>
+        <text name="el_message_pregnancyDied_github" text="%s mláďat zemřelo při narození"/>
+        <text name="el_message_death" text="Odstraněno kvůli %s"/>
+        <text name="el_message_death_github" text="Zemřelo kvůli %s"/>
+        <text name="el_message_diseaseContracted" text="Nakaženo %s"/>
+        <text name="el_message_diseaseCured" text="Vyléčeno z %s"/>
+        <text name="el_message_diseaseTreatment_start" text="Zahájena léčba %s u %s"/>
+        <text name="el_message_diseaseTreatment_resume" text="Obnovena léčba %s u %s"/>
+        <text name="el_message_diseaseTreatment_stop" text="Zastavena léčba %s"/>
+        <text name="el_message_nameChange" text="Jméno změněno z '%s' na '%s'"/>
+        <text name="el_message_nameAdded" text="Dáno jméno '%s'"/>
+        <text name="el_message_nameDeleted" text="Jméno '%s' bylo odstraněno"/>
+        <text name="el_message_boughtAnimals_single" text="1 zvíře bylo zakoupeno za %s"/>
+        <text name="el_message_boughtAnimals_multiple" text="%s zvířat bylo zakoupeno za %s"/>
+        <text name="el_message_soldAnimals_single" text="1 zvíře bylo prodáno za %s"/>
+        <text name="el_message_soldAnimals_multiple" text="%s zvířat bylo prodáno za %s"/>
+        <text name="el_message_movedAnimalsTo_single" text="1 zvíře bylo přesunuto do %s"/>
+        <text name="el_message_movedAnimalsTo_multiple" text="%s zvířat bylo přesunuto do %s"/>
+        <text name="el_message_movedAnimalsFrom_single" text="1 zvíře bylo přesunuto z %s"/>
+        <text name="el_message_movedAnimalsFrom_multiple" text="%s zvířat bylo přesunuto z %s"/>
+        <text name="el_message_aiManager_boughtAnimals_single" text="Pasák koupil 1 zvíře za %s"/>
+        <text name="el_message_aiManager_boughtAnimals_multiple" text="Pasák koupil %s zvířat za %s"/>
+        <text name="el_message_aiManager_soldAnimals_single" text="Pasák prodal 1 zvíře za %s"/>
+        <text name="el_message_aiManager_soldAnimals_multiple" text="Pasák prodal %s zvířat za %s"/>
+        <text name="el_message_aiManager_castrated_single" text="Pasák vykastroval 1 zvíře"/>
+        <text name="el_message_aiManager_castrated_single_github" text="Pasák vykastroval 1 zvíře"/>
+        <text name="el_message_aiManager_castrated_multiple" text="Pasák vykastroval %s zvířat"/>
+        <text name="el_message_aiManager_castrated_multiple_github" text="Pasák vykastroval %s zvířat"/>
+        <text name="el_message_aiManager_named_single" text="Pasák pojmenoval 1 zvíře"/>
+        <text name="el_message_aiManager_named_multiple" text="Pasák pojmenoval %s zvířat"/>
+        <text name="el_message_aiManager_mark_sell_single" text="Pasák označil 1 zvíře k prodeji"/>
+        <text name="el_message_aiManager_mark_sell_multiple" text="Pasák označil %s zvířat k prodeji"/>
+        <text name="el_message_aiManager_mark_castrate_single" text="Pasák označil 1 zvíře k vykastrování"/>
+        <text name="el_message_aiManager_mark_castrate_single_github" text="Pasák označil 1 zvíře k vykastrování"/>
+        <text name="el_message_aiManager_mark_castrate_multiple" text="Pasák označil %s zvířat k vykastrování"/>
+        <text name="el_message_aiManager_mark_castrate_multiple_github" text="Pasák označil %s zvířat k vykastrování"/>
+        <text name="el_message_aiManager_mark_disease_single" text="Pasák označil 1 zvíře k léčbě"/>
+        <text name="el_message_aiManager_mark_disease_multiple" text="Pasák označil %s zvířat k léčbě"/>
+        <text name="el_message_insemination_success" text="Chov byl úspěšný"/>
+        <text name="el_message_insemination_success_github" text="Inseminace byla úspěšná"/>
+        <text name="el_message_insemination_fail" text="Chov byl neúspěšný"/>
+        <text name="el_message_insemination_fail_github" text="Inseminace byla neúspěšná"/>
+        <text name="el_message_aiManager_mark_ai_single" text="Pasák označil 1 zvíře k chovu"/>
+        <text name="el_message_aiManager_mark_ai_single_github" text="Pasák označil 1 zvíře k AI"/>
+        <text name="el_message_aiManager_mark_ai_multiple" text="Pasák označil %s zvířat k chovu"/>
+        <text name="el_message_aiManager_mark_ai_multiple_github" text="Pasák označil %s zvířat k AI"/>
+        <text name="el_message_aiManager_ai_single" text="Pasák choval 1 zvíře"/>
+        <text name="el_message_aiManager_ai_single_github" text="Pasák inseminoval 1 zvíře"/>
+        <text name="el_message_aiManager_ai_multiple" text="Pasák choval %s zvířat"/>
+        <text name="el_message_aiManager_ai_multiple_github" text="Pasák inseminoval %s zvířat"/>
 
 
+        <!--  DEATHS  -->
 
-		<!--  DEATHS  -->
 
+        <text name="el_death_pregnancy" text="špatné těhotenství"/>
+        <text name="el_death_health" text="nízké zdraví"/>
+        <text name="el_death_age" text="stáří"/>
+        <text name="el_death_accident" text="nehoda"/>
 
-		<text name="el_death_pregnancy" text="špatné těhotenství"/>
-		<text name="el_death_health" text="nízké zdraví"/>
-		<text name="el_death_age" text="stáří"/>
-		<text name="el_death_accident" text="nehoda"/>
+        <!-- Dependencies -->
 
-		<!-- EPP BUTCHER INTEGRATION -->
+        <text name="el_ui_dependencies_missing" text="Enhanced Livestock requires the following dependencies:"/>
+        <text name="el_ui_dependency_missing_notInstalled" text="- %s (Not installed)"/>
+        <text name="el_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum required: %s)"/>
 
-		<text name="el_epp_butcher_processed" text="Zvíře zpracováno v řeznictví: %s kg %s"/>
-		<text name="el_epp_butcher_delivered" text="%s dodáno do řeznictví (%.2fx %s)"/>
+        <!-- EPP BUTCHER INTEGRATION -->
 
-		<!-- MIGRATION -->
+        <text name="el_epp_butcher_processed" text="Zvíře zpracováno v řeznictví: %s kg %s"/>
+        <text name="el_epp_butcher_delivered" text="%s dodáno do řeznictví (%.2fx %s)"/>
 
-		<text name="el_conflict_title" text="Zjištěn konflikt modů"/>
-		<text name="el_mod_conflict_message" text="Následující mod(y) jsou v konfliktu s 'Enhanced Livestock' a nemohou být použity společně: %s &#10;&#10;Prosím, deaktivujte konfliktní mod(y) a restartujte hru."/>
+        <!-- MIGRATION -->
 
-		<text name="el_migration_title" text="Oznámení o migraci dat"/>
-		<text name="el_migration_message" text="V této uložené hře byla nalezena předchozí data Realistic Livestock. Vaše nastavení, data zvířat, Dewary a ruční nástroje AI Straw budou automaticky migrovány do Enhanced Livestock při uložení hry."/>
-		<text name="el_migration_files_found" text="Nalezené datové soubory:"/>
-		<text name="el_migration_continue" text="Pokračovat"/>
-		<text name="el_migration_quit" text="Ukončit"/>
+        <text name="el_conflict_title" text="Zjištěn konflikt modů"/>
+        <text name="el_mod_conflict_message" text="Následující mod(y) jsou v konfliktu s 'Enhanced Livestock' a nemohou být použity společně: %s &#10;&#10;Prosím, deaktivujte konfliktní mod(y) a restartujte hru."/>
 
-	</texts>
+        <text name="el_migration_title" text="Oznámení o migraci dat"/>
+        <text name="el_migration_message" text="V této uložené hře byla nalezena předchozí data Realistic Livestock. Vaše nastavení, data zvířat, Dewary a ruční nástroje AI Straw budou automaticky migrovány do Enhanced Livestock při uložení hry."/>
+        <text name="el_migration_files_found" text="Nalezené datové soubory:"/>
+        <text name="el_migration_continue" text="Pokračovat"/>
+        <text name="el_migration_quit" text="Ukončit"/>
+
+    </texts>
 </l10n>
