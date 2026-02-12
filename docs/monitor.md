@@ -1,95 +1,82 @@
 # Animal Monitors
 
-Enhanced Livestock includes visual monitor displays within husbandries that show real-time information about your animals.
+Enhanced Livestock includes a subscription-based monitoring system that lets you track detailed statistics for individual animals.
 
 ## Overview
 
-Monitors are in-game display screens located in animal husbandries that provide quick access to important animal information without opening menus.
+Monitors are virtual tracking subscriptions you can apply to individual animals. When an animal has a monitor applied, you gain access to detailed real-time information about that animal's health, weight, food consumption, and production output.
 
-## Monitor Features
+## Applying Monitors
 
-### Information Displayed
+### From the Animal Screen
+
+1. Open the in-game menu and navigate to **Animals**
+2. Select a husbandry and click on an animal
+3. Click **Apply Monitor** to enable monitoring for that animal
+4. Click **Remove Monitor** to disable monitoring
+
+### Bulk Operations
+
+From the husbandry overview in the Enhanced Livestock frame, you can:
+
+- **Apply All Monitors** - Enable monitoring for all animals in the husbandry
+- **Remove All Monitors** - Disable monitoring for all animals
+
+## Viewing Monitor Data
+
+When a monitor is applied to an animal:
+
+### In-Game Popup (HUD)
+
+When you approach a monitored animal in the game world, an information popup automatically appears showing:
 
 | Data | Description |
 |------|-------------|
-| Animal count | Total animals in husbandry |
-| Health status | Overall herd health |
-| Production rates | Current output levels |
-| Alerts | Disease warnings, births, etc. |
+| Monitor fee | Monthly subscription cost |
+| Health | Current health percentage |
+| Lactating | Whether the animal is lactating (dairy animals only) |
+| Weight | Current weight in kg |
+| Target weight | Expected weight based on genetics |
+| Value per kilo | Current sale value per kg |
+| Food inputs | Daily consumption by feed type |
+| Production outputs | Daily production by output type |
 
-### Visual Indicators
+### Genetics Popup
 
-Monitors use color coding for quick status assessment:
+A separate popup always shows the animal's genetic traits when approaching any animal (monitored or not).
 
-| Color | Meaning |
-|-------|---------|
-| Green | Good/Healthy |
-| Yellow | Attention needed |
-| Red | Critical/Urgent |
+### Disease Popup
 
-## Monitor Locations
+If the animal has diseases and the disease system is enabled, a third popup shows current disease status.
 
-Monitors are typically placed at:
+## Monthly Subscription Fee
 
-- Barn entrances
-- Near feeding areas
-- Office buildings within husbandries
+Monitoring is not free. Each monitored animal incurs a monthly fee:
 
-## Using Monitors
+- Fee is calculated based on animal size (height × radius × 15)
+- Larger animals cost more to monitor
+- Fees are deducted automatically at the start of each month
+- Appears in finances as **Monitor Subscriptions**
 
-### Viewing Information
+| Animal Type | Approximate Monthly Fee |
+|-------------|------------------------|
+| Chickens | ~€0.25 |
+| Sheep/Goats | ~€2-3 |
+| Pigs | ~€3-4 |
+| Cattle | ~€4-6 |
+| Horses | ~€5-7 |
 
-1. Approach the monitor in-game
-2. Information displays automatically
-3. Some monitors are interactive
+## Visual Indicator
 
-### Settings
+Monitored animals display a visual indicator on their 3D model (when the animal model supports it), making them easy to identify in the husbandry.
 
-Monitor behavior can be configured in mod settings:
+## Use Cases
 
-| Setting | Options |
-|---------|---------|
-| Display detail | Basic / Detailed |
-| Update frequency | Real-time / Periodic |
-| Alert notifications | On / Off |
+!!! tip "When to Use Monitors"
+    - **Breeding stock** - Track genetics and reproduction on valuable animals
+    - **Performance tracking** - Monitor food efficiency and production output
+    - **Health management** - Keep close watch on animals recovering from disease
+    - **Weight optimization** - Track weight gain for optimal slaughter timing
 
-## Monitor Types
-
-### Herd Overview Monitor
-
-Displays:
-
-- Total animal count
-- Gender breakdown
-- Age distribution
-- Overall health average
-
-### Production Monitor
-
-Displays:
-
-- Current production rates
-- Fill levels (milk, eggs, etc.)
-- Trend indicators
-
-### Health Monitor
-
-Displays:
-
-- Sick animal count
-- Disease alerts
-- Treatment status
-- Vaccination status
-
-## Performance
-
-!!! info "Performance Note"
-    Monitors are optimized for minimal performance impact. If experiencing issues, reduce update frequency in settings.
-
-## Tips
-
-!!! tip "Monitor Usage"
-    - **Check daily** - Monitors give quick status updates
-    - **Watch for red** - Red indicators need immediate attention
-    - **Compare trends** - Track changes over time
-    - **Multiple monitors** - Larger husbandries may have several
+!!! info "Cost vs. Benefit"
+    Monitoring every animal can become expensive. Focus monitors on high-value breeding stock or animals you're actively managing for specific outcomes.
