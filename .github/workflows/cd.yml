@@ -3,11 +3,18 @@ on:
   push:
     branches:
       - dev
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
 permissions:
-  contents: write
+  pages: write
+  id-token: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - name: Configure Git Credentials
@@ -25,4 +32,9 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+      - run: mkdocs build
+          - uses: actions/upload-pages-artifact@v3
+            with:
+              path: site/
+          - id: deployment
+            uses: actions/deploy-pages@v4
