@@ -9,6 +9,8 @@ docs_dir: docs
 
 theme:
   name: material
+  icon:
+    logo: material/agriculture
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
@@ -31,11 +33,13 @@ theme:
         name: Switch to system preference
   features:
     - navigation.sections
+    - navigation.tabs
     - navigation.top
     - content.tooltips
 
 plugins:
   - search
+  - privacy
 
 markdown_extensions:
   - admonition
@@ -44,3 +48,26 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Features:
+      - Individual Animals: individual_animals.md
+      - Genetics: genetics.md
+      - Breeding: breeding.md
+      - Diseases: disease.md
+      - Productions: productions.md
+      - Herdsman: herdsman.md
+      - Message Log: message_log.md
+      - Monitor: monitor.md
+  - Animals:
+      - Cattle: cattle.md
+      - Pigs: pigs.md
+      - Sheep: sheep.md
+      - Goats: goats.md
+      - Horses: horses.md
+      - Chickens: chickens.md
+  - Diseases:
+      - Mastitis: mastitis.md
+      - CVM: cvm.md
+      - Foot and Mouth: foot_and_mouth.md
+      - Porcine Epidemic Diarrhea: porcine_epidemic_diarrhea.md
+      - Avian Influenza: avian_influenza.md
+  - Compatibility: compatibility.md
