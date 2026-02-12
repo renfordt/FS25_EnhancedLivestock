@@ -242,6 +242,10 @@
         <text name="el_ui_semenPurchase_github" text="Semen Satın Al"/>
         <text name="finance_semenPurchase" text="Tohumlama Satın Al"/>
         <text name="finance_semenPurchase_github" text="Semen Satın Al"/>
+        <text name="el_ui_semenSale" text="Tohumlama Satışı"/>
+        <text name="el_ui_semenSale_github" text="Semen Satışı"/>
+        <text name="finance_semenSale" text="Tohumlama Satışı"/>
+        <text name="finance_semenSale_github" text="Semen Satışı"/>
         <text name="el_ui_noDiseases" text="Hastalık Yok"/>
         <text name="el_ui_onlyDiseases" text="Sadece Hastalıklar"/>
         <text name="el_ui_naming" text="İsimlendirme"/>

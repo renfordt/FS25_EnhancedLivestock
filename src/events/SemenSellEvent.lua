@@ -91,7 +91,7 @@ function SemenSellEvent:run(connection)
 		g_currentMission:addMoney(
 			self.price,
 			self.farmId,
-			MoneyType.SOLD_ANIMALS,
+			MoneyType.SEMEN_SALE,
 			true
 		)
 
@@ -117,7 +117,7 @@ end
 function SemenSellEvent.sendEvent(animal, quantity, price)
 	if g_server ~= nil then
 		-- Server: execute logic locally (required for singleplayer where broadcast has no recipients)
-		g_currentMission:addMoney(price, animal.farmId, MoneyType.SOLD_ANIMALS, true)
+		g_currentMission:addMoney(price, animal.farmId, MoneyType.SEMEN_SALE, true)
 		animal.lastSemenCollectionDay = g_currentMission.environment.currentMonotonicDay
 		g_currentMission:addIngameNotification(
 			FSBaseMission.INGAME_NOTIFICATION_OK,

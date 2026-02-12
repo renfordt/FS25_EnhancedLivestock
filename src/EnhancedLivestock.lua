@@ -220,6 +220,9 @@ function EnhancedLivestock.loadMap()
 	MoneyType.MEDICINE = MoneyType.register("medicine", "el_ui_medicine")
 	MoneyType.LAST_ID = MoneyType.LAST_ID + 1
 
+	MoneyType.SEMEN_SALE = MoneyType.register("semenSale", "el_ui_semenSale")
+	MoneyType.LAST_ID = MoneyType.LAST_ID + 1
+
 	-- Initialize EPP butcher integration (for mods like FS25_Meat_Production)
 	EL_EPPButcherIntegration.initialize()
 

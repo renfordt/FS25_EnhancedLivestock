@@ -241,6 +241,10 @@
         <text name="el_ui_semenPurchase_github" text="精液购买"/>
         <text name="finance_semenPurchase" text="育种样本购买"/>
         <text name="finance_semenPurchase_github" text="精液购买"/>
+        <text name="el_ui_semenSale" text="育种样本销售"/>
+        <text name="el_ui_semenSale_github" text="精液销售"/>
+        <text name="finance_semenSale" text="育种样本销售"/>
+        <text name="finance_semenSale_github" text="精液销售"/>
         <text name="el_ui_noDiseases" text="无疾病"/>
         <text name="el_ui_onlyDiseases" text="仅显示疾病"/>
         <text name="el_ui_naming" text="命名"/>

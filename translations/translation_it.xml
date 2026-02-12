@@ -242,6 +242,10 @@
         <text name="el_ui_semenPurchase_github" text="Acquisto seme"/>
         <text name="finance_semenPurchase" text="Acquisto materiale seminale"/>
         <text name="finance_semenPurchase_github" text="Acquisto seme"/>
+        <text name="el_ui_semenSale" text="Vendita materiale seminale"/>
+        <text name="el_ui_semenSale_github" text="Vendita seme"/>
+        <text name="finance_semenSale" text="Vendita materiale seminale"/>
+        <text name="finance_semenSale_github" text="Vendita seme"/>
         <text name="el_ui_noDiseases" text="Nessuna malattia"/>
         <text name="el_ui_onlyDiseases" text="Solo malattie"/>
         <text name="el_ui_naming" text="Assegnazione nomi"/>

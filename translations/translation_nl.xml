@@ -242,6 +242,10 @@
         <text name="el_ui_semenPurchase_github" text="Aankoop sperma"/>
         <text name="finance_semenPurchase" text="Aankoop inseminant"/>
         <text name="finance_semenPurchase_github" text="Aankoop sperma"/>
+        <text name="el_ui_semenSale" text="Verkoop inseminant"/>
+        <text name="el_ui_semenSale_github" text="Verkoop sperma"/>
+        <text name="finance_semenSale" text="Verkoop inseminant"/>
+        <text name="finance_semenSale_github" text="Verkoop sperma"/>
         <text name="el_ui_noDiseases" text="Geen ziekten"/>
         <text name="el_ui_onlyDiseases" text="Alleen ziekten"/>
         <text name="el_ui_naming" text="Naamgeving"/>

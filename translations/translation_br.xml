@@ -243,6 +243,10 @@
         <text name="el_ui_semenPurchase_github" text="Compra de Sémen"/>
         <text name="finance_semenPurchase" text="Compra de Amostra de Reprodução"/>
         <text name="finance_semenPurchase_github" text="Compra de Sémen"/>
+        <text name="el_ui_semenSale" text="Venda de Amostra de Reprodução"/>
+        <text name="el_ui_semenSale_github" text="Venda de Sémen"/>
+        <text name="finance_semenSale" text="Venda de Amostra de Reprodução"/>
+        <text name="finance_semenSale_github" text="Venda de Sémen"/>
         <text name="el_ui_noDiseases" text="Sem Doenças"/>
         <text name="el_ui_onlyDiseases" text="Apenas Doenças"/>
         <text name="el_ui_naming" text="Nomeação"/>
