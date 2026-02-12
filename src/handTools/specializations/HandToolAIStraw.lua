@@ -63,7 +63,7 @@ function HandToolAIStraw:onPostLoad(savegame)
 	local xmlFile, key = savegame.xmlFile, savegame.key
 
 	-- Try new namespace first, fall back to old namespace (migration support)
-	local namespace = ".FS25_RealisticLivestockRM.aiStraw"
+	local namespace = ".FS25_EnhancedLivestock.aiStraw"
 	if not xmlFile:hasProperty(key .. namespace) then
 		namespace = ".FS25_RealisticLivestock.aiStraw"  -- Legacy fallback
 	end
