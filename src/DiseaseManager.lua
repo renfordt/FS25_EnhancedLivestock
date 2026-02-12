@@ -202,6 +202,8 @@ function DiseaseManager:onDayChanged(animal)
 
 				currentValue = currentValue[path]
 
+				if currentValue == nil then eligible = false break end
+
 			end
 
 			if currentValue ~= prerequisite.value then
@@ -335,6 +337,8 @@ function DiseaseManager:calculateTransmission(animals)
 				for _, path in pairs(prerequisite.path) do
 
 					currentValue = currentValue[path]
+
+					if currentValue == nil then eligible = false break end
 
 				end
 
