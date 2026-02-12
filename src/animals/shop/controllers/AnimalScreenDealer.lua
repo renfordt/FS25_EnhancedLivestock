@@ -264,6 +264,39 @@ end
 
 AnimalScreenDealer.getSourcePrice = Utils.overwrittenFunction(AnimalScreenDealer.getSourcePrice, EL_AnimalScreenDealer.getSourcePrice)
 
+function EL_AnimalScreenDealer:getTargetPrice(_, _, animalIndex, _)
+
+	local item = self.targetItems[animalIndex]
+
+	if item ~= nil then
+
+		local price = item:getPrice()
+		local transportationFee = -item:getTranportationFee(1)
+		return true, price, transportationFee, price + transportationFee
+
+	end
+
+	return false, 0, 0, 0
+
+end
+
+AnimalScreenDealer.getTargetPrice = Utils.overwrittenFunction(AnimalScreenDealer.getTargetPrice, EL_AnimalScreenDealer.getTargetPrice)
+
+
+function EL_AnimalScreenDealer:getTargetMaxNumAnimals(_, animalIndex)
+
+	local item = self.targetItems[animalIndex]
+
+	if item ~= nil then
+		return item:getNumAnimals()
+	end
+
+	return 0
+
+end
+
+AnimalScreenDealer.getTargetMaxNumAnimals = Utils.overwrittenFunction(AnimalScreenDealer.getTargetMaxNumAnimals, EL_AnimalScreenDealer.getTargetMaxNumAnimals)
+
 function AnimalScreenDealer:applySourceBulk(animalTypeIndex, items)
 
 	if self.husbandry == nil then
