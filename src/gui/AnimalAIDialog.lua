@@ -187,16 +187,16 @@ function AnimalAIDialog:resetButtonStates()
 
 	self.buttonStates = {
 		[self.nameButton] = { ["sorter"] = false, ["target"] = "animal|name", ["pos"] = "-5px" },
-		[self.identifierButton] = { ["sorter"] = false, ["target"] = "identifier", ["pos"] = "12px" },
-		[self.subTypeButton] = { ["sorter"] = false, ["target"] = "animal|subTypeIndex", ["pos"] = "35px" },
-		[self.strawsButton] = { ["sorter"] = false, ["target"] = "straws", ["pos"] = "12px" },
-		[self.successButton] = { ["sorter"] = false, ["target"] = "animal|success", ["pos"] = "12px" },
-		[self.actualButton] = { ["sorter"] = false, ["target"] = "actualProbability", ["pos"] = "12px" },
-		[self.metabolismButton] = { ["sorter"] = false, ["target"] = "animal|genetics|metabolism", ["pos"] = "22px" },
-		[self.qualityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|quality", ["pos"] = "36px" },
-		[self.healthButton] = { ["sorter"] = false, ["target"] = "animal|genetics|health", ["pos"] = "36px" },
-		[self.fertilityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|fertility", ["pos"] = "10px" },
-		[self.productivityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|productivity", ["pos"] = "20px" }
+		[self.identifierButton] = { ["sorter"] = false, ["target"] = "identifier", ["pos"] = "60px" },
+		[self.subTypeButton] = { ["sorter"] = false, ["target"] = "animal|subTypeIndex", ["pos"] = "48px" },
+		[self.strawsButton] = { ["sorter"] = false, ["target"] = "straws", ["pos"] = "23px" },
+		[self.successButton] = { ["sorter"] = false, ["target"] = "animal|success", ["pos"] = "25px" },
+		[self.actualButton] = { ["sorter"] = false, ["target"] = "actualProbability", ["pos"] = "25px" },
+		[self.metabolismButton] = { ["sorter"] = false, ["target"] = "animal|genetics|metabolism", ["pos"] = "42px" },
+		[self.qualityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|quality", ["pos"] = "48px" },
+		[self.healthButton] = { ["sorter"] = false, ["target"] = "animal|genetics|health", ["pos"] = "38px" },
+		[self.fertilityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|fertility", ["pos"] = "38px" },
+		[self.productivityButton] = { ["sorter"] = false, ["target"] = "animal|genetics|productivity", ["pos"] = "58px" }
 	}
 
 	self.sortingIcon_true:setVisible(false)
