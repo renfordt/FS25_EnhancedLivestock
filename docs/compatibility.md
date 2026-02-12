@@ -64,12 +64,15 @@ Animal identifiers use two-letter country codes based on the map's area code set
 
 ## Mod Conflicts
 
-### Known Incompatibilities
+### Incompatible Mods
 
-| Mod Type | Issue |
-|----------|-------|
-| Other animal overhauls | May conflict with animal system changes |
-| Cluster-based animal mods | Incompatible with individual animal system |
+The following mods cannot be used together with Enhanced Livestock. If detected, the game will display a conflict dialog and require you to disable one of the mods:
+
+- **FS25_RealisticLivestock** - The original mod this is forked from. Both mods modify the same animal systems and cannot coexist.
+- **FS25_RealisticLivestockRM** - A derivative of Realistic Livestock with overlapping functionality.
+- **FS25_MoreVisualAnimals** - Conflicts with Enhanced Livestock's visual animal rendering system.
+
+Other animal overhaul mods that replace the vanilla cluster system may also cause conflicts.
 
 ### Recommended Load Order
 
@@ -80,31 +83,30 @@ Animal identifiers use two-letter country codes based on the map's area code set
 5. Enhanced Livestock
 6. Other mods
 
+## Platform Support
+
+Enhanced Livestock requires Lua scripting and is only available on PC (Windows, macOS, Linux). Console versions of Farming Simulator 25 do not support script mods.
+
 ## Multiplayer
 
-Enhanced Livestock fully supports multiplayer:
+Enhanced Livestock fully supports multiplayer on PC:
 
-| Feature | Support |
-|---------|---------|
-| Dedicated servers | Yes |
-| Peer-to-peer | Yes |
-| Cross-platform | Yes |
-| Settings sync | Automatic |
-
-### Multiplayer Requirements
-
+- Dedicated servers and peer-to-peer connections supported
 - All players must have the mod installed
-- Settings synchronize from server/host
+- Settings synchronize automatically from server/host
 - Events are server-authoritative
 
-## Integration: EPP Butcher
+## Integration: Butcher Mods
 
-Enhanced Livestock integrates with EPP Market for direct animal processing:
+Enhanced Livestock integrates with Extended Production Point (EPP) butcher mods for direct animal processing from the animal management screen. Value calculation is based on weight, quality, and genetics.
 
-| Feature | Description |
-|---------|-------------|
-| Process from screen | Process animals directly from animal management |
-| Value calculation | Based on weight, quality, and genetics |
+**Tested compatible mods:**
+
+- FS25_Butcher
+- FS25_Meat_Production
+- FS25_Meat_Processing_Plant
+
+Other butcher/slaughter mods using the EPP system should also work automatically.
 
 ## Performance Considerations
 
