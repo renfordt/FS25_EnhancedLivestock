@@ -11,35 +11,35 @@
 			<GuiElement profile="el_headerContainer" position="0px -35px">
 
 				<Button profile="el_headerButtonLeft" position="5px 0px" width="145px" text="$l10n_infohud_name" onClick="onClickSortButton" id="nameButton"/>
-				<Button profile="el_headerButton" position="150px 0px" width="145px" text="$l10n_el_ui_earTag" onClick="onClickSortButton" id="identifierButton"/>
-				<Button profile="el_headerButton" position="295px 0px" width="120px" text="$l10n_infohud_type" onClick="onClickSortButton" id="subTypeButton"/>
-				<Button profile="el_headerButton" position="415px 0px" width="70px" text="$l10n_el_ui_strawMultiple" onClick="onClickSortButton" id="strawsButton"/>
-				<Button profile="el_headerButton" position="485px 0px" width="75px" text="$l10n_el_ui_semen" onClick="onClickSortButton" id="successButton"/>
-				<Button profile="el_headerButton" position="560px 0px" width="75px" text="$l10n_el_ui_actual" onClick="onClickSortButton" id="actualButton"/>
-				<Button profile="el_headerButton" position="635px 0px" width="110px" text="$l10n_el_ui_metabolism" onClick="onClickSortButton" id="metabolismButton"/>
-				<Button profile="el_headerButton" position="745px 0px" width="120px" text="$l10n_el_ui_quality" onClick="onClickSortButton" id="qualityButton"/>
-				<Button profile="el_headerButton" position="865px 0px" width="100px" text="$l10n_el_ui_health" onClick="onClickSortButton" id="healthButton"/>
-				<Button profile="el_headerButton" position="965px 0px" width="100px" text="$l10n_el_ui_fertility" onClick="onClickSortButton" id="fertilityButton"/>
-				<Button profile="el_headerButton" position="1065px 0px" width="140px" text="$l10n_el_ui_productivity" onClick="onClickSortButton" id="productivityButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="150px 0px" width="145px" text="$l10n_el_ui_earTag" onClick="onClickSortButton" id="identifierButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="295px 0px" width="120px" text="$l10n_infohud_type" onClick="onClickSortButton" id="subTypeButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="415px 0px" width="70px" text="$l10n_el_ui_strawMultiple" onClick="onClickSortButton" id="strawsButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="485px 0px" width="75px" text="$l10n_el_ui_semen" onClick="onClickSortButton" id="successButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="560px 0px" width="75px" text="$l10n_el_ui_actual" onClick="onClickSortButton" id="actualButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="635px 0px" width="110px" text="$l10n_el_ui_metabolism" onClick="onClickSortButton" id="metabolismButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="745px 0px" width="120px" text="$l10n_el_ui_quality" onClick="onClickSortButton" id="qualityButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="865px 0px" width="100px" text="$l10n_el_ui_health" onClick="onClickSortButton" id="healthButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="965px 0px" width="100px" text="$l10n_el_ui_fertility" onClick="onClickSortButton" id="fertilityButton"/>
+				<Button profile="el_animalAIHeaderButtonCenter" position="1065px 0px" width="140px" text="$l10n_el_ui_productivity" onClick="onClickSortButton" id="productivityButton"/>
 				<Bitmap profile="fs25_vehiclesHeaderIconSortAscending" position="10px 0px" id="sortingIcon_false"/>
 				<Bitmap profile="fs25_vehiclesHeaderIconSortDescending" position="10px 0px" id="sortingIcon_true"/>
 				<ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp"/>
 
 			</GuiElement>
 
-			<SmoothList profile="el_husbandryList" id="dewarList" position="5px -75px">
+			<SmoothList profile="el_husbandryList" id="dewarList" position="0px -75px">
 				<ListItem profile="el_husbandryListItem">
-					<Text profile="el_husbandryListTextRight" position="5px 0px" name="name"/>
-					<Text profile="el_husbandryListText" position="195px 0px" name="identifier"/>
-					<Text profile="el_husbandryListText" position="345px 0px" name="subType"/>
-					<Text profile="el_husbandryListText" position="420px 0px" name="straws"/>
-					<Text profile="el_husbandryListText" position="495px 0px" name="success"/>
-					<Text profile="el_husbandryListText" position="570px 0px" name="actual"/>
-					<Text profile="el_husbandryListText" position="645px 0px" name="metabolism"/>
-					<Text profile="el_husbandryListText" position="755px 0px" name="quality"/>
-					<Text profile="el_husbandryListText" position="875px 0px" name="health"/>
-					<Text profile="el_husbandryListText" position="975px 0px" name="fertility"/>
-					<Text profile="el_husbandryListText" position="1075px 0px" name="productivity"/>
+					<Text profile="el_husbandryListTextRight" position="5px 0px" name="name" width="145px"/>
+					<Text profile="el_animalAIListTextCenter" position="150px 0px" name="identifier" width="145px"/>
+					<Text profile="el_animalAIListTextCenter" position="295px 0px" name="subType" width="120px"/>
+					<Text profile="el_animalAIListTextCenter" position="415px 0px" name="straws" width="70px"/>
+					<Text profile="el_animalAIListTextCenter" position="485px 0px" name="success" width="75px"/>
+					<Text profile="el_animalAIListTextCenter" position="560px 0px" name="actual" width="75px"/>
+					<Text profile="el_animalAIListTextCenter" position="635px 0px" name="metabolism" width="110px"/>
+					<Text profile="el_animalAIListTextCenter" position="745px 0px" name="quality" width="120px"/>
+					<Text profile="el_animalAIListTextCenter" position="865px 0px" name="health" width="100px"/>
+					<Text profile="el_animalAIListTextCenter" position="965px 0px" name="fertility" width="100px"/>
+					<Text profile="el_animalAIListTextCenter" position="1065px 0px" name="productivity" width="140px"/>
 				</ListItem>
 			</SmoothList>
 
@@ -56,6 +56,12 @@
 	<GuiProfiles>
 		<Profile name="el_animalAIDialogBg" extends="fs25_dialogBg">
 			<size value="90% 75%"/>
+		</Profile>
+		<Profile name="el_animalAIListTextCenter" extends="el_husbandryListText">
+			<textAlignment value="center"/>
+		</Profile>
+		<Profile name="el_animalAIHeaderButtonCenter" extends="el_headerButton">
+			<textAlignment value="center"/>
 		</Profile>
 	</GuiProfiles>
 </GUI>
