@@ -10,7 +10,7 @@ docs_dir: docs
 theme:
   name: material
   icon:
-    logo: material/agriculture
+    logo: fontawesome/solid/cow
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
