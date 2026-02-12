@@ -241,6 +241,10 @@
         <text name="el_ui_semenPurchase_github" text="Zakup nasienia"/>
         <text name="finance_semenPurchase" text="Zakup próbki hodowlanej"/>
         <text name="finance_semenPurchase_github" text="Zakup nasienia"/>
+        <text name="el_ui_semenSale" text="Sprzedaż próbki hodowlanej"/>
+        <text name="el_ui_semenSale_github" text="Sprzedaż nasienia"/>
+        <text name="finance_semenSale" text="Sprzedaż próbki hodowlanej"/>
+        <text name="finance_semenSale_github" text="Sprzedaż nasienia"/>
         <text name="el_ui_noDiseases" text="Brak chorób"/>
         <text name="el_ui_onlyDiseases" text="Tylko choroby"/>
         <text name="el_ui_naming" text="Nazywanie"/>

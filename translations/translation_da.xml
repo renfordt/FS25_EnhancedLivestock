@@ -241,6 +241,10 @@
 		<text name="el_ui_semenPurchase_github" text="Sæd køb" />
 		<text name="finance_semenPurchase" text="Sæd indkøb" />
 		<text name="finance_semenPurchase_github" text="Sæd køb" />
+		<text name="el_ui_semenSale" text="Sæd salg" />
+		<text name="el_ui_semenSale_github" text="Sæd salg" />
+		<text name="finance_semenSale" text="Sæd salg" />
+		<text name="finance_semenSale_github" text="Sæd salg" />
 		<text name="el_ui_noDiseases" text="Ingen sygdomme" />
 		<text name="el_ui_onlyDiseases" text="Kun sygdomme" />
 		<text name="el_ui_naming" text="Navngivning" />

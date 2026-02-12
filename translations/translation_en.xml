@@ -238,6 +238,10 @@
         <text name="el_ui_semenPurchase_github" text="Semen Purchase"/>
         <text name="finance_semenPurchase" text="Breeding Sample Purchase"/>
         <text name="finance_semenPurchase_github" text="Semen Purchase"/>
+        <text name="el_ui_semenSale" text="Breeding Sample Sale"/>
+        <text name="el_ui_semenSale_github" text="Semen Sale"/>
+        <text name="finance_semenSale" text="Breeding Sample Sale"/>
+        <text name="finance_semenSale_github" text="Semen Sale"/>
         <text name="el_ui_noDiseases" text="No Diseases"/>
         <text name="el_ui_onlyDiseases" text="Only Diseases"/>
         <text name="el_ui_naming" text="Naming"/>

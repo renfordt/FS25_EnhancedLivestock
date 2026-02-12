@@ -239,6 +239,10 @@
         <text name="el_ui_semenPurchase_github" text="Купівля сперми"/>
         <text name="finance_semenPurchase" text="Купівля зразка для розведення"/>
         <text name="finance_semenPurchase_github" text="Купівля сперми"/>
+        <text name="el_ui_semenSale" text="Продаж зразка для розведення"/>
+        <text name="el_ui_semenSale_github" text="Продаж сперми"/>
+        <text name="finance_semenSale" text="Продаж зразка для розведення"/>
+        <text name="finance_semenSale_github" text="Продаж сперми"/>
         <text name="el_ui_noDiseases" text="Без хвороб"/>
         <text name="el_ui_onlyDiseases" text="Тільки хвороби"/>
         <text name="el_ui_naming" text="Найменування"/>

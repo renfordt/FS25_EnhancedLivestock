@@ -241,6 +241,10 @@
         <text name="el_ui_semenPurchase_github" text="Nákup spermatu"/>
         <text name="finance_semenPurchase" text="Nákup chovného vzorku"/>
         <text name="finance_semenPurchase_github" text="Nákup spermatu"/>
+        <text name="el_ui_semenSale" text="Prodej chovného vzorku"/>
+        <text name="el_ui_semenSale_github" text="Prodej spermatu"/>
+        <text name="finance_semenSale" text="Prodej chovného vzorku"/>
+        <text name="finance_semenSale_github" text="Prodej spermatu"/>
         <text name="el_ui_noDiseases" text="Žádné nemoci"/>
         <text name="el_ui_onlyDiseases" text="Pouze nemoci"/>
         <text name="el_ui_naming" text="Pojmenování"/>

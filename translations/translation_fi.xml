@@ -241,6 +241,10 @@
         <text name="el_ui_semenPurchase_github" text="Siemennyskapillaari"/>
         <text name="finance_semenPurchase" text="Siemennyskapillaari"/>
         <text name="finance_semenPurchase_github" text="Siemennyskapillaari"/>
+        <text name="el_ui_semenSale" text="Siemennesteen myynti"/>
+        <text name="el_ui_semenSale_github" text="Siemennesteen myynti"/>
+        <text name="finance_semenSale" text="Siemennesteen myynti"/>
+        <text name="finance_semenSale_github" text="Siemennesteen myynti"/>
         <text name="el_ui_noDiseases" text="Ei tauteja"/>
         <text name="el_ui_onlyDiseases" text="Vain taudit"/>
         <text name="el_ui_naming" text="Nimeäminen"/>
