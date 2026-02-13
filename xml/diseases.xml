@@ -1,6 +1,6 @@
 <diseases>
 
-	<disease title="mastitis" animals="COW SHEEP" value="0.85" transmission="0.05" immunity="12" recovery="3">
+	<disease title="mastitis" animals="COW SHEEP" value="0.85" transmission="0.05" immunity="12" recovery="3" weightGain="0.85" fertility="0.7">
 		<prerequisites>
 			<prerequisite path="isLactating" value="true" valueType="Bool"/>
 		</prerequisites>
@@ -34,7 +34,7 @@
 		<genetic recessive="true" saleChance="0.005"/>
 	</disease>
 
-	<disease title="footAndMouth" animals="COW SHEEP PIG" value="0.5" transmission="0.1" immunity="24">
+	<disease title="footAndMouth" animals="COW SHEEP PIG" value="0.5" transmission="0.1" immunity="24" weightGain="0.7" fertility="0.5">
 		<probability>
 			<key age="0" value="0"/>
 			<key age="6" value="0.00075"/>
@@ -51,7 +51,7 @@
 		<treatment cost="250" duration="3"/>
 	</disease>
 
-	<disease title="ped" animals="PIG" value="0.65" transmission="0.075" immunity="12" recovery="3">
+	<disease title="ped" animals="PIG" value="0.65" transmission="0.075" immunity="12" recovery="3" weightGain="0.5">
 		<probability>
 			<key age="0" value="0.125"/>
 			<key age="6" value="0.05"/>
@@ -151,6 +151,7 @@
 	</disease>
 
 	<disease title="equineAsthma" animals="HORSE" value="0.7" immunity="6">
+		<season spring="1.0" summer="0.5" autumn="1.0" winter="1.5"/>
 		<probability>
 			<key age="0" value="0"/>
 			<key age="24" value="0.001"/>
@@ -166,7 +167,8 @@
 
 	<!-- COW DISEASES (additional) -->
 
-	<disease title="brd" animals="COW" value="0.6" transmission="0.08" immunity="12" recovery="3">
+	<disease title="brd" animals="COW" value="0.6" transmission="0.08" immunity="12" recovery="3" weightGain="0.8">
+		<season spring="1.0" summer="0.5" autumn="1.0" winter="1.5"/>
 		<probability>
 			<key age="0" value="0.003"/>
 			<key age="12" value="0.001"/>
@@ -184,7 +186,7 @@
 		<treatment cost="300" duration="2"/>
 	</disease>
 
-	<disease title="bvd" animals="COW" value="0.55" transmission="0.06" immunity="24" recovery="4">
+	<disease title="bvd" animals="COW" value="0.55" transmission="0.06" immunity="24" recovery="4" weightGain="0.6" fertility="0.3">
 		<probability>
 			<key age="0" value="0.001"/>
 		</probability>
@@ -200,7 +202,8 @@
 		<treatment cost="350" duration="2"/>
 	</disease>
 
-	<disease title="footRot" animals="COW SHEEP" value="0.65" transmission="0.04" immunity="6">
+	<disease title="footRot" animals="COW SHEEP" value="0.65" transmission="0.04" immunity="6" weightGain="0.85">
+		<season spring="1.5" summer="0.8" autumn="1.5" winter="0.8"/>
 		<probability>
 			<key age="0" value="0"/>
 			<key age="6" value="0.001"/>
@@ -216,7 +219,7 @@
 		<treatment cost="200" duration="2"/>
 	</disease>
 
-	<disease title="johnes" animals="COW" value="0.3" transmission="0.03">
+	<disease title="johnes" animals="COW" value="0.3" transmission="0.03" weightGain="0.4">
 		<probability>
 			<key age="0" value="0"/>
 			<key age="24" value="0.0003"/>
@@ -236,7 +239,7 @@
 
 	<!-- PIG DISEASES (additional) -->
 
-	<disease title="prrs" animals="PIG" value="0.5" transmission="0.1" immunity="12" recovery="4">
+	<disease title="prrs" animals="PIG" value="0.5" transmission="0.1" immunity="12" recovery="4" weightGain="0.8" fertility="0.4">
 		<probability>
 			<key age="0" value="0.001"/>
 		</probability>
@@ -251,7 +254,7 @@
 		<treatment cost="250" duration="2"/>
 	</disease>
 
-	<disease title="asf" animals="PIG" value="0.1" transmission="0.15" immunity="24">
+	<disease title="asf" animals="PIG" value="0.1" transmission="0.15" immunity="24" weightGain="0.3">
 		<probability>
 			<key age="0" value="0.0005"/>
 		</probability>
@@ -294,7 +297,7 @@
 		<treatment cost="100" duration="1"/>
 	</disease>
 
-	<disease title="scours" animals="PIG" value="0.6" transmission="0.06" immunity="6" recovery="2">
+	<disease title="scours" animals="PIG" value="0.6" transmission="0.06" immunity="6" recovery="2" weightGain="0.5">
 		<probability>
 			<key age="0" value="0.01"/>
 			<key age="6" value="0.003"/>
@@ -315,6 +318,7 @@
 	<!-- SHEEP DISEASES (additional) -->
 
 	<disease title="internalParasites" animals="SHEEP" value="0.65" transmission="0.04" immunity="3" recovery="4">
+		<season spring="1.5" summer="1.5" autumn="1.0" winter="0.5"/>
 		<probability>
 			<key age="0" value="0.003"/>
 		</probability>
@@ -331,6 +335,7 @@
 	</disease>
 
 	<disease title="flystrike" animals="SHEEP" value="0.4" immunity="3">
+		<season spring="1.0" summer="2.0" autumn="1.0" winter="0.0"/>
 		<probability>
 			<key age="0" value="0.001"/>
 		</probability>
@@ -358,7 +363,7 @@
 		<treatment cost="200" duration="1"/>
 	</disease>
 
-	<disease title="twinLambDisease" animals="SHEEP" value="0.5" immunity="12">
+	<disease title="twinLambDisease" animals="SHEEP" value="0.5" immunity="12" fertility="0.0">
 		<prerequisites>
 			<prerequisite path="isPregnant" value="true" valueType="Bool"/>
 		</prerequisites>
@@ -379,6 +384,7 @@
 	<!-- CHICKEN DISEASES (additional) -->
 
 	<disease title="coccidiosis" animals="CHICKEN" value="0.55" transmission="0.1" immunity="12" recovery="3">
+		<season spring="1.5" summer="1.0" autumn="1.0" winter="0.5"/>
 		<probability>
 			<key age="0" value="0.005"/>
 			<key age="6" value="0.002"/>
@@ -423,6 +429,7 @@
 	</disease>
 
 	<disease title="infectiousBronchitis" animals="CHICKEN" value="0.6" transmission="0.15" immunity="12" recovery="2">
+		<season spring="1.0" summer="0.5" autumn="1.0" winter="1.5"/>
 		<probability>
 			<key age="0" value="0.002"/>
 		</probability>
