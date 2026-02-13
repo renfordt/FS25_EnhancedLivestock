@@ -55,71 +55,18 @@ The male's maximum fertility age is further scaled by his fertility genetics tra
 
 Animals have age-dependent fertility curves defined per species. Fertility values determine the probability of successful conception at each age. A value of 0 means infertile, higher values mean greater chance of conception.
 
-### Cattle
-
-| Age | Fertility |
-|-----|-----------|
-| 0–12 months | 0 (not fertile) |
-| 12 months | 960 (onset of fertility) |
-| 24 months | 965 |
-| 48 months | 980 |
-| 60 months | 985 (peak) |
-| 84 months | 930 (declining) |
-| 132 months | 540 (low) |
-| 132+ months | 0 (infertile) |
-
-### Pigs
-
-| Age | Fertility |
-|-----|-----------|
-| 0–6 months | 0 |
-| 6 months | 920 (onset) |
-| 12 months | 940 |
-| 36 months | 960 (peak) |
-| 60 months | 880 |
-| 80 months | 780 |
-| 96 months | 540 |
-| 96+ months | 0 |
-
-### Sheep & Goats
-
-| Age | Fertility |
-|-----|-----------|
-| 0–8 months | 0 |
-| 8 months | 700 (onset) |
-| 18 months | 750 |
-| 36 months | 800 |
-| 72 months | 920 (peak) |
-| 84 months | 660 |
-| 120 months | 130 |
-| 120+ months | 0 |
-
-### Horses
-
-| Age | Fertility |
-|-----|-----------|
-| 0–22 months | 0 |
-| 22 months | 950 (onset/peak) |
-| 84 months | 920 |
-| 132 months | 860 |
-| 160 months | 760 |
-| 200 months | 540 |
-| 264 months | 150 |
-| 264+ months | 0 |
-
-### Chickens
-
-| Age | Fertility |
-|-----|-----------|
-| 0–6 months | 0 |
-| 6 months | 600 (onset/peak) |
-| 12 months | 560 |
-| 24 months | 500 |
-| 36 months | 420 |
-| 60 months | 300 |
-| 84 months | 160 |
-| 120 months | 400 |
-| 120+ months | 0 |
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"xyChart": {"plotColorPalette": "#2e7d32, #c62828, #1565c0, #6a1b9a, #e65100"}}} }%%
+xychart-beta
+    title "Fertility Curves by Species"
+    x-axis "Age (months)" [0, 6, 8, 12, 18, 22, 24, 36, 48, 60, 72, 80, 84, 96, 120, 132, 160, 200, 264]
+    y-axis "Fertility" 0 --> 1000
+    line "Cattle" [0, 480, 640, 960, 962, 964, 965, 972, 980, 985, 958, 939, 930, 698, 232, 0, 0, 0, 0]
+    line "Pigs" [0, 920, 927, 940, 945, 948, 950, 960, 920, 880, 820, 780, 585, 0, 0, 0, 0, 0, 0]
+    line "Sheep & Goats" [0, 525, 700, 720, 750, 761, 767, 800, 840, 880, 920, 747, 660, 440, 0, 0, 0, 0, 0]
+    line "Horses" [0, 259, 345, 518, 777, 950, 949, 943, 937, 932, 926, 922, 920, 905, 875, 860, 760, 540, 0]
+    line "Chickens" [0, 600, 587, 560, 530, 510, 500, 420, 360, 300, 230, 183, 160, 107, 0, 0, 0, 0, 0]
+```
 
 ## Pregnancy System
 
