@@ -681,7 +681,8 @@
 		<text name="el_disease_newcastle" text="Doença de Newcastle"/>
 		<text name="el_disease_infectiousBronchitis" text="Bronquite Infecciosa"/>
 
-		<!-- Descrições de doenças -->
+        <!--  MESSAGES  -->
+
 		<text name="el_disease_mastitis_desc" text="Infecção bacteriana do úbere causando inflamação e redução da qualidade do leite. Requer tratamento rápido."/>
 		<text name="el_disease_cvm_desc" text="Malformação vertebral complexa genética. Bezerros morrem logo após o nascimento. Portadores transmitem o gene."/>
 		<text name="el_disease_footAndMouth_desc" text="Doença viral altamente contagiosa com febre e bolhas. Requer quarentena imediata."/>
@@ -709,7 +710,6 @@
 		<text name="el_disease_mareks_desc" text="Câncer viral altamente contagioso com tumores. Sintoma clássico: paralisia com pernas afastadas. Incurável."/>
 		<text name="el_disease_newcastle_desc" text="Doença viral aguda afetando sistemas respiratório, nervoso e digestivo. Pescoço torcido, ofego e paralisia."/>
 		<text name="el_disease_infectiousBronchitis_desc" text="Doença respiratória viral altamente contagiosa. Danifica permanentemente o trato reprodutivo."/>
-
 
         <!--  MESSAGES  -->
 

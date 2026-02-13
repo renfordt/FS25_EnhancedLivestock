@@ -710,7 +710,7 @@
 		<text name="el_disease_infectiousBronchitis_desc" text="Erittäin tarttuva viruksen aiheuttama hengitystiesairaus. Vahingoittaa lisääntymiskanavan pysyvästi."/>
 
 
-        <!--  MESSAGES  -->
+		<!--  MESSAGES  -->
 
         <text name="el_messageTitle_pregnancy" text="Tiineys"/>
         <text name="el_messageTitle_death" text="Poistuma"/>
