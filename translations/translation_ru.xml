@@ -182,6 +182,7 @@
 		<text name="el_ui_applyAllMonitor" text="Установить все мониторы"/>
 		<text name="el_ui_removeAllMonitor" text="Снять все мониторы"/>
 		<text name="el_ui_fee" text="Плата"/>
+		<text name="el_ui_description" text="Описание"/>
 
 		<text name="el_ui_leftEarTag" text="Левая ушная бирка"/>
 		<text name="el_ui_rightEarTag" text="Правая ушная бирка"/>
@@ -625,6 +626,58 @@
 		<text name="el_disease_ped" text="Эпидемическая диарея свиней"/>
 
 		<text name="el_disease_avianFlu" text="Птичий грипп"/>
+
+		<text name="el_disease_colic" text="Колики"/>
+		<text name="el_disease_laminitis" text="Ламинит"/>
+		<text name="el_disease_arthritis" text="Артрит"/>
+		<text name="el_disease_egus" text="Язва желудка"/>
+		<text name="el_disease_equineAsthma" text="Астма лошадей"/>
+		<text name="el_disease_brd" text="Респираторное заболевание КРС"/>
+		<text name="el_disease_bvd" text="Вирусная диарея КРС"/>
+		<text name="el_disease_footRot" text="Копытная гниль"/>
+		<text name="el_disease_johnes" text="Паратуберкулёз"/>
+		<text name="el_disease_prrs" text="РРСС"/>
+		<text name="el_disease_asf" text="Африканская чума свиней"/>
+		<text name="el_disease_swineInfluenza" text="Свиной грипп"/>
+		<text name="el_disease_greasyPig" text="Экссудативный эпидермит"/>
+		<text name="el_disease_scours" text="Диарея поросят"/>
+		<text name="el_disease_internalParasites" text="Внутренние паразиты"/>
+		<text name="el_disease_flystrike" text="Миаз"/>
+		<text name="el_disease_clostridial" text="Клостридиоз"/>
+		<text name="el_disease_twinLambDisease" text="Токсемия беременности"/>
+		<text name="el_disease_coccidiosis" text="Кокцидиоз"/>
+		<text name="el_disease_mareks" text="Болезнь Марека"/>
+		<text name="el_disease_newcastle" text="Болезнь Ньюкасла"/>
+		<text name="el_disease_infectiousBronchitis" text="Инфекционный бронхит"/>
+
+		<!-- Описания болезней -->
+		<text name="el_disease_mastitis_desc" text="Бактериальная инфекция вымени, вызывающая воспаление и снижение качества молока. Требует быстрого лечения."/>
+		<text name="el_disease_cvm_desc" text="Генетическая деформация позвоночника. Телята умирают вскоре после рождения. Носители передают ген потомству."/>
+		<text name="el_disease_footAndMouth_desc" text="Высококонтагиозное вирусное заболевание с лихорадкой и волдырями. Требует немедленного карантина."/>
+		<text name="el_disease_ped_desc" text="Разрушительное вирусное заболевание с тяжелой диареей, смертельное для поросят. Распространяется через зараженный корм."/>
+		<text name="el_disease_avianFlu_desc" text="Вирусное респираторное заболевание. Высокопатогенные штаммы вызывают внезапную массовую гибель."/>
+		<text name="el_disease_colic_desc" text="Боль в животе от легкого газообразования до опасного для жизни заворота кишок. Основная причина смерти лошадей."/>
+		<text name="el_disease_laminitis_desc" text="Болезненное воспаление тканей копыта, вызванное богатым кормом или стрессом. Может вызвать постоянную хромоту."/>
+		<text name="el_disease_arthritis_desc" text="Дегенеративное заболевание суставов у стареющих лошадей. Вызывает хроническую боль и скованность."/>
+		<text name="el_disease_egus_desc" text="Синдром язвы желудка у подверженных стрессу лошадей. Вызывает потерю аппетита и веса."/>
+		<text name="el_disease_equineAsthma_desc" text="Хроническое аллергическое респираторное заболевание от пыли. Вызывает кашель и затрудненное дыхание."/>
+		<text name="el_disease_brd_desc" text="Респираторное заболевание КРС, часто после транспортировки. Самая дорогостоящая болезнь в скотоводстве."/>
+		<text name="el_disease_bvd_desc" text="Подавляет иммунную систему и вызывает аборты. Персистентно инфицированные телята распространяют вирус всю жизнь."/>
+		<text name="el_disease_footRot_desc" text="Бактериальная инфекция, вызывающая серьезное повреждение копыт и хромоту. Часто встречается во влажных условиях."/>
+		<text name="el_disease_johnes_desc" text="Хроническая неизлечимая кишечная инфекция. Прогрессирующая потеря веса. Лечения нет."/>
+		<text name="el_disease_prrs_desc" text="Одно из самых разрушительных заболеваний свиней в мире. Вызывает репродуктивную недостаточность и тяжелую пневмонию."/>
+		<text name="el_disease_asf_desc" text="Геморрагическое вирусное заболевание с почти 100% смертностью. Вакцины нет. Требует немедленного убоя."/>
+		<text name="el_disease_swineInfluenza_desc" text="Респираторное заболевание с лихорадкой и кашлем. Низкая смертность, но значительно замедляет рост."/>
+		<text name="el_disease_greasyPig_desc" text="Бактериальная кожная инфекция у поросят. Кожа покрывается жирной темной жидкостью."/>
+		<text name="el_disease_scours_desc" text="Диарея у поросят, приводящая к быстрому обезвоживанию и смерти. Основная причина смертности поросят."/>
+		<text name="el_disease_internalParasites_desc" text="Желудочные черви и печеночные сосальщики вызывают анемию и потерю веса. Самая большая проблема здоровья овец."/>
+		<text name="el_disease_flystrike_desc" text="Мухи откладывают яйца во влажную шерсть. Личинки поедают живую плоть. Может быстро убить."/>
+		<text name="el_disease_clostridial_desc" text="Почвенные бактерии выделяют смертельные токсины. Внезапная смерть часто у самых здоровых ягнят. Предотвращается вакцинацией."/>
+		<text name="el_disease_twinLambDisease_desc" text="Токсемия беременности на поздних сроках с близнецами. Низкий уровень сахара в крови вызывает неврологические симптомы."/>
+		<text name="el_disease_coccidiosis_desc" text="Паразитарное кишечное заболевание с кровавым пометом. Высокая смертность у нелеченых цыплят."/>
+		<text name="el_disease_mareks_desc" text="Высококонтагиозный вирусный рак с опухолями. Классический симптом: паралич с растопыренными ногами. Неизлечима."/>
+		<text name="el_disease_newcastle_desc" text="Острое вирусное заболевание, поражающее дыхательную, нервную и пищеварительную системы. Скрученная шея, одышка и паралич."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Высококонтагиозное вирусное респираторное заболевание. Необратимо повреждает репродуктивный тракт."/>
 
 
 

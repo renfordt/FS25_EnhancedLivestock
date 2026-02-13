@@ -220,6 +220,16 @@ function Disease:modifyOutput(type, value)
 
 end
 
+function Disease:modifyWeightGain(value)
+
+	if self.cured or self.isCarrier or not g_diseaseManager.diseasesEnabled then
+		return value
+	end
+
+	return value * self.type.weightGain
+
+end
+
 function Disease:showInfo(box)
 
 	local time

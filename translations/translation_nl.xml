@@ -184,6 +184,7 @@
 		<text name="el_ui_applyAllMonitor" text="Activeer alle monitoren"/>
 		<text name="el_ui_removeAllMonitor" text="Verwijder alle monitoren"/>
 		<text name="el_ui_fee" text="Tarief"/>
+		<text name="el_ui_description" text="Beschrijving"/>
 
 		<text name="el_ui_leftEarTag" text="Linker oormerk"/>
 		<text name="el_ui_rightEarTag" text="Rechter oormerk"/>
@@ -625,6 +626,58 @@
 		<text name="el_disease_ped" text="PED (Porcine Epidemic Diarrhoea)"/>
 
 		<text name="el_disease_avianFlu" text="Vogelgriep"/>
+
+		<text name="el_disease_colic" text="Koliek"/>
+		<text name="el_disease_laminitis" text="Hoefbevangenheid"/>
+		<text name="el_disease_arthritis" text="Artritis"/>
+		<text name="el_disease_egus" text="Maagzweersyndroom"/>
+		<text name="el_disease_equineAsthma" text="Paarden astma"/>
+		<text name="el_disease_brd" text="Runderluchtwegenziekte"/>
+		<text name="el_disease_bvd" text="Bovine virusdiarree"/>
+		<text name="el_disease_footRot" text="Rotkreupel"/>
+		<text name="el_disease_johnes" text="Paratuberculose"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="Afrikaanse varkenspest"/>
+		<text name="el_disease_swineInfluenza" text="Varkensgriep"/>
+		<text name="el_disease_greasyPig" text="Vetziekte"/>
+		<text name="el_disease_scours" text="Biggensterfte"/>
+		<text name="el_disease_internalParasites" text="Interne parasieten"/>
+		<text name="el_disease_flystrike" text="Myiasis"/>
+		<text name="el_disease_clostridial" text="Clostridiose"/>
+		<text name="el_disease_twinLambDisease" text="Slepende melkziekte"/>
+		<text name="el_disease_coccidiosis" text="Coccidiose"/>
+		<text name="el_disease_mareks" text="Ziekte van Marek"/>
+		<text name="el_disease_newcastle" text="Newcastle-ziekte"/>
+		<text name="el_disease_infectiousBronchitis" text="Infectieuze bronchitis"/>
+
+		<!-- Ziektebeschrijvingen -->
+		<text name="el_disease_mastitis_desc" text="Bacteriële uierontsteking met pijn en verminderde melkkwaliteit. Vereist snelle behandeling."/>
+		<text name="el_disease_cvm_desc" text="Genetische wervelmisvormingsaandoening. Kalveren sterven kort na geboorte. Dragers geven gen door."/>
+		<text name="el_disease_footAndMouth_desc" text="Zeer besmettelijke virusziekte met koorts en blaren. Vereist onmiddellijke quarantaine."/>
+		<text name="el_disease_ped_desc" text="Verwoestende virusziekte met ernstige diarree, dodelijk voor biggen. Verspreidt zich via besmet voer."/>
+		<text name="el_disease_avianFlu_desc" text="Virale luchtwegziekte. Zeer pathogene stammen veroorzaken plotselinge massale sterfte."/>
+		<text name="el_disease_colic_desc" text="Buikpijn van lichte gasvorming tot levensbedreigende darmdraaiing. Belangrijkste doodsoorzaak bij paarden."/>
+		<text name="el_disease_laminitis_desc" text="Pijnlijke hoefontsteking door rijk voer of stress. Kan permanente kreupelheid veroorzaken."/>
+		<text name="el_disease_arthritis_desc" text="Degeneratieve gewrichtsziekte bij oudere paarden. Veroorzaakt chronische pijn en stijfheid."/>
+		<text name="el_disease_egus_desc" text="Maagzweersyndroom bij gestresste paarden. Veroorzaakt verlies van eetlust en gewicht."/>
+		<text name="el_disease_equineAsthma_desc" text="Chronische allergische luchtwegaandoening door stof. Veroorzaakt hoesten en ademhalingsproblemen."/>
+		<text name="el_disease_brd_desc" text="Runderluchtwegenziekte, vaak na transport. Duurste ziekte in rundveehouderij."/>
+		<text name="el_disease_bvd_desc" text="Onderdrukt immuunsysteem en veroorzaakt miskramen. Persistent geïnfecteerde kalveren verspreiden virus hun hele leven."/>
+		<text name="el_disease_footRot_desc" text="Bacteriële infectie met ernstige hoefschade en kreupelheid. Vaak bij natte omstandigheden."/>
+		<text name="el_disease_johnes_desc" text="Chronische, ongeneeslijke darminfectie. Progressief gewichtsverlies. Geen behandeling beschikbaar."/>
+		<text name="el_disease_prrs_desc" text="Een van de meest verwoestende varkensziekten wereldwijd. Veroorzaakt voortplantingsfalen en ernstige longontsteking."/>
+		<text name="el_disease_asf_desc" text="Hemorragische virusziekte met bijna 100% sterfte. Geen vaccin. Vereist onmiddellijke ruiming."/>
+		<text name="el_disease_swineInfluenza_desc" text="Luchtwegziekte met koorts en hoesten. Lage sterfte maar vertraagt groei aanzienlijk."/>
+		<text name="el_disease_greasyPig_desc" text="Bacteriële huidinfectie bij biggen. Huid wordt bedekt met vettige, donkere vloeistof."/>
+		<text name="el_disease_scours_desc" text="Diarree bij biggen leidt tot snelle uitdroging en dood. Belangrijkste doodsoorzaak bij biggen."/>
+		<text name="el_disease_internalParasites_desc" text="Maagwormen en leverbot veroorzaken bloedarmoede en gewichtsverlies. Grootste gezondheidsuitdaging voor schapen."/>
+		<text name="el_disease_flystrike_desc" text="Vliegmaden leggen eieren in vochtige wol. Maden eten levend vlees. Kan snel dodelijk zijn."/>
+		<text name="el_disease_clostridial_desc" text="Bodembacteriën geven dodelijke toxines af. Plotselinge dood vaak bij gezondste lammeren. Te voorkomen door vaccinatie."/>
+		<text name="el_disease_twinLambDisease_desc" text="Drachtigheidstoxemie laat in dracht bij tweelingen. Lage bloedsuiker veroorzaakt neurologische symptomen."/>
+		<text name="el_disease_coccidiosis_desc" text="Parasitaire darmziekte met bloederige uitwerpselen. Hoge sterfte bij onbehandelde kuikens."/>
+		<text name="el_disease_mareks_desc" text="Zeer besmettelijke virale kanker met tumoren. Klassiek symptoom: verlamming met gestrekte poten. Ongeneeslijk."/>
+		<text name="el_disease_newcastle_desc" text="Acute virusziekte die ademhalings-, zenuw- en spijsverteringssysteem aantast. Gedraaide nek, hijgen en verlamming."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Zeer besmettelijke virale luchtwegziekte. Beschadigt voortplantingskanaal permanent."/>
 
 
 

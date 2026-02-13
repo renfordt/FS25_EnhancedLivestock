@@ -172,6 +172,7 @@
 		<text name="el_ui_applyAllMonitor" text="Застосувати всі монітори"/>
 		<text name="el_ui_removeAllMonitor" text="Вилучити всі монітори"/>
 		<text name="el_ui_fee" text="Гонорар"/>
+		<text name="el_ui_description" text="Опис"/>
 
 		<text name="el_ui_leftEarTag" text="Бірка з лівим вухом"/>
 		<text name="el_ui_rightEarTag" text="Бірка для правого вуха"/>
@@ -608,6 +609,58 @@
 		<text name="el_disease_ped" text="Епідемічна діарея свиней"/>
 
 		<text name="el_disease_avianFlu" text="Пташиний грип"/>
+
+		<text name="el_disease_colic" text="Коліки"/>
+		<text name="el_disease_laminitis" text="Ламініт"/>
+		<text name="el_disease_arthritis" text="Артрит"/>
+		<text name="el_disease_egus" text="Виразка шлунку"/>
+		<text name="el_disease_equineAsthma" text="Астма коней"/>
+		<text name="el_disease_brd" text="Респіраторне захворювання ВРХ"/>
+		<text name="el_disease_bvd" text="Вірусна діарея ВРХ"/>
+		<text name="el_disease_footRot" text="Копитна гниль"/>
+		<text name="el_disease_johnes" text="Паратуберкульоз"/>
+		<text name="el_disease_prrs" text="РРСС"/>
+		<text name="el_disease_asf" text="Африканська чума свиней"/>
+		<text name="el_disease_swineInfluenza" text="Свинячий грип"/>
+		<text name="el_disease_greasyPig" text="Ексудативний епідерміт"/>
+		<text name="el_disease_scours" text="Діарея поросят"/>
+		<text name="el_disease_internalParasites" text="Внутрішні паразити"/>
+		<text name="el_disease_flystrike" text="Міаз"/>
+		<text name="el_disease_clostridial" text="Клостридіоз"/>
+		<text name="el_disease_twinLambDisease" text="Токсемія вагітності"/>
+		<text name="el_disease_coccidiosis" text="Кокцидіоз"/>
+		<text name="el_disease_mareks" text="Хвороба Марека"/>
+		<text name="el_disease_newcastle" text="Хвороба Ньюкасла"/>
+		<text name="el_disease_infectiousBronchitis" text="Інфекційний бронхіт"/>
+
+		<!-- Описи хвороб -->
+		<text name="el_disease_mastitis_desc" text="Бактеріальна інфекція вимені, що викликає запалення та зниження якості молока. Потребує швидкого лікування."/>
+		<text name="el_disease_cvm_desc" text="Генетична деформація хребта. Телята помирають незабаром після народження. Носії передають ген нащадкам."/>
+		<text name="el_disease_footAndMouth_desc" text="Висококонтагіозне вірусне захворювання з лихоманкою та пухирями. Потребує негайного карантину."/>
+		<text name="el_disease_ped_desc" text="Руйнівне вірусне захворювання з важкою діареєю, смертельне для поросят. Поширюється через заражений корм."/>
+		<text name="el_disease_avianFlu_desc" text="Вірусне респіраторне захворювання. Високопатогенні штами викликають раптову масову загибель."/>
+		<text name="el_disease_colic_desc" text="Біль у животі від легкого газоутворення до небезпечного для життя заворота кишок. Основна причина смерті коней."/>
+		<text name="el_disease_laminitis_desc" text="Болюче запалення тканин копита, викликане багатим кормом або стресом. Може викликати постійну кульгавість."/>
+		<text name="el_disease_arthritis_desc" text="Дегенеративне захворювання суглобів у старіючих коней. Викликає хронічний біль та скутість."/>
+		<text name="el_disease_egus_desc" text="Синдром виразки шлунку у коней під стресом. Викликає втрату апетиту та ваги."/>
+		<text name="el_disease_equineAsthma_desc" text="Хронічне алергічне респіраторне захворювання від пилу. Викликає кашель та утруднене дихання."/>
+		<text name="el_disease_brd_desc" text="Респіраторне захворювання ВРХ, часто після транспортування. Найдорожче захворювання у скотарстві."/>
+		<text name="el_disease_bvd_desc" text="Пригнічує імунну систему та викликає аборти. Персистентно інфіковані телята поширюють вірус все життя."/>
+		<text name="el_disease_footRot_desc" text="Бактеріальна інфекція, що викликає серйозне ушкодження копит та кульгавість. Часто зустрічається у вологих умовах."/>
+		<text name="el_disease_johnes_desc" text="Хронічна невиліковна кишкова інфекція. Прогресуюча втрата ваги. Лікування немає."/>
+		<text name="el_disease_prrs_desc" text="Одне з найруйнівніших захворювань свиней у світі. Викликає репродуктивну недостатність та важку пневмонію."/>
+		<text name="el_disease_asf_desc" text="Геморагічне вірусне захворювання з майже 100% смертністю. Вакцини немає. Потребує негайного забою."/>
+		<text name="el_disease_swineInfluenza_desc" text="Респіраторне захворювання з лихоманкою та кашлем. Низька смертність, але значно сповільнює ріст."/>
+		<text name="el_disease_greasyPig_desc" text="Бактеріальна шкірна інфекція у поросят. Шкіра покривається жирною темною рідиною."/>
+		<text name="el_disease_scours_desc" text="Діарея у поросят, що призводить до швидкого зневоднення та смерті. Основна причина смертності поросят."/>
+		<text name="el_disease_internalParasites_desc" text="Шлункові черви та печінкові сисуни викликають анемію та втрату ваги. Найбільша проблема здоров'я овець."/>
+		<text name="el_disease_flystrike_desc" text="Мухи відкладають яйця у вологу вовну. Личинки поїдають живу плоть. Може швидко вбити."/>
+		<text name="el_disease_clostridial_desc" text="Ґрунтові бактерії виділяють смертельні токсини. Раптова смерть часто у найздоровіших ягнят. Попереджається вакцинацією."/>
+		<text name="el_disease_twinLambDisease_desc" text="Токсемія вагітності на пізніх термінах з близнюками. Низький рівень цукру в крові викликає неврологічні симптоми."/>
+		<text name="el_disease_coccidiosis_desc" text="Паразитарне кишкове захворювання з кривавим послідом. Висока смертність у нелікованих курчат."/>
+		<text name="el_disease_mareks_desc" text="Висококонтагіозний вірусний рак з пухлинами. Класичний симптом: параліч з розставленими ногами. Невиліковна."/>
+		<text name="el_disease_newcastle_desc" text="Гостре вірусне захворювання, що вражає дихальну, нервову та травну системи. Скручена шия, задишка та параліч."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Висококонтагіозне вірусне респіраторне захворювання. Незворотно пошкоджує репродуктивний тракт."/>
 
 
 

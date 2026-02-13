@@ -184,6 +184,7 @@
 		<text name="el_ui_applyAllMonitor" text="Zastosuj wszystkie monitory"/>
 		<text name="el_ui_removeAllMonitor" text="Usuń wszystkie monitory"/>
 		<text name="el_ui_fee" text="Opłata"/>
+		<text name="el_ui_description" text="Opis"/>
 
 		<text name="el_ui_leftEarTag" text="Lewy kolczyk"/>
 		<text name="el_ui_rightEarTag" text="Prawy kolczyk"/>
@@ -627,6 +628,58 @@
 		<text name="el_disease_ped" text="PED (Epidemiczna biegunka świń)"/>
 
 		<text name="el_disease_avianFlu" text="Ptasia grypa"/>
+
+		<text name="el_disease_colic" text="Kolka"/>
+		<text name="el_disease_laminitis" text="Ochwat"/>
+		<text name="el_disease_arthritis" text="Zapalenie stawów"/>
+		<text name="el_disease_egus" text="Wrzody żołądka"/>
+		<text name="el_disease_equineAsthma" text="Astma koni"/>
+		<text name="el_disease_brd" text="Choroba układu oddechowego bydła"/>
+		<text name="el_disease_bvd" text="Wirusowa biegunka bydła"/>
+		<text name="el_disease_footRot" text="Zgnilizna racic"/>
+		<text name="el_disease_johnes" text="Paratuberkuloza"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="Afrykański pomór świń"/>
+		<text name="el_disease_swineInfluenza" text="Grypa świń"/>
+		<text name="el_disease_greasyPig" text="Łojotokowe zapalenie skóry"/>
+		<text name="el_disease_scours" text="Biegunka prosiąt"/>
+		<text name="el_disease_internalParasites" text="Pasożyty wewnętrzne"/>
+		<text name="el_disease_flystrike" text="Muszyce"/>
+		<text name="el_disease_clostridial" text="Choroby klostrydialowe"/>
+		<text name="el_disease_twinLambDisease" text="Toksemia ciążowa"/>
+		<text name="el_disease_coccidiosis" text="Kokcydioza"/>
+		<text name="el_disease_mareks" text="Choroba Mareka"/>
+		<text name="el_disease_newcastle" text="Choroba Newcastle"/>
+		<text name="el_disease_infectiousBronchitis" text="Zakaźne zapalenie oskrzeli"/>
+
+		<!-- Opisy chorób -->
+		<text name="el_disease_mastitis_desc" text="Bakteryjne zapalenie wymienia powodujące ból i obniżoną jakość mleka. Wymaga szybkiego leczenia."/>
+		<text name="el_disease_cvm_desc" text="Genetyczna wada kręgosłupa. Cielęta umierają krótko po urodzeniu. Nosiciele przekazują gen potomstwu."/>
+		<text name="el_disease_footAndMouth_desc" text="Wysoce zakaźna choroba wirusowa z gorączką i pęcherzami. Wymaga natychmiastowej kwarantanny."/>
+		<text name="el_disease_ped_desc" text="Niszczycielska choroba wirusowa z ciężką biegunką, śmiertelna dla prosiąt. Rozprzestrzenia się przez skażoną paszę."/>
+		<text name="el_disease_avianFlu_desc" text="Wirusowa choroba układu oddechowego. Wysoce patogenne szczepy powodują nagłą masową śmierć."/>
+		<text name="el_disease_colic_desc" text="Ból brzucha od łagodnych gazów do zagrażającego życiu skrętu jelit. Główna przyczyna śmierci koni."/>
+		<text name="el_disease_laminitis_desc" text="Bolesne zapalenie tkanek kopyta wywołane bogatą paszą lub stresem. Może spowodować trwałe ukulenie."/>
+		<text name="el_disease_arthritis_desc" text="Choroba zwyrodnieniowa stawów u starszych koni. Powoduje przewlekły ból i sztywność."/>
+		<text name="el_disease_egus_desc" text="Zespół wrzodów żołądka u zestresowanych koni. Powoduje utratę apetytu i masy ciała."/>
+		<text name="el_disease_equineAsthma_desc" text="Przewlekła alergiczna choroba układu oddechowego od kurzu. Powoduje kaszel i trudności z oddychaniem."/>
+		<text name="el_disease_brd_desc" text="Choroba układu oddechowego bydła, często po transporcie. Najkosztowniejsza choroba w hodowli bydła."/>
+		<text name="el_disease_bvd_desc" text="Osłabia układ odpornościowy i powoduje poronienia. Uporczywie zakażone cielęta rozprzestrzeniają wirusa przez całe życie."/>
+		<text name="el_disease_footRot_desc" text="Infekcja bakteryjna powodująca poważne uszkodzenie racic i kulawiznę. Częsta w wilgotnych warunkach."/>
+		<text name="el_disease_johnes_desc" text="Przewlekła, nieuleczalna infekcja jelit. Postępująca utrata masy ciała. Brak dostępnego leczenia."/>
+		<text name="el_disease_prrs_desc" text="Jedna z najbardziej niszczycielskich chorób świń na świecie. Powoduje niepowodzenia rozrodcze i ciężkie zapalenie płuc."/>
+		<text name="el_disease_asf_desc" text="Krwotoczna choroba wirusowa z niemal 100% śmiertelnością. Brak szczepionki. Wymaga natychmiastowej likwidacji."/>
+		<text name="el_disease_swineInfluenza_desc" text="Choroba układu oddechowego z gorączką i kaszlem. Niska śmiertelność, ale znacznie spowalnia wzrost."/>
+		<text name="el_disease_greasyPig_desc" text="Bakteryjna infekcja skóry u prosiąt. Skóra pokrywa się tłustym, ciemnym płynem."/>
+		<text name="el_disease_scours_desc" text="Biegunka u prosiąt prowadząca do szybkiego odwodnienia i śmierci. Główna przyczyna śmiertelności prosiąt."/>
+		<text name="el_disease_internalParasites_desc" text="Robaki żołądkowe i motylice wątrobowe powodują anemię i utratę masy. Największe wyzwanie zdrowotne dla owiec."/>
+		<text name="el_disease_flystrike_desc" text="Muchy składają jaja we wilgotnej wełnie. Larwy zjadają żywe ciało. Może szybko zabić."/>
+		<text name="el_disease_clostridial_desc" text="Bakterie glebowe uwalniają śmiertelne toksyny. Nagła śmierć często u najzdrowszych jagniąt. Można zapobiec szczepieniem."/>
+		<text name="el_disease_twinLambDisease_desc" text="Toksemia ciążowa w późnej ciąży z bliźniakami. Niska glikemia powoduje objawy neurologiczne."/>
+		<text name="el_disease_coccidiosis_desc" text="Pasożytnicza choroba jelit z krwawym kałem. Wysoka śmiertelność u nieleczonych piskląt."/>
+		<text name="el_disease_mareks_desc" text="Wysoce zakaźny rak wirusowy z nowotworami. Klasyczny objaw: paraliż z rozstawionymi nogami. Nieuleczalna."/>
+		<text name="el_disease_newcastle_desc" text="Ostra choroba wirusowa układu oddechowego, nerwowego i trawiennego. Skręcona szyja, dyszenie i paraliż."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Wysoce zakaźna wirusowa choroba układu oddechowego. Trwale uszkadza układ rozrodczy."/>
 
 
 

@@ -183,6 +183,7 @@
 		<text name="el_ui_applyAllMonitor" text="Použít všechny monitory"/>
 		<text name="el_ui_removeAllMonitor" text="Odebrat všechny monitory"/>
 		<text name="el_ui_fee" text="Poplatek"/>
+		<text name="el_ui_description" text="Popis"/>
 
 		<text name="el_ui_leftEarTag" text="Levá ušní značka"/>
 		<text name="el_ui_rightEarTag" text="Pravá ušní značka"/>
@@ -626,6 +627,58 @@
 		<text name="el_disease_ped" text="Prasečí epidemický průjem"/>
 
 		<text name="el_disease_avianFlu" text="Ptačí chřipka"/>
+
+		<text name="el_disease_colic" text="Kolika"/>
+		<text name="el_disease_laminitis" text="Laminitida"/>
+		<text name="el_disease_arthritis" text="Artritida"/>
+		<text name="el_disease_egus" text="Syndrom žaludečních vředů"/>
+		<text name="el_disease_equineAsthma" text="Koňské astma"/>
+		<text name="el_disease_brd" text="Respirační onemocnění skotu"/>
+		<text name="el_disease_bvd" text="Bovinní virová diarrhoea"/>
+		<text name="el_disease_footRot" text="Hniložka paznehtů"/>
+		<text name="el_disease_johnes" text="Paratuberkulóza"/>
+		<text name="el_disease_prrs" text="PRRS"/>
+		<text name="el_disease_asf" text="Africký mor prasat"/>
+		<text name="el_disease_swineInfluenza" text="Prasečí chřipka"/>
+		<text name="el_disease_greasyPig" text="Mastná kůže selat"/>
+		<text name="el_disease_scours" text="Průjem selat"/>
+		<text name="el_disease_internalParasites" text="Vnitřní paraziti"/>
+		<text name="el_disease_flystrike" text="Myiáza"/>
+		<text name="el_disease_clostridial" text="Klostridiová onemocnění"/>
+		<text name="el_disease_twinLambDisease" text="Toxémie březosti"/>
+		<text name="el_disease_coccidiosis" text="Kokcidióza"/>
+		<text name="el_disease_mareks" text="Marekova choroba"/>
+		<text name="el_disease_newcastle" text="Newcastleská choroba"/>
+		<text name="el_disease_infectiousBronchitis" text="Infekční bronchitida"/>
+
+		<!-- Popisy nemocí -->
+		<text name="el_disease_mastitis_desc" text="Bakteriální infekce vemene způsobující zánět a sníženou kvalitu mléka. Vyžaduje rychlou léčbu."/>
+		<text name="el_disease_cvm_desc" text="Genetická vada páteře. Telata umírají krátce po narození. Nosiči předávají gen potomstvu."/>
+		<text name="el_disease_footAndMouth_desc" text="Vysoce nakažlivé virové onemocnění s horečkou a puchýři. Vyžaduje okamžitou karanténu."/>
+		<text name="el_disease_ped_desc" text="Ničivé virové onemocnění se závažným průjmem, smrtelné pro selata. Šíří se kontaminovaným krmivem."/>
+		<text name="el_disease_avianFlu_desc" text="Virové respirační onemocnění. Vysoce patogenní kmeny způsobují náhlou hromadnou smrt."/>
+		<text name="el_disease_colic_desc" text="Bolest břicha od mírných plynů po život ohrožující překroucení střev. Hlavní příčina smrti koní."/>
+		<text name="el_disease_laminitis_desc" text="Bolestivý zánět tkání kopyta způsobený bohatým krmivem nebo stresem. Může způsobit trvalou chromost."/>
+		<text name="el_disease_arthritis_desc" text="Degenerativní onemocnění kloubů u starších koní. Způsobuje chronickou bolest a ztuhlost."/>
+		<text name="el_disease_egus_desc" text="Syndrom žaludečních vředů u stresovaných koní. Způsobuje ztrátu chuti k jídlu a hmotnosti."/>
+		<text name="el_disease_equineAsthma_desc" text="Chronické alergické respirační onemocnění z prachu. Způsobuje kašel a dýchací potíže."/>
+		<text name="el_disease_brd_desc" text="Respirační onemocnění skotu, často po přepravě. Nejnákladnější onemocnění v chovu skotu."/>
+		<text name="el_disease_bvd_desc" text="Potlačuje imunitní systém a způsobuje potraty. Perzistentně infikovaná telata šíří virus celý život."/>
+		<text name="el_disease_footRot_desc" text="Bakteriální infekce způsobující závažné poškození paznehtů a chromost. Časté ve vlhkých podmínkách."/>
+		<text name="el_disease_johnes_desc" text="Chronická, nevyléčitelná střevní infekce. Progresivní ztráta hmotnosti. Žádná dostupná léčba."/>
+		<text name="el_disease_prrs_desc" text="Jedno z nejničivějších prasečích onemocnění na světě. Způsobuje reprodukční selhání a těžký zápal plic."/>
+		<text name="el_disease_asf_desc" text="Hemoragické virové onemocnění s téměř 100% úmrtností. Žádná vakcína. Vyžaduje okamžitou likvidaci."/>
+		<text name="el_disease_swineInfluenza_desc" text="Respirační onemocnění s horečkou a kašlem. Nízká úmrtnost, ale výrazně zpomaluje růst."/>
+		<text name="el_disease_greasyPig_desc" text="Bakteriální kožní infekce u selat. Kůže se pokryje mastnou, tmavou tekutinou."/>
+		<text name="el_disease_scours_desc" text="Průjem u selat vedoucí k rychlé dehydrataci a smrti. Hlavní příčina úmrtnosti selat."/>
+		<text name="el_disease_internalParasites_desc" text="Žaludeční červi a jaterní motolice způsobují anémii a ztrátu hmotnosti. Největší zdravotní výzva pro ovce."/>
+		<text name="el_disease_flystrike_desc" text="Mouchy kladou vajíčka do vlhké vlny. Larvy požírají živé maso. Může rychle zabít."/>
+		<text name="el_disease_clostridial_desc" text="Půdní bakterie uvolňují smrtelné toxiny. Náhlá smrt často u nejzdravějších jehňat. Předejdete očkováním."/>
+		<text name="el_disease_twinLambDisease_desc" text="Toxémie březosti v pozdní březosti s dvojčaty. Hypoglykémie způsobuje neurologické příznaky."/>
+		<text name="el_disease_coccidiosis_desc" text="Parazitické střevní onemocnění s krvavým trusem. Vysoká úmrtnost u neléčených kuřat."/>
+		<text name="el_disease_mareks_desc" text="Vysoce nakažlivý virový rakovinou s nádory. Klasický příznak: paralýza s roztaženýma nohama. Nevyléčitelná."/>
+		<text name="el_disease_newcastle_desc" text="Akutní virové onemocnění postihující dýchací, nervový a trávicí systém. Kroucený krk, lapání po dechu a paralýza."/>
+		<text name="el_disease_infectiousBronchitis_desc" text="Vysoce nakažlivé virové respirační onemocnění. Trvale poškozuje reprodukční trakt."/>
 
 
 
