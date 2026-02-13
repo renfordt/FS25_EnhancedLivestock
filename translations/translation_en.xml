@@ -63,6 +63,7 @@
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Change Visual Animals Amount"/>
+        <text name="input_RefillDewarNitrogen" text="Refill Dewar Nitrogen"/>
         <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
         <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
         <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
@@ -518,6 +519,7 @@
         <text name="el_action_refillNitrogen" text="Refill Nitrogen ($50)"/>
         <text name="el_info_nitrogenAlreadyFull" text="Nitrogen level is already full"/>
         <text name="el_notification_nitrogenRefilled" text="Nitrogen refilled for %s"/>
+        <text name="el_error_insufficientFunds" text="You don't have enough money"/>
 
         <!-- AI Rework System: Stock Management -->
         <text name="el_ui_strawsAvailable" text="%d straws available"/>

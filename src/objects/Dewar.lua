@@ -428,12 +428,16 @@ function Dewar:refillNitrogen()
 	end
 
 	-- Check funds
-	if not g_currentMission:addMoney(-refillCost, farmId, MoneyType.PURCHASE_SUPPLIES, true, false) then
-		g_gui:showInfoDialog({
-			text = g_i18n:getText("el_error_insufficientFunds")
-		})
+	local farm = g_farmManager:getFarmById(farmId)
+	if farm == nil or farm:getBalance() < refillCost then
+		g_currentMission:addIngameNotification(
+			FSBaseMission.INGAME_NOTIFICATION_CRITICAL,
+			g_i18n:getText("el_error_insufficientFunds")
+		)
 		return false
 	end
+
+	g_currentMission:addMoney(-refillCost, farmId, MoneyType.SEMEN_PURCHASE, true, false)
 
 	-- Refill nitrogen
 	self.nitrogenLevel = self.nitrogenCapacity

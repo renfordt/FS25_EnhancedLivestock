@@ -2380,27 +2380,13 @@ function EnhancedLivestock_AnimalScreen:populateCellForItemInSection(_, list, _,
 			geneticsText = "veryBad"
 		end
 
-		-- Display tier and stock information instead of just genetics
-		local tierText = ""
-		if animal.bullTier ~= nil then
-			if animal.bullTier == BullTier.YOUNG_GENOMIC then
-				tierText = g_i18n:getText("el_ui_bullTier_youngGenomic")
-			elseif animal.bullTier == BullTier.PROVEN then
-				tierText = g_i18n:getText("el_ui_bullTier_proven")
-			elseif animal.bullTier == BullTier.ELITE then
-				tierText = g_i18n:getText("el_ui_bullTier_elite")
-			elseif animal.bullTier == BullTier.LEGEND then
-				tierText = g_i18n:getText("el_ui_bullTier_legend")
-			end
-		end
-
 		local stockText = ""
 		if animal.availableStraws ~= nil then
 			stockText = string.format(" (%d)", animal.availableStraws)
 		end
 
-		-- Combine tier, genetics quality, and stock
-		local displayText = tierText .. " - " .. g_i18n:getText("el_ui_genetics_" .. geneticsText) .. stockText
+		-- Display average genetics rating and stock count (tier is already shown as badge on name)
+		local displayText = g_i18n:getText("el_ui_genetics_" .. geneticsText) .. stockText
 
 		cell:getAttribute("price"):setText(displayText)
 
