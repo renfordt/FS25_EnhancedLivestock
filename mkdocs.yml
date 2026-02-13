@@ -47,7 +47,9 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-  - Home: index.md
+  - Home:
+      - index.md
+      - Compatibility: compatibility.md
   - Features:
       - Individual Animals: individual_animals.md
       - Genetics: genetics.md
@@ -65,9 +67,36 @@ nav:
       - Horses: horses.md
       - Chickens: chickens.md
   - Diseases:
-      - Mastitis: mastitis.md
-      - CVM: cvm.md
-      - Foot and Mouth: foot_and_mouth.md
-      - Porcine Epidemic Diarrhea: porcine_epidemic_diarrhea.md
-      - Avian Influenza: avian_influenza.md
-  - Compatibility: compatibility.md
+      - Multi-Species:
+          - Foot and Mouth Disease: foot_and_mouth.md
+          - Mastitis: mastitis.md
+          - Foot Rot: foot_rot.md
+      - Cattle:
+          - CVM: cvm.md
+          - Bovine Respiratory Disease: brd.md
+          - Bovine Viral Diarrhea: bvd.md
+          - "Johne's Disease": johnes.md
+      - Horses:
+          - Colic: colic.md
+          - Laminitis: laminitis.md
+          - Arthritis: arthritis.md
+          - EGUS: egus.md
+          - Equine Asthma: equine_asthma.md
+      - Pigs:
+          - Porcine Epidemic Diarrhea: porcine_epidemic_diarrhea.md
+          - PRRS: prrs.md
+          - African Swine Fever: asf.md
+          - Swine Influenza: swine_influenza.md
+          - Greasy Pig Disease: greasy_pig.md
+          - Scours: scours.md
+      - Sheep:
+          - Internal Parasites: internal_parasites.md
+          - Flystrike: flystrike.md
+          - Clostridial Disease: clostridial.md
+          - Twin Lamb Disease: twin_lamb_disease.md
+      - Chickens:
+          - Avian Influenza: avian_influenza.md
+          - Coccidiosis: coccidiosis.md
+          - "Marek's Disease": mareks.md
+          - Newcastle Disease: newcastle.md
+          - Infectious Bronchitis: infectious_bronchitis.md

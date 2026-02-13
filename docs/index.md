@@ -63,12 +63,31 @@ Automated animal management with configurable filters for:
 - **Ear tag text**: Displays identification information
 - **Nose rings**: On supported adult animals
 
-## Getting Started
+## Download
 
-1. Install the mod in your FS25 mods folder
-2. Enable the mod in-game
-3. Load or start a save with animal husbandries
-4. Access mod settings through the in-game menu
+Download the latest release from the [GitHub Releases page](https://github.com/renfordt/FS25_EnhancedLivestock/releases).
+
+## Installation
+
+1. Download the latest `.zip` file from the [Releases page](https://github.com/renfordt/FS25_EnhancedLivestock/releases)
+2. Place the `.zip` file directly into your FS25 mods folder:
+    - **Windows:** `Documents\My Games\FarmingSimulator2025\mods\`
+    - **macOS:** `~/Library/Application Support/FarmingSimulator2025/mods/`
+3. Do **not** extract the zip file — FS25 loads zipped mods directly
+4. Launch Farming Simulator 25 and enable **Enhanced Livestock** in the mod selection screen
+5. Load or start a save with animal husbandries
+6. Access mod settings through the in-game menu
+
+## Reporting Issues
+
+Found a bug or have a suggestion? Please open an issue on the [GitHub Issue Tracker](https://github.com/renfordt/FS25_EnhancedLivestock/issues).
+
+When reporting a bug, please include:
+
+- A clear description of the problem
+- Steps to reproduce the issue
+- Your game log file (`log.txt` from the FS25 directory)
+- Any other mods you have enabled
 
 ## Optional Dependencies
 
