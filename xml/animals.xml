@@ -2936,7 +2936,7 @@
 			<key ageMonth="36" value="420"/>
 			<key ageMonth="60" value="300"/>
 			<key ageMonth="84" value="160"/>
-			<key ageMonth="120" value="400"/>
+			<key ageMonth="120" value="40"/>
 			<key ageMonth="120" value="0"/>
 		</fertility>
 		<subType subType="CHICKEN" fillTypeName="CHICKEN" gender="female" minWeight="0.04" targetWeight="3.25" maxWeight="4.5" breed="CHICKEN">
