@@ -1,636 +1,662 @@
-<?xml version='1.0' encoding='utf-8'?>
 <l10n>
-	<texts>
-		<!-- COWS -->
+    <texts>
+        <!-- COWS -->
 
-		<text name="fillType_bull" text="Sonni"/>
-		<text name="fillType_bull_swiss_brown" text="Brown Swiss -sonni"/>
-		<text name="fillType_bull_holstein" text="Holstein-sonni"/>
-		<text name="fillType_bull_angus" text="Angus-sonni"/>
-		<text name="fillType_bull_limousin" text="Limousin-sonni"/>
-		<text name="fillType_cow_hereford" text="Hereford"/>
-		<text name="fillType_bull_hereford" text="Hereford-sonni"/>
-		<text name="fillType_cow_highland_cattle" text="Ylämaankarja"/>
-		<text name="fillType_bull_highland_cattle" text="Ylämaankarja-sonni"/>
-		<text name="animal_descriptionBullFeed" text="Sonnit syövät mielellään ruohoa, heinää ja TMR-rehua."/>
-		<text name="animal_descriptionBullYoung" text="Tämä on urospuolinen vasikka."/>
-		<text name="animal_descriptionBullReproduction" text="Terveet, vähintään 12 kuukauden ikäiset sonnit voivat lisääntyä."/>
+        <text name="fillType_bull" text="Sonni"/>
+        <text name="fillType_bull_swiss_brown" text="Brown Swiss -sonni"/>
+        <text name="fillType_bull_holstein" text="Holstein-sonni"/>
+        <text name="fillType_bull_angus" text="Angus-sonni"/>
+        <text name="fillType_bull_limousin" text="Limousin-sonni"/>
+        <text name="fillType_cow_hereford" text="Hereford"/>
+        <text name="fillType_bull_hereford" text="Hereford-sonni"/>
+        <text name="fillType_cow_highland_cattle" text="Ylämaankarja"/>
+        <text name="fillType_bull_highland_cattle" text="Ylämaankarja-sonni"/>
+        <text name="animal_descriptionBullFeed" text="Sonnit syövät mielellään ruohoa, heinää ja TMR-rehua."/>
+        <text name="animal_descriptionBullYoung" text="Tämä on urospuolinen vasikka."/>
+        <text name="animal_descriptionBullReproduction" text="Terveet, vähintään 12 kuukauden ikäiset sonnit voivat lisääntyä."/>
 
-		<!-- WATER BUFFALOS -->
+        <!-- WATER BUFFALOS -->
 
-		<text name="fillType_bull_waterbuffalo" text="Vesipuhvelisonni"/>
+        <text name="fillType_bull_waterbuffalo" text="Vesipuhvelisonni"/>
 
-		<!-- PIGS -->
+        <!-- PIGS -->
 
-		<text name="fillType_boar" text="Karju"/>
-		<text name="fillType_boar_landrace" text="Saksan Maatiassika-karju"/>
-		<text name="fillType_boar_black_pied" text="Bunte Bentheimer Schwein -karju"/>
-		<text name="fillType_boar_berkshire" text="Berkshire-karju"/>
-		<text name="animal_descriptionBoarReproduction" text="Terveet, vähintään 8 kuukauden ikäiset karjut voivat lisääntyä."/>
-		<text name="animal_descriptionBoarFeed" text="Karjut syövät lähes mitä tahansa. Niille voi syöttää maissia, vehnää, ohraa, rypsiä, auringonkukkia, soijapapuja, perunoita, durraa ja sokerijuurikkaita."/>
-		<text name="animal_descriptionBoarYoung" text="Tämä on urospuolinen porsas."/>
+        <text name="fillType_boar" text="Karju"/>
+        <text name="fillType_boar_landrace" text="Saksan Maatiassika-karju"/>
+        <text name="fillType_boar_black_pied" text="Bunte Bentheimer Schwein -karju"/>
+        <text name="fillType_boar_berkshire" text="Berkshire-karju"/>
+        <text name="animal_descriptionBoarReproduction" text="Terveet, vähintään 8 kuukauden ikäiset karjut voivat lisääntyä."/>
+        <text name="animal_descriptionBoarFeed" text="Karjut syövät lähes mitä tahansa. Niille voi syöttää maissia, vehnää, ohraa, rypsiä, auringonkukkia, soijapapuja, perunoita, durraa ja sokerijuurikkaita."/>
+        <text name="animal_descriptionBoarYoung" text="Tämä on urospuolinen porsas."/>
 
-		<!-- SHEEP -->
+        <!-- SHEEP -->
 
-		<text name="fillType_ram" text="Pässi"/>
-		<text name="fillType_ram_landrace" text="Bentheimin Maatiaiskanta-pässi"/>
-		<text name="fillType_ram_steinschaf" text="Steinschaf-pässi"/>
-		<text name="fillType_ram_black_welsh" text="Black Welsh Mountain -pässi"/>
-		<text name="fillType_ram_swiss_mountain" text="Sveitsiläinen Mustaruskea Vuoristopässi"/>
-		<text name="animal_descriptionRamFeed" text="Pässit syövät ruohoa ja heinää."/>
-		<text name="animal_descriptionRamYoung" text="Tämä on urospuolinen karitsa."/>
-		<text name="animal_descriptionRamReproduction" text="Terveet, vähintään 5 kuukauden ikäiset pässit voivat lisääntyä."/>
+        <text name="fillType_ram" text="Pässi"/>
+        <text name="fillType_ram_landrace" text="Bentheimin Maatiaiskanta-pässi"/>
+        <text name="fillType_ram_steinschaf" text="Steinschaf-pässi"/>
+        <text name="fillType_ram_black_welsh" text="Black Welsh Mountain -pässi"/>
+        <text name="fillType_ram_swiss_mountain" text="Sveitsiläinen Mustaruskea Vuoristopässi"/>
+        <text name="animal_descriptionRamFeed" text="Pässit syövät ruohoa ja heinää."/>
+        <text name="animal_descriptionRamYoung" text="Tämä on urospuolinen karitsa."/>
+        <text name="animal_descriptionRamReproduction" text="Terveet, vähintään 5 kuukauden ikäiset pässit voivat lisääntyä."/>
 
-		<!-- GOATS -->
+        <!-- GOATS -->
 
-		<text name="fillType_ram_goat" text="Pukki"/>
-		
-		<!-- HORSES -->
+        <text name="fillType_ram_goat" text="Pukki"/>
 
-		<text name="fillType_stallion" text="Ori"/>
-		<text name="fillType_stallion_gray" text="Harmaa ori"/>
-		<text name="fillType_stallion_pinto" text="Pinto ori"/>
-		<text name="fillType_stallion_palomino" text="Palomino ori"/>
-		<text name="fillType_stallion_chestnut" text="Raudikko ori"/>
-		<text name="fillType_stallion_bay" text="Ruunikko ori"/>
-		<text name="fillType_stallion_black" text="Musta ori"/>
-		<text name="fillType_stallion_seal_brown" text="Tummanruskea ori"/>
-		<text name="fillType_stallion_dun" text="Hallakko ori"/>
-		<text name="animal_descriptionStallionFeed" text="Orit pitävät heinästä, kaurasta ja durrasta."/>
-		<text name="animal_descriptionStallionProfit" text="Orit voidaan myydä voitolla."/>
-		<text name="animal_descriptionStallionReproduction" text="Terveet, vähintään 36 kuukauden ikäiset orit voivat lisääntyä."/>
+        <!-- HORSES -->
+
+        <text name="fillType_stallion" text="Ori"/>
+        <text name="fillType_stallion_gray" text="Harmaa ori"/>
+        <text name="fillType_stallion_pinto" text="Pinto ori"/>
+        <text name="fillType_stallion_palomino" text="Palomino ori"/>
+        <text name="fillType_stallion_chestnut" text="Raudikko ori"/>
+        <text name="fillType_stallion_bay" text="Ruunikko ori"/>
+        <text name="fillType_stallion_black" text="Musta ori"/>
+        <text name="fillType_stallion_seal_brown" text="Tummanruskea ori"/>
+        <text name="fillType_stallion_dun" text="Hallakko ori"/>
+        <text name="animal_descriptionStallionFeed" text="Orit pitävät heinästä, kaurasta ja durrasta."/>
+        <text name="animal_descriptionStallionProfit" text="Orit voidaan myydä voitolla."/>
+        <text name="animal_descriptionStallionReproduction" text="Terveet, vähintään 36 kuukauden ikäiset orit voivat lisääntyä."/>
 
 
         <!-- UI -->
 
+        <text name="input_VisualAnimalsDialog" text="Vaihda visuaalisten eläinten määrä"/>
+        <text name="input_RefillDewarNitrogen" text="Täytä Dewar-astian typpi"/>
+        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
+        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
+        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="el_button_apply" text="Käytä"/>
+        <text name="el_button_confirm" text="Hyväksy"/>
+        <text name="el_button_recommended" text="Suositeltu"/>
+        <text name="el_button_cancel" text="Peruuta"/>
+        <text name="el_button_random" text="Satunnainen"/>
+        <text name="el_dialog_title" text="Aseta visuaalisten eläinten maksimimäärä"/>
 
-		<text name="input_VisualAnimalsDialog" text="Vaihda visuaalisten eläinten määrä"/>
-		<text name="el_button_apply" text="Käytä"/>
-		<text name="el_button_confirm" text="Hyväksy"/>
-		<text name="el_button_recommended" text="Suositeltu"/>
-		<text name="el_button_cancel" text="Peruuta"/>
-		<text name="el_button_random" text="Satunnainen"/>
-		<text name="el_dialog_title" text="Aseta visuaalisten eläinten maksimimäärä"/>
+        <text name="el_ui_dependency_missing" text="Riippuvuus puuttuu"/>
+        <text name="el_ui_dependency_missing_installed" text="Riippuvuus puuttuu asennettu"/>
 
-		<text name="el_ui_dependency_missing" text="Riippuvuus puuttuu"/>
-		<text name="el_ui_dependency_missing_installed" text="Riippuvuus puuttuu asennettu"/>
+        <text name="el_ui_unhealthy" text="Liian huonokuntoinen"/>
+        <text name="el_ui_unhealthyBracketed" text="Ei (liian huonokuntoinen)"/>
+        <text name="el_ui_noMaleAnimal" text="Ei soveltuvaa uros eläintä"/>
+        <text name="el_ui_noMaleAnimalBracketed" text="Ei (ei soveltuvaa uros eläintä)"/>
+        <text name="el_ui_recoveringLastBirth" text="Toipumassa viimeisimmästä synnytyksestä"/>
+        <text name="el_ui_recoveringLastBirthBracketed" text="Ei (toipumassa viimeisimmästä synnytyksestä)"/>
+        <text name="el_ui_tooYoung" text="Liian nuori"/>
+        <text name="el_ui_tooYoungBracketed" text="Ei (liian nuori)"/>
+        <text name="el_ui_pregnant" text="Odottaa poikasia"/>
+        <text name="el_ui_pregnant_github" text="Tiineenä"/>
+        <text name="el_ui_lactating" text="Tuottaa maitoa"/>
+        <text name="el_ui_lactating_github" text="Laktoi"/>
+        <text name="el_ui_canReproduce" text="Voi lisääntyä"/>
+        <text name="el_ui_impregnatedBy" text="Pariutunut"/>
+        <text name="el_ui_impregnatedBy_github" text="Siementänyt"/>
+        <text name="el_ui_unknown" text="Ei tiedossa"/>
+        <text name="el_ui_yes" text="Kyllä"/>
+        <text name="el_ui_no" text="Ei"/>
+        <text name="el_ui_mother" text="Emo"/>
+        <text name="el_ui_father" text="Isä"/>
+        <text name="el_ui_uniqueId" text="Yksilöllinen ID"/>
+        <text name="el_ui_farmId" text="Farmin ID"/>
+        <text name="el_ui_gender" text="Sukupuoli"/>
+        <text name="el_ui_male" text="Uros"/>
+        <text name="el_ui_female" text="Naaras"/>
+        <text name="el_ui_weight" text="Paino"/>
+        <text name="el_ui_targetWeight" text="Tavoitepaino"/>
+        <text name="el_ui_value" text="Arvo"/>
+        <text name="el_ui_valuePerKilo" text="Arvo kilolta"/>
+        <text name="el_ui_genetics" text="Genetiikka"/>
+        <text name="el_ui_overall" text="Kokonais"/>
+        <text name="el_ui_rename" text="Vaihda nimi"/>
+        <text name="el_ui_cantFindAnimal" text="Eläintä ei löytynyt"/>
+        <text name="el_ui_maleNumImpregnatable" text="Jalostettavat eläimet aitauksessa"/>
+        <text name="el_ui_maleNumImpregnatable_github" text="Siemennettävät eläimet aitauksessa"/>
 
-		<text name="el_ui_unhealthy" text="Liian huonokuntoinen"/>
-		<text name="el_ui_unhealthyBracketed" text="Ei (liian huonokuntoinen)"/>
-		<text name="el_ui_noMaleAnimal" text="Ei soveltuvaa uros eläintä"/>
-		<text name="el_ui_noMaleAnimalBracketed" text="Ei (ei soveltuvaa uros eläintä)"/>
-		<text name="el_ui_recoveringLastBirth" text="Toipumassa viimeisimmästä synnytyksestä"/>
-		<text name="el_ui_recoveringLastBirthBracketed" text="Ei (toipumassa viimeisimmästä synnytyksestä)"/>
-		<text name="el_ui_tooYoung" text="Liian nuori"/>
-		<text name="el_ui_tooYoungBracketed" text="Ei (liian nuori)"/>
-		<text name="el_ui_pregnant" text="Odottaa poikasia"/>
-		<text name="el_ui_pregnant_github" text="Tiineenä"/>
-		<text name="el_ui_lactating" text="Tuottaa maitoa"/>
-		<text name="el_ui_lactating_github" text="Laktoi"/>
-		<text name="el_ui_canReproduce" text="Voi lisääntyä"/>
-		<text name="el_ui_impregnatedBy" text="Pariutunut"/>
-		<text name="el_ui_impregnatedBy_github" text="Siementänyt"/>
-		<text name="el_ui_unknown" text="Ei tiedossa"/>
-		<text name="el_ui_yes" text="Kyllä"/>
-		<text name="el_ui_no" text="Ei"/>
-		<text name="el_ui_mother" text="Emo"/>
-		<text name="el_ui_father" text="Isä"/>
-		<text name="el_ui_uniqueId" text="Yksilöllinen ID"/>
-		<text name="el_ui_farmId" text="Farmin ID"/>
-		<text name="el_ui_gender" text="Sukupuoli"/>
-		<text name="el_ui_male" text="Uros"/>
-		<text name="el_ui_female" text="Naaras"/>
-		<text name="el_ui_weight" text="Paino"/>
-		<text name="el_ui_targetWeight" text="Tavoitepaino"/>
-		<text name="el_ui_value" text="Arvo"/>
-		<text name="el_ui_valuePerKilo" text="Arvo kilolta"/>
-		<text name="el_ui_genetics" text="Genetiikka"/>
-		<text name="el_ui_overall" text="Kokonais"/>
-		<text name="el_ui_rename" text="Vaihda nimi"/>
-		<text name="el_ui_cantFindAnimal" text="Eläintä ei löytynyt"/>
-		<text name="el_ui_maleNumImpregnatable" text="Jalostettavat eläimet aitauksessa"/>
-		<text name="el_ui_maleNumImpregnatable_github" text="Siemennettävät eläimet aitauksessa"/>
+        <text name="el_ui_breederQuality" text="Siittäjän laatu"/>
+        <text name="el_ui_birthday" text="Syntynyt"/>
+        <text name="el_ui_pregnancyExpected" text="Laskettu aika"/>
+        <text name="el_ui_pregnancyExpecting" text="Odottaa"/>
+        <text name="el_ui_pregnancyBaby" text="poikanen"/>
+        <text name="el_ui_pregnancyBabies" text="poikaset"/>
+        <text name="el_ui_animalOrigin" text="Alkuperä"/>
+        <text name="el_ui_months" text="kuukautta"/>
+        <text name="el_ui_month" text="kuukausi"/>
+        <text name="el_ui_years" text="vuotta"/>
+        <text name="el_ui_year" text="vuosi"/>
 
-		<text name="el_ui_breederQuality" text="Siittäjän laatu"/>
-		<text name="el_ui_birthday" text="Syntynyt"/>
-		<text name="el_ui_pregnancyExpected" text="Laskettu aika"/>
-		<text name="el_ui_pregnancyExpecting" text="Odottaa"/>
-		<text name="el_ui_pregnancyBaby" text="poikanen"/>
-		<text name="el_ui_pregnancyBabies" text="poikaset"/>
-		<text name="el_ui_animalOrigin" text="Alkuperä"/>
-		<text name="el_ui_months" text="kuukautta"/>
-		<text name="el_ui_month" text="kuukausi"/>
-		<text name="el_ui_years" text="vuotta"/>
-		<text name="el_ui_year" text="vuosi"/>
+        <text name="el_ui_milk" text="Maidon tuotto"/>
+        <text name="el_ui_wool" text="Villan tuotto"/>
+        <text name="el_ui_eggs" text="Munien tuotto"/>
+        <text name="el_ui_metabolism" text="Aineenvaihdunta"/>
+        <text name="el_ui_meat" text="Laatu"/>
+        <text name="el_ui_meat_github" text="Lihan laatu"/>
+        <text name="el_ui_quality" text="Laatu"/>
+        <text name="el_ui_quality_github" text="Lihan laatu"/>
+        <text name="el_ui_health" text="Terveys"/>
+        <text name="el_ui_fertility" text="Hedelmällisyys"/>
 
-		<text name="el_ui_milk" text="Maidon tuotto"/>
-		<text name="el_ui_wool" text="Villan tuotto"/>
-		<text name="el_ui_eggs" text="Munien tuotto"/>
-		<text name="el_ui_metabolism" text="Aineenvaihdunta"/>
-		<text name="el_ui_meat" text="Laatu"/>
-		<text name="el_ui_meat_github" text="Lihan laatu"/>
-		<text name="el_ui_quality" text="Laatu"/>
-		<text name="el_ui_quality_github" text="Lihan laatu"/>
-		<text name="el_ui_health" text="Terveys"/>
-		<text name="el_ui_fertility" text="Hedelmällisyys"/>
+        <text name="el_ui_genetics_infertile" text="Lisääntymiskyvytön"/>
+        <text name="el_ui_genetics_extremelyLow" text="Äärimmäisen alhainen"/>
+        <text name="el_ui_genetics_veryLow" text="Erittäin alhainen"/>
+        <text name="el_ui_genetics_low" text="Alhainen"/>
+        <text name="el_ui_genetics_average" text="Keskiverto"/>
+        <text name="el_ui_genetics_high" text="Korkea"/>
+        <text name="el_ui_genetics_veryHigh" text="Erittäin korkea"/>
+        <text name="el_ui_genetics_extremelyHigh" text="Äärimmäisen korkea"/>
+        <text name="el_ui_genetics_highest" text="Korkein mahdollinen"/>
+        <text name="el_ui_genetics_unknown" text="Unknown"/>
 
-		<text name="el_ui_genetics_infertile" text="Lisääntymiskyvytön"/>
-		<text name="el_ui_genetics_extremelyLow" text="Äärimmäisen alhainen"/>
-		<text name="el_ui_genetics_veryLow" text="Erittäin alhainen"/>
-		<text name="el_ui_genetics_low" text="Alhainen"/>
-		<text name="el_ui_genetics_average" text="Keskiverto"/>
-		<text name="el_ui_genetics_high" text="Korkea"/>
-		<text name="el_ui_genetics_veryHigh" text="Erittäin korkea"/>
-		<text name="el_ui_genetics_extremelyHigh" text="Äärimmäisen korkea"/>
-		<text name="el_ui_genetics_highest" text="Korkein mahdollinen"/>
+        <text name="el_ui_genetics_extremelyBad" text="Äärimmäisen huono"/>
+        <text name="el_ui_genetics_veryBad" text="Erittäin huono"/>
+        <text name="el_ui_genetics_bad" text="Huono"/>
+        <text name="el_ui_genetics_good" text="Hyvä"/>
+        <text name="el_ui_genetics_veryGood" text="Erittäin hyvä"/>
+        <text name="el_ui_genetics_extremelyGood" text="Äärimmäisen hyvä"/>
 
-		<text name="el_ui_genetics_extremelyBad" text="Äärimmäisen huono"/>
-		<text name="el_ui_genetics_veryBad" text="Erittäin huono"/>
-		<text name="el_ui_genetics_bad" text="Huono"/>
-		<text name="el_ui_genetics_good" text="Hyvä"/>
-		<text name="el_ui_genetics_veryGood" text="Erittäin hyvä"/>
-		<text name="el_ui_genetics_extremelyGood" text="Äärimmäisen hyvä"/>
+        <text name="el_ui_buySelected" text="Osta valitut"/>
+        <text name="el_ui_sellSelected" text="Myy valitut"/>
+        <text name="el_ui_moveSelected" text="Siirrä valitut"/>
+        <text name="el_ui_buyConfirmation" text="Haluatko varmasti ostaa %s eläintä %s:lla?" tag="format"/>
+        <text name="el_ui_sellConfirmation" text="Haluatko varmasti myydä %s eläintä %s:lla?" tag="format"/>
+        <text name="el_ui_moveConfirmation" text="Haluatko varmasti siirtää %s eläintä?" tag="format"/>
+        <text name="el_ui_buyBulkResult" text="%s eläintä ostettiin %s:lla" tag="format"/>
+        <text name="el_ui_sellBulkResult" text="%s eläintä myytiin %s:lla" tag="format"/>
+        <text name="el_ui_moveBulkResult" text="%s eläintä siirrettiin" tag="format"/>
 
-		<text name="el_ui_buySelected" text="Osta valitut"/>
-		<text name="el_ui_sellSelected" text="Myy valitut"/>
-		<text name="el_ui_moveSelected" text="Siirrä valitut"/>
-		<text name="el_ui_buyConfirmation" text="Haluatko varmasti ostaa %s eläintä %s:lla?" tag="format"/>
-		<text name="el_ui_sellConfirmation" text="Haluatko varmasti myydä %s eläintä %s:lla?" tag="format"/>
-		<text name="el_ui_moveConfirmation" text="Haluatko varmasti siirtää %s eläintä?" tag="format"/>
-		<text name="el_ui_buyBulkResult" text="%s eläintä ostettiin %s:lla" tag="format"/>
-		<text name="el_ui_sellBulkResult" text="%s eläintä myytiin %s:lla" tag="format"/>
-		<text name="el_ui_moveBulkResult" text="%s eläintä siirrettiin" tag="format"/>
-		
-		<text name="el_ui_monitor" text="Seurantalaitteet"/>
-		<text name="el_ui_monitorSubscriptions" text="Seurantalaitetilaukset"/>
-		<text name="finance_monitorSubscriptions" text="Seurantalaitetilaukset"/>
-		<text name="el_ui_monitorFee" text="Seurantalaitemaksu"/>
-		<text name="el_ui_applyMonitor" text="Aseta seurantalaite"/>
-		<text name="el_ui_removeMonitor" text="Poista seurantalaite"/>
-		<text name="el_ui_input_food" text="Ruoka"/>
-		<text name="el_ui_input_water" text="Vesi"/>
-		<text name="el_ui_input_straw" text="Olki"/>
-		<text name="el_ui_output_milk" text="Maito"/>
-		<text name="el_ui_output_manure" text="Lanta"/>
-		<text name="el_ui_output_liquidManure" text="Liete"/>
-		<text name="el_ui_output_pallets_eggs" text="Munia"/>
-		<text name="el_ui_output_pallets_wool" text="Villa"/>
-		<text name="el_ui_output_pallets_goatMilk" text="Vuohenmaito"/>
-		<text name="el_ui_amountPerDay" text="%.0fl / päivä" tag="format"/>
-		<text name="el_ui_feePerMonth" text="%s / kk" tag="format"/>
+        <text name="el_ui_monitor" text="Seurantalaitteet"/>
+        <text name="el_ui_monitorSubscriptions" text="Seurantalaitetilaukset"/>
+        <text name="finance_monitorSubscriptions" text="Seurantalaitetilaukset"/>
+        <text name="el_ui_monitorFee" text="Seurantalaitemaksu"/>
+        <text name="el_ui_applyMonitor" text="Aseta seurantalaite"/>
+        <text name="el_ui_removeMonitor" text="Poista seurantalaite"/>
+        <text name="el_ui_input_food" text="Ruoka"/>
+        <text name="el_ui_input_water" text="Vesi"/>
+        <text name="el_ui_input_straw" text="Olki"/>
+        <text name="el_ui_output_milk" text="Maito"/>
+        <text name="el_ui_output_manure" text="Lanta"/>
+        <text name="el_ui_output_liquidManure" text="Liete"/>
+        <text name="el_ui_output_pallets_eggs" text="Munia"/>
+        <text name="el_ui_output_pallets_wool" text="Villa"/>
+        <text name="el_ui_output_pallets_goatMilk" text="Vuohenmaito"/>
+        <text name="el_ui_amountPerDay" text="%.0fl / päivä" tag="format"/>
+        <text name="el_ui_feePerMonth" text="%s / kk" tag="format"/>
 
-		<text name="el_ui_animalType" text="Eläintyyppi"/>
-		<text name="el_ui_amountMonitored" text="Seurannassa"/>
-		<text name="el_ui_production" text="Tuotanto"/>
-		<text name="el_ui_applyAllMonitor" text="Aseta kaikille seurantalaite"/>
-		<text name="el_ui_removeAllMonitor" text="Poista kaikilta seurantalaite"/>
-		<text name="el_ui_fee" text="Maksu"/>
+        <text name="el_ui_animalType" text="Eläintyyppi"/>
+        <text name="el_ui_amountMonitored" text="Seurannassa"/>
+        <text name="el_ui_production" text="Tuotanto"/>
+        <text name="el_ui_applyAllMonitor" text="Aseta kaikille seurantalaite"/>
+        <text name="el_ui_removeAllMonitor" text="Poista kaikilta seurantalaite"/>
+        <text name="el_ui_fee" text="Maksu"/>
 		<text name="el_ui_description" text="Kuvaus"/>
 
-		<text name="el_ui_leftEarTag" text="Vasen korvamerkki"/>
-		<text name="el_ui_rightEarTag" text="Oikea korvamerkki"/>
-		<text name="el_ui_backgroundColour" text="Taustaväri"/>
-		<text name="el_ui_backgroundHue" text="Taustan sävy"/>
-		<text name="el_ui_backgroundRgb" text="Taustan RGB"/>
-		<text name="el_ui_textColour" text="Tekstin väri"/>
-		<text name="el_ui_textHue" text="Tekstin sävy"/>
-		<text name="el_ui_textRgb" text="Tekstin RGB"/>
-
-		<text name="el_ui_formatMonths" text="%s kuukautta"/>
-		<text name="el_ui_formatMonth" text="%s kuukausi"/>
-		<text name="el_ui_notPregnant" text="Ei odota poikasia"/>
-		<text name="el_ui_notPregnant_github" text="Ei tiineenä"/>
-		<text name="el_ui_any" text="Mikä tahansa"/>
-		<text name="el_ui_pregnancy" text="Tiineys"/>
-		<text name="el_ui_productivity" text="Tuottavuus"/>
-		<text name="el_ui_selectAll" text="Valitse kaikki"/>
-		<text name="el_ui_selectNone" text="Älä valitse mitään"/>
-		<text name="el_ui_filters" text="Suodattimet"/>
-		<text name="el_ui_doesntHaveName" text="Ei nimeä"/>
-		<text name="el_ui_doesHaveName" text="On nimi"/>
-
-
-
-		<text name="el_ui_castrated" text="Kastroitu"/>
-		<text name="el_ui_castrated_github" text="Kastroitu"/>
-		<text name="el_ui_castrate" text="Kastroi"/>
-		<text name="el_ui_castrate_github" text="Kastroi"/>
-
-		<text name="el_ui_importance" text="Tärkeys"/>
-		<text name="el_ui_type" text="Tyyppi"/>
-		<text name="el_ui_date" text="Päivämäärä"/>
-		<text name="el_ui_message" text="Viesti"/>
-		<text name="el_ui_messages" text="Viestit"/>
-		<text name="el_ui_unknownCauses" text="tuntemattomia syitä"/>
-		<text name="el_ui_messageNumber" text="%s-%s / %s"/>
-		<text name="el_ui_deleteMessage" text="Poista viesti"/>
-		<text name="el_ui_unreadMessages" text="Navetalla '%s' on lukemattomia viestejä!"/>
-		<text name="el_ui_herdsman" text="Lomittaja"/>
-		<text name="el_ui_budget" text="Budjetti"/>
-		<text name="el_ui_budgetType" text="Budjetin tyyppi"/>
-		<text name="el_ui_fixed" text="Kiinteä"/>
-		<text name="el_ui_percentage" text="Prosenttiosuus"/>
-		<text name="el_ui_maxAnimals" text="Eläimiä enintään"/>
-		<text name="el_ui_infinite" text="Loputon"/>
-		<text name="el_ui_herdsmanRecentlyBought" text="Lomittajan viimeisimmät ostot"/>
-		<text name="el_ui_previousWage" text="Edellinen palkka"/>
-		<text name="el_ui_herdsmanWages" text="Lomittajan palkat"/>
-		<text name="finance_herdsmanWages" text="Lomittajan palkat"/>
-		<text name="el_ui_medicine" text="Lääke"/>
-		<text name="finance_medicine" text="Lääke"/>
-		<text name="el_ui_semenPurchase" text="Siemennyskapillaari"/>
-		<text name="el_ui_semenPurchase_github" text="Siemennyskapillaari"/>
-		<text name="finance_semenPurchase" text="Siemennyskapillaari"/>
-		<text name="finance_semenPurchase_github" text="Siemennyskapillaari"/>
-		<text name="el_ui_noDiseases" text="Ei tauteja"/>
-		<text name="el_ui_onlyDiseases" text="Vain taudit"/>
-		<text name="el_ui_naming" text="Nimeäminen"/>
-		<text name="el_ui_alphabetical" text="Aakkosjärjestys"/>
-		<text name="el_ui_breed" text="Rotu"/>
-		<text name="el_ui_dontMark" text="Älä merkitse"/>
-		<text name="el_ui_mark" text="Merkitse"/>
-		<text name="el_ui_unmark" text="Poista merkintä"/>
-		<text name="el_ui_favourite" text="Suosikki"/>
-		<text name="el_ui_unFavourite" text="Poista suosikki"/>
-		<text name="el_ui_quantity" text="Määrä"/>
-		<text name="el_ui_dewar" text="Säiliö"/>
-		<text name="el_ui_semenPurchase_successful" text="Siemennystuote ostetty onnistuneesti. Voit noutaa sen kaupalta"/>
-		<text name="el_ui_semenPurchase_successful_github" text="Siemennystuote ostettu onnistuneesti. Voit noutaa sen kaupalta"/>
-		<text name="el_ui_semenPurchase_unsuccessful" text="Siemennystuotteen ostaminen epäonnistui"/>
-		<text name="el_ui_semenPurchase_unsuccessful_github" text="Siemennystuotteen ostaminen epäonnistui"/>
-		<text name="el_ui_earTag" text="Korvamerkki"/>
-		<text name="el_ui_species" text="Laji"/>
-		<text name="el_ui_strawSingle" text="Siemennyskapillaari"/>
-		<text name="el_ui_strawMultiple" text="Siemennyskapillaarit"/>
-		<text name="el_ui_artificialInsemination" text="Keinosiemennys"/>
-		<text name="el_ui_artificialInsemination_github" text="Keinosiemennys"/>
-		<text name="el_ui_semenPurchaseNoPermission" text="Sinulla ei ole oikeuksia käydä kauppaa eläimillä tai ostaa siemennystuotetta."/>
-		<text name="el_ui_semenPurchaseNoPermission_github" text="Sinulla ei ole oikeuksia käydä kauppaa eläimillä tai ostaa siemennystuotetta."/>
-		<text name="el_ui_semenPurchaseNoMoney" text="Sinulla ei ole tarpeeksi rahaa siemennystuotteen ostoon."/>
-		<text name="el_ui_semenPurchaseNoMoney_github" text="Sinulla ei ole tarpeeksi rahaa siemennystuotteen ostoon."/>
-		<text name="el_ui_takeStraw" text="Ota siemennyskapillaari"/>
-		<text name="el_ui_inseminateAnimal" text="Siemennä %s"/>
-		<text name="el_ui_inseminateAnimal_github" text="Siemennä %s"/>
-		<text name="el_ui_inseminate" text="Siemennä"/>
-		<text name="el_ui_inseminate_github" text="Siemennä"/>
-		<text name="el_ui_strawEmpty" text="Tämä siemennyskapillaari on tyhjä"/>
-		<text name="el_ui_averageSuccessColon" text="Keskiarvo onnistumisesta: "/>
-		<text name="el_ui_averageSuccess" text="Keskiarvo onnistumisessa"/>
-		<text name="el_ui_success" text="Onnistui"/>
-		<text name="el_ui_save" text="Tallenna"/>
-		<text name="el_ui_load" text="Lataa"/>
-		<text name="el_ui_saveProfile" text="Tallenna profiili"/>
-		<text name="el_ui_loadProfile" text="Lataa profiili"/>
-
-		<text name="el_ui_healthy" text="Terve"/>
-		<text name="el_ui_hasDisease" text="Sairas"/>
-		<text name="el_ui_diseasedAnimals" text="Sairaat eläimet"/>
-
-
-		<text name="el_insemination_male" text="Vain naaraspuoliset eläimet voidaan keinosiementää"/>
-		<text name="el_insemination_male_github" text="Vain naaraspuoliset eläimet voidaan keinosiementää"/>
-		<text name="el_insemination_pregnant" text="Tämä eläin odottaa jo poikasia"/>
-		<text name="el_insemination_pregnant_github" text="Tämä eläin on jo tiineenä"/>
-		<text name="el_insemination_animalType" text="Eläimen täytyy olla samaa lajia kuin isä"/>
-		<text name="el_insemination_inseminated" text="Tämä eläin on jo saanut keinosiemennyksen"/>
-		<text name="el_insemination_inseminated_github" text="Tämä eläin on jo saanut keinosiemennyksen"/>
-		<text name="el_insemination_recovering" text="Tämä eläin toipuu edellisestä tiineydestä"/>
-		<text name="el_insemination_father" text="Sukusiitos ei ole sallittua"/>
-		<text name="el_insemination_young" text="Tämä eläin on liian nuori keinosiemennykseen"/>
-		<text name="el_insemination_young_github" text="Tämä eläin on liian nuori keinosiemennykseen"/>
+        <text name="el_ui_leftEarTag" text="Vasen korvamerkki"/>
+        <text name="el_ui_rightEarTag" text="Oikea korvamerkki"/>
+        <text name="el_ui_backgroundColour" text="Taustaväri"/>
+        <text name="el_ui_backgroundHue" text="Taustan sävy"/>
+        <text name="el_ui_backgroundRgb" text="Taustan RGB"/>
+        <text name="el_ui_textColour" text="Tekstin väri"/>
+        <text name="el_ui_textHue" text="Tekstin sävy"/>
+        <text name="el_ui_textRgb" text="Tekstin RGB"/>
+
+        <text name="el_ui_formatMonths" text="%s kuukautta"/>
+        <text name="el_ui_formatMonth" text="%s kuukausi"/>
+        <text name="el_ui_notPregnant" text="Ei odota poikasia"/>
+        <text name="el_ui_notPregnant_github" text="Ei tiineenä"/>
+        <text name="el_ui_any" text="Mikä tahansa"/>
+        <text name="el_ui_pregnancy" text="Tiineys"/>
+        <text name="el_ui_productivity" text="Tuottavuus"/>
+        <text name="el_ui_selectAll" text="Valitse kaikki"/>
+        <text name="el_ui_selectNone" text="Älä valitse mitään"/>
+        <text name="el_ui_filters" text="Suodattimet"/>
+        <text name="el_ui_doesntHaveName" text="Ei nimeä"/>
+        <text name="el_ui_doesHaveName" text="On nimi"/>
+
+        <text name="el_ui_castrated" text="Kastroitu"/>
+        <text name="el_ui_castrated_github" text="Kastroitu"/>
+        <text name="el_ui_castrate" text="Kastroi"/>
+        <text name="el_ui_castrate_github" text="Kastroi"/>
+
+        <text name="el_ui_importance" text="Tärkeys"/>
+        <text name="el_ui_type" text="Tyyppi"/>
+        <text name="el_ui_date" text="Päivämäärä"/>
+        <text name="el_ui_message" text="Viesti"/>
+        <text name="el_ui_messages" text="Viestit"/>
+        <text name="el_ui_unknownCauses" text="tuntemattomia syitä"/>
+        <text name="el_ui_messageNumber" text="%s-%s / %s"/>
+        <text name="el_ui_deleteMessage" text="Poista viesti"/>
+        <text name="el_ui_unreadMessages" text="Navetalla '%s' on lukemattomia viestejä!"/>
+        <text name="el_ui_herdsman" text="Lomittaja"/>
+        <text name="el_ui_budget" text="Budjetti"/>
+        <text name="el_ui_budgetType" text="Budjetin tyyppi"/>
+        <text name="el_ui_fixed" text="Kiinteä"/>
+        <text name="el_ui_percentage" text="Prosenttiosuus"/>
+        <text name="el_ui_maxAnimals" text="Eläimiä enintään"/>
+        <text name="el_ui_infinite" text="Loputon"/>
+        <text name="el_ui_herdsmanRecentlyBought" text="Lomittajan viimeisimmät ostot"/>
+        <text name="el_ui_previousWage" text="Edellinen palkka"/>
+        <text name="el_ui_herdsmanWages" text="Lomittajan palkat"/>
+        <text name="finance_herdsmanWages" text="Lomittajan palkat"/>
+        <text name="el_ui_medicine" text="Lääke"/>
+        <text name="finance_medicine" text="Lääke"/>
+        <text name="el_ui_semenPurchase" text="Siemennyskapillaari"/>
+        <text name="el_ui_semenPurchase_github" text="Siemennyskapillaari"/>
+        <text name="finance_semenPurchase" text="Siemennyskapillaari"/>
+        <text name="finance_semenPurchase_github" text="Siemennyskapillaari"/>
+        <text name="el_ui_semenSale" text="Siemennesteen myynti"/>
+        <text name="el_ui_semenSale_github" text="Siemennesteen myynti"/>
+        <text name="finance_semenSale" text="Siemennesteen myynti"/>
+        <text name="finance_semenSale_github" text="Siemennesteen myynti"/>
+        <text name="el_ui_noDiseases" text="Ei tauteja"/>
+        <text name="el_ui_onlyDiseases" text="Vain taudit"/>
+        <text name="el_ui_naming" text="Nimeäminen"/>
+        <text name="el_ui_alphabetical" text="Aakkosjärjestys"/>
+        <text name="el_ui_breed" text="Rotu"/>
+        <text name="el_ui_dontMark" text="Älä merkitse"/>
+        <text name="el_ui_mark" text="Merkitse"/>
+        <text name="el_ui_unmark" text="Poista merkintä"/>
+        <text name="el_ui_favourite" text="Suosikki"/>
+        <text name="el_ui_unFavourite" text="Poista suosikki"/>
+        <text name="el_ui_quantity" text="Määrä"/>
+        <text name="el_ui_dewar" text="Säiliö"/>
+        <text name="el_ui_semenPurchase_successful" text="Siemennystuote ostetty onnistuneesti. Voit noutaa sen kaupalta"/>
+        <text name="el_ui_semenPurchase_successful_github" text="Siemennystuote ostettu onnistuneesti. Voit noutaa sen kaupalta"/>
+        <text name="el_ui_semenPurchase_unsuccessful" text="Siemennystuotteen ostaminen epäonnistui"/>
+        <text name="el_ui_semenPurchase_unsuccessful_github" text="Siemennystuotteen ostaminen epäonnistui"/>
+        <text name="el_ui_earTag" text="Korvamerkki"/>
+        <text name="el_ui_species" text="Laji"/>
+        <text name="el_ui_strawSingle" text="Siemennyskapillaari"/>
+        <text name="el_ui_strawMultiple" text="Siemennyskapillaarit"/>
+        <text name="el_ui_artificialInsemination" text="Keinosiemennys"/>
+        <text name="el_ui_artificialInsemination_github" text="Keinosiemennys"/>
+        <text name="el_ui_semenPurchaseNoPermission" text="Sinulla ei ole oikeuksia käydä kauppaa eläimillä tai ostaa siemennystuotetta."/>
+        <text name="el_ui_semenPurchaseNoPermission_github" text="Sinulla ei ole oikeuksia käydä kauppaa eläimillä tai ostaa siemennystuotetta."/>
+        <text name="el_ui_semenPurchaseNoMoney" text="Sinulla ei ole tarpeeksi rahaa siemennystuotteen ostoon."/>
+        <text name="el_ui_semenPurchaseNoMoney_github" text="Sinulla ei ole tarpeeksi rahaa siemennystuotteen ostoon."/>
+        <text name="el_ui_takeStraw" text="Ota siemennyskapillaari"/>
+        <text name="el_ui_inseminateAnimal" text="Siemennä %s"/>
+        <text name="el_ui_inseminateAnimal_github" text="Siemennä %s"/>
+        <text name="el_ui_inseminate" text="Siemennä"/>
+        <text name="el_ui_inseminate_github" text="Siemennä"/>
+        <text name="el_ui_strawEmpty" text="Tämä siemennyskapillaari on tyhjä"/>
+        <text name="el_ui_averageSuccessColon" text="Keskiarvo onnistumisesta: "/>
+        <text name="el_ui_averageSuccess" text="Keskiarvo onnistumisessa"/>
+        <text name="el_ui_success" text="Onnistui"/>
+        <text name="el_ui_semen" text="Sample"/>
+        <text name="el_ui_semen_github" text="Semen"/>
+        <text name="el_ui_actual" text="Actual"/>
+        <text name="el_ui_save" text="Tallenna"/>
+        <text name="el_ui_load" text="Lataa"/>
+        <text name="el_ui_saveProfile" text="Tallenna profiili"/>
+        <text name="el_ui_loadProfile" text="Lataa profiili"/>
+
+        <text name="el_ui_healthy" text="Terve"/>
+        <text name="el_ui_hasDisease" text="Sairas"/>
+        <text name="el_ui_diseasedAnimals" text="Sairaat eläimet"/>
 
 
-		<text name="el_mark_aiManager_sell" text="Lomittaja on merkinnyt myyväksi"/>
-		<text name="el_mark_aiManager_castrate" text="Lomittaja on merkinnyt kastrointiin"/>
-		<text name="el_mark_aiManager_castrate_github" text="Lomittaja on merkinnyt kastrointiin"/>
-		<text name="el_mark_aiManager_disease" text="Lomittaja on merkinnyt hoitoa varten"/>
-		<text name="el_mark_aiManager_ai" text="Lomittaja on merkinnyt keinosiemennykseen"/>
-		<text name="el_mark_aiManager_ai_github" text="Lomittaja on merkinnyt keinosiemennykseen"/>
-		<text name="el_mark_player" text="Pelaajan merkitsemä"/>
+        <text name="el_insemination_male" text="Vain naaraspuoliset eläimet voidaan keinosiementää"/>
+        <text name="el_insemination_male_github" text="Vain naaraspuoliset eläimet voidaan keinosiementää"/>
+        <text name="el_insemination_pregnant" text="Tämä eläin odottaa jo poikasia"/>
+        <text name="el_insemination_pregnant_github" text="Tämä eläin on jo tiineenä"/>
+        <text name="el_insemination_animalType" text="Eläimen täytyy olla samaa lajia kuin isä"/>
+        <text name="el_insemination_inseminated" text="Tämä eläin on jo saanut keinosiemennyksen"/>
+        <text name="el_insemination_inseminated_github" text="Tämä eläin on jo saanut keinosiemennyksen"/>
+        <text name="el_insemination_recovering" text="Tämä eläin toipuu edellisestä tiineydestä"/>
+        <text name="el_insemination_father" text="Sukusiitos ei ole sallittua"/>
+        <text name="el_insemination_young" text="Tämä eläin on liian nuori keinosiemennykseen"/>
+        <text name="el_insemination_young_github" text="Tämä eläin on liian nuori keinosiemennykseen"/>
 
 
-	<!-- AI - BUYING -->
+        <text name="el_mark_aiManager_sell" text="Lomittaja on merkinnyt myyväksi"/>
+        <text name="el_mark_aiManager_castrate" text="Lomittaja on merkinnyt kastrointiin"/>
+        <text name="el_mark_aiManager_castrate_github" text="Lomittaja on merkinnyt kastrointiin"/>
+        <text name="el_mark_aiManager_disease" text="Lomittaja on merkinnyt hoitoa varten"/>
+        <text name="el_mark_aiManager_ai" text="Lomittaja on merkinnyt keinosiemennykseen"/>
+        <text name="el_mark_aiManager_ai_github" text="Lomittaja on merkinnyt keinosiemennykseen"/>
+        <text name="el_mark_player" text="Pelaajan merkitsemä"/>
 
 
-		<text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Lomittaja ei osta eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Lomittaja ostaa eläimiä."/>
+        <!-- AI - BUYING -->
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Ostobudjetti on kiinteä määrä."/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Ostobudjetti on prosenttiosuus tilan rahoista."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Lomittaja käyttää enintään %s per päivä."/>
-		<text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Lomittaja käyttää enintään %s tilan rahoista päivässä."/>
+        <text name="el_ui_herdsmanTooltip_buy_enabled_1" text="Lomittaja ei osta eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_buy_enabled_2" text="Lomittaja ostaa eläimiä."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Lomittaja ostaa enintään %s eläintä päivässä."/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_1" text="Ostobudjetti on kiinteä määrä."/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|type_2" text="Ostobudjetti on prosenttiosuus tilan rahoista."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_breed" text="Lomittaja ostaa vain %s -rodun eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_buy_breed_any" text="Lomittaja ostaa minkä tahansa rodun eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|fixed" text="Lomittaja käyttää enintään %s per päivä."/>
+        <text name="el_ui_herdsmanTooltip_buy_budget|percentage" text="Lomittaja käyttää enintään %s tilan rahoista päivässä."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Lomittaja ostaa vain terveitä eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Lomittaja ostaa eläimiä taudeista riippumatta."/>
+        <text name="el_ui_herdsmanTooltip_buy_maxAnimals" text="Lomittaja ostaa enintään %s eläintä päivässä."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_gender_1" text="Lomittaja ostaa vain naaraseläimiä."/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_2" text="Lomittaja ostaa sekä naaras- että uroseläimiä."/>
-		<text name="el_ui_herdsmanTooltip_buy_gender_3" text="Lomittaja ostaa vain uroseläimiä."/>
+        <text name="el_ui_herdsmanTooltip_buy_breed" text="Lomittaja ostaa vain %s -rodun eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_buy_breed_any" text="Lomittaja ostaa minkä tahansa rodun eläimiä."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_age_equal" text="Lomittaja ostaa vain eläimiä, joiden ikä on %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_age_range" text="Lomittaja ostaa vain eläimiä, joiden ikä on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_buy_diseases_1" text="Lomittaja ostaa vain terveitä eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_buy_diseases_2" text="Lomittaja ostaa eläimiä taudeista riippumatta."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Lomittaja ostaa vain eläimiä, joiden laatu on %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_quality_range" text="Lomittaja ostaa vain eläimiä, joiden laatu on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_1" text="Lomittaja ostaa vain naaraseläimiä."/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_2" text="Lomittaja ostaa sekä naaras- että uroseläimiä."/>
+        <text name="el_ui_herdsmanTooltip_buy_gender_3" text="Lomittaja ostaa vain uroseläimiä."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Lomittaja ostaa vain eläimiä, joiden hedelmällisyys on %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Lomittaja ostaa vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_buy_age_equal" text="Lomittaja ostaa vain eläimiä, joiden ikä on %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_age_range" text="Lomittaja ostaa vain eläimiä, joiden ikä on %s ja %s välillä."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_health_equal" text="Lomittaja ostaa vain eläimiä, joiden terveys on %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_health_range" text="Lomittaja ostaa vain eläimiä, joiden terveys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_buy_quality_equal" text="Lomittaja ostaa vain eläimiä, joiden laatu on %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_quality_range" text="Lomittaja ostaa vain eläimiä, joiden laatu on %s ja %s välillä."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Lomittaja ostaa vain eläimiä, joiden tuottavuus on %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Lomittaja ostaa vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_buy_fertility_equal" text="Lomittaja ostaa vain eläimiä, joiden hedelmällisyys on %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_fertility_range" text="Lomittaja ostaa vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
 
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Lomittaja ostaa vain eläimiä, joiden aineenvaihdunta on %s."/>
-		<text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Lomittaja ostaa vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_buy_health_equal" text="Lomittaja ostaa vain eläimiä, joiden terveys on %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_health_range" text="Lomittaja ostaa vain eläimiä, joiden terveys on %s ja %s välillä."/>
 
+        <text name="el_ui_herdsmanTooltip_buy_productivity_equal" text="Lomittaja ostaa vain eläimiä, joiden tuottavuus on %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_productivity_range" text="Lomittaja ostaa vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
 
-	<!-- AI - SELLING -->
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_equal" text="Lomittaja ostaa vain eläimiä, joiden aineenvaihdunta on %s."/>
+        <text name="el_ui_herdsmanTooltip_buy_metabolism_range" text="Lomittaja ostaa vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
 
 
-		<text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Lomittaja ei myy eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Lomittaja myy eläimiä."/>
+        <!-- AI - SELLING -->
 
-		<text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Lomittaja myy korkeintaan %s eläintä päivässä."/>
 
-		<text name="el_ui_herdsmanTooltip_sell_mark_1" text="Lomittaja ei merkitse eläimiä myytäväksi."/>
-		<text name="el_ui_herdsmanTooltip_sell_mark_2" text="Lomittaja merkitsee eläimiä myytäväksi."/>
-		
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Lomittaja myy eläimiä riippumatta sairauksista."/>
-		<text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Lomittaja myy vain sairaita eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_sell_enabled_1" text="Lomittaja ei myy eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_sell_enabled_2" text="Lomittaja myy eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_sell_maxAnimals" text="Lomittaja myy korkeintaan %s eläintä päivässä."/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_1" text="Lomittaja ei merkitse eläimiä myytäväksi."/>
+        <text name="el_ui_herdsmanTooltip_sell_mark_2" text="Lomittaja merkitsee eläimiä myytäväksi."/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_1" text="Lomittaja myy eläimiä riippumatta sairauksista."/>
+        <text name="el_ui_herdsmanTooltip_sell_diseasesSecondary_2" text="Lomittaja myy vain sairaita eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_1" text="Lomittaja myy vain naaraseläimiä."/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_2" text="Lomittaja myy sekä naaras- että uroseläimiä."/>
+        <text name="el_ui_herdsmanTooltip_sell_gender_3" text="Lomittaja myy vain uroseläimiä."/>
+        <text name="el_ui_herdsmanTooltip_sell_age_equal" text="Lomittaja myy vain eläimiä, joiden ikä on %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_age_range" text="Lomittaja myy vain eläimiä, joiden ikä on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Lomittaja myy vain eläimiä, joiden laatu on %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_quality_range" text="Lomittaja myy vain eläimiä, joiden laatu on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Lomittaja myy vain eläimiä, joiden hedelmällisyys on %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Lomittaja myy vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_sell_health_equal" text="Lomittaja myy vain eläimiä, joiden terveys on %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_health_range" text="Lomittaja myy vain eläimiä, joiden terveys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Lomittaja myy vain eläimiä, joiden tuottavuus on %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Lomittaja myy vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Lomittaja myy vain eläimiä, joiden aineenvaihdunta on %s."/>
+        <text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Lomittaja myy vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
 
-		<text name="el_ui_herdsmanTooltip_sell_gender_1" text="Lomittaja myy vain naaraseläimiä."/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_2" text="Lomittaja myy sekä naaras- että uroseläimiä."/>
-		<text name="el_ui_herdsmanTooltip_sell_gender_3" text="Lomittaja myy vain uroseläimiä."/>
 
-		<text name="el_ui_herdsmanTooltip_sell_age_equal" text="Lomittaja myy vain eläimiä, joiden ikä on %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_age_range" text="Lomittaja myy vain eläimiä, joiden ikä on %s ja %s välillä."/>
+        <!-- AI - CASTRATING -->
 
-		<text name="el_ui_herdsmanTooltip_sell_quality_equal" text="Lomittaja myy vain eläimiä, joiden laatu on %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_quality_range" text="Lomittaja myy vain eläimiä, joiden laatu on %s ja %s välillä."/>
 
-		<text name="el_ui_herdsmanTooltip_sell_fertility_equal" text="Lomittaja myy vain eläimiä, joiden hedelmällisyys on %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_fertility_range" text="Lomittaja myy vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Lomittaja ei kastroi eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Lomittaja ei kastroi eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Lomittaja kastroi eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Lomittaja kastroi eläimiä."/>
 
-		<text name="el_ui_herdsmanTooltip_sell_health_equal" text="Lomittaja myy vain eläimiä, joiden terveys on %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_health_range" text="Lomittaja myy vain eläimiä, joiden terveys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Lomittaja ei merkitse eläimiä kastraatiota varten."/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Lomittaja ei merkitse eläimiä kastraatiota varten."/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Lomittaja merkitsee eläimiä kastraatiota varten."/>
+        <text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Lomittaja merkitsee eläimiä kastraatiota varten."/>
 
-		<text name="el_ui_herdsmanTooltip_sell_productivity_equal" text="Lomittaja myy vain eläimiä, joiden tuottavuus on %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_productivity_range" text="Lomittaja myy vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Lomittaja kastroi eläimiä riippumatta sairauksista."/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Lomittaja kastroi eläimiä riippumatta sairauksista."/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Lomittaja kastroi vain sairaita eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Lomittaja kastroi vain sairaita eläimiä."/>
 
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_equal" text="Lomittaja myy vain eläimiä, joiden aineenvaihdunta on %s."/>
-		<text name="el_ui_herdsmanTooltip_sell_metabolism_range" text="Lomittaja myy vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Lomittaja kastroi vain eläimiä, joiden ikä on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Lomittaja kastroi vain eläimiä, joiden ikä on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range" text="Lomittaja kastroi vain eläimiä, joiden ikä on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Lomittaja kastroi vain eläimiä, joiden ikä on %s ja %s välillä."/>
 
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Lomittaja kastroi vain eläimiä, joiden laatu on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Lomittaja kastroi vain eläimiä, joiden laatu on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Lomittaja kastroi vain eläimiä, joiden laatu on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Lomittaja kastroi vain eläimiä, joiden laatu on %s ja %s välillä."/>
 
-	<!-- AI - CASTRATING -->
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Lomittaja kastroi vain eläimiä, joiden hedelmällisyys on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Lomittaja kastroi vain eläimiä, joiden hedelmällisyys on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Lomittaja kastroi vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Lomittaja kastroi vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
 
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Lomittaja kastroi vain eläimiä, joiden terveys on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Lomittaja kastroi vain eläimiä, joiden terveys on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range" text="Lomittaja kastroi vain eläimiä, joiden terveys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Lomittaja kastroi vain eläimiä, joiden terveys on %s ja %s välillä."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Lomittaja kastroi vain eläimiä, joiden tuottavuus on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Lomittaja kastroi vain eläimiä, joiden tuottavuus on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Lomittaja kastroi vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Lomittaja kastroi vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
+
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Lomittaja kastroi vain eläimiä, joiden aineenvaihdunta on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Lomittaja kastroi vain eläimiä, joiden aineenvaihdunta on %s."/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Lomittaja kastroi vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Lomittaja kastroi vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
+
+
+        <!-- AI - NAMING -->
+
+
+        <text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Lomittaja ei nimeä eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Lomittaja nimeää eläimiä."/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1" text="Lomittaja ei kastroi eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_1_github" text="Lomittaja ei kastroi eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2" text="Lomittaja kastroi eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_enabled_2_github" text="Lomittaja kastroi eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_naming_convention_1" text="Lomittaja nimeää eläimet satunnaisesti."/>
+        <text name="el_ui_herdsmanTooltip_naming_convention_2" text="Lomittaja nimeää eläimet aakkosjärjestyksessä."/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1" text="Lomittaja ei merkitse eläimiä kastraatiota varten."/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_1_github" text="Lomittaja ei merkitse eläimiä kastraatiota varten."/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2" text="Lomittaja merkitsee eläimiä kastraatiota varten."/>
-		<text name="el_ui_herdsmanTooltip_castrate_mark_2_github" text="Lomittaja merkitsee eläimiä kastraatiota varten."/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1" text="Lomittaja kastroi eläimiä riippumatta sairauksista."/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_1_github" text="Lomittaja kastroi eläimiä riippumatta sairauksista."/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2" text="Lomittaja kastroi vain sairaita eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_diseasesSecondary_2_github" text="Lomittaja kastroi vain sairaita eläimiä."/>
+        <!-- AI - ASSISTED BREEDING -->
 
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal" text="Lomittaja kastroi vain eläimiä, joiden ikä on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_equal_github" text="Lomittaja kastroi vain eläimiä, joiden ikä on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range" text="Lomittaja kastroi vain eläimiä, joiden ikä on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_age_range_github" text="Lomittaja kastroi vain eläimiä, joiden ikä on %s ja %s välillä."/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal" text="Lomittaja kastroi vain eläimiä, joiden laatu on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_equal_github" text="Lomittaja kastroi vain eläimiä, joiden laatu on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range" text="Lomittaja kastroi vain eläimiä, joiden laatu on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_quality_range_github" text="Lomittaja kastroi vain eläimiä, joiden laatu on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Lomittaja ei tee keinohedelmöityksiä."/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Lomittaja ei tee keinohedelmöityksiä."/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Lomittaja tekee keinohedelmöityksiä."/>
+        <text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Lomittaja tekee keinohedelmöityksiä."/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal" text="Lomittaja kastroi vain eläimiä, joiden hedelmällisyys on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_equal_github" text="Lomittaja kastroi vain eläimiä, joiden hedelmällisyys on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range" text="Lomittaja kastroi vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_fertility_range_github" text="Lomittaja kastroi vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Lomittaja keinohedelmöittää enintään %s eläintä päivässä."/>
+        <text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Lomittaja keinohedelmöittää enintään %s eläintä päivässä."/>
+
+        <text name="el_ui_herdsmanTooltip_ai_mark_1" text="Lomittaja ei merkitse eläimiä keinohedelmöitettäväksi."/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Lomittaja ei merkitse eläimiä keinohedelmöitettäväksi."/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2" text="Lomittaja merkitsee eläimiä keinohedelmöitettäväksi."/>
+        <text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Lomittaja merkitsee eläimiä keinohedelmöitettäväksi."/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal" text="Lomittaja kastroi vain eläimiä, joiden terveys on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_equal_github" text="Lomittaja kastroi vain eläimiä, joiden terveys on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range" text="Lomittaja kastroi vain eläimiä, joiden terveys on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_health_range_github" text="Lomittaja kastroi vain eläimiä, joiden terveys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Lomittaja keinohedelmöittää eläimiä riippumatta sairauksista."/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Lomittaja keinohedelmöittää eläimiä riippumatta sairauksista."/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Lomittaja keinohedelmöittää vain sairaita eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Lomittaja keinohedelmöittää vain sairaita eläimiä."/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal" text="Lomittaja kastroi vain eläimiä, joiden tuottavuus on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_equal_github" text="Lomittaja kastroi vain eläimiä, joiden tuottavuus on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range" text="Lomittaja kastroi vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_productivity_range_github" text="Lomittaja kastroi vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_semen" text="Lomittaja käyttää siementä lähteestä %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_github" text="Lomittaja käyttää siementä lähteestä %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any" text="Lomittaja käyttää mitä tahansa kelvollista siementä."/>
+        <text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Lomittaja käyttää mitä tahansa kelvollista siementä."/>
 
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal" text="Lomittaja kastroi vain eläimiä, joiden aineenvaihdunta on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_equal_github" text="Lomittaja kastroi vain eläimiä, joiden aineenvaihdunta on %s."/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range" text="Lomittaja kastroi vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_castrate_metabolism_range_github" text="Lomittaja kastroi vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_age_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden ikä on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden ikä on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden ikä on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden ikä on %s ja %s välillä."/>
 
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden laatu on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden laatu on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden laatu on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden laatu on %s ja %s välillä."/>
 
-	<!-- AI - NAMING -->
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden hedelmällisyys on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden hedelmällisyys on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
 
+        <text name="el_ui_herdsmanTooltip_ai_health_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden terveys on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden terveys on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden terveys on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden terveys on %s ja %s välillä."/>
 
-		<text name="el_ui_herdsmanTooltip_naming_enabled_1" text="Lomittaja ei nimeä eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_naming_enabled_2" text="Lomittaja nimeää eläimiä."/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden tuottavuus on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden tuottavuus on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
 
-		<text name="el_ui_herdsmanTooltip_naming_convention_1" text="Lomittaja nimeää eläimet satunnaisesti."/>
-		<text name="el_ui_herdsmanTooltip_naming_convention_2" text="Lomittaja nimeää eläimet aakkosjärjestyksessä."/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden aineenvaihdunta on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden aineenvaihdunta on %s."/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
+        <text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
 
+        <!-- AI Rework System: Bull Tier Names -->
+        <text name="el_ui_bullTier_youngGenomic" text="Young (Genomic)"/>
+        <text name="el_ui_bullTier_proven" text="Proven"/>
+        <text name="el_ui_bullTier_elite" text="Elite"/>
+        <text name="el_ui_bullTier_legend" text="Legend"/>
 
-	<!-- AI - AI -->
+        <!-- AI Rework System: Semen Types -->
+        <text name="el_ui_semenType" text="Sample Type"/>
+        <text name="el_ui_semenType_github" text="Semen Type"/>
+        <text name="el_ui_semenType_conventional" text="Conventional"/>
+        <text name="el_ui_semenType_sexedFemale" text="Sexed (Female)"/>
+        <text name="el_ui_semenType_sexedMale" text="Sexed (Male)"/>
 
+        <!-- AI Rework System: Nitrogen System -->
+        <text name="el_ui_nitrogenLevel" text="Nitrogen Level"/>
+        <text name="el_warning_criticalNitrogen" text="CRITICAL: Nitrogen Empty!"/>
+        <text name="el_warning_dewarSpoiled" text="Dewar %s spoiled due to nitrogen depletion"/>
+        <text name="el_warning_thermalDamage" text="Semen fertility reduced due to thermal exposure"/>
+        <text name="el_action_refillNitrogen" text="Refill Nitrogen ($50)"/>
+        <text name="el_info_nitrogenAlreadyFull" text="Nitrogen level is already full"/>
+        <text name="el_notification_nitrogenRefilled" text="Nitrogen refilled for %s"/>
+        <text name="el_error_insufficientFunds" text="Sinulla ei ole tarpeeksi rahaa"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1" text="Lomittaja ei tee keinohedelmöityksiä."/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_1_github" text="Lomittaja ei tee keinohedelmöityksiä."/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2" text="Lomittaja tekee keinohedelmöityksiä."/>
-		<text name="el_ui_herdsmanTooltip_ai_enabled_2_github" text="Lomittaja tekee keinohedelmöityksiä."/>
+        <!-- AI Rework System: Stock Management -->
+        <text name="el_ui_strawsAvailable" text="%d straws available"/>
+        <text name="el_ui_limitedStock" text="Limited stock: only %d available"/>
+        <text name="el_error_insufficientSemenStock" text="Not enough semen in stock"/>
+        <text name="el_error_noSexedSemenAvailable" text="No sexed semen available for this bull"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals" text="Lomittaja keinohedelmöittää enintään %s eläintä päivässä."/>
-		<text name="el_ui_herdsmanTooltip_ai_maxAnimals_github" text="Lomittaja keinohedelmöittää enintään %s eläintä päivässä."/>
+        <!-- AI Rework System: Selling Semen -->
+        <text name="el_ui_sellSemen" text="Sell Semen"/>
+        <text name="el_error_onlyMalesCanSellSemen" text="Only male animals can sell semen"/>
+        <text name="el_error_animalTooYoung" text="Animal is too young to sell semen"/>
+        <text name="el_error_semenCollectionCooldown" text="Bull needs to rest before next semen collection"/>
+        <text name="el_notification_semenSold" text="Sold %d straws from %s for %s"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_mark_1" text="Lomittaja ei merkitse eläimiä keinohedelmöitettäväksi."/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_1_github" text="Lomittaja ei merkitse eläimiä keinohedelmöitettäväksi."/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2" text="Lomittaja merkitsee eläimiä keinohedelmöitettäväksi."/>
-		<text name="el_ui_herdsmanTooltip_ai_mark_2_github" text="Lomittaja merkitsee eläimiä keinohedelmöitettäväksi."/>
+        <!--  SETTINGS  -->
 
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1" text="Lomittaja keinohedelmöittää eläimiä riippumatta sairauksista."/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_1_github" text="Lomittaja keinohedelmöittää eläimiä riippumatta sairauksista."/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2" text="Lomittaja keinohedelmöittää vain sairaita eläimiä."/>
-		<text name="el_ui_herdsmanTooltip_ai_diseasesSecondary_2_github" text="Lomittaja keinohedelmöittää vain sairaita eläimiä."/>
 
-		<text name="el_ui_herdsmanTooltip_ai_semen" text="Lomittaja käyttää siementä lähteestä %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_github" text="Lomittaja käyttää siementä lähteestä %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any" text="Lomittaja käyttää mitä tahansa kelvollista siementä."/>
-		<text name="el_ui_herdsmanTooltip_ai_semen_any_github" text="Lomittaja käyttää mitä tahansa kelvollista siementä."/>
+        <text name="el_settings" text="Enhanced Livestock"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_age_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden ikä on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_age_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden ikä on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden ikä on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_ai_age_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden ikä on %s ja %s välillä."/>
+        <text name="el_settings_off" text="Pois"/>
+        <text name="el_settings_on" text="Päällä"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden laatu on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden laatu on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden laatu on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_ai_quality_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden laatu on %s ja %s välillä."/>
+        <text name="el_settings_deathEnabled_label" text="Eläinten poistuminen"/>
+        <text name="el_settings_deathEnabled_label_github" text="Eläinten kuoleminen"/>
+        <text name="el_settings_deathEnabled_tooltip_1" text="Eläimiä ei poisteta tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi"/>
+        <text name="el_settings_deathEnabled_tooltip_1_github" text="Eläimiä ei kuole tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi"/>
+        <text name="el_settings_deathEnabled_tooltip_2" text="Eläimiä poistetaan tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi"/>
+        <text name="el_settings_deathEnabled_tooltip_2_github" text="Eläimiä kuolee tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi"/>
 
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden hedelmällisyys on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden hedelmällisyys on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_ai_fertility_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden hedelmällisyys on %s ja %s välillä."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_health_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden terveys on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_health_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden terveys on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden terveys on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_ai_health_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden terveys on %s ja %s välillä."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden tuottavuus on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden tuottavuus on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_ai_productivity_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden tuottavuus on %s ja %s välillä."/>
-
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal" text="Lomittaja keinohedelmöittää vain eläimiä, joiden aineenvaihdunta on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_equal_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden aineenvaihdunta on %s."/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range" text="Lomittaja keinohedelmöittää vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
-		<text name="el_ui_herdsmanTooltip_ai_metabolism_range_github" text="Lomittaja keinohedelmöittää vain eläimiä, joiden aineenvaihdunta on %s ja %s välillä."/>
-
-
-
-
-		<!--  SETTINGS  -->
-
-
-		<text name="el_settings" text="Enhanced Livestock"/>
-
-		<text name="el_settings_off" text="Pois"/>
-		<text name="el_settings_on" text="Päällä"/>
-
-		<text name="el_settings_deathEnabled_label" text="Eläinten poistuminen"/>
-		<text name="el_settings_deathEnabled_label_github" text="Eläinten kuoleminen"/>
-		<text name="el_settings_deathEnabled_tooltip_1" text="Eläimiä ei poisteta tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi"/>
-		<text name="el_settings_deathEnabled_tooltip_1_github" text="Eläimiä ei kuole tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi"/>
-		<text name="el_settings_deathEnabled_tooltip_2" text="Eläimiä poistetaan tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi"/>
-		<text name="el_settings_deathEnabled_tooltip_2_github" text="Eläimiä kuolee tiineyden, terveyden, vanhuuden tai onnettomuuden vuoksi"/>
-
-		<text name="el_settings_accidentsChance_label" text="Onnettomuuden todennäköisyys"/>
-		<text name="el_settings_accidentsChance_tooltip" text="Muuta satunnaisista onnettomuuksista johtuvaa eläinten poistumisen todennäköisyyttä"/>
-		<text name="el_settings_accidentsChance_tooltip_github" text="Muuta satunnaisista onnettomuuksista johtuvaa eläinten kuolemisen todennäköisyyttä"/>
-
-		<text name="el_settings_foodScale_label" text="Ruuankulutus"/>
-		<text name="el_settings_foodScale_tooltip" text="Muuttaa eläinten kuluttamaa ruuan määrää"/>
-
-		<text name="el_settings_maxDealerAnimals_label" text="Eläinten enimmäismäärä eläinkauppiaalla"/>
-		<text name="el_settings_maxDealerAnimals_tooltip" text="Muuta eläinkauppiaalta ostettavien eläinten enimmäismäärää eläinlajia kohden"/>
-
-		<text name="el_settings_resetDealer_label" text="Nollaa eläinkauppias"/>
-		<text name="el_settings_resetDealer_tooltip" text="Poista kaikki eläinkauppiaan eläimet ja täydennä varastot uusilla eläimillä"/>
-		<text name="el_settings_resetDealer_text" text="Nollaa eläinkauppias"/>
-
-		<text name="el_settings_tagColour_label" text="Muuta merkin väriä"/>
-		<text name="el_settings_tagColour_tooltip" text="Muuta korvamerkin väriä"/>
-		<text name="el_settings_tagColour_text" text="Muuta merkin väriä"/>
-
-		<text name="el_settings_exportCSV_label" text="Vie CSV:ksi"/>
-		<text name="el_settings_exportCSV_tooltip" text="Vie tilastot CSV:ksi"/>
-		<text name="el_settings_exportCSV_text" text="Vie CSV:ksi"/>
-
-		<text name="el_settings_maxNumMessages_label" text="Enimmäismäärä viestejä"/>
-		<text name="el_settings_maxNumMessages_tooltip" text="Korkeampi määrä kasvattaa tallennuskansiosi kokoa. Kun tämä raja on saavutettu, vanhimmat viestit poistetaan."/>
-
-		<text name="el_settings_diseasesEnabled_label" text="Diseases Enabled"/>
-		<text name="el_settings_diseasesEnabled_tooltip_1" text="Animals cannot catch or inherit diseases"/>
-		<text name="el_settings_diseasesEnabled_tooltip_2" text="Animals can catch or inherit diseases"/>
-
-		<text name="el_settings_diseasesChance_label" text="Disease Chance"/>
-		<text name="el_settings_diseasesChance_tooltip" text="Change the likelihood of animals contracting diseases"/>
-
-		<text name="el_settings_useCustomAnimals_label" text="Use Custom Animals"/>
-		<text name="el_settings_useCustomAnimals_tooltip_1" text="Use EnhancedLivestock animal models (requires restart)"/>
-		<text name="el_settings_useCustomAnimals_tooltip_2" text="Use custom animal models (experimental, requires restart, must be unzipped)"/>
-
-		<text name="el_settings_animalsXML_label" text="Set Animals XML Path"/>
-		<text name="el_settings_animalsXML_tooltip" text="Set path to a custom animals XML file"/>
-		<text name="el_settings_animalsXML_text" text="Set Animals XML Path"/>
-
-		<text name="el_settings_earTagTextEnabled_label" text="Korvamerkkiteksti"/>
-		<text name="el_settings_earTagTextEnabled_tooltip" text="Ota käyttöön/poista käytöstä tekstin näyttäminen eläinten korvamerkeissä"/>
-
-		<!--  HELP  -->
-
-
-		<text name="el_help_monitors_title" text="Seurantalaitteet"/>
-		<text name="el_help_monitors_1" text="Nähdäksesi suurimman osan eläimen tilastoista, sinun on kiinnitettävä siihen seurantalaite, jonka voit tehdä eläinvalikon kautta (jossa ostetaan ja myydään eläimiä). Seurantalaitteet näkyvät myös visuaalisesti eläimen vasemmassa korvassa, tunnistemerkin vieressä."/>
-		<text name="el_help_monitors_2" text="Seurantalaitteen avulla sinulle näytetään tärkeitä tietoja, mm. terveys, paino, imetys, tuotanto sekä olkien, ruoan ja veden tarve."/>
-		<text name="el_help_monitors_3" text="Laitteen kiinnittämisestä peritään pieni kuukausimaksun eläimen lajin mukaan. Jos päätät poistaa laitteen, niin se poistetaan seuraavan kuun alussa."/>
-
-		<text name="el_help_pregnancy_title" text="Poikasten kasvatus"/>
-		<text name="el_help_pregnancy_title_github" text="Tiineys"/>
-		<text name="el_help_pregnancy_1" text="Naaraseläimet tarvitsevat vähintään yhden uroseläimen saadakseen poikasia. Molempien eläinten on oltava terveitä ja oikean ikäisiä, sekä samaa lajia. Jalostus eri rotujen välillä (esim. holstein-lehmä ja angussoni) on sallittua."/>
-		<text name="el_help_pregnancy_1_github" text="Kaikki naaraspuoliset eläimet tarvitsevat vähintään yhden uroseläimen tullakseen tiineeksi. Molempien eläinten on oltava oikean ikäisiä, terveitä sekä samaa lajia. Jalostus eri rotujen välillä (esim. holstein-lehmä ja angussoni) on sallittua."/>
-		<text name="el_help_pregnancy_2" text="Lähisukulaiset eivät pariu. Jos uros ja naaras ovat suoraan sukua, he eivät lisäänny yhdessä."/>
-		<text name="el_help_pregnancy_2_github" text="Sukusiitos ei ole sallittua. Jos uros ja naaras ovat suoraan sukua, he eivät lisäänny yhdessä."/>
-		<text name="el_help_pregnancy_3" text="Naaraan mahdollisuus saada poikasia riippuu molempien vanhempien hedelmällisyydestä. Naaralla, jolla on korkeampi hedelmällisyys, on myös huomattavasti suurempi mahdollisuus tuottaa kerralla enemmän jälkeläisiä."/>
-		<text name="el_help_pregnancy_3_github" text="Naaraan mahdollisuus tulla tiineeksi riippuu kummankin hedelmällisyydestä. Naaralla, jolla on korkeampi hedelmällisyys, on myös huomattavasti suurempi mahdollisuus tuottaa kerralla enemmän jälkeläisiä."/>
-		<text name="el_help_pregnancy_4" text="Kun naaras odottaa poikasia, alkaa se kantamaan jälkeläisiä. Näet odotetun poikimispäivän ja jälkeläisten lukumäärän katsomalla eläintä karsinassa tai valitsemalla sen eläinvalikosta."/>
-		<text name="el_help_pregnancy_4_github" text="Kun naaras tulee tiineeksi, alkaa se kantamaan jälkeläisiä. Näet odotetun tiineyden päivämäärän ja jälkeläisten lukumäärän katsomalla eläintä karsinassa tai klikkaamalla sitä eläinvalikosta."/>
-		<text name="el_help_pregnancy_5" text="Kun se saavuttaa poikimispäivän, uudet poikaset syntyvät. On kuitenkin pieni mahdollisuus, että poikaset tai emo menehtyy komplikaatioissa. Ahtaaseen karsinaan syntyneet poikaset myydään automaattisesti."/>
-		<text name="el_help_pregnancy_5_github" text="Naaras poikii odottettuna päivänä. Vastasyntyneillä on kuitenkin tietty mahdollisuus poistua, kuten myös emolla, jos tiineys sujuu huonosti. Ahtaaseen karsinaan syntyneet vastasyntyneet myydään automaattisesti."/>
-
-		<text name="el_help_production_title" text="Tuottavuus"/>
-		<text name="el_help_production_1" text="Kaikkien rotujen lehmät alkavat tuottaa maitoa vasta poikimisen jälkeen. Kun lehmä on poikinut, se tuottaa maitoa eksponentiaalisesti 3 kuukauden ajan, minkä jälkeen tuotanto laskee hitaasti seuraavan 6 kuukauden ajan. 10 kuukautta tiineyden jälkeen lehmä lopettaa maidontuotannon seuraavaan tiineyteen asti."/>
-		<text name="el_help_production_2" text="Lampaat tuottavat villaa lämpiminä kuukausina. Kylminä kuukausina alle 12 C:ssa ne eivät tuota villaa."/>
-		<text name="el_help_production_3" text="Maidon, villan ja munien tuotantoon vaikuttaa eläimen genetiikka. Eläin, jolla on hyvä tuotantogenetiikka, tuottaa enemmän, kun taas eläin, jolla on huono genetiikka, ei tuota juuri ollenkaan."/>
-
-		<text name="el_help_weight_title" text="Paino"/>
-		<text name="el_help_weight_1" text="Eläimillä on tietty paino, johon vaikuttaa se, kuinka paljon ne syövät ja juovat. Jokaisella lajilla ja rodulla on oma keskipainonsa, joka vaikuttaa kunkin eläimen painoon."/>
-		<text name="el_help_weight_2" text="Paino nostaa eläimen arvoa ja alhainen paino vaikuttaa sen mahdollisuuteen poistua joka kuukausi."/>
-
-		<text name="el_help_genetics_title" text="Genetiikka"/>
-		<text name="el_help_genetics_1" text="Jokaisella eläimellä on 4 erilaista geneettistä arvoa: aineenvaihdunta, hedelmällisyys, terveys ja laatu. Genetiikka sekoitetaan emon ja isän välillä ja välitetään sitten poikasille."/>
-		<text name="el_help_genetics_2" text="Aineenvaihdunta vaikuttaa eläimen kykyyn muuntaa ruokaa painoksi ja vaikuttaa sen syömään määrään."/>
-		<text name="el_help_genetics_3" text="Hedelmällisyys vaikuttaa onnistuneen poikasvaiheen mahdollisuuteen ja vanhempien tuottamien jälkeläisten määrään."/>
-		<text name="el_help_genetics_3_github" text="Hedelmällisyys vaikuttaa naaraan mahdollisuuteen tulla tiineeksi ja poikasten määrään, sekä uroksen mahdollisuuteen saattaa naaras tiineeksi."/>
-		<text name="el_help_genetics_4" text="Terveys vaikuttaa eläimen terveyteen ja sen mahdollisuuteen poistua joka kuukausi. Eläimillä, joilla on korkeampi terveysgenetiikka, on myös pidempi elinikä."/>
-		<text name="el_help_genetics_5" text="Laatu vaikuttaa itse eläimen arvoon, laadukkaammasta eläimestä saa korkeamman hinnan."/>
-		<text name="el_help_genetics_6" text="Nautaeläimillä, lampailla ja kanoilla on myös tuotantogenetiikkaa, joka vaikuttaa siihen, kuinka paljon maitoa/munia/villaa ne tuottavat."/>
-
-
-
-		<!--  DISEASES  -->
-
-
-		<text name="el_ui_immune" text="Immuuni"/>
-		<text name="el_ui_startTreatment" text="Aloita hoito"/>
-		<text name="el_ui_resumeTreatment" text="Jatka hoitoa"/>
-		<text name="el_ui_stopTreatment" text="Lopeta hoito"/>
-		<text name="el_ui_duration" text="Kesto"/>
-		<text name="el_ui_beingTreated" text="Hoidettavana"/>
-		<text name="el_ui_notTreated" text="Ei hoidettavana"/>
-		<text name="el_ui_carrier" text="Kantaja"/>
-
-		<text name="el_diseases" text="Taudit"/>
-		<text name="el_disease" text="Tauti"/>
-
-		<text name="el_disease_mastitis" text="Utaretulehdus"/>
-
-		<text name="el_disease_cvm" text="CVM (selkärangan epämuodostuma)"/>
-
-		<text name="el_disease_footAndMouth" text="Suu- ja sorkkatauti"/>
-
-		<text name="el_disease_ped" text="PED (sikojen epidemiaripuli)"/>
-
-		<text name="el_disease_avianFlu" text="Lintuinfluenssa"/>
-
+        <text name="el_settings_accidentsChance_label" text="Onnettomuuden todennäköisyys"/>
+        <text name="el_settings_accidentsChance_tooltip" text="Muuta satunnaisista onnettomuuksista johtuvaa eläinten poistumisen todennäköisyyttä"/>
+        <text name="el_settings_accidentsChance_tooltip_github" text="Muuta satunnaisista onnettomuuksista johtuvaa eläinten kuolemisen todennäköisyyttä"/>
+
+        <text name="el_settings_foodScale_label" text="Ruuankulutus"/>
+        <text name="el_settings_foodScale_tooltip" text="Muuttaa eläinten kuluttamaa ruuan määrää"/>
+
+        <text name="el_settings_maxDealerAnimals_label" text="Eläinten enimmäismäärä eläinkauppiaalla"/>
+        <text name="el_settings_maxDealerAnimals_tooltip" text="Muuta eläinkauppiaalta ostettavien eläinten enimmäismäärää eläinlajia kohden"/>
+
+        <text name="el_settings_resetDealer_label" text="Nollaa eläinkauppias"/>
+        <text name="el_settings_resetDealer_tooltip" text="Poista kaikki eläinkauppiaan eläimet ja täydennä varastot uusilla eläimillä"/>
+        <text name="el_settings_resetDealer_text" text="Nollaa eläinkauppias"/>
+
+        <text name="el_settings_tagColour_label" text="Muuta merkin väriä"/>
+        <text name="el_settings_tagColour_tooltip" text="Muuta korvamerkin väriä"/>
+        <text name="el_settings_tagColour_text" text="Muuta merkin väriä"/>
+
+        <text name="el_settings_exportCSV_label" text="Vie CSV:ksi"/>
+        <text name="el_settings_exportCSV_tooltip" text="Vie tilastot CSV:ksi"/>
+        <text name="el_settings_exportCSV_text" text="Vie CSV:ksi"/>
+
+        <text name="el_settings_maxNumMessages_label" text="Enimmäismäärä viestejä"/>
+        <text name="el_settings_maxNumMessages_tooltip" text="Korkeampi määrä kasvattaa tallennuskansiosi kokoa. Kun tämä raja on saavutettu, vanhimmat viestit poistetaan."/>
+
+        <text name="el_settings_diseasesEnabled_label" text="Diseases Enabled"/>
+        <text name="el_settings_diseasesEnabled_tooltip_1" text="Animals cannot catch or inherit diseases"/>
+        <text name="el_settings_diseasesEnabled_tooltip_2" text="Animals can catch or inherit diseases"/>
+
+        <text name="el_settings_diseasesChance_label" text="Disease Chance"/>
+        <text name="el_settings_diseasesChance_tooltip" text="Change the likelihood of animals contracting diseases"/>
+
+        <text name="el_settings_useCustomAnimals_label" text="Use Custom Animals"/>
+        <text name="el_settings_useCustomAnimals_tooltip_1" text="Use EnhancedLivestock animal models (requires restart)"/>
+        <text name="el_settings_useCustomAnimals_tooltip_2" text="Use custom animal models (experimental, requires restart, must be unzipped)"/>
+
+        <text name="el_settings_animalsXML_label" text="Set Animals XML Path"/>
+        <text name="el_settings_animalsXML_tooltip" text="Set path to a custom animals XML file"/>
+        <text name="el_settings_animalsXML_text" text="Set Animals XML Path"/>
+
+        <text name="el_settings_earTagTextEnabled_label" text="Korvamerkkiteksti"/>
+        <text name="el_settings_earTagTextEnabled_tooltip" text="Ota käyttöön/poista käytöstä tekstin näyttäminen eläinten korvamerkeissä"/>
+
+
+        <!--  HELP  -->
+
+
+        <text name="el_help_monitors_title" text="Seurantalaitteet"/>
+        <text name="el_help_monitors_1" text="Nähdäksesi suurimman osan eläimen tilastoista, sinun on kiinnitettävä siihen seurantalaite, jonka voit tehdä eläinvalikon kautta (jossa ostetaan ja myydään eläimiä). Seurantalaitteet näkyvät myös visuaalisesti eläimen vasemmassa korvassa, tunnistemerkin vieressä."/>
+        <text name="el_help_monitors_2" text="Seurantalaitteen avulla sinulle näytetään tärkeitä tietoja, mm. terveys, paino, imetys, tuotanto sekä olkien, ruoan ja veden tarve."/>
+        <text name="el_help_monitors_3" text="Laitteen kiinnittämisestä peritään pieni kuukausimaksun eläimen lajin mukaan. Jos päätät poistaa laitteen, niin se poistetaan seuraavan kuun alussa."/>
+
+        <text name="el_help_pregnancy_title" text="Poikasten kasvatus"/>
+        <text name="el_help_pregnancy_title_github" text="Tiineys"/>
+        <text name="el_help_pregnancy_1" text="Naaraseläimet tarvitsevat vähintään yhden uroseläimen saadakseen poikasia. Molempien eläinten on oltava terveitä ja oikean ikäisiä, sekä samaa lajia. Jalostus eri rotujen välillä (esim. holstein-lehmä ja angussoni) on sallittua."/>
+        <text name="el_help_pregnancy_1_github" text="Kaikki naaraspuoliset eläimet tarvitsevat vähintään yhden uroseläimen tullakseen tiineeksi. Molempien eläinten on oltava oikean ikäisiä, terveitä sekä samaa lajia. Jalostus eri rotujen välillä (esim. holstein-lehmä ja angussoni) on sallittua."/>
+        <text name="el_help_pregnancy_2" text="Lähisukulaiset eivät pariu. Jos uros ja naaras ovat suoraan sukua, he eivät lisäänny yhdessä."/>
+        <text name="el_help_pregnancy_2_github" text="Sukusiitos ei ole sallittua. Jos uros ja naaras ovat suoraan sukua, he eivät lisäänny yhdessä."/>
+        <text name="el_help_pregnancy_3" text="Naaraan mahdollisuus saada poikasia riippuu molempien vanhempien hedelmällisyydestä. Naaralla, jolla on korkeampi hedelmällisyys, on myös huomattavasti suurempi mahdollisuus tuottaa kerralla enemmän jälkeläisiä."/>
+        <text name="el_help_pregnancy_3_github" text="Naaraan mahdollisuus tulla tiineeksi riippuu kummankin hedelmällisyydestä. Naaralla, jolla on korkeampi hedelmällisyys, on myös huomattavasti suurempi mahdollisuus tuottaa kerralla enemmän jälkeläisiä."/>
+        <text name="el_help_pregnancy_4" text="Kun naaras odottaa poikasia, alkaa se kantamaan jälkeläisiä. Näet odotetun poikimispäivän ja jälkeläisten lukumäärän katsomalla eläintä karsinassa tai valitsemalla sen eläinvalikosta."/>
+        <text name="el_help_pregnancy_4_github" text="Kun naaras tulee tiineeksi, alkaa se kantamaan jälkeläisiä. Näet odotetun tiineyden päivämäärän ja jälkeläisten lukumäärän katsomalla eläintä karsinassa tai klikkaamalla sitä eläinvalikosta."/>
+        <text name="el_help_pregnancy_5" text="Kun se saavuttaa poikimispäivän, uudet poikaset syntyvät. On kuitenkin pieni mahdollisuus, että poikaset tai emo menehtyy komplikaatioissa. Ahtaaseen karsinaan syntyneet poikaset myydään automaattisesti."/>
+        <text name="el_help_pregnancy_5_github" text="Naaras poikii odottettuna päivänä. Vastasyntyneillä on kuitenkin tietty mahdollisuus poistua, kuten myös emolla, jos tiineys sujuu huonosti. Ahtaaseen karsinaan syntyneet vastasyntyneet myydään automaattisesti."/>
+
+        <text name="el_help_production_title" text="Tuottavuus"/>
+        <text name="el_help_production_1" text="Kaikkien rotujen lehmät alkavat tuottaa maitoa vasta poikimisen jälkeen. Kun lehmä on poikinut, se tuottaa maitoa eksponentiaalisesti 3 kuukauden ajan, minkä jälkeen tuotanto laskee hitaasti seuraavan 6 kuukauden ajan. 10 kuukautta tiineyden jälkeen lehmä lopettaa maidontuotannon seuraavaan tiineyteen asti."/>
+        <text name="el_help_production_2" text="Lampaat tuottavat villaa lämpiminä kuukausina. Kylminä kuukausina alle 12 C:ssa ne eivät tuota villaa."/>
+        <text name="el_help_production_3" text="Maidon, villan ja munien tuotantoon vaikuttaa eläimen genetiikka. Eläin, jolla on hyvä tuotantogenetiikka, tuottaa enemmän, kun taas eläin, jolla on huono genetiikka, ei tuota juuri ollenkaan."/>
+
+        <text name="el_help_weight_title" text="Paino"/>
+        <text name="el_help_weight_1" text="Eläimillä on tietty paino, johon vaikuttaa se, kuinka paljon ne syövät ja juovat. Jokaisella lajilla ja rodulla on oma keskipainonsa, joka vaikuttaa kunkin eläimen painoon."/>
+        <text name="el_help_weight_2" text="Paino nostaa eläimen arvoa ja alhainen paino vaikuttaa sen mahdollisuuteen poistua joka kuukausi."/>
+
+        <text name="el_help_genetics_title" text="Genetiikka"/>
+        <text name="el_help_genetics_1" text="Jokaisella eläimellä on 4 erilaista geneettistä arvoa: aineenvaihdunta, hedelmällisyys, terveys ja laatu. Genetiikka sekoitetaan emon ja isän välillä ja välitetään sitten poikasille."/>
+        <text name="el_help_genetics_2" text="Aineenvaihdunta vaikuttaa eläimen kykyyn muuntaa ruokaa painoksi ja vaikuttaa sen syömään määrään."/>
+        <text name="el_help_genetics_3" text="Hedelmällisyys vaikuttaa onnistuneen poikasvaiheen mahdollisuuteen ja vanhempien tuottamien jälkeläisten määrään."/>
+        <text name="el_help_genetics_3_github" text="Hedelmällisyys vaikuttaa naaraan mahdollisuuteen tulla tiineeksi ja poikasten määrään, sekä uroksen mahdollisuuteen saattaa naaras tiineeksi."/>
+        <text name="el_help_genetics_4" text="Terveys vaikuttaa eläimen terveyteen ja sen mahdollisuuteen poistua joka kuukausi. Eläimillä, joilla on korkeampi terveysgenetiikka, on myös pidempi elinikä."/>
+        <text name="el_help_genetics_5" text="Laatu vaikuttaa itse eläimen arvoon, laadukkaammasta eläimestä saa korkeamman hinnan."/>
+        <text name="el_help_genetics_6" text="Nautaeläimillä, lampailla ja kanoilla on myös tuotantogenetiikkaa, joka vaikuttaa siihen, kuinka paljon maitoa/munia/villaa ne tuottavat."/>
+
+
+        <!--  DISEASES  -->
+
+
+        <text name="el_ui_immune" text="Immuuni"/>
+        <text name="el_ui_startTreatment" text="Aloita hoito"/>
+        <text name="el_ui_resumeTreatment" text="Jatka hoitoa"/>
+        <text name="el_ui_stopTreatment" text="Lopeta hoito"/>
+        <text name="el_ui_duration" text="Kesto"/>
+        <text name="el_ui_beingTreated" text="Hoidettavana"/>
+        <text name="el_ui_notTreated" text="Ei hoidettavana"/>
+        <text name="el_ui_carrier" text="Kantaja"/>
+
+        <text name="el_diseases" text="Taudit"/>
+        <text name="el_disease" text="Tauti"/>
+
+        <text name="el_disease_mastitis" text="Utaretulehdus"/>
+        <text name="el_disease_cvm" text="CVM (selkärangan epämuodostuma)"/>
+        <text name="el_disease_footAndMouth" text="Suu- ja sorkkatauti"/>
+        <text name="el_disease_ped" text="PED (sikojen epidemiaripuli)"/>
+        <text name="el_disease_avianFlu" text="Lintuinfluenssa"/>
 		<text name="el_disease_colic" text="Ähky"/>
 		<text name="el_disease_laminitis" text="Kaviokuume"/>
 		<text name="el_disease_arthritis" text="Niveltulehdus"/>
@@ -684,99 +710,102 @@
 		<text name="el_disease_infectiousBronchitis_desc" text="Erittäin tarttuva viruksen aiheuttama hengitystiesairaus. Vahingoittaa lisääntymiskanavan pysyvästi."/>
 
 
-
 		<!--  MESSAGES  -->
 
+        <text name="el_messageTitle_pregnancy" text="Tiineys"/>
+        <text name="el_messageTitle_death" text="Poistuma"/>
+        <text name="el_messageTitle_death_github" text="Kuolema"/>
+        <text name="el_messageTitle_disease" text="Tauti"/>
+        <text name="el_messageTitle_name" text="Nimi"/>
+        <text name="el_messageTitle_movement" text="Siirtymä"/>
+        <text name="el_messageTitle_aiManager" text="Lomittaja"/>
+        <text name="el_messageTitle_insemination" text="Keinosiemennys"/>
+        <text name="el_messageTitle_insemination_github" text="Keinosiemennys"/>
 
-		<text name="el_messageTitle_pregnancy" text="Tiineys"/>
-		<text name="el_messageTitle_death" text="Poistuma"/>
-		<text name="el_messageTitle_death_github" text="Kuolema"/>
-		<text name="el_messageTitle_disease" text="Tauti"/>
-		<text name="el_messageTitle_name" text="Nimi"/>
-		<text name="el_messageTitle_movement" text="Siirtymä"/>
-		<text name="el_messageTitle_aiManager" text="Lomittaja"/>
-		<text name="el_messageTitle_insemination" text="Keinosiemennys"/>
-		<text name="el_messageTitle_insemination_github" text="Keinosiemennys"/>
-
-		<text name="el_message_pregnancySingle" text="Synnytti poikasen"/>
-		<text name="el_message_pregnancyMultiple" text="Synnytti %s poikasta"/>
-		<text name="el_message_pregnancySold" text="%s poikasta myytiin hintaan %s tilanpuutteen vuoksi"/>
-		<text name="el_message_pregnancyDied" text="%s poikasta poistettiin syntymän yhteydessä"/>
-		<text name="el_message_pregnancyDied_github" text="%s poikasta kuoli syntymässä"/>
-		<text name="el_message_death" text="Poistettu syystä: %s"/>
-		<text name="el_message_death_github" text="Kuoli syystä: %s"/>
-		<text name="el_message_diseaseContracted" text="Sairastui tautiin: %s"/>
-		<text name="el_message_diseaseCured" text="Parani taudista: %s"/>
-		<text name="el_message_diseaseTreatment_start" text="Aloitettiin hoito: %s klo %s"/>
-		<text name="el_message_diseaseTreatment_resume" text="Hoidon jatkaminen: %s klo %s"/>
-		<text name="el_message_diseaseTreatment_stop" text="Hoitotoimenpiteet lopetettu: %s"/>
-		<text name="el_message_nameChange" text="Nimi muutettu: '%s' → '%s'"/>
-		<text name="el_message_nameAdded" text="Annettiin nimi: '%s'"/>
-		<text name="el_message_nameDeleted" text="Nimi '%s' poistettiin"/>
-		<text name="el_message_boughtAnimals_single" text="Ostettiin eläin hintaan %s"/>
-		<text name="el_message_boughtAnimals_multiple" text="Ostettiin %s eläintä hintaan %s"/>
-		<text name="el_message_soldAnimals_single" text="Myytiin eläin hintaan %s"/>
-		<text name="el_message_soldAnimals_multiple" text="Myytiin %s eläintä hintaan %s"/>
-		<text name="el_message_movedAnimalsTo_single" text="Siirrettiin eläin kohteeseen %s"/>
-		<text name="el_message_movedAnimalsTo_multiple" text="Siirrettiin %s eläintä kohteeseen %s"/>
-		<text name="el_message_movedAnimalsFrom_single" text="Siirrettiin eläin paikasta %s"/>
-		<text name="el_message_movedAnimalsFrom_multiple" text="Siirrettiin %s eläintä paikasta %s"/>
-		<text name="el_message_aiManager_boughtAnimals_single" text="Lomittaja osti eläimen hintaan %s"/>
-		<text name="el_message_aiManager_boughtAnimals_multiple" text="Lomittaja osti %s eläintä hintaan %s"/>
-		<text name="el_message_aiManager_soldAnimals_single" text="Lomittaja myi eläimen hintaan %s"/>
-		<text name="el_message_aiManager_soldAnimals_multiple" text="Lomittaja myi %s eläintä hintaan %s"/>
-		<text name="el_message_aiManager_castrated_single" text="Lomittaja kastroi eläimen"/>
-		<text name="el_message_aiManager_castrated_single_github" text="Lomittaja kastroi eläimen"/>
-		<text name="el_message_aiManager_castrated_multiple" text="Lomittaja kastroi %s eläintä"/>
-		<text name="el_message_aiManager_castrated_multiple_github" text="Lomittaja kastroi %s eläintä"/>
-		<text name="el_message_aiManager_named_single" text="Lomittaja nimesi eläimen"/>
-		<text name="el_message_aiManager_named_multiple" text="Lomittaja nimesi %s eläintä"/>
-		<text name="el_message_aiManager_mark_sell_single" text="Lomittaja merkitsi eläimen myytäväksi"/>
-		<text name="el_message_aiManager_mark_sell_multiple" text="Lomittaja merkitsi %s eläintä myytäväksi"/>
-		<text name="el_message_aiManager_mark_castrate_single" text="Lomittaja merkitsi eläimen kastrointiin"/>
-		<text name="el_message_aiManager_mark_castrate_single_github" text="Lomittaja merkitsi eläimen kastrointiin"/>
-		<text name="el_message_aiManager_mark_castrate_multiple" text="Lomittaja merkitsi %s eläintä kastroitaviksi"/>
-		<text name="el_message_aiManager_mark_castrate_multiple_github" text="Lomittaja merkitsi %s eläintä kastroitaviksi"/>
-		<text name="el_message_aiManager_mark_disease_single" text="Lomittaja merkitsi eläimen hoitoa varten"/>
-		<text name="el_message_aiManager_mark_disease_multiple" text="Lomittaja merkitsi %s eläintä hoitoa varten"/>
-		<text name="el_message_insemination_success" text="Keinosiemennys onnistui"/>
-		<text name="el_message_insemination_success_github" text="Keinosiemennys onnistui"/>
-		<text name="el_message_insemination_fail" text="Keinosiemennys epäonnistui"/>
-		<text name="el_message_insemination_fail_github" text="Keinosiemennys epäonnistui"/>
-		<text name="el_message_aiManager_mark_ai_single" text="Lomittaja merkitsi eläimen keinosiemennykseen"/>
-		<text name="el_message_aiManager_mark_ai_single_github" text="Lomittaja merkitsi eläimen keinosiemennykseen"/>
-		<text name="el_message_aiManager_mark_ai_multiple" text="Lomittaja merkitsi %s eläintä keinosiemennykseen"/>
-		<text name="el_message_aiManager_mark_ai_multiple_github" text="Lomittaja merkitsi %s eläintä keinosiemennykseen"/>
-		<text name="el_message_aiManager_ai_single" text="Lomittaja keinosiemensi eläimen"/>
-		<text name="el_message_aiManager_ai_single_github" text="Lomittaja keinosiemensi eläimen"/>
-		<text name="el_message_aiManager_ai_multiple" text="Lomittaja keinosiemensi %s eläintä"/>
-		<text name="el_message_aiManager_ai_multiple_github" text="Lomittaja keinosiemensi %s eläintä"/>
-
+        <text name="el_message_pregnancySingle" text="Synnytti poikasen"/>
+        <text name="el_message_pregnancyMultiple" text="Synnytti %s poikasta"/>
+        <text name="el_message_pregnancySold" text="%s poikasta myytiin hintaan %s tilanpuutteen vuoksi"/>
+        <text name="el_message_pregnancyDied" text="%s poikasta poistettiin syntymän yhteydessä"/>
+        <text name="el_message_pregnancyDied_github" text="%s poikasta kuoli syntymässä"/>
+        <text name="el_message_death" text="Poistettu syystä: %s"/>
+        <text name="el_message_death_github" text="Kuoli syystä: %s"/>
+        <text name="el_message_diseaseContracted" text="Sairastui tautiin: %s"/>
+        <text name="el_message_diseaseCured" text="Parani taudista: %s"/>
+        <text name="el_message_diseaseTreatment_start" text="Aloitettiin hoito: %s klo %s"/>
+        <text name="el_message_diseaseTreatment_resume" text="Hoidon jatkaminen: %s klo %s"/>
+        <text name="el_message_diseaseTreatment_stop" text="Hoitotoimenpiteet lopetettu: %s"/>
+        <text name="el_message_nameChange" text="Nimi muutettu: '%s' → '%s'"/>
+        <text name="el_message_nameAdded" text="Annettiin nimi: '%s'"/>
+        <text name="el_message_nameDeleted" text="Nimi '%s' poistettiin"/>
+        <text name="el_message_boughtAnimals_single" text="Ostettiin eläin hintaan %s"/>
+        <text name="el_message_boughtAnimals_multiple" text="Ostettiin %s eläintä hintaan %s"/>
+        <text name="el_message_soldAnimals_single" text="Myytiin eläin hintaan %s"/>
+        <text name="el_message_soldAnimals_multiple" text="Myytiin %s eläintä hintaan %s"/>
+        <text name="el_message_movedAnimalsTo_single" text="Siirrettiin eläin kohteeseen %s"/>
+        <text name="el_message_movedAnimalsTo_multiple" text="Siirrettiin %s eläintä kohteeseen %s"/>
+        <text name="el_message_movedAnimalsFrom_single" text="Siirrettiin eläin paikasta %s"/>
+        <text name="el_message_movedAnimalsFrom_multiple" text="Siirrettiin %s eläintä paikasta %s"/>
+        <text name="el_message_aiManager_boughtAnimals_single" text="Lomittaja osti eläimen hintaan %s"/>
+        <text name="el_message_aiManager_boughtAnimals_multiple" text="Lomittaja osti %s eläintä hintaan %s"/>
+        <text name="el_message_aiManager_soldAnimals_single" text="Lomittaja myi eläimen hintaan %s"/>
+        <text name="el_message_aiManager_soldAnimals_multiple" text="Lomittaja myi %s eläintä hintaan %s"/>
+        <text name="el_message_aiManager_castrated_single" text="Lomittaja kastroi eläimen"/>
+        <text name="el_message_aiManager_castrated_single_github" text="Lomittaja kastroi eläimen"/>
+        <text name="el_message_aiManager_castrated_multiple" text="Lomittaja kastroi %s eläintä"/>
+        <text name="el_message_aiManager_castrated_multiple_github" text="Lomittaja kastroi %s eläintä"/>
+        <text name="el_message_aiManager_named_single" text="Lomittaja nimesi eläimen"/>
+        <text name="el_message_aiManager_named_multiple" text="Lomittaja nimesi %s eläintä"/>
+        <text name="el_message_aiManager_mark_sell_single" text="Lomittaja merkitsi eläimen myytäväksi"/>
+        <text name="el_message_aiManager_mark_sell_multiple" text="Lomittaja merkitsi %s eläintä myytäväksi"/>
+        <text name="el_message_aiManager_mark_castrate_single" text="Lomittaja merkitsi eläimen kastrointiin"/>
+        <text name="el_message_aiManager_mark_castrate_single_github" text="Lomittaja merkitsi eläimen kastrointiin"/>
+        <text name="el_message_aiManager_mark_castrate_multiple" text="Lomittaja merkitsi %s eläintä kastroitaviksi"/>
+        <text name="el_message_aiManager_mark_castrate_multiple_github" text="Lomittaja merkitsi %s eläintä kastroitaviksi"/>
+        <text name="el_message_aiManager_mark_disease_single" text="Lomittaja merkitsi eläimen hoitoa varten"/>
+        <text name="el_message_aiManager_mark_disease_multiple" text="Lomittaja merkitsi %s eläintä hoitoa varten"/>
+        <text name="el_message_insemination_success" text="Keinosiemennys onnistui"/>
+        <text name="el_message_insemination_success_github" text="Keinosiemennys onnistui"/>
+        <text name="el_message_insemination_fail" text="Keinosiemennys epäonnistui"/>
+        <text name="el_message_insemination_fail_github" text="Keinosiemennys epäonnistui"/>
+        <text name="el_message_aiManager_mark_ai_single" text="Lomittaja merkitsi eläimen keinosiemennykseen"/>
+        <text name="el_message_aiManager_mark_ai_single_github" text="Lomittaja merkitsi eläimen keinosiemennykseen"/>
+        <text name="el_message_aiManager_mark_ai_multiple" text="Lomittaja merkitsi %s eläintä keinosiemennykseen"/>
+        <text name="el_message_aiManager_mark_ai_multiple_github" text="Lomittaja merkitsi %s eläintä keinosiemennykseen"/>
+        <text name="el_message_aiManager_ai_single" text="Lomittaja keinosiemensi eläimen"/>
+        <text name="el_message_aiManager_ai_single_github" text="Lomittaja keinosiemensi eläimen"/>
+        <text name="el_message_aiManager_ai_multiple" text="Lomittaja keinosiemensi %s eläintä"/>
+        <text name="el_message_aiManager_ai_multiple_github" text="Lomittaja keinosiemensi %s eläintä"/>
 
 
-		<!--  DEATHS  -->
+        <!--  DEATHS  -->
 
 
-		<text name="el_death_pregnancy" text="ongelmallinen tiineys"/>
-		<text name="el_death_health" text="heikko terveys"/>
-		<text name="el_death_age" text="vanhuus"/>
-		<text name="el_death_accident" text="onnettomuus"/>
+        <text name="el_death_pregnancy" text="ongelmallinen tiineys"/>
+        <text name="el_death_health" text="heikko terveys"/>
+        <text name="el_death_age" text="vanhuus"/>
+        <text name="el_death_accident" text="onnettomuus"/>
 
-		<!-- EPP BUTCHER INTEGRATION -->
+        <!-- Dependencies -->
 
-		<text name="el_epp_butcher_processed" text="Eläin käsitelty teurastamossa: %s kg %s"/>
-		<text name="el_epp_butcher_delivered" text="%s toimitettu teurastamoon (%.2fx %s)"/>
+        <text name="el_ui_dependencies_missing" text="Enhanced Livestock requires the following dependencies:"/>
+        <text name="el_ui_dependency_missing_notInstalled" text="- %s (Not installed)"/>
+        <text name="el_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum required: %s)"/>
 
-		<!-- MIGRATION -->
+        <!-- EPP BUTCHER INTEGRATION -->
 
-		<text name="el_conflict_title" text="Mod-ristiriita havaittu"/>
-		<text name="el_mod_conflict_message" text="Seuraavat modit ovat ristiriidassa 'Enhanced Livestock' kanssa eikä niitä voi käyttää yhdessä: %s &#10;&#10;Poista ristiriitaiset modit käytöstä ja käynnistä peli uudelleen."/>
+        <text name="el_epp_butcher_processed" text="Eläin käsitelty teurastamossa: %s kg %s"/>
+        <text name="el_epp_butcher_delivered" text="%s toimitettu teurastamoon (%.2fx %s)"/>
 
-		<text name="el_migration_title" text="Tietojen siirtoilmoitus"/>
-		<text name="el_migration_message" text="Tästä tallennuksesta löytyi aiempaa Realistic Livestock -dataa. Asetuksesi, eläintiedot, Dewarit ja AI Straw -käsityökalut siirretään automaattisesti Enhanced Livestock -versioon pelin tallentaessa."/>
-		<text name="el_migration_files_found" text="Löydetyt datatiedostot:"/>
-		<text name="el_migration_continue" text="Jatka"/>
-		<text name="el_migration_quit" text="Lopeta"/>
+        <!-- MIGRATION -->
 
-	</texts>
+        <text name="el_conflict_title" text="Mod-ristiriita havaittu"/>
+        <text name="el_mod_conflict_message" text="Seuraavat modit ovat ristiriidassa 'Enhanced Livestock' kanssa eikä niitä voi käyttää yhdessä: %s &#10;&#10;Poista ristiriitaiset modit käytöstä ja käynnistä peli uudelleen."/>
+
+        <text name="el_migration_title" text="Tietojen siirtoilmoitus"/>
+        <text name="el_migration_message" text="Tästä tallennuksesta löytyi aiempaa Realistic Livestock -dataa. Asetuksesi, eläintiedot, Dewarit ja AI Straw -käsityökalut siirretään automaattisesti Enhanced Livestock -versioon pelin tallentaessa."/>
+        <text name="el_migration_files_found" text="Löydetyt datatiedostot:"/>
+        <text name="el_migration_continue" text="Jatka"/>
+        <text name="el_migration_quit" text="Lopeta"/>
+
+    </texts>
 </l10n>

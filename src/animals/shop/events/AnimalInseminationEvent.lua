@@ -47,6 +47,9 @@ function AnimalInseminationEvent:readStream(streamId, connection)
 		semen.genetics.productivity = nil
 	end
 
+	-- Read semen type
+	semen.semenType = streamReadUInt8(streamId)
+
 	self:run(connection)
 
 end
@@ -72,6 +75,9 @@ function AnimalInseminationEvent:writeStream(streamId, connection)
 	streamWriteFloat32(streamId, semen.genetics.quality)
 	streamWriteFloat32(streamId, semen.genetics.productivity or -1)
 
+	-- Write semen type
+	streamWriteUInt8(streamId, semen.semenType or SemenType.CONVENTIONAL)
+
 end
 
 function AnimalInseminationEvent:run(connection)
@@ -83,7 +89,7 @@ function AnimalInseminationEvent:run(connection)
 
 		if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 
-			animal:setInsemination(self.semen)
+			animal:setInsemination(self.semen, self.semen.semenType)
 			break
 
 		end

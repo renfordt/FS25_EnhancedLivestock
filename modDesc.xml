@@ -315,9 +315,25 @@ Changelog 1.1.0.0:
         <actionBinding action="VisualAnimalsDialog">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_t"/>
         </actionBinding>
+        <actionBinding action="RefillDewarNitrogen">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_r"/>
+        </actionBinding>
+        <actionBinding action="MENU_EXTRA_3">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_h" axisComponent="+" />
+        </actionBinding>
+        <actionBinding action="MENU_EXTRA_4">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_j" axisComponent="+" />
+        </actionBinding>
+        <actionBinding action="MENU_EXTRA_5">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_k" axisComponent="+" />
+        </actionBinding>
     </inputBinding>
     <actions>
         <action name="VisualAnimalsDialog"/>
+        <action name="RefillDewarNitrogen"/>
+        <action name="MENU_EXTRA_3" category="MENU" axisType="HALF" />
+        <action name="MENU_EXTRA_4" category="MENU" axisType="HALF" />
+        <action name="MENU_EXTRA_5" category="MENU" axisType="HALF" />
     </actions>
     <helpLines>
         <category title="$l10n_el_settings">

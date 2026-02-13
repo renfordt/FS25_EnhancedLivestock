@@ -7,6 +7,7 @@ function HandToolAIStraw.registerFunctions(handTool)
 
 	SpecializationUtil.registerFunction(handTool, "setAnimal", HandToolAIStraw.setAnimal)
 	SpecializationUtil.registerFunction(handTool, "setDewarUniqueId", HandToolAIStraw.setDewarUniqueId)
+	SpecializationUtil.registerFunction(handTool, "setSemenType", HandToolAIStraw.setSemenType)
 	SpecializationUtil.registerFunction(handTool, "showInfo", HandToolAIStraw.showInfo)
 	SpecializationUtil.registerFunction(handTool, "updateStraw", HandToolAIStraw.updateStraw)
 	SpecializationUtil.registerFunction(handTool, "renderErrorText", HandToolAIStraw.renderErrorText)
@@ -62,7 +63,7 @@ function HandToolAIStraw:onPostLoad(savegame)
 	local xmlFile, key = savegame.xmlFile, savegame.key
 
 	-- Try new namespace first, fall back to old namespace (migration support)
-	local namespace = ".FS25_RealisticLivestockRM.aiStraw"
+	local namespace = ".FS25_EnhancedLivestock.aiStraw"
 	if not xmlFile:hasProperty(key .. namespace) then
 		namespace = ".FS25_RealisticLivestock.aiStraw"  -- Legacy fallback
 	end
@@ -74,6 +75,7 @@ function HandToolAIStraw:onPostLoad(savegame)
 
 	spec.isEmpty = xmlFile:getBool(key .. ".FS25_EnhancedLivestock.aiStraw#isEmpty", false)
 	spec.dewarUniqueId = xmlFile:getString(key .. ".FS25_EnhancedLivestock.aiStraw#dewarUniqueId")
+	spec.semenType = xmlFile:getInt(key .. ".FS25_EnhancedLivestock.aiStraw#semenType", SemenType.CONVENTIONAL)
 
 	if xmlFile:hasProperty(animalKey) then
 
@@ -120,6 +122,7 @@ function HandToolAIStraw:saveToXMLFile(xmlFile, key)
 
 	xmlFile:setBool(key .. "#isEmpty", self[specName].isEmpty or false)
 	xmlFile:setString(key .. "#dewarUniqueId", self[specName].dewarUniqueId or "")
+	xmlFile:setInt(key .. "#semenType", self[specName].semenType or SemenType.CONVENTIONAL)
 
 	if animal ~= nil then
 
@@ -145,6 +148,7 @@ function HandToolAIStraw:onReadStream(streamId, connection)
 
 	spec.isEmpty = streamReadBool(streamId)
 	spec.dewarUniqueId = streamReadString(streamId)
+	spec.semenType = streamReadUInt8(streamId)
 
 	local hasAnimal = streamReadBool(streamId)
 	local animal
@@ -183,6 +187,7 @@ function HandToolAIStraw:onWriteStream(streamId, connection)
 
 	streamWriteBool(streamId, spec.isEmpty or false)
 	streamWriteString(streamId, spec.dewarUniqueId or "")
+	streamWriteUInt8(streamId, spec.semenType or SemenType.CONVENTIONAL)
 
 	streamWriteBool(streamId, spec.animal ~= nil)
 
@@ -356,6 +361,12 @@ function HandToolAIStraw:setDewarUniqueId(dewarUniqueId)
 
 end
 
+function HandToolAIStraw:setSemenType(semenType)
+
+	self[specName].semenType = semenType or SemenType.CONVENTIONAL
+
+end
+
 function HandToolAIStraw:showInfo(box)
 
 	local animal = self[specName].animal
@@ -446,12 +457,16 @@ function HandToolAIStraw:onInseminate()
 
 	local husbandry, animal = spec.targetedPlaceable, spec.targetedAnimal
 
-	animal:setInsemination(spec.animal)
+	animal:setInsemination(spec.animal, spec.semenType)
+
+	-- Add semenType to the semen object for the event
+	local semen = spec.animal
+	semen.semenType = spec.semenType
 
 	if g_server ~= nil then
-		g_server:broadcastEvent(AnimalInseminationEvent.new(husbandry, animal, spec.animal))
+		g_server:broadcastEvent(AnimalInseminationEvent.new(husbandry, animal, semen))
 	elseif g_client ~= nil then
-		g_client:getServerConnection():sendEvent(AnimalInseminationEvent.new(husbandry, animal, spec.animal))
+		g_client:getServerConnection():sendEvent(AnimalInseminationEvent.new(husbandry, animal, semen))
 	end
 
 	spec.isEmpty = true

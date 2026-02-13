@@ -61,8 +61,10 @@ source(modDirectory .. "src/animals/shop/EnhancedLivestock_AnimalItemStock.lua")
 
 -- SECTION 8: Events (General)
 source(modDirectory .. "src/events/DewarManagerStateEvent.lua")
+source(modDirectory .. "src/events/DewarNitrogenRefillEvent.lua")
 source(modDirectory .. "src/events/HusbandryMessageStateEvent.lua")
 source(modDirectory .. "src/events/ReturnStrawEvent.lua")
+source(modDirectory .. "src/events/SemenSellEvent.lua")
 
 -- SECTION 9: Farms
 source(modDirectory .. "src/farms/FarmManager.lua")
@@ -132,6 +134,7 @@ source(modDirectory .. "src/AnimalPregnancyEvent.lua")
 source(modDirectory .. "src/AnimalUpdateEvent.lua")
 source(modDirectory .. "src/DiseaseTreatmentEvent.lua")
 source(modDirectory .. "src/DewarManager.lua")
+source(modDirectory .. "src/DewarNitrogenRefill.lua")
 source(modDirectory .. "src/Disease.lua")
 source(modDirectory .. "src/DiseaseManager.lua")
 source(modDirectory .. "src/FSCareerMissionInfo.lua")
