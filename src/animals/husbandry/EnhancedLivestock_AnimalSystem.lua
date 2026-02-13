@@ -2121,10 +2121,10 @@ function AnimalSystem:createNewAIAnimal(animalTypeIndex)
 
 	-- Step 2: Generate genetics directly from tier ranges
 	local tierGeneticsRanges = {
-		[BullTier.YOUNG_GENOMIC] = { min = 1.10, max = 1.75 },
-		[BullTier.PROVEN] = { min = 1.10, max = 1.5 },
-		[BullTier.ELITE] = { min = 1.50, max = 1.64 },
-		[BullTier.LEGEND] = { min = 1.65, max = 1.75 }
+		[BullTier.YOUNG_GENOMIC] = { min = 1.0, max = 1.75 },
+		[BullTier.PROVEN] = { min = 1.0, max = 1.5 },
+		[BullTier.ELITE] = { min = 1.30, max = 1.6 },
+		[BullTier.LEGEND] = { min = 1.6, max = 1.75 }
 	}
 
 	local range = tierGeneticsRanges[bullTier]
