@@ -2194,6 +2194,11 @@ function Animal:updateWeight(foodFactor)
 		increase = increase * 0.75
 	end
 
+	-- Apply disease weight gain modifiers
+	for _, disease in pairs(self.diseases) do
+		increase = disease:modifyWeightGain(increase)
+	end
+
 	local decrease = 0
 	if weight > targetWeight then
 		decrease = (weight - targetWeight) / (metabolism * 25)
@@ -2310,9 +2315,18 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 	if insemination ~= nil and g_server ~= nil then
 
 		local fertility = self.genetics.fertility
+
+		-- Apply disease fertility modifiers
+		local effectiveFertility = fertility
+		for _, disease in pairs(self.diseases) do
+			if not disease.cured and not disease.isCarrier and disease.type.fertilityModifier then
+				effectiveFertility = effectiveFertility * disease.type.fertilityModifier
+			end
+		end
+
 		local childNum = self:generateRandomOffspring()
 
-		if childNum > 0 and math.random() >= (2 - fertility) * 0.25 and math.random() <= insemination.success * (math.random(80, 120) / 100) then
+		if childNum > 0 and math.random() >= (2 - effectiveFertility) * 0.25 and math.random() <= insemination.success * (math.random(80, 120) / 100) then
 
 			self:addMessage("INSEMINATION_SUCCESS")
 			g_server:broadcastEvent(AnimalInseminationResultEvent.new(self.clusterSystem.owner, self, true))
@@ -2398,9 +2412,18 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 		elseif g_server ~= nil and not isSaleAnimal and self:getCanReproduce() then
 
 			local fertility = self.genetics.fertility
+
+			-- Apply disease fertility modifiers
+			local effectiveFertility = fertility
+			for _, disease in pairs(self.diseases) do
+				if not disease.cured and not disease.isCarrier and disease.type.fertilityModifier then
+					effectiveFertility = effectiveFertility * disease.type.fertilityModifier
+				end
+			end
+
 			local childNum = self:generateRandomOffspring()
 
-			if math.random() >= (2 - fertility) * 0.5 and childNum > 0 then
+			if math.random() >= (2 - effectiveFertility) * 0.5 and childNum > 0 then
 				self:createPregnancy(childNum, month, year)
 			end
 

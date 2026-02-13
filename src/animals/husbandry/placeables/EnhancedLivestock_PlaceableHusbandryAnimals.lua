@@ -358,7 +358,7 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onPeriodChanged(_)
 			g_currentMission:addMoneyChange(totalTreatmentCost, self.spec_husbandryAnimals:getOwnerFarmId(), MoneyType.MEDICINE, true)
 		end
 
-		g_diseaseManager:calculateTransmission(animals)
+		g_diseaseManager:calculateTransmission(animals, self.spec_husbandryAnimals)
 
 	end
 

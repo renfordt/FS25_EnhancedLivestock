@@ -59,22 +59,16 @@ function DiseaseDialog:onClickOk()
 		return
 	end
 
-	disease.beingTreated = not disease.beingTreated
+	local newBeingTreated = not disease.beingTreated
 
-	if not disease.beingTreated then
+	if not newBeingTreated then
 		self.animal:addMessage("DISEASE_TREATMENT_STOP", { disease.type.name })
 	else
 		self.animal:addMessage("DISEASE_TREATMENT_" .. (disease.treatmentDuration > 0 and "RESUME" or "START"), { disease.type.name, string.format(g_i18n:getText("el_ui_feePerMonth"), g_i18n:formatMoney(disease.type.treatment.cost, 2, true, true)) })
 	end
 
-	for _, aDisease in pairs(self.animal.diseases) do
-
-		if aDisease.type.title == disease.type.title then
-			aDisease.beingTreated = disease.beingTreated
-			break
-		end
-
-	end
+	-- Send event to server for multiplayer sync
+	g_client:getServerConnection():sendEvent(DiseaseTreatmentEvent.new(self.animal.clusterSystem.owner, self.animal, disease.type.title, newBeingTreated))
 
 	self:onClickListItem(self.diseaseList.selectedIndex)
 	self.diseaseList:reloadData()
