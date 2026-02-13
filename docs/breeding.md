@@ -59,14 +59,20 @@ Animals have age-dependent fertility curves defined per species. Fertility value
 %%{init: {"theme": "base", "themeVariables": {"xyChart": {"plotColorPalette": "#2e7d32, #c62828, #1565c0, #6a1b9a, #e65100"}}} }%%
 xychart-beta
     title "Fertility Curves by Species"
-    x-axis "Age (months)" [0, 6, 8, 12, 18, 22, 24, 36, 48, 60, 72, 80, 84, 96, 120, 132, 160, 200, 264]
+    x-axis "Age (months)" [0, 6, 8, 12, 18, 22, 24, 36, 48, 60, 72, 80, 84, 96, 120, 132, 160, 200, 264, 265]
     y-axis "Fertility" 0 --> 1000
-    line "Cattle" [0, 480, 640, 960, 962, 964, 965, 972, 980, 985, 958, 939, 930, 698, 232, 0, 0, 0, 0]
-    line "Pigs" [0, 920, 927, 940, 945, 948, 950, 960, 920, 880, 820, 780, 585, 0, 0, 0, 0, 0, 0]
-    line "Sheep & Goats" [0, 525, 700, 720, 750, 761, 767, 800, 840, 880, 920, 747, 660, 440, 0, 0, 0, 0, 0]
-    line "Horses" [0, 259, 345, 518, 777, 950, 949, 943, 937, 932, 926, 922, 920, 905, 875, 860, 760, 540, 0]
-    line "Chickens" [0, 600, 587, 560, 530, 510, 500, 420, 360, 300, 230, 183, 160, 107, 0, 0, 0, 0, 0]
+    line "Cattle" [0, 0, 0, 960, 963, 964, 965, 973, 980, 985, 958, 939, 930, 833, 638, 540, 0, 0, 0, 0]
+    line "Pigs" [0, 920, 927, 940, 945, 948, 950, 960, 920, 880, 820, 780, 720, 540, 0, 0, 0, 0, 0, 0]
+    line "Sheep & Goats" [0, 0, 700, 720, 750, 761, 767, 800, 840, 880, 920, 747, 660, 483, 130, 0, 0, 0, 0, 0]
+    line "Horses" [0, 0, 0, 0, 0, 950, 949, 943, 937, 932, 926, 922, 920, 905, 875, 860, 760, 540, 150, 0]
+    line "Chickens" [0, 600, 587, 560, 545, 535, 530, 500, 420, 333, 247, 189, 160, 240, 400, 0, 0, 0, 0, 0]
 ```
+
+<span style="color: #2e7d32;">&#9644;</span> Cattle &emsp;
+<span style="color: #c62828;">&#9644;</span> Pigs &emsp;
+<span style="color: #1565c0;">&#9644;</span> Sheep & Goats &emsp;
+<span style="color: #6a1b9a;">&#9644;</span> Horses &emsp;
+<span style="color: #e65100;">&#9644;</span> Chickens
 
 ## Pregnancy System
 
