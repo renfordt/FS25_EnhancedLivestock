@@ -34,7 +34,7 @@ function PlaceableHusbandryMilk:updateInputAndOutput(superFunc, animals)
 
 			if milk ~= nil then
 
-				spec.litersPerHour[milk.fillType] = spec.litersPerHour[milk.fillType] + animal:getOutput("milk")
+				spec.litersPerHour[milk.fillType] = (spec.litersPerHour[milk.fillType] or 0) + animal:getOutput("milk")
 
 				table.addElement(spec.activeFillTypes, milk.fillType)
 				spec.hasMilkProduction = true
