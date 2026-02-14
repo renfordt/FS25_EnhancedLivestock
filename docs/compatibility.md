@@ -20,16 +20,18 @@ While Enhanced Livestock works as a standalone mod, it can be enhanced by instal
 
 ### FS25_FontLibrary
 This mod improves the visual quality of text on animal ear tags.
+
 *   **With FontLibrary:** High-quality text rendering for individual animal identification.
 *   **Without FontLibrary:** A shader-based fallback is used. It is fully functional but visually simpler.
 
 ### FS25_AnimalPackage_vanillaEdition
 Automatically integrates additional animal models and variants into the Enhanced Livestock system.
-*   **Features:**
+
+-   **Features:**
     *   Automatically loads additional animal fill types.
     *   Extends animal definitions for all species.
     *   Seamlessly integrates new visual variants into the game world.
-*   **Availability:** Available through standard Farming Simulator 25 mod channels.
+-   **Availability:** Available through standard Farming Simulator 25 mod channels.
 
 ## DLC Compatibility
 
@@ -46,6 +48,7 @@ Enhanced Livestock is designed to work on all maps. The mod includes an automati
 
 ### Animal Identification & Country Codes
 The mod uses two-letter country codes for animal identifiers, which are determined by the map's area code setting.
+
 *   **Default Maps:** Country codes are assigned based on the specific map settings.
 *   **Custom Maps:** If no specific area code is defined by the map creator, the mod defaults to the UK country code or uses the map-specified override.
 
@@ -77,8 +80,8 @@ Enhanced Livestock is built with multiplayer in mind and fully supports synchron
 
 Enhanced Livestock features built-in integration with **Extended Production Point (EPP)** compatible butcher mods. This allows you to process animals directly from the animal management screen of the butcher.
 
-*   **Valuation:** Animal value is dynamically calculated based on weight, quality, and genetics.
-*   **Tested Mods:**
+-   **Valuation:** Animal value is dynamically calculated based on weight, quality, and genetics.
+-   **Tested Mods:**
     *   `FS25_Butcher`
     *   `FS25_Meat_Production`
     *   `FS25_Meat_Processing_Plant`
@@ -91,6 +94,7 @@ Managing individual animals is more resource-intensive than the vanilla cluster 
 
 ### Visual Animal Limits
 Adjust the maximum number of animals rendered in pastures based on your hardware:
+
 *   **Low (25-50):** Recommended for older systems or large farms with many pastures.
 *   **Medium (50-100):** A balanced setting for modern gaming PCs.
 *   **High (100-200):** Prioritizes visual density and immersion on high-end hardware.
@@ -99,6 +103,7 @@ Adjust the maximum number of animals rendered in pastures based on your hardware
 
 ### Adding to an Existing Save
 You can safely add Enhanced Livestock to a savegame already in progress.
+
 1.  Existing animal clusters will be automatically converted to the new individual animal system.
 2.  Genetics for existing animals will be randomly generated upon first load.
 3.  All other properties (health, weight, etc.) will be initialized based on their current vanilla state.
@@ -116,6 +121,7 @@ If you encounter a compatibility issue or a bug:
 3.  Open an issue on our [GitHub Repository](https://github.com/renfordt/FS25_EnhancedLivestock).
 
 **What to include in your report:**
+
 *   A full list of active mods.
 *   The game version you are running.
 *   Clear steps to reproduce the problem.
