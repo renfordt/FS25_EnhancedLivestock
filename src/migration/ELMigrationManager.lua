@@ -95,10 +95,10 @@ end
           g_modIsLoaded contains only mods that are actually enabled and loaded
 ]]
 function ElMigrationManager:checkModConflict()
-	print("ElMigrationManager: Checking for mod conflicts...")
+	Logging.info("[EnhancedLivestock] ElMigrationManager: Checking for mod conflicts...")
 
 	if g_modIsLoaded == nil then
-		print("ElMigrationManager: g_modIsLoaded is nil!")
+		Logging.warning("[EnhancedLivestock] ElMigrationManager: g_modIsLoaded is nil!")
 		return false
 	end
 
@@ -117,13 +117,13 @@ function ElMigrationManager:checkModConflict()
 	end
 
 	if #found > 0 then
-		print("ElMigrationManager: Conflicting mods found: " .. table.concat(found, ", "))
+		Logging.warning("[EnhancedLivestock] ElMigrationManager: Conflicting mods found: " .. table.concat(found, ", "))
 		self.conflictingMods = found
 		g_elMigrationConflict = true
 		return true
 	end
 
-	print("ElMigrationManager: No conflicts detected")
+	Logging.info("[EnhancedLivestock] ElMigrationManager: No conflicts detected")
 	return false
 end
 
@@ -135,14 +135,14 @@ end
     shows its version dialog.
 ]]
 function ElMigrationManager:showConflictDialog()
-	print("ElMigrationManager: showConflictDialog called, scheduling dialog...")
+	Logging.info("[EnhancedLivestock] ElMigrationManager: showConflictDialog called, scheduling dialog...")
 
 	-- Use a short delay to ensure the game has fully entered gameplay state
 	-- before showing the dialog. This ensures the dialog properly overlays
 	-- on top of the gameplay screen rather than getting lost during the
 	-- loading-to-gameplay transition.
 	Timer.createOneshot(100, function()
-		print("ElMigrationManager: Timer fired, showing conflict dialog now")
+		Logging.info("[EnhancedLivestock] ElMigrationManager: Timer fired, showing conflict dialog now")
 
 		local title = g_i18n:getText("el_conflict_title")
 		local modList = ""
@@ -152,7 +152,7 @@ function ElMigrationManager:showConflictDialog()
 		local message = string.format(g_i18n:getText("el_mod_conflict_message"), modList)
 
 		InfoDialog.show(title .. "\n\n" .. message, function()
-			print("ElMigrationManager: User acknowledged conflict, restarting game")
+			Logging.info("[EnhancedLivestock] ElMigrationManager: User acknowledged conflict, restarting game")
 			-- Restart the game so user can disable the conflicting mod(s)
 			doRestart(false, "")
 		end, self)
@@ -317,16 +317,16 @@ end
     Uses a short timer delay for consistency with showConflictDialog.
 ]]
 function ElMigrationManager:showMigrationDialog()
-	print("ElMigrationManager: showMigrationDialog called, scheduling dialog...")
+	Logging.info("[EnhancedLivestock] ElMigrationManager: showMigrationDialog called, scheduling dialog...")
 
 	Timer.createOneshot(100, function()
-		print("ElMigrationManager: Timer fired, showing migration dialog now")
+		Logging.info("[EnhancedLivestock] ElMigrationManager: Timer fired, showing migration dialog now")
 
 		if ELMigrationDialog ~= nil and ELMigrationDialog.show ~= nil then
 			local files = self:getOldDataFiles()
 			ELMigrationDialog.show(files)
 		else
-			print("ElMigrationManager: ERROR - ELMigrationDialog not available")
+			Logging.error("[EnhancedLivestock] ElMigrationManager: ELMigrationDialog not available")
 		end
 	end)
 end

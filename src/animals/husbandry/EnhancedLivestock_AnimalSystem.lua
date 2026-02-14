@@ -50,12 +50,12 @@ BullTierPriceMultipliers = {
 local function getDaysInMonth(month)
 	local daysPerMonth = EnhancedLivestock ~= nil and EnhancedLivestock.DAYS_PER_MONTH or nil
 	if daysPerMonth == nil then
-		Logging.warning("EnhancedLivestock: DAYS_PER_MONTH not available, using fallback of 1")
+		Logging.warning("[EnhancedLivestock] DAYS_PER_MONTH not available, using fallback of 1")
 		return 1
 	end
 	local days = daysPerMonth[month]
 	if days == nil then
-		Logging.warning("EnhancedLivestock: No days defined for month %d, using fallback of 1", month)
+		Logging.warning("[EnhancedLivestock] No days defined for month %d, using fallback of 1", month)
 		return 1
 	end
 	return days
@@ -120,18 +120,18 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 
 	if animalFiles ~= nil and #animalFiles > 0 and externalBasePath ~= nil then
 	-- Load multiple animal files from external mod
-		print(string.format("EnhancedLivestock - loading %d animal files from \'%s\'", #animalFiles, externalBasePath))
+		Logging.info("[Enhanced Livestock] Loading %d animal files from \'%s\'", #animalFiles, externalBasePath)
 
 		for _, animalFile in ipairs(animalFiles) do
 			local fullPath = externalBasePath .. animalFile
-			print(string.format("EnhancedLivestock - loading animals from \'%s\'", fullPath))
+			Logging.info("[Enhanced Livestock] Loading animals from \'%s\'", fullPath)
 
 			local xmlFile = XMLFile.load("animals_" .. animalFile, fullPath)
 			if xmlFile ~= nil then
 				self:loadAnimals(xmlFile, externalBasePath)
 				xmlFile:delete()
 			else
-				Logging.warning("EnhancedLivestock - Failed to load animal file: %s", fullPath)
+				Logging.warning("[EnhancedLivestock] Failed to load animal file: %s", fullPath)
 			end
 		end
 	else
@@ -142,12 +142,12 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 		-- Don't use external mod's basePath here as the config file paths are relative to EnhancedLivestock
 		local basePath = modDirectory
 
-		print(string.format("EnhancedLivestock - using animals XML path \'%s\'", path))
+		Logging.info("[Enhanced Livestock] Using animals XML path \'%s\'", path)
 
 		local xmlFile = XMLFile.load("animals", path)
 
 		if xmlFile ~= nil then
-			print(string.format("EnhancedLivestock - using animals base path \'%s\'", basePath))
+			Logging.info("[Enhanced Livestock] Using animals base path \'%s\'", basePath)
 
 			self:loadAnimals(xmlFile, basePath)
 			xmlFile:delete()
@@ -160,7 +160,7 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 
 	if baseFilename == nil or baseFilename == "" then
 
-		Logging.xmlInfo(mapXml, "No animals xml given at \'map.animals#filename\'")
+		Logging.info("[Enhanced Livestock] No animals xml given at \'map.animals#filename\'")
 
 	elseif #self.types == 0 or not ELSettings.getOverrideVanillaAnimals() then
 
@@ -177,15 +177,15 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 
 	self.customEnvironment = modName
 
-	print("--------", string.format("EnhancedLivestock - loaded %s animals:", #self.types))
+	Logging.info("[Enhanced Livestock] Loaded %s animals:", #self.types)
 
 	for _, type in pairs(self.types) do
 
-		print("", string.format("- Animal Type: %s (%s subTypes)", type.name, #type.subTypes))
+		Logging.info("- Animal Type: %s (%s subTypes)", type.name, #type.subTypes)
 
 		for i, subTypeIndex in pairs(type.subTypes) do
 
-			print(string.format("|--- SubType (%s): %s (%s)", i, self.subTypes[subTypeIndex].name, self.subTypes[subTypeIndex].gender))
+			Logging.info("|--- SubType (%s): %s (%s)", i, self.subTypes[subTypeIndex].name, self.subTypes[subTypeIndex].gender)
 
 		end
 
@@ -206,14 +206,14 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 	for _, key in xmlFile:iterator("animals.animal") do
 
 		if #self.types >= 2 ^ AnimalSystem.SEND_NUM_BITS - 1 then
-			Logging.xmlWarning(xmlFile, "Maximum number of supported animal types reached. Ignoring remaining types")
+			Logging.xmlWarning(xmlFile, "[EnhancedLivestock] Maximum number of supported animal types reached. Ignoring remaining types")
 			return
 		end
 
 		local rawName = xmlFile:getString(key .. "#type")
 
 		if rawName == nil then
-			Logging.xmlError(xmlFile, "Missing animal type. \'%s\'", key)
+			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing animal type. \'%s\'", key)
 			return
 		end
 
@@ -221,7 +221,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 		local rawConfigFilename = xmlFile:getString(key .. ".configFilename")
 
 		if rawConfigFilename == nil then
-			Logging.xmlError(xmlFile, "Missing config file for animal type \'%s\'. \'%s\'", name, key)
+			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing config file for animal type \'%s\'. \'%s\'", name, key)
 			return
 		end
 
@@ -237,7 +237,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 			local clusterClass = xmlFile:getString(key .. "#clusterClass")
 
 			if clusterClass == nil then
-				Logging.xmlError(xmlFile, "Missing animal clusterClass for \'%s\'!", key)
+				Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing animal clusterClass for \'%s\'!", key)
 				return
 			end
 
@@ -411,7 +411,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimalConfig(_, animalType, director
 		end
 
 		if animal.filenamePosed == nil then
-			Logging.xmlError(xmlFile, "Missing \'filenamePosed\' for animal \'%s\'", key)
+			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing \'filenamePosed\' for animal \'%s\'", key)
 			animal.filenamePosed = animal.filename
 		end
 
@@ -462,7 +462,7 @@ function EnhancedLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, key
 		if requiredDLC == nil or g_modNameToDirectory[g_uniqueDlcNamePrefix .. requiredDLC] ~= nil then
 
 			if rawName == nil then
-				Logging.xmlError(xmlFile, "Missing animal subtype. \'%s\'", subTypeKey)
+				Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing animal subtype. \'%s\'", subTypeKey)
 				break
 			end
 
@@ -476,7 +476,7 @@ function EnhancedLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, key
 			local fillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(fillTypeName)
 
 			if fillTypeIndex == nil then
-				Logging.xmlError(xmlFile, "FillType \'%s\' for animal subtype \'%s\' not defined!", fillTypeName, subTypeKey)
+				Logging.xmlError(xmlFile, "[EnhancedLivestock] FillType \'%s\' for animal subtype \'%s\' not defined!", fillTypeName, subTypeKey)
 				break
 			end
 
@@ -1406,8 +1406,12 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
 
 	animal.diseases = {}
 
-	g_diseaseManager:onDayChanged(animal)
-	g_diseaseManager:setGeneticDiseasesForSaleAnimal(animal)
+	if g_diseaseManager ~= nil then
+		g_diseaseManager:onDayChanged(animal)
+		g_diseaseManager:setGeneticDiseasesForSaleAnimal(animal)
+	else
+		Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while generating sale animal - disease system failed to initialize")
+	end
 
 
 	if isPregnant then

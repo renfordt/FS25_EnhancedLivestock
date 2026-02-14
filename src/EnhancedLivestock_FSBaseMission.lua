@@ -85,28 +85,28 @@ function EnhancedLivestock_FSBaseMission:onStartMission()
 
 	-- Handle migration conflict or pending migration (server only)
 	if self:getIsServer() then
-		print("Enhanced Livestock: Running on server")
+		Logging.info("[Enhanced Livestock] Running on server")
 		if g_elMigrationConflict then
 		-- Show conflict dialog and block mission
-			print("Enhanced Livestock: Showing conflict dialog")
+			Logging.info("[Enhanced Livestock] Showing conflict dialog")
 			if g_ElMigrationManager ~= nil then
 				g_ElMigrationManager:showConflictDialog()
 			else
-				print("Enhanced Livestock: ERROR - g_ElMigrationManager is nil!")
+				Logging.error("[Enhanced Livestock] g_ElMigrationManager is nil!")
 			end
 		elseif g_elPendingMigration then
 		-- Show migration dialog
-			print("Enhanced Livestock: Showing migration dialog")
+			Logging.info("[Enhanced Livestock] Showing migration dialog")
 			if g_ElMigrationManager ~= nil then
 				g_ElMigrationManager:showMigrationDialog()
 			else
-				print("Enhanced Livestock: ERROR - g_ElMigrationManager is nil!")
+				Logging.error("[Enhanced Livestock] g_ElMigrationManager is nil!")
 			end
 		else
-			print("Enhanced Livestock: No migration action needed")
+			Logging.info("[Enhanced Livestock] No migration action needed")
 		end
 	else
-		print("Enhanced Livestock: Not running on server")
+		Logging.info("[Enhanced Livestock] Not running on server")
 	end
 
 	ELSettings.applyDefaultSettings()

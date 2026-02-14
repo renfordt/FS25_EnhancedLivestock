@@ -34,7 +34,7 @@ end
 
 function HandToolAIStraw.prerequisitesPresent()
 
-	print("Loaded handTool: HandToolAIStraw")
+	Logging.info("[EnhancedLivestock] Loaded handTool: HandToolAIStraw")
 
 	return true
 

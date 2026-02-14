@@ -83,7 +83,7 @@ function SemenSellEvent:run(connection)
 	if not connection:getIsServer() then
 		-- Client sent to server: process the sale and broadcast to all clients
 		if self.animal == nil then
-			print("Warning: SemenSellEvent - Animal not found")
+			Logging.warning("[EnhancedLivestock] SemenSellEvent - Animal not found")
 			return
 		end
 

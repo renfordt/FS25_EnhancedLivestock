@@ -358,7 +358,11 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onPeriodChanged(_)
 			g_currentMission:addMoneyChange(totalTreatmentCost, self.spec_husbandryAnimals:getOwnerFarmId(), MoneyType.MEDICINE, true)
 		end
 
-		g_diseaseManager:calculateTransmission(animals, self.spec_husbandryAnimals)
+		if g_diseaseManager ~= nil then
+			g_diseaseManager:calculateTransmission(animals, self.spec_husbandryAnimals)
+		else
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil during disease transmission calculation - disease system failed to initialize")
+		end
 
 	end
 

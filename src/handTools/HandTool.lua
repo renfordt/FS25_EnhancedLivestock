@@ -37,7 +37,7 @@ function HandTool:loadNonStoreItem(data, xmlFile)
 
 	if self.loadingState ~= HandToolLoadingState.OK then
 
-		printWarning("Handtool pre-loading failed!")
+		Logging.warning("[EnhancedLivestock] Handtool pre-loading failed!")
 		return false
 
 	end
@@ -107,7 +107,7 @@ function HandTool:loadFinishedNonStoreItem()
 
 		if self.graphicalNode == nil then
 
-			Logging.xmlError(self.xmlFile, "Handtool is missing graphical node! Graphics will not work as intended!")
+			Logging.xmlError(self.xmlFile, "[EnhancedLivestock] Handtool is missing graphical node! Graphics will not work as intended!")
 			self:setLoadingState(HandToolLoadingState.ERROR)
 			self:loadCallback()
 			return
@@ -157,7 +157,7 @@ function HandTool:loadFinishedNonStoreItem()
 
 		else
 
-			Logging.xmlError(self.xmlFile, "HandTool post-loading failed!")
+			Logging.xmlError(self.xmlFile, "[EnhancedLivestock] HandTool post-loading failed!")
 			self:loadCallback()
 			return
 
@@ -165,7 +165,7 @@ function HandTool:loadFinishedNonStoreItem()
 
 	else
 
-		Logging.xmlError(self.xmlFile, "HandTool loading failed!")
+		Logging.xmlError(self.xmlFile, "[EnhancedLivestock] HandTool loading failed!")
 		self:loadCallback()
 		return
 
@@ -178,7 +178,7 @@ function HandTool:i3dFileLoadedNonStoreItem(node)
 	if node == 0 then
 
 		self:setLoadingState(HandToolLoadingState.ERROR)
-		printError("Handtool i3d loading failed!")
+		Logging.error("[EnhancedLivestock] Handtool i3d loading failed!")
 		self:loadCallback()
 
 	else
@@ -234,7 +234,7 @@ function HandTool:onFinishedLoadingNonStoreItem()
 
 	else
 
-		Logging.xmlError(self.xmlFile, "Failed to register handTool!")
+		Logging.xmlError(self.xmlFile, "[EnhancedLivestock] Failed to register handTool!")
 		self:setLoadingState(HandToolLoadingState.ERROR)
 		self:loadCallback()
 

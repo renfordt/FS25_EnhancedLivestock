@@ -15,13 +15,13 @@ function Animal.resolveSubType(subTypeIndex, subTypeName)
 		if mappedIndex ~= nil then
 			subTypeIndex = mappedIndex
 			subType = animalSystem:getSubTypeByIndex(subTypeIndex)
-			Logging.info("EnhancedLivestock: Resolved subType '%s' from name (index %d)", subTypeName, subTypeIndex)
+			Logging.info("[EnhancedLivestock] Resolved subType '%s' from name (index %d)", subTypeName, subTypeIndex)
 		end
 	end
 
 	-- Final fallback to index 1
 	if subType == nil then
-		Logging.warning("EnhancedLivestock: subTypeIndex %d not found, falling back to 1", subTypeIndex)
+		Logging.warning("[EnhancedLivestock] subTypeIndex %d not found, falling back to 1", subTypeIndex)
 		subTypeIndex = 1
 		subType = animalSystem:getSubTypeByIndex(subTypeIndex)
 	end
@@ -503,6 +503,11 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 	local diseases = {}
 
 	xmlFile:iterate(key .. ".diseases.disease", function(_, diseaseKey)
+
+		if g_diseaseManager == nil then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while loading animal diseases from save - disease system failed to initialize")
+			return
+		end
 
 		local diseaseType = g_diseaseManager:getDiseaseByTitle(xmlFile:getString(diseaseKey .. "#title"))
 		local disease = Disease.new(diseaseType)
@@ -1068,12 +1073,20 @@ function Animal:readStream(streamId, connection)
 
 	for i = 1, numDiseases do
 
-		local diseaseType = g_diseaseManager:getDiseaseByTitle(streamReadString(streamId))
-		local disease = Disease.new(diseaseType)
+		local diseaseTitle = streamReadString(streamId)
 
-		disease:readStream(streamId, connection)
+		if g_diseaseManager == nil then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while reading animal disease '%s' from stream - disease system failed to initialize", diseaseTitle)
+			local disease = Disease.new(nil)
+			disease:readStream(streamId, connection)
+		else
+			local diseaseType = g_diseaseManager:getDiseaseByTitle(diseaseTitle)
+			local disease = Disease.new(diseaseType)
 
-		table.insert(diseases, disease)
+			disease:readStream(streamId, connection)
+
+			table.insert(diseases, disease)
+		end
 
 	end
 
@@ -1205,12 +1218,20 @@ function Animal:readStreamUnborn(streamId, connection)
 
 	for i = 1, numDiseases do
 
-		local diseaseType = g_diseaseManager:getDiseaseByTitle(streamReadString(streamId))
-		local disease = Disease.new(diseaseType)
+		local diseaseTitle = streamReadString(streamId)
 
-		disease:readStream(streamId, connection)
+		if g_diseaseManager == nil then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while reading animal disease '%s' from update stream - disease system failed to initialize", diseaseTitle)
+			local disease = Disease.new(nil)
+			disease:readStream(streamId, connection)
+		else
+			local diseaseType = g_diseaseManager:getDiseaseByTitle(diseaseTitle)
+			local disease = Disease.new(diseaseType)
 
-		table.insert(diseases, disease)
+			disease:readStream(streamId, connection)
+
+			table.insert(diseases, disease)
+		end
 
 	end
 
@@ -2261,7 +2282,11 @@ end
 function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPeriod, daysPerPeriod, isSaleAnimal)
 
 	if g_server ~= nil then
-		g_diseaseManager:onDayChanged(self)
+		if g_diseaseManager ~= nil then
+			g_diseaseManager:onDayChanged(self)
+		else
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil during onDayChanged - disease system failed to initialize")
+		end
 	end
 
 	self:setRecentlyBoughtByAI(false)
@@ -3598,6 +3623,13 @@ function Animal:setInsemination(animal, semenType)
 end
 
 function Animal:getHasAnyDisease()
+
+	if g_diseaseManager == nil then
+		if self.diseases ~= nil and #self.diseases > 0 then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil but animal has %d disease(s) - disease system failed to initialize", #self.diseases)
+		end
+		return false
+	end
 
 	return g_diseaseManager.diseasesEnabled and #self.diseases > 0
 
