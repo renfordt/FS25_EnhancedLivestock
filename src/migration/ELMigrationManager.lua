@@ -40,7 +40,8 @@ ElMigrationManager.OLD_FILES = {
 -- Mods that conflict with ours (e.g., extracted subsets of original Realistic Livestock)
 ElMigrationManager.CONFLICTING_MODS = {
 	"FS25_MoreVisualAnimals",
-	"FS25_RealisticLivestockRM"
+	"FS25_RealisticLivestockRM",
+	"FS25_EnhancedAnimalSystem"
 }
 
 -- Global instance
