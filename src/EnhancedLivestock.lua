@@ -208,6 +208,9 @@ function EnhancedLivestock.loadMap()
 	g_elConsoleCommandManager = ELConsoleCommandManager.new()
 	g_diseaseManager = DiseaseManager.new()
 
+	g_nutritionManager = NutritionManager.new()
+	g_nutritionManager:loadFromXML(modDirectory .. "xml/nutrition.xml")
+
 	-- Subscribe DewarManager to day changed event for nitrogen degradation
 	g_messageCenter:subscribe(MessageType.DAY_CHANGED, g_dewarManager.onDayChanged, g_dewarManager)
 
