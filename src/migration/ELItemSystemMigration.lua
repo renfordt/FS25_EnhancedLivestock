@@ -139,7 +139,7 @@ function ELItemSystemMigration.loadHandToolsPrepend(handToolSystem, xmlFileOrFil
 		handToolsXmlPatched = true
 
 		if patchedCount > 0 then
-			Logging.info("[EnhancedLivestock] ELItemSystemMigration: Patched %d hand tools in memory (no disk write)", patchedCount))
+			Logging.info("[EnhancedLivestock] ELItemSystemMigration: Patched %d hand tools in memory (no disk write)", patchedCount)
 			g_elPendingMigration = true
 		else
 			Logging.info("[EnhancedLivestock] ELItemSystemMigration: No hand tools needed patching")
@@ -167,7 +167,7 @@ function ELItemSystemMigration.loadItemsFromXMLPrepend(itemSystem, xmlFile, key)
 		itemsXmlPatched = true
 
 		if patchedCount > 0 then
-			Logging.info("[EnhancedLivestock] ELItemSystemMigration: Patched %d items in memory (no disk write)", patchedCount))
+			Logging.info("[EnhancedLivestock] ELItemSystemMigration: Patched %d items in memory (no disk write)", patchedCount)
 			g_elPendingMigration = true
 		else
 			Logging.info("[EnhancedLivestock] ELItemSystemMigration: No items needed patching")
