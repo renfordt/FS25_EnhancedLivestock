@@ -191,8 +191,6 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 
 	end
 
-	print("", "--------")
-
 	self:loadColourConfigurations()
 
 	return #self.types > 0

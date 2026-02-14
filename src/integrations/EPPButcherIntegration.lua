@@ -117,7 +117,7 @@ function EL_EPPButcherIntegration.initializeDefaults()
 		end  -- 500 kg standard horse
 	end
 
-	Logging.info("[EnhancedLivestock] - EPP: Initialized default mappings (yields, fill types, reference weights)")
+	-- Logging.info("[EnhancedLivestock] - EPP: Initialized default mappings (yields, fill types, reference weights)")
 end
 
 
@@ -172,28 +172,28 @@ function EL_EPPButcherIntegration.initialize()
 	-- Method 1: Hook BaseMission.onStartMission (called when mission starts, after everything is loaded)
 	if BaseMission ~= nil and BaseMission.onStartMission ~= nil then
 		BaseMission.onStartMission = Utils.appendedFunction(BaseMission.onStartMission, deferredScan("BaseMission.onStartMission"))
-		Logging.info("[EnhancedLivestock] - EPP: Hooked BaseMission.onStartMission for deferred scan")
+		--Logging.info("[EnhancedLivestock] - EPP: Hooked BaseMission.onStartMission for deferred scan")
 		hooked = true
 	end
 
 	-- Method 2: Hook FSBaseMission.onStartMission
 	if FSBaseMission ~= nil and FSBaseMission.onStartMission ~= nil then
 		FSBaseMission.onStartMission = Utils.appendedFunction(FSBaseMission.onStartMission, deferredScan("FSBaseMission.onStartMission"))
-		Logging.info("[EnhancedLivestock] - EPP: Hooked FSBaseMission.onStartMission for deferred scan")
+		--Logging.info("[EnhancedLivestock] - EPP: Hooked FSBaseMission.onStartMission for deferred scan")
 		hooked = true
 	end
 
 	-- Method 3: Hook Mission00.loadMission00Finished
 	if Mission00 ~= nil and Mission00.loadMission00Finished ~= nil then
 		Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, deferredScan("Mission00.loadMission00Finished"))
-		Logging.info("[EnhancedLivestock] - EPP: Hooked Mission00.loadMission00Finished for deferred scan")
+		--Logging.info("[EnhancedLivestock] - EPP: Hooked Mission00.loadMission00Finished for deferred scan")
 		hooked = true
 	end
 
 	-- Method 4: Hook g_currentMission.loadMapFinished (if available)
 	if g_currentMission ~= nil and g_currentMission.loadMapFinished ~= nil then
 		g_currentMission.loadMapFinished = Utils.appendedFunction(g_currentMission.loadMapFinished, deferredScan("g_currentMission.loadMapFinished"))
-		Logging.info("[EnhancedLivestock] - EPP: Hooked g_currentMission.loadMapFinished for deferred scan")
+		--Logging.info("[EnhancedLivestock] - EPP: Hooked g_currentMission.loadMapFinished for deferred scan")
 		hooked = true
 	end
 
@@ -203,7 +203,7 @@ function EL_EPPButcherIntegration.initialize()
 	end
 
 	if success then
-		Logging.info("[EnhancedLivestock] - EPP: Initial integration setup complete")
+		--Logging.info("[EnhancedLivestock] - EPP: Initial integration setup complete")
 	else
 		Logging.info("[EnhancedLivestock] - EPP: EPP not detected yet - will scan for placeables after mission starts")
 	end
@@ -286,7 +286,7 @@ function EL_EPPButcherIntegration.tryInitialize()
 		return true
 	end
 
-	Logging.info("[EnhancedLivestock] - EPP: tryInitialize called")
+	-- Logging.info("[EnhancedLivestock] - EPP: tryInitialize called")
 
 	-- Initialize default mappings now that AnimalType should be available
 	EL_EPPButcherIntegration.initializeDefaults()
@@ -353,7 +353,7 @@ function EL_EPPButcherIntegration.tryInitialize()
 	-- Even if no EPP mods were found by name, they might be present with different names
 	EL_EPPButcherIntegration.initialized = true
 
-	Logging.info("[EnhancedLivestock] - EPP: Integration initialized - will detect EPP placeables via onPlaceableFinalized hook")
+	--Logging.info("[EnhancedLivestock] - EPP: Integration initialized - will detect EPP placeables via onPlaceableFinalized hook")
 	Logging.info("[EnhancedLivestock] - EPP: Pre-registered %d EPP spec name patterns", #EL_EPPButcherIntegration.eppSpecNames)
 
 	return true
