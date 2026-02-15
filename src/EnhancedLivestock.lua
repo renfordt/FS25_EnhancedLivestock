@@ -37,29 +37,41 @@ EnhancedLivestock.MARKS = {
 }
 
 EnhancedLivestock.MAP_TO_AREA_CODE = {
+	-- UK
+	["Riverview"] = 1,
+	["Oak Bridge Farm"] = 1,
+	["Calmsden Farm"] = 1,
+	-- US
 	["Riverbend Springs"] = 2,
+	["Frankenmuth Farming Map"] = 2,
+	["Alma, Missouri"] = 2,
+	["Michigan Map"] = 2,
+	-- China
 	["Hutan Pantai"] = 3,
+	-- France
+	["Pallegney"] = 4,
+	-- Poland
 	["Zielonka"] = 5,
 	["Zacieczki"] = 5,
 	["Szpakowo"] = 5,
-	["Pallegney"] = 4,
-	["Oberschwaben"] = 6,
 	["Starowies"] = 5,
 	["Lipinki"] = 5,
+	["Sobolewo"] = 5,
+	["HermannsHausen"] = 5,
+	-- Germany
+	["Oberschwaben"] = 6,
+	["Münsinger Alb"] = 6,
+	["Klattenhof"] = 6,
+	["Pfraunstetten"] = 6,
 	["Rhönplateu"] = 6,
 	["Schwesing Bahnhof"] = 6,
-	["Riverview"] = 1,
-	["Sobolewo"] = 5,
-	["Tässi Farm"] = 8,
-	["HORSCH AgroVation"] = 10,
 	["New Bartelshagenn"] = 6,
-	["HermannsHausen"] = 5,
-	["Oak Bridge Farm"] = 1,
-	["Calmsden Farm"] = 1,
-	["Frankenmuth Farming Map"] = 2,
 	["North Frisian 25"] = 6,
-	["Alma, Missouri"] = 2,
-	["Michigan Map"] = 2
+	["Garbindel"] = 6,
+	-- Estonia
+	["Tässi Farm"] = 8,
+	-- Czech Republic
+	["HORSCH AgroVation"] = 10,
 }
 
 EnhancedLivestock.AREA_CODES = {
