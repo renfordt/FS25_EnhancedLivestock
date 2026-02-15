@@ -44,7 +44,8 @@ ElMigrationManager.CONFLICTING_MODS = {
 	"FS25_EnhancedAnimalSystem",
 	"FS25_ExcessAnimalsSold",
 	"FS25_MoveHusbandryAnimals",
-	"FS25_AnimalFoodCalculator"
+	"FS25_AnimalFoodCalculator",
+	"FS25_HofBermann"
 }
 
 -- Global instance

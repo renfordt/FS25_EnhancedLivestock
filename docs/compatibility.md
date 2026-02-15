@@ -68,6 +68,7 @@ The following mods cannot coexist with Enhanced Livestock because they modify th
 | **FS25_ExcessAnimalsSold**    | Functionality is already implemented in this mod.                                                              |
 | **FS25_MoveHusbandryAnimals** | Needs clusters to work, but we have individual animals.                                                        |
 | **FS25_AnimalFoodCalculator** | Due to new implementation of mass based nutrition system, the calculator is not working properly.              |
+| **FS25_HofBergmann**          | Implements its own animal system.                                                                              |
 
 !!! danger "Conflict Detected"
     If any of these mods are detected, a conflict dialog will appear, and you will be required to disable one of the mods to proceed.
