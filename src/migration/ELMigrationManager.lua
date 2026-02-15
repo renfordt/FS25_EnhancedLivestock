@@ -41,7 +41,10 @@ ElMigrationManager.OLD_FILES = {
 ElMigrationManager.CONFLICTING_MODS = {
 	"FS25_MoreVisualAnimals",
 	"FS25_RealisticLivestockRM",
-	"FS25_EnhancedAnimalSystem"
+	"FS25_EnhancedAnimalSystem",
+	"FS25_ExcessAnimalsSold",
+	"FS25_MoveHusbandryAnimals",
+	"FS25_AnimalFoodCalculator"
 }
 
 -- Global instance

@@ -59,10 +59,15 @@ To ensure stability, Enhanced Livestock will check for known incompatible mods u
 ### Incompatible Mods
 The following mods cannot coexist with Enhanced Livestock because they modify the same core animal systems:
 
-*   **FS25_RealisticLivestock:** The original mod this project was forked from.
-*   **FS25_RealisticLivestockRM:** A derivative of Realistic Livestock with overlapping functionality.
-*   **FS25_MoreVisualAnimals:** Conflicts with the custom visual animal rendering system used in Enhanced Livestock.
-*   **FS25_EnhancedAnimalSystem**: Enhancement of the cluster system with hooks to productions like milk, which will most likely cause conflicts.
+| Mod Name                      | Description                                                                                                    |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------|
+| **FS25_RealisticLivestock**   | The original mod this project was forked from.                                                                 |
+| **FS25_RealisticLivestockRM** | A derivative of Realistic Livestock with overlapping functionality.                                            |
+| **FS25_MoreVisualAnimals**    | Conflicts with the custom visual animal rendering system used in Enhanced Livestock.                           |
+| **FS25_EnhancedAnimalSystem** | Enhancement of the cluster system with hooks to productions like milk, which will most likely cause conflicts. |
+| **FS25_ExcessAnimalsSold**    | Functionality is already implemented in this mod.                                                              |
+| **FS25_MoveHusbandryAnimals** | Needs clusters to work, but we have individual animals.                                                        |
+| **FS25_AnimalFoodCalculator** | Due to new implementation of mass based nutrition system, the calculator is not working properly.              |
 
 !!! danger "Conflict Detected"
     If any of these mods are detected, a conflict dialog will appear, and you will be required to disable one of the mods to proceed.
