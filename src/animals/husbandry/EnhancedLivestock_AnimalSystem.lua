@@ -3,15 +3,59 @@ EnhancedLivestock_AnimalSystem = {}
 local modName = g_currentModName
 local modDirectory = g_currentModDirectory
 
+-- Bull Status Tier System
+BullTier = {
+	YOUNG_GENOMIC = 1,
+	PROVEN = 2,
+	ELITE = 3,
+	LEGEND = 4
+}
+
+-- Stock limits by tier
+BullTierStockLimits = {
+	[BullTier.YOUNG_GENOMIC] = {
+		initialStock = 500,
+		maxPerPurchase = 200,
+		restockRate = "daily",
+		restockAmount = 100
+	},
+	[BullTier.PROVEN] = {
+		initialStock = 200,
+		maxPerPurchase = 100,
+		restockRate = "daily",
+		restockAmount = 50
+	},
+	[BullTier.ELITE] = {
+		initialStock = 50,
+		maxPerPurchase = 20,
+		restockRate = "weekly",
+		restockAmount = 10
+	},
+	[BullTier.LEGEND] = {
+		initialStock = 5,
+		maxPerPurchase = 5,
+		restockRate = "never",
+		restockAmount = 0
+	}
+}
+
+-- Tier-based price multipliers
+BullTierPriceMultipliers = {
+	[BullTier.YOUNG_GENOMIC] = 1.0,
+	[BullTier.PROVEN] = 1.5,
+	[BullTier.ELITE] = 4.0,
+	[BullTier.LEGEND] = 20.0
+}
+
 local function getDaysInMonth(month)
 	local daysPerMonth = EnhancedLivestock ~= nil and EnhancedLivestock.DAYS_PER_MONTH or nil
 	if daysPerMonth == nil then
-		Logging.warning("EnhancedLivestock: DAYS_PER_MONTH not available, using fallback of 1")
+		Logging.warning("[EnhancedLivestock] DAYS_PER_MONTH not available, using fallback of 1")
 		return 1
 	end
 	local days = daysPerMonth[month]
 	if days == nil then
-		Logging.warning("EnhancedLivestock: No days defined for month %d, using fallback of 1", month)
+		Logging.warning("[EnhancedLivestock] No days defined for month %d, using fallback of 1", month)
 		return 1
 	end
 	return days
@@ -76,18 +120,18 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 
 	if animalFiles ~= nil and #animalFiles > 0 and externalBasePath ~= nil then
 	-- Load multiple animal files from external mod
-		print(string.format("EnhancedLivestock - loading %d animal files from \'%s\'", #animalFiles, externalBasePath))
+		Logging.info("[Enhanced Livestock] Loading %d animal files from \'%s\'", #animalFiles, externalBasePath)
 
 		for _, animalFile in ipairs(animalFiles) do
 			local fullPath = externalBasePath .. animalFile
-			print(string.format("EnhancedLivestock - loading animals from \'%s\'", fullPath))
+			Logging.info("[Enhanced Livestock] Loading animals from \'%s\'", fullPath)
 
 			local xmlFile = XMLFile.load("animals_" .. animalFile, fullPath)
 			if xmlFile ~= nil then
 				self:loadAnimals(xmlFile, externalBasePath)
 				xmlFile:delete()
 			else
-				Logging.warning("EnhancedLivestock - Failed to load animal file: %s", fullPath)
+				Logging.warning("[EnhancedLivestock] Failed to load animal file: %s", fullPath)
 			end
 		end
 	else
@@ -98,12 +142,12 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 		-- Don't use external mod's basePath here as the config file paths are relative to EnhancedLivestock
 		local basePath = modDirectory
 
-		print(string.format("EnhancedLivestock - using animals XML path \'%s\'", path))
+		Logging.info("[Enhanced Livestock] Using animals XML path \'%s\'", path)
 
 		local xmlFile = XMLFile.load("animals", path)
 
 		if xmlFile ~= nil then
-			print(string.format("EnhancedLivestock - using animals base path \'%s\'", basePath))
+			Logging.info("[Enhanced Livestock] Using animals base path \'%s\'", basePath)
 
 			self:loadAnimals(xmlFile, basePath)
 			xmlFile:delete()
@@ -116,7 +160,7 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 
 	if baseFilename == nil or baseFilename == "" then
 
-		Logging.xmlInfo(mapXml, "No animals xml given at \'map.animals#filename\'")
+		Logging.info("[Enhanced Livestock] No animals xml given at \'map.animals#filename\'")
 
 	elseif #self.types == 0 or not ELSettings.getOverrideVanillaAnimals() then
 
@@ -133,21 +177,19 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 
 	self.customEnvironment = modName
 
-	print("--------", string.format("EnhancedLivestock - loaded %s animals:", #self.types))
+	Logging.info("[Enhanced Livestock] Loaded %s animals:", #self.types)
 
 	for _, type in pairs(self.types) do
 
-		print("", string.format("- Animal Type: %s (%s subTypes)", type.name, #type.subTypes))
+		Logging.info("- Animal Type: %s (%s subTypes)", type.name, #type.subTypes)
 
 		for i, subTypeIndex in pairs(type.subTypes) do
 
-			print(string.format("|--- SubType (%s): %s (%s)", i, self.subTypes[subTypeIndex].name, self.subTypes[subTypeIndex].gender))
+			Logging.info("|--- SubType (%s): %s (%s)", i, self.subTypes[subTypeIndex].name, self.subTypes[subTypeIndex].gender)
 
 		end
 
 	end
-
-	print("", "--------")
 
 	self:loadColourConfigurations()
 
@@ -162,14 +204,14 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 	for _, key in xmlFile:iterator("animals.animal") do
 
 		if #self.types >= 2 ^ AnimalSystem.SEND_NUM_BITS - 1 then
-			Logging.xmlWarning(xmlFile, "Maximum number of supported animal types reached. Ignoring remaining types")
+			Logging.xmlWarning(xmlFile, "[EnhancedLivestock] Maximum number of supported animal types reached. Ignoring remaining types")
 			return
 		end
 
 		local rawName = xmlFile:getString(key .. "#type")
 
 		if rawName == nil then
-			Logging.xmlError(xmlFile, "Missing animal type. \'%s\'", key)
+			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing animal type. \'%s\'", key)
 			return
 		end
 
@@ -177,7 +219,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 		local rawConfigFilename = xmlFile:getString(key .. ".configFilename")
 
 		if rawConfigFilename == nil then
-			Logging.xmlError(xmlFile, "Missing config file for animal type \'%s\'. \'%s\'", name, key)
+			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing config file for animal type \'%s\'. \'%s\'", name, key)
 			return
 		end
 
@@ -193,7 +235,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 			local clusterClass = xmlFile:getString(key .. "#clusterClass")
 
 			if clusterClass == nil then
-				Logging.xmlError(xmlFile, "Missing animal clusterClass for \'%s\'!", key)
+				Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing animal clusterClass for \'%s\'!", key)
 				return
 			end
 
@@ -367,7 +409,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimalConfig(_, animalType, director
 		end
 
 		if animal.filenamePosed == nil then
-			Logging.xmlError(xmlFile, "Missing \'filenamePosed\' for animal \'%s\'", key)
+			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing \'filenamePosed\' for animal \'%s\'", key)
 			animal.filenamePosed = animal.filename
 		end
 
@@ -418,7 +460,7 @@ function EnhancedLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, key
 		if requiredDLC == nil or g_modNameToDirectory[g_uniqueDlcNamePrefix .. requiredDLC] ~= nil then
 
 			if rawName == nil then
-				Logging.xmlError(xmlFile, "Missing animal subtype. \'%s\'", subTypeKey)
+				Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing animal subtype. \'%s\'", subTypeKey)
 				break
 			end
 
@@ -432,7 +474,7 @@ function EnhancedLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, key
 			local fillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(fillTypeName)
 
 			if fillTypeIndex == nil then
-				Logging.xmlError(xmlFile, "FillType \'%s\' for animal subtype \'%s\' not defined!", fillTypeName, subTypeKey)
+				Logging.xmlError(xmlFile, "[EnhancedLivestock] FillType \'%s\' for animal subtype \'%s\' not defined!", fillTypeName, subTypeKey)
 				break
 			end
 
@@ -489,6 +531,28 @@ function EnhancedLivestock_AnimalSystem:loadSubType(superFunc, animalType, subTy
 	subType.maxWeight = xmlFile:getFloat(key .. "#maxWeight", height * radius * 750)
 	subType.targetWeight = xmlFile:getFloat(key .. "#targetWeight", height * radius * 300)
 	subType.minWeight = xmlFile:getFloat(key .. "#minWeight", height * radius * 50)
+
+	-- Load breed-specific tier probabilities for AI animals
+	if xmlFile:hasProperty(key .. ".ai.tierProbabilities") then
+		subType.tierProbabilities = {}
+		xmlFile:iterate(key .. ".ai.tierProbabilities.tier", function(_, tierKey)
+			local tierName = xmlFile:getString(tierKey .. "#name")
+			local probability = xmlFile:getFloat(tierKey .. "#probability", 0)
+
+			-- Map tier name to tier index
+			local tierMap = {
+				["YOUNG_GENOMIC"] = BullTier.YOUNG_GENOMIC,
+				["PROVEN"] = BullTier.PROVEN,
+				["ELITE"] = BullTier.ELITE,
+				["LEGEND"] = BullTier.LEGEND
+			}
+
+			local tierIndex = tierMap[tierName]
+			if tierIndex ~= nil then
+				subType.tierProbabilities[tierIndex] = probability
+			end
+		end)
+	end
 
 	for _, visual in pairs(subType.visuals) do
 
@@ -973,6 +1037,22 @@ function AnimalSystem:loadFromXMLFile()
 			animal.success = xmlFile:getFloat(key .. "#success", 0.65)
 			animal.isAIAnimal = true
 
+			-- Load bull tier data
+			animal.bullTier = xmlFile:getInt(key .. "#bullTier", BullTier.PROVEN)
+			animal.availableStraws = xmlFile:getInt(key .. "#availableStraws", nil)
+			animal.maxStrawsPerPurchase = xmlFile:getInt(key .. "#maxStrawsPerPurchase", nil)
+			animal.lastRestockDay = xmlFile:getInt(key .. "#lastRestockDay", 0)
+
+			-- Initialize stock if not loaded (for backward compatibility)
+			if animal.availableStraws == nil and animal.bullTier ~= nil then
+				local limits = BullTierStockLimits[animal.bullTier]
+				if limits ~= nil then
+					animal.availableStraws = limits.initialStock
+					animal.maxStrawsPerPurchase = limits.maxPerPurchase
+					animal.lastRestockDay = 0
+				end
+			end
+
 			xmlFile:iterate(key .. ".favourites.player", function(_, favKey)
 				local userId = xmlFile:getString(favKey .. "#userId", nil)
 				local value = xmlFile:getBool(favKey .. "#value", false)
@@ -1082,6 +1162,20 @@ function AnimalSystem:saveToXMLFile(_)
 		animal:saveToXMLFile(xmlFile, key)
 
 		xmlFile:setFloat(key .. "#success", animal.success or 0.65)
+
+		-- Save bull tier data
+		if animal.bullTier ~= nil then
+			xmlFile:setInt(key .. "#bullTier", animal.bullTier)
+		end
+		if animal.availableStraws ~= nil then
+			xmlFile:setInt(key .. "#availableStraws", animal.availableStraws)
+		end
+		if animal.maxStrawsPerPurchase ~= nil then
+			xmlFile:setInt(key .. "#maxStrawsPerPurchase", animal.maxStrawsPerPurchase)
+		end
+		if animal.lastRestockDay ~= nil then
+			xmlFile:setInt(key .. "#lastRestockDay", animal.lastRestockDay)
+		end
 
 		local i = 0
 
@@ -1310,8 +1404,12 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
 
 	animal.diseases = {}
 
-	g_diseaseManager:onDayChanged(animal)
-	g_diseaseManager:setGeneticDiseasesForSaleAnimal(animal)
+	if g_diseaseManager ~= nil then
+		g_diseaseManager:onDayChanged(animal)
+		g_diseaseManager:setGeneticDiseasesForSaleAnimal(animal)
+	else
+		Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while generating sale animal - disease system failed to initialize")
+	end
 
 
 	if isPregnant then
@@ -1689,6 +1787,31 @@ function AnimalSystem:onDayChanged()
 
 		for _, animal in pairs(animals) do
 			animal:onDayChanged(nil, self.isServer, day, month, year, currentDayInPeriod, daysPerPeriod, true)
+
+			-- Restock AI animal semen based on tier
+			if animal.bullTier ~= nil and animal.availableStraws ~= nil then
+				local limits = BullTierStockLimits[animal.bullTier]
+				local currentDay = environment.currentMonotonicDay
+
+				if limits ~= nil then
+					if limits.restockRate == "daily" then
+						animal.availableStraws = math.min(
+							animal.availableStraws + limits.restockAmount,
+							limits.initialStock
+						)
+						animal.lastRestockDay = currentDay
+
+					elseif limits.restockRate == "weekly" then
+						if currentDay - animal.lastRestockDay >= 7 then
+							animal.availableStraws = math.min(
+								animal.availableStraws + limits.restockAmount,
+								limits.initialStock
+							)
+							animal.lastRestockDay = currentDay
+						end
+					end
+				end
+			end
 		end
 
 	end
@@ -1958,23 +2081,69 @@ function AnimalSystem:createNewAIAnimal(animalTypeIndex)
 	:: number % 7) + 1
 	uniqueId = checkDigit .. uniqueId
 
+	-- Step 1: Assign bull tier based on farm quality
+	-- Higher quality farms produce better tier bulls
+	local baseTierProbabilities = subType.tierProbabilities or {
+		[BullTier.YOUNG_GENOMIC] = 0.50,
+		[BullTier.PROVEN] = 0.35,
+		[BullTier.ELITE] = 0.13,
+		[BullTier.LEGEND] = 0.02
+	}
 
-	local geneticsModifier = farmQuality * 1000
+	-- Adjust probabilities based on farm quality (quality ranges from ~1.35 to ~1.75)
+	-- Higher quality shifts probability toward better tiers
+	local qualityFactor = math.clamp((farmQuality - 1.35) / (1.75 - 1.35), 0, 1)  -- Normalize to [0, 1]
+
+	local tierProbabilities = {
+		[BullTier.YOUNG_GENOMIC] = baseTierProbabilities[BullTier.YOUNG_GENOMIC] * (1 - qualityFactor * 0.4),
+		[BullTier.PROVEN] = baseTierProbabilities[BullTier.PROVEN],
+		[BullTier.ELITE] = baseTierProbabilities[BullTier.ELITE] * (1 + qualityFactor * 1.5),
+		[BullTier.LEGEND] = baseTierProbabilities[BullTier.LEGEND] * (1 + qualityFactor * 3.0)
+	}
+
+	-- Normalize probabilities to sum to 1.0
+	local totalProb = 0
+	for _, prob in pairs(tierProbabilities) do
+		totalProb = totalProb + prob
+	end
+	for tier, prob in pairs(tierProbabilities) do
+		tierProbabilities[tier] = prob / totalProb
+	end
+
+	local bullTier = BullTier.PROVEN  -- Fallback default
+	local tierRoll = math.random()
+	local cumulative = 0
+	for tier = 1, 4 do
+		cumulative = cumulative + (tierProbabilities[tier] or 0)
+		if tierRoll <= cumulative then
+			bullTier = tier
+			break
+		end
+	end
+
+	-- Step 2: Generate genetics directly from tier ranges
+	local tierGeneticsRanges = {
+		[BullTier.YOUNG_GENOMIC] = { min = 1.0, max = 1.75 },
+		[BullTier.PROVEN] = { min = 1.0, max = 1.5 },
+		[BullTier.ELITE] = { min = 1.30, max = 1.6 },
+		[BullTier.LEGEND] = { min = 1.6, max = 1.75 }
+	}
+
+	local range = tierGeneticsRanges[bullTier]
 	local genetics = {
-		["metabolism"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
-		["quality"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
-		["fertility"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
-		["health"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75)
+		["metabolism"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max),
+		["quality"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max),
+		["fertility"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max),
+		["health"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max)
 	}
 
 	if animalTypeIndex == AnimalType.COW or animalTypeIndex == AnimalType.SHEEP or animalTypeIndex == AnimalType.CHICKEN then
-		genetics.productivity = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75)
+		genetics.productivity = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max)
 	end
-
 
 	local name = g_currentMission.animalNameSystem:getRandomName("male")
 
-
+	-- Step 3: Create animal with tier-based genetics
 	local animal = Animal.new(age, math.clamp((math.random(650, 1000) / 10) * genetics.health, 75, 100), 0, "male", subTypeIndex, 0, false, false, false, nil, nil, nil, nil, nil, name, nil, nil, nil, nil, nil, genetics)
 
 	animal.farmId = tostring(farmId)
@@ -1991,8 +2160,25 @@ function AnimalSystem:createNewAIAnimal(animalTypeIndex)
 	animal.variation = variationIndex
 
 	animal.favouritedBy = {}
-	animal.success = math.clamp((math.random(35, 50) * genetics.fertility) / 100, 0.5, 1)
 	animal.isAIAnimal = true
+	animal.bullTier = bullTier
+
+	-- Step 4: Calculate success rate from FINAL genetics
+	-- Map fertility [1.3, 1.75] to success [~65%, ~100%] with small random variation
+	-- This ensures higher fertility always results in higher success rates
+	local normalizedFertility = math.clamp((genetics.fertility - 1.3) / (1.75 - 1.3), 0, 1)
+	local baseSuccess = 0.65 + (normalizedFertility * 0.35)
+	-- Add ±2.5% random variation to avoid identical success rates
+	local variation = 0.975 + (math.random() * 0.05)
+	animal.success = math.clamp(baseSuccess * variation, 0.5, 1)
+
+	-- Initialize stock tracking
+	local limits = BullTierStockLimits[animal.bullTier]
+	if limits ~= nil then
+		animal.availableStraws = limits.initialStock
+		animal.maxStrawsPerPurchase = limits.maxPerPurchase
+		animal.lastRestockDay = 0
+	end
 
 	return animal
 

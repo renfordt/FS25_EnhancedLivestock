@@ -15,13 +15,13 @@ function Animal.resolveSubType(subTypeIndex, subTypeName)
 		if mappedIndex ~= nil then
 			subTypeIndex = mappedIndex
 			subType = animalSystem:getSubTypeByIndex(subTypeIndex)
-			Logging.info("EnhancedLivestock: Resolved subType '%s' from name (index %d)", subTypeName, subTypeIndex)
+			Logging.info("[EnhancedLivestock] Resolved subType '%s' from name (index %d)", subTypeName, subTypeIndex)
 		end
 	end
 
 	-- Final fallback to index 1
 	if subType == nil then
-		Logging.warning("EnhancedLivestock: subTypeIndex %d not found, falling back to 1", subTypeIndex)
+		Logging.warning("[EnhancedLivestock] subTypeIndex %d not found, falling back to 1", subTypeIndex)
 		subTypeIndex = 1
 		subType = animalSystem:getSubTypeByIndex(subTypeIndex)
 	end
@@ -498,10 +498,16 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 	local monitor = { ["active"] = xmlFile:getBool(key .. ".monitor#active", false), ["removed"] = xmlFile:getBool(key .. ".monitor#removed", false) }
 
 	local isCastrated = xmlFile:getBool(key .. "#isCastrated", false)
+	local lastSemenCollectionDay = xmlFile:getInt(key .. "#lastSemenCollectionDay", 0)
 
 	local diseases = {}
 
 	xmlFile:iterate(key .. ".diseases.disease", function(_, diseaseKey)
+
+		if g_diseaseManager == nil then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while loading animal diseases from save - disease system failed to initialize")
+			return
+		end
 
 		local diseaseType = g_diseaseManager:getDiseaseByTitle(xmlFile:getString(diseaseKey .. "#title"))
 		local disease = Disease.new(diseaseType)
@@ -523,7 +529,8 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 			["name"] = xmlFile:getString(key .. ".insemination#name"),
 			["subTypeIndex"] = xmlFile:getInt(key .. ".insemination#subTypeIndex"),
 			["genetics"] = {},
-			["success"] = xmlFile:getFloat(key .. ".insemination#success")
+			["success"] = xmlFile:getFloat(key .. ".insemination#success"),
+			["semenType"] = xmlFile:getInt(key .. ".insemination#semenType", SemenType.CONVENTIONAL)
 		}
 
 		insemination.genetics.metabolism = xmlFile:getFloat(key .. ".insemination.genetics#metabolism")
@@ -538,6 +545,7 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 	--local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, impregnatedById, pos, name, dirt, fitness, riding, farmId, weight, metabolism, impregnatedByMetabolism, impregnatedByProductivity, productivity, quality, impregnatedByMeatQuality, impregnatedByHealth, impregnatedByFertility, healthGenetics, fertility, variation, children)
 
 	animal:setBirthday(birthday)
+	animal.lastSemenCollectionDay = lastSemenCollectionDay
 
 	if pregnancy ~= nil and #pregnancy.pregnancies > 0 then
 		animal.pregnancy = pregnancy
@@ -710,6 +718,7 @@ function Animal:saveToXMLFile(xmlFile, key)
 		xmlFile:setString(key .. ".insemination#name", insemination.name)
 		xmlFile:setInt(key .. ".insemination#subTypeIndex", insemination.subTypeIndex)
 		xmlFile:setFloat(key .. ".insemination#success", insemination.success)
+		xmlFile:setInt(key .. ".insemination#semenType", insemination.semenType or SemenType.CONVENTIONAL)
 		xmlFile:setFloat(key .. ".insemination.genetics#metabolism", insemination.genetics.metabolism)
 		xmlFile:setFloat(key .. ".insemination.genetics#quality", insemination.genetics.quality)
 		xmlFile:setFloat(key .. ".insemination.genetics#health", insemination.genetics.health)
@@ -725,6 +734,10 @@ function Animal:saveToXMLFile(xmlFile, key)
 
 	if self.isCastrated then
 		xmlFile:setBool(key .. "#isCastrated", true)
+	end
+
+	if self.lastSemenCollectionDay ~= nil and self.lastSemenCollectionDay > 0 then
+		xmlFile:setInt(key .. "#lastSemenCollectionDay", self.lastSemenCollectionDay)
 	end
 
 	for i, disease in pairs(self.diseases) do
@@ -868,6 +881,7 @@ function Animal:writeStream(streamId, connection)
 	streamWriteFloat32(streamId, self.monitor.fee or 5)
 
 	streamWriteBool(streamId, self.isCastrated or false)
+	streamWriteUInt16(streamId, self.lastSemenCollectionDay or 0)
 
 	streamWriteUInt8(streamId, #self.diseases)
 
@@ -887,6 +901,7 @@ function Animal:writeStream(streamId, connection)
 		streamWriteString(streamId, self.insemination.name)
 		streamWriteUInt8(streamId, self.insemination.subTypeIndex)
 		streamWriteFloat32(streamId, self.insemination.success)
+		streamWriteUInt8(streamId, self.insemination.semenType or SemenType.CONVENTIONAL)
 		streamWriteFloat32(streamId, self.insemination.genetics.metabolism)
 		streamWriteFloat32(streamId, self.insemination.genetics.health)
 		streamWriteFloat32(streamId, self.insemination.genetics.fertility)
@@ -1051,18 +1066,27 @@ function Animal:readStream(streamId, connection)
 	}
 
 	self.isCastrated = streamReadBool(streamId)
+	self.lastSemenCollectionDay = streamReadUInt16(streamId)
 
 	local numDiseases = streamReadUInt8(streamId)
 	local diseases = {}
 
 	for i = 1, numDiseases do
 
-		local diseaseType = g_diseaseManager:getDiseaseByTitle(streamReadString(streamId))
-		local disease = Disease.new(diseaseType)
+		local diseaseTitle = streamReadString(streamId)
 
-		disease:readStream(streamId, connection)
+		if g_diseaseManager == nil then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while reading animal disease '%s' from stream - disease system failed to initialize", diseaseTitle)
+			local disease = Disease.new(nil)
+			disease:readStream(streamId, connection)
+		else
+			local diseaseType = g_diseaseManager:getDiseaseByTitle(diseaseTitle)
+			local disease = Disease.new(diseaseType)
 
-		table.insert(diseases, disease)
+			disease:readStream(streamId, connection)
+
+			table.insert(diseases, disease)
+		end
 
 	end
 
@@ -1080,7 +1104,8 @@ function Animal:readStream(streamId, connection)
 			["name"] = streamReadString(streamId),
 			["subTypeIndex"] = streamReadUInt8(streamId),
 			["genetics"] = {},
-			["success"] = streamReadFloat32(streamId)
+			["success"] = streamReadFloat32(streamId),
+			["semenType"] = streamReadUInt8(streamId)
 		}
 
 		insemination.genetics.metabolism = streamReadFloat32(streamId)
@@ -1193,12 +1218,20 @@ function Animal:readStreamUnborn(streamId, connection)
 
 	for i = 1, numDiseases do
 
-		local diseaseType = g_diseaseManager:getDiseaseByTitle(streamReadString(streamId))
-		local disease = Disease.new(diseaseType)
+		local diseaseTitle = streamReadString(streamId)
 
-		disease:readStream(streamId, connection)
+		if g_diseaseManager == nil then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while reading animal disease '%s' from update stream - disease system failed to initialize", diseaseTitle)
+			local disease = Disease.new(nil)
+			disease:readStream(streamId, connection)
+		else
+			local diseaseType = g_diseaseManager:getDiseaseByTitle(diseaseTitle)
+			local disease = Disease.new(diseaseType)
 
-		table.insert(diseases, disease)
+			disease:readStream(streamId, connection)
+
+			table.insert(diseases, disease)
+		end
 
 	end
 
@@ -2194,6 +2227,11 @@ function Animal:updateWeight(foodFactor)
 		increase = increase * 0.75
 	end
 
+	-- Apply disease weight gain modifiers
+	for _, disease in pairs(self.diseases) do
+		increase = disease:modifyWeightGain(increase)
+	end
+
 	local decrease = 0
 	if weight > targetWeight then
 		decrease = (weight - targetWeight) / (metabolism * 25)
@@ -2220,6 +2258,10 @@ function Animal:onPeriodChanged()
 
 	self.monthsSinceLastBirth = self.monthsSinceLastBirth + 1
 
+	if self.isLactating and self.monthsSinceLastBirth >= 10 then  -- ToDo: checked if sufficient or if onDayChanged() is more suitable
+		self.isLactating = false
+	end
+
 	local totalTreatmentCost = 0
 
 	for i = #self.diseases, 1, -1 do
@@ -2240,7 +2282,11 @@ end
 function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPeriod, daysPerPeriod, isSaleAnimal)
 
 	if g_server ~= nil then
-		g_diseaseManager:onDayChanged(self)
+		if g_diseaseManager ~= nil then
+			g_diseaseManager:onDayChanged(self)
+		else
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil during onDayChanged - disease system failed to initialize")
+		end
 	end
 
 	self:setRecentlyBoughtByAI(false)
@@ -2306,9 +2352,18 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 	if insemination ~= nil and g_server ~= nil then
 
 		local fertility = self.genetics.fertility
+
+		-- Apply disease fertility modifiers
+		local effectiveFertility = fertility
+		for _, disease in pairs(self.diseases) do
+			if not disease.cured and not disease.isCarrier and disease.type.fertilityModifier then
+				effectiveFertility = effectiveFertility * disease.type.fertilityModifier
+			end
+		end
+
 		local childNum = self:generateRandomOffspring()
 
-		if childNum > 0 and math.random() >= (2 - fertility) * 0.25 and math.random() <= insemination.success * (math.random(80, 120) / 100) then
+		if childNum > 0 and math.random() >= (2 - effectiveFertility) * 0.25 and math.random() <= insemination.success * (math.random(80, 120) / 100) then
 
 			self:addMessage("INSEMINATION_SUCCESS")
 			g_server:broadcastEvent(AnimalInseminationResultEvent.new(self.clusterSystem.owner, self, true))
@@ -2375,7 +2430,6 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 					self.impregnatedBy.fertility = self.genetics.fertility
 				end
 
-				self.isLactating = false
 				self.isPregnant = false
 
 				local parentDied = false
@@ -2395,9 +2449,18 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 		elseif g_server ~= nil and not isSaleAnimal and self:getCanReproduce() then
 
 			local fertility = self.genetics.fertility
+
+			-- Apply disease fertility modifiers
+			local effectiveFertility = fertility
+			for _, disease in pairs(self.diseases) do
+				if not disease.cured and not disease.isCarrier and disease.type.fertilityModifier then
+					effectiveFertility = effectiveFertility * disease.type.fertilityModifier
+				end
+			end
+
 			local childNum = self:generateRandomOffspring()
 
-			if math.random() >= (2 - fertility) * 0.5 and childNum > 0 then
+			if math.random() >= (2 - effectiveFertility) * 0.5 and childNum > 0 then
 				self:createPregnancy(childNum, month, year)
 			end
 
@@ -2531,8 +2594,26 @@ function Animal:createPregnancy(childNum, month, year, father)
 
 	for i = 1, childNum do
 
+		-- Determine gender based on semen type
+		local gender
+		local genderRoll = math.random()
 
-		local gender = math.random() >= 0.5 and "male" or "female"
+		if self.insemination ~= nil and self.insemination.semenType ~= nil then
+			if self.insemination.semenType == SemenType.SEXED_FEMALE then
+				-- 90% chance female
+				gender = (genderRoll < 0.90) and "female" or "male"
+			elseif self.insemination.semenType == SemenType.SEXED_MALE then
+				-- 90% chance male
+				gender = (genderRoll < 0.90) and "male" or "female"
+			else
+				-- Natural 50/50 split for conventional
+				gender = (genderRoll >= 0.5) and "male" or "female"
+			end
+		else
+			-- Natural 50/50 split (no insemination data)
+			gender = (genderRoll >= 0.5) and "male" or "female"
+		end
+
 		local subTypeIndex
 
 		if fatherSubTypeIndex ~= nil and math.random() >= 0.5 then
@@ -3302,7 +3383,6 @@ function Animal:updateOutput(temp)
 				local factor = 0.8
 
 				if monthsSinceLastBirth >= 10 or not self.isLactating or not self.isParent then
-					self.isLactating = false
 					factor = 0
 				elseif monthsSinceLastBirth <= 3 then
 					factor = factor + (monthsSinceLastBirth / 6)
@@ -3325,7 +3405,6 @@ function Animal:updateOutput(temp)
 			local productivity = self.genetics.productivity or 1
 
 			if monthsSinceLastBirth >= 10 or not self.isLactating or not self.isParent then
-				self.isLactating = false
 				factor = 0
 			elseif monthsSinceLastBirth <= 3 then
 				factor = factor + (monthsSinceLastBirth / 6)
@@ -3528,7 +3607,7 @@ function Animal:getCanBeInseminatedByAnimal(animal)
 
 end
 
-function Animal:setInsemination(animal)
+function Animal:setInsemination(animal, semenType)
 
 	self.insemination = {
 		["country"] = animal.country,
@@ -3537,12 +3616,20 @@ function Animal:setInsemination(animal)
 		["genetics"] = animal.genetics,
 		["name"] = animal.name,
 		["subTypeIndex"] = animal.subTypeIndex,
-		["success"] = animal.success
+		["success"] = animal.success,
+		["semenType"] = semenType or SemenType.CONVENTIONAL
 	}
 
 end
 
 function Animal:getHasAnyDisease()
+
+	if g_diseaseManager == nil then
+		if self.diseases ~= nil and #self.diseases > 0 then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil but animal has %d disease(s) - disease system failed to initialize", #self.diseases)
+		end
+		return false
+	end
 
 	return g_diseaseManager.diseasesEnabled and #self.diseases > 0
 

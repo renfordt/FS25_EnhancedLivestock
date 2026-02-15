@@ -33,7 +33,7 @@ function PlaceableHusbandryPallets:updateInputAndOutput(superFunc, animals)
 
 			if pallets ~= nil then
 
-				spec.litersPerHour[pallets.fillType] = spec.litersPerHour[pallets.fillType] + animal:getOutput("pallets")
+				spec.litersPerHour[pallets.fillType] = (spec.litersPerHour[pallets.fillType] or 0) + animal:getOutput("pallets")
 
 				table.addElement(spec.activeFillTypes, pallets.fillType)
 

@@ -30,6 +30,8 @@ function DiseaseManager:loadDiseases()
 		local title = xmlFile:getString(key .. "#title")
 		local translationKey = "el_disease_" .. title
 		local name = g_i18n:getText(translationKey)
+		local descriptionKey = translationKey .. "_desc"
+		local description = g_i18n:getText(descriptionKey)
 
 		local animals = {}
 		local animalTitles = string.split(xmlFile:getString(key .. "#animals"), " ")
@@ -99,10 +101,27 @@ function DiseaseManager:loadDiseases()
 
 		local recovery = xmlFile:getFloat(key .. "#recovery")
 
+		-- Load new disease attributes
+		local weightGain = xmlFile:getFloat(key .. "#weightGain", 1.0)
+		local fertilityModifier = xmlFile:getFloat(key .. "#fertility", 1.0)
+
+		-- Load seasonal modifiers
+		local season = nil
+		if xmlFile:hasProperty(key .. ".season") then
+			season = {
+				spring = xmlFile:getFloat(key .. ".season#spring", 1.0),
+				summer = xmlFile:getFloat(key .. ".season#summer", 1.0),
+				autumn = xmlFile:getFloat(key .. ".season#autumn", 1.0),
+				winter = xmlFile:getFloat(key .. ".season#winter", 1.0)
+			}
+		end
+
 		local disease = {
 			["title"] = title,
 			["key"] = translationKey,
 			["name"] = name,
+			["descriptionKey"] = descriptionKey,
+			["description"] = description,
 			["animals"] = animals,
 			["value"] = valueModifier,
 			["transmission"] = transmission,
@@ -112,7 +131,10 @@ function DiseaseManager:loadDiseases()
 			["fatality"] = fatality,
 			["output"] = output,
 			["treatment"] = treatment,
-			["recovery"] = recovery
+			["recovery"] = recovery,
+			["weightGain"] = weightGain,
+			["fertilityModifier"] = fertilityModifier,
+			["season"] = season
 		}
 
 		if xmlFile:hasProperty(key .. ".carrier") then
@@ -202,6 +224,8 @@ function DiseaseManager:onDayChanged(animal)
 
 				currentValue = currentValue[path]
 
+				if currentValue == nil then eligible = false break end
+
 			end
 
 			if currentValue ~= prerequisite.value then
@@ -226,12 +250,61 @@ function DiseaseManager:onDayChanged(animal)
 
 		end
 
-		if math.random() >= probability * self.diseasesChance then
+		-- Health genetics modifier: better health = lower disease probability
+		-- health=1.75 (best) → 0.25x probability
+		-- health=1.0 (average) → 1.0x probability
+		-- health=0.25 (worst) → 1.75x probability
+		local healthModifier = 2.0 - (animal.genetics.health or 1.0)
+
+		-- Season modifier: diseases more likely in certain seasons
+		local seasonModifier = self:getCurrentSeasonModifier(disease)
+
+		-- Overcrowding modifier: more animals = higher disease rates
+		local overcrowdingModifier = 1.0
+		if animal.clusterSystem ~= nil and animal.clusterSystem.owner ~= nil then
+			local spec = animal.clusterSystem.owner.spec_husbandryAnimals
+			if spec ~= nil and spec.maxNumAnimals ~= nil and spec.maxNumAnimals > 0 then
+				local ratio = #animal.clusterSystem.animals / spec.maxNumAnimals
+				if ratio > 1.0 then
+					overcrowdingModifier = 2.0
+				elseif ratio > 0.8 then
+					overcrowdingModifier = 1.3
+				elseif ratio < 0.5 then
+					overcrowdingModifier = 0.8
+				end
+			end
+		end
+
+		if math.random() >= probability * self.diseasesChance * healthModifier * seasonModifier * overcrowdingModifier then
 			continue
 		end
 
 		animal:addDisease(disease)
 
+	end
+
+end
+
+function DiseaseManager:getCurrentSeasonModifier(disease)
+
+	if disease.season == nil then
+		return 1.0
+	end
+
+	local month = g_currentMission.environment.currentPeriod + 2
+	if month > 12 then
+		month = month - 12
+	end
+
+	-- Spring: Mar-May (3-5), Summer: Jun-Aug (6-8), Autumn: Sep-Nov (9-11), Winter: Dec-Feb (12,1,2)
+	if month >= 3 and month <= 5 then
+		return disease.season.spring
+	elseif month >= 6 and month <= 8 then
+		return disease.season.summer
+	elseif month >= 9 and month <= 11 then
+		return disease.season.autumn
+	else
+		return disease.season.winter
 	end
 
 end
@@ -275,10 +348,23 @@ function DiseaseManager:setGeneticDiseasesForSaleAnimal(animal)
 
 end
 
-function DiseaseManager:calculateTransmission(animals)
+function DiseaseManager:calculateTransmission(animals, husbandrySpec)
 
 	if not self.diseasesEnabled then
 		return
+	end
+
+	-- Calculate overcrowding modifier for transmission
+	local overcrowdingModifier = 1.0
+	if husbandrySpec ~= nil and husbandrySpec.maxNumAnimals ~= nil and husbandrySpec.maxNumAnimals > 0 then
+		local ratio = #animals / husbandrySpec.maxNumAnimals
+		if ratio > 1.0 then
+			overcrowdingModifier = 2.0
+		elseif ratio > 0.8 then
+			overcrowdingModifier = 1.3
+		elseif ratio < 0.5 then
+			overcrowdingModifier = 0.8
+		end
 	end
 
 	local diseases = {}
@@ -309,6 +395,16 @@ function DiseaseManager:calculateTransmission(animals)
 		return
 	end
 
+	-- Calculate immune counts per disease for herd immunity
+	local immuneCounts = {}
+	for _, animal in pairs(animals) do
+		for _, disease in pairs(animal.diseases) do
+			if disease.cured then  -- cured = immune
+				immuneCounts[disease.type.title] = (immuneCounts[disease.type.title] or 0) + 1
+			end
+		end
+	end
+
 	for _, animal in pairs(animals) do
 
 		for title, disease in pairs(diseases) do
@@ -336,6 +432,8 @@ function DiseaseManager:calculateTransmission(animals)
 
 					currentValue = currentValue[path]
 
+					if currentValue == nil then eligible = false break end
+
 				end
 
 				if currentValue ~= prerequisite.value then
@@ -349,7 +447,20 @@ function DiseaseManager:calculateTransmission(animals)
 				continue
 			end
 
-			if math.random() <= disease.type.transmission * (disease.amount / #animals) then
+			-- Health genetics modifier for transmission susceptibility
+			local healthModifier = 2.0 - (animal.genetics.health or 1.0)
+
+			-- Herd immunity: if >70% of susceptible animals are immune, transmission is greatly reduced
+			local immuneCount = immuneCounts[title] or 0
+			local herdImmunityFactor = 1.0
+			if (#animals - disease.amount) > 0 then
+				local immuneRatio = immuneCount / (#animals - disease.amount)
+				if immuneRatio > 0.7 then
+					herdImmunityFactor = 0.1  -- herd immunity kicks in
+				end
+			end
+
+			if math.random() <= disease.type.transmission * (disease.amount / #animals) * healthModifier * overcrowdingModifier * herdImmunityFactor then
 				animal:addDisease(disease.type)
 			end
 

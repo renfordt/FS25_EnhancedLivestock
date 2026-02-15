@@ -52,7 +52,7 @@ local function updateInMemoryHandToolsXml(xmlFile)
 		if filename ~= nil and string.find(filename, OLD_MOD_DIR, 1, true) ~= nil then
 			local newFilename = string.gsub(filename, OLD_MOD_DIR, NEW_MOD_DIR)
 			xmlFile:setString(key .. "#filename", newFilename)
-			print("ELItemSystemMigration: [handTools] Patched filename: " .. filename .. " -> " .. newFilename)
+			Logging.info("[EnhancedLivestock] ELItemSystemMigration: [handTools] Patched filename: " .. filename .. " -> " .. newFilename)
 			patchedCount = patchedCount + 1
 		end
 
@@ -88,7 +88,7 @@ local function updateInMemoryItemsXml(xmlFile)
 		local modName = xmlFile:getString(key .. "#modName")
 		if modName == OLD_MOD_NAME then
 			xmlFile:setString(key .. "#modName", NEW_MOD_NAME)
-			print("ELItemSystemMigration: [items] Patched modName: " .. OLD_MOD_NAME .. " -> " .. NEW_MOD_NAME .. " for " .. key)
+			Logging.info("[EnhancedLivestock] ELItemSystemMigration: [items] Patched modName: " .. OLD_MOD_NAME .. " -> " .. NEW_MOD_NAME .. " for " .. key)
 			itemPatched = true
 		end
 
@@ -97,7 +97,7 @@ local function updateInMemoryItemsXml(xmlFile)
 		if className ~= nil and string.find(className, oldClassPrefix, 1, true) == 1 then
 			local newClassName = newClassPrefix .. string.sub(className, #oldClassPrefix + 1)
 			xmlFile:setString(key .. "#className", newClassName)
-			print("ELItemSystemMigration: [items] Patched className: " .. className .. " -> " .. newClassName .. " for " .. key)
+			Logging.info("[EnhancedLivestock] ELItemSystemMigration: [items] Patched className: " .. className .. " -> " .. newClassName .. " for " .. key)
 			itemPatched = true
 		end
 
@@ -124,13 +124,13 @@ function ELItemSystemMigration.loadHandToolsPrepend(handToolSystem, xmlFileOrFil
 		return
 	end
 
-	print("ELItemSystemMigration: HandToolSystem:loadFromXMLFile prepend called")
+	Logging.info("[EnhancedLivestock] ELItemSystemMigration: HandToolSystem:loadFromXMLFile prepend called")
 
 	-- Extract XMLFile object if it's a table
 	local xmlFileObj = nil
 	if xmlFileOrFilename ~= nil and type(xmlFileOrFilename) == "table" and xmlFileOrFilename.getFilename ~= nil then
 		xmlFileObj = xmlFileOrFilename
-		print("ELItemSystemMigration: Got XMLFile object for handTools.xml: " .. tostring(xmlFileObj:getFilename()))
+		Logging.info("[EnhancedLivestock] ELItemSystemMigration: Got XMLFile object for handTools.xml: " .. tostring(xmlFileObj:getFilename()))
 	end
 
 	-- Patch the in-memory XMLFile
@@ -139,10 +139,10 @@ function ELItemSystemMigration.loadHandToolsPrepend(handToolSystem, xmlFileOrFil
 		handToolsXmlPatched = true
 
 		if patchedCount > 0 then
-			print(string.format("ELItemSystemMigration: Patched %d hand tools in memory (no disk write)", patchedCount))
+			Logging.info("[EnhancedLivestock] ELItemSystemMigration: Patched %d hand tools in memory (no disk write)", patchedCount)
 			g_elPendingMigration = true
 		else
-			print("ELItemSystemMigration: No hand tools needed patching")
+			Logging.info("[EnhancedLivestock] ELItemSystemMigration: No hand tools needed patching")
 		end
 	end
 end
@@ -159,7 +159,7 @@ function ELItemSystemMigration.loadItemsFromXMLPrepend(itemSystem, xmlFile, key)
 		return
 	end
 
-	print("ELItemSystemMigration: ItemSystem:loadItemsFromXML prepend called (first time)")
+	Logging.info("[EnhancedLivestock] ELItemSystemMigration: ItemSystem:loadItemsFromXML prepend called (first time)")
 
 	-- Patch the in-memory XMLFile
 	if xmlFile ~= nil and type(xmlFile) == "table" then
@@ -167,10 +167,10 @@ function ELItemSystemMigration.loadItemsFromXMLPrepend(itemSystem, xmlFile, key)
 		itemsXmlPatched = true
 
 		if patchedCount > 0 then
-			print(string.format("ELItemSystemMigration: Patched %d items in memory (no disk write)", patchedCount))
+			Logging.info("[EnhancedLivestock] ELItemSystemMigration: Patched %d items in memory (no disk write)", patchedCount)
 			g_elPendingMigration = true
 		else
-			print("ELItemSystemMigration: No items needed patching")
+			Logging.info("[EnhancedLivestock] ELItemSystemMigration: No items needed patching")
 		end
 	end
 end
@@ -181,9 +181,9 @@ if HandToolSystem ~= nil and HandToolSystem.loadFromXMLFile ~= nil then
 		HandToolSystem.loadFromXMLFile,
 		ELItemSystemMigration.loadHandToolsPrepend
 	)
-	print("ELItemSystemMigration: Hook registered for HandToolSystem.loadFromXMLFile")
+	Logging.info("[EnhancedLivestock] ELItemSystemMigration: Hook registered for HandToolSystem.loadFromXMLFile")
 else
-	print("ELItemSystemMigration: WARNING - HandToolSystem.loadFromXMLFile not found!")
+	Logging.warning("[EnhancedLivestock] ELItemSystemMigration: HandToolSystem.loadFromXMLFile not found!")
 end
 
 -- Hook into ItemSystem.loadItemsFromXML - patches items.xml in memory
@@ -192,7 +192,7 @@ if ItemSystem ~= nil and ItemSystem.loadItemsFromXML ~= nil then
 		ItemSystem.loadItemsFromXML,
 		ELItemSystemMigration.loadItemsFromXMLPrepend
 	)
-	print("ELItemSystemMigration: Hook registered for ItemSystem.loadItemsFromXML")
+	Logging.info("[EnhancedLivestock] ELItemSystemMigration: Hook registered for ItemSystem.loadItemsFromXML")
 else
-	print("ELItemSystemMigration: WARNING - ItemSystem.loadItemsFromXML not found!")
+	Logging.warning("[EnhancedLivestock] ELItemSystemMigration: ItemSystem.loadItemsFromXML not found!")
 end

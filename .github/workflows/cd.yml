@@ -1,0 +1,51 @@
+name: cd
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install -g @mermaid-js/mermaid-cli
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v5
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: ~/.cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material mkdocs-mermaid-to-svg
+      - run: mkdocs build
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site/
+      - id: deployment
+        uses: actions/deploy-pages@v4

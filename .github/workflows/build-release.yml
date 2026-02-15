@@ -19,7 +19,7 @@ jobs:
         with:
           type: 'zip'
           filename: 'FS25_EnhancedLivestock.zip'
-          exclusions: '*.git* *.github* *.idea* *README* *LICENSE* *.md Contributors.md'
+          exclusions: '*.git* *.github* *.idea* *README* *LICENSE* *.md Contributors.md *docs* mkdocs.yml CHANGELOG.md'
       - name: Get Version (from modDesc.xml)
         if: github.ref_type != 'tag'
         run: echo "version=$(grep '<version>' modDesc.xml | sed -e 's/<\/*version>//g' -e 's/^[ \t]*//')" >> $GITHUB_ENV

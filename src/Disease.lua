@@ -76,6 +76,11 @@ end
 
 function Disease:onPeriodChanged(animal, deathEnabled)
 
+	if g_diseaseManager == nil then
+		Logging.warning("[EnhancedLivestock] g_diseaseManager is nil during disease onPeriodChanged - disease system failed to initialize")
+		return false, 0
+	end
+
 	if not g_diseaseManager.diseasesEnabled then
 		return false, 0
 	end
@@ -149,6 +154,11 @@ end
 
 function Disease:affectReproduction(child, otherParent)
 
+	if g_diseaseManager == nil then
+		Logging.warning("[EnhancedLivestock] g_diseaseManager is nil during disease affectReproduction - disease system failed to initialize")
+		return
+	end
+
 	if not g_diseaseManager.diseasesEnabled then
 		return
 	end
@@ -208,7 +218,7 @@ end
 
 function Disease:modifyOutput(type, value)
 
-	if self.cured or not g_diseaseManager.diseasesEnabled then
+	if g_diseaseManager == nil or self.cured or not g_diseaseManager.diseasesEnabled then
 		return value
 	end
 
@@ -217,6 +227,16 @@ function Disease:modifyOutput(type, value)
 	end
 
 	return value * (self.type.output[type] or 1)
+
+end
+
+function Disease:modifyWeightGain(value)
+
+	if g_diseaseManager == nil or self.cured or self.isCarrier or not g_diseaseManager.diseasesEnabled then
+		return value
+	end
+
+	return value * self.type.weightGain
 
 end
 

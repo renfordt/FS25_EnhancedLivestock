@@ -16,6 +16,7 @@ function ELConsoleCommandManager.new()
 		addConsoleCommand("elSetAnimalGenetics", "Set the genetics of the targeted animal", "setGenetics", self, "[geneticType] [value]")
 		addConsoleCommand("elSetAnimalInput", "Set the input of the targeted animal", "setInput", self, "[inputType] [value]")
 		addConsoleCommand("elSetAnimalOutput", "Set the output of the targeted animal", "setOutput", self, "[outputType] [value]")
+		addConsoleCommand("elAddAnimalDisease", "Add a disease to the targeted animal", "addDisease", self, "[diseaseTitle]")
 	--addConsoleCommand("elExtractAnimalHierarchy", "Extract visual animal hierarchy to XML file", "extractHierarchy", self, "[subTypeName] [age]")
 	--addConsoleCommand("elDumpAnimalPaths", "Dump all animal asset paths (i3d, shapes, config) to console", "dumpAnimalPaths", self)
 	end
@@ -222,14 +223,78 @@ function ELConsoleCommandManager:setOutput(outputType, value)
 
 end
 
-function ELConsoleCommandManager:extractHierarchy(subTypeName, age)
+function ELConsoleCommandManager:addDisease(diseaseTitle)
 
-	return VisualAnimal.extractHierarchyToXml(subTypeName, age)
+	if self.animal == nil then
+		return "elAddAnimalDisease: no targeted animal"
+	end
+
+	if g_diseaseManager == nil then
+		return "elAddAnimalDisease: disease manager not available"
+	end
+
+	if diseaseTitle == nil or type(diseaseTitle) ~= "string" then
+
+		print("elAddAnimalDisease: no disease title given, accepted diseases for this animal type:")
+
+		for _, disease in pairs(g_diseaseManager.diseases) do
+			if disease.animals[self.animal.animalTypeIndex] then
+				print("|--- " .. disease.title)
+			end
+		end
+
+		return
+
+	end
+
+	local disease = g_diseaseManager:getDiseaseByTitle(diseaseTitle)
+
+	if disease == nil then
+
+		print("elAddAnimalDisease: disease not found, accepted diseases:")
+
+		for _, d in pairs(g_diseaseManager.diseases) do
+			print("|--- " .. d.title)
+		end
+
+		return
+
+	end
+
+	if not disease.animals[self.animal.animalTypeIndex] then
+
+		print("elAddAnimalDisease: disease not applicable to this animal type, accepted diseases:")
+
+		for _, d in pairs(g_diseaseManager.diseases) do
+			if d.animals[self.animal.animalTypeIndex] then
+				print("|--- " .. d.title)
+			end
+		end
+
+		return
+
+	end
+
+	for _, existingDisease in pairs(self.animal.diseases) do
+		if existingDisease.type.title == diseaseTitle then
+			return "elAddAnimalDisease: animal already has this disease"
+		end
+	end
+
+	self.animal:addDisease(disease)
+
+	return "elAddAnimalDisease: disease added successfully"
 
 end
 
-function ELConsoleCommandManager:dumpAnimalPaths()
+--function ELConsoleCommandManager:extractHierarchy(subTypeName, age)
+--
+--	return VisualAnimal.extractHierarchyToXml(subTypeName, age)
+--
+--end
 
-	return VisualAnimal.dumpAnimalPaths()
-
-end
+--function ELConsoleCommandManager:dumpAnimalPaths()
+--
+--	return VisualAnimal.dumpAnimalPaths()
+--
+--end

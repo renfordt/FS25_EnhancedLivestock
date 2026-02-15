@@ -1,0 +1,125 @@
+site_name: Enhanced Livestock
+site_description: Guide and documentation for the Enhanced Livestock mod for Farming Simulator 25
+site_url: https://renfordt.github.io/FS25_EnhancedLivestock
+
+repo_url: https://github.com/renfordt/FS25_EnhancedLivestock
+repo_name: FS25_EnhancedLivestock
+
+docs_dir: docs
+
+theme:
+  name: material
+  icon:
+    logo: fontawesome/solid/cow
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - content.tooltips
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - privacy
+  - mermaid-to-svg:
+      renderer: mmdc
+      mermaid_config:
+        theme: base
+        themeVariables:
+          xyChart:
+            backgroundColor: "#f8f8f8"
+            titleColor: "#333333"
+            xAxisLabelColor: "#333333"
+            xAxisTitleColor: "#333333"
+            yAxisLabelColor: "#333333"
+            yAxisTitleColor: "#333333"
+            xAxisLineColor: "#666666"
+            yAxisLineColor: "#666666"
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.superfences
+
+nav:
+  - Home:
+      - index.md
+      - Compatibility: compatibility.md
+  - Features:
+      - Individual Animals: individual_animals.md
+      - Genetics: genetics.md
+      - Breeding: breeding.md
+      - Diseases: disease.md
+      - Productions: productions.md
+      - Herdsman: herdsman.md
+      - Message Log: message_log.md
+      - Monitor: monitor.md
+  - Animals:
+      - Cattle: cattle.md
+      - Pigs: pigs.md
+      - Sheep: sheep.md
+      - Goats: goats.md
+      - Horses: horses.md
+      - Chickens: chickens.md
+  - Diseases:
+      - Multi-Species:
+          - Foot and Mouth Disease: foot_and_mouth.md
+          - Mastitis: mastitis.md
+          - Foot Rot: foot_rot.md
+      - Cattle:
+          - CVM: cvm.md
+          - Bovine Respiratory Disease: brd.md
+          - Bovine Viral Diarrhea: bvd.md
+          - "Johne's Disease": johnes.md
+      - Horses:
+          - Colic: colic.md
+          - Laminitis: laminitis.md
+          - Arthritis: arthritis.md
+          - EGUS: egus.md
+          - Equine Asthma: equine_asthma.md
+      - Pigs:
+          - Porcine Epidemic Diarrhea: porcine_epidemic_diarrhea.md
+          - PRRS: prrs.md
+          - African Swine Fever: asf.md
+          - Swine Influenza: swine_influenza.md
+          - Greasy Pig Disease: greasy_pig.md
+          - Scours: scours.md
+      - Sheep:
+          - Internal Parasites: internal_parasites.md
+          - Flystrike: flystrike.md
+          - Clostridial Disease: clostridial.md
+          - Twin Lamb Disease: twin_lamb_disease.md
+      - Chickens:
+          - Avian Influenza: avian_influenza.md
+          - Coccidiosis: coccidiosis.md
+          - "Marek's Disease": mareks.md
+          - Newcastle Disease: newcastle.md
+          - Infectious Bronchitis: infectious_bronchitis.md

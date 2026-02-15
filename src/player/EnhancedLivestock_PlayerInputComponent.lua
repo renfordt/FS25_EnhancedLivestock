@@ -83,7 +83,7 @@ function EnhancedLivestock_PlayerInputComponent:onInputEnter()
 	local handTool = _G[strawType.className].new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
 
 	handTool:setType(strawType)
-	handTool:setLoadCallback(self.onFinishedLoadStraw, self, { ["animal"] = self.dewar:getAnimal(), ["dewarUniqueId"] = self.dewar:getUniqueId() })
+	handTool:setLoadCallback(self.onFinishedLoadStraw, self, { ["animal"] = self.dewar:getAnimal(), ["dewarUniqueId"] = self.dewar:getUniqueId(), ["semenType"] = self.dewar.semenType })
 	handTool:loadNonStoreItem({ ["ownerFarmId"] = g_localPlayer.farmId, ["isRegistered"] = false, ["holder"] = g_localPlayer }, ELHandTools.xmlPaths.aiStraw)
 
 	self.dewar:changeStraws(-1)
@@ -97,6 +97,7 @@ function PlayerInputComponent:onFinishedLoadStraw(handTool, loadingState, args)
 	if loadingState == HandToolLoadingState.OK then
 		handTool:setAnimal(args.animal)
 		handTool:setDewarUniqueId(args.dewarUniqueId)
+		handTool:setSemenType(args.semenType)
 	end
 
 end
