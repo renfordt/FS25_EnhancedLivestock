@@ -8,6 +8,10 @@ PlaceableHusbandry.registerFunctions = Utils.appendedFunction(PlaceableHusbandry
 
 function EL_PlaceableHusbandry:onHourChanged()
 
+	if g_nutritionManager ~= nil then
+		g_nutritionManager:clearTroughCache()
+	end
+
 	local animals = self.spec_husbandryAnimals:getClusters()
 	local temp = g_currentMission.environment.weather.temperatureUpdater.currentMin or 20
 

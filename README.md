@@ -8,169 +8,51 @@
 
 **A comprehensive livestock overhaul for Farming Simulator 25**
 
-[Download Latest Release](https://github.com/renfordt/FS25_EnhancedLivestock/releases) • [Report Bug](https://github.com/renfordt/FS25_EnhancedLivestock/issues) • [Request Feature](https://github.com/renfordt/FS25_EnhancedLivestock/issues)
+[Download Latest Release](https://github.com/renfordt/FS25_EnhancedLivestock/releases) • [Documentation](https://renfordt.github.io/FS25_EnhancedLivestock) • [Report Bug](https://github.com/renfordt/FS25_EnhancedLivestock/issues)
 
 </div>
 
 > [!NOTE]
-> This mod is based on the [FS25 Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) mod by [Arrow-kb](https://github.com/Arrow-kb), who has decided to cease all his mods.
-> Proudly cooperating with [FS25_RealisticLivestockRM](https://github.com/rittermod/FS25_RealisticLivestockRM) mod by [Ritter](https://github.com/rittermod).
-
----
-
+> This mod is based on [FS25 Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) by [Arrow-kb](https://github.com/Arrow-kb), who has decided to cease all his mods.
+> Proudly cooperating with [FS25_RealisticLivestockRM](https://github.com/rittermod/FS25_RealisticLivestockRM) by [Ritter](https://github.com/rittermod).
 
 > [!WARNING]
-> This repository hosts the Realistic Version of the mod. It contains accurate agricultural and veterinary terminology (e.g., Death, Insemination, Semen) that is restricted on the official ModHub due to PEGI ratings.
-> If you prefer the sanitized, family-friendly text required by Giants Software, please download the version available on the in-game ModHub. (Currently in release process)
+> This repository hosts the Realistic Version with accurate agricultural terminology (e.g., Death, Insemination, Semen) restricted on the official ModHub due to PEGI ratings. For the sanitized version, download from the in-game ModHub. (Currently in release process)
 
 ---
 
 ## ✨ Features
 
-### 🐂 Male Animals
-Transform your breeding program with the addition of male animals:
-- **Higher market value** compared to females
-- **Essential for reproduction** - realistic breeding requirements
-- Uses vanilla models (no custom 3D models required)
-- **Highland Cattle bull** now available as a male variant
+| Feature | Description |
+|---------|-------------|
+| 🏷️ **Individual Animals** | Every animal is unique with ID, birthday, name, ear tags, nose rings, and country of origin |
+| 🐂 **Male Animals** | Males with higher market value, essential for breeding; Highland Cattle bull variant |
+| 👀 **Visual Animals** | Up to 200 visual animals per husbandry (vanilla: 25), adjustable via slider |
+| 🧬 **Genetics** | 5 heritable traits (Health, Fertility, Metabolism, Productivity, Meat Quality) affecting performance and value |
+| 🍽️ **Nutrition** | Real feed nutrient profiles, life-stage requirements, body condition scoring, and nutrient-driven growth |
+| ⚖️ **Weight** | Individual weight tracking with daily fluctuations, health consequences, and sale value impact |
+| 🤰 **Pregnancy** | Species-specific litter sizes, conception at impregnation, individual gestation periods |
+| 🦠 **27 Diseases** | Transmission, treatment, immunity, fatality curves, seasonal patterns, and genetic resistance |
+| 📊 **Production** | Lactation curves for milk, seasonal wool growth, genetics- and health-driven output |
+| ⏳ **Death & Aging** | Species-specific lifespans, progressive mortality, death from old age, health, accidents, or complications |
+| 🏪 **Animal Dealer** | Global farm network with daily deliveries, unique genetics, pregnant stock, and quality-based pricing |
+| 🤖 **AI Herdsman** | Automated buy/sell/castrate/name/inseminate with configurable filters and monthly wages |
+| 💉 **Insemination** | Dewar semen storage, hand tool system, and pedigree genetic selection |
+| 🖥️ **Enhanced UI** | Family tree viewer, detailed animal screens, and enhanced info boxes |
+| 📝 **Message Log** | Tracks births, deaths, transactions, health events, and AI herdsman actions |
+| 🥩 **Butcher Integration** | Seamless meat processing with EPP Butcher placeables |
 
-> [!NOTE]
-> This mod currently uses female vanilla models only.
->
-> We would love to include a male version! If you’re interested in contributing a male counterpart using vanilla assets, please reach out—we welcome your help.
-
-### 👀 Visual Animals
-Enhanced animal visualization system:
-- **Increased capacity** from 25 (vanilla) up to **200 visual animals** per husbandry
-- **Adjustable limit** via in-game slider for performance optimization
-
-### 🏷️ Individual Animals
-Every animal is truly unique with comprehensive individual tracking:
-- **100% individual animals** - archaic cluster system completely removed
-- **Unique identifiers** based on the UK's cattle identification system
-- **Birthday and country of origin** for each animal
-- **Customizable names** for your livestock
-- **Ear tags** displaying country code, farm ID, animal ID, name, and birthday
-- **Toggle ear tag text** - option to show or hide text on ear tags via settings
-- **Nose rings** on supported animals
-
-### 🤰 Enhanced Pregnancy System
-Realistic and dynamic reproduction mechanics:
-- **Species-specific litter sizes** (e.g., cows can have 0-3 calves)
-- **Conception at impregnation** - offspring created when mother is impregnated, not at birth
-- **Pregnancy tracking** - view expected offspring count and due dates
-- **Individual gestation periods** - reproduction duration varies by animal, not by species
-
-### 🧬 Genetics System
-Deep genetic simulation affecting every aspect of animal performance:
-- **Five genetic traits**:
-    - 💚 **Health** - resistance to disease and injury
-    - 👶 **Fertility** - reproduction success rates
-    - ⚡ **Metabolism** - food consumption and weight regulation
-    - 📈 **Productivity** - milk, wool, and egg production
-    - 🥩 **Meat Quality** - value at slaughter
-- **Inheritance mechanics** - offspring inherit traits from parents
-- **Economic impact** - genetics directly affect sale value and profitability
-
-### ⚖️ Weight System
-Dynamic weight management with real consequences:
-- **Individual weight tracking** for every animal
-- **Daily weight fluctuations** based on food and water consumption
-- **Ideal weight targets** influenced by metabolism genetics
-- **Health consequences** - unhealthy weight affects health and can lead to death
-- **Vulnerable young animals** - juveniles especially susceptible to weight-related health issues
-- **Sale value impact** - weight directly affects market price
-
-### 🖥️ Enhanced UI
-Comprehensive information at your fingertips:
-- **Family tree viewer** - track lineage and breeding lines
-- **Detailed animal screens** - extensive stats and information
-- **Enhanced info boxes** - quick access to vital animal data
-- Clean, intuitive interface design
-
-### 📊 Enhanced Production
-Realistic production cycles based on biological factors:
-- **🥛 Cow milk production**:
-    - Only produce milk when lactating
-    - Yield rises and falls based on lactation curve
-    - Production tied to pregnancy cycle
-- **🧶 Sheep wool production**:
-    - Seasonal wool growth
-    - Only produce wool during warm months
-- **Production affected by genetics and health**
-
-### ⏳ Death and Aging
-Natural lifecycle with meaningful consequences:
-- **No age limits** - animals can live beyond 5 years
-- **Species-specific lifespans** - each animal type has realistic expected lifespan
-- **Progressive mortality** - increasing death chance with age, but can live past expectancy
-- **Multiple death causes**:
-    - 👴 Old age
-    - 💔 Poor health
-    - ⚠️ Random accidents
-    - 🤰 Pregnancy complications
-
-### 🏪 Enhanced Animal Dealer
-Completely reimagined purchasing experience:
-- **Global farm network** - hundreds of unique farms across supported countries
-- **Farm specialization** - each farm produces up to 3 animal types
-- **Daily deliveries** - farms send animals to dealer each day
-- **Time-limited availability** - animals eventually disappear if not purchased
-- **Dynamic inventory** - continuous rotation with new animals
-- **Local and imported stock** - mostly local animals with occasional imports
-- **Unique genetics** - every animal has individual traits affecting price
-- **Pregnant animals available** - chance to purchase pregnant stock
-- **Quality-based pricing** - farm quality affects animal traits and cost
-
-### 🦠 Disease System
-Comprehensive health management with realistic disease mechanics:
-- **Multiple disease types** - Various conditions affecting different animal species
-- **Transmission mechanics** - Diseases can spread between animals in the same husbandry
-- **Treatment options** - Pay for veterinary care to cure sick animals
-- **Immunity periods** - Animals gain temporary immunity after recovery
-- **Production impact** - Diseases affect milk, wool, and other outputs
-- **Fatality risk** - Untreated conditions can be fatal over time
-
-### 🤖 AI Herdsman
-Automated animal management system:
-- **Automated buying** - Purchase animals matching your criteria
-- **Automated selling** - Sell animals based on configurable filters
-- **Castration management** - Automatic castration based on rules
-- **Naming service** - Auto-naming for new animals
-- **Insemination service** - Automated breeding management
-- **Monthly wage system** - Pay wages based on services and animal count
-- **Configurable filters** - Set criteria for age, genetics, gender, health, and more
-
-### 💉 Artificial Insemination
-Advanced breeding with pedigree genetics:
-- **Dewar storage** - Store and manage pedigree semen
-- **Hand tool system** - Manual insemination with specialized equipment
-- **Genetic selection** - Choose specific genetics for offspring
-- **Shop integration** - Purchase semen from various sources
-
-### 📝 Message Log
-Event tracking for your husbandries:
-- **Birth notifications** - Track new arrivals
-- **Death records** - Log animal deaths with causes
-- **Transaction history** - Record purchases and sales
-- **Health events** - Disease outbreaks and recoveries
-- **AI Herdsman actions** - Log automated management decisions
-
-### 🥩 Butcher Integration
-Seamless integration with EPP Butcher mods:
-- **Meat processing** - works with installed EPP Butcher placeables
-
-Tested mods:
-- [FS25_Butcher](https://drxml.itch.io/butcher-shop)
-- [FS25_Meat_Production](https://farmingsimulator25mods.com/the-butcher-v1-0-0-1/)
-- [FS25_Meat_Processing_Plant](https://www.kingmods.net/en/fs25/mods/66442/meat-processing-plant)
+> 📖 For detailed guides on each feature, visit the [full documentation](https://renfordt.github.io/FS25_EnhancedLivestock).
 
 ---
 
 ## 📦 Optional Dependencies
 
-- **FS25_FontLibrary** - Provides enhanced font rendering for ear tag text. If not installed, a shader-based fallback is used automatically.
-- **FS25_AnimalPackage_vanillaEdition** - Popular mod that introduces new animal models and variants. If installed, Enhanced Livestock automatically detects and uses the animals and models from this mod instead of the vanilla ones. The integration is seamless and requires no configuration.
+| Mod | Purpose |
+|-----|---------|
+| **FS25_FontLibrary** | Enhanced font rendering for ear tags (shader fallback if not installed) |
+| **FS25_AnimalPackage_vanillaEdition** | Automatically integrates additional animal models and variants |
+| **EPP Butcher mods** | Meat processing — works with [FS25_Butcher](https://drxml.itch.io/butcher-shop), [FS25_Meat_Production](https://farmingsimulator25mods.com/the-butcher-v1-0-0-1/), [FS25_Meat_Processing_Plant](https://www.kingmods.net/en/fs25/mods/66442/meat-processing-plant) |
 
 ---
 

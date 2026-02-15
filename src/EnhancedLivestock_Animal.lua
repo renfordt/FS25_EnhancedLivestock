@@ -60,6 +60,8 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 	self.isDead = false
 	self.isSold = false
 	self.weight = weight or nil
+	self.bodyCondition = 0.5
+	self.nutritionScore = nil
 	self.marks = marks or self:getDefaultMarks()
 
 	self.variation = variation or nil
@@ -545,6 +547,7 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 	--local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, impregnatedById, pos, name, dirt, fitness, riding, farmId, weight, metabolism, impregnatedByMetabolism, impregnatedByProductivity, productivity, quality, impregnatedByMeatQuality, impregnatedByHealth, impregnatedByFertility, healthGenetics, fertility, variation, children)
 
 	animal:setBirthday(birthday)
+	animal.bodyCondition = xmlFile:getFloat(key .. "#bodyCondition", 0.5)
 	animal.lastSemenCollectionDay = lastSemenCollectionDay
 
 	if pregnancy ~= nil and #pregnancy.pregnancies > 0 then
@@ -606,6 +609,7 @@ function Animal:saveToXMLFile(xmlFile, key)
 	xmlFile:setString(key .. "#motherId", self.motherId)
 	xmlFile:setString(key .. "#fatherId", self.fatherId)
 	xmlFile:setFloat(key .. "#weight", self.weight)
+	xmlFile:setFloat(key .. "#bodyCondition", self.bodyCondition or 0.5)
 
 	local markI = 0
 
@@ -786,6 +790,7 @@ function Animal:writeStream(streamId, connection)
 	streamWriteString(streamId, self.fatherId or "-1")
 	streamWriteFloat32(streamId, self.weight)
 	streamWriteFloat32(streamId, self.targetWeight)
+	streamWriteFloat32(streamId, self.bodyCondition or 0.5)
 
 	streamWriteBool(streamId, self.name ~= nil and self.name ~= "")
 
@@ -951,6 +956,7 @@ function Animal:readStream(streamId, connection)
 	self.fatherId = streamReadString(streamId)
 	self.weight = streamReadFloat32(streamId)
 	self.targetWeight = streamReadFloat32(streamId)
+	self.bodyCondition = streamReadFloat32(streamId)
 
 	local hasName = streamReadBool(streamId)
 	self.name = hasName and streamReadString(streamId) or nil
@@ -2181,13 +2187,29 @@ function Animal:updateHealth(foodFactor)
 	local healthThresholdFactor = subType.healthThresholdFactor
 	local healthGenetics = self.genetics.health
 
+	-- Compute nutrition score and body condition if NutritionManager is available
+	local effectiveFoodFactor = foodFactor
+
+	if g_nutritionManager ~= nil and self.clusterSystem ~= nil and self.clusterSystem.owner ~= nil then
+
+		local nutritionScore = g_nutritionManager:calculateNutritionScore(self, self.clusterSystem.owner)
+
+		if nutritionScore ~= nil then
+			self.nutritionScore = nutritionScore
+			g_nutritionManager:updateBodyCondition(self, nutritionScore)
+			-- Blend long-term condition with current nutrition
+			effectiveFoodFactor = 0.6 * (self.bodyCondition or 0.5) + 0.4 * nutritionScore
+		end
+
+	end
+
 	local factor, delta = nil
 
-	if healthThresholdFactor < foodFactor then
-		factor = (foodFactor - healthThresholdFactor) / (1 - healthThresholdFactor)
+	if healthThresholdFactor < effectiveFoodFactor then
+		factor = (effectiveFoodFactor - healthThresholdFactor) / (1 - healthThresholdFactor)
 		delta = subType.healthIncreaseHour
 	else
-		factor = foodFactor / healthThresholdFactor - 1
+		factor = effectiveFoodFactor / healthThresholdFactor - 1
 		delta = subType.healthDecreaseHour
 	end
 
@@ -2208,6 +2230,73 @@ function Animal:updateWeight(foodFactor)
 	local targetWeight = self.targetWeight
 	local weight = self.weight
 	local metabolism = self.genetics.metabolism
+
+	-- Try ADG-based growth if NutritionManager is available
+	if g_nutritionManager ~= nil then
+
+		local maxADG = g_nutritionManager:getMaxADG(self)
+
+		if maxADG ~= nil then
+
+			local nutritionScore = self.nutritionScore or foodFactor
+
+			-- Maturity ratio: how close to target weight
+			local maturity = math.clamp((weight - minWeight) / (targetWeight - minWeight), 0, 1.5)
+
+			-- Gompertz-like taper: growth slows as animal approaches maturity
+			local growthRate = maxADG * (1 - maturity * 0.85) * math.max(0, 1 - maturity) * math.min(nutritionScore * 1.1, 1.0)
+
+			-- Hourly gain
+			local increase = growthRate / 24
+
+			-- Apply metabolism genetics
+			increase = increase * metabolism
+
+			-- Castrated animals grow 15% faster
+			if self.isCastrated then
+				increase = increase * 1.15
+			end
+
+			-- Lactating animals lose weight (energy diverted to milk)
+			if self.clusterSystem ~= nil and self.clusterSystem.owner ~= nil and self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.isLactating then
+				increase = increase * 0.75
+			end
+
+			-- Apply disease weight gain modifiers
+			for _, disease in pairs(self.diseases) do
+				increase = disease:modifyWeightGain(increase)
+			end
+
+			-- Weight loss when above target
+			local decrease = 0
+			if weight > targetWeight then
+				decrease = (weight - targetWeight) / (metabolism * 25)
+			end
+
+			-- Starvation weight loss
+			if nutritionScore == 0 or foodFactor == 0 then
+				if weight < targetWeight then
+					decrease = (targetWeight - weight) / ((1 - (metabolism - 1)) * 150)
+				elseif weight > targetWeight then
+					decrease = decrease + ((weight - targetWeight) / ((1 - (metabolism - 1)) * 150))
+				end
+			end
+
+			self.weight = math.max(self.weight + increase - decrease, 0.001)
+
+			-- Health penalty for dangerously underweight
+			local minWeightForAge = minWeight * (math.min(self.age, subType.reproductionMinAgeMonth * 1.5) + 0.5) * 0.5
+			if self.weight < minWeightForAge then
+				self.health = math.clamp(self.health - (((minWeightForAge - self.weight) / minWeightForAge) * 0.2), 0, 100)
+			end
+
+			return
+
+		end
+
+	end
+
+	-- Fallback: existing linear growth model
 	local adultMonth = subType.reproductionMinAgeMonth * 1.5
 
 	local baseIncrease = ((targetWeight - minWeight) / adultMonth) / 24
@@ -3294,59 +3383,59 @@ function Animal:updateInput()
 
 	local subType = self:getSubType()
 
+	-- Try nutrition-based calculation for food and water
+	local nutritionFood = nil
+	local nutritionWater = nil
+
+	if g_nutritionManager ~= nil then
+		nutritionFood = g_nutritionManager:getHourlyConsumptionLiters(self)
+		nutritionWater = g_nutritionManager:getHourlyWaterConsumptionLiters(self)
+	end
+
 	for fillType, input in pairs(subType.input) do
 
 		local litersPerDay = input:get(self.age)
 
-		if fillType == "food" then
+		if fillType == "food" and nutritionFood ~= nil then
+			-- Use nutrition-based food consumption (already hourly)
+			self.input[fillType] = nutritionFood
 
-			if self.isLactating then
-				litersPerDay = litersPerDay * 1.25
+		elseif fillType == "water" and nutritionWater ~= nil then
+			-- Use nutrition-based water consumption (already hourly)
+			self.input[fillType] = nutritionWater
+
+		else
+			-- Fallback: existing age-curve calculations
+			if fillType == "food" then
+
+				if self.isLactating then
+					litersPerDay = litersPerDay * 1.25
+				end
+
+				if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
+					litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
+				end
+
+				if self.genetics.metabolism ~= nil then
+					litersPerDay = litersPerDay * self.genetics.metabolism
+				end
+
+				litersPerDay = litersPerDay * (EnhancedLivestock_PlaceableHusbandryFood.foodScale or 1)
+
+			elseif fillType == "water" then
+
+				if self.isLactating then
+					litersPerDay = litersPerDay * 1.5
+				end
+
+				if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
+					litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
+				end
+
 			end
 
-			if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
-				litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
-			end
-
-			if self.genetics.metabolism ~= nil then
-				litersPerDay = litersPerDay * self.genetics.metabolism
-			end
-
-			litersPerDay = litersPerDay * (EnhancedLivestock_PlaceableHusbandryFood.foodScale or 1)
-
+			self.input[fillType] = litersPerDay / 24
 		end
-
-		if fillType == "water" then
-
-			local litersPerDay = input:get(self.age)
-
-			if self.isLactating then
-				litersPerDay = litersPerDay * 1.5
-			end
-
-			if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
-				litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
-			end
-
-		end
-
-		self.input[fillType] = litersPerDay / 24
-
-	end
-
-	if water ~= nil then
-
-		local litersPerDay = water:get(self.age)
-
-		if self.isLactating then
-			litersPerDay = litersPerDay * 1.5
-		end
-
-		if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
-			litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
-		end
-
-		self.input.water = litersPerDay / 24
 
 	end
 
@@ -3418,6 +3507,12 @@ function Animal:updateOutput(temp)
 
 		for _, disease in pairs(self.diseases) do
 			litersPerDay = disease:modifyOutput(fillType, litersPerDay)
+		end
+
+		-- Apply nutrition-based production modifier (skip waste outputs)
+		if self.nutritionScore ~= nil and fillType ~= "manure" and fillType ~= "liquidManure" then
+			local productionFactor = math.clamp(self.nutritionScore * 1.25, 0, 1)
+			litersPerDay = litersPerDay * productionFactor
 		end
 
 		self.output[fillType] = litersPerDay / 24

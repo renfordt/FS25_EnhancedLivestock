@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<nutrition>
+
+	<!-- Feed profiles: energy (MJ/kg DM), protein (g/kg DM), dryMatterPercent (0-1), fiber (g/kg DM), litersPerKgDM -->
+	<feeds>
+		<!-- Roughage -->
+		<feed fillType="DRYGRASS_WINDROW" category="ROUGHAGE" energy="8.5" protein="95" dryMatterPercent="0.85" fiber="600" litersPerKgDM="3.5" />
+		<feed fillType="GRASS_WINDROW" category="ROUGHAGE" energy="10.5" protein="160" dryMatterPercent="0.20" fiber="480" litersPerKgDM="5.0" />
+		<feed fillType="SILAGE" category="ROUGHAGE" energy="10.8" protein="140" dryMatterPercent="0.35" fiber="450" litersPerKgDM="3.0" />
+		<feed fillType="STRAW" category="ROUGHAGE" energy="5.5" protein="35" dryMatterPercent="0.88" fiber="780" litersPerKgDM="4.0" />
+
+		<!-- Concentrates -->
+		<feed fillType="WHEAT" category="CONCENTRATE" energy="13.5" protein="120" dryMatterPercent="0.87" fiber="130" litersPerKgDM="1.2" />
+		<feed fillType="BARLEY" category="CONCENTRATE" energy="13.0" protein="115" dryMatterPercent="0.87" fiber="180" litersPerKgDM="1.2" />
+		<feed fillType="CORN" category="CONCENTRATE" energy="14.2" protein="90" dryMatterPercent="0.87" fiber="100" litersPerKgDM="1.2" />
+		<feed fillType="OAT" category="CONCENTRATE" energy="12.0" protein="110" dryMatterPercent="0.87" fiber="290" litersPerKgDM="1.3" />
+		<feed fillType="SORGHUM" category="CONCENTRATE" energy="13.0" protein="100" dryMatterPercent="0.87" fiber="150" litersPerKgDM="1.2" />
+		<feed fillType="POTATO" category="CONCENTRATE" energy="13.0" protein="95" dryMatterPercent="0.22" fiber="60" litersPerKgDM="4.5" />
+		<feed fillType="SUGARBEET" category="CONCENTRATE" energy="12.8" protein="65" dryMatterPercent="0.23" fiber="70" litersPerKgDM="4.3" />
+
+		<!-- Protein feeds -->
+		<feed fillType="SOYBEAN" category="PROTEIN" energy="15.0" protein="380" dryMatterPercent="0.90" fiber="130" litersPerKgDM="1.1" />
+		<feed fillType="CANOLA" category="PROTEIN" energy="12.5" protein="350" dryMatterPercent="0.90" fiber="170" litersPerKgDM="1.1" />
+		<feed fillType="SUNFLOWER" category="PROTEIN" energy="11.0" protein="280" dryMatterPercent="0.90" fiber="320" litersPerKgDM="1.2" />
+
+		<!-- TMR / Mixed feeds -->
+		<feed fillType="TMR" category="TMR" energy="11.5" protein="165" dryMatterPercent="0.45" fiber="350" litersPerKgDM="2.2" />
+		<feed fillType="FORAGE" category="TMR" energy="10.0" protein="130" dryMatterPercent="0.40" fiber="400" litersPerKgDM="2.5" />
+		<feed fillType="FORAGE_MIXING" category="TMR" energy="10.0" protein="130" dryMatterPercent="0.40" fiber="400" litersPerKgDM="2.5" />
+		<feed fillType="PIG_FOOD" category="TMR" energy="13.0" protein="170" dryMatterPercent="0.88" fiber="100" litersPerKgDM="1.3" />
+		<feed fillType="CHICKEN_FOOD" category="TMR" energy="12.5" protein="180" dryMatterPercent="0.88" fiber="80" litersPerKgDM="1.2" />
+		<feed fillType="HORSE_FOOD" category="TMR" energy="10.0" protein="120" dryMatterPercent="0.88" fiber="300" litersPerKgDM="1.5" />
+
+		<!-- Mineral feed -->
+		<feed fillType="MINERAL_FEED" category="MINERAL" energy="0" protein="0" dryMatterPercent="0.95" fiber="0" litersPerKgDM="1.0" />
+
+		<!-- Default for unknown fill types -->
+		<default energy="9.0" protein="100" dryMatterPercent="0.50" fiber="400" litersPerKgDM="2.5" />
+	</feeds>
+
+	<!--
+		Life stages per species.
+		Each stage defines:
+		  dmiPercent    = daily dry matter intake as % of body weight
+		  energyPerKgBW075 = MJ energy required per kg metabolic weight (BW^0.75)
+		  proteinPerKgBW075 = g protein required per kg metabolic weight (BW^0.75)
+		  minAge        = minimum age in months
+		  maxAge        = maximum age in months (optional, 999 = no limit)
+		  gender        = "any", "male", "female"
+		  condition     = condition check: "isLactating", "isPregnant", "isCastrated", or "none"
+		  priority      = higher priority stages are checked first (highest wins)
+	-->
+	<lifeStages>
+		<species name="COW">
+			<stage name="CALF" minAge="0" maxAge="5" gender="any" condition="none" priority="10" dmiPercent="2.5" energyPerKgBW075="0.65" proteinPerKgBW075="7.5" />
+			<stage name="YEARLING" minAge="6" maxAge="11" gender="any" condition="none" priority="9" dmiPercent="2.8" energyPerKgBW075="0.60" proteinPerKgBW075="6.0" />
+			<stage name="LACTATING" minAge="12" maxAge="999" gender="female" condition="isLactating" priority="20" dmiPercent="3.5" energyPerKgBW075="0.85" proteinPerKgBW075="9.5" />
+			<stage name="DRY_PREGNANT" minAge="12" maxAge="999" gender="female" condition="isPregnant" priority="15" dmiPercent="2.2" energyPerKgBW075="0.58" proteinPerKgBW075="5.5" />
+			<stage name="HEIFER" minAge="12" maxAge="999" gender="female" condition="none" priority="5" dmiPercent="2.5" energyPerKgBW075="0.52" proteinPerKgBW075="5.0" />
+			<stage name="DRY" minAge="12" maxAge="999" gender="female" condition="none" priority="4" dmiPercent="2.0" energyPerKgBW075="0.50" proteinPerKgBW075="4.5" />
+			<stage name="STEER" minAge="6" maxAge="999" gender="male" condition="isCastrated" priority="12" dmiPercent="2.8" energyPerKgBW075="0.58" proteinPerKgBW075="5.5" />
+			<stage name="BULL" minAge="12" maxAge="999" gender="male" condition="none" priority="3" dmiPercent="2.2" energyPerKgBW075="0.55" proteinPerKgBW075="5.0" />
+		</species>
+
+		<species name="PIG">
+			<stage name="PIGLET" minAge="0" maxAge="2" gender="any" condition="none" priority="10" dmiPercent="5.0" energyPerKgBW075="0.80" proteinPerKgBW075="10.0" />
+			<stage name="GROWER" minAge="3" maxAge="5" gender="any" condition="none" priority="9" dmiPercent="4.0" energyPerKgBW075="0.70" proteinPerKgBW075="8.0" />
+			<stage name="FINISHER" minAge="6" maxAge="999" gender="any" condition="none" priority="3" dmiPercent="3.0" energyPerKgBW075="0.60" proteinPerKgBW075="6.5" />
+			<stage name="LACTATING_SOW" minAge="6" maxAge="999" gender="female" condition="isLactating" priority="20" dmiPercent="5.0" energyPerKgBW075="0.90" proteinPerKgBW075="11.0" />
+			<stage name="GESTATING_SOW" minAge="6" maxAge="999" gender="female" condition="isPregnant" priority="15" dmiPercent="2.5" energyPerKgBW075="0.55" proteinPerKgBW075="5.5" />
+			<stage name="BOAR" minAge="6" maxAge="999" gender="male" condition="none" priority="4" dmiPercent="2.5" energyPerKgBW075="0.55" proteinPerKgBW075="5.5" />
+		</species>
+
+		<species name="SHEEP">
+			<stage name="LAMB" minAge="0" maxAge="5" gender="any" condition="none" priority="10" dmiPercent="4.0" energyPerKgBW075="0.65" proteinPerKgBW075="8.0" />
+			<stage name="HOGGET" minAge="6" maxAge="11" gender="any" condition="none" priority="9" dmiPercent="3.5" energyPerKgBW075="0.55" proteinPerKgBW075="6.0" />
+			<stage name="LACTATING_EWE" minAge="12" maxAge="999" gender="female" condition="isLactating" priority="20" dmiPercent="4.5" energyPerKgBW075="0.80" proteinPerKgBW075="10.0" />
+			<stage name="PREGNANT_EWE" minAge="12" maxAge="999" gender="female" condition="isPregnant" priority="15" dmiPercent="2.5" energyPerKgBW075="0.60" proteinPerKgBW075="6.0" />
+			<stage name="EWE" minAge="12" maxAge="999" gender="female" condition="none" priority="4" dmiPercent="2.8" energyPerKgBW075="0.50" proteinPerKgBW075="5.0" />
+			<stage name="RAM" minAge="12" maxAge="999" gender="male" condition="none" priority="3" dmiPercent="2.5" energyPerKgBW075="0.50" proteinPerKgBW075="5.0" />
+		</species>
+
+		<species name="HORSE">
+			<stage name="FOAL" minAge="0" maxAge="5" gender="any" condition="none" priority="10" dmiPercent="3.0" energyPerKgBW075="0.65" proteinPerKgBW075="7.5" />
+			<stage name="YEARLING_HORSE" minAge="6" maxAge="11" gender="any" condition="none" priority="9" dmiPercent="2.5" energyPerKgBW075="0.55" proteinPerKgBW075="5.5" />
+			<stage name="LACTATING_MARE" minAge="12" maxAge="999" gender="female" condition="isLactating" priority="20" dmiPercent="3.0" energyPerKgBW075="0.75" proteinPerKgBW075="8.0" />
+			<stage name="PREGNANT_MARE" minAge="12" maxAge="999" gender="female" condition="isPregnant" priority="15" dmiPercent="2.2" energyPerKgBW075="0.58" proteinPerKgBW075="5.5" />
+			<stage name="MARE" minAge="12" maxAge="999" gender="female" condition="none" priority="4" dmiPercent="2.0" energyPerKgBW075="0.50" proteinPerKgBW075="4.5" />
+			<stage name="STALLION" minAge="12" maxAge="999" gender="male" condition="none" priority="3" dmiPercent="2.0" energyPerKgBW075="0.52" proteinPerKgBW075="5.0" />
+		</species>
+
+		<species name="CHICKEN">
+			<stage name="CHICK" minAge="0" maxAge="2" gender="any" condition="none" priority="10" dmiPercent="6.0" energyPerKgBW075="0.90" proteinPerKgBW075="12.0" />
+			<stage name="PULLET" minAge="3" maxAge="5" gender="any" condition="none" priority="9" dmiPercent="5.0" energyPerKgBW075="0.75" proteinPerKgBW075="9.0" />
+			<stage name="LAYING_HEN" minAge="6" maxAge="999" gender="female" condition="none" priority="5" dmiPercent="4.0" energyPerKgBW075="0.70" proteinPerKgBW075="8.5" />
+			<stage name="ROOSTER" minAge="6" maxAge="999" gender="male" condition="none" priority="3" dmiPercent="3.5" energyPerKgBW075="0.60" proteinPerKgBW075="6.5" />
+		</species>
+	</lifeStages>
+
+	<!-- Pregnancy trimester multipliers applied on top of stage requirements -->
+	<pregnancyTrimesters>
+		<species name="COW">
+			<trimester index="1" energyMultiplier="1.00" dmiMultiplier="1.00" />
+			<trimester index="2" energyMultiplier="1.10" dmiMultiplier="1.00" />
+			<trimester index="3" energyMultiplier="1.30" dmiMultiplier="0.95" />
+		</species>
+		<species name="PIG">
+			<trimester index="1" energyMultiplier="1.00" dmiMultiplier="1.00" />
+			<trimester index="2" energyMultiplier="1.10" dmiMultiplier="1.00" />
+			<trimester index="3" energyMultiplier="1.25" dmiMultiplier="1.10" />
+		</species>
+		<species name="SHEEP">
+			<trimester index="1" energyMultiplier="1.00" dmiMultiplier="1.00" />
+			<trimester index="2" energyMultiplier="1.15" dmiMultiplier="1.00" />
+			<trimester index="3" energyMultiplier="1.40" dmiMultiplier="0.92" />
+		</species>
+		<species name="HORSE">
+			<trimester index="1" energyMultiplier="1.00" dmiMultiplier="1.00" />
+			<trimester index="2" energyMultiplier="1.05" dmiMultiplier="1.00" />
+			<trimester index="3" energyMultiplier="1.20" dmiMultiplier="0.98" />
+		</species>
+	</pregnancyTrimesters>
+
+	<!-- Species-specific max Average Daily Gain in kg/day -->
+	<growthRates>
+		<species name="COW" maxADG_male="1.40" maxADG_female="1.00" />
+		<species name="PIG" maxADG_male="0.95" maxADG_female="0.85" />
+		<species name="SHEEP" maxADG_male="0.30" maxADG_female="0.25" />
+		<species name="HORSE" maxADG_male="0.80" maxADG_female="0.70" />
+		<species name="CHICKEN" maxADG_male="0.015" maxADG_female="0.012" />
+	</growthRates>
+
+</nutrition>
