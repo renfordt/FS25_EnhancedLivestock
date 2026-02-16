@@ -1,6 +1,6 @@
 <diseases>
 
-	<disease title="mastitis" animals="COW SHEEP" value="0.85" transmission="0.05" immunity="12" recovery="3" weightGain="0.85" fertility="0.7">
+	<disease title="mastitis" animals="COW SHEEP GOAT" value="0.85" transmission="0.05" immunity="12" recovery="3" weightGain="0.85" fertility="0.7">
 		<prerequisites>
 			<prerequisite path="isLactating" value="true" valueType="Bool"/>
 		</prerequisites>
@@ -34,7 +34,7 @@
 		<genetic recessive="true" saleChance="0.005"/>
 	</disease>
 
-	<disease title="footAndMouth" animals="COW SHEEP PIG" value="0.5" transmission="0.1" immunity="24" weightGain="0.7" fertility="0.5">
+	<disease title="footAndMouth" animals="COW SHEEP PIG GOAT" value="0.5" transmission="0.1" immunity="24" weightGain="0.7" fertility="0.5">
 		<probability>
 			<key age="0" value="0"/>
 			<key age="6" value="0.00075"/>
@@ -70,7 +70,7 @@
 		<treatment cost="150" duration="1"/>
 	</disease>
 
-	<disease title="avianFlu" animals="CHICKEN" value="0.25" transmission="0.2" immunity="24" recovery="1">
+	<disease title="avianFlu" animals="CHICKEN DUCKWILD GOOSE" value="0.25" transmission="0.2" immunity="24" recovery="1">
 		<probability>
 			<key age="0" value="0.005"/>
 		</probability>
@@ -383,7 +383,7 @@
 
 	<!-- CHICKEN DISEASES (additional) -->
 
-	<disease title="coccidiosis" animals="CHICKEN" value="0.55" transmission="0.1" immunity="12" recovery="3">
+	<disease title="coccidiosis" animals="CHICKEN RABBIT" value="0.55" transmission="0.1" immunity="12" recovery="3">
 		<season spring="1.5" summer="1.0" autumn="1.0" winter="0.5"/>
 		<probability>
 			<key age="0" value="0.005"/>
