@@ -714,10 +714,66 @@ function ELSettings.detectAnimalPackageMod()
 
 end
 
+function ELSettings.detectHofBergmannMap()
+
+	if g_modIsLoaded == nil or not g_modIsLoaded["FS25_HofBergmann"] then
+		return false
+	end
+
+	local hofDir = g_modNameToDirectory["FS25_HofBergmann"]
+
+	if hofDir == nil then
+		Logging.warning("[EnhancedLivestock] FS25_HofBergmann is loaded but directory could not be determined")
+		return false
+	end
+
+	Logging.info("[EnhancedLivestock] Found FS25_HofBergmann at: %s", hofDir)
+
+	-- Verify the map structure by checking for a known config file
+	--local testPath = hofDir .. "config/fillTypes.xml"
+	--local testFile = XMLFile.loadIfExists("testHofBergmann", testPath)
+
+	--if testFile == nil then
+	--	Logging.warning("[EnhancedLivestock] FS25_HofBergmann detected but could not find expected files at: %s", testPath)
+	--	return false
+	--end
+
+	--testFile:delete()
+
+	-- ELSettings.hofBergmannDir = hofDir
+
+	-- Load the map's own fill types so all map-defined animal fill types are available
+	--local mapFillTypesXML = loadXMLFile("hofBergmannFillTypes", testPath)
+	--if mapFillTypesXML ~= nil then
+	--	g_fillTypeManager:loadFillTypes(mapFillTypesXML, hofDir, false, "FS25_HofBergmann")
+	--	Logging.info("[EnhancedLivestock] Loaded fill types from FS25_HofBergmann")
+	--end
+
+	-- Load local animals for Hof Bergmann
+	ELSettings.hofBergmannAnimals = true
+
+	-- Load our additional fill types for male variants not defined by the map
+	local extraFillTypesPath = modDirectory .. "xml/fillTypes_hofbergmann.xml"
+	local extraFillTypesXML = loadXMLFile("hofBergmannExtraFillTypes", extraFillTypesPath)
+	if extraFillTypesXML ~= nil then
+		g_fillTypeManager:loadFillTypes(extraFillTypesXML, modDirectory, false, modName)
+		Logging.info("[EnhancedLivestock] Loaded fill types for HofBergmann integration")
+	end
+
+	Logging.info("[EnhancedLivestock] HofBergmann map integration enabled")
+	return true
+
+end
+
 function ELSettings.validateCustomAnimalsConfiguration()
 
 -- First check if Animal Package mod should be used
 	if ELSettings.detectAnimalPackageMod() then
+		return
+	end
+
+-- Then check if HofBergmann map should be used
+	if ELSettings.detectHofBergmannMap() then
 		return
 	end
 

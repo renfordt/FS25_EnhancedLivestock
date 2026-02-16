@@ -68,6 +68,7 @@ EnhancedLivestock.MAP_TO_AREA_CODE = {
 	["New Bartelshagenn"] = 6,
 	["North Frisian 25"] = 6,
 	["Garbindel"] = 6,
+	["HOF BERGMANN"] = 6,
 	-- Estonia
 	["Tässi Farm"] = 8,
 	-- Czech Republic

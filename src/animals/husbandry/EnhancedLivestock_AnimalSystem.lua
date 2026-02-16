@@ -88,6 +88,11 @@ AnimalSystem.BREED_TO_NAME = {
 	["SEAL_BROWN"] = "Seal Brown",
 	["DUN"] = "Dun",
 	["CHICKEN"] = "Chicken",
+	["DUCK"] = "Duck",
+	["DUCKWILD"] = "Duck",
+	["RABBIT"] = "Rabbit",
+	["GOOSE"] = "Goose",
+	["CAT"] = "Cat",
 	["OTHER"] = "Unknown"
 }
 
@@ -134,6 +139,17 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 				Logging.warning("[EnhancedLivestock] Failed to load animal file: %s", fullPath)
 			end
 		end
+	elseif ELSettings.hofBergmannAnimals ~= nil then
+	-- Load HofBergmann animals from single file with two sections
+		local hofPath = modDirectory .. "xml/animals_hofbergmann.xml"
+		Logging.info("[Enhanced Livestock] Loading HofBergmann animals from \'%s\'", hofPath)
+
+		local xmlFile = XMLFile.load("animals_hofbergmann", hofPath)
+		if xmlFile ~= nil then
+			-- Section 1: Standard types with mod's own directory for config file resolution
+			self:loadAnimals(xmlFile, modDirectory)
+			xmlFile:delete()
+		end
 	else
 	-- Load single animals.xml file (original behavior)
 	-- Use the custom path if set, otherwise use mod's default animals.xml
@@ -162,7 +178,7 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 
 		Logging.info("[Enhanced Livestock] No animals xml given at \'map.animals#filename\'")
 
-	elseif #self.types == 0 or not ELSettings.getOverrideVanillaAnimals() then
+	elseif #self.types == 0 or (not ELSettings.getOverrideVanillaAnimals() and ELSettings.hofBergmannAnimals == nil) then
 
 		local baseXmlFile = XMLFile.load("animals", Utils.getFilename(baseFilename, baseDirectory))
 
@@ -199,9 +215,11 @@ end
 
 AnimalSystem.loadMapData = Utils.overwrittenFunction(AnimalSystem.loadMapData, EnhancedLivestock_AnimalSystem.loadMapData)
 
-function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
+function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory, rootPath)
 
-	for _, key in xmlFile:iterator("animals.animal") do
+	rootPath = rootPath or "animals.animal"
+
+	for _, key in xmlFile:iterator(rootPath) do
 
 		if #self.types >= 2 ^ AnimalSystem.SEND_NUM_BITS - 1 then
 			Logging.xmlWarning(xmlFile, "[EnhancedLivestock] Maximum number of supported animal types reached. Ignoring remaining types")
@@ -223,7 +241,19 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 			return
 		end
 
-		local configFilename = Utils.getFilename(rawConfigFilename, directory)
+		-- Resolve cross-mod $moddir$ModName/ references to actual mod directories
+		local resolvedBaseDir = directory
+		local resolvedConfigFilename = rawConfigFilename
+		local modRef = rawConfigFilename:match("^%$moddir%$([^/]+)/")
+		if modRef ~= nil then
+			local modDir = g_modNameToDirectory[modRef]
+			if modDir ~= nil then
+				resolvedConfigFilename = rawConfigFilename:gsub("^%$moddir%$[^/]+/", "")
+				resolvedBaseDir = modDir
+			end
+		end
+
+		local configFilename = Utils.getFilename(resolvedConfigFilename, resolvedBaseDir)
 		local animalType
 
 		if self.nameToTypeIndex[name] ~= nil then
@@ -362,7 +392,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 
 		if self:loadAnimalConfig(animalType, assetBaseDirectory, configFilename) then
 
-			if self:loadSubTypes(animalType, xmlFile, key, directory) then
+			if self:loadSubTypes(animalType, xmlFile, key, resolvedBaseDir) then
 
 				if self.nameToType[name] == nil then
 
