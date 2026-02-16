@@ -258,6 +258,9 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onDayChanged()
 	local animals = spec.clusterSystem:getAnimals()
 
 	local totalChildren, deadParents, childrenToSell, childrenToSellMoney, lowHealthDeaths, oldAgeDeaths, randomDeaths, randomDeathsMoney = 0, 0, 0, 0, 0, 0, 0, 0
+	local lowHealthDeathAnimals = {}
+	local oldAgeDeathAnimals = {}
+	local randomDeathAnimals = {}
 
 	for _, animal in ipairs(animals) do
 
@@ -275,9 +278,29 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onDayChanged()
 		deadParents = deadParents + b
 		childrenToSell = childrenToSell + c
 		childrenToSellMoney = childrenToSellMoney + d
-		lowHealthDeaths = lowHealthDeaths + e
-		oldAgeDeaths = oldAgeDeaths + f
-		randomDeaths = randomDeaths + g
+		
+		-- Track individual deaths for message grouping
+		if e > 0 then
+			lowHealthDeaths = lowHealthDeaths + e
+			for i = 1, e do
+				table.insert(lowHealthDeathAnimals, animal)
+			end
+		end
+		
+		if f > 0 then
+			oldAgeDeaths = oldAgeDeaths + f
+			for i = 1, f do
+				table.insert(oldAgeDeathAnimals, animal)
+			end
+		end
+		
+		if g > 0 then
+			randomDeaths = randomDeaths + g
+			for i = 1, g do
+				table.insert(randomDeathAnimals, animal)
+			end
+		end
+		
 		randomDeathsMoney = randomDeathsMoney + h
 
 	end
@@ -321,6 +344,51 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onDayChanged()
 		end
 
 		spec.aiAnimalManager:onDayChanged()
+
+		-- Create death messages with grouping logic
+		local function createDeathMessages(deathCount, deathAnimals, deathType)
+			if deathCount >= 5 then
+				-- Group messages when 5 or more deaths of same type
+				local namedAnimals = {}
+				local unnamedCount = 0
+				
+				for _, animal in ipairs(deathAnimals) do
+					local name = animal:getName()
+					if name and name ~= "" then
+						table.insert(namedAnimals, name)
+					else
+						unnamedCount = unnamedCount + 1
+					end
+				end
+				
+				local messageType = "DEATH_GROUPED"
+				local args = { deathCount, deathType }
+				
+				if #namedAnimals > 0 then
+					messageType = "DEATH_GROUPED_WITH_NAMES"
+					table.insert(args, table.concat(namedAnimals, ", "))
+				end
+				
+				spec:addELMessage(messageType, nil, args)
+			else
+				-- Create individual messages for fewer than 5 deaths
+				for _, animal in ipairs(deathAnimals) do
+					spec:addELMessage("DEATH", animal:getIdentifiers(), { deathType })
+				end
+			end
+		end
+		
+		if lowHealthDeaths > 0 then
+			createDeathMessages(lowHealthDeaths, lowHealthDeathAnimals, "el_death_health")
+		end
+		
+		if oldAgeDeaths > 0 then
+			createDeathMessages(oldAgeDeaths, oldAgeDeathAnimals, "el_death_age")
+		end
+		
+		if randomDeaths > 0 then
+			createDeathMessages(randomDeaths, randomDeathAnimals, "el_death_accident")
+		end
 
 	end
 

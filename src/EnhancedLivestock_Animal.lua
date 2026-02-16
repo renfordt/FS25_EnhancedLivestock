@@ -3078,7 +3078,8 @@ function Animal:die(reason)
 		g_currentMission.animalSystem:removeAIAnimal(self.animalTypeIndex, self.birthday.country, self.farmId, self.uniqueId)
 	end
 
-	self:addMessage("DEATH", { reason or "el_ui_unknownCauses" })
+	-- Death messages are now handled in the placeable's onDayChanged function
+	-- self:addMessage("DEATH", { reason or "el_ui_unknownCauses" })
 
 	if self.clusterSystem ~= nil then
 		self.clusterSystem:addPendingRemoveCluster(self)

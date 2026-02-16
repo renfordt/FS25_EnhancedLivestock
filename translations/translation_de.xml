@@ -59,6 +59,11 @@
         <text name="animal_descriptionStallionProfit" text="Hengste können mit Gewinn verkauft werden."/>
         <text name="animal_descriptionStallionReproduction" text="Hengste, die gesund und älter als 36 Monate sind, können sich fortpflanzen."/>
 
+        <!-- Goose -->
+        <text name="fillType_gander" text="Ganter"/>
+
+        <!-- Ducks -->
+        <text name="fillType_drake" text="Erpel"/>
 
         <!-- UI -->
 
@@ -726,6 +731,10 @@
         <text name="el_message_pregnancyDied_github" text="%s Babys starben bei der Geburt"/>
         <text name="el_message_death" text="Entfernt aufgrund von %s"/>
         <text name="el_message_death_github" text="Gestorben aufgrund von %s"/>
+        <text name="el_message_deathGrouped" text="%s Tiere aufgrund von %s entfernt"/>
+        <text name="el_message_deathGrouped_github" text="%s Tiere aufgrund von %s gestorben"/>
+        <text name="el_message_deathGrouped_withNames" text="%s Tiere aufgrund von %s entfernt (inklusive: %s)"/>
+        <text name="el_message_deathGrouped_withNames_github" text="%s Tiere aufgrund von %s gestorben (inklusive: %s)"/>
         <text name="el_message_diseaseContracted" text="An %s erkrankt"/>
         <text name="el_message_diseaseCured" text="Geheilt von %s"/>
         <text name="el_message_diseaseTreatment_start" text="Behandlung für %s begonnen bei %s"/>

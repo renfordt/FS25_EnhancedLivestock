@@ -24,6 +24,16 @@ ELMessage = {
 		["title"] = "death",
 		["importance"] = 1
 	},
+	["DEATH_GROUPED"] = {
+		["text"] = "deathGrouped",
+		["title"] = "death",
+		["importance"] = 1
+	},
+	["DEATH_GROUPED_WITH_NAMES"] = {
+		["text"] = "deathGrouped_withNames",
+		["title"] = "death",
+		["importance"] = 1
+	},
 	["DISEASE_CONTRACTED"] = {
 		["text"] = "diseaseContracted",
 		["title"] = "disease",

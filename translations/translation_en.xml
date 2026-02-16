@@ -59,6 +59,11 @@
         <text name="animal_descriptionStallionProfit" text="Stallions can be sold for a profit."/>
         <text name="animal_descriptionStallionReproduction" text="Stallions that are healthy and older than 36 months can reproduce."/>
 
+        <!-- Goose -->
+        <text name="fillType_gander" text="Gander"/>
+
+        <!-- Ducks -->
+        <text name="fillType_drake" text="Drake"/>
 
         <!-- UI -->
 
@@ -725,6 +730,10 @@
         <text name="el_message_pregnancyDied_github" text="%s babies died at birth"/>
         <text name="el_message_death" text="Removed due to %s"/>
         <text name="el_message_death_github" text="Died due to %s"/>
+        <text name="el_message_deathGrouped" text="%s animals removed due to %s"/>
+        <text name="el_message_deathGrouped_github" text="%s animals died due to %s"/>
+        <text name="el_message_deathGrouped_withNames" text="%s animals removed due to %s (including: %s)"/>
+        <text name="el_message_deathGrouped_withNames_github" text="%s animals died due to %s (including: %s)"/>
         <text name="el_message_diseaseContracted" text="Contracted %s"/>
         <text name="el_message_diseaseCured" text="Cured from %s"/>
         <text name="el_message_diseaseTreatment_start" text="Started treatment for %s at %s"/>
