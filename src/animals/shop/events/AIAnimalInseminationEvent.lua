@@ -50,7 +50,7 @@ function AIAnimalInseminationEvent:writeStream(streamId, connection)
 	for _, item in pairs(self.items) do
 
 		item.animal:writeStreamIdentifiers(streamId, connection)
-		streamWriteString(item.dewar)
+		streamWriteString(streamId, item.dewar)
 
 	end
 
