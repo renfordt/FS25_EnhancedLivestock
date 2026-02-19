@@ -111,7 +111,7 @@ function AnimalPregnancyEvent:run(connection)
 
 	for _, animal in pairs(animals) do
 
-		if animal.uniqueId == identifiers.unique and animal.farmId == identifiers.farmId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
+		if animal.uniqueId == identifiers.uniqueId and animal.farmId == identifiers.farmId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 
 			animal.isPregnant = true
 			animal.pregnancy = self.pregnancy
