@@ -102,3 +102,11 @@ function AIAnimalInseminationEvent:run(connection)
 	end
 
 end
+
+function AIAnimalInseminationEvent.sendEvent(object, items)
+	if g_server ~= nil then
+		g_server:broadcastEvent(AIAnimalInseminationEvent.new(object, items))
+	else
+		g_client:getServerConnection():sendEvent(AIAnimalInseminationEvent.new(object, items))
+	end
+end
