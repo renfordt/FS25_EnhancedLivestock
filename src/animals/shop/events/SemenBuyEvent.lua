@@ -96,6 +96,10 @@ end
 
 function SemenBuyEvent:run(connection)
 
+	if not connection:getIsServer() then
+		g_server:broadcastEvent(SemenBuyEvent.new(self.animal, self.quantity, self.price, self.farmId, self.position, self.rotation))
+	end
+
 	local dewar = Dewar.new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
 
 	dewar:setOwnerFarmId(self.farmId)
@@ -131,7 +135,8 @@ function SemenBuyEvent:run(connection)
 			end
 		end
 	end
-
-	g_currentMission:addMoney(self.price, self.farmId, MoneyType.SEMEN_PURCHASE, true, true)
+	if g_server ~= nil then
+		g_currentMission:addMoney(self.price, self.farmId, MoneyType.SEMEN_PURCHASE, true, true)
+	end
 
 end
