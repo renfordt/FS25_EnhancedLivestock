@@ -3690,7 +3690,7 @@ function Animal:getCanBeInseminatedByAnimal(animal)
 		return false, g_i18n:getText("el_insemination_young")
 	end
 
-	if self.monthsSinceLastBirth <= 2 then
+	if self.isParent and self.monthsSinceLastBirth <= 2 then
 		return false, g_i18n:getText("el_insemination_recovering")
 	end
 
