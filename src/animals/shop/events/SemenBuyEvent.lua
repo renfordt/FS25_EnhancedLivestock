@@ -92,8 +92,6 @@ function SemenBuyEvent:writeStream(streamId, connection)
 	-- Write stock data
 	streamWriteUInt16(streamId, self.animal.availableStraws or 0)
 
-	self:run(connection)
-
 end
 
 function SemenBuyEvent:run(connection)
