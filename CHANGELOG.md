@@ -1,5 +1,26 @@
 # Release Notes
 
+## 1.2.0.0
+
+- Feature: Total overhaul of disease system - Total of 27 diseases
+- Feature: Overhaul of assisted breeding - Tier based sample selection and improved breeding mechanics
+- Feature: You can now sell breeding material from male animals
+- Feature: Added a nitrogen refill system for dewars
+- Feature: New nutrition system - nutrition based animal health and growth
+- Bug fix: Potential fix for milk production issues
+- Bug fix: Potential fix for disease issues
+- Bug fix: Multiplayer client unable to clean horses (by rittermod)
+- Bug fix: Black screen when multiplayer client tries to ride a horse (by rittermod)
+- Bug fix: Pregnancy event silently failing to match animals on client (by rittermod)
+- Bug fix: Stream corruption in AI auto-insemination event (by rittermod)
+- Bug fix: Server crash when client inseminates cow with straw (by rittermod)
+- Bug fix: Client-side error when buying semen in multiplayer (by rittermod)
+- Bug fix: AI dialog insemination blocked for cows that never gave birth (missing isParent guard) (by rittermod)
+- Bug fix: AI dialog insemination not syncing in multiplayer (by rittermod)
+- Bug fix: Error spam when dismounting horse outside pen in multiplayer (by rittermod)
+- Added Hungarian translation (by Toamsz93)
+- Added Spanish translation
+
 ## v1.1.4.0
 
 - Fix bug in settings save mechanism
