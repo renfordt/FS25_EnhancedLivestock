@@ -6,7 +6,20 @@ end
 
 PlaceableHusbandryMilk.registerOverwrittenFunctions = Utils.appendedFunction(PlaceableHusbandryMilk.registerOverwrittenFunctions, EnhancedLivestock_PlaceableHusbandryMilk.registerOverwrittenFunctions)
 
-function EnhancedLivestock_PlaceableHusbandryMilk:onHusbandryAnimalsUpdate(_, _)
+function EnhancedLivestock_PlaceableHusbandryMilk:onHusbandryAnimalsUpdate(superFunc, clusters)
+	local spec = self.spec_husbandryMilk
+	if spec.hasMilkProduction then
+		spec.activeFillTypes = {}
+		for _, animal in ipairs(clusters) do
+			local subType = animal:getSubType()
+			if subType ~= nil then
+				local milk = subType.output.milk
+				if milk ~= nil then
+					table.addElement(spec.activeFillTypes, milk.fillType)
+				end
+			end
+		end
+	end
 end
 
 PlaceableHusbandryMilk.onHusbandryAnimalsUpdate = Utils.overwrittenFunction(PlaceableHusbandryMilk.onHusbandryAnimalsUpdate, EnhancedLivestock_PlaceableHusbandryMilk.onHusbandryAnimalsUpdate)

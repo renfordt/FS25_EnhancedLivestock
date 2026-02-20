@@ -6,7 +6,20 @@ end
 
 PlaceableHusbandryPallets.registerOverwrittenFunctions = Utils.appendedFunction(PlaceableHusbandryPallets.registerOverwrittenFunctions, EnhancedLivestock_PlaceableHusbandryPallets.registerOverwrittenFunctions)
 
-function EnhancedLivestock_PlaceableHusbandryPallets:onHusbandryAnimalsUpdate(_, _)
+function EnhancedLivestock_PlaceableHusbandryPallets:onHusbandryAnimalsUpdate(superFunc, clusters)
+	local spec = self.spec_husbandryPallets
+	if spec ~= nil then
+		spec.activeFillTypes = {}
+		for _, animal in ipairs(clusters) do
+			local subType = animal:getSubType()
+			if subType ~= nil then
+				local pallets = subType.output.pallets
+				if pallets ~= nil then
+					table.addElement(spec.activeFillTypes, pallets.fillType)
+				end
+			end
+		end
+	end
 end
 
 PlaceableHusbandryPallets.onHusbandryAnimalsUpdate = Utils.overwrittenFunction(PlaceableHusbandryPallets.onHusbandryAnimalsUpdate, EnhancedLivestock_PlaceableHusbandryPallets.onHusbandryAnimalsUpdate)
