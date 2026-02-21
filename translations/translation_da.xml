@@ -63,10 +63,15 @@
         <!-- UI -->
 
 		<text name="input_VisualAnimalsDialog" text="Ændr antallet af viste dyr" />
-		<text name="input_RefillDewarNitrogen" text="Genopfyld Dewar-kvælstof"/>
-		<text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
-		<text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
-		<text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+		<text name="input_EL_RefillDewarNitrogen" text="Genopfyld Dewar-kvælstof"/>
+		<text name="input_EL_OPEN_ANIMAL_SCREEN" text="Åbn dyrskærm"/>
+		<text name="input_EL_MARK" text="Mærk/afmærk dyr"/>
+		<text name="input_EL_MONITOR" text="Anvend/fjern monitor"/>
+		<text name="input_EL_AI" text="Kunstig insemination"/>
+		<text name="input_EL_CASTRATE" text="Kastrer dyr"/>
+		<text name="input_EL_DISEASES" text="Dyresygdomme"/>
+		<text name="input_EL_SELECT" text="Vælg/fravælg dyr"/>
+		<text name="input_EL_SELL_SEMEN" text="Sælg sæd"/>
 		<text name="el_button_apply" text="Tilføj" />
 		<text name="el_button_confirm" text="Bekræft" />
 		<text name="el_button_recommended" text="Anbefalet" />
@@ -74,6 +79,7 @@
 		<text name="el_button_random" text="tilfældigt" />
 		<text name="el_dialog_title" text="Indstil maksimalt antal viste dyr" />
 
+		<text name="rl_ui_openAnimalScreen" text="Håndter dyr" />
 		<text name="el_ui_unhealthy" text="Alt for usunde" />
 		<text name="el_ui_unhealthyBracketed" text="Nej (Alt for usunde)" />
 		<text name="el_ui_noMaleAnimal" text="ingen egnet han" />
@@ -167,6 +173,7 @@
 		<text name="el_ui_monitorFee" text="Gebyr for overvågning" />
 		<text name="el_ui_applyMonitor" text="Tilføj overvågning" />
 		<text name="el_ui_removeMonitor" text="Fjern overvågning" />
+		<text name="el_ui_removingMonitor" text="Fjerner..." />
 		<text name="el_ui_input_food" text="Mad" />
 		<text name="el_ui_input_water" text="Vand" />
 		<text name="el_ui_input_straw" text="Halm" />
@@ -184,6 +191,7 @@
 		<text name="el_ui_production" text="Produkt" />
 		<text name="el_ui_applyAllMonitor" text="Anvend alle overvågninger" />
 		<text name="el_ui_removeAllMonitor" text="Fjern alle overvågninger" />
+		<text name="el_ui_removingAllMonitor" text="Fjerner alle..." />
 		<text name="el_ui_fee" text="Gebyr" />
 		<text name="el_ui_description" text="Beskrivelse"/>
 

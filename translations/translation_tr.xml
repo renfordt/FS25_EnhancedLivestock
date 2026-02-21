@@ -63,10 +63,15 @@
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Görüntülenen Hayvan Sayısını Değiştir"/>
-        <text name="input_RefillDewarNitrogen" text="Dewar nitrojenini yeniden doldur"/>
-        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
-        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
-        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="input_EL_RefillDewarNitrogen" text="Dewar nitrojenini yeniden doldur"/>
+        <text name="input_EL_OPEN_ANIMAL_SCREEN" text="Hayvan ekranını aç"/>
+        <text name="input_EL_MARK" text="Hayvanı işaretle/işareti kaldır"/>
+        <text name="input_EL_MONITOR" text="Monitörü uygula/kaldır"/>
+        <text name="input_EL_AI" text="Suni tohumlama"/>
+        <text name="input_EL_CASTRATE" text="Hayvanı hadım et"/>
+        <text name="input_EL_DISEASES" text="Hayvan hastalıkları"/>
+        <text name="input_EL_SELECT" text="Hayvanı seç/seçimi kaldır"/>
+        <text name="input_EL_SELL_SEMEN" text="Sperm sat"/>
         <text name="el_button_apply" text="Uygula"/>
         <text name="el_button_confirm" text="Onayla"/>
         <text name="el_button_recommended" text="Önerilen"/>
@@ -74,6 +79,7 @@
         <text name="el_button_random" text="Rastgele"/>
         <text name="el_dialog_title" text="Maksimum Görsel Hayvan Sayısını Ayarlayın"/>
 
+        <text name="rl_ui_openAnimalScreen" text="Hayvanları Yönet"/>
         <text name="el_ui_unhealthy" text="Çok Sağlıksız"/>
         <text name="el_ui_unhealthyBracketed" text="Hayır (çok sağlıksız)"/>
         <text name="el_ui_noMaleAnimal" text="Uygun erkek hayvan yok"/>
@@ -167,6 +173,7 @@
         <text name="el_ui_monitorFee" text="İzleme ücreti"/>
         <text name="el_ui_applyMonitor" text="İzle"/>
         <text name="el_ui_removeMonitor" text="İzlemeyi Kaldır"/>
+        <text name="el_ui_removingMonitor" text="Kaldırılıyor..."/>
         <text name="el_ui_input_food" text="Besin"/>
         <text name="el_ui_input_water" text="Su"/>
         <text name="el_ui_input_straw" text="Saman"/>
@@ -184,6 +191,7 @@
         <text name="el_ui_production" text="Ürünler"/>
         <text name="el_ui_applyAllMonitor" text="Tüm İzlenenlere Uygula"/>
         <text name="el_ui_removeAllMonitor" text="Tüm İzlenenleri Kaldır"/>
+        <text name="el_ui_removingAllMonitor" text="Tümünü Kaldırılıyor..."/>
         <text name="el_ui_fee" text="Ücret"/>
 		<text name="el_ui_description" text="Açıklama"/>
 

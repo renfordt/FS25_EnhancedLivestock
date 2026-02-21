@@ -102,6 +102,8 @@ Changelog 1.2.0.0:
 - Bug fix: AI dialog insemination blocked for cows that never gave birth (missing isParent guard) (by rittermod)
 - Bug fix: AI dialog insemination not syncing in multiplayer (by rittermod)
 - Bug fix: Error spam when dismounting horse outside pen in multiplayer (by rittermod)
+- Bug fix: Milk/wool/goat milk info not showing on dedicated server clients (by rittermod)
+- Bug fix: Resolve AnimalScreen keybinding conflicts and add menu integration (by rittermod)
 - Added Hungarian translation (by Toamsz93)
 - Added Spanish translation
 
@@ -375,25 +377,45 @@ Changelog 1.1.0.0:
         <actionBinding action="VisualAnimalsDialog">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_t"/>
         </actionBinding>
-        <actionBinding action="RefillDewarNitrogen">
+        <actionBinding action="EL_RefillDewarNitrogen">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_r"/>
         </actionBinding>
-        <actionBinding action="MENU_EXTRA_3">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_h" axisComponent="+" />
+        <actionBinding action="EL_OPEN_ANIMAL_SCREEN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_r" index="1"/>
         </actionBinding>
-        <actionBinding action="MENU_EXTRA_4">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_j" axisComponent="+" />
+        <actionBinding action="EL_MARK">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_x" index="1"/>
         </actionBinding>
-        <actionBinding action="MENU_EXTRA_5">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_k" axisComponent="+" />
+        <actionBinding action="EL_MONITOR">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_m" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_AI">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_i" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_CASTRATE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_c" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_DISEASES">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_d" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_SELECT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_a" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_SELL_SEMEN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_p" index="1"/>
         </actionBinding>
     </inputBinding>
     <actions>
         <action name="VisualAnimalsDialog"/>
-        <action name="RefillDewarNitrogen"/>
-        <action name="MENU_EXTRA_3" category="MENU" axisType="HALF" />
-        <action name="MENU_EXTRA_4" category="MENU" axisType="HALF" />
-        <action name="MENU_EXTRA_5" category="MENU" axisType="HALF" />
+        <action name="EL_RefillDewarNitrogen"/>
+        <action name="EL_OPEN_ANIMAL_SCREEN"/>
+        <action name="EL_MARK"/>
+        <action name="EL_MONITOR"/>
+        <action name="EL_AI"/>
+        <action name="EL_CASTRATE"/>
+        <action name="EL_DISEASES"/>
+        <action name="EL_SELECT"/>
+        <action name="EL_SELL_SEMEN"/>
     </actions>
     <helpLines>
         <category title="$l10n_el_settings">

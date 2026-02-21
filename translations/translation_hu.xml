@@ -63,10 +63,15 @@
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Megjelenített állatok számának módosítása"/>
-        <text name="input_RefillDewarNitrogen" text="Refill Dewar Nitrogen"/>
-        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
-        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
-        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="input_EL_RefillDewarNitrogen" text="Refill Dewar Nitrogen"/>
+        <text name="input_EL_OPEN_ANIMAL_SCREEN" text="Állatképernyő megnyitása"/>
+        <text name="input_EL_MARK" text="Állat megjelölése/megjelölés eltávolítása"/>
+        <text name="input_EL_MONITOR" text="Monitor alkalmazása/eltávolítása"/>
+        <text name="input_EL_AI" text="Mesterséges megtermékenyítés"/>
+        <text name="input_EL_CASTRATE" text="Állat ivartalanítása"/>
+        <text name="input_EL_DISEASES" text="Állatbetegségek"/>
+        <text name="input_EL_SELECT" text="Állat kiválasztása/kiválasztás megszüntetése"/>
+        <text name="input_EL_SELL_SEMEN" text="Sperma eladása"/>
         <text name="el_button_apply" text="Alkalmaz"/>
         <text name="el_button_confirm" text="Megerősít"/>
         <text name="el_button_recommended" text="Javasolt"/>
@@ -74,6 +79,7 @@
         <text name="el_button_random" text="Véletlenszerű"/>
         <text name="el_dialog_title" text="Megjelenített állatok maximális számának beállítása"/>
 
+        <text name="rl_ui_openAnimalScreen" text="Állatok kezelése"/>
         <text name="el_ui_unhealthy" text="Túl gyenge egészségi állapot"/>
         <text name="el_ui_unhealthyBracketed" text="Nem (túl gyenge)"/>
         <text name="el_ui_noMaleAnimal" text="Nincs megfelelő hím állat"/>
@@ -167,6 +173,7 @@
         <text name="el_ui_monitorFee" text="Monitor díj"/>
         <text name="el_ui_applyMonitor" text="Monitor alkalmazása"/>
         <text name="el_ui_removeMonitor" text="Monitor eltávolítása"/>
+        <text name="el_ui_removingMonitor" text="Eltávolítás..."/>
         <text name="el_ui_input_food" text="Takarmány"/>
         <text name="el_ui_input_water" text="Víz"/>
         <text name="el_ui_input_straw" text="Alom"/>
@@ -184,6 +191,7 @@
         <text name="el_ui_production" text="Termelés"/>
         <text name="el_ui_applyAllMonitor" text="Összes monitor alkalmazása"/>
         <text name="el_ui_removeAllMonitor" text="Összes monitor eltávolítása"/>
+        <text name="el_ui_removingAllMonitor" text="Összes eltávolítása..."/>
         <text name="el_ui_fee" text="Díj"/>
         <text name="el_ui_description" text="Description"/>
 

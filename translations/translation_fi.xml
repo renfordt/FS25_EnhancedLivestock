@@ -63,10 +63,15 @@
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Vaihda visuaalisten eläinten määrä"/>
-        <text name="input_RefillDewarNitrogen" text="Täytä Dewar-astian typpi"/>
-        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
-        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
-        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="input_EL_RefillDewarNitrogen" text="Täytä Dewar-astian typpi"/>
+        <text name="input_EL_OPEN_ANIMAL_SCREEN" text="Avaa eläinnäyttö"/>
+        <text name="input_EL_MARK" text="Merkitse/poista merkintä eläimestä"/>
+        <text name="input_EL_MONITOR" text="Käytä/poista monitori"/>
+        <text name="input_EL_AI" text="Keinotekoinen siemennys"/>
+        <text name="input_EL_CASTRATE" text="Kastroi eläin"/>
+        <text name="input_EL_DISEASES" text="Eläintaudit"/>
+        <text name="input_EL_SELECT" text="Valitse/poista valinta eläimestä"/>
+        <text name="input_EL_SELL_SEMEN" text="Myy siemennestettä"/>
         <text name="el_button_apply" text="Käytä"/>
         <text name="el_button_confirm" text="Hyväksy"/>
         <text name="el_button_recommended" text="Suositeltu"/>
@@ -74,6 +79,7 @@
         <text name="el_button_random" text="Satunnainen"/>
         <text name="el_dialog_title" text="Aseta visuaalisten eläinten maksimimäärä"/>
 
+        <text name="rl_ui_openAnimalScreen" text="Hallitse eläimiä"/>
         <text name="el_ui_unhealthy" text="Liian huonokuntoinen"/>
         <text name="el_ui_unhealthyBracketed" text="Ei (liian huonokuntoinen)"/>
         <text name="el_ui_noMaleAnimal" text="Ei soveltuvaa uros eläintä"/>
@@ -167,6 +173,7 @@
         <text name="el_ui_monitorFee" text="Seurantalaitemaksu"/>
         <text name="el_ui_applyMonitor" text="Aseta seurantalaite"/>
         <text name="el_ui_removeMonitor" text="Poista seurantalaite"/>
+        <text name="el_ui_removingMonitor" text="Poistetaan..."/>
         <text name="el_ui_input_food" text="Ruoka"/>
         <text name="el_ui_input_water" text="Vesi"/>
         <text name="el_ui_input_straw" text="Olki"/>
@@ -184,6 +191,7 @@
         <text name="el_ui_production" text="Tuotanto"/>
         <text name="el_ui_applyAllMonitor" text="Aseta kaikille seurantalaite"/>
         <text name="el_ui_removeAllMonitor" text="Poista kaikilta seurantalaite"/>
+        <text name="el_ui_removingAllMonitor" text="Poistetaan kaikkia..."/>
         <text name="el_ui_fee" text="Maksu"/>
 		<text name="el_ui_description" text="Kuvaus"/>
 

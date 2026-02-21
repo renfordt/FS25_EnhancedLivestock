@@ -63,10 +63,15 @@
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Změnit množství zobrazených zvířat"/>
-        <text name="input_RefillDewarNitrogen" text="Doplnit dusík v Dewarově nádobě"/>
-        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
-        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
-        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="input_EL_RefillDewarNitrogen" text="Doplnit dusík v Dewarově nádobě"/>
+        <text name="input_EL_OPEN_ANIMAL_SCREEN" text="Otevřít obrazovku zvířat"/>
+        <text name="input_EL_MARK" text="Označit/odznačit zvíře"/>
+        <text name="input_EL_MONITOR" text="Použít/odebrat monitor"/>
+        <text name="input_EL_AI" text="Umělé oplodnění"/>
+        <text name="input_EL_CASTRATE" text="Kastrovat zvíře"/>
+        <text name="input_EL_DISEASES" text="Nemoci zvířat"/>
+        <text name="input_EL_SELECT" text="Vybrat/zrušit výběr zvířete"/>
+        <text name="input_EL_SELL_SEMEN" text="Prodat sperma"/>
         <text name="el_button_apply" text="Použít"/>
         <text name="el_button_confirm" text="Potvrdit"/>
         <text name="el_button_recommended" text="Doporučené"/>
@@ -74,6 +79,7 @@
         <text name="el_button_random" text="Náhodné"/>
         <text name="el_dialog_title" text="Nastavit maximální počet zobrazených zvířat"/>
 
+        <text name="rl_ui_openAnimalScreen" text="Správa zvířat"/>
         <text name="el_ui_unhealthy" text="Příliš nezdravé"/>
         <text name="el_ui_unhealthyBracketed" text="Ne (příliš nezdravé)"/>
         <text name="el_ui_noMaleAnimal" text="Žádný vhodný samec"/>
@@ -167,6 +173,7 @@
         <text name="el_ui_monitorFee" text="Poplatek za monitorování"/>
         <text name="el_ui_applyMonitor" text="Použít monitor"/>
         <text name="el_ui_removeMonitor" text="Odebrat monitor"/>
+        <text name="el_ui_removingMonitor" text="Odstraňování..."/>
         <text name="el_ui_input_food" text="Krmivo"/>
         <text name="el_ui_input_water" text="Voda"/>
         <text name="el_ui_input_straw" text="Sláma"/>
@@ -184,6 +191,7 @@
         <text name="el_ui_production" text="Produkty"/>
         <text name="el_ui_applyAllMonitor" text="Použít všechny monitory"/>
         <text name="el_ui_removeAllMonitor" text="Odebrat všechny monitory"/>
+        <text name="el_ui_removingAllMonitor" text="Odstraňování všech..."/>
         <text name="el_ui_fee" text="Poplatek"/>
 		<text name="el_ui_description" text="Popis"/>
 

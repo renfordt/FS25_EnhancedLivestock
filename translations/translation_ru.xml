@@ -63,10 +63,15 @@
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Изменить количество видимых животных"/>
-        <text name="input_RefillDewarNitrogen" text="Заправить азот в Дьюар"/>
-        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
-        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
-        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="input_EL_RefillDewarNitrogen" text="Заправить азот в Дьюар"/>
+        <text name="input_EL_OPEN_ANIMAL_SCREEN" text="Открыть экран животных"/>
+        <text name="input_EL_MARK" text="Пометить/снять метку с животного"/>
+        <text name="input_EL_MONITOR" text="Применить/убрать монитор"/>
+        <text name="input_EL_AI" text="Искусственное осеменение"/>
+        <text name="input_EL_CASTRATE" text="Кастрировать животное"/>
+        <text name="input_EL_DISEASES" text="Болезни животных"/>
+        <text name="input_EL_SELECT" text="Выбрать/отменить выбор животного"/>
+        <text name="input_EL_SELL_SEMEN" text="Продать сперму"/>
         <text name="el_button_apply" text="Применить"/>
         <text name="el_button_confirm" text="Подтвердить"/>
         <text name="el_button_recommended" text="Рекомендуется"/>
@@ -74,6 +79,7 @@
         <text name="el_button_random" text="Случайно"/>
         <text name="el_dialog_title" text="Установить максимальное количество видимых животных"/>
 
+        <text name="rl_ui_openAnimalScreen" text="Управление животными"/>
         <text name="el_ui_unhealthy" text="Слишком нездоров"/>
         <text name="el_ui_unhealthyBracketed" text="Нет (слишком нездоров)"/>
         <text name="el_ui_noMaleAnimal" text="Нет подходящего самца"/>
@@ -167,6 +173,7 @@
         <text name="el_ui_monitorFee" text="Плата за мониторинг"/>
         <text name="el_ui_applyMonitor" text="Установить монитор"/>
         <text name="el_ui_removeMonitor" text="Снять монитор"/>
+        <text name="el_ui_removingMonitor" text="Удаление..."/>
         <text name="el_ui_input_food" text="Корм"/>
         <text name="el_ui_input_water" text="Вода"/>
         <text name="el_ui_input_straw" text="Подстилка"/>
@@ -184,6 +191,7 @@
         <text name="el_ui_production" text="Продукция"/>
         <text name="el_ui_applyAllMonitor" text="Установить все мониторы"/>
         <text name="el_ui_removeAllMonitor" text="Снять все мониторы"/>
+        <text name="el_ui_removingAllMonitor" text="Удаление всех..."/>
         <text name="el_ui_fee" text="Плата"/>
 		<text name="el_ui_description" text="Описание"/>
 

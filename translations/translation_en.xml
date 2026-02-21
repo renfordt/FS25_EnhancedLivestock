@@ -63,10 +63,15 @@
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Change Visual Animals Amount"/>
-        <text name="input_RefillDewarNitrogen" text="Refill Dewar Nitrogen"/>
-        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
-        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
-        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="input_EL_RefillDewarNitrogen" text="Refill Dewar Nitrogen"/>
+        <text name="input_EL_OPEN_ANIMAL_SCREEN" text="Open Animal Screen"/>
+        <text name="input_EL_MARK" text="Mark/Unmark Animal"/>
+        <text name="input_EL_MONITOR" text="Apply/Remove Monitor"/>
+        <text name="input_EL_AI" text="Artificial Insemination"/>
+        <text name="input_EL_CASTRATE" text="Castrate Animal"/>
+        <text name="input_EL_DISEASES" text="Animal Diseases"/>
+        <text name="input_EL_SELECT" text="Select/Deselect Animal"/>
+        <text name="input_EL_SELL_SEMEN" text="Sell Semen"/>
         <text name="el_button_apply" text="Apply"/>
         <text name="el_button_confirm" text="Confirm"/>
         <text name="el_button_recommended" text="Recommended"/>
@@ -74,6 +79,7 @@
         <text name="el_button_random" text="Random"/>
         <text name="el_dialog_title" text="Set Maximum Number of Visual Animals"/>
 
+        <text name="rl_ui_openAnimalScreen" text="Manage Animals"/>
         <text name="el_ui_unhealthy" text="Too unhealthy"/>
         <text name="el_ui_unhealthyBracketed" text="No (too unhealthy)"/>
         <text name="el_ui_noMaleAnimal" text="No suitable male animal"/>
@@ -167,6 +173,7 @@
         <text name="el_ui_monitorFee" text="Monitor fee"/>
         <text name="el_ui_applyMonitor" text="Apply Monitor"/>
         <text name="el_ui_removeMonitor" text="Remove Monitor"/>
+        <text name="el_ui_removingMonitor" text="Removing..."/>
         <text name="el_ui_input_food" text="Food"/>
         <text name="el_ui_input_water" text="Water"/>
         <text name="el_ui_input_straw" text="Straw"/>
@@ -184,6 +191,7 @@
         <text name="el_ui_production" text="Products"/>
         <text name="el_ui_applyAllMonitor" text="Apply All Monitors"/>
         <text name="el_ui_removeAllMonitor" text="Remove All Monitors"/>
+        <text name="el_ui_removingAllMonitor" text="Removing All..."/>
         <text name="el_ui_fee" text="Fee"/>
 		<text name="el_ui_description" text="Description"/>
 

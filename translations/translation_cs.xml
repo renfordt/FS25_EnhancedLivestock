@@ -63,10 +63,15 @@
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="更改可视动物数量"/>
-        <text name="input_RefillDewarNitrogen" text="补充杜瓦瓶氮气"/>
-        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
-        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
-        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="input_EL_RefillDewarNitrogen" text="补充杜瓦瓶氮气"/>
+        <text name="input_EL_OPEN_ANIMAL_SCREEN" text="打开动物屏幕"/>
+        <text name="input_EL_MARK" text="标记/取消标记动物"/>
+        <text name="input_EL_MONITOR" text="应用/移除监控"/>
+        <text name="input_EL_AI" text="人工授精"/>
+        <text name="input_EL_CASTRATE" text="阉割动物"/>
+        <text name="input_EL_DISEASES" text="动物疾病"/>
+        <text name="input_EL_SELECT" text="选择/取消选择动物"/>
+        <text name="input_EL_SELL_SEMEN" text="出售精液"/>
         <text name="el_button_apply" text="应用"/>
         <text name="el_button_confirm" text="确认"/>
         <text name="el_button_recommended" text="推荐"/>
@@ -74,6 +79,7 @@
         <text name="el_button_random" text="随机"/>
         <text name="el_dialog_title" text="设置最大可视动物数量"/>
 
+        <text name="rl_ui_openAnimalScreen" text="管理动物"/>
         <text name="el_ui_unhealthy" text="健康状况过低"/>
         <text name="el_ui_unhealthyBracketed" text="否（健康过低）"/>
         <text name="el_ui_noMaleAnimal" text="没有合适的雄性动物"/>
@@ -167,6 +173,7 @@
         <text name="el_ui_monitorFee" text="监控费用"/>
         <text name="el_ui_applyMonitor" text="应用监控"/>
         <text name="el_ui_removeMonitor" text="移除监控"/>
+        <text name="el_ui_removingMonitor" text="正在移除..."/>
         <text name="el_ui_input_food" text="饲料"/>
         <text name="el_ui_input_water" text="水"/>
         <text name="el_ui_input_straw" text="垫草"/>
@@ -184,6 +191,7 @@
         <text name="el_ui_production" text="产品"/>
         <text name="el_ui_applyAllMonitor" text="应用全部监控"/>
         <text name="el_ui_removeAllMonitor" text="移除全部监控"/>
+        <text name="el_ui_removingAllMonitor" text="正在移除全部..."/>
         <text name="el_ui_fee" text="费用"/>
         <text name="el_ui_description" text="Description"/>
 

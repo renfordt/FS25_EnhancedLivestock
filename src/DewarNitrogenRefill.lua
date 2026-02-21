@@ -25,7 +25,7 @@ end
 PlayerInputComponent.registerGlobalPlayerActionEvents = Utils.appendedFunction(PlayerInputComponent.registerGlobalPlayerActionEvents, function()
 
 	if DewarNitrogenRefill.ActionId == nil then
-		local valid, actionId = g_inputBinding:registerActionEvent(InputAction.RefillDewarNitrogen, DewarNitrogenRefill, DewarNitrogenRefill.RefillAction, false, true, false, false)
+		local valid, actionId = g_inputBinding:registerActionEvent(InputAction.EL_RefillDewarNitrogen, DewarNitrogenRefill, DewarNitrogenRefill.RefillAction, false, true, false, false)
 		if valid then
 			DewarNitrogenRefill.ActionId = actionId
 			g_inputBinding:setActionEventText(actionId, g_i18n:getText("el_action_refillNitrogen"))

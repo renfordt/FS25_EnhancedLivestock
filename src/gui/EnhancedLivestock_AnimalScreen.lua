@@ -33,12 +33,38 @@ function EnhancedLivestock_AnimalScreen.show(husbandry, vehicle, isDealer)
 	g_animalScreen.filters = nil
 	g_animalScreen.filteredItems = nil
 
+	for _, action in ipairs(EnhancedLivestock_AnimalScreen.NAV_ACTIONS) do
+		table.insert(Gui.NAV_ACTIONS, action)
+	end
+
 	g_animalScreen:setController(husbandry, vehicle, isDealer)
 	g_gui:showGui("AnimalScreen")
 
 end
 
 AnimalScreen.show = EnhancedLivestock_AnimalScreen.show
+
+EnhancedLivestock_AnimalScreen.NAV_ACTIONS = {
+	InputAction.EL_MONITOR,
+	InputAction.EL_AI,
+	InputAction.EL_DISEASES,
+	InputAction.EL_SELECT,
+	InputAction.EL_SELL_SEMEN
+}
+
+
+function EnhancedLivestock_AnimalScreen:onAnimalScreenClose()
+	for _, action in ipairs(EnhancedLivestock_AnimalScreen.NAV_ACTIONS) do
+		for i = #Gui.NAV_ACTIONS, 1, -1 do
+			if Gui.NAV_ACTIONS[i] == action then
+				table.remove(Gui.NAV_ACTIONS, i)
+				break
+			end
+		end
+	end
+end
+
+AnimalScreen.onClose = Utils.appendedFunction(AnimalScreen.onClose, EnhancedLivestock_AnimalScreen.onAnimalScreenClose)
 
 function EnhancedLivestock_AnimalScreen:setController(_, husbandry, vehicle, isDealer)
 
@@ -361,6 +387,7 @@ function AnimalScreen:onClickAIMode()
 
 	self.buttonBuySelected:setVisible(false)
 	self.buttonToggleSelectAll:setVisible(false)
+	self.buttonELSelect:setVisible(false)
 	self.buttonBuy:setVisible(false)
 	self.buttonMonitor:setVisible(false)
 	self.buttonArtificialInsemination:setVisible(false)
@@ -877,6 +904,7 @@ function AnimalScreen:onClickLogMode()
 
 	self.buttonBuySelected:setVisible(false)
 	self.buttonToggleSelectAll:setVisible(false)
+	self.buttonELSelect:setVisible(false)
 	self.buttonBuy:setVisible(false)
 	self.buttonMonitor:setVisible(false)
 	self.buttonArtificialInsemination:setVisible(false)
@@ -948,6 +976,7 @@ function AnimalScreen:onClickHerdsmanMode()
 
 	self.buttonBuySelected:setVisible(false)
 	self.buttonToggleSelectAll:setVisible(false)
+	self.buttonELSelect:setVisible(false)
 	self.buttonBuy:setVisible(false)
 	self.buttonMonitor:setVisible(false)
 	self.buttonArtificialInsemination:setVisible(false)
@@ -1415,6 +1444,7 @@ function EnhancedLivestock_AnimalScreen:onClickBuyMode(a, b)
 	self.filteredItems = nil
 
 	self.buttonToggleSelectAll:setVisible(true)
+	self.buttonELSelect:setVisible(true)
 	self.buttonToggleSelectAll:setText(g_i18n:getText("el_ui_selectAll"))
 	self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("el_ui_moveSelected") or g_i18n:getText("el_ui_buySelected"))
 	self.buttonCastrate:setVisible(false)
@@ -1454,6 +1484,7 @@ function EnhancedLivestock_AnimalScreen:onClickSellMode(a, b)
 	self.filteredItems = nil
 
 	self.buttonToggleSelectAll:setVisible(true)
+	self.buttonELSelect:setVisible(true)
 	self.buttonToggleSelectAll:setText(g_i18n:getText("el_ui_selectAll"))
 	self.buttonBuySelected:setText(self.isTrailerFarm and g_i18n:getText("el_ui_moveSelected") or g_i18n:getText("el_ui_sellSelected"))
 	self.buttonCastrate:setVisible(false)
@@ -1518,14 +1549,22 @@ AnimalScreen.onPagePrevious = Utils.overwrittenFunction(AnimalScreen.onPagePrevi
 
 function AnimalScreen:onClickMark()
 
-	local item = (self.filteredItems == nil and self.controller:getTargetItems() or self.filteredItems)[self.sourceList.selectedIndex]
-
-	if item == nil or (item.cluster == nil and item.animal == nil) then
-		return
+	local items
+	if self.filteredItems ~= nil then
+		items = self.filteredItems
+	elseif self.isBuyMode then
+		local animalType = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
+		items = self.controller:getSourceItems(animalType, self.isBuyMode)
+	else
+		items = self.controller:getTargetItems()
 	end
 
-	local animal = item.animal or item.cluster
+	local item = items[self.sourceList.selectedIndex]
+	if item == nil then return end
 
+	if item.cluster == nil and item.animal == nil then return end
+
+	local animal = item.animal or item.cluster
 	local isMarked = not animal:getMarked()
 
 	if isMarked then
@@ -1534,6 +1573,7 @@ function AnimalScreen:onClickMark()
 		animal:setMarked(nil, false)
 	end
 
+	self.buttonMark:setText(isMarked and g_i18n:getText("el_ui_unmark") or g_i18n:getText("el_ui_mark"))
 	self.sourceList:reloadData()
 
 end
@@ -1676,6 +1716,9 @@ function EnhancedLivestock_AnimalScreen:onClickInfoMode(a, b)
 	self.isAIMode = false
 
 	self.buttonToggleSelectAll:setVisible(false)
+	self.buttonSelect:setVisible(false)
+	self.buttonELSelect:setVisible(false)
+	self.buttonBuySelected:setVisible(false)
 	self.buttonDeleteMessage:setVisible(false)
 	self.buttonFilters:setVisible(true)
 	self.buttonDiseases:setVisible(true)
@@ -1746,7 +1789,8 @@ function AnimalScreen:onClickMonitor()
 
 	AnimalMonitorEvent.sendEvent(animal.clusterSystem.owner, animal, monitor.active, monitor.removed)
 
-	self.buttonMonitor:setText(g_i18n:getText("el_ui_" .. (monitor.active and "remove" or "apply") .. "Monitor"))
+	local monitorText = monitor.removed and "removing" or (monitor.active and "remove" or "apply")
+	self.buttonMonitor:setText(g_i18n:getText("el_ui_" .. monitorText .. "Monitor"))
 	self.buttonMonitor:setDisabled(monitor.removed)
 
 	self:updateInfoBox()
@@ -1881,6 +1925,7 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 		local item
 		self.buttonCastrate:setVisible(false)
 		self.buttonMark:setVisible(false)
+		self.buttonArtificialInsemination:setVisible(false)
 		if self.buttonSellSemen ~= nil then
 			self.buttonSellSemen:setVisible(false)
 		end
@@ -2038,7 +2083,18 @@ function EnhancedLivestock_AnimalScreen:updateInfoBox(superFunc, isSourceSelecte
 				local canInseminate = animal.gender == "female" and animal.animalTypeIndex ~= AnimalType.CHICKEN
 				self.buttonArtificialInsemination:setVisible(canInseminate)
 
-				self.buttonMonitor:setText(g_i18n:getText("el_ui_" .. (animal.monitor.active and "remove" or "apply") .. "Monitor"))
+				if animal.gender == "female" then
+					self.buttonArtificialInsemination:setVisible(true)
+					local cannotInseminate = animal.pregnancy ~= nil
+					or animal.isPregnant
+					or animal.insemination ~= nil
+					or animal.age < animal:getSubType().reproductionMinAgeMonth
+					or (animal.isParent and animal.monthsSinceLastBirth <= 2)
+					self.buttonArtificialInsemination:setDisabled(cannotInseminate)
+				end
+
+				local monitorText = animal.monitor.removed and "removing" or (animal.monitor.active and "remove" or "apply")
+				self.buttonMonitor:setText(g_i18n:getText("el_ui_" .. monitorText .. "Monitor"))
 				self.buttonMonitor:setDisabled(animal.monitor.removed)
 
 				self.motherInfoButton:setDisabled(animal.motherId == nil or animal.motherId == "-1")
@@ -2192,6 +2248,7 @@ function EnhancedLivestock_AnimalScreen:updateScreen(superFunc, state)
 	if self.isInfoMode then
 		self.buttonBuy:setVisible(false)
 		self.buttonSell:setVisible(false)
+		self.buttonELSelect:setVisible(false)
 	else
 
 		local isItemSelected = self.numAnimalsElement:getIsFocused()
@@ -2237,10 +2294,17 @@ function EnhancedLivestock_AnimalScreen:setMaxNumAnimals()
 	self.numAnimalsBox:setVisible(false)
 	self.parentBox:setVisible(self.isInfoMode and not self.isBuyMode)
 	self.geneticsBox:setVisible(self.isInfoMode)
+	self.buttonSelect:setVisible(false)
 
 end
 
 AnimalScreen.setMaxNumAnimals = Utils.appendedFunction(AnimalScreen.setMaxNumAnimals, EnhancedLivestock_AnimalScreen.setMaxNumAnimals)
+
+function EnhancedLivestock_AnimalScreen:hideBaseGameSelect()
+	self.buttonSelect:setVisible(false)
+end
+
+AnimalScreen.setSelectionState = Utils.appendedFunction(AnimalScreen.setSelectionState, EnhancedLivestock_AnimalScreen.hideBaseGameSelect)
 
 function EnhancedLivestock_AnimalScreen:getCellTypeForItemInSection(_, list, _, index)
 
@@ -2932,6 +2996,43 @@ function AnimalScreen:onTargetBulkActionFinished(error, text, indexes)
 	self:reapplyFilters()
 
 	InfoDialog.show(text, self.updateScreen, self, dialogType, nil, nil, true)
+
+end
+
+function AnimalScreen:onClickELSelect()
+
+	if self.isInfoMode or self.isLogMode or self.isHerdsmanMode or self.isAIMode or self.isTrailer then return end
+
+	local selectedIndex = self.sourceList.selectedIndex
+	if selectedIndex == nil or selectedIndex < 1 then return end
+
+	local items
+	if self.filteredItems ~= nil then
+		items = self.filteredItems
+	elseif self.isBuyMode then
+		local animalType = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
+		items = self.controller:getSourceItems(animalType, self.isBuyMode)
+	else
+		items = self.controller:getTargetItems()
+	end
+
+	local item = items[selectedIndex]
+	if item == nil then return end
+
+	local originalIndex = self.filteredItems == nil and selectedIndex or item.originalIndex
+
+	self.selectedItems[originalIndex] = not self.selectedItems[originalIndex]
+
+	local hasSelection = false
+	for _, selected in pairs(self.selectedItems) do
+		if selected then
+			hasSelection = true
+			break
+		end
+	end
+	self.buttonToggleSelectAll:setText(hasSelection and g_i18n:getText("el_ui_selectNone") or g_i18n:getText("el_ui_selectAll"))
+
+	self.sourceList:reloadData()
 
 end
 

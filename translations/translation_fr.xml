@@ -63,10 +63,15 @@
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Changement Animaux Visuels Montant"/>
-        <text name="input_RefillDewarNitrogen" text="Recharger l'azote du Dewar"/>
-        <text name="input_MENU_EXTRA_3" text="Additional Menu Button 1"/>
-        <text name="input_MENU_EXTRA_4" text="Additional Menu Button 2"/>
-        <text name="input_MENU_EXTRA_5" text="Additional Menu Button 3"/>
+        <text name="input_EL_RefillDewarNitrogen" text="Recharger l'azote du Dewar"/>
+        <text name="input_EL_OPEN_ANIMAL_SCREEN" text="Ouvrir l'écran des animaux"/>
+        <text name="input_EL_MARK" text="Marquer/Démarquer l'animal"/>
+        <text name="input_EL_MONITOR" text="Appliquer/Retirer le moniteur"/>
+        <text name="input_EL_AI" text="Insémination artificielle"/>
+        <text name="input_EL_CASTRATE" text="Castrer l'animal"/>
+        <text name="input_EL_DISEASES" text="Maladies animales"/>
+        <text name="input_EL_SELECT" text="Sélectionner/Désélectionner l'animal"/>
+        <text name="input_EL_SELL_SEMEN" text="Vendre la semence"/>
         <text name="el_button_apply" text="Appliquer"/>
         <text name="el_button_confirm" text="Confirmer"/>
         <text name="el_button_recommended" text="Recommandé"/>
@@ -74,6 +79,7 @@
         <text name="el_button_random" text="Aléatoire"/>
         <text name="el_dialog_title" text="Définir le nombre maximum d'animaux visuels"/>
 
+        <text name="rl_ui_openAnimalScreen" text="Gérer les animaux"/>
         <text name="el_ui_unhealthy" text="Trop malsain"/>
         <text name="el_ui_unhealthyBracketed" text="Non (trop malsain)"/>
         <text name="el_ui_noMaleAnimal" text="Pas d'animal mâle approprié"/>
@@ -167,6 +173,7 @@
         <text name="el_ui_monitorFee" text="Taxe de surveillance"/>
         <text name="el_ui_applyMonitor" text="Appliquer le moniteur"/>
         <text name="el_ui_removeMonitor" text="Retirer le moniteur"/>
+        <text name="el_ui_removingMonitor" text="Retrait en cours..."/>
         <text name="el_ui_input_food" text="Alimentation"/>
         <text name="el_ui_input_water" text="L'eau"/>
         <text name="el_ui_input_straw" text="Paille"/>
@@ -184,6 +191,7 @@
         <text name="el_ui_production" text="Produits"/>
         <text name="el_ui_applyAllMonitor" text="Appliquer tous les moniteurs"/>
         <text name="el_ui_removeAllMonitor" text="Supprimer tous les moniteurs"/>
+        <text name="el_ui_removingAllMonitor" text="Suppression de tous..."/>
         <text name="el_ui_fee" text="Frais"/>
 		<text name="el_ui_description" text="Description"/>
 
