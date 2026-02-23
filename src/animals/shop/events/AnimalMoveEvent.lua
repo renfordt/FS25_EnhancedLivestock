@@ -98,10 +98,6 @@ function AnimalMoveEvent:run(connection)
 
 	connection:sendEvent(AnimalMoveEvent.newServerToClient(AnimalMoveEvent.MOVE_SUCCESS))
 
-	if g_server ~= nil and not g_server.netIsRunning then
-		return
-	end
-
 	local husbandry, trailer
 
 	if self.moveType == "SOURCE" then
@@ -111,9 +107,9 @@ function AnimalMoveEvent:run(connection)
 	end
 
 	if #self.animals == 1 then
-		husbandry:addELMessage(string.format("MOVE_ANIMALS_%s_SINLGE", self.moveType), nil, { trailer:getName() })
+		ELMessageEvent.sendEvent(husbandry, string.format("MOVE_ANIMALS_%s_SINLGE", self.moveType), nil, { trailer:getName() })
 	elseif #self.animals > 0 then
-		husbandry:addELMessage(string.format("MOVE_ANIMALS_%s_MULTIPLE", self.moveType), nil, { #self.animals, trailer:getName() })
+		ELMessageEvent.sendEvent(husbandry, string.format("MOVE_ANIMALS_%s_MULTIPLE", self.moveType), nil, { #self.animals, trailer:getName() })
 	end
 
 end
