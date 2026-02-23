@@ -31,6 +31,10 @@
 		<feed fillType="CHICKEN_FOOD" category="TMR" energy="12.5" protein="180" dryMatterPercent="0.88" fiber="80" litersPerKgDM="1.2" />
 		<feed fillType="HORSE_FOOD" category="TMR" energy="10.0" protein="120" dryMatterPercent="0.88" fiber="300" litersPerKgDM="1.5" />
 
+		<!-- HofBergmann map feeds -->
+		<feed fillType="CATFOOD" category="TMR" energy="14.0" protein="320" dryMatterPercent="0.92" fiber="30" litersPerKgDM="1.0" />
+		<feed fillType="LETTUCE" category="ROUGHAGE" energy="5.0" protein="130" dryMatterPercent="0.05" fiber="200" litersPerKgDM="20.0" />
+
 		<!-- Mineral feed -->
 		<feed fillType="MINERAL_FEED" category="MINERAL" energy="0" protein="0" dryMatterPercent="0.95" fiber="0" litersPerKgDM="1.0" />
 
@@ -95,6 +99,45 @@
 			<stage name="LAYING_HEN" minAge="6" maxAge="999" gender="female" condition="none" priority="5" dmiPercent="4.0" energyPerKgBW075="0.70" proteinPerKgBW075="8.5" />
 			<stage name="ROOSTER" minAge="6" maxAge="999" gender="male" condition="none" priority="3" dmiPercent="3.5" energyPerKgBW075="0.60" proteinPerKgBW075="6.5" />
 		</species>
+
+		<!-- HofBergmann map species -->
+
+		<species name="GOAT">
+			<stage name="KID" minAge="0" maxAge="5" gender="any" condition="none" priority="10" dmiPercent="4.5" energyPerKgBW075="0.70" proteinPerKgBW075="8.5" />
+			<stage name="HOGGET" minAge="6" maxAge="15" gender="any" condition="none" priority="9" dmiPercent="3.8" energyPerKgBW075="0.58" proteinPerKgBW075="6.5" />
+			<stage name="LACTATING_DOE" minAge="16" maxAge="999" gender="female" condition="isLactating" priority="20" dmiPercent="5.0" energyPerKgBW075="0.85" proteinPerKgBW075="10.5" />
+			<stage name="PREGNANT_DOE" minAge="16" maxAge="999" gender="female" condition="isPregnant" priority="15" dmiPercent="2.8" energyPerKgBW075="0.62" proteinPerKgBW075="6.5" />
+			<stage name="DOE" minAge="16" maxAge="999" gender="female" condition="none" priority="4" dmiPercent="3.0" energyPerKgBW075="0.52" proteinPerKgBW075="5.5" />
+			<stage name="BILLY" minAge="6" maxAge="999" gender="male" condition="none" priority="3" dmiPercent="2.8" energyPerKgBW075="0.52" proteinPerKgBW075="5.5" />
+		</species>
+
+		<species name="RABBIT">
+			<stage name="BUNNY" minAge="0" maxAge="1" gender="any" condition="none" priority="10" dmiPercent="6.0" energyPerKgBW075="0.95" proteinPerKgBW075="13.0" />
+			<stage name="YOUNG" minAge="2" maxAge="3" gender="any" condition="none" priority="9" dmiPercent="5.0" energyPerKgBW075="0.80" proteinPerKgBW075="10.0" />
+			<stage name="LACTATING_DOE" minAge="4" maxAge="999" gender="female" condition="isLactating" priority="20" dmiPercent="6.5" energyPerKgBW075="1.00" proteinPerKgBW075="14.0" />
+			<stage name="PREGNANT_DOE" minAge="4" maxAge="999" gender="female" condition="isPregnant" priority="15" dmiPercent="4.5" energyPerKgBW075="0.75" proteinPerKgBW075="9.0" />
+			<stage name="DOE" minAge="4" maxAge="999" gender="female" condition="none" priority="4" dmiPercent="4.0" energyPerKgBW075="0.65" proteinPerKgBW075="7.5" />
+			<stage name="BUCK" minAge="4" maxAge="999" gender="male" condition="none" priority="3" dmiPercent="3.5" energyPerKgBW075="0.60" proteinPerKgBW075="7.0" />
+		</species>
+
+		<species name="GOOSE">
+			<stage name="GOSLING" minAge="0" maxAge="2" gender="any" condition="none" priority="10" dmiPercent="7.0" energyPerKgBW075="0.95" proteinPerKgBW075="13.0" />
+			<stage name="YOUNG" minAge="3" maxAge="5" gender="any" condition="none" priority="9" dmiPercent="5.5" energyPerKgBW075="0.78" proteinPerKgBW075="9.5" />
+			<stage name="LAYING_GOOSE" minAge="6" maxAge="999" gender="female" condition="none" priority="5" dmiPercent="4.5" energyPerKgBW075="0.72" proteinPerKgBW075="9.0" />
+			<stage name="GANDER" minAge="6" maxAge="999" gender="male" condition="none" priority="3" dmiPercent="4.0" energyPerKgBW075="0.65" proteinPerKgBW075="7.0" />
+		</species>
+
+		<species name="DUCKWILD">
+			<stage name="DUCKLING" minAge="0" maxAge="1" gender="any" condition="none" priority="10" dmiPercent="7.0" energyPerKgBW075="0.95" proteinPerKgBW075="13.0" />
+			<stage name="YOUNG" minAge="2" maxAge="3" gender="any" condition="none" priority="9" dmiPercent="5.5" energyPerKgBW075="0.78" proteinPerKgBW075="9.5" />
+			<stage name="LAYING_DUCK" minAge="4" maxAge="999" gender="female" condition="none" priority="5" dmiPercent="4.5" energyPerKgBW075="0.72" proteinPerKgBW075="9.0" />
+			<stage name="DRAKE" minAge="4" maxAge="999" gender="male" condition="none" priority="3" dmiPercent="4.0" energyPerKgBW075="0.65" proteinPerKgBW075="7.0" />
+		</species>
+
+		<species name="CAT">
+			<stage name="KITTEN" minAge="0" maxAge="5" gender="any" condition="none" priority="10" dmiPercent="6.0" energyPerKgBW075="0.90" proteinPerKgBW075="14.0" />
+			<stage name="ADULT" minAge="6" maxAge="999" gender="any" condition="none" priority="3" dmiPercent="3.5" energyPerKgBW075="0.70" proteinPerKgBW075="10.0" />
+		</species>
 	</lifeStages>
 
 	<!-- Pregnancy trimester multipliers applied on top of stage requirements -->
@@ -119,6 +162,31 @@
 			<trimester index="2" energyMultiplier="1.05" dmiMultiplier="1.00" />
 			<trimester index="3" energyMultiplier="1.20" dmiMultiplier="0.98" />
 		</species>
+		<species name="GOAT">
+			<trimester index="1" energyMultiplier="1.00" dmiMultiplier="1.00" />
+			<trimester index="2" energyMultiplier="1.15" dmiMultiplier="1.00" />
+			<trimester index="3" energyMultiplier="1.35" dmiMultiplier="0.93" />
+		</species>
+		<species name="RABBIT">
+			<trimester index="1" energyMultiplier="1.00" dmiMultiplier="1.00" />
+			<trimester index="2" energyMultiplier="1.10" dmiMultiplier="1.05" />
+			<trimester index="3" energyMultiplier="1.20" dmiMultiplier="1.10" />
+		</species>
+		<species name="GOOSE">
+			<trimester index="1" energyMultiplier="1.00" dmiMultiplier="1.00" />
+			<trimester index="2" energyMultiplier="1.05" dmiMultiplier="1.00" />
+			<trimester index="3" energyMultiplier="1.15" dmiMultiplier="1.00" />
+		</species>
+		<species name="DUCKWILD">
+			<trimester index="1" energyMultiplier="1.00" dmiMultiplier="1.00" />
+			<trimester index="2" energyMultiplier="1.05" dmiMultiplier="1.00" />
+			<trimester index="3" energyMultiplier="1.15" dmiMultiplier="1.00" />
+		</species>
+		<species name="CAT">
+			<trimester index="1" energyMultiplier="1.00" dmiMultiplier="1.00" />
+			<trimester index="2" energyMultiplier="1.10" dmiMultiplier="1.00" />
+			<trimester index="3" energyMultiplier="1.25" dmiMultiplier="0.95" />
+		</species>
 	</pregnancyTrimesters>
 
 	<!-- Species-specific max Average Daily Gain in kg/day -->
@@ -128,6 +196,11 @@
 		<species name="SHEEP" maxADG_male="0.30" maxADG_female="0.25" />
 		<species name="HORSE" maxADG_male="0.80" maxADG_female="0.70" />
 		<species name="CHICKEN" maxADG_male="0.015" maxADG_female="0.012" />
+		<species name="GOAT" maxADG_male="0.20" maxADG_female="0.15" />
+		<species name="RABBIT" maxADG_male="0.035" maxADG_female="0.030" />
+		<species name="GOOSE" maxADG_male="0.040" maxADG_female="0.035" />
+		<species name="DUCKWILD" maxADG_male="0.020" maxADG_female="0.018" />
+		<species name="CAT" maxADG_male="0.015" maxADG_female="0.012" />
 	</growthRates>
 
 </nutrition>
