@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="$data/shared/xml/schema/fillTypes.xsd">
+    <fillTypes>
+        <!-- Duck fill types -->
+        <fillType name="DUCK" title="$l10n_fillType_duck" showOnPriceTable="false">
+            <physics massPerLiter="3.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_duck.png"/>
+        </fillType>
+
+        <fillType name="DRAKE" title="$l10n_fillType_drake" showOnPriceTable="false">
+            <physics massPerLiter="3.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_duck.png"/>
+        </fillType>
+
+        <fillType name="DUCKWILD" title="$l10n_fillType_duck" showOnPriceTable="false">
+            <physics massPerLiter="3.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_duck.png"/>
+        </fillType>
+
+        <fillType name="DRAKEWILD" title="$l10n_fillType_drake" showOnPriceTable="false">
+            <physics massPerLiter="3.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_duck.png"/>
+        </fillType>
+
+        <!-- Rabbit fill types -->
+        <fillType name="RABBIT" title="$l10n_fillType_rabbit" showOnPriceTable="false">
+            <physics massPerLiter="3.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_rabbit.png"/>
+        </fillType>
+
+        <fillType name="RABBIT_MALE" title="$l10n_fillType_rabbitMale" showOnPriceTable="false">
+            <physics massPerLiter="3.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_rabbit.png"/>
+        </fillType>
+
+        <!-- Cat fill types -->
+        <fillType name="CAT_TIGER" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="CAT_BLACKWHITE" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="CAT_BLACK" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="CAT_GREY" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="CAT_RED" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="CAT_WHITE" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <!-- Goose fill types -->
+        <fillType name="GOOSE" title="$l10n_fillType_goose" showOnPriceTable="false">
+            <physics massPerLiter="3.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_duck.png"/>
+        </fillType>
+
+        <fillType name="GANDER" title="$l10n_fillType_gander" showOnPriceTable="false">
+            <physics massPerLiter="3.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_duck.png"/>
+        </fillType>
+    </fillTypes>
+
+    <fillTypeCategories>
+        <fillTypeCategory name="ANIMAL">
+            DUCK DRAKE DUCKWILD DRAKEWILD RABBIT RABBIT_MALE GOOSE GANDER CAT_TIGER CAT_BLACKWHITE CAT_BLACK CAT_GREY CAT_RED CAT_WHITE
+        </fillTypeCategory>
+    </fillTypeCategories>
+</map>

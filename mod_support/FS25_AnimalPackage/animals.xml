@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bridgeAnimals>
+    <!--
+        FS25_AnimalPackage_vanillaEdition Bridge
+
+        This bridge integrates the Animal Package mod's 66 animal variants with Enhanced Livestock.
+        The Animal Package mod provides high-quality breed variations for all vanilla animal species.
+
+        Strategy: Import animal definitions from the external mod's split XML files.
+        The external mod organizes animals by species in separate files:
+        - xmls/animals/cow.xml (multiple breeds: Holstein, Swiss Brown, Angus, Limousin, Hereford, etc.)
+        - xmls/animals/pig.xml (multiple breeds)
+        - xmls/animals/sheep.xml (multiple breeds)
+        - xmls/animals/horse.xml (multiple breeds)
+        - xmls/animals/chicken.xml (multiple breeds)
+    -->
+
+    <configOverrides>
+        <override type="COW" configFilename="animals/domesticated/cattle/husbandryAnimalsCattle.xml"/>
+        <override type="PIG" configFilename="animals/domesticated/pig/husbandryAnimalsPig.xml"/>
+        <override type="SHEEP" configFilename="animals/domesticated/sheep/husbandryAnimalsSheep.xml"/>
+        <override type="CHICKEN" configFilename="animals/domesticated/chicken/husbandryAnimalsChicken.xml"/>
+    </configOverrides>
+
+    <!-- Import cow breeds from Animal Package -->
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/cow.xml" />
+
+    <!-- Import pig breeds from Animal Package -->
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/pig.xml" />
+
+    <!-- Import sheep breeds from Animal Package -->
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/sheep.xml" />
+
+    <!-- Import horse breeds from Animal Package -->
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/horse.xml" />
+
+    <!-- Import chicken breeds from Animal Package -->
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/chicken.xml" />
+</bridgeAnimals>

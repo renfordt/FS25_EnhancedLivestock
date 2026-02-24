@@ -119,79 +119,82 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 		["earTagRight_text"] = { 0, 0, 0 }
 	}
 
-	-- Check if we have multiple animal files (from external mod like AnimalPackage)
-	local animalFiles = ELSettings.getAnimalFiles()
-	local externalBasePath = ELSettings.getAnimalsBasePath()
+	-- NEW BRIDGE SYSTEM: Phased Loading
+	-- Phase 1: Load base EL animals (unless a bridge uses mode="replace")
+	local hasBridges = g_bridgeRegistry and #g_bridgeRegistry:getBridges() > 0
+	local skipBaseAnimals = false
 
-	if animalFiles ~= nil and #animalFiles > 0 and externalBasePath ~= nil then
-	-- Load multiple animal files from external mod
-		Logging.info("[Enhanced Livestock] Loading %d animal files from \'%s\'", #animalFiles, externalBasePath)
-
-		for _, animalFile in ipairs(animalFiles) do
-			local fullPath = externalBasePath .. animalFile
-			Logging.info("[Enhanced Livestock] Loading animals from \'%s\'", fullPath)
-
-			local xmlFile = XMLFile.load("animals_" .. animalFile, fullPath)
-			if xmlFile ~= nil then
-				self:loadAnimals(xmlFile, externalBasePath)
-				xmlFile:delete()
-			else
-				Logging.warning("[EnhancedLivestock] Failed to load animal file: %s", fullPath)
+	if hasBridges then
+		-- Check if any bridge uses replace mode
+		for _, bridge in ipairs(g_bridgeRegistry:getBridges()) do
+			if bridge.loadingMode == "replace" then
+				skipBaseAnimals = true
+				Logging.info("[EL Bridge] Bridge '%s' using replace mode - skipping base animals", bridge.modName)
+				break
 			end
 		end
-	elseif ELSettings.hofBergmannAnimals ~= nil then
-	-- Load HofBergmann animals from single file with two sections
-		local hofPath = modDirectory .. "xml/animals_hofbergmann.xml"
-		Logging.info("[Enhanced Livestock] Loading HofBergmann animals from \'%s\'", hofPath)
+	end
 
-		local xmlFile = XMLFile.load("animals_hofbergmann", hofPath)
+	if not skipBaseAnimals then
+		-- Load base EL animals.xml
+		local path = ELSettings.getAnimalsXMLPath() or (modDirectory .. "xml/animals.xml")
+		Logging.info("[Enhanced Livestock] Loading base animals from '%s'", path)
+
+		local xmlFile = XMLFile.load("animals", path)
 		if xmlFile ~= nil then
-			-- Section 1: Standard types with mod's own directory for config file resolution
 			self:loadAnimals(xmlFile, modDirectory)
 			xmlFile:delete()
 		end
-	else
-	-- Load single animals.xml file (original behavior)
-	-- Use the custom path if set, otherwise use mod's default animals.xml
-		local path = ELSettings.getAnimalsXMLPath() or (modDirectory .. "xml/animals.xml")
-		-- IMPORTANT: Use modDirectory as basePath when loading EnhancedLivestock's animals.xml
-		-- Don't use external mod's basePath here as the config file paths are relative to EnhancedLivestock
-		local basePath = modDirectory
+	end
 
-		Logging.info("[Enhanced Livestock] Using animals XML path \'%s\'", path)
-
-		local xmlFile = XMLFile.load("animals", path)
-
-		if xmlFile ~= nil then
-			Logging.info("[Enhanced Livestock] Using animals base path \'%s\'", basePath)
-
-			self:loadAnimals(xmlFile, basePath)
-			xmlFile:delete()
+	-- Phase 2: Load bridge animals (merge/extend/override)
+	if hasBridges then
+		for _, bridge in ipairs(g_bridgeRegistry:getBridges()) do
+			if bridge.resources.animals then
+				local animalsPath = bridge.bridgeDirectory .. bridge.resources.animals
+				if fileExists(animalsPath) then
+					Logging.info("[EL Bridge] Loading animals from bridge: %s", bridge.modName)
+					self:loadBridgeAnimals(bridge, animalsPath)
+				else
+					Logging.warning("[EL Bridge] Animals file not found: %s", animalsPath)
+				end
+			end
 		end
 	end
 
+	-- Phase 3: Load vanilla animals from map (if not overridden by bridges)
 	self.customEnvironment = mission.customEnvironment
 
 	local baseFilename = getXMLString(mapXml, "map.animals#filename")
+	local shouldLoadVanillaAnimals = true
+
+	-- Check if any bridge overrides vanilla animals
+	if hasBridges then
+		for _, bridge in ipairs(g_bridgeRegistry:getBridges()) do
+			if bridge.loadingMode == "merge" or bridge.loadingMode == "replace" then
+				shouldLoadVanillaAnimals = false
+				Logging.info("[EL Bridge] Bridge '%s' overriding vanilla animals", bridge.modName)
+				break
+			end
+		end
+	end
 
 	if baseFilename == nil or baseFilename == "" then
-
-		Logging.info("[Enhanced Livestock] No animals xml given at \'map.animals#filename\'")
-
-	elseif #self.types == 0 or (not ELSettings.getOverrideVanillaAnimals() and ELSettings.hofBergmannAnimals == nil) then
-
+		Logging.info("[Enhanced Livestock] No animals xml given at 'map.animals#filename'")
+	elseif #self.types == 0 or shouldLoadVanillaAnimals then
 		local baseXmlFile = XMLFile.load("animals", Utils.getFilename(baseFilename, baseDirectory))
-
 		if baseXmlFile ~= nil then
-
 			self:loadAnimals(baseXmlFile, baseDirectory)
 			baseXmlFile:delete()
-
 		end
-
 	end
 
 	self.customEnvironment = modName
+
+	-- Phase 4: Validate animals and generate defaults
+	if g_bridgeRegistry then
+		g_bridgeRegistry:validateAnimals(self)
+	end
 
 	Logging.info("[Enhanced Livestock] Loaded %s animals:", #self.types)
 
@@ -212,6 +215,274 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 	return #self.types > 0
 
 end
+
+---Load config overrides from bridge XML
+---Updates animalType.configFilename for types where the map's 3D model config
+---has additional models beyond the base game config. Without this, the C++ engine
+---only loads base game models and map-specific visual indices cause "invalid animal subtype" errors.
+---@param xmlFile table XMLFile handle
+---@param bridge table The bridge object
+function EnhancedLivestock_AnimalSystem:loadConfigOverrides(xmlFile, bridge)
+	local overrideCount = 0
+
+	-- Resolve the map mod's directory for config path resolution
+	local mapModDir = g_modNameToDirectory and g_modNameToDirectory[bridge.modName]
+	if not mapModDir then
+		Logging.warning("[EL Bridge] Could not resolve mod directory for '%s', using bridge directory", bridge.modName)
+		mapModDir = bridge.bridgeDirectory
+	end
+
+	xmlFile:iterate("bridgeAnimals.configOverrides.override", function(index, key)
+		local rawTypeName = xmlFile:getString(key .. "#type")
+		local rawConfigFilename = xmlFile:getString(key .. "#configFilename")
+
+		if not rawTypeName or not rawConfigFilename then
+			Logging.warning("[EL Bridge] Config override missing 'type' or 'configFilename' attribute, skipping")
+			return
+		end
+
+		local typeName = rawTypeName:upper()
+		local animalType = self.nameToType[typeName]
+
+		if not animalType then
+			Logging.warning("[EL Bridge] Config override type '%s' not found in AnimalSystem, skipping", typeName)
+			return
+		end
+
+		local resolvedPath = Utils.getFilename(rawConfigFilename, mapModDir)
+		local oldPath = animalType.configFilename
+
+		animalType.configFilename = resolvedPath
+		overrideCount = overrideCount + 1
+
+		Logging.info("[EL Bridge] Config override for '%s': '%s' -> '%s'", typeName, oldPath, resolvedPath)
+	end)
+
+	if overrideCount > 0 then
+		Logging.info("[EL Bridge] Applied %d config override(s) for '%s'", overrideCount, bridge.name)
+	end
+end
+
+---Load animals from a bridge
+---Supports import, extend, animal, and override operations
+---@param bridge table The bridge object
+---@param animalsPath string Path to the bridge's animals.xml
+function EnhancedLivestock_AnimalSystem:loadBridgeAnimals(bridge, animalsPath)
+	local xmlFile = XMLFile.load("bridge_animals_" .. bridge.modName, animalsPath)
+	if not xmlFile then
+		Logging.warning("[EL Bridge] Failed to load animals XML: %s", animalsPath)
+		return
+	end
+
+	-- Resolve the map mod's directory for image path resolution
+	local mapModDir = g_modNameToDirectory and g_modNameToDirectory[bridge.modName]
+	if not mapModDir then
+		Logging.warning("[EL Bridge] Could not resolve mod directory for '%s', using bridge directory", bridge.modName)
+		mapModDir = bridge.bridgeDirectory
+	end
+
+	-- Process <import> tags - load base EL animals if specified
+	xmlFile:iterate("bridgeAnimals.import", function(index, key)
+		local sourcePath = xmlFile:getString(key .. "#source")
+		if sourcePath then
+			local originalPath = sourcePath
+			sourcePath = g_bridgeUtils.resolveModdirPath(sourcePath)
+
+			if fileExists(sourcePath) then
+				Logging.info("[EL Bridge] Importing animals from: %s", sourcePath)
+
+				-- Determine the base directory for the imported file
+				-- If it's from $moddir$ModName/, use that mod's directory
+				-- Otherwise use EL's modDirectory
+				local baseDir = modDirectory
+				local modMatch = originalPath:match("^%$moddir%$([^/]+)/")
+				if modMatch then
+					local modDir = g_modNameToDirectory and g_modNameToDirectory[modMatch]
+					if modDir then
+						baseDir = modDir
+					end
+				end
+
+				local importXmlFile = XMLFile.load("import_animals_" .. index, sourcePath)
+				if importXmlFile then
+					self:loadAnimals(importXmlFile, baseDir)
+					importXmlFile:delete()
+				end
+			else
+				Logging.warning("[EL Bridge] Import source not found: %s", sourcePath)
+			end
+		end
+	end)
+
+	-- Process <extend> tags - add new subtypes to existing types
+	xmlFile:iterate("bridgeAnimals.extend", function(index, key)
+		local typeName = xmlFile:getString(key .. "#type")
+		if not typeName then
+			Logging.warning("[EL Bridge] Missing type in extend tag")
+			return
+		end
+
+		typeName = typeName:upper()
+
+		-- Find existing type
+		local existingType = nil
+		for _, animalType in ipairs(self.types) do
+			if animalType.name == typeName then
+				existingType = animalType
+				break
+			end
+		end
+
+		if not existingType then
+			Logging.warning("[EL Bridge] Cannot extend type '%s' - type not found", typeName)
+			return
+		end
+
+		-- Load subtypes from this extend block
+		xmlFile:iterate(key .. ".subType", function(subIndex, subKey)
+			-- Load subtype as if it were part of the original type
+			-- This reuses the existing loadAnimals subtype loading logic
+			local subTypeXml = XMLFile.create("temp_subtype", nil, "animal")
+			if subTypeXml then
+				-- Copy type attributes
+				subTypeXml:setValue("animal#type", typeName)
+
+				-- Copy all subtype data
+				local subTypeName = xmlFile:getString(subKey .. "#subType")
+				if subTypeName then
+					-- Create a temporary XML structure to load this subtype
+					-- Note: This is a simplified approach - in production, we'd need to
+					-- copy all attributes and child elements from the bridge XML
+					Logging.info("[EL Bridge] Extending type '%s' with subtype '%s'", typeName, subTypeName)
+
+					-- For now, just log that we'd extend here
+					-- Full implementation would require copying all XML data
+					Logging.warning("[EL Bridge] Extend implementation incomplete - manual migration required")
+				end
+				subTypeXml:delete()
+			end
+		end)
+	end)
+
+	-- Process <configOverrides> tags FIRST - update configFilename before loading subtypes
+	-- This ensures the C++ engine loads the correct visual model config
+	self:loadConfigOverrides(xmlFile, bridge)
+
+	-- Process <animal> tags - new species or extensions to existing species
+	-- Use mapModDir so image paths resolve relative to the map mod, not the bridge directory
+	self:loadAnimals(xmlFile, mapModDir, "bridgeAnimals.animal")
+
+	-- Process <override> tags - modify existing definitions
+	xmlFile:iterate("bridgeAnimals.override", function(index, key)
+		local typeName = xmlFile:getString(key .. "#type")
+		local subTypeName = xmlFile:getString(key .. "#subType")
+
+		if not typeName then
+			Logging.warning("[EL Bridge] Missing type in override tag")
+			return
+		end
+
+		typeName = typeName:upper()
+
+		-- Find the animal type
+		local animalType = nil
+		for _, type in ipairs(self.types) do
+			if type.name == typeName then
+				animalType = type
+				break
+			end
+		end
+
+		if not animalType then
+			Logging.warning("[EL Bridge] Cannot override type '%s' - not found", typeName)
+			return
+		end
+
+		if subTypeName then
+			-- Override specific subtype
+			subTypeName = subTypeName:upper()
+			local subType = nil
+
+			for _, subTypeIndex in ipairs(animalType.subTypes) do
+				if self.subTypes[subTypeIndex].subTypeName == subTypeName then
+					subType = self.subTypes[subTypeIndex]
+					break
+				end
+			end
+
+			if not subType then
+				Logging.warning("[EL Bridge] Cannot override subtype '%s/%s' - not found", typeName, subTypeName)
+				return
+			end
+
+			-- Apply overrides to subtype
+			self:applySubTypeOverrides(subType, xmlFile, key)
+			Logging.info("[EL Bridge] Applied overrides to %s/%s", typeName, subTypeName)
+		else
+			-- Override type-level properties
+			self:applyTypeOverrides(animalType, xmlFile, key)
+			Logging.info("[EL Bridge] Applied overrides to type %s", typeName)
+		end
+	end)
+
+	xmlFile:delete()
+end
+
+---Apply overrides to a subtype
+---@param subType table The subtype to override
+---@param xmlFile table The XML file with override data
+---@param key string The XML key path
+function EnhancedLivestock_AnimalSystem:applySubTypeOverrides(subType, xmlFile, key)
+	-- Override weights
+	local minWeight = xmlFile:getFloat(key .. ".weights#minWeight")
+	local targetWeight = xmlFile:getFloat(key .. ".weights#targetWeight")
+	local maxWeight = xmlFile:getFloat(key .. ".weights#maxWeight")
+
+	if minWeight then subType.minWeight = minWeight end
+	if targetWeight then subType.targetWeight = targetWeight end
+	if maxWeight then subType.maxWeight = maxWeight end
+
+	-- Override visuals
+	local visualsTemplate = xmlFile:getString(key .. ".visuals#template")
+	if visualsTemplate then
+		subType.visualsTemplate = visualsTemplate
+	end
+
+	-- Override reproduction
+	local reproductionMinAgeMonths = xmlFile:getInt(key .. ".reproduction#minAgeMonths")
+	if reproductionMinAgeMonths then
+		subType.reproductionMinAgeMonths = reproductionMinAgeMonths
+	end
+
+	-- Note: More override fields can be added as needed
+	Logging.info("[EL Bridge] Applied subtype overrides: weights=(%s,%s,%s)",
+		tostring(minWeight), tostring(targetWeight), tostring(maxWeight))
+end
+
+---Apply overrides to a type
+---@param animalType table The animal type to override
+---@param xmlFile table The XML file with override data
+---@param key string The XML key path
+function EnhancedLivestock_AnimalSystem:applyTypeOverrides(animalType, xmlFile, key)
+	-- Override type-level properties
+	local groupTitle = xmlFile:getString(key .. "#groupTitle")
+	if groupTitle then
+		animalType.groupTitle = groupTitle
+	end
+
+	local averageBuyAge = xmlFile:getInt(key .. "#averageBuyAge")
+	if averageBuyAge then
+		animalType.averageBuyAge = averageBuyAge
+	end
+
+	Logging.info("[EL Bridge] Applied type overrides")
+end
+
+-- Register bridge loading methods on AnimalSystem
+AnimalSystem.loadConfigOverrides = EnhancedLivestock_AnimalSystem.loadConfigOverrides
+AnimalSystem.loadBridgeAnimals = EnhancedLivestock_AnimalSystem.loadBridgeAnimals
+AnimalSystem.applySubTypeOverrides = EnhancedLivestock_AnimalSystem.applySubTypeOverrides
+AnimalSystem.applyTypeOverrides = EnhancedLivestock_AnimalSystem.applyTypeOverrides
 
 AnimalSystem.loadMapData = Utils.overwrittenFunction(AnimalSystem.loadMapData, EnhancedLivestock_AnimalSystem.loadMapData)
 
@@ -236,7 +507,10 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory, rootP
 		local name = rawName:upper()
 		local rawConfigFilename = xmlFile:getString(key .. ".configFilename")
 
-		if rawConfigFilename == nil then
+		-- Check if type already exists (for bridge extensions that add subtypes to existing types)
+		local typeAlreadyExists = self.nameToTypeIndex[name] ~= nil
+
+		if rawConfigFilename == nil and not typeAlreadyExists then
 			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing config file for animal type \'%s\'. \'%s\'", name, key)
 			return
 		end
@@ -244,19 +518,24 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory, rootP
 		-- Resolve cross-mod $moddir$ModName/ references to actual mod directories
 		local resolvedBaseDir = directory
 		local resolvedConfigFilename = rawConfigFilename
-		local modRef = rawConfigFilename:match("^%$moddir%$([^/]+)/")
-		if modRef ~= nil then
-			local modDir = g_modNameToDirectory[modRef]
-			if modDir ~= nil then
-				resolvedConfigFilename = rawConfigFilename:gsub("^%$moddir%$[^/]+/", "")
-				resolvedBaseDir = modDir
+		local configFilename = nil
+
+		if rawConfigFilename ~= nil then
+			local modRef = rawConfigFilename:match("^%$moddir%$([^/]+)/")
+			if modRef ~= nil then
+				local modDir = g_modNameToDirectory[modRef]
+				if modDir ~= nil then
+					resolvedConfigFilename = rawConfigFilename:gsub("^%$moddir%$[^/]+/", "")
+					resolvedBaseDir = modDir
+				end
 			end
+
+			configFilename = Utils.getFilename(resolvedConfigFilename, resolvedBaseDir)
 		end
 
-		local configFilename = Utils.getFilename(resolvedConfigFilename, resolvedBaseDir)
 		local animalType
 
-		if self.nameToTypeIndex[name] ~= nil then
+		if typeAlreadyExists then
 
 			animalType = self.nameToType[name]
 
@@ -376,10 +655,16 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory, rootP
 
 		end
 
+		-- If no configFilename specified but type exists, use the existing one (set by configOverride)
+		if configFilename == nil and typeAlreadyExists then
+			configFilename = animalType.configFilename
+			Logging.info("[EL Bridge] Using existing configFilename for type '%s': '%s'", name, configFilename)
+		end
+
 		-- Extract the config file's directory for resolving relative paths (like i3d files)
 		-- This ensures paths like "highland/cattleHighland.i3d" are resolved relative to the config file,
 		-- not the mod root directory
-		local configDirectory = configFilename:match("(.*[/\\])") or directory
+		local configDirectory = configFilename and configFilename:match("(.*[/\\])") or directory
 
 		-- For external mods (like AnimalPackage), they may use absolute paths from mod root
 		-- instead of relative paths from config file. Detect this by checking if directory != modDirectory.
