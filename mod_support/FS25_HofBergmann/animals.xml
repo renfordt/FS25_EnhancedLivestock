@@ -552,7 +552,7 @@
     <animal clusterClass="AnimalCluster" groupTitle="$l10n_animal_group_cats" statsBreeding="breedChickenCount" type="CAT">
         <configFilename>$moddir$FS25_HofBergmann/character/animals/domesticated/cat/husbandryAnimalsCat.xml</configFilename>
         <navMeshAgent height="0.1" maxClimbMeters="10" maxSlope="5" radius="0.1"/>
-        <subType subType="CAT_TIGER" fillTypeName="CAT_TIGER">
+        <subType subType="CAT_TIGER" fillTypeName="CAT_TIGER" gender="female">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="true">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -585,8 +585,41 @@
             <output>
             </output>
         </subType>
+        <subType subType="TOM_TIGER" fillTypeName="TOM_TIGER" gender="male">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage0Description</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="2" name="$l10n_shopItem_animalCatTigerGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatTiger.png" canBeBought="true">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage1Description</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false"/>
+            <buyPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="5"/>
+                <key ageMonth="8" value="5"/>
+            </transportPrice>
+            <input>
+                <food><!-- liters per day based on age -->
+                    <key ageMonth="0" value="1"/>
+                    <key ageMonth="8" value="2"/>
+                </food>
+            </input>
+            <output>
+            </output>
+        </subType>
 
-        <subType subType="CAT_BLACKWHITE" fillTypeName="CAT_BLACKWHITE">
+        <subType subType="CAT_BLACKWHITE" fillTypeName="CAT_BLACKWHITE" gender="female">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -619,8 +652,41 @@
             <output>
             </output>
         </subType>
+        <subType subType="TOM_BLACKWHITE" fillTypeName="TOM_BLACKWHITE" gender="male">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage0Description</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="3" name="$l10n_shopItem_animalCatBWGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatBlackWhite.png" canBeBought="true">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage1Description</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false"/>
+            <buyPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="5"/>
+                <key ageMonth="8" value="5"/>
+            </transportPrice>
+            <input>
+                <food><!-- liters per day based on age -->
+                    <key ageMonth="0" value="1"/>
+                    <key ageMonth="8" value="2"/>
+                </food>
+            </input>
+            <output>
+            </output>
+        </subType>
 
-        <subType subType="CAT_BLACK" fillTypeName="CAT_BLACK">
+        <subType subType="CAT_BLACK" fillTypeName="CAT_BLACK" gender="female">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -653,8 +719,41 @@
             <output>
             </output>
         </subType>
+        <subType subType="TOM_BLACK" fillTypeName="TOM_BLACK" gender="male">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage0Description</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="4" name="$l10n_shopItem_animalCatBlackGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatBlack.png" canBeBought="true">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage1Description</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false"/>
+            <buyPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="5"/>
+                <key ageMonth="8" value="5"/>
+            </transportPrice>
+            <input>
+                <food><!-- liters per day based on age -->
+                    <key ageMonth="0" value="1"/>
+                    <key ageMonth="8" value="2"/>
+                </food>
+            </input>
+            <output>
+            </output>
+        </subType>
 
-        <subType subType="CAT_GREY" fillTypeName="CAT_GREY">
+        <subType subType="CAT_GREY" fillTypeName="CAT_GREY" gender="female">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -687,8 +786,41 @@
             <output>
             </output>
         </subType>
+        <subType subType="TOM_GREY" fillTypeName="TOM_GREY" gender="male">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage0Description</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="5" name="$l10n_shopItem_animalCatGreyGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatGrey.png" canBeBought="true">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage1Description</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false"/>
+            <buyPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="5"/>
+                <key ageMonth="8" value="5"/>
+            </transportPrice>
+            <input>
+                <food><!-- liters per day based on age -->
+                    <key ageMonth="0" value="1"/>
+                    <key ageMonth="8" value="2"/>
+                </food>
+            </input>
+            <output>
+            </output>
+        </subType>
 
-        <subType subType="CAT_RED" fillTypeName="CAT_RED">
+        <subType subType="CAT_RED" fillTypeName="CAT_RED" gender="female">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -721,8 +853,41 @@
             <output>
             </output>
         </subType>
+        <subType subType="TOM_RED" fillTypeName="TOM_RED" gender="male">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage0Description</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="6" name="$l10n_shopItem_animalCatRedGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatRed.png" canBeBought="true">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage1Description</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false"/>
+            <buyPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="5"/>
+                <key ageMonth="8" value="5"/>
+            </transportPrice>
+            <input>
+                <food><!-- liters per day based on age -->
+                    <key ageMonth="0" value="1"/>
+                    <key ageMonth="8" value="2"/>
+                </food>
+            </input>
+            <output>
+            </output>
+        </subType>
 
-        <subType subType="CAT_WHITE" fillTypeName="CAT_WHITE">
+        <subType subType="CAT_WHITE" fillTypeName="CAT_WHITE" gender="female">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -734,6 +899,39 @@
                 </visual>
             </visuals>
             <reproduction minAgeMonth="8" durationMonth="2" minHealthFactor="0.75"/>
+            <buyPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </buyPrice>
+            <sellPrice>
+                <key ageMonth="0" value="50"/>
+                <key ageMonth="8" value="100"/>
+            </sellPrice>
+            <transportPrice>
+                <key ageMonth="0" value="5"/>
+                <key ageMonth="8" value="5"/>
+            </transportPrice>
+            <input>
+                <food>
+                    <key ageMonth="0" value="1"/>
+                    <key ageMonth="8" value="2"/>
+                </food>
+            </input>
+            <output>
+            </output>
+        </subType>
+        <subType subType="TOM_WHITE" fillTypeName="TOM_WHITE" gender="male">
+            <visuals>
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage0Description</description>
+                </visual>
+                <visual minAge="8" visualAnimalIndex="7" name="$l10n_shopItem_animalCatWhiteGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatWhite.png" canBeBought="true">
+                    <description>$l10n_animal_descriptionCatFeed</description>
+                    <description>$l10n_animal_catGrowthStage1Description</description>
+                </visual>
+            </visuals>
+            <reproduction supported="false"/>
             <buyPrice>
                 <key ageMonth="0" value="50"/>
                 <key ageMonth="8" value="100"/>

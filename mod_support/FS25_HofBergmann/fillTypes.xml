@@ -76,6 +76,42 @@
             <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
         </fillType>
 
+        <fillType name="TOM_TIGER" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="TOM_BLACKWHITE" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="TOM_BLACK" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="TOM_GREY" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="TOM_RED" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
+        <fillType name="TOM_WHITE" title="$l10n_fillType_cat" showOnPriceTable="false">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="1"/>
+            <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_cat.png"/>
+        </fillType>
+
         <!-- Goose fill types -->
         <fillType name="GOOSE" title="$l10n_fillType_goose" showOnPriceTable="false">
             <physics massPerLiter="3.0" maxPhysicalSurfaceAngle="0"/>
@@ -92,7 +128,7 @@
 
     <fillTypeCategories>
         <fillTypeCategory name="ANIMAL">
-            DUCK DRAKE DUCKWILD DRAKEWILD RABBIT RABBIT_MALE GOOSE GANDER CAT_TIGER CAT_BLACKWHITE CAT_BLACK CAT_GREY CAT_RED CAT_WHITE
+            DUCK DRAKE DUCKWILD DRAKEWILD RABBIT RABBIT_MALE GOOSE GANDER CAT_TIGER CAT_BLACKWHITE CAT_BLACK CAT_GREY CAT_RED CAT_WHITE TOM_TIGER TOM_BLACKWHITE TOM_BLACK TOM_GREY TOM_RED TOM_WHITE
         </fillTypeCategory>
     </fillTypeCategories>
 </map>
