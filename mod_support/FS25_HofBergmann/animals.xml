@@ -188,12 +188,12 @@
         </subType>
         <subType fillTypeName="DRAKE" subType="DRAKE" gender="male">
             <visuals>
-                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duckling.png" minAge="0" name="$l10n_shopItem_animalDuckGrowthStage0" visualAnimalIndex="4">
-                    <description>$l10n_animal_duckGrowthStage0Description</description>
+                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duckling.png" minAge="0" name="$l10n_shopItem_animalDrakeGrowthStage0" visualAnimalIndex="4">
+                    <description>$l10n_animal_drakeGrowthStage0Description</description>
                     <description>$l10n_animal_poultryFoodDescription</description>
                 </visual>
-                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duck.png" minAge="6" name="$l10n_shopItem_animalDuckGrowthStage1" visualAnimalIndex="5">
-                    <description>$l10n_animal_duckGrowthStage1Description</description>
+                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duck.png" minAge="6" name="$l10n_shopItem_animalDrakeGrowthStage1" visualAnimalIndex="5">
+                    <description>$l10n_animal_drakeGrowthStage1Description</description>
                     <description>$l10n_animal_poultryFoodDescription</description>
                 </visual>
             </visuals>
@@ -498,12 +498,12 @@
         </subType>
         <subType fillTypeName="GANDER" subType="GANDER" gender="male">
             <visuals>
-                <visual canBeBought="true" image="character/animals/domesticated/goose/store_gooseYoung.png" minAge="0" name="$l10n_shopItem_animalGooseGrowthStage0" visualAnimalIndex="1">
-                    <description>$l10n_animal_descriptionGooseProfitGrowthStage0</description>
+                <visual canBeBought="true" image="character/animals/domesticated/goose/store_gooseYoung.png" minAge="0" name="$l10n_shopItem_animalGanderGrowthStage0" visualAnimalIndex="1">
+                    <description>$l10n_animal_descriptionGanderProfitGrowthStage0</description>
                     <description>$l10n_animal_descriptionGooseFeed</description>
                 </visual>
-                <visual canBeBought="true" image="character/animals/domesticated/goose/store_goose.png" minAge="10" name="$l10n_shopItem_animalGooseGrowthStage1" visualAnimalIndex="2">
-                    <description>$l10n_animal_descriptionGooseProfitGrowthStage1</description>
+                <visual canBeBought="true" image="character/animals/domesticated/goose/store_goose.png" minAge="10" name="$l10n_shopItem_animalGanderGrowthStage1" visualAnimalIndex="2">
+                    <description>$l10n_animal_descriptionGanderProfitGrowthStage1</description>
                     <description>$l10n_animal_descriptionGooseFeed</description>
                     <description>$l10n_animal_descriptionGooseReproduction</description>
                 </visual>
@@ -587,13 +587,13 @@
         </subType>
         <subType subType="TOM_TIGER" fillTypeName="TOM_TIGER" gender="male">
             <visuals>
-                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage0Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage0Description</description>
                 </visual>
-                <visual minAge="8" visualAnimalIndex="2" name="$l10n_shopItem_animalCatTigerGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatTiger.png" canBeBought="true">
+                <visual minAge="8" visualAnimalIndex="2" name="$l10n_shopItem_animalTomcatTigerGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatTiger.png" canBeBought="true">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage1Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage1Description</description>
                 </visual>
             </visuals>
             <reproduction supported="false"/>
@@ -654,13 +654,13 @@
         </subType>
         <subType subType="TOM_BLACKWHITE" fillTypeName="TOM_BLACKWHITE" gender="male">
             <visuals>
-                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage0Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage0Description</description>
                 </visual>
-                <visual minAge="8" visualAnimalIndex="3" name="$l10n_shopItem_animalCatBWGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatBlackWhite.png" canBeBought="true">
+                <visual minAge="8" visualAnimalIndex="3" name="$l10n_shopItem_animalTomcatBWGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatBlackWhite.png" canBeBought="true">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage1Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage1Description</description>
                 </visual>
             </visuals>
             <reproduction supported="false"/>
@@ -721,13 +721,13 @@
         </subType>
         <subType subType="TOM_BLACK" fillTypeName="TOM_BLACK" gender="male">
             <visuals>
-                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage0Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage0Description</description>
                 </visual>
-                <visual minAge="8" visualAnimalIndex="4" name="$l10n_shopItem_animalCatBlackGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatBlack.png" canBeBought="true">
+                <visual minAge="8" visualAnimalIndex="4" name="$l10n_shopItem_animalTomcatBlackGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatBlack.png" canBeBought="true">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage1Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage1Description</description>
                 </visual>
             </visuals>
             <reproduction supported="false"/>
@@ -788,13 +788,13 @@
         </subType>
         <subType subType="TOM_GREY" fillTypeName="TOM_GREY" gender="male">
             <visuals>
-                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage0Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage0Description</description>
                 </visual>
-                <visual minAge="8" visualAnimalIndex="5" name="$l10n_shopItem_animalCatGreyGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatGrey.png" canBeBought="true">
+                <visual minAge="8" visualAnimalIndex="5" name="$l10n_shopItem_animalTomcatGreyGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatGrey.png" canBeBought="true">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage1Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage1Description</description>
                 </visual>
             </visuals>
             <reproduction supported="false"/>
@@ -855,13 +855,13 @@
         </subType>
         <subType subType="TOM_RED" fillTypeName="TOM_RED" gender="male">
             <visuals>
-                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage0Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage0Description</description>
                 </visual>
-                <visual minAge="8" visualAnimalIndex="6" name="$l10n_shopItem_animalCatRedGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatRed.png" canBeBought="true">
+                <visual minAge="8" visualAnimalIndex="6" name="$l10n_shopItem_animalTomcatRedGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatRed.png" canBeBought="true">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage1Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage1Description</description>
                 </visual>
             </visuals>
             <reproduction supported="false"/>
@@ -922,13 +922,13 @@
         </subType>
         <subType subType="TOM_WHITE" fillTypeName="TOM_WHITE" gender="male">
             <visuals>
-                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
+                <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage0Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage0Description</description>
                 </visual>
-                <visual minAge="8" visualAnimalIndex="7" name="$l10n_shopItem_animalCatWhiteGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatWhite.png" canBeBought="true">
+                <visual minAge="8" visualAnimalIndex="7" name="$l10n_shopItem_animalTomcatWhiteGrowthStage1" image="character/animals/domesticated/cat/store_femaleCatWhite.png" canBeBought="true">
                     <description>$l10n_animal_descriptionCatFeed</description>
-                    <description>$l10n_animal_catGrowthStage1Description</description>
+                    <description>$l10n_animal_tomcatGrowthStage1Description</description>
                 </visual>
             </visuals>
             <reproduction supported="false"/>
