@@ -159,6 +159,15 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 					Logging.warning("[EL Bridge] Animals file not found: %s", animalsPath)
 				end
 			end
+
+			-- Merge bridge nutrition data if provided
+			if bridge.resources.nutrition and g_nutritionManager then
+				local nutritionPath = bridge.bridgeDirectory .. bridge.resources.nutrition
+				if fileExists(nutritionPath) then
+					Logging.info("[EL Bridge] Merging nutrition data from bridge: %s", bridge.modName)
+					g_nutritionManager:mergeFromXML(nutritionPath)
+				end
+			end
 		end
 	end
 
@@ -425,57 +434,380 @@ function EnhancedLivestock_AnimalSystem:loadBridgeAnimals(bridge, animalsPath)
 		end
 	end)
 
+	-- Process <propertyOverrides> tags - batch property overrides for imported subTypes
+	-- Runs AFTER imports and overrides so all subTypes are registered
+	xmlFile:iterate("bridgeAnimals.propertyOverrides.animal", function(index, key)
+		local typeName = xmlFile:getString(key .. "#type")
+		if not typeName then
+			Logging.warning("[EL Bridge] Missing type in propertyOverrides animal tag")
+			return
+		end
+
+		typeName = typeName:upper()
+		local animalType = self.nameToType[typeName]
+
+		if not animalType then
+			Logging.warning("[EL Bridge] Cannot apply property overrides for type '%s' - not found", typeName)
+			return
+		end
+
+		-- Apply type-level overrides if any attributes are present on the <animal> element
+		self:applyTypeOverrides(animalType, xmlFile, key)
+
+		-- Apply subType-level overrides
+		xmlFile:iterate(key .. ".subType", function(subIndex, subKey)
+			local subTypeName = xmlFile:getString(subKey .. "#subType")
+			if not subTypeName then
+				Logging.warning("[EL Bridge] Missing subType in propertyOverrides")
+				return
+			end
+
+			subTypeName = subTypeName:upper()
+			local subType = self.nameToSubType[subTypeName]
+
+			if not subType then
+				-- Not an error: subType may have been skipped during import (duplicate name)
+				return
+			end
+
+			self:applySubTypeOverrides(subType, xmlFile, subKey)
+		end)
+	end)
+
 	xmlFile:delete()
 end
 
 ---Apply overrides to a subtype
+---Supports direct attributes (#gender, #minWeight, #targetWeight, #maxWeight, #breed),
+---reproduction, health, visuals, prices (buyPrice, sellPrice, transportPrice),
+---input curves (food, straw, water), and output curves (manure, liquidManure, milk, pallets).
 ---@param subType table The subtype to override
 ---@param xmlFile table The XML file with override data
 ---@param key string The XML key path
 function EnhancedLivestock_AnimalSystem:applySubTypeOverrides(subType, xmlFile, key)
-	-- Override weights
-	local minWeight = xmlFile:getFloat(key .. ".weights#minWeight")
-	local targetWeight = xmlFile:getFloat(key .. ".weights#targetWeight")
-	local maxWeight = xmlFile:getFloat(key .. ".weights#maxWeight")
+	local patches = {}
 
-	if minWeight then subType.minWeight = minWeight end
-	if targetWeight then subType.targetWeight = targetWeight end
-	if maxWeight then subType.maxWeight = maxWeight end
+	-- Direct attributes (RM-style flat attributes on the subType element)
+	local gender = xmlFile:getString(key .. "#gender")
+	if gender then
+		subType.gender = gender
+		table.insert(patches, "gender=" .. gender)
+	end
 
-	-- Override visuals
+	local minWeight = xmlFile:getFloat(key .. "#minWeight")
+	if minWeight then
+		subType.minWeight = minWeight
+		table.insert(patches, "minWeight=" .. minWeight)
+	end
+
+	local targetWeight = xmlFile:getFloat(key .. "#targetWeight")
+	if targetWeight then
+		subType.targetWeight = targetWeight
+		table.insert(patches, "targetWeight=" .. targetWeight)
+	end
+
+	local maxWeight = xmlFile:getFloat(key .. "#maxWeight")
+	if maxWeight then
+		subType.maxWeight = maxWeight
+		table.insert(patches, "maxWeight=" .. maxWeight)
+	end
+
+	-- Breed override with breed-group reassignment
+	local breed = xmlFile:getString(key .. "#breed")
+	if breed then
+		local animalType = nil
+		for _, t in ipairs(self.types) do
+			if t.typeIndex == subType.typeIndex then
+				animalType = t
+				break
+			end
+		end
+
+		-- Remove from old breed group
+		if animalType and subType.breed then
+			local oldBreedGroup = animalType.breeds[subType.breed]
+			if oldBreedGroup then
+				for i, st in ipairs(oldBreedGroup) do
+					if st == subType then
+						table.remove(oldBreedGroup, i)
+						break
+					end
+				end
+				if #oldBreedGroup == 0 then
+					animalType.breeds[subType.breed] = nil
+				end
+			end
+		end
+
+		subType.breed = breed
+
+		-- Add to new breed group
+		if animalType then
+			if animalType.breeds[breed] == nil then
+				animalType.breeds[breed] = {}
+			end
+			table.insert(animalType.breeds[breed], subType)
+		end
+
+		table.insert(patches, "breed=" .. breed)
+	end
+
+	-- Reproduction overrides
+	local reproSupported = xmlFile:getBool(key .. ".reproduction#supported")
+	if reproSupported ~= nil then
+		subType.supportsReproduction = reproSupported
+		table.insert(patches, "reproduction.supported=" .. tostring(reproSupported))
+	end
+
+	local reproMinAge = xmlFile:getInt(key .. ".reproduction#minAgeMonth")
+	if reproMinAge then
+		subType.reproductionMinAgeMonth = reproMinAge
+		table.insert(patches, "reproduction.minAgeMonth=" .. reproMinAge)
+	end
+
+	local reproDuration = xmlFile:getInt(key .. ".reproduction#durationMonth")
+	if reproDuration then
+		subType.reproductionDurationMonth = reproDuration
+		table.insert(patches, "reproduction.durationMonth=" .. reproDuration)
+	end
+
+	local reproMinHealth = xmlFile:getFloat(key .. ".reproduction#minHealthFactor")
+	if reproMinHealth then
+		subType.reproductionMinHealth = reproMinHealth
+		table.insert(patches, "reproduction.minHealthFactor=" .. reproMinHealth)
+	end
+
+	-- Health overrides
+	local healthIncrease = xmlFile:getFloat(key .. ".health#increasePerHour")
+	if healthIncrease then
+		subType.healthIncreaseHour = healthIncrease
+		table.insert(patches, "health.increasePerHour=" .. healthIncrease)
+	end
+
+	local healthDecrease = xmlFile:getFloat(key .. ".health#decreasePerHour")
+	if healthDecrease then
+		subType.healthDecreaseHour = healthDecrease
+		table.insert(patches, "health.decreasePerHour=" .. healthDecrease)
+	end
+
+	-- Visuals template override
 	local visualsTemplate = xmlFile:getString(key .. ".visuals#template")
 	if visualsTemplate then
 		subType.visualsTemplate = visualsTemplate
+		table.insert(patches, "visuals.template=" .. visualsTemplate)
 	end
 
-	-- Override reproduction
-	local reproductionMinAgeMonths = xmlFile:getInt(key .. ".reproduction#minAgeMonths")
-	if reproductionMinAgeMonths then
-		subType.reproductionMinAgeMonths = reproductionMinAgeMonths
+	-- Legacy support: also check nested <weights> elements for backward compatibility
+	if not minWeight then
+		local legacyMin = xmlFile:getFloat(key .. ".weights#minWeight")
+		if legacyMin then
+			subType.minWeight = legacyMin
+			table.insert(patches, "minWeight=" .. legacyMin .. " (legacy)")
+		end
+	end
+	if not targetWeight then
+		local legacyTarget = xmlFile:getFloat(key .. ".weights#targetWeight")
+		if legacyTarget then
+			subType.targetWeight = legacyTarget
+			table.insert(patches, "targetWeight=" .. legacyTarget .. " (legacy)")
+		end
+	end
+	if not maxWeight then
+		local legacyMax = xmlFile:getFloat(key .. ".weights#maxWeight")
+		if legacyMax then
+			subType.maxWeight = legacyMax
+			table.insert(patches, "maxWeight=" .. legacyMax .. " (legacy)")
+		end
 	end
 
-	-- Note: More override fields can be added as needed
-	Logging.info("[EL Bridge] Applied subtype overrides: weights=(%s,%s,%s)",
-		tostring(minWeight), tostring(targetWeight), tostring(maxWeight))
+	-- Price overrides (AnimCurves)
+	local buyPrice = self:loadAnimCurve(xmlFile, key .. ".buyPrice")
+	if buyPrice then
+		subType.buyPrice = buyPrice
+		table.insert(patches, "buyPrice")
+	end
+
+	local sellPrice = self:loadAnimCurve(xmlFile, key .. ".sellPrice")
+	if sellPrice then
+		subType.sellPrice = sellPrice
+		table.insert(patches, "sellPrice")
+	end
+
+	local transportPrice = self:loadAnimCurve(xmlFile, key .. ".transportPrice")
+	if transportPrice then
+		subType.transportPrice = transportPrice
+		table.insert(patches, "transportPrice")
+	end
+
+	-- Input overrides (AnimCurves)
+	local foodCurve = self:loadAnimCurve(xmlFile, key .. ".input.food")
+	if foodCurve then
+		if subType.input == nil then
+			subType.input = {}
+		end
+		subType.input.food = foodCurve
+		table.insert(patches, "input.food")
+	end
+
+	local strawCurve = self:loadAnimCurve(xmlFile, key .. ".input.straw")
+	if strawCurve then
+		if subType.input == nil then
+			subType.input = {}
+		end
+		subType.input.straw = strawCurve
+		table.insert(patches, "input.straw")
+	end
+
+	local waterCurve = self:loadAnimCurve(xmlFile, key .. ".input.water")
+	if waterCurve then
+		if subType.input == nil then
+			subType.input = {}
+		end
+		subType.input.water = waterCurve
+		table.insert(patches, "input.water")
+	end
+
+	-- Output overrides (AnimCurves)
+	local manureCurve = self:loadAnimCurve(xmlFile, key .. ".output.manure")
+	if manureCurve then
+		if subType.output == nil then
+			subType.output = {}
+		end
+		subType.output.manure = manureCurve
+		table.insert(patches, "output.manure")
+	end
+
+	local liquidManureCurve = self:loadAnimCurve(xmlFile, key .. ".output.liquidManure")
+	if liquidManureCurve then
+		if subType.output == nil then
+			subType.output = {}
+		end
+		subType.output.liquidManure = liquidManureCurve
+		table.insert(patches, "output.liquidManure")
+	end
+
+	-- Milk output (AnimCurve + optional fillType override)
+	if xmlFile:hasProperty(key .. ".output.milk") then
+		local milkCurve = self:loadAnimCurve(xmlFile, key .. ".output.milk")
+		if milkCurve then
+			if subType.output == nil then
+				subType.output = {}
+			end
+			local milkFillTypeName = xmlFile:getString(key .. ".output.milk#fillType")
+			local existingFillType = subType.output.milk and subType.output.milk.fillType or nil
+			subType.output.milk = {
+				fillType = milkFillTypeName and g_fillTypeManager:getFillTypeIndexByName(milkFillTypeName) or existingFillType,
+				curve = milkCurve
+			}
+			table.insert(patches, "output.milk")
+		end
+	end
+
+	-- Pallets output (AnimCurve + optional fillType override)
+	if xmlFile:hasProperty(key .. ".output.pallets") then
+		local palletsCurve = self:loadAnimCurve(xmlFile, key .. ".output.pallets")
+		if palletsCurve then
+			if subType.output == nil then
+				subType.output = {}
+			end
+			local palletsFillTypeName = xmlFile:getString(key .. ".output.pallets#fillType")
+			local existingFillType = subType.output.pallets and subType.output.pallets.fillType or nil
+			subType.output.pallets = {
+				fillType = palletsFillTypeName and g_fillTypeManager:getFillTypeIndexByName(palletsFillTypeName) or existingFillType,
+				curve = palletsCurve
+			}
+			table.insert(patches, "output.pallets")
+		end
+	end
+
+	if #patches > 0 then
+		Logging.info("[EL Bridge] SubType '%s' overrides: %s", subType.name, table.concat(patches, ", "))
+	end
 end
 
 ---Apply overrides to a type
+---Supports groupTitle, averageBuyAge, maxBuyAge, pasture sqmPerAnimal, pregnancy, and fertility.
 ---@param animalType table The animal type to override
 ---@param xmlFile table The XML file with override data
 ---@param key string The XML key path
 function EnhancedLivestock_AnimalSystem:applyTypeOverrides(animalType, xmlFile, key)
-	-- Override type-level properties
+	local patches = {}
+
 	local groupTitle = xmlFile:getString(key .. "#groupTitle")
 	if groupTitle then
 		animalType.groupTitle = groupTitle
+		table.insert(patches, "groupTitle")
 	end
 
 	local averageBuyAge = xmlFile:getInt(key .. "#averageBuyAge")
 	if averageBuyAge then
 		animalType.averageBuyAge = averageBuyAge
+		table.insert(patches, "averageBuyAge=" .. averageBuyAge)
 	end
 
-	Logging.info("[EL Bridge] Applied type overrides")
+	local maxBuyAge = xmlFile:getInt(key .. "#maxBuyAge")
+	if maxBuyAge then
+		animalType.maxBuyAge = maxBuyAge
+		table.insert(patches, "maxBuyAge=" .. maxBuyAge)
+	end
+
+	local sqmPerAnimal = xmlFile:getFloat(key .. ".pasture#sqmPerAnimal")
+	if sqmPerAnimal then
+		animalType.sqmPerAnimal = sqmPerAnimal
+		table.insert(patches, "sqmPerAnimal=" .. sqmPerAnimal)
+	end
+
+	-- Pregnancy override: rebuild pregnancy function if average or max changed
+	local pregnancyAverage = xmlFile:getInt(key .. ".pregnancy#average")
+	local pregnancyMax = xmlFile:getInt(key .. ".pregnancy#max")
+	if pregnancyAverage or pregnancyMax then
+		local avg = pregnancyAverage or animalType.pregnancy.average
+		local maxC = pregnancyMax or (avg + 2)
+
+		local pregnancy = {}
+		local totalChance = 0
+
+		for i = 0, avg - 1 do
+			totalChance = totalChance + (i / avg) / maxC
+			table.insert(pregnancy, totalChance)
+		end
+
+		totalChance = totalChance + 0.5
+		table.insert(pregnancy, totalChance)
+
+		for i = avg + 1, maxC - 1 do
+			totalChance = totalChance + (1 - totalChance) * 0.8
+			table.insert(pregnancy, totalChance)
+		end
+
+		table.insert(pregnancy, 1)
+
+		local function pregnancyFunction(value)
+			for i = 0, #pregnancy - 1 do
+				if pregnancy[i + 1] > value then
+					return i
+				end
+			end
+			return 0
+		end
+
+		animalType.pregnancy = {
+			["get"] = pregnancyFunction,
+			["average"] = avg
+		}
+		table.insert(patches, "pregnancy(avg=" .. avg .. ",max=" .. maxC .. ")")
+	end
+
+	-- Fertility curve override
+	local fertility = self:loadAnimCurve(xmlFile, key .. ".fertility")
+	if fertility then
+		animalType.fertility = fertility
+		table.insert(patches, "fertility")
+	end
+
+	if #patches > 0 then
+		Logging.info("[EL Bridge] Type '%s' overrides: %s", animalType.name, table.concat(patches, ", "))
+	end
 end
 
 -- Register bridge loading methods on AnimalSystem

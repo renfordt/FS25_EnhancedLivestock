@@ -29,7 +29,8 @@ BridgeRegistry.SUPPORTED_BRIDGES = {
         loadingMode = "extend",
         resources = {
             fillTypes = "fillTypes.xml",
-            animals = "animals.xml"
+            animals = "animals.xml",
+            nutrition = "nutrition.xml"
         }
     }
 }

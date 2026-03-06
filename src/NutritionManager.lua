@@ -172,6 +172,146 @@ function NutritionManager:loadFromXML(path)
 
 end
 
+function NutritionManager:mergeFromXML(path)
+
+	local xmlFile = XMLFile.loadIfExists("nutritionMerge", path)
+
+	if xmlFile == nil then
+		Logging.warning("[EnhancedLivestock] NutritionManager:mergeFromXML: Could not load %s", path)
+		return false
+	end
+
+	local mergedFeeds = 0
+	local mergedSpecies = 0
+
+	-- Merge default feed profile (only if explicitly provided)
+	if xmlFile:hasProperty("nutrition.feeds.default") then
+		self.defaultFeed.energy = xmlFile:getFloat("nutrition.feeds.default#energy", self.defaultFeed.energy)
+		self.defaultFeed.protein = xmlFile:getFloat("nutrition.feeds.default#protein", self.defaultFeed.protein)
+		self.defaultFeed.dryMatterPercent = xmlFile:getFloat("nutrition.feeds.default#dryMatterPercent", self.defaultFeed.dryMatterPercent)
+		self.defaultFeed.fiber = xmlFile:getFloat("nutrition.feeds.default#fiber", self.defaultFeed.fiber)
+		self.defaultFeed.litersPerKgDM = xmlFile:getFloat("nutrition.feeds.default#litersPerKgDM", self.defaultFeed.litersPerKgDM)
+	end
+
+	-- Merge feed profiles (add new or override existing)
+	xmlFile:iterate("nutrition.feeds.feed", function(_, key)
+
+		local fillTypeName = xmlFile:getString(key .. "#fillType")
+
+		if fillTypeName == nil then
+			return
+		end
+
+		local fillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(fillTypeName)
+
+		local profile = {
+			fillTypeName = fillTypeName,
+			category = xmlFile:getString(key .. "#category", "UNKNOWN"),
+			energy = xmlFile:getFloat(key .. "#energy", self.defaultFeed.energy),
+			protein = xmlFile:getFloat(key .. "#protein", self.defaultFeed.protein),
+			dryMatterPercent = xmlFile:getFloat(key .. "#dryMatterPercent", self.defaultFeed.dryMatterPercent),
+			fiber = xmlFile:getFloat(key .. "#fiber", self.defaultFeed.fiber),
+			litersPerKgDM = xmlFile:getFloat(key .. "#litersPerKgDM", self.defaultFeed.litersPerKgDM)
+		}
+
+		if fillTypeIndex ~= nil then
+			self.feedProfiles[fillTypeIndex] = profile
+		end
+
+		self.feedProfiles[fillTypeName] = profile
+		mergedFeeds = mergedFeeds + 1
+
+	end)
+
+	-- Merge life stages (add new species or override existing)
+	xmlFile:iterate("nutrition.lifeStages.species", function(_, speciesKey)
+
+		local speciesName = xmlFile:getString(speciesKey .. "#name")
+
+		if speciesName == nil then
+			return
+		end
+
+		local stages = {}
+
+		xmlFile:iterate(speciesKey .. ".stage", function(_, stageKey)
+
+			local stage = {
+				name = xmlFile:getString(stageKey .. "#name", "UNKNOWN"),
+				minAge = xmlFile:getInt(stageKey .. "#minAge", 0),
+				maxAge = xmlFile:getInt(stageKey .. "#maxAge", 999),
+				gender = xmlFile:getString(stageKey .. "#gender", "any"),
+				condition = xmlFile:getString(stageKey .. "#condition", "none"),
+				priority = xmlFile:getInt(stageKey .. "#priority", 0),
+				dmiPercent = xmlFile:getFloat(stageKey .. "#dmiPercent", 2.0),
+				energyPerKgBW075 = xmlFile:getFloat(stageKey .. "#energyPerKgBW075", 0.50),
+				proteinPerKgBW075 = xmlFile:getFloat(stageKey .. "#proteinPerKgBW075", 5.0)
+			}
+
+			table.insert(stages, stage)
+
+		end)
+
+		-- Sort by priority descending so highest priority is checked first
+		table.sort(stages, function(a, b)
+			return a.priority > b.priority
+		end)
+
+		self.lifeStages[speciesName] = stages
+		mergedSpecies = mergedSpecies + 1
+
+	end)
+
+	-- Merge pregnancy trimester multipliers
+	xmlFile:iterate("nutrition.pregnancyTrimesters.species", function(_, speciesKey)
+
+		local speciesName = xmlFile:getString(speciesKey .. "#name")
+
+		if speciesName == nil then
+			return
+		end
+
+		local trimesters = {}
+
+		xmlFile:iterate(speciesKey .. ".trimester", function(_, trimKey)
+
+			local index = xmlFile:getInt(trimKey .. "#index", 1)
+
+			trimesters[index] = {
+				energyMultiplier = xmlFile:getFloat(trimKey .. "#energyMultiplier", 1.0),
+				dmiMultiplier = xmlFile:getFloat(trimKey .. "#dmiMultiplier", 1.0)
+			}
+
+		end)
+
+		self.pregnancyTrimesters[speciesName] = trimesters
+
+	end)
+
+	-- Merge growth rates
+	xmlFile:iterate("nutrition.growthRates.species", function(_, speciesKey)
+
+		local speciesName = xmlFile:getString(speciesKey .. "#name")
+
+		if speciesName == nil then
+			return
+		end
+
+		self.growthRates[speciesName] = {
+			maxADG_male = xmlFile:getFloat(speciesKey .. "#maxADG_male", 1.0),
+			maxADG_female = xmlFile:getFloat(speciesKey .. "#maxADG_female", 0.8)
+		}
+
+	end)
+
+	xmlFile:delete()
+
+	Logging.info("[EnhancedLivestock] NutritionManager:mergeFromXML: Merged %d feed profiles, %d species from %s", mergedFeeds, mergedSpecies, path)
+
+	return true
+
+end
+
 function NutritionManager:getFeedProfile(fillTypeIndex)
 
 	if fillTypeIndex ~= nil and self.feedProfiles[fillTypeIndex] ~= nil then
