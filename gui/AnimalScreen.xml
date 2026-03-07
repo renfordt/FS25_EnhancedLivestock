@@ -880,7 +880,7 @@
 		<Button profile="buttonOK" text="$l10n_button_select" onClick="onClickSelect" id="buttonSelect">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="elButtonSelect" text="$l10n_button_select" onClick="onClickRLSelect" id="buttonRLSelect">
+		<Button profile="elButtonSelect" text="$l10n_button_select" onClick="onClickRLSelect" id="buttonELSelect">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 	</BoxLayout>
