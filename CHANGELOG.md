@@ -18,6 +18,7 @@
 - Bug fix: AI dialog insemination blocked for cows that never gave birth (missing isParent guard) (by rittermod)
 - Bug fix: AI dialog insemination not syncing in multiplayer (by rittermod)
 - Bug fix: Error spam when dismounting horse outside pen in multiplayer (by rittermod)
+- Bug fix: Messages are not broadcasted to all players in multiplayer
 - Added Hungarian translation (by Toamsz93)
 - Added Spanish translation
 
