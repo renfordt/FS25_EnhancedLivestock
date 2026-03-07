@@ -30,7 +30,8 @@ BridgeRegistry.SUPPORTED_BRIDGES = {
         resources = {
             fillTypes = "fillTypes.xml",
             animals = "animals.xml",
-            nutrition = "nutrition.xml"
+            nutrition = "nutrition.xml",
+            translations = "translations/translation"
         }
     }
 }
@@ -134,23 +135,38 @@ end
 function BridgeRegistry:loadBridgeTranslations()
     for _, bridge in ipairs(self.bridges) do
         if bridge.resources.translations then
-            local translationPattern = bridge.resources.translations:gsub("{LANG}", g_languageShort)
-            local translationPath = bridge.bridgeDirectory .. translationPattern
+            -- Language fallback chain: current language -> English -> German
+            local l10nNames = {
+                g_languageShort,
+                "en",
+                "de"
+            }
 
-            if fileExists(translationPath) then
-                print(string.format("[EL Bridge] Loading translations from: %s", bridge.modName))
-                local xmlFile = XMLFile.loadIfExists("bridgeTranslations", translationPath)
-                if xmlFile then
-                    -- Load translations into global i18n
-                    xmlFile:iterate("l10n.texts.text", function(index, key)
-                        local textKey = xmlFile:getValue(key .. "#name")
-                        local textValue = xmlFile:getValue(key, "")
-                        if textKey and textValue then
-                            g_i18n.texts[textKey] = textValue
-                        end
-                    end)
-                    xmlFile:delete()
+            local xmlFile
+            local translationPath
+
+            for _, l10nName in pairs(l10nNames) do
+                translationPath = bridge.bridgeDirectory .. bridge.resources.translations .. "_" .. l10nName .. ".xml"
+                xmlFile = XMLFile.loadIfExists("bridgeTranslations", translationPath)
+                if xmlFile ~= nil then
+                    break
                 end
+            end
+
+            if xmlFile ~= nil then
+                print(string.format("[EL Bridge] Loading translations from: %s", bridge.modName))
+                xmlFile:iterate("l10n.texts.text", function(_, key)
+                    local textKey = xmlFile:getString(key .. "#name")
+                    local textValue = xmlFile:getString(key .. "#text")
+                    if textKey ~= nil and textValue ~= nil then
+                        if g_i18n:hasModText(textKey) then
+                            printWarning("Warning: Duplicate l10n entry '" .. textKey .. "'. Ignoring this definition.")
+                        else
+                            g_i18n:setText(textKey, textValue:gsub("\r\n", "\n"))
+                        end
+                    end
+                end)
+                xmlFile:delete()
             end
         end
     end
