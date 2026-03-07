@@ -3580,7 +3580,10 @@ function Animal:addMessage(id, args)
 		return
 	end
 
-	self.clusterSystem.owner:addELMessage(id, self:getIdentifiers(), args)
+	local owner = self.clusterSystem.owner
+	local animal = self:getIdentifiers()
+
+	ELMessageEvent.sendEvent(owner, id, animal, args)
 
 end
 
