@@ -2615,6 +2615,11 @@ function AnimalSystem.onClickResetDealer()
 
 	end
 
+	-- Broadcast new dealer state to all clients
+	g_server:broadcastEvent(AnimalSystemStateEvent.new(
+		animalSystem.countries, animalSystem.animals, animalSystem.aiAnimals
+	))
+
 end
 
 function AnimalSystem:getBreedsByAnimalTypeIndex(animalTypeIndex)

@@ -151,7 +151,7 @@ ELSettings.SETTINGS = {
 		["index"] = 5,
 		["type"] = "Button",
 		["ignore"] = true,
-		["callback"] = AnimalSystem.onClickResetDealer
+		["callback"] = ResetDealerEvent.sendEvent
 	},
 
 	["tagColour"] = {

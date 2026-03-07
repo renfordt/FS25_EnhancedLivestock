@@ -53,6 +53,7 @@ source(modDirectory .. "src/animals/shop/events/AnimalInseminationEvent.lua")
 source(modDirectory .. "src/animals/shop/events/AnimalInseminationResultEvent.lua")
 source(modDirectory .. "src/animals/shop/events/AnimalMoveEvent.lua")
 source(modDirectory .. "src/animals/shop/events/AnimalSellEvent.lua")
+source(modDirectory .. "src/animals/shop/events/ResetDealerEvent.lua")
 source(modDirectory .. "src/animals/shop/events/SemenBuyEvent.lua")
 
 -- SECTION 7: Animal Shop - Core
