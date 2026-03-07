@@ -100,6 +100,10 @@ function AnimalSystemStateEvent:readStream(streamId, connection)
 
 			animal.isAIAnimal = true
 			animal.success = streamReadFloat32(streamId) or 0.65
+			animal.bullTier = streamReadUInt8(streamId)
+			animal.availableStraws = streamReadUInt16(streamId)
+			animal.maxStrawsPerPurchase = streamReadUInt16(streamId)
+			animal.lastRestockDay = streamReadUInt16(streamId)
 			animal.favouritedBy = {}
 
 			local numUsers = streamReadUInt8(streamId)
@@ -189,6 +193,10 @@ function AnimalSystemStateEvent:writeStream(streamId, connection)
 			local success = animal:writeStream(streamId, connection)
 
 			streamWriteFloat32(streamId, animal.success or 0.65)
+			streamWriteUInt8(streamId, animal.bullTier or BullTier.PROVEN)
+			streamWriteUInt16(streamId, animal.availableStraws or 0)
+			streamWriteUInt16(streamId, animal.maxStrawsPerPurchase or 0)
+			streamWriteUInt16(streamId, animal.lastRestockDay or 0)
 
 			local numUsers = 0
 
