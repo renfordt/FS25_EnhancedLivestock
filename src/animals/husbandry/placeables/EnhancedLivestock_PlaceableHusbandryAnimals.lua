@@ -369,11 +369,11 @@ function EnhancedLivestock_PlaceableHusbandryAnimals:onDayChanged()
 					table.insert(args, table.concat(namedAnimals, ", "))
 				end
 				
-				spec:addELMessage(messageType, nil, args)
+				ELMessageEvent.sendEvent(self, messageType, nil, args)
 			else
 				-- Create individual messages for fewer than 5 deaths
 				for _, animal in ipairs(deathAnimals) do
-					spec:addELMessage("DEATH", animal:getIdentifiers(), { deathType })
+					ELMessageEvent.sendEvent(self, "DEATH", animal:getIdentifiers(), { deathType })
 				end
 			end
 		end

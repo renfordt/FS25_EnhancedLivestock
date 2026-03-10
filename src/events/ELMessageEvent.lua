@@ -71,6 +71,8 @@ function ELMessageEvent:run(connection)
 		if g_server ~= nil then
 			g_server:broadcastEvent(ELMessageEvent.new(self.object, self.id, self.animal, self.args))
 		end
+	else
+		Logging.warning("[EnhancedLivestock] ELMessageEvent:run() - object is nil or missing addELMessage, message '%s' dropped", tostring(self.id))
 	end
 
 end
@@ -82,9 +84,7 @@ function ELMessageEvent.sendEvent(object, id, animal, args)
 			object:addELMessage(id, animal, args)
 		end
 
-		if g_server.netIsRunning then
-			g_server:broadcastEvent(ELMessageEvent.new(object, id, animal, args))
-		end
+		g_server:broadcastEvent(ELMessageEvent.new(object, id, animal, args))
 	else
 		g_client:getServerConnection():sendEvent(ELMessageEvent.new(object, id, animal, args))
 	end

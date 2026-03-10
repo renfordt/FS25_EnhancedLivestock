@@ -952,7 +952,7 @@ function AIAnimalManager:onDayChanged()
 
 	end
 
-	if #messages > 0 and g_server.netIsRunning then
+	if #messages > 0 then
 		g_server:broadcastEvent(AIBulkMessageEvent.new(self.husbandry, messages))
 	end
 
