@@ -62,7 +62,13 @@ end
 
 function Dewar:register(position, rotation, animal, quantity)
 
---if self.isServer then Dewar:superClass().register(self, true) end
+	if self.uniqueId == nil then
+		self.uniqueId = string.format("dw_%d_%d", g_currentMission.environment.currentMonotonicDay, math.random(100000, 999999))
+	end
+
+	if self.isServer then
+		Dewar:superClass().register(self, true)
+	end
 
 	self.position = self.position or position
 	self.rotation = self.rotation or rotation
@@ -102,12 +108,6 @@ function Dewar:register(position, rotation, animal, quantity)
 
 	self:updateStrawVisuals()
 	self:updateAnimalVisuals()
-
---if g_server ~= nil then
---g_server:addObject(self, string.format("dewar_%s", self.uniqueId))
---elseif g_client ~= nil then
---g_client:addObject(self, string.format("dewar_%s", self.uniqueId))
---end
 
 end
 
@@ -260,7 +260,7 @@ end
 
 function Dewar:writeStream(streamId, connection)
 
-	streamWriteString(streamId, self.uniqueId)
+	streamWriteString(streamId, self.uniqueId or "")
 
 	streamWriteFloat32(streamId, self.position[1])
 	streamWriteFloat32(streamId, self.position[2])
