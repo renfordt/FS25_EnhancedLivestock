@@ -530,32 +530,32 @@
 	<Bitmap profile="fs25_tabListContainer" id="tabListContainer"/>
 	<BoxLayout profile="fs25_animalTabListBox">
 		<GuiElement profile="fs25_tabListItem" id="tabBuy">
-			<Button profile="fs25_animalTabListItemButton" onClick="onClickBuyMode" iconSliceId="gui.icon_animalDealer_in"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickBuyMode" id="tabBuyButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabSell">
-			<Button profile="fs25_animalTabListItemButton" onClick="onClickSellMode" iconSliceId="gui.icon_animalDealer_out"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickSellMode" id="tabSellButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabInfo">
-			<Button profile="el_animalTabListItemButton" onClick="onClickInfoMode" iconSliceId="gui.dialogType_info"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickInfoMode" id="tabInfoButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabAI">
-			<Button profile="el_animalTabListItemButtonMessages" onClick="onClickAIMode" iconSliceId="gui.icon_ingameMenu_animals" id="tabLogButton"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickAIMode" id="tabAIButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabLog">
-			<Button profile="el_animalTabListItemButtonMessages" onClick="onClickLogMode" iconSliceId="gui.newMessage" id="tabLogButton"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickLogMode" id="tabLogButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabHerdsman">
-			<Button profile="el_animalTabListItemButtonMessages" onClick="onClickHerdsmanMode" iconSliceId="gui.icon_options_generalSettings2"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickHerdsmanMode" id="tabHerdsmanButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
@@ -907,8 +907,9 @@
 			<iconSize value="20px 50px"/>
 			<iconTextOffset value="-20px 0px"/>
 		</Profile>
-		<Profile name="el_animalTabListItemButtonMessages" extends="el_animalTabListItemButton">
-			<iconSize value="40px 40px"/>
+		<Profile name="el_animalTabListItemButtonMenu" extends="fs25_tabListItemButton">
+			<iconSize value="80px 80px"/>
+			<iconTextOffset value="-20px 0px"/>
 		</Profile>
 		<Profile name="el_animalScreenAnimalIcon" extends="baseReference" with="anchorTopCenter">
 			<size value="340px 340px"/>

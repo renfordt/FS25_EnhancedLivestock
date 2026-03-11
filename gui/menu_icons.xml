@@ -1,0 +1,15 @@
+<texture>
+    <meta>
+        <filename>menu_icons.png</filename>
+        <size width="1024" height="1024"/>
+    </meta>
+    <slices>
+        <slice id="buy_animal" uvs="0px 0px 256px 256px"/>
+        <slice id="sell_animal" uvs="256px 0px 256px 256px"/>
+        <slice id="animal_info" uvs="512px 0px 256px 256px"/>
+        <slice id="insemination" uvs="768px 0px 256px 256px"/>
+        <slice id="animal_log" uvs="0px 256px 256px 256px"/>
+        <slice id="husbandy_settings" uvs="256px 256px 256px 256px"/>
+        <slice id="animal_monitor" uvs="512px 256px 256px 256px"/>
+    </slices>
+</texture>

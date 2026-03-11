@@ -96,6 +96,13 @@ function EnhancedLivestock_AnimalScreen:setController(_, husbandry, vehicle, isD
 	self.tabLog:setVisible(self.isDirectFarm)
 	self.tabHerdsman:setVisible(self.isDirectFarm)
 
+	self.tabBuyButton:setImageSlice(nil, "el_menu.buy_animal")
+	self.tabSellButton:setImageSlice(nil, "el_menu.sell_animal")
+	self.tabInfoButton:setImageSlice(nil, "el_menu.animal_info")
+	self.tabAIButton:setImageSlice(nil, "el_menu.insemination")
+	self.tabLogButton:setImageSlice(nil, "el_menu.animal_log")
+	self.tabHerdsmanButton:setImageSlice(nil, "el_menu.husbandy_settings")
+
 	self.controller = controller
 	self.controller:setAnimalsChangedCallback(self.onAnimalsChanged, self)
 	self.controller:setActionTypeCallback(self.onActionTypeChanged, self)
