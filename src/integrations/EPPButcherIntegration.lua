@@ -39,6 +39,9 @@ EL_EPPButcherIntegration.initialized = false
 -- Whether the deferred placeable scan has been completed
 EL_EPPButcherIntegration.placeablesScanCompleted = false
 
+-- Tracks which placeables have already been processed (prevents double-processing)
+EL_EPPButcherIntegration.processedPlaceables = {}
+
 
 ---
 -- Initialize default mappings (called lazily when AnimalType is available)
@@ -139,7 +142,6 @@ function EL_EPPButcherIntegration.initialize()
 				EL_EPPButcherIntegration.onPlaceableFinalized
 			)
 			EL_EPPButcherIntegration.globalPlaceableHooked = true
-			Logging.info("[EnhancedLivestock] - EPP: Hooked Placeable.finalizePlacement for EPP detection")
 		else
 		-- Fallback: try onFinalizePlacement (may not work for all placeables)
 			Placeable.onFinalizePlacement = Utils.appendedFunction(
@@ -147,7 +149,6 @@ function EL_EPPButcherIntegration.initialize()
 				EL_EPPButcherIntegration.onPlaceableFinalized
 			)
 			EL_EPPButcherIntegration.globalPlaceableHooked = true
-			Logging.info("[EnhancedLivestock] - EPP: Hooked Placeable.onFinalizePlacement for EPP detection (fallback)")
 		end
 	end
 
@@ -155,57 +156,34 @@ function EL_EPPButcherIntegration.initialize()
 	local success = EL_EPPButcherIntegration.tryInitialize()
 
 	-- Define deferred scan function
-	local deferredScan = function(hookName)
-		return function(...)
-			if not EL_EPPButcherIntegration.placeablesScanCompleted then
-				Logging.info("[EnhancedLivestock] - EPP: Running deferred placeable scan (triggered by %s)...", hookName)
-				EL_EPPButcherIntegration.scanExistingPlaceables()
-				EL_EPPButcherIntegration.placeablesScanCompleted = true
-			end
+	local deferredScan = function(...)
+		if not EL_EPPButcherIntegration.placeablesScanCompleted then
+			EL_EPPButcherIntegration.scanExistingPlaceables()
+			EL_EPPButcherIntegration.placeablesScanCompleted = true
 		end
 	end
 
-	-- Hook multiple points for reliability - different FS25 versions and scenarios
-	-- may call these at different times
+	-- Hook a single mission lifecycle event to trigger the deferred placeable scan.
+	-- Only one hook is needed since the placeablesScanCompleted flag prevents re-runs.
+	-- Prefer FSBaseMission.onStartMission as it fires reliably after all placeables are loaded.
 	local hooked = false
 
-	-- Method 1: Hook BaseMission.onStartMission (called when mission starts, after everything is loaded)
-	if BaseMission ~= nil and BaseMission.onStartMission ~= nil then
-		BaseMission.onStartMission = Utils.appendedFunction(BaseMission.onStartMission, deferredScan("BaseMission.onStartMission"))
-		--Logging.info("[EnhancedLivestock] - EPP: Hooked BaseMission.onStartMission for deferred scan")
-		hooked = true
-	end
-
-	-- Method 2: Hook FSBaseMission.onStartMission
 	if FSBaseMission ~= nil and FSBaseMission.onStartMission ~= nil then
-		FSBaseMission.onStartMission = Utils.appendedFunction(FSBaseMission.onStartMission, deferredScan("FSBaseMission.onStartMission"))
-		--Logging.info("[EnhancedLivestock] - EPP: Hooked FSBaseMission.onStartMission for deferred scan")
+		FSBaseMission.onStartMission = Utils.appendedFunction(FSBaseMission.onStartMission, deferredScan)
 		hooked = true
-	end
-
-	-- Method 3: Hook Mission00.loadMission00Finished
-	if Mission00 ~= nil and Mission00.loadMission00Finished ~= nil then
-		Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, deferredScan("Mission00.loadMission00Finished"))
-		--Logging.info("[EnhancedLivestock] - EPP: Hooked Mission00.loadMission00Finished for deferred scan")
+	elseif BaseMission ~= nil and BaseMission.onStartMission ~= nil then
+		BaseMission.onStartMission = Utils.appendedFunction(BaseMission.onStartMission, deferredScan)
 		hooked = true
-	end
-
-	-- Method 4: Hook g_currentMission.loadMapFinished (if available)
-	if g_currentMission ~= nil and g_currentMission.loadMapFinished ~= nil then
-		g_currentMission.loadMapFinished = Utils.appendedFunction(g_currentMission.loadMapFinished, deferredScan("g_currentMission.loadMapFinished"))
-		--Logging.info("[EnhancedLivestock] - EPP: Hooked g_currentMission.loadMapFinished for deferred scan")
+	elseif Mission00 ~= nil and Mission00.loadMission00Finished ~= nil then
+		Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, deferredScan)
+		hooked = true
+	elseif g_currentMission ~= nil and g_currentMission.loadMapFinished ~= nil then
+		g_currentMission.loadMapFinished = Utils.appendedFunction(g_currentMission.loadMapFinished, deferredScan)
 		hooked = true
 	end
 
 	if not hooked then
 		Logging.warning("[EnhancedLivestock] - EPP: Could not hook any mission lifecycle events - existing EPP placeables may not be auto-detected")
-		Logging.warning("[EnhancedLivestock] - EPP: EPP placeables will still be detected when newly placed via onPlaceableFinalized hook")
-	end
-
-	if success then
-		--Logging.info("[EnhancedLivestock] - EPP: Initial integration setup complete")
-	else
-		Logging.info("[EnhancedLivestock] - EPP: EPP not detected yet - will scan for placeables after mission starts")
 	end
 end
 
@@ -216,64 +194,50 @@ end
 -- This is important for save games with existing EPP butcher buildings.
 ---
 function EL_EPPButcherIntegration.scanExistingPlaceables()
-	Logging.info("[EnhancedLivestock] - EPP: Scanning existing placeables for EPP buildings...")
-
-	if g_currentMission == nil then
-		Logging.info("[EnhancedLivestock] - EPP: g_currentMission not available, skipping scan")
-		return
-	end
-
-	if g_currentMission.placeableSystem == nil then
-		Logging.info("[EnhancedLivestock] - EPP: placeableSystem not available, skipping scan")
+	if g_currentMission == nil or g_currentMission.placeableSystem == nil then
 		return
 	end
 
 	local placeables = g_currentMission.placeableSystem.placeables
 	if placeables == nil or next(placeables) == nil then
-		Logging.info("[EnhancedLivestock] - EPP: No placeables found in mission")
 		return
 	end
 
-	local totalCount = 0
 	local eppCount = 0
 
 	for _, placeable in pairs(placeables) do
-		totalCount = totalCount + 1
+		-- Skip placeables already processed via finalizePlacement hook
+		if EL_EPPButcherIntegration.processedPlaceables[placeable] then
+			-- Already handled, skip
+		else
+			-- Check if this placeable has any EPP-related specs
+			local hasEPP = false
 
-		-- Check if this placeable has any EPP-related specs
-		local hasEPP = false
-		local specFound = nil
+			if placeable.spec_extendedProductionPoint ~= nil then
+				hasEPP = true
+			end
 
-		-- Check for the convenience reference (added by EPP at line 164 of PlaceableExtendedProductionPoint.lua)
-		if placeable.spec_extendedProductionPoint ~= nil then
-			hasEPP = true
-			specFound = "spec_extendedProductionPoint"
-		end
-
-		-- Check for dynamic spec names like spec_FS25_Butcher.extendedProductionPoint
-		if not hasEPP then
-			for key, value in pairs(placeable) do
-				if type(key) == "string" and type(value) == "table" then
-					if key:match("^spec_.*[.:]extendedProductionPoint$") or key:match("^spec_.*extendedproductionpoint$") then
-						hasEPP = true
-						specFound = key
-						break
+			if not hasEPP then
+				for key, value in pairs(placeable) do
+					if type(key) == "string" and type(value) == "table" then
+						if key:match("^spec_.*[.:]extendedProductionPoint$") or key:match("^spec_.*extendedproductionpoint$") then
+							hasEPP = true
+							break
+						end
 					end
 				end
 			end
-		end
 
-		if hasEPP then
-			eppCount = eppCount + 1
-			local placeableName = placeable.getName and placeable:getName() or placeable.configFileName or "unknown"
-			Logging.info("[EnhancedLivestock] - EPP: Found existing EPP placeable #%d: %s (spec: %s)", eppCount, placeableName, specFound or "unknown")
-
-			-- Process with onPlaceableFinalized to hook it
-			EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
+			if hasEPP then
+				eppCount = eppCount + 1
+				EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
+			end
 		end
 	end
 
-	Logging.info("[EnhancedLivestock] - EPP: Scan complete: %d total placeables, %d EPP placeables found", totalCount, eppCount)
+	if eppCount > 0 then
+		Logging.info("[EnhancedLivestock] - EPP: Deferred scan found %d additional EPP placeables", eppCount)
+	end
 end
 
 
@@ -285,8 +249,6 @@ function EL_EPPButcherIntegration.tryInitialize()
 	if EL_EPPButcherIntegration.initialized then
 		return true
 	end
-
-	-- Logging.info("[EnhancedLivestock] - EPP: tryInitialize called")
 
 	-- Initialize default mappings now that AnimalType should be available
 	EL_EPPButcherIntegration.initializeDefaults()
@@ -327,18 +289,13 @@ function EL_EPPButcherIntegration.tryInitialize()
 				local specName = "spec_" .. modName .. ".extendedProductionPoint"
 				if not EL_EPPButcherIntegration.hasSpecName(specName) then
 					table.insert(EL_EPPButcherIntegration.eppSpecNames, specName)
-					Logging.info("[EnhancedLivestock] - EPP: Pre-registered EPP spec pattern for mod '%s': %s", modName, specName)
 				end
 			end
 		end
 
 		if #eppModsFound > 0 then
 			Logging.info("[EnhancedLivestock] - EPP: Found %d potential EPP mods: %s", #eppModsFound, table.concat(eppModsFound, ", "))
-		else
-			Logging.info("[EnhancedLivestock] - EPP: No EPP-related mods detected by name pattern")
 		end
-	else
-		Logging.info("[EnhancedLivestock] - EPP: g_modManager not available, cannot scan for EPP mods")
 	end
 
 	-- Also add the standard spec_extendedProductionPoint pattern (convenience reference added by EPP)
@@ -352,9 +309,6 @@ function EL_EPPButcherIntegration.tryInitialize()
 	-- Mark as initialized - we'll detect and hook EPP placeables via onPlaceableFinalized
 	-- Even if no EPP mods were found by name, they might be present with different names
 	EL_EPPButcherIntegration.initialized = true
-
-	--Logging.info("[EnhancedLivestock] - EPP: Integration initialized - will detect EPP placeables via onPlaceableFinalized hook")
-	Logging.info("[EnhancedLivestock] - EPP: Pre-registered %d EPP spec name patterns", #EL_EPPButcherIntegration.eppSpecNames)
 
 	return true
 end
@@ -394,7 +348,6 @@ function EL_EPPButcherIntegration.loadMappingsFromXML()
 			local animalType = AnimalType[animalTypeName]
 			if animalType ~= nil then
 				EL_EPPButcherIntegration.MEAT_YIELD[animalType] = percentage
-				Logging.info("[EnhancedLivestock] - EPP: Loaded yield for %s: %.0f%%", animalTypeName, percentage * 100)
 			end
 		end
 	end)
@@ -408,7 +361,6 @@ function EL_EPPButcherIntegration.loadMappingsFromXML()
 			local animalType = AnimalType[animalTypeName]
 			if animalType ~= nil then
 				EL_EPPButcherIntegration.FILL_TYPE_MAPPING[animalType] = fillTypeName
-				Logging.info("[EnhancedLivestock] - EPP: Loaded fill type for %s: %s", animalTypeName, fillTypeName)
 			end
 		end
 	end)
@@ -422,13 +374,11 @@ function EL_EPPButcherIntegration.loadMappingsFromXML()
 			local animalType = AnimalType[animalTypeName]
 			if animalType ~= nil then
 				EL_EPPButcherIntegration.REFERENCE_WEIGHT[animalType] = weightKg
-				Logging.info("[EnhancedLivestock] - EPP: Loaded reference weight for %s: %.1f kg", animalTypeName, weightKg)
 			end
 		end
 	end)
 
 	xmlFile:delete()
-	Logging.info("[EnhancedLivestock] - EPP: Configuration loaded from eppMappings.xml")
 end
 
 
@@ -461,7 +411,6 @@ function EL_EPPButcherIntegration.onAnimalTriggerCallback(productionPoint, super
 
 	-- Check if this is an EL individual animal
 	if EL_EPPButcherIntegration.isELAnimal(animal) then
-		Logging.info("[EnhancedLivestock] - EPP: Intercepted EL animal in onAnimalTriggerCallback")
 		EL_EPPButcherIntegration.processELAnimal(productionPoint, animal, trigger.source)
 		return false -- Return false to stop EPP from processing it as a cluster
 	end
@@ -480,9 +429,10 @@ function EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
 		return
 	end
 
-	-- Debug: Log all placeable finalizations to verify hook is working
-	-- local placeableNameDebug = placeable.getName and placeable:getName() or placeable.configFileName or "unknown"
-	-- Logging.info("[EnhancedLivestock] - EPP: onPlaceableFinalized triggered for: %s", placeableNameDebug)
+	-- Skip if already processed (prevents double-processing from finalizePlacement hook + deferred scan)
+	if EL_EPPButcherIntegration.processedPlaceables[placeable] then
+		return
+	end
 
 	-- Find all EPP-related specs on this placeable
 	local foundEPPSpecs = {}
@@ -517,7 +467,9 @@ function EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
 		return
 	end
 
-	-- We found EPP! Log and initialize if needed
+	-- Mark placeable as processed to prevent double-processing
+	EL_EPPButcherIntegration.processedPlaceables[placeable] = true
+
 	local placeableName = placeable.getName and placeable:getName() or placeable.configFileName or "unknown"
 	Logging.info("[EnhancedLivestock] - EPP: Detected EPP placeable: %s (found %d EPP specs)", placeableName, #foundEPPSpecs)
 
@@ -530,7 +482,6 @@ function EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
 		for _, found in ipairs(foundEPPSpecs) do
 			if not EL_EPPButcherIntegration.hasSpecName(found.name) then
 				table.insert(EL_EPPButcherIntegration.eppSpecNames, found.name)
-				Logging.info("[EnhancedLivestock] - EPP: Added EPP spec name to tracking: %s", found.name)
 			end
 		end
 
@@ -539,23 +490,18 @@ function EL_EPPButcherIntegration.onPlaceableFinalized(placeable)
 
 		-- Mark as initialized since we've confirmed EPP exists
 		EL_EPPButcherIntegration.initialized = true
-		Logging.info("[EnhancedLivestock] - EPP: Integration initialized via lazy detection")
 	end
 
 	-- Process all found EPP specs and hook their production points
 	for _, found in ipairs(foundEPPSpecs) do
 		local spec = found.spec
 
-		-- Hook single productionPoint
 		if spec.productionPoint ~= nil then
-			Logging.info("[EnhancedLivestock] - EPP: Found productionPoint in spec %s", found.name)
 			EL_EPPButcherIntegration.checkAndHookProductionPoint(spec.productionPoint)
 		end
 
-		-- Hook multiple productionPoints (if present)
 		if spec.productionPoints ~= nil then
-			for idx, pp in pairs(spec.productionPoints) do
-				Logging.info("[EnhancedLivestock] - EPP: Found productionPoints[%s] in spec %s", tostring(idx), found.name)
+			for _, pp in pairs(spec.productionPoints) do
 				EL_EPPButcherIntegration.checkAndHookProductionPoint(pp)
 			end
 		end
@@ -569,27 +515,20 @@ end
 ---
 function EL_EPPButcherIntegration.checkAndHookProductionPoint(productionPoint)
 	if productionPoint == nil then
-		Logging.info("[EnhancedLivestock] - EPP: checkAndHookProductionPoint called with nil productionPoint")
 		return
 	end
 
-	local ppName = productionPoint.name or (productionPoint.getName and productionPoint:getName()) or "unnamed"
-	Logging.info("[EnhancedLivestock] - EPP: Checking production point: %s", ppName)
-
 	-- Check if this production point accepts animals (has animal to fill type mapping)
 	local acceptsAnimals = false
-	local reason = "unknown"
 
 	-- Method 1: Check for animalSubTypeToFillType mapping (EPP butchers have this)
 	if productionPoint.animalSubTypeToFillType ~= nil and next(productionPoint.animalSubTypeToFillType) ~= nil then
 		acceptsAnimals = true
-		reason = "has animalSubTypeToFillType mapping"
 	end
 
 	-- Method 2: Check for animalTypeToFillType mapping
 	if not acceptsAnimals and productionPoint.animalTypeToFillType ~= nil and next(productionPoint.animalTypeToFillType) ~= nil then
 		acceptsAnimals = true
-		reason = "has animalTypeToFillType mapping"
 	end
 
 	-- Method 3: Check inputFillTypes for animal fill types
@@ -598,7 +537,6 @@ function EL_EPPButcherIntegration.checkAndHookProductionPoint(productionPoint)
 			local fillTypeDesc = g_fillTypeManager:getFillTypeByIndex(fillType)
 			if fillTypeDesc ~= nil and fillTypeDesc.isAnimal then
 				acceptsAnimals = true
-				reason = string.format("inputFillTypes contains animal type: %s", fillTypeDesc.name or fillType)
 				break
 			end
 		end
@@ -607,14 +545,10 @@ function EL_EPPButcherIntegration.checkAndHookProductionPoint(productionPoint)
 	-- Method 4: Check for animal loading trigger (another indicator of animal-accepting PP)
 	if not acceptsAnimals and productionPoint.animalLoadingTrigger ~= nil then
 		acceptsAnimals = true
-		reason = "has animalLoadingTrigger"
 	end
 
 	if acceptsAnimals then
-		Logging.info("[EnhancedLivestock] - EPP: Production point '%s' accepts animals (%s) - hooking", ppName, reason)
 		EL_EPPButcherIntegration.hookProductionPoint(productionPoint)
-	else
-		Logging.info("[EnhancedLivestock] - EPP: Production point '%s' does not accept animals - skipping", ppName)
 	end
 end
 
@@ -625,7 +559,6 @@ end
 ---
 function EL_EPPButcherIntegration.hookProductionPoint(productionPoint)
 	if productionPoint._elHooked then
-		Logging.info("[EnhancedLivestock] - EPP: Production point already hooked, skipping")
 		return  -- Prevent double-hooking
 	end
 
@@ -638,7 +571,6 @@ function EL_EPPButcherIntegration.hookProductionPoint(productionPoint)
 		local originalCallback = productionPoint.onAnimalTriggerCallback
 		productionPoint.onAnimalTriggerCallback = function(self, trigger, animal, isLeaving, ...)
 			if not isLeaving and EL_EPPButcherIntegration.isELAnimal(animal) then
-				Logging.info("[EnhancedLivestock] - EPP: Intercepted EL animal in onAnimalTriggerCallback")
 				EL_EPPButcherIntegration.processELAnimal(self, animal, trigger and trigger.source or nil)
 				return false
 			end
@@ -709,11 +641,10 @@ function EL_EPPButcherIntegration.hookProductionPoint(productionPoint)
 
 	productionPoint._elHooked = true
 
-	-- Log summary of hooks applied
 	if #hooksApplied > 0 then
-		Logging.info("[EnhancedLivestock] - EPP: Successfully hooked production point '%s' with hooks: %s", ppName, table.concat(hooksApplied, ", "))
+		Logging.info("[EnhancedLivestock] - EPP: Hooked production point '%s' (%s)", ppName, table.concat(hooksApplied, ", "))
 	else
-		Logging.warning("[EnhancedLivestock] - EPP: Production point '%s' marked as hooked but no hooks were applied (methods may not exist)", ppName)
+		Logging.warning("[EnhancedLivestock] - EPP: Production point '%s' - no hookable methods found", ppName)
 	end
 end
 
@@ -772,9 +703,6 @@ function EL_EPPButcherIntegration.processELAnimal(productionPoint, animal, sourc
 	if animal == nil then
 		return false
 	end
-
-	Logging.info("[EnhancedLivestock] - EPP: Processing EL animal at butcher: weight=%.1f, quality=%.2f",
-		animal.weight or 0, animal.genetics and animal.genetics.quality or 1.0)
 
 	if g_server ~= nil then
 	-- Server or singleplayer - process directly
@@ -864,8 +792,8 @@ function EL_EPPButcherIntegration.processAnimalOnServer(productionPoint, animal,
 		return nil
 	end
 
-	Logging.info("[EnhancedLivestock] - EPP: Storing animal equivalent: %.3f of %s (fillTypeIndex=%d)",
-		animalEquivalent, fillTypeName, fillTypeIndex)
+	Logging.info("[EnhancedLivestock] - EPP: Processing animal: %.3f equivalents of %s",
+		animalEquivalent, fillTypeName)
 
 	-- Add animal equivalent to production point storage
 	-- The EPP production chain will then convert this to meat based on its production ratios
@@ -939,9 +867,6 @@ function EL_EPPButcherIntegration.calculateAnimalEquivalent(animal, animalData)
 	-- A heavy, high-quality, healthy animal is worth more than 1 standard animal
 	local animalEquivalent = weightFactor * qualityFactor * healthFactor
 
-	Logging.info("[EnhancedLivestock] - EPP: Animal equivalent calculation: weight=%.1f (ref=%.1f, factor=%.2f), quality=%.2f (factor=%.2f), health=%.0f (factor=%.2f) => %.3f equivalents",
-		weight, referenceWeight, weightFactor, quality, qualityFactor, health, healthFactor, animalEquivalent)
-
 	return animalEquivalent
 end
 
@@ -964,8 +889,6 @@ function EL_EPPButcherIntegration.getIntermediateFillType(productionPoint, anima
 		local fillType = productionPoint.animalSubTypeToFillType[subTypeIndex]
 		if fillType ~= nil then
 			local fillTypeName = g_fillTypeManager:getFillTypeNameByIndex(fillType)
-			Logging.info("[EnhancedLivestock] - EPP: Using EPP animalSubTypeToFillType mapping: subType=%d -> %s",
-				subTypeIndex, fillTypeName or "?")
 			return fillType, fillTypeName or "UNKNOWN"
 		end
 	end
@@ -975,8 +898,6 @@ function EL_EPPButcherIntegration.getIntermediateFillType(productionPoint, anima
 		local fillType = productionPoint.animalTypeToFillType[animalType]
 		if fillType ~= nil then
 			local fillTypeName = g_fillTypeManager:getFillTypeNameByIndex(fillType)
-			Logging.info("[EnhancedLivestock] - EPP: Using EPP animalTypeToFillType mapping: type=%d -> %s",
-				animalType, fillTypeName or "?")
 			return fillType, fillTypeName or "UNKNOWN"
 		end
 	end
@@ -993,15 +914,9 @@ function EL_EPPButcherIntegration.getIntermediateFillType(productionPoint, anima
 		-- Verify this fill type is supported by the storage
 			if productionPoint.storage ~= nil and productionPoint.storage.getIsFillTypeSupported ~= nil then
 				if productionPoint.storage:getIsFillTypeSupported(fillTypeIndex) then
-					Logging.info("[EnhancedLivestock] - EPP: Using EL configured intermediate fill type: %s -> %s",
-						EL_EPPButcherIntegration.getAnimalTypeName(animalType), fillTypeName)
 					return fillTypeIndex, fillTypeName
-				else
-					Logging.info("[EnhancedLivestock] - EPP: Configured fill type %s not supported by storage", fillTypeName)
 				end
 			else
-				Logging.info("[EnhancedLivestock] - EPP: Using EL configured intermediate fill type: %s -> %s (no storage check)",
-					EL_EPPButcherIntegration.getAnimalTypeName(animalType), fillTypeName)
 				return fillTypeIndex, fillTypeName
 			end
 		end
@@ -1015,11 +930,9 @@ function EL_EPPButcherIntegration.getIntermediateFillType(productionPoint, anima
 		-- Verify this fill type is supported by the storage
 			if productionPoint.storage ~= nil and productionPoint.storage.getIsFillTypeSupported ~= nil then
 				if productionPoint.storage:getIsFillTypeSupported(fillTypeIndex) then
-					Logging.info("[EnhancedLivestock] - EPP: Using fallback intermediate fill type: %s", name)
 					return fillTypeIndex, name
 				end
 			else
-				Logging.info("[EnhancedLivestock] - EPP: Using fallback intermediate fill type: %s (no storage check)", name)
 				return fillTypeIndex, name
 			end
 		end
@@ -1040,13 +953,6 @@ end
 function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, amount)
 	local fillTypeName = g_fillTypeManager:getFillTypeNameByIndex(fillTypeIndex) or tostring(fillTypeIndex)
 
-	-- Log diagnostic info about available storage methods
-	Logging.info("[EnhancedLivestock] - EPP: addToStorage: fillType=%s (idx=%d), amount=%.2f", fillTypeName, fillTypeIndex, amount)
-	Logging.info("[EnhancedLivestock] - EPP: Storage diagnostics: storage=%s, unloadingStation=%s, fillLevels=%s",
-		tostring(productionPoint.storage ~= nil),
-		tostring(productionPoint.unloadingStation ~= nil),
-		tostring(productionPoint.fillLevels ~= nil))
-
 	-- Method 1: Direct storage access (recommended by third-party overrides script)
 	-- This is the most reliable method for EPP production points
 	if productionPoint.storage ~= nil then
@@ -1056,7 +962,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 		local isSupported = true
 		if storage.getIsFillTypeSupported ~= nil then
 			isSupported = storage:getIsFillTypeSupported(fillTypeIndex)
-			Logging.info("[EnhancedLivestock] - EPP: Storage supports fillType %s: %s", fillTypeName, tostring(isSupported))
 		end
 
 		if isSupported then
@@ -1077,9 +982,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 			local freeCapacity = capacity - oldFillLevel
 			local amountToAdd = math.min(amount, freeCapacity)
 
-			Logging.info("[EnhancedLivestock] - EPP: Storage state: oldLevel=%.2f, capacity=%.2f, freeCapacity=%.2f, amountToAdd=%.2f",
-				oldFillLevel, capacity, freeCapacity, amountToAdd)
-
 			if amountToAdd > 0 then
 			-- Try setFillLevel with 2 arguments first (as used by overrides script)
 				if storage.setFillLevel ~= nil then
@@ -1095,14 +997,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 					end
 
 					if success then
-						local newFillLevel = 0
-						if storage.getFillLevel ~= nil then
-							newFillLevel = storage:getFillLevel(fillTypeIndex) or 0
-						elseif storage.fillLevels ~= nil then
-							newFillLevel = storage.fillLevels[fillTypeIndex] or 0
-						end
-						Logging.info("[EnhancedLivestock] - EPP: Successfully added %.2f to storage via setFillLevel (old=%.2f, new=%.2f)",
-							amountToAdd, oldFillLevel, newFillLevel)
 						return true
 					else
 						Logging.warning("[EnhancedLivestock] - EPP: setFillLevel failed: %s", tostring(err))
@@ -1112,7 +1006,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 				-- Try direct fillLevels table manipulation as fallback
 				if storage.fillLevels ~= nil then
 					storage.fillLevels[fillTypeIndex] = (storage.fillLevels[fillTypeIndex] or 0) + amountToAdd
-					Logging.info("[EnhancedLivestock] - EPP: Added %.2f to storage.fillLevels table directly", amountToAdd)
 					return true
 				end
 			else
@@ -1128,12 +1021,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 		local targetStorages = unloadingStation.targetStorages
 
 		if targetStorages ~= nil then
-			local storageCount = 0
-			for _ in pairs(targetStorages) do
-				storageCount = storageCount + 1
-			end
-			Logging.info("[EnhancedLivestock] - EPP: Trying unloadingStation.targetStorages (%d storages)", storageCount)
-
 			local addedAmount = 0
 
 			for idx, targetStorage in pairs(targetStorages) do
@@ -1142,8 +1029,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 				if unloadingStation.hasFarmAccessToStorage ~= nil and productionPoint.ownerFarmId ~= nil then
 					hasAccess = unloadingStation:hasFarmAccessToStorage(productionPoint.ownerFarmId, targetStorage)
 				end
-
-				Logging.info("[EnhancedLivestock] - EPP: targetStorage[%s]: hasAccess=%s", tostring(idx), tostring(hasAccess))
 
 				if hasAccess then
 				-- Check fill type support
@@ -1159,9 +1044,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 						elseif targetStorage.getCapacity ~= nil and targetStorage.getFillLevel ~= nil then
 							freeCapacity = (targetStorage:getCapacity(fillTypeIndex) or 0) - (targetStorage:getFillLevel(fillTypeIndex) or 0)
 						end
-
-						Logging.info("[EnhancedLivestock] - EPP: targetStorage[%s]: supports=%s, freeCapacity=%.2f",
-							tostring(idx), tostring(isSupported), freeCapacity)
 
 						if freeCapacity > 0 then
 							local amountToAdd = math.min(amount - addedAmount, freeCapacity)
@@ -1180,8 +1062,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 								if success then
 									local newFillLevel = targetStorage:getFillLevel(fillTypeIndex) or 0
 									addedAmount = addedAmount + (newFillLevel - oldFillLevel)
-									Logging.info("[EnhancedLivestock] - EPP: Added %.2f to targetStorage[%s] (old=%.2f, new=%.2f)",
-										amountToAdd, tostring(idx), oldFillLevel, newFillLevel)
 								end
 							end
 
@@ -1194,19 +1074,14 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 			end
 
 			if addedAmount > 0 then
-				Logging.info("[EnhancedLivestock] - EPP: Successfully added %.2f of %s via unloadingStation.targetStorages",
-					addedAmount, fillTypeName)
 				return true
 			end
-		else
-			Logging.info("[EnhancedLivestock] - EPP: unloadingStation exists but targetStorages is nil")
 		end
 	end
 
 	-- Method 3: Direct fillLevels table on production point (last resort)
 	if productionPoint.fillLevels ~= nil then
 		productionPoint.fillLevels[fillTypeIndex] = (productionPoint.fillLevels[fillTypeIndex] or 0) + amount
-		Logging.info("[EnhancedLivestock] - EPP: Added %.2f to productionPoint.fillLevels table directly", amount)
 		return true
 	end
 
@@ -1216,7 +1091,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 			productionPoint:setFillLevel(fillTypeIndex, amount)
 		end)
 		if success then
-			Logging.info("[EnhancedLivestock] - EPP: Added %.2f via productionPoint:setFillLevel", amount)
 			return true
 		else
 			Logging.warning("[EnhancedLivestock] - EPP: productionPoint:setFillLevel failed: %s", tostring(err))
@@ -1224,11 +1098,6 @@ function EL_EPPButcherIntegration.addToStorage(productionPoint, fillTypeIndex, a
 	end
 
 	Logging.warning("[EnhancedLivestock] - EPP: Could not find valid storage method for production point")
-	Logging.warning("[EnhancedLivestock] - EPP: Available properties: storage=%s, unloadingStation=%s, fillLevels=%s, setFillLevel=%s",
-		tostring(productionPoint.storage ~= nil),
-		tostring(productionPoint.unloadingStation ~= nil),
-		tostring(productionPoint.fillLevels ~= nil),
-		tostring(productionPoint.setFillLevel ~= nil))
 	return false
 end
 
