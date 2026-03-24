@@ -34,7 +34,7 @@ jobs:
             echo "prerelease=false" >> $GITHUB_ENV
           fi
       - name: Upload Release
-        uses: ncipollo/release-action@v1.20.0
+        uses: ncipollo/release-action@v1.21.0
         with:
           artifacts: "FS25_EnhancedLivestock.zip"
           tag: '${{ env.version }}'
