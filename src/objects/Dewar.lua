@@ -66,10 +66,6 @@ function Dewar:register(position, rotation, animal, quantity)
 		self.uniqueId = string.format("dw_%d_%d", g_currentMission.environment.currentMonotonicDay, math.random(100000, 999999))
 	end
 
-	if self.isServer then
-		Dewar:superClass().register(self, true)
-	end
-
 	self.position = self.position or position
 	self.rotation = self.rotation or rotation
 	self.mass = 0.1
@@ -78,19 +74,10 @@ function Dewar:register(position, rotation, animal, quantity)
 		self:createNode(modDirectory .. "objects/dewar/dewar.i3d")
 	end
 
-	local x, y, z = unpack(self.position)
-	local rx, ry, rz = unpack(self.rotation)
+	setWorldTranslation(self.nodeId, unpack(self.position))
+	setWorldRotation(self.nodeId, unpack(self.rotation))
 
-	local node = self.nodeId
-	link(getRootNode(), node)
-	setWorldTranslation(node, unpack(self.position))
-	setWorldRotation(node, unpack(self.rotation))
-
-	local sx, sy, sz = getWorldTranslation(self.shapeNode)
-	local srx, sry, srz = getWorldRotation(self.shapeNode)
-
-	self.ox, self.oy, self.oz = x - sx, y - sy, z - sz
-	self.orx, self.ory, self.orz = rx - srx, ry - sry, rz - srz
+	Dewar:superClass().register(self, true)
 
 	if not self.isAddedToItemSystem then
 		g_currentMission.itemSystem:addItem(self)
@@ -113,12 +100,12 @@ end
 
 function Dewar:saveToXMLFile(xmlFile, key)
 
-	local x, y, z = getWorldTranslation(self.shapeNode)
-	local rx, ry, rz = getWorldRotation(self.shapeNode)
+	local x, y, z = getWorldTranslation(self.nodeId)
+	local rx, ry, rz = getWorldRotation(self.nodeId)
 
 	xmlFile:setString(key .. "#uniqueId", self.uniqueId)
-	xmlFile:setVector(key .. "#position", table.pack(x + self.ox, y + self.oy, z + self.oz))
-	xmlFile:setVector(key .. "#rotation", table.pack(rx + self.orx, ry + self.ory, rz + self.orz))
+	xmlFile:setVector(key .. "#position", table.pack(x, y, z))
+	xmlFile:setVector(key .. "#rotation", table.pack(rx, ry, rz))
 	xmlFile:setInt(key .. "#farmId", self:getOwnerFarmId())
 	xmlFile:setInt(key .. "#straws", self.straws)
 
@@ -254,6 +241,15 @@ function Dewar:readStream(streamId, connection)
 
 	self.animal = animal
 
+	self.semenType = streamReadUInt8(streamId)
+	self.fertilityModifier = streamReadFloat32(streamId)
+	self.nitrogenLevel = streamReadFloat32(streamId)
+	self.lastUpdateDay = streamReadInt32(streamId)
+
+	if self.nodeId == nil or self.nodeId == 0 then
+		self:createNode(modDirectory .. "objects/dewar/dewar.i3d")
+	end
+
 	Dewar:superClass().readStream(self, streamId, connection)
 
 end
@@ -262,13 +258,16 @@ function Dewar:writeStream(streamId, connection)
 
 	streamWriteString(streamId, self.uniqueId or "")
 
-	streamWriteFloat32(streamId, self.position[1])
-	streamWriteFloat32(streamId, self.position[2])
-	streamWriteFloat32(streamId, self.position[3])
+	local x, y, z = getWorldTranslation(self.nodeId)
+	local rx, ry, rz = getWorldRotation(self.nodeId)
 
-	streamWriteFloat32(streamId, self.rotation[1])
-	streamWriteFloat32(streamId, self.rotation[2])
-	streamWriteFloat32(streamId, self.rotation[3])
+	streamWriteFloat32(streamId, x)
+	streamWriteFloat32(streamId, y)
+	streamWriteFloat32(streamId, z)
+
+	streamWriteFloat32(streamId, rx)
+	streamWriteFloat32(streamId, ry)
+	streamWriteFloat32(streamId, rz)
 
 	streamWriteUInt8(streamId, self:getOwnerFarmId())
 	streamWriteUInt16(streamId, self.straws)
@@ -295,21 +294,28 @@ function Dewar:writeStream(streamId, connection)
 
 	end
 
+	streamWriteUInt8(streamId, self.semenType or SemenType.CONVENTIONAL)
+	streamWriteFloat32(streamId, self.fertilityModifier or 1.0)
+	streamWriteFloat32(streamId, self.nitrogenLevel or 100)
+	streamWriteInt32(streamId, self.lastUpdateDay or 0)
+
 	Dewar:superClass().writeStream(self, streamId, connection)
 
 end
 
 function Dewar:createNode(filename)
 
-	local node, sharedRequestId = g_i3DManager:loadSharedI3DFile(filename, true, true, true)
-	setVisibility(node, true)
+	local root, sharedRequestId = g_i3DManager:loadSharedI3DFile(filename, false, false)
 
 	self.sharedRequestId = sharedRequestId
-	self:setNodeId(node)
 
-	local shapeNode = getChildAt(node, 0)
-	setMass(shapeNode, self.mass)
-	self.shapeNode = shapeNode
+	local node = getChildAt(root, 0)
+	link(getRootNode(), node)
+	delete(root)
+
+	self:setNodeId(node)
+	self.shapeNode = node
+	setMass(node, self.mass)
 
 end
 

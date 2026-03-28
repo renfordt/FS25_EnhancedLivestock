@@ -142,7 +142,6 @@ function EnhancedLivestock_FSBaseMission:sendInitialClientState(connection, _, _
 
 	connection:sendEvent(EL_BroadcastSettingsEvent.new())
 	connection:sendEvent(AnimalSystemStateEvent.new(animalSystem.countries, animalSystem.animals, animalSystem.aiAnimals))
-	connection:sendEvent(DewarManagerStateEvent.new())
 	connection:sendEvent(HusbandryMessageStateEvent.new(g_currentMission.husbandrySystem.placeables))
 
 end
