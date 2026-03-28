@@ -55,8 +55,13 @@ end
 function BridgeUtils.generateNutritionDefaults(speciesName)
     local fallbackMap = {
         DUCK = "CHICKEN",
+        DUCKWILD = "CHICKEN",
         GOOSE = "CHICKEN",
         RABBIT = "SHEEP",
+        BULL = "COW",
+        QUAIL = "CHICKEN",
+        ALPACA = "SHEEP",
+        DOG = "PIG",
         -- CAT has no fallback - would need custom nutrition
     }
 
@@ -162,6 +167,18 @@ function BridgeUtils.validateRequiredFields(data, requiredFields, context)
         end
     end
     return true
+end
+
+---Check if a version string meets a minimum major.minor requirement
+---@param version string Version string (e.g., "1.4.0.0 Beta2")
+---@param minMajor number Minimum major version
+---@param minMinor number Minimum minor version
+---@return boolean True if version >= minMajor.minMinor
+function BridgeUtils.isVersionAtLeast(version, minMajor, minMinor)
+    local parts = string.split(version or "0.0.0.0", ".")
+    local major = tonumber(parts[1]) or 0
+    local minor = tonumber(parts[2]) or 0
+    return major > minMajor or (major == minMajor and minor >= minMinor)
 end
 
 -- Initialize global singleton

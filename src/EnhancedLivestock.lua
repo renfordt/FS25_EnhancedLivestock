@@ -1128,14 +1128,14 @@ function EnhancedLivestock.hasMaleAnimalInPen(spec, subT, female)
 		end
 
 		if subT == "COW_WATERBUFFALO" then
-			if s.name == "BULL_WATERBUFFALO" and animal.age < 132 then
+			if (s.name == "BULL_WATERBUFFALO" or s.name == "BULL_WATERBUFFALO_EL") and animal.age < 132 then
 				return true
 			end
 		elseif subT == "GOAT" then
 			if s.name == "RAM_GOAT" and animal.age < 72 then
 				return true
 			end
-		elseif s.name ~= "RAM_GOAT" and s.name ~= "BULL_WATERBUFFALO" then
+		elseif s.name ~= "RAM_GOAT" and s.name ~= "BULL_WATERBUFFALO" and s.name ~= "BULL_WATERBUFFALO_EL" then
 			if animal.gender == "male" and ((animalType == AnimalType.COW and animal.age < 132) or (animalType == AnimalType.SHEEP and animal.age < 72) or (animalType == AnimalType.HORSE and animal.age < 300) or animalType == AnimalType.CHICKEN or (animalType == AnimalType.PIG and animal.age < 48)) then
 				return true
 			end

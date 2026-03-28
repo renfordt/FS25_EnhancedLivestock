@@ -59,12 +59,6 @@
         <text name="animal_descriptionStallionProfit" text="Hengste können mit Gewinn verkauft werden."/>
         <text name="animal_descriptionStallionReproduction" text="Hengste, die gesund und älter als 36 Monate sind, können sich fortpflanzen."/>
 
-        <!-- Goose -->
-        <text name="fillType_gander" text="Ganter"/>
-
-        <!-- Ducks -->
-        <text name="fillType_drake" text="Erpel"/>
-
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Anzahl der visuellen Tiere ändern"/>

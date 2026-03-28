@@ -124,11 +124,55 @@
             <economy pricePerLiter="1"/>
             <image hud="$moddir$FS25_HofBergmann/hud/fillTypes/hud_fill_duck.png"/>
         </fillType>
+
+        <!-- Renamed EL COW-type bull fill types (suffixed _EL to free original names for HB's BULL type) -->
+        <fillType name="BULL_SWISS_BROWN_EL" title="$l10n_fillType_bull_swiss_brown" showOnPriceTable="false">
+            <physics massPerLiter="750.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="4000"/>
+            <image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
+        </fillType>
+
+        <fillType name="BULL_HOLSTEIN_EL" title="$l10n_fillType_bull_holstein" showOnPriceTable="false">
+            <physics massPerLiter="750.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="4000"/>
+            <image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
+        </fillType>
+
+        <fillType name="BULL_ANGUS_EL" title="$l10n_fillType_bull_angus" showOnPriceTable="false">
+            <physics massPerLiter="750.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="5000"/>
+            <image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
+        </fillType>
+
+        <fillType name="BULL_LIMOUSIN_EL" title="$l10n_fillType_bull_limousin" showOnPriceTable="false">
+            <physics massPerLiter="750.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="5000"/>
+            <image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
+        </fillType>
+
+        <fillType name="BULL_HEREFORD_EL" title="$l10n_fillType_bull_hereford" showOnPriceTable="false">
+            <physics massPerLiter="750.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="5000"/>
+            <image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
+        </fillType>
+
+        <fillType name="BULL_HIGHLAND_CATTLE_EL" title="$l10n_fillType_bull_highland_cattle" showOnPriceTable="false">
+            <physics massPerLiter="750.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="5000"/>
+            <image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
+        </fillType>
+
+        <fillType name="BULL_WATERBUFFALO_EL" title="$l10n_fillType_bull_waterbuffalo" showOnPriceTable="false">
+            <physics massPerLiter="750.0" maxPhysicalSurfaceAngle="0"/>
+            <economy pricePerLiter="5000"/>
+            <image hud="$dataS/menu/hud/fillTypes/hud_fill_cow.png"/>
+        </fillType>
+
     </fillTypes>
 
     <fillTypeCategories>
         <fillTypeCategory name="ANIMAL">
-            DUCK DRAKE DUCKWILD DRAKEWILD RABBIT RABBIT_MALE GOOSE GANDER CAT_TIGER CAT_BLACKWHITE CAT_BLACK CAT_GREY CAT_RED CAT_WHITE TOM_TIGER TOM_BLACKWHITE TOM_BLACK TOM_GREY TOM_RED TOM_WHITE
+            DUCK DRAKE DUCKWILD DRAKEWILD RABBIT RABBIT_MALE GOOSE GANDER CAT_TIGER CAT_BLACKWHITE CAT_BLACK CAT_GREY CAT_RED CAT_WHITE TOM_TIGER TOM_BLACKWHITE TOM_BLACK TOM_GREY TOM_RED TOM_WHITE BULL_SWISS_BROWN_EL BULL_HOLSTEIN_EL BULL_ANGUS_EL BULL_LIMOUSIN_EL BULL_HEREFORD_EL BULL_HIGHLAND_CATTLE_EL BULL_WATERBUFFALO_EL
         </fillTypeCategory>
     </fillTypeCategories>
 </map>

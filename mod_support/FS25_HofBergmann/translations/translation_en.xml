@@ -5,7 +5,7 @@
         <text name="fillType_drake" text="Drake"/>
         <text name="fillType_gander" text="Gander"/>
         <text name="fillType_tomcat" text="Tomcat"/>
-        <text name="fillType_fillType_rabbitMale" text="Buck"/>
+        <text name="fillType_rabbitMale" text="Buck"/>
 
         <!-- Animal visual names and descriptions -->
         <text name="shopItem_animalDrakeGrowthStage0" text="Drake Duckling"/>

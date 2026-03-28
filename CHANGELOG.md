@@ -7,6 +7,7 @@
 - Feature: You can now sell breeding material from male animals
 - Feature: Added a nitrogen refill system for dewars
 - Feature: New nutrition system - nutrition based animal health and growth
+- Feature: Added Hof Bergmann support (1.3 & 1.4)
 - Bug fix: Potential fix for milk production issues
 - Bug fix: Potential fix for disease issues
 - Bug fix: Multiplayer client unable to clean horses (by rittermod)

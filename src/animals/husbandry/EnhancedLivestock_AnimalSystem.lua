@@ -160,6 +160,17 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 				end
 			end
 
+			-- Load versioned animals
+			for _, versionedRes in ipairs(g_bridgeRegistry:getMatchedVersionedResources(bridge)) do
+				if versionedRes.animals then
+					local vrPath = bridge.bridgeDirectory .. versionedRes.animals
+					if fileExists(vrPath) then
+						Logging.info("[EL Bridge] Loading versioned animals: %s", versionedRes.animals)
+						self:loadBridgeAnimals(bridge, vrPath)
+					end
+				end
+			end
+
 			-- Merge bridge nutrition data if provided
 			if bridge.resources.nutrition and g_nutritionManager then
 				local nutritionPath = bridge.bridgeDirectory .. bridge.resources.nutrition
@@ -272,6 +283,82 @@ function EnhancedLivestock_AnimalSystem:loadConfigOverrides(xmlFile, bridge)
 	end
 end
 
+---Rename existing subTypes to avoid naming collisions with bridge-added animals.
+---Updates the subType name, fillType reference, and all lookup tables.
+---Processes <renameSubTypes><rename type="COW" oldName="BULL_HOLSTEIN" newName="BULL_HOLSTEIN_EL" newFillTypeName="BULL_HOLSTEIN_EL"/></renameSubTypes>
+---@param xmlFile table XMLFile handle
+function EnhancedLivestock_AnimalSystem:processSubTypeRenames(xmlFile)
+	local renameCount = 0
+
+	xmlFile:iterate("bridgeAnimals.renameSubTypes.rename", function(_, key)
+		local typeName = xmlFile:getString(key .. "#type")
+		local oldName = xmlFile:getString(key .. "#oldName")
+		local newName = xmlFile:getString(key .. "#newName")
+		local newFillTypeName = xmlFile:getString(key .. "#newFillTypeName")
+
+		if not typeName or not oldName or not newName then
+			Logging.warning("[EL Bridge] Incomplete renameSubType entry - requires type, oldName, newName")
+			return
+		end
+
+		oldName = oldName:upper()
+		newName = newName:upper()
+
+		-- Find existing subType by old name
+		local subType = self.nameToSubType[oldName]
+		if not subType then
+			Logging.warning("[EL Bridge] Cannot rename subType '%s' - not found", oldName)
+			return
+		end
+
+		-- Verify it belongs to the correct animal type
+		local animalType = nil
+		for _, t in ipairs(self.types) do
+			if t.name == typeName:upper() then
+				animalType = t
+				break
+			end
+		end
+
+		if not animalType or subType.typeIndex ~= animalType.typeIndex then
+			Logging.warning("[EL Bridge] SubType '%s' does not belong to type '%s'", oldName, typeName)
+			return
+		end
+
+		-- Remove old name from lookup tables
+		self.nameToSubType[oldName] = nil
+		self.nameToSubTypeIndex[oldName] = nil
+
+		-- Update fillType if a new fillTypeName is specified
+		if newFillTypeName then
+			local newFillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(newFillTypeName)
+			if newFillTypeIndex then
+				-- Remove old fillType mapping
+				self.fillTypeIndexToSubType[subType.fillTypeIndex] = nil
+				-- Update to new fillType
+				subType.fillTypeIndex = newFillTypeIndex
+				self.fillTypeIndexToSubType[newFillTypeIndex] = subType
+			else
+				Logging.warning("[EL Bridge] FillType '%s' not registered, keeping original fillType for '%s'", newFillTypeName, oldName)
+			end
+		end
+
+		-- Update name
+		subType.name = newName
+
+		-- Re-register with new name
+		self.nameToSubType[newName] = subType
+		self.nameToSubTypeIndex[newName] = subType.subTypeIndex
+
+		renameCount = renameCount + 1
+		Logging.info("[EL Bridge] Renamed subType '%s' -> '%s'", oldName, newName)
+	end)
+
+	if renameCount > 0 then
+		Logging.info("[EL Bridge] Renamed %d subType(s)", renameCount)
+	end
+end
+
 ---Load animals from a bridge
 ---Supports import, extend, animal, and override operations
 ---@param bridge table The bridge object
@@ -376,6 +463,10 @@ function EnhancedLivestock_AnimalSystem:loadBridgeAnimals(bridge, animalsPath)
 	-- Process <configOverrides> tags FIRST - update configFilename before loading subtypes
 	-- This ensures the C++ engine loads the correct visual model config
 	self:loadConfigOverrides(xmlFile, bridge)
+
+	-- Process <renameSubTypes> tags - rename existing subTypes to avoid collisions
+	-- Must run BEFORE new animals are loaded so freed names are available
+	self:processSubTypeRenames(xmlFile)
 
 	-- Process <animal> tags - new species or extensions to existing species
 	-- Use mapModDir so image paths resolve relative to the map mod, not the bridge directory
@@ -812,6 +903,7 @@ end
 
 -- Register bridge loading methods on AnimalSystem
 AnimalSystem.loadConfigOverrides = EnhancedLivestock_AnimalSystem.loadConfigOverrides
+AnimalSystem.processSubTypeRenames = EnhancedLivestock_AnimalSystem.processSubTypeRenames
 AnimalSystem.loadBridgeAnimals = EnhancedLivestock_AnimalSystem.loadBridgeAnimals
 AnimalSystem.applySubTypeOverrides = EnhancedLivestock_AnimalSystem.applySubTypeOverrides
 AnimalSystem.applyTypeOverrides = EnhancedLivestock_AnimalSystem.applyTypeOverrides

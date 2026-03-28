@@ -32,6 +32,16 @@ BridgeRegistry.SUPPORTED_BRIDGES = {
             animals = "animals.xml",
             nutrition = "nutrition.xml",
             translations = "translations/translation"
+        },
+        versionedResources = {
+            {
+                minVersion = {1, 4},
+                resources = {
+                    fillTypes = "1.4/fillTypes.xml",
+                    animals = "1.4/animals.xml",
+                    translations = "1.4/translations/translation"
+                }
+            }
         }
     }
 }
@@ -57,11 +67,20 @@ function BridgeRegistry:detectAll()
 
             bridge.bridgeDirectory = bridgeDirectory .. bridge.bridgePath .. "/"
 
+            -- Detect mod version from modDesc.xml
+            if g_modNameToDirectory and g_modNameToDirectory[bridge.modName] then
+                local modXmlFile = XMLFile.load("tempBridgeModDesc", g_modNameToDirectory[bridge.modName] .. "modDesc.xml")
+                if modXmlFile then
+                    bridge.version = modXmlFile:getString("modDesc.version", "1.0.0.0")
+                    modXmlFile:delete()
+                end
+            end
+
             -- Load optional metadata (area code)
             self:loadBridgeMetadata(bridge)
 
             table.insert(self.bridges, bridge)
-            print(string.format("[EL Bridge] Detected and loaded bridge: %s", bridge.name))
+            print(string.format("[EL Bridge] Detected and loaded bridge: %s (version %s)", bridge.name, bridge.version or "unknown"))
         end
     end
 
@@ -93,6 +112,47 @@ function BridgeRegistry:loadBridgeMetadata(bridge)
     xmlFile:delete()
 end
 
+---Pre-resolve $l10n_ references in fill type XML before loading.
+---The base game's loadFillTypes resolves $l10n_ using the customEnvironment's
+---mod namespace, but bridge-specific translations (drake, gander, alpaca male, etc.)
+---are only in the global namespace (set via g_i18n:setText). This function resolves
+---them manually so loadFillTypes receives already-resolved title strings.
+---@param xmlFileHandle number The XML file handle
+---@param bridgeModName string The bridge mod name for mod-namespace lookup
+function BridgeRegistry:resolveL10nInFillTypes(xmlFileHandle, bridgeModName)
+    local i = 0
+    local failedCount = 0
+    while true do
+        local key = string.format("map.fillTypes.fillType(%d)", i)
+        local title = getXMLString(xmlFileHandle, key .. "#title")
+        if title == nil then
+            break
+        end
+
+        if title:sub(1, 6) == "$l10n_" then
+            local l10nKey = title:sub(7)
+            -- Try bridge mod namespace first (e.g. keys HofBergmann defines itself)
+            local resolved = g_i18n:getText(l10nKey, bridgeModName)
+            if resolved == l10nKey then
+                -- Not found in mod namespace, try global (bridge translations set via setText)
+                resolved = g_i18n:getText(l10nKey)
+            end
+            if resolved ~= l10nKey then
+                setXMLString(xmlFileHandle, key .. "#title", resolved)
+            else
+                local fillTypeName = getXMLString(xmlFileHandle, key .. "#name") or "?"
+                print(string.format("[EL Bridge] Warning: Failed to resolve l10n key '%s' for fillType '%s'", l10nKey, fillTypeName))
+                failedCount = failedCount + 1
+            end
+        end
+        i = i + 1
+    end
+
+    if failedCount > 0 then
+        print(string.format("[EL Bridge] Warning: %d l10n key(s) failed to resolve in fill types for %s", failedCount, bridgeModName))
+    end
+end
+
 ---Load fill types from all detected bridges
 function BridgeRegistry:loadBridgeFillTypes()
     for _, bridge in ipairs(self.bridges) do
@@ -119,6 +179,9 @@ function BridgeRegistry:loadBridgeFillTypes()
                 -- loadFillTypes expects an XML file HANDLE, not a path
                 local xmlFileHandle = loadXMLFile("bridgeFillTypes_" .. bridge.modName, fillTypePath)
                 if xmlFileHandle ~= nil then
+                    -- Pre-resolve $l10n_ references so bridge-specific translations
+                    -- (which are in global namespace) are found correctly
+                    self:resolveL10nInFillTypes(xmlFileHandle, bridge.modName)
                     g_fillTypeManager:loadFillTypes(xmlFileHandle, baseDir, false, bridge.modName)
                     delete(xmlFileHandle)
                 else
@@ -128,48 +191,111 @@ function BridgeRegistry:loadBridgeFillTypes()
                 print(string.format("[EL Bridge] Warning: Fill types file not found or no base dir: %s", fillTypePath))
             end
         end
-    end
-end
 
----Load translations from all detected bridges
-function BridgeRegistry:loadBridgeTranslations()
-    for _, bridge in ipairs(self.bridges) do
-        if bridge.resources.translations then
-            -- Language fallback chain: current language -> English -> German
-            local l10nNames = {
-                g_languageShort,
-                "en",
-                "de"
-            }
-
-            local xmlFile
-            local translationPath
-
-            for _, l10nName in pairs(l10nNames) do
-                translationPath = bridge.bridgeDirectory .. bridge.resources.translations .. "_" .. l10nName .. ".xml"
-                xmlFile = XMLFile.loadIfExists("bridgeTranslations", translationPath)
-                if xmlFile ~= nil then
-                    break
-                end
-            end
-
-            if xmlFile ~= nil then
-                print(string.format("[EL Bridge] Loading translations from: %s", bridge.modName))
-                xmlFile:iterate("l10n.texts.text", function(_, key)
-                    local textKey = xmlFile:getString(key .. "#name")
-                    local textValue = xmlFile:getString(key .. "#text")
-                    if textKey ~= nil and textValue ~= nil then
-                        if g_i18n:hasModText(textKey) then
-                            printWarning("Warning: Duplicate l10n entry '" .. textKey .. "'. Ignoring this definition.")
-                        else
-                            g_i18n:setText(textKey, textValue:gsub("\r\n", "\n"))
-                        end
-                    end
-                end)
-                xmlFile:delete()
+        -- Load versioned fillTypes
+        for _, versionedRes in ipairs(self:getMatchedVersionedResources(bridge)) do
+            if versionedRes.fillTypes then
+                print(string.format("[EL Bridge] Loading versioned fill types: %s", versionedRes.fillTypes))
+                self:loadFillTypesFile(bridge, versionedRes.fillTypes)
             end
         end
     end
+end
+
+---Load translations from all detected bridges (base + versioned)
+function BridgeRegistry:loadBridgeTranslations()
+    for _, bridge in ipairs(self.bridges) do
+        -- Load base translations
+        if bridge.resources.translations then
+            print(string.format("[EL Bridge] Loading translations from: %s", bridge.modName))
+            if not self:loadTranslationFile(bridge, bridge.resources.translations) then
+                print(string.format("[EL Bridge] Warning: No translation file found for bridge '%s'", bridge.modName))
+            end
+        end
+
+        -- Load versioned translations
+        for _, versionedRes in ipairs(self:getMatchedVersionedResources(bridge)) do
+            if versionedRes.translations then
+                print(string.format("[EL Bridge] Loading versioned translations from: %s", versionedRes.translations))
+                self:loadTranslationFile(bridge, versionedRes.translations)
+            end
+        end
+    end
+end
+
+---Get versioned resources that match the bridge's detected version
+---@param bridge table The bridge object
+---@return table matchedResources Array of resource tables that match the version
+function BridgeRegistry:getMatchedVersionedResources(bridge)
+    local matched = {}
+    if not bridge.versionedResources or not bridge.version then
+        return matched
+    end
+
+    for _, vr in ipairs(bridge.versionedResources) do
+        if vr.minVersion and g_bridgeUtils.isVersionAtLeast(bridge.version, vr.minVersion[1], vr.minVersion[2]) then
+            table.insert(matched, vr.resources)
+        end
+    end
+
+    return matched
+end
+
+---Load a single translation file using the language fallback chain
+---@param bridge table The bridge object
+---@param translationBase string Base path for translations (without _lang.xml)
+function BridgeRegistry:loadTranslationFile(bridge, translationBase)
+    local l10nNames = { g_languageShort, "en", "de" }
+    local xmlFile
+
+    for _, l10nName in ipairs(l10nNames) do
+        local translationPath = bridge.bridgeDirectory .. translationBase .. "_" .. l10nName .. ".xml"
+        xmlFile = XMLFile.loadIfExists("bridgeTranslations", translationPath)
+        if xmlFile ~= nil then
+            break
+        end
+    end
+
+    if xmlFile ~= nil then
+        xmlFile:iterate("l10n.texts.text", function(_, key)
+            local textKey = xmlFile:getString(key .. "#name")
+            local textValue = xmlFile:getString(key .. "#text")
+            if textKey ~= nil and textValue ~= nil then
+                if not g_i18n:hasModText(textKey) then
+                    g_i18n:setText(textKey, textValue:gsub("\r\n", "\n"))
+                end
+            end
+        end)
+        xmlFile:delete()
+        return true
+    end
+
+    return false
+end
+
+---Load a single fillTypes file
+---@param bridge table The bridge object
+---@param fillTypesPath string Relative path to fillTypes file within bridge directory
+function BridgeRegistry:loadFillTypesFile(bridge, fillTypesPath)
+    local fullPath = bridge.bridgeDirectory .. fillTypesPath
+    if not fileExists(fullPath) then
+        return false
+    end
+
+    local baseDir = g_modNameToDirectory and g_modNameToDirectory[bridge.modName]
+    if not baseDir then
+        return false
+    end
+
+    local xmlFileHandle = loadXMLFile("bridgeFillTypes_" .. bridge.modName, fullPath)
+    if xmlFileHandle ~= nil then
+        self:resolveL10nInFillTypes(xmlFileHandle, bridge.modName)
+        g_fillTypeManager:loadFillTypes(xmlFileHandle, baseDir, false, bridge.modName)
+        delete(xmlFileHandle)
+        return true
+    end
+
+    return false
 end
 
 ---Validate all animals after loading is complete

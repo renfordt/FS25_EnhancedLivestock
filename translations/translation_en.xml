@@ -59,12 +59,6 @@
         <text name="animal_descriptionStallionProfit" text="Stallions can be sold for a profit."/>
         <text name="animal_descriptionStallionReproduction" text="Stallions that are healthy and older than 36 months can reproduce."/>
 
-        <!-- Goose -->
-        <text name="fillType_gander" text="Gander"/>
-
-        <!-- Ducks -->
-        <text name="fillType_drake" text="Drake"/>
-
         <!-- UI -->
 
         <text name="input_VisualAnimalsDialog" text="Change Visual Animals Amount"/>

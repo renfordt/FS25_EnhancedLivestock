@@ -622,11 +622,14 @@ function ELSettings.initializeBridgeRegistry()
 	-- Detect and load all available bridges
 	g_bridgeRegistry:detectAll()
 
+	-- Load translations BEFORE fill types so that $l10n_ references in fill type
+	-- titles can resolve. Bridge translations go into the global i18n namespace
+	-- via g_i18n:setText(), and bridge fill types use customEnvironment of the
+	-- external mod, so they need the keys available globally.
+	g_bridgeRegistry:loadBridgeTranslations()
+
 	-- Load fill types from all detected bridges
 	g_bridgeRegistry:loadBridgeFillTypes()
-
-	-- Load translations from all detected bridges
-	g_bridgeRegistry:loadBridgeTranslations()
 
 	-- Legacy flags for backward compatibility (can be removed in future versions)
 	-- Check if HofBergmann bridge is active

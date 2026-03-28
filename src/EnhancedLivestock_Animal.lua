@@ -1,6 +1,17 @@
 Animal = {}
 local Animal_mt = Class(Animal)
 
+-- Migration table for renamed subTypes (EL COW-type bulls renamed to avoid collision with HB 1.4.x BULL type)
+Animal.SUBTYPE_MIGRATION = {
+	BULL_SWISS_BROWN = "BULL_SWISS_BROWN_EL",
+	BULL_HOLSTEIN = "BULL_HOLSTEIN_EL",
+	BULL_ANGUS = "BULL_ANGUS_EL",
+	BULL_LIMOUSIN = "BULL_LIMOUSIN_EL",
+	BULL_HEREFORD = "BULL_HEREFORD_EL",
+	BULL_HIGHLAND_CATTLE = "BULL_HIGHLAND_CATTLE_EL",
+	BULL_WATERBUFFALO = "BULL_WATERBUFFALO_EL",
+}
+
 --- Resolves subType by index, with fallback to name lookup or default index 1
 -- @param subTypeIndex number The initial subType index
 -- @param subTypeName string|nil Optional subType name for fallback lookup
@@ -11,6 +22,12 @@ function Animal.resolveSubType(subTypeIndex, subTypeName)
 
 	-- Try name-based lookup if index failed and name provided
 	if subType == nil and subTypeName ~= nil and subTypeName ~= "" then
+		-- Migrate renamed subTypes from older saves
+		local migratedName = Animal.SUBTYPE_MIGRATION[subTypeName]
+		if migratedName ~= nil then
+			subTypeName = migratedName
+		end
+
 		local mappedIndex = animalSystem:getSubTypeIndexByName(subTypeName)
 		if mappedIndex ~= nil then
 			subTypeIndex = mappedIndex
@@ -347,6 +364,14 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 		subTypeIndex = xmlFile:getInt(key .. "#subType", 3)
 	else
 		local subTypeName = xmlFile:getString(key .. "#subType", "COW_HOLSTEIN")
+
+		-- Migrate renamed subTypes from older saves
+		local migratedName = Animal.SUBTYPE_MIGRATION[subTypeName]
+		if migratedName ~= nil then
+			Logging.info("[EnhancedLivestock] Migrating subType '%s' -> '%s'", subTypeName, migratedName)
+			subTypeName = migratedName
+		end
+
 		subTypeIndex = g_currentMission.animalSystem:getSubTypeIndexByName(subTypeName)
 	end
 
@@ -384,6 +409,14 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 		if subTypeName == nil then
 			return nil
 		end
+
+		-- Migrate renamed subTypes from older saves (fallback path)
+		local migratedName = Animal.SUBTYPE_MIGRATION[subTypeName]
+		if migratedName ~= nil then
+			Logging.info("[EnhancedLivestock] Migrating subType '%s' -> '%s'", subTypeName, migratedName)
+			subTypeName = migratedName
+		end
+
 		subTypeIndex = g_currentMission.animalSystem:getSubTypeIndexByName(subTypeName)
 	end
 
@@ -2606,13 +2639,13 @@ function Animal:createPregnancy(childNum, month, year, father)
 				continue
 			end
 
-			if animal.subType == "BULL_WATERBUFFALO" and self.subType ~= "COW_WATERBUFFALO" then
+			if (animal.subType == "BULL_WATERBUFFALO" or animal.subType == "BULL_WATERBUFFALO_EL") and self.subType ~= "COW_WATERBUFFALO" then
 				continue
 			end
 			if animal.subType == "RAM_GOAT" and self.subType ~= "GOAT" then
 				continue
 			end
-			if self.subType == "COW_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO" then
+			if self.subType == "COW_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO_EL" then
 				continue
 			end
 			if self.subType == "GOAT" and animal.subType ~= "RAM_GOAT" then
@@ -3356,7 +3389,7 @@ function Animal:getNumberOfImpregnatableFemalesForMale()
 			continue
 		end
 
-		if subType.name == "BULL_WATERBUFFALO" then
+		if subType.name == "BULL_WATERBUFFALO" or subType.name == "BULL_WATERBUFFALO_EL" then
 			if s.name == "COW_WATERBUFFALO" then
 				i = i + 1
 			end

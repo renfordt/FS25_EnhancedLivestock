@@ -5,7 +5,7 @@
         <text name="fillType_drake" text="Erpel"/>
         <text name="fillType_gander" text="Gänserich"/>
         <text name="fillType_tomcat" text="Kater"/>
-        <text name="fillType_fillType_rabbitMale" text="Rammler"/>
+        <text name="fillType_rabbitMale" text="Rammler"/>
 
         <!-- Animal visual names and descriptions -->
         <text name="shopItem_animalDrakeGrowthStage0" text="Entenküken (männlich)"/>

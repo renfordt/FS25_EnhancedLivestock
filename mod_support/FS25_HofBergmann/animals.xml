@@ -6,6 +6,17 @@
         Without this, the C++ engine only loads base game models and map-specific
         visual indices (e.g. duck models at index 4-5) cause "invalid animal subtype" errors.
     -->
+    <!-- Rename EL's COW-type bull subTypes to _EL suffix to avoid collision with HB's BULL type -->
+    <renameSubTypes>
+        <rename type="COW" oldName="BULL_SWISS_BROWN" newName="BULL_SWISS_BROWN_EL" newFillTypeName="BULL_SWISS_BROWN_EL"/>
+        <rename type="COW" oldName="BULL_HOLSTEIN" newName="BULL_HOLSTEIN_EL" newFillTypeName="BULL_HOLSTEIN_EL"/>
+        <rename type="COW" oldName="BULL_ANGUS" newName="BULL_ANGUS_EL" newFillTypeName="BULL_ANGUS_EL"/>
+        <rename type="COW" oldName="BULL_LIMOUSIN" newName="BULL_LIMOUSIN_EL" newFillTypeName="BULL_LIMOUSIN_EL"/>
+        <rename type="COW" oldName="BULL_HEREFORD" newName="BULL_HEREFORD_EL" newFillTypeName="BULL_HEREFORD_EL"/>
+        <rename type="COW" oldName="BULL_HIGHLAND_CATTLE" newName="BULL_HIGHLAND_CATTLE_EL" newFillTypeName="BULL_HIGHLAND_CATTLE_EL"/>
+        <rename type="COW" oldName="BULL_WATERBUFFALO" newName="BULL_WATERBUFFALO_EL" newFillTypeName="BULL_WATERBUFFALO_EL"/>
+    </renameSubTypes>
+
     <configOverrides>
         <override type="CHICKEN" configFilename="character/animals/domesticated/chicken/husbandryAnimalsChicken.xml"/>
     </configOverrides>
@@ -28,13 +39,13 @@
         </fertility>
         <subType subType="CHICKEN" fillTypeName="CHICKEN" gender="female" minWeight="0.04" targetWeight="3.25" maxWeight="4.5" breed="CHICKEN">
             <visuals>
-                <visual minAge="0" visualAnimalIndex="3" image="$dataS/character/animals/domesticated/chicken/store_chickenChick.png" canBeBought="true">
+                <visual minAge="0" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/chicken/store_chickenChick.png" canBeBought="true">
                     <description>$l10n_animal_descriptionChickenProfit</description>
                     <description>$l10n_animal_descriptionChickenFeed</description>
                     <description>$l10n_animal_descriptionChickenYoung</description>
                     <description>$l10n_animal_descriptionChickenReproduction</description>
                 </visual>
-                <visual minAge="6" visualAnimalIndex="1" image="$dataS/character/animals/domesticated/chicken/store_chickenHen.png" canBeBought="true">
+                <visual minAge="6" visualAnimalIndex="3" image="$dataS/character/animals/domesticated/chicken/store_chickenHen.png" canBeBought="true">
                     <description>$l10n_animal_descriptionChickenProfit</description>
                     <description>$l10n_animal_descriptionChickenFeed</description>
                     <description>$l10n_animal_descriptionMature</description>
@@ -85,13 +96,13 @@
         </subType>
         <subType subType="CHICKEN_ROOSTER" fillTypeName="CHICKEN_ROOSTER" gender="male" minWeight="0.045" targetWeight="4.25" maxWeight="5.5" breed="CHICKEN">
             <visuals>
-                <visual minAge="0" visualAnimalIndex="3" image="$dataS/character/animals/domesticated/chicken/store_chickenChick.png" canBeBought="true">
+                <visual minAge="0" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/chicken/store_chickenChick.png" canBeBought="true">
                     <description>$l10n_animal_descriptionChickenRooster</description>
                     <description>$l10n_animal_descriptionChickenFeed</description>
                     <description>$l10n_animal_descriptionChickenYoung</description>
                     <description>$l10n_animal_descriptionChickenReproduction</description>
                 </visual>
-                <visual minAge="6" visualAnimalIndex="2" image="$dataS/character/animals/domesticated/chicken/store_chickenRooster.png" canBeBought="true">
+                <visual minAge="6" visualAnimalIndex="4" image="$dataS/character/animals/domesticated/chicken/store_chickenRooster.png" canBeBought="true">
                     <description>$l10n_animal_descriptionChickenRooster</description>
                 </visual>
             </visuals>
@@ -127,13 +138,13 @@
                 </manure>
             </output>
         </subType>
-        <subType fillTypeName="DUCK" subType="DUCK" gender="female">
+        <subType fillTypeName="DUCK" subType="DUCK" gender="female" breed="DUCK">
             <visuals>
-                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duckling.png" minAge="0" name="$l10n_shopItem_animalDuckGrowthStage0" visualAnimalIndex="4">
+                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duckling.png" minAge="0" name="$l10n_shopItem_animalDuckGrowthStage0" visualAnimalIndex="5">
                     <description>$l10n_animal_duckGrowthStage0Description</description>
                     <description>$l10n_animal_poultryFoodDescription</description>
                 </visual>
-                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duck.png" minAge="6" name="$l10n_shopItem_animalDuckGrowthStage1" visualAnimalIndex="5">
+                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duck.png" minAge="6" name="$l10n_shopItem_animalDuckGrowthStage1" visualAnimalIndex="6">
                     <description>$l10n_animal_duckGrowthStage1Description</description>
                     <description>$l10n_animal_poultryFoodDescription</description>
                 </visual>
@@ -186,13 +197,13 @@
                 </manure>
             </output>
         </subType>
-        <subType fillTypeName="DRAKE" subType="DRAKE" gender="male">
+        <subType fillTypeName="DRAKE" subType="DRAKE" gender="male" breed="DUCK">
             <visuals>
-                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duckling.png" minAge="0" name="$l10n_shopItem_animalDrakeGrowthStage0" visualAnimalIndex="4">
+                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duckling.png" minAge="0" name="$l10n_shopItem_animalDrakeGrowthStage0" visualAnimalIndex="5">
                     <description>$l10n_animal_drakeGrowthStage0Description</description>
                     <description>$l10n_animal_poultryFoodDescription</description>
                 </visual>
-                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duck.png" minAge="6" name="$l10n_shopItem_animalDrakeGrowthStage1" visualAnimalIndex="5">
+                <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duck.png" minAge="6" name="$l10n_shopItem_animalDrakeGrowthStage1" visualAnimalIndex="6">
                     <description>$l10n_animal_drakeGrowthStage1Description</description>
                     <description>$l10n_animal_poultryFoodDescription</description>
                 </visual>
@@ -239,7 +250,7 @@
     <animal clusterClass="AnimalCluster" groupTitle="$l10n_animal_group_duckwild" statsBreeding="breedChickenCount" type="DUCKWILD">
         <configFilename>$moddir$FS25_HofBergmann/character/animals/domesticated/chicken/husbandryAnimalsDuck.xml</configFilename>
         <navMeshAgent height="0.3" maxClimbMeters="2" maxSlope="35" radius="0.2"/>
-        <subType fillTypeName="DUCKWILD" subType="DUCKWILD" gender="female">
+        <subType fillTypeName="DUCKWILD" subType="DUCKWILD" gender="female" breed="DUCKWILD">
             <visuals>
                 <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duckling.png" minAge="0" name="$l10n_shopItem_animalDuckGrowthStage0" visualAnimalIndex="1">
                     <description>$l10n_animal_duckGrowthStage0Description</description>
@@ -298,7 +309,7 @@
                 </manure>
             </output>
         </subType>
-        <subType fillTypeName="DRAKEWILD" subType="DRAKEWILD" gender="male">
+        <subType fillTypeName="DRAKEWILD" subType="DRAKEWILD" gender="male" breed="DUCKWILD">
             <visuals>
                 <visual canBeBought="true" image="character/animals/domesticated/chicken/store_duckling.png" minAge="0" name="$l10n_shopItem_animalDuckGrowthStage0" visualAnimalIndex="1">
                     <description>$l10n_animal_duckGrowthStage0Description</description>
@@ -351,7 +362,7 @@
     <animal clusterClass="AnimalCluster" groupTitle="$l10n_animal_group_rabbits" statsBreeding="breedChickenCount" type="RABBIT">
         <configFilename>$moddir$FS25_HofBergmann/character/animals/domesticated/rabbit/husbandryAnimalsRabbits.xml</configFilename>
         <navMeshAgent height="0.1" maxClimbMeters="2" maxSlope="5" radius="0.1"/>
-        <subType fillTypeName="RABBIT" subType="RABBIT" gender="female">
+        <subType fillTypeName="RABBIT" subType="RABBIT" gender="female" breed="RABBIT">
             <visuals>
                 <visual canBeBought="false" image="character/animals/domesticated/rabbit/store_rabbit_bunny.png" minAge="0" name="$l10n_shopItem_animalRabbitGrowthStage0" visualAnimalIndex="1">
                     <description>$l10n_animal_rabbitGrowthStage0Description</description>
@@ -401,7 +412,7 @@
 
             </output>
         </subType>
-        <subType fillTypeName="RABBIT_MALE" subType="RABBIT_MALE" gender="male">
+        <subType fillTypeName="RABBIT_MALE" subType="RABBIT_MALE" gender="male" breed="RABBIT">
             <visuals>
                 <visual canBeBought="false" image="character/animals/domesticated/rabbit/store_rabbit_male.png" minAge="0" name="$l10n_shopItem_animalRabbitGrowthStage3" visualAnimalIndex="4">
                     <description>$l10n_animal_rabbitGrowthStage3Description</description>
@@ -444,7 +455,7 @@
     <animal clusterClass="AnimalCluster" groupTitle="$l10n_animal_group_goose" statsBreeding="breedChickenCount" type="GOOSE">
         <configFilename>$moddir$FS25_HofBergmann/character/animals/domesticated/goose/husbandryAnimalsGoose.xml</configFilename>
         <navMeshAgent height="0.6" maxClimbMeters="2" maxSlope="35" radius="0.2"/>
-        <subType fillTypeName="GOOSE" subType="GOOSE" gender="female">
+        <subType fillTypeName="GOOSE" subType="GOOSE" gender="female" breed="GOOSE">
             <visuals>
                 <visual canBeBought="true" image="character/animals/domesticated/goose/store_gooseYoung.png" minAge="0" name="$l10n_shopItem_animalGooseGrowthStage0" visualAnimalIndex="1">
                     <description>$l10n_animal_descriptionGooseProfitGrowthStage0</description>
@@ -496,7 +507,7 @@
                 </manure>
             </output>
         </subType>
-        <subType fillTypeName="GANDER" subType="GANDER" gender="male">
+        <subType fillTypeName="GANDER" subType="GANDER" gender="male" breed="GOOSE">
             <visuals>
                 <visual canBeBought="true" image="character/animals/domesticated/goose/store_gooseYoung.png" minAge="0" name="$l10n_shopItem_animalGanderGrowthStage0" visualAnimalIndex="1">
                     <description>$l10n_animal_descriptionGanderProfitGrowthStage0</description>
@@ -552,7 +563,7 @@
     <animal clusterClass="AnimalCluster" groupTitle="$l10n_animal_group_cats" statsBreeding="breedChickenCount" type="CAT">
         <configFilename>$moddir$FS25_HofBergmann/character/animals/domesticated/cat/husbandryAnimalsCat.xml</configFilename>
         <navMeshAgent height="0.1" maxClimbMeters="10" maxSlope="5" radius="0.1"/>
-        <subType subType="CAT_TIGER" fillTypeName="CAT_TIGER" gender="female">
+        <subType subType="CAT_TIGER" fillTypeName="CAT_TIGER" gender="female" breed="CAT_TIGER">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="true">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -585,7 +596,7 @@
             <output>
             </output>
         </subType>
-        <subType subType="TOM_TIGER" fillTypeName="TOM_TIGER" gender="male">
+        <subType subType="TOM_TIGER" fillTypeName="TOM_TIGER" gender="male" breed="CAT_TIGER">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -619,7 +630,7 @@
             </output>
         </subType>
 
-        <subType subType="CAT_BLACKWHITE" fillTypeName="CAT_BLACKWHITE" gender="female">
+        <subType subType="CAT_BLACKWHITE" fillTypeName="CAT_BLACKWHITE" gender="female" breed="CAT_BLACKWHITE">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -652,7 +663,7 @@
             <output>
             </output>
         </subType>
-        <subType subType="TOM_BLACKWHITE" fillTypeName="TOM_BLACKWHITE" gender="male">
+        <subType subType="TOM_BLACKWHITE" fillTypeName="TOM_BLACKWHITE" gender="male" breed="CAT_BLACKWHITE">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -686,7 +697,7 @@
             </output>
         </subType>
 
-        <subType subType="CAT_BLACK" fillTypeName="CAT_BLACK" gender="female">
+        <subType subType="CAT_BLACK" fillTypeName="CAT_BLACK" gender="female" breed="CAT_BLACK">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -719,7 +730,7 @@
             <output>
             </output>
         </subType>
-        <subType subType="TOM_BLACK" fillTypeName="TOM_BLACK" gender="male">
+        <subType subType="TOM_BLACK" fillTypeName="TOM_BLACK" gender="male" breed="CAT_BLACK">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -753,7 +764,7 @@
             </output>
         </subType>
 
-        <subType subType="CAT_GREY" fillTypeName="CAT_GREY" gender="female">
+        <subType subType="CAT_GREY" fillTypeName="CAT_GREY" gender="female" breed="CAT_GREY">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -786,7 +797,7 @@
             <output>
             </output>
         </subType>
-        <subType subType="TOM_GREY" fillTypeName="TOM_GREY" gender="male">
+        <subType subType="TOM_GREY" fillTypeName="TOM_GREY" gender="male" breed="CAT_GREY">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -820,7 +831,7 @@
             </output>
         </subType>
 
-        <subType subType="CAT_RED" fillTypeName="CAT_RED" gender="female">
+        <subType subType="CAT_RED" fillTypeName="CAT_RED" gender="female" breed="CAT_RED">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -853,7 +864,7 @@
             <output>
             </output>
         </subType>
-        <subType subType="TOM_RED" fillTypeName="TOM_RED" gender="male">
+        <subType subType="TOM_RED" fillTypeName="TOM_RED" gender="male" breed="CAT_RED">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -887,7 +898,7 @@
             </output>
         </subType>
 
-        <subType subType="CAT_WHITE" fillTypeName="CAT_WHITE" gender="female">
+        <subType subType="CAT_WHITE" fillTypeName="CAT_WHITE" gender="female" breed="CAT_WHITE">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalCatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -920,7 +931,7 @@
             <output>
             </output>
         </subType>
-        <subType subType="TOM_WHITE" fillTypeName="TOM_WHITE" gender="male">
+        <subType subType="TOM_WHITE" fillTypeName="TOM_WHITE" gender="male" breed="CAT_WHITE">
             <visuals>
                 <visual minAge="0" visualAnimalIndex="1" name="$l10n_shopItem_animalTomcatGrowthStage0" image="character/animals/domesticated/cat/store_kitten.png" canBeBought="false">
                     <description>$l10n_animal_descriptionCatFeed</description>
@@ -954,4 +965,5 @@
             </output>
         </subType>
     </animal>
+
 </bridgeAnimals>
