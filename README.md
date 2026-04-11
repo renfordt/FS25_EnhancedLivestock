@@ -12,6 +12,11 @@
 
 </div>
 
+> [!WARNING]
+> This mod is not further maintained and receives no longer updates. If you are still interested in the mod, please consider to use [FS25_RealisticLivestockRM](https://github.com/rittermod/FS25_RealisticLivestockRM) by [Ritter](https://github.com/rittermod).
+
+---
+
 > [!NOTE]
 > This mod is based on the [FS25 Realistic Livestock](https://github.com/Arrow-kb/FS25_RealisticLivestock) mod by [Arrow-kb](https://github.com/Arrow-kb), who has decided to cease all his mods.
 > Proudly cooperating with [FS25_RealisticLivestockRM](https://github.com/rittermod/FS25_RealisticLivestockRM) mod by [Ritter](https://github.com/rittermod).
