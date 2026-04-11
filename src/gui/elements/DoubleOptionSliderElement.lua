@@ -103,9 +103,9 @@ function DoubleOptionSliderElement:setElementsByName()
 	end
 
 	if self.leftSliderElement == nil then
-		Logging.warning("DoubleOptionSliderElement: could not find a left slider element for element with profile " .. self.profile)
+		Logging.warning("[EnhancedLivestock] DoubleOptionSliderElement: could not find a left slider element for element with profile " .. self.profile)
 	elseif self.rightSliderElement == nil then
-		Logging.warning("DoubleOptionSliderElement: could not find a right slider element for element with profile " .. self.profile)
+		Logging.warning("[EnhancedLivestock] DoubleOptionSliderElement: could not find a right slider element for element with profile " .. self.profile)
 	end
 
 end

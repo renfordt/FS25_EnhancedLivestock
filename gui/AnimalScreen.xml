@@ -444,6 +444,8 @@
 					<Text profile="fs25_animalMoneyValue" position="-90px 100px" id="aiGeneticsValue[4]"/>
 					<Text profile="fs25_animalMoneyTitle" position="0px 70px" id="aiGeneticsTitle[5]" text="$l10n_el_ui_productivity"/>
 					<Text profile="fs25_animalMoneyValue" position="-90px 70px" id="aiGeneticsValue[5]"/>
+					<Text profile="fs25_animalMoneyTitle" position="0px 40px" id="aiGeneticsTitle[6]"/>
+					<Text profile="fs25_animalMoneyValue" position="-90px 40px" id="aiGeneticsValue[6]"/>
 				</GuiElement>
 
 				<GuiElement profile="el_aiGeneticsBox">
@@ -455,6 +457,12 @@
 					<Text profile="fs25_animalAmountSelectorTitle" text="$l10n_el_ui_quantity"/>
 					<Bitmap profile="fs25_animalAmountSelectorSeparator"/>
 					<MultiTextOption profile="fs25_animalAmountSelector" id="aiQuantitySelector" onClick="onClickChangeAIQuantity" width="100%"/>
+				</GuiElement>
+
+				<GuiElement profile="fs25_animalAmountSelectorBox" position="0px 240px" width="450px">
+					<Text profile="fs25_animalAmountSelectorTitle" text="$l10n_el_ui_semenType"/>
+					<Bitmap profile="fs25_animalAmountSelectorSeparator"/>
+					<MultiTextOption profile="fs25_animalAmountSelector" id="aiSemenTypeSelector" onClick="onClickChangeSemenType" width="100%"/>
 				</GuiElement>
 
 				<GuiElement profile="fs25_animalAmountSelectorBox" position="0px 240px" width="450px">
@@ -522,32 +530,32 @@
 	<Bitmap profile="fs25_tabListContainer" id="tabListContainer"/>
 	<BoxLayout profile="fs25_animalTabListBox">
 		<GuiElement profile="fs25_tabListItem" id="tabBuy">
-			<Button profile="fs25_animalTabListItemButton" onClick="onClickBuyMode" iconSliceId="gui.icon_animalDealer_in"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickBuyMode" id="tabBuyButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabSell">
-			<Button profile="fs25_animalTabListItemButton" onClick="onClickSellMode" iconSliceId="gui.icon_animalDealer_out"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickSellMode" id="tabSellButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabInfo">
-			<Button profile="el_animalTabListItemButton" onClick="onClickInfoMode" iconSliceId="gui.dialogType_info"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickInfoMode" id="tabInfoButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabAI">
-			<Button profile="el_animalTabListItemButtonMessages" onClick="onClickAIMode" iconSliceId="gui.icon_ingameMenu_animals" id="tabLogButton"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickAIMode" id="tabAIButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabLog">
-			<Button profile="el_animalTabListItemButtonMessages" onClick="onClickLogMode" iconSliceId="gui.newMessage" id="tabLogButton"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickLogMode" id="tabLogButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
 		<GuiElement profile="fs25_tabListItem" id="tabHerdsman">
-			<Button profile="el_animalTabListItemButtonMessages" onClick="onClickHerdsmanMode" iconSliceId="gui.icon_options_generalSettings2"/>
+			<Button profile="el_animalTabListItemButtonMenu" onClick="onClickHerdsmanMode" id="tabHerdsmanButton"/>
 			<Bitmap profile="fs25_tabListItemSeparator"/>
 			<Bitmap profile="fs25_tabListItemSeparatorBottom"/>
 		</GuiElement>
@@ -830,10 +838,13 @@
 		<Button profile="buttonMenuSwitch" text="$l10n_button_buy" onClick="onClickBuy" id="buttonBuy">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
+		<Button profile="buttonMenuSwitch" text="$l10n_button_sell" onClick="onClickSell" id="buttonSell">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
 		<Button profile="buttonOK" text="$l10n_button_buy" onClick="onClickBuyAI" id="buttonBuyAI">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="buttonMenuSwitch" text="$l10n_el_diseases" onClick="onClickDiseases" id="buttonDiseases">
+		<Button profile="elButtonDiseases" text="$l10n_el_diseases" onClick="onClickDiseases" id="buttonDiseases">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonMenuSwitch" text="$l10n_el_ui_favourite" onClick="onClickFavouriteAnimal" id="buttonFavourite">
@@ -842,16 +853,19 @@
 		<Button profile="elButtonMenuExtra2" text="$l10n_el_ui_buySelected" onClick="onClickBuySelected" id="buttonBuySelected">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="buttonMenuSwitch" text="$l10n_el_ui_castrate" onClick="onClickCastrate" id="buttonCastrate">
+		<Button profile="elButtonAI" text="$l10n_el_ui_castrate" onClick="onClickCastrate" id="buttonCastrate">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="elButtonMenuExtra2" text="$l10n_el_ui_applyMonitor" onClick="onClickMonitor" id="buttonMonitor">
+		<Button profile="elButtonSellSemen" text="$l10n_el_ui_sellSemen" onClick="onClickSellSemen" id="buttonSellSemen">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="elButtonMenuExtra2" text="$l10n_el_ui_artificialInsemination" onClick="onClickArtificialInsemination" id="buttonArtificialInsemination">
+		<Button profile="elButtonMonitor" text="$l10n_el_ui_applyMonitor" onClick="onClickMonitor" id="buttonMonitor">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="elButtonMenuExtra2" text="$l10n_el_ui_mark" onClick="onClickMark" id="buttonMark">
+		<Button profile="elButtonAI" text="$l10n_el_ui_artificialInsemination" onClick="onClickArtificialInsemination" id="buttonArtificialInsemination">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
+		<Button profile="buttonMenuSwitch" text="$l10n_el_ui_mark" onClick="onClickMark" id="buttonMark">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonSelect" text="$l10n_el_ui_selectAll" onClick="onClickToggleSelectAll" id="buttonToggleSelectAll">
@@ -860,27 +874,27 @@
 		<Button profile="buttonBuy" text="$l10n_el_ui_rename" onClick="onClickRename" id="buttonRename">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="buttonMenuSwitch" text="$l10n_button_sell" onClick="onClickSell" id="buttonSell">
-			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
-		</Button>
 		<Button profile="buttonOK" text="$l10n_el_button_apply" onClick="onClickApplyHerdsmanSettings" id="buttonApplyHerdsmanSettings">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonOK" text="$l10n_button_select" onClick="onClickSelect" id="buttonSelect">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
+		<Button profile="elButtonSelect" text="$l10n_button_select" onClick="onClickRLSelect" id="buttonELSelect">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
 	</BoxLayout>
 	<GUIProfiles>
 		<Profile name="el_animalInfoButtonMother" extends="fs25_wideButton" with="touchButton anchorMiddleLeft">
-			<inputAction value="MENU_EXTRA_1"/>
+			<!--<inputAction value="MENU_EXTRA_1"/>-->
 			<touchIconSliceId value="gui.tick"/>
 		</Profile>
 		<Profile name="el_animalInfoButtonFather" extends="fs25_wideButton" with="touchButton anchorMiddleLeft">
-			<inputAction value="MENU_EXTRA_2"/>
+			<!--<inputAction value="MENU_EXTRA_2"/>-->
 			<touchIconSliceId value="gui.tick"/>
 		</Profile>
 		<Profile name="el_animalInfoButtonChildren" extends="fs25_wideButton" with="touchButton anchorMiddleLeft">
-			<inputAction value="MENU_ACTIVATE"/>
+			<!--<inputAction value="MENU_ACTIVATE"/>-->
 			<touchIconSliceId value="gui.tick"/>
 		</Profile>
 		<Profile name="fs25_animalParentTabListBox" extends="emptyPanel" with="anchorBottomLeft">
@@ -893,8 +907,9 @@
 			<iconSize value="20px 50px"/>
 			<iconTextOffset value="-20px 0px"/>
 		</Profile>
-		<Profile name="el_animalTabListItemButtonMessages" extends="el_animalTabListItemButton">
-			<iconSize value="40px 40px"/>
+		<Profile name="el_animalTabListItemButtonMenu" extends="fs25_tabListItemButton">
+			<iconSize value="80px 80px"/>
+			<iconTextOffset value="-20px 0px"/>
 		</Profile>
 		<Profile name="el_animalScreenAnimalIcon" extends="baseReference" with="anchorTopCenter">
 			<size value="340px 340px"/>
@@ -933,6 +948,25 @@
 
 		<Profile name="elButtonMenuExtra2" extends="fs25_wideButton" with="touchButton">
 			<inputAction value="MENU_EXTRA_2"/>
+		</Profile>
+
+		<Profile name="elButtonMonitor" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="EL_MONITOR"/>
+		</Profile>
+
+		<Profile name="elButtonAI" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="EL_AI"/>
+		</Profile>
+
+		<Profile name="elButtonDiseases" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="EL_DISEASES"/>
+		</Profile>
+		<Profile name="elButtonSellSemen" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="EL_SELL_SEMEN"/>
+		</Profile>
+
+		<Profile name="elButtonSelect" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="EL_SELECT"/>
 		</Profile>
 
 		<Profile name="el_animalScreenScrollingLayout" extends="emptyPanel" with="anchorStretchingYRight">

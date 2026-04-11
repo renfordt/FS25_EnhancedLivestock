@@ -50,7 +50,7 @@ function AIAnimalInseminationEvent:writeStream(streamId, connection)
 	for _, item in pairs(self.items) do
 
 		item.animal:writeStreamIdentifiers(streamId, connection)
-		streamWriteString(item.dewar)
+		streamWriteString(streamId, item.dewar)
 
 	end
 
@@ -84,7 +84,7 @@ function AIAnimalInseminationEvent:run(connection)
 
 					if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
 
-						animal:setInsemination(dewar.animal)
+						animal:setInsemination(dewar.animal, dewar.semenType)
 						dewar:changeStraws(-1)
 
 						break
@@ -101,4 +101,12 @@ function AIAnimalInseminationEvent:run(connection)
 
 	end
 
+end
+
+function AIAnimalInseminationEvent.sendEvent(object, items)
+	if g_server ~= nil then
+		g_server:broadcastEvent(AIAnimalInseminationEvent.new(object, items))
+	else
+		g_client:getServerConnection():sendEvent(AIAnimalInseminationEvent.new(object, items))
+	end
 end

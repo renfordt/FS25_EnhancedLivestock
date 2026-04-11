@@ -89,6 +89,7 @@ function EnhancedLivestockFrame:updateContent()
 			["totalAnimals"] = numAnimals,
 			["farmland"] = farmland,
 			["animalTypeIndex"] = animalTypeIndex,
+			["hasActiveMonitors"] = false,
 			["fee"] = 0,
 			["food"] = 0,
 			["water"] = 0,
@@ -105,6 +106,8 @@ function EnhancedLivestockFrame:updateContent()
 			end
 
 			numMonitored = numMonitored + 1
+
+			if animal.monitor.active then data.hasActiveMonitors = true end
 
 			for fillType, amount in pairs(animal.input) do
 
@@ -139,8 +142,14 @@ function EnhancedLivestockFrame:updateMenuButtons()
 
 	if self.data ~= nil and self.selectedRow ~= nil then
 
-		self.changeMonitorsButtonInfo.disabled = self.selectedRow.totalAnimals == 0
-		self.changeMonitorsButtonInfo.text = g_i18n:getText("el_ui_" .. (self.selectedRow.percentMonitored == 1 and "remove" or "apply") .. "AllMonitor")
+		local allRemoving = self.selectedRow.percentMonitored == 1 and not self.selectedRow.hasActiveMonitors
+		self.changeMonitorsButtonInfo.disabled = self.selectedRow.totalAnimals == 0 or allRemoving
+
+		if allRemoving then
+			self.changeMonitorsButtonInfo.text = g_i18n:getText("el_ui_removingAllMonitor")
+		else
+			self.changeMonitorsButtonInfo.text = g_i18n:getText("el_ui_" .. (self.selectedRow.percentMonitored == 1 and "remove" or "apply") .. "AllMonitor")
+		end
 
 		table.insert(self.menuButtonInfo, self.changeMonitorsButtonInfo)
 
@@ -315,6 +324,8 @@ function EnhancedLivestockFrame:onClickChangeMonitors()
 
 	selectedRow.food, selectedRow.water, selectedRow.straw, selectedRow.product, selectedRow.manure, selectedRow.liquidManure, selectedRow.fee, selectedRow.totalMonitored = 0, 0, 0, 0, 0, 0, 0, 0
 
+	selectedRow.hasActiveMonitors = false
+
 	for _, animal in pairs(animals) do
 
 		if not animal.monitor.active and not animal.monitor.removed then
@@ -322,6 +333,8 @@ function EnhancedLivestockFrame:onClickChangeMonitors()
 		end
 
 		selectedRow.totalMonitored = selectedRow.totalMonitored + 1
+
+		if animal.monitor.active then selectedRow.hasActiveMonitors = true end
 
 		for fillType, amount in pairs(animal.input) do
 

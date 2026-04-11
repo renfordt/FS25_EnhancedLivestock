@@ -24,7 +24,7 @@ function EnhancedLivestock_AnimalClusterHusbandry:create(superFunc, xmlFilename,
 		local husbandry = createAnimalHusbandry(self.animalTypeName, navigationNode, xmlFilename, raycastDistance, animalPositioning, collisionMask, AudioGroup.ENVIRONMENT)
 
 		if husbandry == 0 then
-			Logging.error("Failed to create animal husbandry for %q with navigation mesh %q and config %q", self.animalTypeName, I3DUtil.getNodePath(navigationNode), xmlFilename)
+			Logging.error("[EnhancedLivestock] Failed to create animal husbandry for %q with navigation mesh %q and config %q", self.animalTypeName, I3DUtil.getNodePath(navigationNode), xmlFilename)
 			break
 		end
 

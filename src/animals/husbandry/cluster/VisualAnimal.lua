@@ -83,7 +83,7 @@ function VisualAnimal.printHierarchy(nodeId, currentPath, depth)
 	local numChildren = getNumOfChildren(nodeId)
 	local indent = string.rep("  ", depth)
 
-	Logging.info("[EnhancedLivestock]: %sName: %s | ID: %d | Path: %s | Children: %d", indent, name, nodeId, currentPath, numChildren)
+	Logging.info("[EnhancedLivestock] %sName: %s | ID: %d | Path: %s | Children: %d", indent, name, nodeId, currentPath, numChildren)
 
 	for i = 0, numChildren - 1 do
 		local childId = getChildAt(nodeId, i)
@@ -139,7 +139,7 @@ function VisualAnimal:safeIndexToObject(rootNode, indexPath, nodeName)
 	local animalDesc = self:getAnimalDescription()
 
 	if rootNode == nil or rootNode == 0 then
-		Logging.warning("[EnhancedLivestock]: Root node is nil for '%s' (animal: %s)", nodeName, animalDesc)
+		Logging.warning("[EnhancedLivestock] Root node is nil for '%s' (animal: %s)", nodeName, animalDesc)
 		return nil
 	end
 
@@ -151,14 +151,14 @@ function VisualAnimal:safeIndexToObject(rootNode, indexPath, nodeName)
 	for i, indexStr in ipairs(indices) do
 		local childIndex = tonumber(indexStr)
 		if childIndex == nil then
-			Logging.warning("[EnhancedLivestock]: Invalid index '%s' in path '%s' for node '%s' (animal: %s)", indexStr, indexPath, nodeName, animalDesc)
+			Logging.warning("[EnhancedLivestock] Invalid index '%s' in path '%s' for node '%s' (animal: %s)", indexStr, indexPath, nodeName, animalDesc)
 			return nil
 		end
 
 		local numChildren = getNumOfChildren(currentNode)
 		if childIndex >= numChildren then
 			local currentName = getName(currentNode) or "Unknown"
-			Logging.warning("[EnhancedLivestock]: Could not find node '%s' - child index %d does not exist at '%s' (node '%s' has only %d children, indices 0-%d) [animal: %s]",
+			Logging.warning("[EnhancedLivestock] Could not find node '%s' - child index %d does not exist at '%s' (node '%s' has only %d children, indices 0-%d) [animal: %s]",
 				nodeName, childIndex, traversedPath == "" and "root" or traversedPath, currentName, numChildren, numChildren - 1, animalDesc)
 
 			-- Print hierarchy only once per root node
@@ -173,7 +173,7 @@ function VisualAnimal:safeIndexToObject(rootNode, indexPath, nodeName)
 
 		currentNode = getChildAt(currentNode, childIndex)
 		if currentNode == nil or currentNode == 0 then
-			Logging.warning("[EnhancedLivestock]: Node became nil at index %d in path '%s' for '%s' (animal: %s)", childIndex, indexPath, nodeName, animalDesc)
+			Logging.warning("[EnhancedLivestock] Node became nil at index %d in path '%s' for '%s' (animal: %s)", childIndex, indexPath, nodeName, animalDesc)
 			return nil
 		end
 
@@ -256,7 +256,7 @@ function VisualAnimal:loadDynamicEarTag(side, linkPath, position, rotation, scal
 	-- Find the attachment point on the animal
 	local linkNode = self:safeIndexToObject(nodes.root, linkPath, "earTag" .. (side == "left" and "Left" or "Right") .. "Link")
 	if linkNode == nil then
-		Logging.warning("[EnhancedLivestock]: Could not find ear tag link node at path '%s' for %s (animal: %s)", linkPath, side, self:getAnimalDescription())
+		Logging.warning("[EnhancedLivestock] Could not find ear tag link node at path '%s' for %s (animal: %s)", linkPath, side, self:getAnimalDescription())
 		return nil
 	end
 
@@ -272,14 +272,14 @@ function VisualAnimal:loadDynamicEarTag(side, linkPath, position, rotation, scal
 	local earTagNode, sharedLoadRequestId = g_i3DManager:loadSharedI3DFile(i3dFilename, false, false)
 
 	if earTagNode == nil or earTagNode == 0 then
-		Logging.warning("[EnhancedLivestock]: Failed to load ear tag i3d '%s' for %s (animal: %s)", i3dFilename, side, self:getAnimalDescription())
+		Logging.warning("[EnhancedLivestock] Failed to load ear tag i3d '%s' for %s (animal: %s)", i3dFilename, side, self:getAnimalDescription())
 		return nil
 	end
 
 	-- Get the ear tag shape node (first child of the loaded i3d)
 	local earTagShapeNode = getChildAt(earTagNode, 0)
 	if earTagShapeNode == nil or earTagShapeNode == 0 then
-		Logging.warning("[EnhancedLivestock]: Ear tag i3d '%s' has no child nodes for %s (animal: %s)", i3dFilename, side, self:getAnimalDescription())
+		Logging.warning("[EnhancedLivestock] Ear tag i3d '%s' has no child nodes for %s (animal: %s)", i3dFilename, side, self:getAnimalDescription())
 		delete(earTagNode)
 		if sharedLoadRequestId ~= nil then
 			g_i3DManager:releaseSharedI3DFile(sharedLoadRequestId)

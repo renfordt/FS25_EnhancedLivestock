@@ -71,7 +71,7 @@ function EPPButcherProcessEvent:run(connection)
 	end
 
 	if self.productionPoint == nil then
-		Logging.warning("[EL-EPP] EPPButcherProcessEvent: Production point is nil")
+		Logging.warning("[EnhancedLivestock] EPPButcherProcessEvent: Production point is nil")
 		return
 	end
 
@@ -123,7 +123,7 @@ function EPPButcherProcessEvent:run(connection)
 	end
 
 	if animal == nil then
-		Logging.warning("[EL-EPP] EPPButcherProcessEvent: Animal not found (farmId=%s, uniqueId=%s)",
+		Logging.warning("[EnhancedLivestock] EPPButcherProcessEvent: Animal not found (farmId=%s, uniqueId=%s)",
 			identifiers.farmId or "nil", identifiers.uniqueId or "nil")
 		return
 	end

@@ -83,7 +83,7 @@ function EnhancedLivestock_PlayerInputComponent:onInputEnter()
 	local handTool = _G[strawType.className].new(g_currentMission:getIsServer(), g_currentMission:getIsClient())
 
 	handTool:setType(strawType)
-	handTool:setLoadCallback(self.onFinishedLoadStraw, self, { ["animal"] = self.dewar:getAnimal(), ["dewarUniqueId"] = self.dewar:getUniqueId() })
+	handTool:setLoadCallback(self.onFinishedLoadStraw, self, { ["animal"] = self.dewar:getAnimal(), ["dewarUniqueId"] = self.dewar:getUniqueId(), ["semenType"] = self.dewar.semenType })
 	handTool:loadNonStoreItem({ ["ownerFarmId"] = g_localPlayer.farmId, ["isRegistered"] = false, ["holder"] = g_localPlayer }, ELHandTools.xmlPaths.aiStraw)
 
 	self.dewar:changeStraws(-1)
@@ -97,6 +97,7 @@ function PlayerInputComponent:onFinishedLoadStraw(handTool, loadingState, args)
 	if loadingState == HandToolLoadingState.OK then
 		handTool:setAnimal(args.animal)
 		handTool:setDewarUniqueId(args.dewarUniqueId)
+		handTool:setSemenType(args.semenType)
 	end
 
 end
@@ -117,3 +118,83 @@ function EnhancedLivestock_PlayerInputComponent.onFinishedRideBlending(superFunc
 end
 
 PlayerInputComponent.onFinishedRideBlending = Utils.overwrittenFunction(PlayerInputComponent.onFinishedRideBlending, EnhancedLivestock_PlayerInputComponent.onFinishedRideBlending)
+function AnimalRidingEvent:writeStream(streamId, _)
+	NetworkUtil.writeNodeObject(streamId, self.husbandry)
+	streamWriteString(streamId, tostring(self.clusterId))
+	NetworkUtil.writeNodeObject(streamId, self.player)
+end
+
+function AnimalRidingEvent:readStream(streamId, _)
+	self.husbandry = NetworkUtil.readNodeObject(streamId)
+	self.clusterId = streamReadString(streamId)
+	self.player = NetworkUtil.readNodeObject(streamId)
+	self:run(nil)
+end
+
+function AnimalCleanEvent:writeStream(streamId, _)
+	NetworkUtil.writeNodeObject(streamId, self.husbandry)
+	streamWriteString(streamId, tostring(self.clusterId))
+	streamWriteUIntN(streamId, self.delta, AnimalClusterHorse.NUM_BITS_DIRT)
+end
+
+function AnimalCleanEvent:readStream(streamId, connection)
+	self.husbandry = NetworkUtil.readNodeObject(streamId)
+	self.clusterId = streamReadString(streamId)
+	self.delta = streamReadUIntN(streamId, AnimalClusterHorse.NUM_BITS_DIRT)
+	self:run(connection)
+end
+
+function AnimalCleanEvent:run(connection)
+	if self.husbandry ~= nil then
+		local cluster = self.husbandry:getClusterById(self.clusterId)
+		if cluster ~= nil and cluster.changeDirt ~= nil then
+			cluster:changeDirt(-self.delta)
+		end
+	end
+
+	if connection ~= nil and not connection:getIsServer() then
+		g_server:broadcastEvent(AnimalCleanEvent.new(self.husbandry, self.clusterId, self.delta))
+	end
+end
+
+function Rideable:onWriteStream(streamId, connection)
+	local spec = self.spec_rideable
+
+	if not connection:getIsServer() then
+		streamWriteBool(streamId, spec.isOnGround)
+	end
+
+	local cluster = spec.cluster
+	if streamWriteBool(streamId, cluster ~= nil) then
+		streamWriteUIntN(streamId, cluster:getSubTypeIndex(), AnimalCluster.NUM_BITS_SUB_TYPE)
+		streamWriteUIntN(streamId, cluster.numAnimals or 1, AnimalCluster.NUM_BITS_NUM_ANIMALS)
+		streamWriteUIntN(streamId, math.floor(cluster.age or 0), AnimalCluster.NUM_BITS_AGE)
+		streamWriteUIntN(streamId, math.floor(cluster.health or 0), AnimalCluster.NUM_BITS_HEALTH)
+		streamWriteUIntN(streamId, math.floor(cluster.reproduction or 0), AnimalCluster.NUM_BITS_REPRODUCTION)
+		streamWriteString(streamId, cluster.name or "")
+		streamWriteUIntN(streamId, math.floor(cluster.fitness or 0), AnimalClusterHorse.NUM_BITS_FITNESS)
+		streamWriteUIntN(streamId, math.floor(cluster.riding or 0), AnimalClusterHorse.NUM_BITS_RIDING)
+		streamWriteUIntN(streamId, math.floor(cluster.dirt or 0), AnimalClusterHorse.NUM_BITS_DIRT)
+	end
+
+	if streamWriteBool(streamId, spec.playerToEnter ~= nil) then
+		NetworkUtil.writeNodeObject(streamId, spec.playerToEnter)
+	end
+end
+
+function Rideable:onWriteUpdateStream(streamId, connection, _)
+	local spec = self.spec_rideable
+	if connection:getIsServer() then
+		streamWriteFloat32(streamId, spec.inputValues.axisSteerSend)
+		streamWriteUInt8(streamId, spec.inputValues.currentGait)
+	else
+		streamWriteFloat32(streamId, spec.haltTimer)
+		local cluster = spec.cluster
+		if streamWriteBool(streamId, cluster ~= nil) then
+		-- Write AnimalClusterHorse update format: fitness, riding, dirt
+			streamWriteUIntN(streamId, math.floor(cluster.fitness or 0), AnimalClusterHorse.NUM_BITS_FITNESS)
+			streamWriteUIntN(streamId, math.floor(cluster.riding or 0), AnimalClusterHorse.NUM_BITS_RIDING)
+			streamWriteUIntN(streamId, math.floor(cluster.dirt or 0), AnimalClusterHorse.NUM_BITS_DIRT)
+		end
+	end
+end

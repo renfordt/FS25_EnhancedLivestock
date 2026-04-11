@@ -79,8 +79,6 @@ function EL_AnimalScreenDealerFarm:applySource(_, animalTypeIndex, animalIndex)
 
 	--self.sourceActionFinished(nil, "Animal bought successfully")
 
-	self.husbandry:addELMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(price + transportationFee), 2, true, true) })
-
 	return true
 
 end
@@ -139,8 +137,6 @@ function EL_AnimalScreenDealerFarm:applyTarget(_, animalTypeIndex, animalIndex)
 
 	--self.targetActionFinished(nil, "Animal sold successfully")
 
-	self.husbandry:addELMessage("SOLD_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(price + transportationFee, 2, true, true) })
-
 	return true
 
 end
@@ -169,6 +165,39 @@ end
 
 AnimalScreenDealerFarm.getSourcePrice = Utils.overwrittenFunction(AnimalScreenDealerFarm.getSourcePrice, EL_AnimalScreenDealerFarm.getSourcePrice)
 
+function EL_AnimalScreenDealerFarm:getTargetPrice(_, _, animalIndex, _)
+
+	local item = self.targetItems[animalIndex]
+
+	if item ~= nil then
+
+		local price = item:getPrice()
+		local transportationFee = -item:getTranportationFee(1)
+		return true, price, transportationFee, price + transportationFee
+
+	end
+
+	return false, 0, 0, 0
+
+end
+
+AnimalScreenDealerFarm.getTargetPrice = Utils.overwrittenFunction(AnimalScreenDealerFarm.getTargetPrice, EL_AnimalScreenDealerFarm.getTargetPrice)
+
+
+function EL_AnimalScreenDealerFarm:getTargetMaxNumAnimals(_, animalIndex)
+
+	local item = self.targetItems[animalIndex]
+
+	if item ~= nil then
+		return item:getNumAnimals()
+	end
+
+	return 0
+
+end
+
+AnimalScreenDealerFarm.getTargetMaxNumAnimals = Utils.overwrittenFunction(AnimalScreenDealerFarm.getTargetMaxNumAnimals, EL_AnimalScreenDealerFarm.getTargetMaxNumAnimals)
+
 function AnimalScreenDealerFarm:applySourceBulk(animalTypeIndex, items)
 
 	self.sourceAnimals = {}
@@ -183,6 +212,7 @@ function AnimalScreenDealerFarm:applySourceBulk(animalTypeIndex, items)
 	local totalPrice = 0
 	local totalTransportPrice = 0
 	local totalBoughtAnimals = 0
+	local lastErrorCode = nil
 
 	for _, item in pairs(items) do
 
@@ -196,6 +226,7 @@ function AnimalScreenDealerFarm:applySourceBulk(animalTypeIndex, items)
 			local errorCode = AnimalBuyEvent.validate(husbandry, animal.subTypeIndex, animal.age, 1, price, transportationFee, ownerFarmId)
 
 			if errorCode ~= nil then
+				lastErrorCode = errorCode
 				continue
 			end
 
@@ -204,34 +235,22 @@ function AnimalScreenDealerFarm:applySourceBulk(animalTypeIndex, items)
 			totalTransportPrice = totalTransportPrice + transportationFee
 
 			table.insert(self.sourceAnimals, animal)
-		--clusterSystem:addCluster(animal)
-		--g_currentMission.animalSystem:removeSaleAnimal(animalTypeIndex, animal.birthday.country, animal.farmId, animal.uniqueId)
-		--table.insert(indexesToRemove, item)
-		--table.insert(indexesToReturn, item)
 
 		end
 
 	end
 
-	--table.sort(indexesToRemove)
-
-	--for i = #indexesToRemove, 1, -1 do table.remove(sourceItems, indexesToRemove[i]) end
-
-	-- self.sourceItems[animalTypeIndex] = sourceItems
-
-	--g_currentMission:addMoney(totalPrice, ownerFarmId, MoneyType.NEW_ANIMALS_COST, true, true)
-
-	--self.sourceBulkActionFinished(nil, string.format(g_i18n:getText("el_ui_buyBulkResult"), totalBoughtAnimals, g_i18n:formatMoney(math.abs(totalPrice), 2, true, true)), indexesToReturn)
+	if #self.sourceAnimals == 0 then
+		if lastErrorCode ~= nil then
+			local error = AnimalScreenDealerFarm.BUY_ERROR_CODE_MAPPING[lastErrorCode]
+			self.errorCallback(g_i18n:getText(error.text))
+		end
+		return
+	end
 
 	self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.BUYING))
 	g_messageCenter:subscribe(AnimalBuyEvent, self.onAnimalBought, self)
 	g_client:getServerConnection():sendEvent(AnimalBuyEvent.new(husbandry, self.sourceAnimals, totalPrice, totalTransportPrice))
-
-	if totalBoughtAnimals == 1 then
-		self.husbandry:addELMessage("BOUGHT_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(math.abs(totalPrice + totalTransportPrice), 2, true, true) })
-	elseif totalBoughtAnimals > 0 then
-		self.husbandry:addELMessage("BOUGHT_ANIMALS_MULTIPLE", nil, { totalBoughtAnimals, g_i18n:formatMoney(math.abs(totalPrice + totalTransportPrice), 2, true, true) })
-	end
 
 end
 
@@ -293,11 +312,5 @@ function AnimalScreenDealerFarm:applyTargetBulk(animalTypeIndex, items)
 	self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.SELLING))
 	g_messageCenter:subscribe(AnimalSellEvent, self.onAnimalSold, self)
 	g_client:getServerConnection():sendEvent(AnimalSellEvent.new(husbandry, self.targetAnimals, totalPrice, totalTransportPrice))
-
-	if totalSoldAnimals == 1 then
-		self.husbandry:addELMessage("SOLD_ANIMALS_SINGLE", nil, { g_i18n:formatMoney(totalPrice + totalTransportPrice, 2, true, true) })
-	elseif totalSoldAnimals > 0 then
-		self.husbandry:addELMessage("SOLD_ANIMALS_MULTIPLE", nil, { totalSoldAnimals, g_i18n:formatMoney(totalPrice + totalTransportPrice, 2, true, true) })
-	end
 
 end

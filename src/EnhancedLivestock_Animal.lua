@@ -1,6 +1,17 @@
 Animal = {}
 local Animal_mt = Class(Animal)
 
+-- Migration table for renamed subTypes (EL COW-type bulls renamed to avoid collision with HB 1.4.x BULL type)
+Animal.SUBTYPE_MIGRATION = {
+	BULL_SWISS_BROWN = "BULL_SWISS_BROWN_EL",
+	BULL_HOLSTEIN = "BULL_HOLSTEIN_EL",
+	BULL_ANGUS = "BULL_ANGUS_EL",
+	BULL_LIMOUSIN = "BULL_LIMOUSIN_EL",
+	BULL_HEREFORD = "BULL_HEREFORD_EL",
+	BULL_HIGHLAND_CATTLE = "BULL_HIGHLAND_CATTLE_EL",
+	BULL_WATERBUFFALO = "BULL_WATERBUFFALO_EL",
+}
+
 --- Resolves subType by index, with fallback to name lookup or default index 1
 -- @param subTypeIndex number The initial subType index
 -- @param subTypeName string|nil Optional subType name for fallback lookup
@@ -11,17 +22,23 @@ function Animal.resolveSubType(subTypeIndex, subTypeName)
 
 	-- Try name-based lookup if index failed and name provided
 	if subType == nil and subTypeName ~= nil and subTypeName ~= "" then
+		-- Migrate renamed subTypes from older saves
+		local migratedName = Animal.SUBTYPE_MIGRATION[subTypeName]
+		if migratedName ~= nil then
+			subTypeName = migratedName
+		end
+
 		local mappedIndex = animalSystem:getSubTypeIndexByName(subTypeName)
 		if mappedIndex ~= nil then
 			subTypeIndex = mappedIndex
 			subType = animalSystem:getSubTypeByIndex(subTypeIndex)
-			Logging.info("EnhancedLivestock: Resolved subType '%s' from name (index %d)", subTypeName, subTypeIndex)
+			Logging.info("[EnhancedLivestock] Resolved subType '%s' from name (index %d)", subTypeName, subTypeIndex)
 		end
 	end
 
 	-- Final fallback to index 1
 	if subType == nil then
-		Logging.warning("EnhancedLivestock: subTypeIndex %d not found, falling back to 1", subTypeIndex)
+		Logging.warning("[EnhancedLivestock] subTypeIndex %d not found, falling back to 1", subTypeIndex)
 		subTypeIndex = 1
 		subType = animalSystem:getSubTypeByIndex(subTypeIndex)
 	end
@@ -60,6 +77,8 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 	self.isDead = false
 	self.isSold = false
 	self.weight = weight or nil
+	self.bodyCondition = 0.5
+	self.nutritionScore = nil
 	self.marks = marks or self:getDefaultMarks()
 
 	self.variation = variation or nil
@@ -345,6 +364,14 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 		subTypeIndex = xmlFile:getInt(key .. "#subType", 3)
 	else
 		local subTypeName = xmlFile:getString(key .. "#subType", "COW_HOLSTEIN")
+
+		-- Migrate renamed subTypes from older saves
+		local migratedName = Animal.SUBTYPE_MIGRATION[subTypeName]
+		if migratedName ~= nil then
+			Logging.info("[EnhancedLivestock] Migrating subType '%s' -> '%s'", subTypeName, migratedName)
+			subTypeName = migratedName
+		end
+
 		subTypeIndex = g_currentMission.animalSystem:getSubTypeIndexByName(subTypeName)
 	end
 
@@ -382,6 +409,14 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 		if subTypeName == nil then
 			return nil
 		end
+
+		-- Migrate renamed subTypes from older saves (fallback path)
+		local migratedName = Animal.SUBTYPE_MIGRATION[subTypeName]
+		if migratedName ~= nil then
+			Logging.info("[EnhancedLivestock] Migrating subType '%s' -> '%s'", subTypeName, migratedName)
+			subTypeName = migratedName
+		end
+
 		subTypeIndex = g_currentMission.animalSystem:getSubTypeIndexByName(subTypeName)
 	end
 
@@ -498,10 +533,16 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 	local monitor = { ["active"] = xmlFile:getBool(key .. ".monitor#active", false), ["removed"] = xmlFile:getBool(key .. ".monitor#removed", false) }
 
 	local isCastrated = xmlFile:getBool(key .. "#isCastrated", false)
+	local lastSemenCollectionDay = xmlFile:getInt(key .. "#lastSemenCollectionDay", 0)
 
 	local diseases = {}
 
 	xmlFile:iterate(key .. ".diseases.disease", function(_, diseaseKey)
+
+		if g_diseaseManager == nil then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while loading animal diseases from save - disease system failed to initialize")
+			return
+		end
 
 		local diseaseType = g_diseaseManager:getDiseaseByTitle(xmlFile:getString(diseaseKey .. "#title"))
 		local disease = Disease.new(diseaseType)
@@ -523,7 +564,8 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 			["name"] = xmlFile:getString(key .. ".insemination#name"),
 			["subTypeIndex"] = xmlFile:getInt(key .. ".insemination#subTypeIndex"),
 			["genetics"] = {},
-			["success"] = xmlFile:getFloat(key .. ".insemination#success")
+			["success"] = xmlFile:getFloat(key .. ".insemination#success"),
+			["semenType"] = xmlFile:getInt(key .. ".insemination#semenType", SemenType.CONVENTIONAL)
 		}
 
 		insemination.genetics.metabolism = xmlFile:getFloat(key .. ".insemination.genetics#metabolism")
@@ -538,6 +580,8 @@ function Animal.loadFromXMLFile(xmlFile, key, clusterSystem, isLegacy)
 	--local animal = Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, impregnatedById, pos, name, dirt, fitness, riding, farmId, weight, metabolism, impregnatedByMetabolism, impregnatedByProductivity, productivity, quality, impregnatedByMeatQuality, impregnatedByHealth, impregnatedByFertility, healthGenetics, fertility, variation, children)
 
 	animal:setBirthday(birthday)
+	animal.bodyCondition = xmlFile:getFloat(key .. "#bodyCondition", 0.5)
+	animal.lastSemenCollectionDay = lastSemenCollectionDay
 
 	if pregnancy ~= nil and #pregnancy.pregnancies > 0 then
 		animal.pregnancy = pregnancy
@@ -598,6 +642,7 @@ function Animal:saveToXMLFile(xmlFile, key)
 	xmlFile:setString(key .. "#motherId", self.motherId)
 	xmlFile:setString(key .. "#fatherId", self.fatherId)
 	xmlFile:setFloat(key .. "#weight", self.weight)
+	xmlFile:setFloat(key .. "#bodyCondition", self.bodyCondition or 0.5)
 
 	local markI = 0
 
@@ -710,6 +755,7 @@ function Animal:saveToXMLFile(xmlFile, key)
 		xmlFile:setString(key .. ".insemination#name", insemination.name)
 		xmlFile:setInt(key .. ".insemination#subTypeIndex", insemination.subTypeIndex)
 		xmlFile:setFloat(key .. ".insemination#success", insemination.success)
+		xmlFile:setInt(key .. ".insemination#semenType", insemination.semenType or SemenType.CONVENTIONAL)
 		xmlFile:setFloat(key .. ".insemination.genetics#metabolism", insemination.genetics.metabolism)
 		xmlFile:setFloat(key .. ".insemination.genetics#quality", insemination.genetics.quality)
 		xmlFile:setFloat(key .. ".insemination.genetics#health", insemination.genetics.health)
@@ -725,6 +771,10 @@ function Animal:saveToXMLFile(xmlFile, key)
 
 	if self.isCastrated then
 		xmlFile:setBool(key .. "#isCastrated", true)
+	end
+
+	if self.lastSemenCollectionDay ~= nil and self.lastSemenCollectionDay > 0 then
+		xmlFile:setInt(key .. "#lastSemenCollectionDay", self.lastSemenCollectionDay)
 	end
 
 	for i, disease in pairs(self.diseases) do
@@ -773,6 +823,7 @@ function Animal:writeStream(streamId, connection)
 	streamWriteString(streamId, self.fatherId or "-1")
 	streamWriteFloat32(streamId, self.weight)
 	streamWriteFloat32(streamId, self.targetWeight)
+	streamWriteFloat32(streamId, self.bodyCondition or 0.5)
 
 	streamWriteBool(streamId, self.name ~= nil and self.name ~= "")
 
@@ -868,6 +919,7 @@ function Animal:writeStream(streamId, connection)
 	streamWriteFloat32(streamId, self.monitor.fee or 5)
 
 	streamWriteBool(streamId, self.isCastrated or false)
+	streamWriteUInt16(streamId, self.lastSemenCollectionDay or 0)
 
 	streamWriteUInt8(streamId, #self.diseases)
 
@@ -887,6 +939,7 @@ function Animal:writeStream(streamId, connection)
 		streamWriteString(streamId, self.insemination.name)
 		streamWriteUInt8(streamId, self.insemination.subTypeIndex)
 		streamWriteFloat32(streamId, self.insemination.success)
+		streamWriteUInt8(streamId, self.insemination.semenType or SemenType.CONVENTIONAL)
 		streamWriteFloat32(streamId, self.insemination.genetics.metabolism)
 		streamWriteFloat32(streamId, self.insemination.genetics.health)
 		streamWriteFloat32(streamId, self.insemination.genetics.fertility)
@@ -936,6 +989,7 @@ function Animal:readStream(streamId, connection)
 	self.fatherId = streamReadString(streamId)
 	self.weight = streamReadFloat32(streamId)
 	self.targetWeight = streamReadFloat32(streamId)
+	self.bodyCondition = streamReadFloat32(streamId)
 
 	local hasName = streamReadBool(streamId)
 	self.name = hasName and streamReadString(streamId) or nil
@@ -1051,18 +1105,27 @@ function Animal:readStream(streamId, connection)
 	}
 
 	self.isCastrated = streamReadBool(streamId)
+	self.lastSemenCollectionDay = streamReadUInt16(streamId)
 
 	local numDiseases = streamReadUInt8(streamId)
 	local diseases = {}
 
 	for i = 1, numDiseases do
 
-		local diseaseType = g_diseaseManager:getDiseaseByTitle(streamReadString(streamId))
-		local disease = Disease.new(diseaseType)
+		local diseaseTitle = streamReadString(streamId)
 
-		disease:readStream(streamId, connection)
+		if g_diseaseManager == nil then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while reading animal disease '%s' from stream - disease system failed to initialize", diseaseTitle)
+			local disease = Disease.new(nil)
+			disease:readStream(streamId, connection)
+		else
+			local diseaseType = g_diseaseManager:getDiseaseByTitle(diseaseTitle)
+			local disease = Disease.new(diseaseType)
 
-		table.insert(diseases, disease)
+			disease:readStream(streamId, connection)
+
+			table.insert(diseases, disease)
+		end
 
 	end
 
@@ -1080,7 +1143,8 @@ function Animal:readStream(streamId, connection)
 			["name"] = streamReadString(streamId),
 			["subTypeIndex"] = streamReadUInt8(streamId),
 			["genetics"] = {},
-			["success"] = streamReadFloat32(streamId)
+			["success"] = streamReadFloat32(streamId),
+			["semenType"] = streamReadUInt8(streamId)
 		}
 
 		insemination.genetics.metabolism = streamReadFloat32(streamId)
@@ -1193,12 +1257,20 @@ function Animal:readStreamUnborn(streamId, connection)
 
 	for i = 1, numDiseases do
 
-		local diseaseType = g_diseaseManager:getDiseaseByTitle(streamReadString(streamId))
-		local disease = Disease.new(diseaseType)
+		local diseaseTitle = streamReadString(streamId)
 
-		disease:readStream(streamId, connection)
+		if g_diseaseManager == nil then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while reading animal disease '%s' from update stream - disease system failed to initialize", diseaseTitle)
+			local disease = Disease.new(nil)
+			disease:readStream(streamId, connection)
+		else
+			local diseaseType = g_diseaseManager:getDiseaseByTitle(diseaseTitle)
+			local disease = Disease.new(diseaseType)
 
-		table.insert(diseases, disease)
+			disease:readStream(streamId, connection)
+
+			table.insert(diseases, disease)
+		end
 
 	end
 
@@ -2148,13 +2220,29 @@ function Animal:updateHealth(foodFactor)
 	local healthThresholdFactor = subType.healthThresholdFactor
 	local healthGenetics = self.genetics.health
 
+	-- Compute nutrition score and body condition if NutritionManager is available
+	local effectiveFoodFactor = foodFactor
+
+	if g_nutritionManager ~= nil and self.clusterSystem ~= nil and self.clusterSystem.owner ~= nil then
+
+		local nutritionScore = g_nutritionManager:calculateNutritionScore(self, self.clusterSystem.owner)
+
+		if nutritionScore ~= nil then
+			self.nutritionScore = nutritionScore
+			g_nutritionManager:updateBodyCondition(self, nutritionScore)
+			-- Blend long-term condition with current nutrition
+			effectiveFoodFactor = 0.6 * (self.bodyCondition or 0.5) + 0.4 * nutritionScore
+		end
+
+	end
+
 	local factor, delta = nil
 
-	if healthThresholdFactor < foodFactor then
-		factor = (foodFactor - healthThresholdFactor) / (1 - healthThresholdFactor)
+	if healthThresholdFactor < effectiveFoodFactor then
+		factor = (effectiveFoodFactor - healthThresholdFactor) / (1 - healthThresholdFactor)
 		delta = subType.healthIncreaseHour
 	else
-		factor = foodFactor / healthThresholdFactor - 1
+		factor = effectiveFoodFactor / healthThresholdFactor - 1
 		delta = subType.healthDecreaseHour
 	end
 
@@ -2175,6 +2263,73 @@ function Animal:updateWeight(foodFactor)
 	local targetWeight = self.targetWeight
 	local weight = self.weight
 	local metabolism = self.genetics.metabolism
+
+	-- Try ADG-based growth if NutritionManager is available
+	if g_nutritionManager ~= nil then
+
+		local maxADG = g_nutritionManager:getMaxADG(self)
+
+		if maxADG ~= nil then
+
+			local nutritionScore = self.nutritionScore or foodFactor
+
+			-- Maturity ratio: how close to target weight
+			local maturity = math.clamp((weight - minWeight) / (targetWeight - minWeight), 0, 1.5)
+
+			-- Gompertz-like taper: growth slows as animal approaches maturity
+			local growthRate = maxADG * (1 - maturity * 0.85) * math.max(0, 1 - maturity) * math.min(nutritionScore * 1.1, 1.0)
+
+			-- Hourly gain
+			local increase = growthRate / 24
+
+			-- Apply metabolism genetics
+			increase = increase * metabolism
+
+			-- Castrated animals grow 15% faster
+			if self.isCastrated then
+				increase = increase * 1.15
+			end
+
+			-- Lactating animals lose weight (energy diverted to milk)
+			if self.clusterSystem ~= nil and self.clusterSystem.owner ~= nil and self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.isLactating then
+				increase = increase * 0.75
+			end
+
+			-- Apply disease weight gain modifiers
+			for _, disease in pairs(self.diseases) do
+				increase = disease:modifyWeightGain(increase)
+			end
+
+			-- Weight loss when above target
+			local decrease = 0
+			if weight > targetWeight then
+				decrease = (weight - targetWeight) / (metabolism * 25)
+			end
+
+			-- Starvation weight loss
+			if nutritionScore == 0 or foodFactor == 0 then
+				if weight < targetWeight then
+					decrease = (targetWeight - weight) / ((1 - (metabolism - 1)) * 150)
+				elseif weight > targetWeight then
+					decrease = decrease + ((weight - targetWeight) / ((1 - (metabolism - 1)) * 150))
+				end
+			end
+
+			self.weight = math.max(self.weight + increase - decrease, 0.001)
+
+			-- Health penalty for dangerously underweight
+			local minWeightForAge = minWeight * (math.min(self.age, subType.reproductionMinAgeMonth * 1.5) + 0.5) * 0.5
+			if self.weight < minWeightForAge then
+				self.health = math.clamp(self.health - (((minWeightForAge - self.weight) / minWeightForAge) * 0.2), 0, 100)
+			end
+
+			return
+
+		end
+
+	end
+
+	-- Fallback: existing linear growth model
 	local adultMonth = subType.reproductionMinAgeMonth * 1.5
 
 	local baseIncrease = ((targetWeight - minWeight) / adultMonth) / 24
@@ -2192,6 +2347,11 @@ function Animal:updateWeight(foodFactor)
 
 	if self.clusterSystem ~= nil and self.clusterSystem.owner ~= nil and self.clusterSystem.owner.spec_husbandryMilk ~= nil and self.isLactating then
 		increase = increase * 0.75
+	end
+
+	-- Apply disease weight gain modifiers
+	for _, disease in pairs(self.diseases) do
+		increase = disease:modifyWeightGain(increase)
 	end
 
 	local decrease = 0
@@ -2220,6 +2380,10 @@ function Animal:onPeriodChanged()
 
 	self.monthsSinceLastBirth = self.monthsSinceLastBirth + 1
 
+	if self.isLactating and self.monthsSinceLastBirth >= 10 then  -- ToDo: checked if sufficient or if onDayChanged() is more suitable
+		self.isLactating = false
+	end
+
 	local totalTreatmentCost = 0
 
 	for i = #self.diseases, 1, -1 do
@@ -2240,7 +2404,11 @@ end
 function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPeriod, daysPerPeriod, isSaleAnimal)
 
 	if g_server ~= nil then
-		g_diseaseManager:onDayChanged(self)
+		if g_diseaseManager ~= nil then
+			g_diseaseManager:onDayChanged(self)
+		else
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil during onDayChanged - disease system failed to initialize")
+		end
 	end
 
 	self:setRecentlyBoughtByAI(false)
@@ -2306,9 +2474,18 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 	if insemination ~= nil and g_server ~= nil then
 
 		local fertility = self.genetics.fertility
+
+		-- Apply disease fertility modifiers
+		local effectiveFertility = fertility
+		for _, disease in pairs(self.diseases) do
+			if not disease.cured and not disease.isCarrier and disease.type.fertilityModifier then
+				effectiveFertility = effectiveFertility * disease.type.fertilityModifier
+			end
+		end
+
 		local childNum = self:generateRandomOffspring()
 
-		if childNum > 0 and math.random() >= (2 - fertility) * 0.25 and math.random() <= insemination.success * (math.random(80, 120) / 100) then
+		if childNum > 0 and math.random() >= (2 - effectiveFertility) * 0.25 and math.random() <= insemination.success * (math.random(80, 120) / 100) then
 
 			self:addMessage("INSEMINATION_SUCCESS")
 			g_server:broadcastEvent(AnimalInseminationResultEvent.new(self.clusterSystem.owner, self, true))
@@ -2375,7 +2552,6 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 					self.impregnatedBy.fertility = self.genetics.fertility
 				end
 
-				self.isLactating = false
 				self.isPregnant = false
 
 				local parentDied = false
@@ -2395,9 +2571,18 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
 		elseif g_server ~= nil and not isSaleAnimal and self:getCanReproduce() then
 
 			local fertility = self.genetics.fertility
+
+			-- Apply disease fertility modifiers
+			local effectiveFertility = fertility
+			for _, disease in pairs(self.diseases) do
+				if not disease.cured and not disease.isCarrier and disease.type.fertilityModifier then
+					effectiveFertility = effectiveFertility * disease.type.fertilityModifier
+				end
+			end
+
 			local childNum = self:generateRandomOffspring()
 
-			if math.random() >= (2 - fertility) * 0.5 and childNum > 0 then
+			if math.random() >= (2 - effectiveFertility) * 0.5 and childNum > 0 then
 				self:createPregnancy(childNum, month, year)
 			end
 
@@ -2454,13 +2639,13 @@ function Animal:createPregnancy(childNum, month, year, father)
 				continue
 			end
 
-			if animal.subType == "BULL_WATERBUFFALO" and self.subType ~= "COW_WATERBUFFALO" then
+			if (animal.subType == "BULL_WATERBUFFALO" or animal.subType == "BULL_WATERBUFFALO_EL") and self.subType ~= "COW_WATERBUFFALO" then
 				continue
 			end
 			if animal.subType == "RAM_GOAT" and self.subType ~= "GOAT" then
 				continue
 			end
-			if self.subType == "COW_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO" then
+			if self.subType == "COW_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO_EL" then
 				continue
 			end
 			if self.subType == "GOAT" and animal.subType ~= "RAM_GOAT" then
@@ -2531,8 +2716,26 @@ function Animal:createPregnancy(childNum, month, year, father)
 
 	for i = 1, childNum do
 
+		-- Determine gender based on semen type
+		local gender
+		local genderRoll = math.random()
 
-		local gender = math.random() >= 0.5 and "male" or "female"
+		if self.insemination ~= nil and self.insemination.semenType ~= nil then
+			if self.insemination.semenType == SemenType.SEXED_FEMALE then
+				-- 90% chance female
+				gender = (genderRoll < 0.90) and "female" or "male"
+			elseif self.insemination.semenType == SemenType.SEXED_MALE then
+				-- 90% chance male
+				gender = (genderRoll < 0.90) and "male" or "female"
+			else
+				-- Natural 50/50 split for conventional
+				gender = (genderRoll >= 0.5) and "male" or "female"
+			end
+		else
+			-- Natural 50/50 split (no insemination data)
+			gender = (genderRoll >= 0.5) and "male" or "female"
+		end
+
 		local subTypeIndex
 
 		if fatherSubTypeIndex ~= nil and math.random() >= 0.5 then
@@ -2908,7 +3111,8 @@ function Animal:die(reason)
 		g_currentMission.animalSystem:removeAIAnimal(self.animalTypeIndex, self.birthday.country, self.farmId, self.uniqueId)
 	end
 
-	self:addMessage("DEATH", { reason or "el_ui_unknownCauses" })
+	-- Death messages are now handled in the placeable's onDayChanged function
+	-- self:addMessage("DEATH", { reason or "el_ui_unknownCauses" })
 
 	if self.clusterSystem ~= nil then
 		self.clusterSystem:addPendingRemoveCluster(self)
@@ -3185,7 +3389,7 @@ function Animal:getNumberOfImpregnatableFemalesForMale()
 			continue
 		end
 
-		if subType.name == "BULL_WATERBUFFALO" then
+		if subType.name == "BULL_WATERBUFFALO" or subType.name == "BULL_WATERBUFFALO_EL" then
 			if s.name == "COW_WATERBUFFALO" then
 				i = i + 1
 			end
@@ -3213,59 +3417,59 @@ function Animal:updateInput()
 
 	local subType = self:getSubType()
 
+	-- Try nutrition-based calculation for food and water
+	local nutritionFood = nil
+	local nutritionWater = nil
+
+	if g_nutritionManager ~= nil then
+		nutritionFood = g_nutritionManager:getHourlyConsumptionLiters(self)
+		nutritionWater = g_nutritionManager:getHourlyWaterConsumptionLiters(self)
+	end
+
 	for fillType, input in pairs(subType.input) do
 
 		local litersPerDay = input:get(self.age)
 
-		if fillType == "food" then
+		if fillType == "food" and nutritionFood ~= nil then
+			-- Use nutrition-based food consumption (already hourly)
+			self.input[fillType] = nutritionFood
 
-			if self.isLactating then
-				litersPerDay = litersPerDay * 1.25
+		elseif fillType == "water" and nutritionWater ~= nil then
+			-- Use nutrition-based water consumption (already hourly)
+			self.input[fillType] = nutritionWater
+
+		else
+			-- Fallback: existing age-curve calculations
+			if fillType == "food" then
+
+				if self.isLactating then
+					litersPerDay = litersPerDay * 1.25
+				end
+
+				if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
+					litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
+				end
+
+				if self.genetics.metabolism ~= nil then
+					litersPerDay = litersPerDay * self.genetics.metabolism
+				end
+
+				litersPerDay = litersPerDay * (EnhancedLivestock_PlaceableHusbandryFood.foodScale or 1)
+
+			elseif fillType == "water" then
+
+				if self.isLactating then
+					litersPerDay = litersPerDay * 1.5
+				end
+
+				if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
+					litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
+				end
+
 			end
 
-			if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
-				litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
-			end
-
-			if self.genetics.metabolism ~= nil then
-				litersPerDay = litersPerDay * self.genetics.metabolism
-			end
-
-			litersPerDay = litersPerDay * (EnhancedLivestock_PlaceableHusbandryFood.foodScale or 1)
-
+			self.input[fillType] = litersPerDay / 24
 		end
-
-		if fillType == "water" then
-
-			local litersPerDay = input:get(self.age)
-
-			if self.isLactating then
-				litersPerDay = litersPerDay * 1.5
-			end
-
-			if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
-				litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
-			end
-
-		end
-
-		self.input[fillType] = litersPerDay / 24
-
-	end
-
-	if water ~= nil then
-
-		local litersPerDay = water:get(self.age)
-
-		if self.isLactating then
-			litersPerDay = litersPerDay * 1.5
-		end
-
-		if self.reproduction ~= nil and self.reproduction > 0 and self.pregnancy ~= nil and self.pregnancy.pregnancies ~= nil then
-			litersPerDay = litersPerDay * math.pow(1 + ((self.reproduction / 100) / 5), #self.pregnancy.pregnancies)
-		end
-
-		self.input.water = litersPerDay / 24
 
 	end
 
@@ -3302,7 +3506,6 @@ function Animal:updateOutput(temp)
 				local factor = 0.8
 
 				if monthsSinceLastBirth >= 10 or not self.isLactating or not self.isParent then
-					self.isLactating = false
 					factor = 0
 				elseif monthsSinceLastBirth <= 3 then
 					factor = factor + (monthsSinceLastBirth / 6)
@@ -3325,7 +3528,6 @@ function Animal:updateOutput(temp)
 			local productivity = self.genetics.productivity or 1
 
 			if monthsSinceLastBirth >= 10 or not self.isLactating or not self.isParent then
-				self.isLactating = false
 				factor = 0
 			elseif monthsSinceLastBirth <= 3 then
 				factor = factor + (monthsSinceLastBirth / 6)
@@ -3339,6 +3541,12 @@ function Animal:updateOutput(temp)
 
 		for _, disease in pairs(self.diseases) do
 			litersPerDay = disease:modifyOutput(fillType, litersPerDay)
+		end
+
+		-- Apply nutrition-based production modifier (skip waste outputs)
+		if self.nutritionScore ~= nil and fillType ~= "manure" and fillType ~= "liquidManure" then
+			local productionFactor = math.clamp(self.nutritionScore * 1.25, 0, 1)
+			litersPerDay = litersPerDay * productionFactor
 		end
 
 		self.output[fillType] = litersPerDay / 24
@@ -3405,7 +3613,10 @@ function Animal:addMessage(id, args)
 		return
 	end
 
-	self.clusterSystem.owner:addELMessage(id, self:getIdentifiers(), args)
+	local owner = self.clusterSystem.owner
+	local animal = self:getIdentifiers()
+
+	ELMessageEvent.sendEvent(owner, id, animal, args)
 
 end
 
@@ -3516,7 +3727,7 @@ function Animal:getCanBeInseminatedByAnimal(animal)
 		return false, g_i18n:getText("el_insemination_young")
 	end
 
-	if self.monthsSinceLastBirth <= 2 then
+	if self.isParent and self.monthsSinceLastBirth <= 2 then
 		return false, g_i18n:getText("el_insemination_recovering")
 	end
 
@@ -3528,7 +3739,7 @@ function Animal:getCanBeInseminatedByAnimal(animal)
 
 end
 
-function Animal:setInsemination(animal)
+function Animal:setInsemination(animal, semenType)
 
 	self.insemination = {
 		["country"] = animal.country,
@@ -3537,12 +3748,20 @@ function Animal:setInsemination(animal)
 		["genetics"] = animal.genetics,
 		["name"] = animal.name,
 		["subTypeIndex"] = animal.subTypeIndex,
-		["success"] = animal.success
+		["success"] = animal.success,
+		["semenType"] = semenType or SemenType.CONVENTIONAL
 	}
 
 end
 
 function Animal:getHasAnyDisease()
+
+	if g_diseaseManager == nil then
+		if self.diseases ~= nil and #self.diseases > 0 then
+			Logging.warning("[EnhancedLivestock] g_diseaseManager is nil but animal has %d disease(s) - disease system failed to initialize", #self.diseases)
+		end
+		return false
+	end
 
 	return g_diseaseManager.diseasesEnabled and #self.diseases > 0
 

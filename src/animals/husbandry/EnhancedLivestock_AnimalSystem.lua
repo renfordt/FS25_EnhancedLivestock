@@ -3,15 +3,59 @@ EnhancedLivestock_AnimalSystem = {}
 local modName = g_currentModName
 local modDirectory = g_currentModDirectory
 
+-- Bull Status Tier System
+BullTier = {
+	YOUNG_GENOMIC = 1,
+	PROVEN = 2,
+	ELITE = 3,
+	LEGEND = 4
+}
+
+-- Stock limits by tier
+BullTierStockLimits = {
+	[BullTier.YOUNG_GENOMIC] = {
+		initialStock = 500,
+		maxPerPurchase = 200,
+		restockRate = "daily",
+		restockAmount = 100
+	},
+	[BullTier.PROVEN] = {
+		initialStock = 200,
+		maxPerPurchase = 100,
+		restockRate = "daily",
+		restockAmount = 50
+	},
+	[BullTier.ELITE] = {
+		initialStock = 50,
+		maxPerPurchase = 20,
+		restockRate = "weekly",
+		restockAmount = 10
+	},
+	[BullTier.LEGEND] = {
+		initialStock = 5,
+		maxPerPurchase = 5,
+		restockRate = "never",
+		restockAmount = 0
+	}
+}
+
+-- Tier-based price multipliers
+BullTierPriceMultipliers = {
+	[BullTier.YOUNG_GENOMIC] = 1.0,
+	[BullTier.PROVEN] = 1.5,
+	[BullTier.ELITE] = 4.0,
+	[BullTier.LEGEND] = 20.0
+}
+
 local function getDaysInMonth(month)
 	local daysPerMonth = EnhancedLivestock ~= nil and EnhancedLivestock.DAYS_PER_MONTH or nil
 	if daysPerMonth == nil then
-		Logging.warning("EnhancedLivestock: DAYS_PER_MONTH not available, using fallback of 1")
+		Logging.warning("[EnhancedLivestock] DAYS_PER_MONTH not available, using fallback of 1")
 		return 1
 	end
 	local days = daysPerMonth[month]
 	if days == nil then
-		Logging.warning("EnhancedLivestock: No days defined for month %d, using fallback of 1", month)
+		Logging.warning("[EnhancedLivestock] No days defined for month %d, using fallback of 1", month)
 		return 1
 	end
 	return days
@@ -44,6 +88,11 @@ AnimalSystem.BREED_TO_NAME = {
 	["SEAL_BROWN"] = "Seal Brown",
 	["DUN"] = "Dun",
 	["CHICKEN"] = "Chicken",
+	["DUCK"] = "Duck",
+	["DUCKWILD"] = "Duck",
+	["RABBIT"] = "Rabbit",
+	["GOOSE"] = "Goose",
+	["CAT"] = "Cat",
 	["OTHER"] = "Unknown"
 }
 
@@ -70,84 +119,116 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 		["earTagRight_text"] = { 0, 0, 0 }
 	}
 
-	-- Check if we have multiple animal files (from external mod like AnimalPackage)
-	local animalFiles = ELSettings.getAnimalFiles()
-	local externalBasePath = ELSettings.getAnimalsBasePath()
+	-- NEW BRIDGE SYSTEM: Phased Loading
+	-- Phase 1: Load base EL animals (unless a bridge uses mode="replace")
+	local hasBridges = g_bridgeRegistry and #g_bridgeRegistry:getBridges() > 0
+	local skipBaseAnimals = false
 
-	if animalFiles ~= nil and #animalFiles > 0 and externalBasePath ~= nil then
-	-- Load multiple animal files from external mod
-		print(string.format("EnhancedLivestock - loading %d animal files from \'%s\'", #animalFiles, externalBasePath))
-
-		for _, animalFile in ipairs(animalFiles) do
-			local fullPath = externalBasePath .. animalFile
-			print(string.format("EnhancedLivestock - loading animals from \'%s\'", fullPath))
-
-			local xmlFile = XMLFile.load("animals_" .. animalFile, fullPath)
-			if xmlFile ~= nil then
-				self:loadAnimals(xmlFile, externalBasePath)
-				xmlFile:delete()
-			else
-				Logging.warning("EnhancedLivestock - Failed to load animal file: %s", fullPath)
+	if hasBridges then
+		-- Check if any bridge uses replace mode
+		for _, bridge in ipairs(g_bridgeRegistry:getBridges()) do
+			if bridge.loadingMode == "replace" then
+				skipBaseAnimals = true
+				Logging.info("[EL Bridge] Bridge '%s' using replace mode - skipping base animals", bridge.modName)
+				break
 			end
 		end
-	else
-	-- Load single animals.xml file (original behavior)
-	-- Use the custom path if set, otherwise use mod's default animals.xml
-		local path = ELSettings.getAnimalsXMLPath() or (modDirectory .. "xml/animals.xml")
-		-- IMPORTANT: Use modDirectory as basePath when loading EnhancedLivestock's animals.xml
-		-- Don't use external mod's basePath here as the config file paths are relative to EnhancedLivestock
-		local basePath = modDirectory
+	end
 
-		print(string.format("EnhancedLivestock - using animals XML path \'%s\'", path))
+	if not skipBaseAnimals then
+		-- Load base EL animals.xml
+		local path = ELSettings.getAnimalsXMLPath() or (modDirectory .. "xml/animals.xml")
+		Logging.info("[Enhanced Livestock] Loading base animals from '%s'", path)
 
 		local xmlFile = XMLFile.load("animals", path)
-
 		if xmlFile ~= nil then
-			print(string.format("EnhancedLivestock - using animals base path \'%s\'", basePath))
-
-			self:loadAnimals(xmlFile, basePath)
+			self:loadAnimals(xmlFile, modDirectory)
 			xmlFile:delete()
 		end
 	end
 
+	-- Phase 2: Load bridge animals (merge/extend/override)
+	if hasBridges then
+		for _, bridge in ipairs(g_bridgeRegistry:getBridges()) do
+			if bridge.resources.animals then
+				local animalsPath = bridge.bridgeDirectory .. bridge.resources.animals
+				if fileExists(animalsPath) then
+					Logging.info("[EL Bridge] Loading animals from bridge: %s", bridge.modName)
+					self:loadBridgeAnimals(bridge, animalsPath)
+				else
+					Logging.warning("[EL Bridge] Animals file not found: %s", animalsPath)
+				end
+			end
+
+			-- Load versioned animals
+			for _, versionedRes in ipairs(g_bridgeRegistry:getMatchedVersionedResources(bridge)) do
+				if versionedRes.animals then
+					local vrPath = bridge.bridgeDirectory .. versionedRes.animals
+					if fileExists(vrPath) then
+						Logging.info("[EL Bridge] Loading versioned animals: %s", versionedRes.animals)
+						self:loadBridgeAnimals(bridge, vrPath)
+					end
+				end
+			end
+
+			-- Merge bridge nutrition data if provided
+			if bridge.resources.nutrition and g_nutritionManager then
+				local nutritionPath = bridge.bridgeDirectory .. bridge.resources.nutrition
+				if fileExists(nutritionPath) then
+					Logging.info("[EL Bridge] Merging nutrition data from bridge: %s", bridge.modName)
+					g_nutritionManager:mergeFromXML(nutritionPath)
+				end
+			end
+		end
+	end
+
+	-- Phase 3: Load vanilla animals from map (if not overridden by bridges)
 	self.customEnvironment = mission.customEnvironment
 
 	local baseFilename = getXMLString(mapXml, "map.animals#filename")
+	local shouldLoadVanillaAnimals = true
+
+	-- Check if any bridge overrides vanilla animals
+	if hasBridges then
+		for _, bridge in ipairs(g_bridgeRegistry:getBridges()) do
+			if bridge.loadingMode == "merge" or bridge.loadingMode == "replace" then
+				shouldLoadVanillaAnimals = false
+				Logging.info("[EL Bridge] Bridge '%s' overriding vanilla animals", bridge.modName)
+				break
+			end
+		end
+	end
 
 	if baseFilename == nil or baseFilename == "" then
-
-		Logging.xmlInfo(mapXml, "No animals xml given at \'map.animals#filename\'")
-
-	elseif #self.types == 0 or not ELSettings.getOverrideVanillaAnimals() then
-
+		Logging.info("[Enhanced Livestock] No animals xml given at 'map.animals#filename'")
+	elseif #self.types == 0 or shouldLoadVanillaAnimals then
 		local baseXmlFile = XMLFile.load("animals", Utils.getFilename(baseFilename, baseDirectory))
-
 		if baseXmlFile ~= nil then
-
 			self:loadAnimals(baseXmlFile, baseDirectory)
 			baseXmlFile:delete()
-
 		end
-
 	end
 
 	self.customEnvironment = modName
 
-	print("--------", string.format("EnhancedLivestock - loaded %s animals:", #self.types))
+	-- Phase 4: Validate animals and generate defaults
+	if g_bridgeRegistry then
+		g_bridgeRegistry:validateAnimals(self)
+	end
+
+	Logging.info("[Enhanced Livestock] Loaded %s animals:", #self.types)
 
 	for _, type in pairs(self.types) do
 
-		print("", string.format("- Animal Type: %s (%s subTypes)", type.name, #type.subTypes))
+		Logging.info("- Animal Type: %s (%s subTypes)", type.name, #type.subTypes)
 
 		for i, subTypeIndex in pairs(type.subTypes) do
 
-			print(string.format("|--- SubType (%s): %s (%s)", i, self.subTypes[subTypeIndex].name, self.subTypes[subTypeIndex].gender))
+			Logging.info("|--- SubType (%s): %s (%s)", i, self.subTypes[subTypeIndex].name, self.subTypes[subTypeIndex].gender)
 
 		end
 
 	end
-
-	print("", "--------")
 
 	self:loadColourConfigurations()
 
@@ -155,36 +236,730 @@ function EnhancedLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDire
 
 end
 
+---Load config overrides from bridge XML
+---Updates animalType.configFilename for types where the map's 3D model config
+---has additional models beyond the base game config. Without this, the C++ engine
+---only loads base game models and map-specific visual indices cause "invalid animal subtype" errors.
+---@param xmlFile table XMLFile handle
+---@param bridge table The bridge object
+function EnhancedLivestock_AnimalSystem:loadConfigOverrides(xmlFile, bridge)
+	local overrideCount = 0
+
+	-- Resolve the map mod's directory for config path resolution
+	local mapModDir = g_modNameToDirectory and g_modNameToDirectory[bridge.modName]
+	if not mapModDir then
+		Logging.warning("[EL Bridge] Could not resolve mod directory for '%s', using bridge directory", bridge.modName)
+		mapModDir = bridge.bridgeDirectory
+	end
+
+	xmlFile:iterate("bridgeAnimals.configOverrides.override", function(index, key)
+		local rawTypeName = xmlFile:getString(key .. "#type")
+		local rawConfigFilename = xmlFile:getString(key .. "#configFilename")
+
+		if not rawTypeName or not rawConfigFilename then
+			Logging.warning("[EL Bridge] Config override missing 'type' or 'configFilename' attribute, skipping")
+			return
+		end
+
+		local typeName = rawTypeName:upper()
+		local animalType = self.nameToType[typeName]
+
+		if not animalType then
+			Logging.warning("[EL Bridge] Config override type '%s' not found in AnimalSystem, skipping", typeName)
+			return
+		end
+
+		local resolvedPath = Utils.getFilename(rawConfigFilename, mapModDir)
+		local oldPath = animalType.configFilename
+
+		animalType.configFilename = resolvedPath
+		overrideCount = overrideCount + 1
+
+		Logging.info("[EL Bridge] Config override for '%s': '%s' -> '%s'", typeName, oldPath, resolvedPath)
+	end)
+
+	if overrideCount > 0 then
+		Logging.info("[EL Bridge] Applied %d config override(s) for '%s'", overrideCount, bridge.name)
+	end
+end
+
+---Rename existing subTypes to avoid naming collisions with bridge-added animals.
+---Updates the subType name, fillType reference, and all lookup tables.
+---Processes <renameSubTypes><rename type="COW" oldName="BULL_HOLSTEIN" newName="BULL_HOLSTEIN_EL" newFillTypeName="BULL_HOLSTEIN_EL"/></renameSubTypes>
+---@param xmlFile table XMLFile handle
+function EnhancedLivestock_AnimalSystem:processSubTypeRenames(xmlFile)
+	local renameCount = 0
+
+	xmlFile:iterate("bridgeAnimals.renameSubTypes.rename", function(_, key)
+		local typeName = xmlFile:getString(key .. "#type")
+		local oldName = xmlFile:getString(key .. "#oldName")
+		local newName = xmlFile:getString(key .. "#newName")
+		local newFillTypeName = xmlFile:getString(key .. "#newFillTypeName")
+
+		if not typeName or not oldName or not newName then
+			Logging.warning("[EL Bridge] Incomplete renameSubType entry - requires type, oldName, newName")
+			return
+		end
+
+		oldName = oldName:upper()
+		newName = newName:upper()
+
+		-- Find existing subType by old name
+		local subType = self.nameToSubType[oldName]
+		if not subType then
+			Logging.warning("[EL Bridge] Cannot rename subType '%s' - not found", oldName)
+			return
+		end
+
+		-- Verify it belongs to the correct animal type
+		local animalType = nil
+		for _, t in ipairs(self.types) do
+			if t.name == typeName:upper() then
+				animalType = t
+				break
+			end
+		end
+
+		if not animalType or subType.typeIndex ~= animalType.typeIndex then
+			Logging.warning("[EL Bridge] SubType '%s' does not belong to type '%s'", oldName, typeName)
+			return
+		end
+
+		-- Remove old name from lookup tables
+		self.nameToSubType[oldName] = nil
+		self.nameToSubTypeIndex[oldName] = nil
+
+		-- Update fillType if a new fillTypeName is specified
+		if newFillTypeName then
+			local newFillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(newFillTypeName)
+			if newFillTypeIndex then
+				-- Remove old fillType mapping
+				self.fillTypeIndexToSubType[subType.fillTypeIndex] = nil
+				-- Update to new fillType
+				subType.fillTypeIndex = newFillTypeIndex
+				self.fillTypeIndexToSubType[newFillTypeIndex] = subType
+			else
+				Logging.warning("[EL Bridge] FillType '%s' not registered, keeping original fillType for '%s'", newFillTypeName, oldName)
+			end
+		end
+
+		-- Update name
+		subType.name = newName
+
+		-- Re-register with new name
+		self.nameToSubType[newName] = subType
+		self.nameToSubTypeIndex[newName] = subType.subTypeIndex
+
+		renameCount = renameCount + 1
+		Logging.info("[EL Bridge] Renamed subType '%s' -> '%s'", oldName, newName)
+	end)
+
+	if renameCount > 0 then
+		Logging.info("[EL Bridge] Renamed %d subType(s)", renameCount)
+	end
+end
+
+---Load animals from a bridge
+---Supports import, extend, animal, and override operations
+---@param bridge table The bridge object
+---@param animalsPath string Path to the bridge's animals.xml
+function EnhancedLivestock_AnimalSystem:loadBridgeAnimals(bridge, animalsPath)
+	local xmlFile = XMLFile.load("bridge_animals_" .. bridge.modName, animalsPath)
+	if not xmlFile then
+		Logging.warning("[EL Bridge] Failed to load animals XML: %s", animalsPath)
+		return
+	end
+
+	-- Resolve the map mod's directory for image path resolution
+	local mapModDir = g_modNameToDirectory and g_modNameToDirectory[bridge.modName]
+	if not mapModDir then
+		Logging.warning("[EL Bridge] Could not resolve mod directory for '%s', using bridge directory", bridge.modName)
+		mapModDir = bridge.bridgeDirectory
+	end
+
+	-- Process <import> tags - load base EL animals if specified
+	xmlFile:iterate("bridgeAnimals.import", function(index, key)
+		local sourcePath = xmlFile:getString(key .. "#source")
+		if sourcePath then
+			local originalPath = sourcePath
+			sourcePath = g_bridgeUtils.resolveModdirPath(sourcePath)
+
+			if fileExists(sourcePath) then
+				Logging.info("[EL Bridge] Importing animals from: %s", sourcePath)
+
+				-- Determine the base directory for the imported file
+				-- If it's from $moddir$ModName/, use that mod's directory
+				-- Otherwise use EL's modDirectory
+				local baseDir = modDirectory
+				local modMatch = originalPath:match("^%$moddir%$([^/]+)/")
+				if modMatch then
+					local modDir = g_modNameToDirectory and g_modNameToDirectory[modMatch]
+					if modDir then
+						baseDir = modDir
+					end
+				end
+
+				local importXmlFile = XMLFile.load("import_animals_" .. index, sourcePath)
+				if importXmlFile then
+					self:loadAnimals(importXmlFile, baseDir)
+					importXmlFile:delete()
+				end
+			else
+				Logging.warning("[EL Bridge] Import source not found: %s", sourcePath)
+			end
+		end
+	end)
+
+	-- Process <extend> tags - add new subtypes to existing types
+	xmlFile:iterate("bridgeAnimals.extend", function(index, key)
+		local typeName = xmlFile:getString(key .. "#type")
+		if not typeName then
+			Logging.warning("[EL Bridge] Missing type in extend tag")
+			return
+		end
+
+		typeName = typeName:upper()
+
+		-- Find existing type
+		local existingType = nil
+		for _, animalType in ipairs(self.types) do
+			if animalType.name == typeName then
+				existingType = animalType
+				break
+			end
+		end
+
+		if not existingType then
+			Logging.warning("[EL Bridge] Cannot extend type '%s' - type not found", typeName)
+			return
+		end
+
+		-- Load subtypes from this extend block
+		xmlFile:iterate(key .. ".subType", function(subIndex, subKey)
+			-- Load subtype as if it were part of the original type
+			-- This reuses the existing loadAnimals subtype loading logic
+			local subTypeXml = XMLFile.create("temp_subtype", nil, "animal")
+			if subTypeXml then
+				-- Copy type attributes
+				subTypeXml:setValue("animal#type", typeName)
+
+				-- Copy all subtype data
+				local subTypeName = xmlFile:getString(subKey .. "#subType")
+				if subTypeName then
+					-- Create a temporary XML structure to load this subtype
+					-- Note: This is a simplified approach - in production, we'd need to
+					-- copy all attributes and child elements from the bridge XML
+					Logging.info("[EL Bridge] Extending type '%s' with subtype '%s'", typeName, subTypeName)
+
+					-- For now, just log that we'd extend here
+					-- Full implementation would require copying all XML data
+					Logging.warning("[EL Bridge] Extend implementation incomplete - manual migration required")
+				end
+				subTypeXml:delete()
+			end
+		end)
+	end)
+
+	-- Process <configOverrides> tags FIRST - update configFilename before loading subtypes
+	-- This ensures the C++ engine loads the correct visual model config
+	self:loadConfigOverrides(xmlFile, bridge)
+
+	-- Process <renameSubTypes> tags - rename existing subTypes to avoid collisions
+	-- Must run BEFORE new animals are loaded so freed names are available
+	self:processSubTypeRenames(xmlFile)
+
+	-- Process <animal> tags - new species or extensions to existing species
+	-- Use mapModDir so image paths resolve relative to the map mod, not the bridge directory
+	self:loadAnimals(xmlFile, mapModDir, "bridgeAnimals.animal")
+
+	-- Process <override> tags - modify existing definitions
+	xmlFile:iterate("bridgeAnimals.override", function(index, key)
+		local typeName = xmlFile:getString(key .. "#type")
+		local subTypeName = xmlFile:getString(key .. "#subType")
+
+		if not typeName then
+			Logging.warning("[EL Bridge] Missing type in override tag")
+			return
+		end
+
+		typeName = typeName:upper()
+
+		-- Find the animal type
+		local animalType = nil
+		for _, type in ipairs(self.types) do
+			if type.name == typeName then
+				animalType = type
+				break
+			end
+		end
+
+		if not animalType then
+			Logging.warning("[EL Bridge] Cannot override type '%s' - not found", typeName)
+			return
+		end
+
+		if subTypeName then
+			-- Override specific subtype
+			subTypeName = subTypeName:upper()
+			local subType = nil
+
+			for _, subTypeIndex in ipairs(animalType.subTypes) do
+				if self.subTypes[subTypeIndex].subTypeName == subTypeName then
+					subType = self.subTypes[subTypeIndex]
+					break
+				end
+			end
+
+			if not subType then
+				Logging.warning("[EL Bridge] Cannot override subtype '%s/%s' - not found", typeName, subTypeName)
+				return
+			end
+
+			-- Apply overrides to subtype
+			self:applySubTypeOverrides(subType, xmlFile, key)
+			Logging.info("[EL Bridge] Applied overrides to %s/%s", typeName, subTypeName)
+		else
+			-- Override type-level properties
+			self:applyTypeOverrides(animalType, xmlFile, key)
+			Logging.info("[EL Bridge] Applied overrides to type %s", typeName)
+		end
+	end)
+
+	-- Process <propertyOverrides> tags - batch property overrides for imported subTypes
+	-- Runs AFTER imports and overrides so all subTypes are registered
+	xmlFile:iterate("bridgeAnimals.propertyOverrides.animal", function(index, key)
+		local typeName = xmlFile:getString(key .. "#type")
+		if not typeName then
+			Logging.warning("[EL Bridge] Missing type in propertyOverrides animal tag")
+			return
+		end
+
+		typeName = typeName:upper()
+		local animalType = self.nameToType[typeName]
+
+		if not animalType then
+			Logging.warning("[EL Bridge] Cannot apply property overrides for type '%s' - not found", typeName)
+			return
+		end
+
+		-- Apply type-level overrides if any attributes are present on the <animal> element
+		self:applyTypeOverrides(animalType, xmlFile, key)
+
+		-- Apply subType-level overrides
+		xmlFile:iterate(key .. ".subType", function(subIndex, subKey)
+			local subTypeName = xmlFile:getString(subKey .. "#subType")
+			if not subTypeName then
+				Logging.warning("[EL Bridge] Missing subType in propertyOverrides")
+				return
+			end
+
+			subTypeName = subTypeName:upper()
+			local subType = self.nameToSubType[subTypeName]
+
+			if not subType then
+				-- Not an error: subType may have been skipped during import (duplicate name)
+				return
+			end
+
+			self:applySubTypeOverrides(subType, xmlFile, subKey)
+		end)
+	end)
+
+	xmlFile:delete()
+end
+
+---Apply overrides to a subtype
+---Supports direct attributes (#gender, #minWeight, #targetWeight, #maxWeight, #breed),
+---reproduction, health, visuals, prices (buyPrice, sellPrice, transportPrice),
+---input curves (food, straw, water), and output curves (manure, liquidManure, milk, pallets).
+---@param subType table The subtype to override
+---@param xmlFile table The XML file with override data
+---@param key string The XML key path
+function EnhancedLivestock_AnimalSystem:applySubTypeOverrides(subType, xmlFile, key)
+	local patches = {}
+
+	-- Direct attributes (RM-style flat attributes on the subType element)
+	local gender = xmlFile:getString(key .. "#gender")
+	if gender then
+		subType.gender = gender
+		table.insert(patches, "gender=" .. gender)
+	end
+
+	local minWeight = xmlFile:getFloat(key .. "#minWeight")
+	if minWeight then
+		subType.minWeight = minWeight
+		table.insert(patches, "minWeight=" .. minWeight)
+	end
+
+	local targetWeight = xmlFile:getFloat(key .. "#targetWeight")
+	if targetWeight then
+		subType.targetWeight = targetWeight
+		table.insert(patches, "targetWeight=" .. targetWeight)
+	end
+
+	local maxWeight = xmlFile:getFloat(key .. "#maxWeight")
+	if maxWeight then
+		subType.maxWeight = maxWeight
+		table.insert(patches, "maxWeight=" .. maxWeight)
+	end
+
+	-- Breed override with breed-group reassignment
+	local breed = xmlFile:getString(key .. "#breed")
+	if breed then
+		local animalType = nil
+		for _, t in ipairs(self.types) do
+			if t.typeIndex == subType.typeIndex then
+				animalType = t
+				break
+			end
+		end
+
+		-- Remove from old breed group
+		if animalType and subType.breed then
+			local oldBreedGroup = animalType.breeds[subType.breed]
+			if oldBreedGroup then
+				for i, st in ipairs(oldBreedGroup) do
+					if st == subType then
+						table.remove(oldBreedGroup, i)
+						break
+					end
+				end
+				if #oldBreedGroup == 0 then
+					animalType.breeds[subType.breed] = nil
+				end
+			end
+		end
+
+		subType.breed = breed
+
+		-- Add to new breed group
+		if animalType then
+			if animalType.breeds[breed] == nil then
+				animalType.breeds[breed] = {}
+			end
+			table.insert(animalType.breeds[breed], subType)
+		end
+
+		table.insert(patches, "breed=" .. breed)
+	end
+
+	-- Reproduction overrides
+	local reproSupported = xmlFile:getBool(key .. ".reproduction#supported")
+	if reproSupported ~= nil then
+		subType.supportsReproduction = reproSupported
+		table.insert(patches, "reproduction.supported=" .. tostring(reproSupported))
+	end
+
+	local reproMinAge = xmlFile:getInt(key .. ".reproduction#minAgeMonth")
+	if reproMinAge then
+		subType.reproductionMinAgeMonth = reproMinAge
+		table.insert(patches, "reproduction.minAgeMonth=" .. reproMinAge)
+	end
+
+	local reproDuration = xmlFile:getInt(key .. ".reproduction#durationMonth")
+	if reproDuration then
+		subType.reproductionDurationMonth = reproDuration
+		table.insert(patches, "reproduction.durationMonth=" .. reproDuration)
+	end
+
+	local reproMinHealth = xmlFile:getFloat(key .. ".reproduction#minHealthFactor")
+	if reproMinHealth then
+		subType.reproductionMinHealth = reproMinHealth
+		table.insert(patches, "reproduction.minHealthFactor=" .. reproMinHealth)
+	end
+
+	-- Health overrides
+	local healthIncrease = xmlFile:getFloat(key .. ".health#increasePerHour")
+	if healthIncrease then
+		subType.healthIncreaseHour = healthIncrease
+		table.insert(patches, "health.increasePerHour=" .. healthIncrease)
+	end
+
+	local healthDecrease = xmlFile:getFloat(key .. ".health#decreasePerHour")
+	if healthDecrease then
+		subType.healthDecreaseHour = healthDecrease
+		table.insert(patches, "health.decreasePerHour=" .. healthDecrease)
+	end
+
+	-- Visuals template override
+	local visualsTemplate = xmlFile:getString(key .. ".visuals#template")
+	if visualsTemplate then
+		subType.visualsTemplate = visualsTemplate
+		table.insert(patches, "visuals.template=" .. visualsTemplate)
+	end
+
+	-- Legacy support: also check nested <weights> elements for backward compatibility
+	if not minWeight then
+		local legacyMin = xmlFile:getFloat(key .. ".weights#minWeight")
+		if legacyMin then
+			subType.minWeight = legacyMin
+			table.insert(patches, "minWeight=" .. legacyMin .. " (legacy)")
+		end
+	end
+	if not targetWeight then
+		local legacyTarget = xmlFile:getFloat(key .. ".weights#targetWeight")
+		if legacyTarget then
+			subType.targetWeight = legacyTarget
+			table.insert(patches, "targetWeight=" .. legacyTarget .. " (legacy)")
+		end
+	end
+	if not maxWeight then
+		local legacyMax = xmlFile:getFloat(key .. ".weights#maxWeight")
+		if legacyMax then
+			subType.maxWeight = legacyMax
+			table.insert(patches, "maxWeight=" .. legacyMax .. " (legacy)")
+		end
+	end
+
+	-- Price overrides (AnimCurves)
+	local buyPrice = self:loadAnimCurve(xmlFile, key .. ".buyPrice")
+	if buyPrice then
+		subType.buyPrice = buyPrice
+		table.insert(patches, "buyPrice")
+	end
+
+	local sellPrice = self:loadAnimCurve(xmlFile, key .. ".sellPrice")
+	if sellPrice then
+		subType.sellPrice = sellPrice
+		table.insert(patches, "sellPrice")
+	end
+
+	local transportPrice = self:loadAnimCurve(xmlFile, key .. ".transportPrice")
+	if transportPrice then
+		subType.transportPrice = transportPrice
+		table.insert(patches, "transportPrice")
+	end
+
+	-- Input overrides (AnimCurves)
+	local foodCurve = self:loadAnimCurve(xmlFile, key .. ".input.food")
+	if foodCurve then
+		if subType.input == nil then
+			subType.input = {}
+		end
+		subType.input.food = foodCurve
+		table.insert(patches, "input.food")
+	end
+
+	local strawCurve = self:loadAnimCurve(xmlFile, key .. ".input.straw")
+	if strawCurve then
+		if subType.input == nil then
+			subType.input = {}
+		end
+		subType.input.straw = strawCurve
+		table.insert(patches, "input.straw")
+	end
+
+	local waterCurve = self:loadAnimCurve(xmlFile, key .. ".input.water")
+	if waterCurve then
+		if subType.input == nil then
+			subType.input = {}
+		end
+		subType.input.water = waterCurve
+		table.insert(patches, "input.water")
+	end
+
+	-- Output overrides (AnimCurves)
+	local manureCurve = self:loadAnimCurve(xmlFile, key .. ".output.manure")
+	if manureCurve then
+		if subType.output == nil then
+			subType.output = {}
+		end
+		subType.output.manure = manureCurve
+		table.insert(patches, "output.manure")
+	end
+
+	local liquidManureCurve = self:loadAnimCurve(xmlFile, key .. ".output.liquidManure")
+	if liquidManureCurve then
+		if subType.output == nil then
+			subType.output = {}
+		end
+		subType.output.liquidManure = liquidManureCurve
+		table.insert(patches, "output.liquidManure")
+	end
+
+	-- Milk output (AnimCurve + optional fillType override)
+	if xmlFile:hasProperty(key .. ".output.milk") then
+		local milkCurve = self:loadAnimCurve(xmlFile, key .. ".output.milk")
+		if milkCurve then
+			if subType.output == nil then
+				subType.output = {}
+			end
+			local milkFillTypeName = xmlFile:getString(key .. ".output.milk#fillType")
+			local existingFillType = subType.output.milk and subType.output.milk.fillType or nil
+			subType.output.milk = {
+				fillType = milkFillTypeName and g_fillTypeManager:getFillTypeIndexByName(milkFillTypeName) or existingFillType,
+				curve = milkCurve
+			}
+			table.insert(patches, "output.milk")
+		end
+	end
+
+	-- Pallets output (AnimCurve + optional fillType override)
+	if xmlFile:hasProperty(key .. ".output.pallets") then
+		local palletsCurve = self:loadAnimCurve(xmlFile, key .. ".output.pallets")
+		if palletsCurve then
+			if subType.output == nil then
+				subType.output = {}
+			end
+			local palletsFillTypeName = xmlFile:getString(key .. ".output.pallets#fillType")
+			local existingFillType = subType.output.pallets and subType.output.pallets.fillType or nil
+			subType.output.pallets = {
+				fillType = palletsFillTypeName and g_fillTypeManager:getFillTypeIndexByName(palletsFillTypeName) or existingFillType,
+				curve = palletsCurve
+			}
+			table.insert(patches, "output.pallets")
+		end
+	end
+
+	if #patches > 0 then
+		Logging.info("[EL Bridge] SubType '%s' overrides: %s", subType.name, table.concat(patches, ", "))
+	end
+end
+
+---Apply overrides to a type
+---Supports groupTitle, averageBuyAge, maxBuyAge, pasture sqmPerAnimal, pregnancy, and fertility.
+---@param animalType table The animal type to override
+---@param xmlFile table The XML file with override data
+---@param key string The XML key path
+function EnhancedLivestock_AnimalSystem:applyTypeOverrides(animalType, xmlFile, key)
+	local patches = {}
+
+	local groupTitle = xmlFile:getString(key .. "#groupTitle")
+	if groupTitle then
+		animalType.groupTitle = groupTitle
+		table.insert(patches, "groupTitle")
+	end
+
+	local averageBuyAge = xmlFile:getInt(key .. "#averageBuyAge")
+	if averageBuyAge then
+		animalType.averageBuyAge = averageBuyAge
+		table.insert(patches, "averageBuyAge=" .. averageBuyAge)
+	end
+
+	local maxBuyAge = xmlFile:getInt(key .. "#maxBuyAge")
+	if maxBuyAge then
+		animalType.maxBuyAge = maxBuyAge
+		table.insert(patches, "maxBuyAge=" .. maxBuyAge)
+	end
+
+	local sqmPerAnimal = xmlFile:getFloat(key .. ".pasture#sqmPerAnimal")
+	if sqmPerAnimal then
+		animalType.sqmPerAnimal = sqmPerAnimal
+		table.insert(patches, "sqmPerAnimal=" .. sqmPerAnimal)
+	end
+
+	-- Pregnancy override: rebuild pregnancy function if average or max changed
+	local pregnancyAverage = xmlFile:getInt(key .. ".pregnancy#average")
+	local pregnancyMax = xmlFile:getInt(key .. ".pregnancy#max")
+	if pregnancyAverage or pregnancyMax then
+		local avg = pregnancyAverage or animalType.pregnancy.average
+		local maxC = pregnancyMax or (avg + 2)
+
+		local pregnancy = {}
+		local totalChance = 0
+
+		for i = 0, avg - 1 do
+			totalChance = totalChance + (i / avg) / maxC
+			table.insert(pregnancy, totalChance)
+		end
+
+		totalChance = totalChance + 0.5
+		table.insert(pregnancy, totalChance)
+
+		for i = avg + 1, maxC - 1 do
+			totalChance = totalChance + (1 - totalChance) * 0.8
+			table.insert(pregnancy, totalChance)
+		end
+
+		table.insert(pregnancy, 1)
+
+		local function pregnancyFunction(value)
+			for i = 0, #pregnancy - 1 do
+				if pregnancy[i + 1] > value then
+					return i
+				end
+			end
+			return 0
+		end
+
+		animalType.pregnancy = {
+			["get"] = pregnancyFunction,
+			["average"] = avg
+		}
+		table.insert(patches, "pregnancy(avg=" .. avg .. ",max=" .. maxC .. ")")
+	end
+
+	-- Fertility curve override
+	local fertility = self:loadAnimCurve(xmlFile, key .. ".fertility")
+	if fertility then
+		animalType.fertility = fertility
+		table.insert(patches, "fertility")
+	end
+
+	if #patches > 0 then
+		Logging.info("[EL Bridge] Type '%s' overrides: %s", animalType.name, table.concat(patches, ", "))
+	end
+end
+
+-- Register bridge loading methods on AnimalSystem
+AnimalSystem.loadConfigOverrides = EnhancedLivestock_AnimalSystem.loadConfigOverrides
+AnimalSystem.processSubTypeRenames = EnhancedLivestock_AnimalSystem.processSubTypeRenames
+AnimalSystem.loadBridgeAnimals = EnhancedLivestock_AnimalSystem.loadBridgeAnimals
+AnimalSystem.applySubTypeOverrides = EnhancedLivestock_AnimalSystem.applySubTypeOverrides
+AnimalSystem.applyTypeOverrides = EnhancedLivestock_AnimalSystem.applyTypeOverrides
+
 AnimalSystem.loadMapData = Utils.overwrittenFunction(AnimalSystem.loadMapData, EnhancedLivestock_AnimalSystem.loadMapData)
 
-function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
+function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory, rootPath)
 
-	for _, key in xmlFile:iterator("animals.animal") do
+	rootPath = rootPath or "animals.animal"
+
+	for _, key in xmlFile:iterator(rootPath) do
 
 		if #self.types >= 2 ^ AnimalSystem.SEND_NUM_BITS - 1 then
-			Logging.xmlWarning(xmlFile, "Maximum number of supported animal types reached. Ignoring remaining types")
+			Logging.xmlWarning(xmlFile, "[EnhancedLivestock] Maximum number of supported animal types reached. Ignoring remaining types")
 			return
 		end
 
 		local rawName = xmlFile:getString(key .. "#type")
 
 		if rawName == nil then
-			Logging.xmlError(xmlFile, "Missing animal type. \'%s\'", key)
+			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing animal type. \'%s\'", key)
 			return
 		end
 
 		local name = rawName:upper()
 		local rawConfigFilename = xmlFile:getString(key .. ".configFilename")
 
-		if rawConfigFilename == nil then
-			Logging.xmlError(xmlFile, "Missing config file for animal type \'%s\'. \'%s\'", name, key)
+		-- Check if type already exists (for bridge extensions that add subtypes to existing types)
+		local typeAlreadyExists = self.nameToTypeIndex[name] ~= nil
+
+		if rawConfigFilename == nil and not typeAlreadyExists then
+			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing config file for animal type \'%s\'. \'%s\'", name, key)
 			return
 		end
 
-		local configFilename = Utils.getFilename(rawConfigFilename, directory)
+		-- Resolve cross-mod $moddir$ModName/ references to actual mod directories
+		local resolvedBaseDir = directory
+		local resolvedConfigFilename = rawConfigFilename
+		local configFilename = nil
+
+		if rawConfigFilename ~= nil then
+			local modRef = rawConfigFilename:match("^%$moddir%$([^/]+)/")
+			if modRef ~= nil then
+				local modDir = g_modNameToDirectory[modRef]
+				if modDir ~= nil then
+					resolvedConfigFilename = rawConfigFilename:gsub("^%$moddir%$[^/]+/", "")
+					resolvedBaseDir = modDir
+				end
+			end
+
+			configFilename = Utils.getFilename(resolvedConfigFilename, resolvedBaseDir)
+		end
+
 		local animalType
 
-		if self.nameToTypeIndex[name] ~= nil then
+		if typeAlreadyExists then
 
 			animalType = self.nameToType[name]
 
@@ -193,7 +968,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 			local clusterClass = xmlFile:getString(key .. "#clusterClass")
 
 			if clusterClass == nil then
-				Logging.xmlError(xmlFile, "Missing animal clusterClass for \'%s\'!", key)
+				Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing animal clusterClass for \'%s\'!", key)
 				return
 			end
 
@@ -304,10 +1079,16 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 
 		end
 
+		-- If no configFilename specified but type exists, use the existing one (set by configOverride)
+		if configFilename == nil and typeAlreadyExists then
+			configFilename = animalType.configFilename
+			Logging.info("[EL Bridge] Using existing configFilename for type '%s': '%s'", name, configFilename)
+		end
+
 		-- Extract the config file's directory for resolving relative paths (like i3d files)
 		-- This ensures paths like "highland/cattleHighland.i3d" are resolved relative to the config file,
 		-- not the mod root directory
-		local configDirectory = configFilename:match("(.*[/\\])") or directory
+		local configDirectory = configFilename and configFilename:match("(.*[/\\])") or directory
 
 		-- For external mods (like AnimalPackage), they may use absolute paths from mod root
 		-- instead of relative paths from config file. Detect this by checking if directory != modDirectory.
@@ -320,7 +1101,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimals(_, xmlFile, directory)
 
 		if self:loadAnimalConfig(animalType, assetBaseDirectory, configFilename) then
 
-			if self:loadSubTypes(animalType, xmlFile, key, directory) then
+			if self:loadSubTypes(animalType, xmlFile, key, resolvedBaseDir) then
 
 				if self.nameToType[name] == nil then
 
@@ -367,7 +1148,7 @@ function EnhancedLivestock_AnimalSystem:loadAnimalConfig(_, animalType, director
 		end
 
 		if animal.filenamePosed == nil then
-			Logging.xmlError(xmlFile, "Missing \'filenamePosed\' for animal \'%s\'", key)
+			Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing \'filenamePosed\' for animal \'%s\'", key)
 			animal.filenamePosed = animal.filename
 		end
 
@@ -418,7 +1199,7 @@ function EnhancedLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, key
 		if requiredDLC == nil or g_modNameToDirectory[g_uniqueDlcNamePrefix .. requiredDLC] ~= nil then
 
 			if rawName == nil then
-				Logging.xmlError(xmlFile, "Missing animal subtype. \'%s\'", subTypeKey)
+				Logging.xmlError(xmlFile, "[EnhancedLivestock] Missing animal subtype. \'%s\'", subTypeKey)
 				break
 			end
 
@@ -432,7 +1213,7 @@ function EnhancedLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, key
 			local fillTypeIndex = g_fillTypeManager:getFillTypeIndexByName(fillTypeName)
 
 			if fillTypeIndex == nil then
-				Logging.xmlError(xmlFile, "FillType \'%s\' for animal subtype \'%s\' not defined!", fillTypeName, subTypeKey)
+				Logging.xmlError(xmlFile, "[EnhancedLivestock] FillType \'%s\' for animal subtype \'%s\' not defined!", fillTypeName, subTypeKey)
 				break
 			end
 
@@ -489,6 +1270,28 @@ function EnhancedLivestock_AnimalSystem:loadSubType(superFunc, animalType, subTy
 	subType.maxWeight = xmlFile:getFloat(key .. "#maxWeight", height * radius * 750)
 	subType.targetWeight = xmlFile:getFloat(key .. "#targetWeight", height * radius * 300)
 	subType.minWeight = xmlFile:getFloat(key .. "#minWeight", height * radius * 50)
+
+	-- Load breed-specific tier probabilities for AI animals
+	if xmlFile:hasProperty(key .. ".ai.tierProbabilities") then
+		subType.tierProbabilities = {}
+		xmlFile:iterate(key .. ".ai.tierProbabilities.tier", function(_, tierKey)
+			local tierName = xmlFile:getString(tierKey .. "#name")
+			local probability = xmlFile:getFloat(tierKey .. "#probability", 0)
+
+			-- Map tier name to tier index
+			local tierMap = {
+				["YOUNG_GENOMIC"] = BullTier.YOUNG_GENOMIC,
+				["PROVEN"] = BullTier.PROVEN,
+				["ELITE"] = BullTier.ELITE,
+				["LEGEND"] = BullTier.LEGEND
+			}
+
+			local tierIndex = tierMap[tierName]
+			if tierIndex ~= nil then
+				subType.tierProbabilities[tierIndex] = probability
+			end
+		end)
+	end
 
 	for _, visual in pairs(subType.visuals) do
 
@@ -973,6 +1776,22 @@ function AnimalSystem:loadFromXMLFile()
 			animal.success = xmlFile:getFloat(key .. "#success", 0.65)
 			animal.isAIAnimal = true
 
+			-- Load bull tier data
+			animal.bullTier = xmlFile:getInt(key .. "#bullTier", BullTier.PROVEN)
+			animal.availableStraws = xmlFile:getInt(key .. "#availableStraws", nil)
+			animal.maxStrawsPerPurchase = xmlFile:getInt(key .. "#maxStrawsPerPurchase", nil)
+			animal.lastRestockDay = xmlFile:getInt(key .. "#lastRestockDay", 0)
+
+			-- Initialize stock if not loaded (for backward compatibility)
+			if animal.availableStraws == nil and animal.bullTier ~= nil then
+				local limits = BullTierStockLimits[animal.bullTier]
+				if limits ~= nil then
+					animal.availableStraws = limits.initialStock
+					animal.maxStrawsPerPurchase = limits.maxPerPurchase
+					animal.lastRestockDay = 0
+				end
+			end
+
 			xmlFile:iterate(key .. ".favourites.player", function(_, favKey)
 				local userId = xmlFile:getString(favKey .. "#userId", nil)
 				local value = xmlFile:getBool(favKey .. "#value", false)
@@ -1082,6 +1901,20 @@ function AnimalSystem:saveToXMLFile(_)
 		animal:saveToXMLFile(xmlFile, key)
 
 		xmlFile:setFloat(key .. "#success", animal.success or 0.65)
+
+		-- Save bull tier data
+		if animal.bullTier ~= nil then
+			xmlFile:setInt(key .. "#bullTier", animal.bullTier)
+		end
+		if animal.availableStraws ~= nil then
+			xmlFile:setInt(key .. "#availableStraws", animal.availableStraws)
+		end
+		if animal.maxStrawsPerPurchase ~= nil then
+			xmlFile:setInt(key .. "#maxStrawsPerPurchase", animal.maxStrawsPerPurchase)
+		end
+		if animal.lastRestockDay ~= nil then
+			xmlFile:setInt(key .. "#lastRestockDay", animal.lastRestockDay)
+		end
 
 		local i = 0
 
@@ -1310,8 +2143,12 @@ function AnimalSystem:createNewSaleAnimal(animalTypeIndex)
 
 	animal.diseases = {}
 
-	g_diseaseManager:onDayChanged(animal)
-	g_diseaseManager:setGeneticDiseasesForSaleAnimal(animal)
+	if g_diseaseManager ~= nil then
+		g_diseaseManager:onDayChanged(animal)
+		g_diseaseManager:setGeneticDiseasesForSaleAnimal(animal)
+	else
+		Logging.warning("[EnhancedLivestock] g_diseaseManager is nil while generating sale animal - disease system failed to initialize")
+	end
 
 
 	if isPregnant then
@@ -1689,6 +2526,31 @@ function AnimalSystem:onDayChanged()
 
 		for _, animal in pairs(animals) do
 			animal:onDayChanged(nil, self.isServer, day, month, year, currentDayInPeriod, daysPerPeriod, true)
+
+			-- Restock AI animal semen based on tier
+			if animal.bullTier ~= nil and animal.availableStraws ~= nil then
+				local limits = BullTierStockLimits[animal.bullTier]
+				local currentDay = environment.currentMonotonicDay
+
+				if limits ~= nil then
+					if limits.restockRate == "daily" then
+						animal.availableStraws = math.min(
+							animal.availableStraws + limits.restockAmount,
+							limits.initialStock
+						)
+						animal.lastRestockDay = currentDay
+
+					elseif limits.restockRate == "weekly" then
+						if currentDay - animal.lastRestockDay >= 7 then
+							animal.availableStraws = math.min(
+								animal.availableStraws + limits.restockAmount,
+								limits.initialStock
+							)
+							animal.lastRestockDay = currentDay
+						end
+					end
+				end
+			end
 		end
 
 	end
@@ -1845,6 +2707,11 @@ function AnimalSystem.onClickResetDealer()
 
 	end
 
+	-- Broadcast new dealer state to all clients
+	g_server:broadcastEvent(AnimalSystemStateEvent.new(
+		animalSystem.countries, animalSystem.animals, animalSystem.aiAnimals
+	))
+
 end
 
 function AnimalSystem:getBreedsByAnimalTypeIndex(animalTypeIndex)
@@ -1958,23 +2825,69 @@ function AnimalSystem:createNewAIAnimal(animalTypeIndex)
 	:: number % 7) + 1
 	uniqueId = checkDigit .. uniqueId
 
+	-- Step 1: Assign bull tier based on farm quality
+	-- Higher quality farms produce better tier bulls
+	local baseTierProbabilities = subType.tierProbabilities or {
+		[BullTier.YOUNG_GENOMIC] = 0.50,
+		[BullTier.PROVEN] = 0.35,
+		[BullTier.ELITE] = 0.13,
+		[BullTier.LEGEND] = 0.02
+	}
 
-	local geneticsModifier = farmQuality * 1000
+	-- Adjust probabilities based on farm quality (quality ranges from ~1.35 to ~1.75)
+	-- Higher quality shifts probability toward better tiers
+	local qualityFactor = math.clamp((farmQuality - 1.35) / (1.75 - 1.35), 0, 1)  -- Normalize to [0, 1]
+
+	local tierProbabilities = {
+		[BullTier.YOUNG_GENOMIC] = baseTierProbabilities[BullTier.YOUNG_GENOMIC] * (1 - qualityFactor * 0.4),
+		[BullTier.PROVEN] = baseTierProbabilities[BullTier.PROVEN],
+		[BullTier.ELITE] = baseTierProbabilities[BullTier.ELITE] * (1 + qualityFactor * 1.5),
+		[BullTier.LEGEND] = baseTierProbabilities[BullTier.LEGEND] * (1 + qualityFactor * 3.0)
+	}
+
+	-- Normalize probabilities to sum to 1.0
+	local totalProb = 0
+	for _, prob in pairs(tierProbabilities) do
+		totalProb = totalProb + prob
+	end
+	for tier, prob in pairs(tierProbabilities) do
+		tierProbabilities[tier] = prob / totalProb
+	end
+
+	local bullTier = BullTier.PROVEN  -- Fallback default
+	local tierRoll = math.random()
+	local cumulative = 0
+	for tier = 1, 4 do
+		cumulative = cumulative + (tierProbabilities[tier] or 0)
+		if tierRoll <= cumulative then
+			bullTier = tier
+			break
+		end
+	end
+
+	-- Step 2: Generate genetics directly from tier ranges
+	local tierGeneticsRanges = {
+		[BullTier.YOUNG_GENOMIC] = { min = 1.0, max = 1.75 },
+		[BullTier.PROVEN] = { min = 1.0, max = 1.5 },
+		[BullTier.ELITE] = { min = 1.30, max = 1.6 },
+		[BullTier.LEGEND] = { min = 1.6, max = 1.75 }
+	}
+
+	local range = tierGeneticsRanges[bullTier]
 	local genetics = {
-		["metabolism"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
-		["quality"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
-		["fertility"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75),
-		["health"] = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75)
+		["metabolism"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max),
+		["quality"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max),
+		["fertility"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max),
+		["health"] = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max)
 	}
 
 	if animalTypeIndex == AnimalType.COW or animalTypeIndex == AnimalType.SHEEP or animalTypeIndex == AnimalType.CHICKEN then
-		genetics.productivity = math.clamp(math.random(geneticsModifier - 300, geneticsModifier + 300) / 1000, 1.15, 1.75)
+		genetics.productivity = math.clamp(math.random(range.min * 100, range.max * 100) / 100, range.min, range.max)
 	end
-
 
 	local name = g_currentMission.animalNameSystem:getRandomName("male")
 
-
+	-- Step 3: Create animal with tier-based genetics
 	local animal = Animal.new(age, math.clamp((math.random(650, 1000) / 10) * genetics.health, 75, 100), 0, "male", subTypeIndex, 0, false, false, false, nil, nil, nil, nil, nil, name, nil, nil, nil, nil, nil, genetics)
 
 	animal.farmId = tostring(farmId)
@@ -1991,8 +2904,25 @@ function AnimalSystem:createNewAIAnimal(animalTypeIndex)
 	animal.variation = variationIndex
 
 	animal.favouritedBy = {}
-	animal.success = math.clamp((math.random(35, 50) * genetics.fertility) / 100, 0.5, 1)
 	animal.isAIAnimal = true
+	animal.bullTier = bullTier
+
+	-- Step 4: Calculate success rate from FINAL genetics
+	-- Map fertility [1.3, 1.75] to success [~65%, ~100%] with small random variation
+	-- This ensures higher fertility always results in higher success rates
+	local normalizedFertility = math.clamp((genetics.fertility - 1.3) / (1.75 - 1.3), 0, 1)
+	local baseSuccess = 0.65 + (normalizedFertility * 0.35)
+	-- Add ±2.5% random variation to avoid identical success rates
+	local variation = 0.975 + (math.random() * 0.05)
+	animal.success = math.clamp(baseSuccess * variation, 0.5, 1)
+
+	-- Initialize stock tracking
+	local limits = BullTierStockLimits[animal.bullTier]
+	if limits ~= nil then
+		animal.availableStraws = limits.initialStock
+		animal.maxStrawsPerPurchase = limits.maxPerPurchase
+		animal.lastRestockDay = 0
+	end
 
 	return animal
 

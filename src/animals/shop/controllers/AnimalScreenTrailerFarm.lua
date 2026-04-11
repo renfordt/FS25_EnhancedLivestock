@@ -103,14 +103,6 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
 	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToFarm, self)
 	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(trailer, husbandry, self.sourceAnimals, "TARGET"))
 
-	if husbandry.addELMessage ~= nil then
-		if totalMovedAnimals == 1 then
-			husbandry:addELMessage("MOVED_ANIMALS_TARGET_SINGLE", nil, { trailer:getName() })
-		elseif totalMovedAnimals > 0 then
-			husbandry:addELMessage("MOVED_ANIMALS_TARGET_MULTIPLE", nil, { totalMovedAnimals, trailer:getName() })
-		end
-	end
-
 end
 
 function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
@@ -167,14 +159,6 @@ function AnimalScreenTrailerFarm:applyTargetBulk(animalTypeIndex, items)
 	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToTrailer, self)
 	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(husbandry, trailer, self.targetAnimals, "SOURCE"))
 
-	if husbandry.addELMessage ~= nil then
-		if totalMovedAnimals == 1 then
-			husbandry:addELMessage("MOVED_ANIMALS_SOURCE_SINGLE", nil, { trailer:getName() })
-		elseif totalMovedAnimals > 0 then
-			husbandry:addELMessage("MOVED_ANIMALS_SOURCE_MULTIPLE", nil, { totalMovedAnimals, trailer:getName() })
-		end
-	end
-
 end
 
 function EL_AnimalScreenTrailerFarm:applyTarget(_, _, animalIndex)
@@ -203,7 +187,7 @@ function EL_AnimalScreenTrailerFarm:applyTarget(_, _, animalIndex)
 
 	self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_TARGET, g_i18n:getText(AnimalScreenTrailerFarm.L10N_SYMBOL.MOVE_TO_TRAILER))
 	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToTrailer, self)
-	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(husbandry, trailer, self.targetAnimals))
+	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(husbandry, trailer, self.targetAnimals, "SOURCE"))
 
 	--clusterSystemHusbandry:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
 	--animal.id, animal.idFull = nil, nil
@@ -212,10 +196,6 @@ function EL_AnimalScreenTrailerFarm:applyTarget(_, _, animalIndex)
 	--table.remove(self.targetItems, animalIndex)
 
 	--self.targetActionFinished(false, g_i18n:getText(AnimalScreenTrailerFarm.MOVE_TO_TRAILER_ERROR_CODE_MAPPING[AnimalMoveEvent.MOVE_SUCCESS].text))
-
-	if husbandry.addELMessage ~= nil then
-		husbandry:addELMessage("MOVED_ANIMALS_SOURCE_SINGLE", nil, { trailer:getName() })
-	end
 
 	return true
 
@@ -250,7 +230,7 @@ function EL_AnimalScreenTrailerFarm:applySource(_, animalTypeIndex, animalIndex)
 
 	self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenTrailerFarm.L10N_SYMBOL.MOVE_TO_FARM))
 	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToFarm, self)
-	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(trailer, husbandry, self.sourceAnimals))
+	g_client:getServerConnection():sendEvent(AnimalMoveEvent.new(trailer, husbandry, self.sourceAnimals, "TARGET"))
 
 	--clusterSystemTrailer:removeCluster(animal.farmId .. " " .. animal.uniqueId .. " " .. animal.birthday.country)
 	--animal.id, animal.idFull = nil, nil
@@ -259,8 +239,6 @@ function EL_AnimalScreenTrailerFarm:applySource(_, animalTypeIndex, animalIndex)
 	--table.remove(sourceItems, animalIndex)
 
 	--self.sourceActionFinished(false, g_i18n:getText(AnimalScreenTrailerFarm.MOVE_TO_FARM_ERROR_CODE_MAPPING[AnimalMoveEvent.MOVE_SUCCESS].text))
-
-	--husbandry:addELMessage("MOVED_ANIMALS_TARGET_SINGLE", nil, { trailer:getName() }) -- ToDo: This causes an error due to missing function addELMessage
 
 	return true
 

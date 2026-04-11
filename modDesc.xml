@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>renfordt</author>
-    <version>1.1.4.0</version>
+    <version>1.2.0.0</version>
     <title>
         <en>Enhanced Livestock</en>
         <de>Verbesserter Viehbestand</de>
@@ -84,6 +84,28 @@ Enhanced Animal Dealer
 - Unique genetics - every animal has individual traits affecting price
 - Pregnant animals available - chance to purchase pregnant stock
 - Quality-based pricing - farm quality affects animal traits and cost
+
+Changelog 1.2.0.0:
+- Feature: Total overhaul of disease system - Total of 27 diseases
+- Feature: Overhaul of assisted breeding - Tier based sample selection and improved breeding mechanics
+- Feature: You can now sell breeding material from male animals
+- Feature: Added a nitrogen refill system for dewars
+- Feature: New nutrition system - nutrition based animal health and growth
+- Bug fix: Potential fix for milk production issues
+- Bug fix: Potential fix for disease issues
+- Bug fix: Multiplayer client unable to clean horses (by rittermod)
+- Bug fix: Black screen when multiplayer client tries to ride a horse (by rittermod)
+- Bug fix: Pregnancy event silently failing to match animals on client (by rittermod)
+- Bug fix: Stream corruption in AI auto-insemination event (by rittermod)
+- Bug fix: Server crash when client inseminates cow with straw (by rittermod)
+- Bug fix: Client-side error when buying semen in multiplayer (by rittermod)
+- Bug fix: AI dialog insemination blocked for cows that never gave birth (missing isParent guard) (by rittermod)
+- Bug fix: AI dialog insemination not syncing in multiplayer (by rittermod)
+- Bug fix: Error spam when dismounting horse outside pen in multiplayer (by rittermod)
+- Bug fix: Milk/wool/goat milk info not showing on dedicated server clients (by rittermod)
+- Bug fix: Resolve AnimalScreen keybinding conflicts and add menu integration (by rittermod)
+- Added Hungarian translation (by Toamsz93)
+- Added Spanish translation
 
 Changelog 1.1.4.0:
 - Fix bug in settings save mechanism
@@ -184,6 +206,26 @@ Verbesserter Tierhändler
 - Trächtige Tiere verfügbar - Chance auf Kauf trächtiger Tiere
 - Qualitätsbasierte Preise - Farmqualität beeinflusst Tiermerkmale und Kosten
 
+Changelog 1.2.0.0:
+- Feature: Komplette Überarbeitung des Krankheitssystems - Insgesamt 27 Krankheiten
+- Feature: Überarbeitung der assistierten Zucht - Stufenbasierte Probenauswahl und verbesserte Zuchtmechaniken
+- Feature: Man kann nun Zuchtmaterial von männlichen Tieren verkaufen
+- Feature: Ein Stickstoff-Nachfüllsystem für Dewargefäße wurde hinzugefügt
+- Feature: Neues Ernährungssystem - ernährungsbasierte Tiergesundheit und Wachstum
+- Bugfix: Mögliche Lösung für Probleme bei der Milchproduktion
+- Bugfix: Mögliche Lösung für Probleme mit Krankheiten
+- Bugfix: Multiplayer-Client konnte Pferde nicht putzen (von rittermod)
+- Bugfix: Schwarzer Bildschirm, wenn der Multiplayer-Client versucht, ein Pferd zu reiten (von rittermod)
+- Bugfix: Trächtigkeits-Event schlug auf dem Client beim Zuordnen von Tieren stillschweigend fehl (von rittermod)
+- Bugfix: Stream-Korruption beim Event zur automatischen künstlichen Besamung (von rittermod)
+- Bugfix: Serverabsturz, wenn der Client eine Kuh mit einer Paillette besamt (von rittermod)
+- Bugfix: Clientseitiger Fehler beim Kauf von Sperma im Multiplayer (von rittermod)
+- Bugfix: Dialog zur künstlichen Besamung blockiert für Kühe, die noch nie gekalbt haben (fehlende isParent-Prüfung) (von rittermod)
+- Bugfix: Dialog zur künstlichen Besamung synchronisierte sich nicht im Multiplayer (von rittermod)
+- Bugfix: Fehler-Spam beim Absteigen vom Pferd außerhalb des Geheges im Multiplayer (von rittermod)
+- Hinzugefügt: Ungarische Übersetzung (von Toamsz93)
+- Hinzugefügt: Spanische Übersetzung
+
 Changelog 1.1.4.0:
 - Fehler beim Speichern der Einstellungen behoben
 - Chinesische Übersetzung hinzugefügt
@@ -283,6 +325,26 @@ Marchand d'animaux ameliore
 - Animaux gestants disponibles - chance d'acheter du betail gestant
 - Prix bases sur la qualite - la qualite de la ferme affecte les traits et le cout des animaux
 
+Changelog 1.2.0.0:
+- Fonctionnalité : Refonte totale du système de maladies - Total de 27 maladies
+- Fonctionnalité : Refonte de la reproduction assistée - Sélection d'échantillons par niveau (tier) et mécaniques de reproduction améliorées
+- Fonctionnalité : Vous pouvez désormais vendre du matériel de reproduction provenant d'animaux mâles
+- Fonctionnalité : Ajout d'un système de recharge d'azote pour les vases Dewar
+- Fonctionnalité : Nouveau système de nutrition - santé et croissance des animaux basées sur la nutrition
+- Correction de bug : Correction potentielle des problèmes de production de lait
+- Correction de bug : Correction potentielle des problèmes liés aux maladies
+- Correction de bug : Impossible pour le client multijoueur de nettoyer les chevaux (par rittermod)
+- Correction de bug : Écran noir lorsque le client multijoueur essaie de monter à cheval (par rittermod)
+- Correction de bug : L'événement de gestation échouait silencieusement à associer les animaux sur le client (par rittermod)
+- Correction de bug : Corruption de flux dans l'événement d'auto-insémination artificielle (par rittermod)
+- Correction de bug : Plantage du serveur lorsque le client insémine une vache avec une paillette (par rittermod)
+- Correction de bug : Erreur côté client lors de l'achat de semence en multijoueur (par rittermod)
+- Correction de bug : La boîte de dialogue d'insémination artificielle était bloquée pour les vaches n'ayant jamais vêlé (protection isParent manquante) (par rittermod)
+- Correction de bug : La boîte de dialogue d'insémination artificielle ne se synchronisait pas en multijoueur (par rittermod)
+- Correction de bug : Spam d'erreurs lors de la descente de cheval en dehors de l'enclos en multijoueur (par rittermod)
+- Ajout : Traduction hongroise (par Toamsz93)
+- Ajout : Traduction espagnole
+
 Changelog 1.1.4.0:
 - Bug de sauvegarde des paramètres résolu
 - Traduction en chinois ajoutée
@@ -315,9 +377,45 @@ Changelog 1.1.0.0:
         <actionBinding action="VisualAnimalsDialog">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_t"/>
         </actionBinding>
+        <actionBinding action="EL_RefillDewarNitrogen">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_r"/>
+        </actionBinding>
+        <actionBinding action="EL_OPEN_ANIMAL_SCREEN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_r" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_MARK">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_x" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_MONITOR">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_m" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_AI">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_i" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_CASTRATE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_c" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_DISEASES">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_d" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_SELECT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_a" index="1"/>
+        </actionBinding>
+        <actionBinding action="EL_SELL_SEMEN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_p" index="1"/>
+        </actionBinding>
     </inputBinding>
     <actions>
         <action name="VisualAnimalsDialog"/>
+        <action name="EL_RefillDewarNitrogen"/>
+        <action name="EL_OPEN_ANIMAL_SCREEN"/>
+        <action name="EL_MARK"/>
+        <action name="EL_MONITOR"/>
+        <action name="EL_AI"/>
+        <action name="EL_CASTRATE"/>
+        <action name="EL_DISEASES"/>
+        <action name="EL_SELECT"/>
+        <action name="EL_SELL_SEMEN"/>
     </actions>
     <helpLines>
         <category title="$l10n_el_settings">

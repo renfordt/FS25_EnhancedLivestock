@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<bridgeMetadata version="1">
+    <!--
+        Enhanced Livestock Bridge Metadata Template
+
+        Copy this file to your bridge directory as "metadata.xml" and customize the values.
+        See mod_support/template/README.md for full documentation.
+    -->
+
+    <!-- Mod Identification -->
+    <mod name="FS25_YourModName"
+         priority="10"
+         author="Your Name" />
+    <!--
+        name: Exact mod name as it appears in g_modIsLoaded
+        priority: Higher priority loads first (default: 0)
+        author: Your name or team name
+    -->
+
+    <!-- Loading Mode -->
+    <loading mode="merge">
+        <!-- merge: Merge with EL base animals and override vanilla animals -->
+        <!-- replace: Replace ALL EL base animals entirely (rarely needed) -->
+        <!-- extend: Add new species only, don't touch existing animals -->
+    </loading>
+
+    <!-- Optional: Override Region/Area Code -->
+    <region areaCode="0" />
+    <!--
+        Area codes for animal identification:
+        0 = USA (default)
+        1 = Europe
+        2 = Asia
+        3 = Australia
+        4 = Africa
+        5 = South America
+        6 = Germany
+        7 = France
+        8-15 = Reserved for future use
+    -->
+
+    <!-- Resource Files -->
+    <resources>
+        <!-- Fill Types: Define animal fill types (required if adding new species) -->
+        <fillTypes path="fillTypes.xml" />
+        <!-- Can reference external mod files using $moddir$ syntax: -->
+        <!-- <fillTypes path="$moddir$FS25_ExternalMod/xmls/fillTypes.xml" /> -->
+
+        <!-- Animals: Define animal types and subtypes (required) -->
+        <animals path="animals.xml" />
+
+        <!-- Nutrition: Custom nutrition profiles (optional) -->
+        <nutrition path="nutrition.xml" optional="true" />
+
+        <!-- Translations: Localized strings (optional) -->
+        <translations path="translations/translation_{LANG}.xml" optional="true" />
+        <!-- {LANG} will be replaced with the current language code (en, de, fr, etc.) -->
+    </resources>
+
+    <!-- Feature Flags -->
+    <features>
+        <!-- Generate default weights from navMesh if missing -->
+        <weight generateDefaults="true" />
+
+        <!-- Generate balanced genetics if missing -->
+        <genetics generateDefaults="true" />
+
+        <!-- Use EL's nutrition system with fallback to similar species -->
+        <nutrition useGlobalDefaults="true" />
+    </features>
+
+    <!-- Default Generation Settings -->
+    <defaults>
+        <!-- Weight generation formula -->
+        <weight formula="navmesh" densityFactor="300" />
+        <!--
+            formula: "navmesh" (only option currently)
+            densityFactor: kg/m³ approximation (default: 300)
+                - Smaller animals: 200-250
+                - Medium animals: 300-400
+                - Large animals: 500-700
+        -->
+    </defaults>
+</bridgeMetadata>

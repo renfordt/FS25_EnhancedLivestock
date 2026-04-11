@@ -264,6 +264,39 @@ end
 
 AnimalScreenDealer.getSourcePrice = Utils.overwrittenFunction(AnimalScreenDealer.getSourcePrice, EL_AnimalScreenDealer.getSourcePrice)
 
+function EL_AnimalScreenDealer:getTargetPrice(_, _, animalIndex, _)
+
+	local item = self.targetItems[animalIndex]
+
+	if item ~= nil then
+
+		local price = item:getPrice()
+		local transportationFee = -item:getTranportationFee(1)
+		return true, price, transportationFee, price + transportationFee
+
+	end
+
+	return false, 0, 0, 0
+
+end
+
+AnimalScreenDealer.getTargetPrice = Utils.overwrittenFunction(AnimalScreenDealer.getTargetPrice, EL_AnimalScreenDealer.getTargetPrice)
+
+
+function EL_AnimalScreenDealer:getTargetMaxNumAnimals(_, animalIndex)
+
+	local item = self.targetItems[animalIndex]
+
+	if item ~= nil then
+		return item:getNumAnimals()
+	end
+
+	return 0
+
+end
+
+AnimalScreenDealer.getTargetMaxNumAnimals = Utils.overwrittenFunction(AnimalScreenDealer.getTargetMaxNumAnimals, EL_AnimalScreenDealer.getTargetMaxNumAnimals)
+
 function AnimalScreenDealer:applySourceBulk(animalTypeIndex, items)
 
 	if self.husbandry == nil then
@@ -282,6 +315,7 @@ function AnimalScreenDealer:applySourceBulk(animalTypeIndex, items)
 	local totalPrice = 0
 	local totalTransportPrice = 0
 	local totalBoughtAnimals = 0
+	local lastErrorCode = nil
 
 	for _, item in pairs(items) do
 
@@ -295,6 +329,7 @@ function AnimalScreenDealer:applySourceBulk(animalTypeIndex, items)
 			local errorCode = AnimalBuyEvent.validate(husbandry, animal.subTypeIndex, animal.age, 1, price, transportationFee, ownerFarmId)
 
 			if errorCode ~= nil then
+				lastErrorCode = errorCode
 				continue
 			end
 
@@ -304,24 +339,17 @@ function AnimalScreenDealer:applySourceBulk(animalTypeIndex, items)
 
 			table.insert(self.sourceAnimals, animal)
 
-		--clusterSystem:addCluster(animal)
-		--g_currentMission.animalSystem:removeSaleAnimal(animalTypeIndex, animal.birthday.country, animal.farmId, animal.uniqueId)
-		--table.insert(indexesToRemove, item)
-		--table.insert(indexesToReturn, item)
-
 		end
 
 	end
 
-	--table.sort(indexesToRemove)
-
-	--for i = #indexesToRemove, 1, -1 do table.remove(sourceItems, indexesToRemove[i]) end
-
-	--self.sourceItems[animalTypeIndex] = sourceItems
-
-	--g_currentMission:addMoney(totalPrice, ownerFarmId, MoneyType.NEW_ANIMALS_COST, true, true)
-
-	--self.sourceBulkActionFinished(nil, string.format(g_i18n:getText("el_ui_buyBulkResult"), totalBoughtAnimals, g_i18n:formatMoney(math.abs(totalPrice), 2, true, true)), indexesToReturn)
+	if #self.sourceAnimals == 0 then
+		if lastErrorCode ~= nil then
+			local error = AnimalScreenDealerFarm.BUY_ERROR_CODE_MAPPING[lastErrorCode]
+			self.errorCallback(g_i18n:getText(error.text))
+		end
+		return
+	end
 
 	self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenDealerFarm.L10N_SYMBOL.BUYING))
 	g_messageCenter:subscribe(AnimalBuyEvent, self.onAnimalBought, self)

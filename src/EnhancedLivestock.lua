@@ -37,29 +37,42 @@ EnhancedLivestock.MARKS = {
 }
 
 EnhancedLivestock.MAP_TO_AREA_CODE = {
+	-- UK
+	["Riverview"] = 1,
+	["Oak Bridge Farm"] = 1,
+	["Calmsden Farm"] = 1,
+	-- US
 	["Riverbend Springs"] = 2,
+	["Frankenmuth Farming Map"] = 2,
+	["Alma, Missouri"] = 2,
+	["Michigan Map"] = 2,
+	-- China
 	["Hutan Pantai"] = 3,
+	-- France
+	["Pallegney"] = 4,
+	-- Poland
 	["Zielonka"] = 5,
 	["Zacieczki"] = 5,
 	["Szpakowo"] = 5,
-	["Pallegney"] = 4,
-	["Oberschwaben"] = 6,
 	["Starowies"] = 5,
 	["Lipinki"] = 5,
+	["Sobolewo"] = 5,
+	["HermannsHausen"] = 5,
+	-- Germany
+	["Oberschwaben"] = 6,
+	["Münsinger Alb"] = 6,
+	["Klattenhof"] = 6,
+	["Pfraunstetten"] = 6,
 	["Rhönplateu"] = 6,
 	["Schwesing Bahnhof"] = 6,
-	["Riverview"] = 1,
-	["Sobolewo"] = 5,
-	["Tässi Farm"] = 8,
-	["HORSCH AgroVation"] = 10,
 	["New Bartelshagenn"] = 6,
-	["HermannsHausen"] = 5,
-	["Oak Bridge Farm"] = 1,
-	["Calmsden Farm"] = 1,
-	["Frankenmuth Farming Map"] = 2,
 	["North Frisian 25"] = 6,
-	["Alma, Missouri"] = 2,
-	["Michigan Map"] = 2
+	["Garbindel"] = 6,
+	["HOF BERGMANN"] = 6,
+	-- Estonia
+	["Tässi Farm"] = 8,
+	-- Czech Republic
+	["HORSCH AgroVation"] = 10,
 }
 
 EnhancedLivestock.AREA_CODES = {
@@ -202,11 +215,18 @@ FinanceStats.statNameToIndex["medicine"] = #FinanceStats.statNames
 function EnhancedLivestock.loadMap()
 
 	EnhancedLivestock.mapAreaCode = EnhancedLivestock.MAP_TO_AREA_CODE[g_currentMission.missionInfo.mapTitle] or 1
-	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "rlHelpIcons")
+	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "elHelpIcons")
 	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/icons.xml", "enhanced_livestock")
 	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/fileTypeIcons.xml", "fileTypeIcons")
+	g_overlayManager:addTextureConfigFile(modDirectory .. "gui/menu_icons.xml", "el_menu")
 	g_elConsoleCommandManager = ELConsoleCommandManager.new()
 	g_diseaseManager = DiseaseManager.new()
+
+	g_nutritionManager = NutritionManager.new()
+	g_nutritionManager:loadFromXML(modDirectory .. "xml/nutrition.xml")
+
+	-- Subscribe DewarManager to day changed event for nitrogen degradation
+	g_messageCenter:subscribe(MessageType.DAY_CHANGED, g_dewarManager.onDayChanged, g_dewarManager)
 
 	MoneyType.HERDSMAN_WAGES = MoneyType.register("herdsmanWages", "el_ui_herdsmanWages")
 	MoneyType.LAST_ID = MoneyType.LAST_ID + 1
@@ -215,6 +235,9 @@ function EnhancedLivestock.loadMap()
 	MoneyType.LAST_ID = MoneyType.LAST_ID + 1
 
 	MoneyType.MEDICINE = MoneyType.register("medicine", "el_ui_medicine")
+	MoneyType.LAST_ID = MoneyType.LAST_ID + 1
+
+	MoneyType.SEMEN_SALE = MoneyType.register("semenSale", "el_ui_semenSale")
 	MoneyType.LAST_ID = MoneyType.LAST_ID + 1
 
 	-- Initialize EPP butcher integration (for mods like FS25_Meat_Production)
@@ -1076,7 +1099,11 @@ function EnhancedLivestock.hasMaleAnimalInPen(spec, subT, female)
 	end
 
 	local clusterSystem = spec.clusterSystem or spec
-	if clusterSystem == nil or clusterSystem.getAnimals == nil or clusterSystem:getAnimals() == nil or female.genetics.fertility <= 0 then
+	if clusterSystem == nil or clusterSystem.getAnimals == nil or clusterSystem:getAnimals() == nil then
+		return false
+	end
+
+	if female ~= nil and female.genetics.fertility <= 0 then
 		return false
 	end
 
@@ -1101,14 +1128,14 @@ function EnhancedLivestock.hasMaleAnimalInPen(spec, subT, female)
 		end
 
 		if subT == "COW_WATERBUFFALO" then
-			if s.name == "BULL_WATERBUFFALO" and animal.age < 132 then
+			if (s.name == "BULL_WATERBUFFALO" or s.name == "BULL_WATERBUFFALO_EL") and animal.age < 132 then
 				return true
 			end
 		elseif subT == "GOAT" then
 			if s.name == "RAM_GOAT" and animal.age < 72 then
 				return true
 			end
-		elseif s.name ~= "RAM_GOAT" and s.name ~= "BULL_WATERBUFFALO" then
+		elseif s.name ~= "RAM_GOAT" and s.name ~= "BULL_WATERBUFFALO" and s.name ~= "BULL_WATERBUFFALO_EL" then
 			if animal.gender == "male" and ((animalType == AnimalType.COW and animal.age < 132) or (animalType == AnimalType.SHEEP and animal.age < 72) or (animalType == AnimalType.HORSE and animal.age < 300) or animalType == AnimalType.CHICKEN or (animalType == AnimalType.PIG and animal.age < 48)) then
 				return true
 			end

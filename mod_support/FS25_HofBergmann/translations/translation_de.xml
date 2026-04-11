@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+    <texts>
+        <!-- Fill types for bridge-added male subtypes -->
+        <text name="fillType_drake" text="Erpel"/>
+        <text name="fillType_gander" text="Gänserich"/>
+        <text name="fillType_tomcat" text="Kater"/>
+        <text name="fillType_rabbitMale" text="Rammler"/>
+
+        <!-- Animal visual names and descriptions -->
+        <text name="shopItem_animalDrakeGrowthStage0" text="Entenküken (männlich)"/>
+        <text name="shopItem_animalDrakeGrowthStage1" text="Erpel"/>
+        <text name="animal_drakeGrowthStage0Description" text="Eine junge männliche Ente."/>
+        <text name="animal_drakeGrowthStage1Description" text="Ein ausgewachsener Erpel. Erpel, die gesund und älter als 6 Monate sind, können sich fortpflanzen."/>
+
+        <text name="shopItem_animalGanderGrowthStage0" text="Junger Gänserich"/>
+        <text name="shopItem_animalGanderGrowthStage1" text="Gänserich"/>
+        <text name="animal_descriptionGanderProfitGrowthStage0" text="Eine junge männliche Gans."/>
+        <text name="animal_descriptionGanderProfitGrowthStage1" text="Ein ausgewachsener Gänserich. Gänseriche, die gesund und älter als 10 Monate sind, können sich fortpflanzen."/>
+
+        <text name="shopItem_animalTomcatGrowthStage0" text="Männliches Kätzchen"/>
+        <text name="shopItem_animalTomcatTigerGrowthStage1" text="Kater Tiger"/>
+        <text name="shopItem_animalTomcatBWGrowthStage1" text="Kater Schwarz-Weiß"/>
+        <text name="shopItem_animalTomcatBlackGrowthStage1" text="Kater Schwarz"/>
+        <text name="shopItem_animalTomcatGreyGrowthStage1" text="Kater Grau"/>
+        <text name="shopItem_animalTomcatRedGrowthStage1" text="Kater Rot"/>
+        <text name="shopItem_animalTomcatWhiteGrowthStage1" text="Kater Weiß"/>
+
+        <text name="animal_tomcatGrowthStage0Description" text="Eine junge männliche Katze."/>
+        <text name="animal_tomcatGrowthStage1Description" text="Ein ausgewachsener Kater. Kater, die gesund und älter als 8 Monate sind, können sich fortpflanzen."/>
+    </texts>
+</l10n>

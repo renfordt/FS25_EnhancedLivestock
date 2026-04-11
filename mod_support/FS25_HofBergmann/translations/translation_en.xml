@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+    <texts>
+        <!-- Fill types for bridge-added male subtypes -->
+        <text name="fillType_drake" text="Drake"/>
+        <text name="fillType_gander" text="Gander"/>
+        <text name="fillType_tomcat" text="Tomcat"/>
+        <text name="fillType_rabbitMale" text="Buck"/>
+
+        <!-- Animal visual names and descriptions -->
+        <text name="shopItem_animalDrakeGrowthStage0" text="Drake Duckling"/>
+        <text name="shopItem_animalDrakeGrowthStage1" text="Drake"/>
+        <text name="animal_drakeGrowthStage0Description" text="A young male duck."/>
+        <text name="animal_drakeGrowthStage1Description" text="An adult drake. Drakes that are healthy and older than 6 months can reproduce."/>
+
+        <text name="shopItem_animalGanderGrowthStage0" text="Young Gander"/>
+        <text name="shopItem_animalGanderGrowthStage1" text="Gander"/>
+        <text name="animal_descriptionGanderProfitGrowthStage0" text="A young male goose."/>
+        <text name="animal_descriptionGanderProfitGrowthStage1" text="An adult gander. Ganders that are healthy and older than 10 months can reproduce."/>
+
+        <text name="shopItem_animalTomcatGrowthStage0" text="Male Kitten"/>
+        <text name="shopItem_animalTomcatTigerGrowthStage1" text="Tomcat Tiger"/>
+        <text name="shopItem_animalTomcatBWGrowthStage1" text="Tomcat Black White"/>
+        <text name="shopItem_animalTomcatBlackGrowthStage1" text="Tomcat Black"/>
+        <text name="shopItem_animalTomcatGreyGrowthStage1" text="Tomcat Grey"/>
+        <text name="shopItem_animalTomcatRedGrowthStage1" text="Tomcat Red"/>
+        <text name="shopItem_animalTomcatWhiteGrowthStage1" text="Tomcat White"/>
+
+        <text name="animal_tomcatGrowthStage0Description" text="A young male cat."/>
+        <text name="animal_tomcatGrowthStage1Description" text="An adult tomcat. Tomcats that are healthy and older than 8 months can reproduce."/>
+    </texts>
+</l10n>

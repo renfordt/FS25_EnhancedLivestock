@@ -145,7 +145,7 @@ function EnhancedLivestock_PlayerHUDUpdater:showAnimalInfo(animal)
 	local box = self.diseaseBox
 	box:clear()
 
-	if animal.diseases ~= nil and #animal.diseases > 0 and g_diseaseManager.diseasesEnabled then
+	if animal.diseases ~= nil and #animal.diseases > 0 and g_diseaseManager ~= nil and g_diseaseManager.diseasesEnabled then
 		box:setTitle(g_i18n:getText("el_diseases"))
 		animal:showDiseasesInfo(box)
 		box:showNextFrame()

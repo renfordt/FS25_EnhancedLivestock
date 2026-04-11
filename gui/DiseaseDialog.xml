@@ -33,7 +33,13 @@
 			<ThreePartBitmap profile="el_sliderBox" position="40px -45px">
 				<Slider profile="fs25_listSlider" dataElementId="diseaseList"/>
 			</ThreePartBitmap>
-			
+
+			<GuiElement profile="el_infoBoxContainer" position="15px -405px" width="820px" height="100px">
+				<ThreePartBitmap profile="fs25_boxLight"/>
+				<Text profile="el_infoBoxTitle" position="10px 5px" text="$l10n_el_ui_description" id="descriptionTitle"/>
+				<Text profile="el_infoBoxText" position="10px 30px" width="800px" height="65px" id="descriptionText"/>
+			</GuiElement>
+
 		</GuiElement>
 		
 		<BoxLayout profile="fs25_dialogButtonBox" id="buttonsPC">

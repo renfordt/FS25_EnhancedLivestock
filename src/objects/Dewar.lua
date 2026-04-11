@@ -3,6 +3,13 @@ Dewar = {}
 Dewar.CAPACITY = 1000
 Dewar.PRICE_PER_STRAW = 0.85
 
+-- Semen Type System
+SemenType = {
+	CONVENTIONAL = 1,
+	SEXED_FEMALE = 2,
+	SEXED_MALE = 3
+}
+
 local dewar_mt = Class(Dewar, PhysicsObject)
 local modDirectory = g_currentModDirectory
 
@@ -19,6 +26,16 @@ function Dewar.new(isServer, isClient)
 	self.mass = 0.1
 	self.isAddedToItemSystem = false
 	self.straws = 0
+
+	-- Semen type properties
+	self.semenType = SemenType.CONVENTIONAL
+	self.fertilityModifier = 1.0
+
+	-- Nitrogen level tracking
+	self.nitrogenLevel = 100  -- Percentage (0-100)
+	self.nitrogenCapacity = 100
+	self.degradationRate = 1.0  -- % per day
+	self.lastUpdateDay = 0
 
 	self.texts = {}
 
@@ -45,7 +62,9 @@ end
 
 function Dewar:register(position, rotation, animal, quantity)
 
---if self.isServer then Dewar:superClass().register(self, true) end
+	if self.uniqueId == nil then
+		self.uniqueId = string.format("dw_%d_%d", g_currentMission.environment.currentMonotonicDay, math.random(100000, 999999))
+	end
 
 	self.position = self.position or position
 	self.rotation = self.rotation or rotation
@@ -55,19 +74,10 @@ function Dewar:register(position, rotation, animal, quantity)
 		self:createNode(modDirectory .. "objects/dewar/dewar.i3d")
 	end
 
-	local x, y, z = unpack(self.position)
-	local rx, ry, rz = unpack(self.rotation)
+	setWorldTranslation(self.nodeId, unpack(self.position))
+	setWorldRotation(self.nodeId, unpack(self.rotation))
 
-	local node = self.nodeId
-	link(getRootNode(), node)
-	setWorldTranslation(node, unpack(self.position))
-	setWorldRotation(node, unpack(self.rotation))
-
-	local sx, sy, sz = getWorldTranslation(self.shapeNode)
-	local srx, sry, srz = getWorldRotation(self.shapeNode)
-
-	self.ox, self.oy, self.oz = x - sx, y - sy, z - sz
-	self.orx, self.ory, self.orz = rx - srx, ry - sry, rz - srz
+	Dewar:superClass().register(self, true)
 
 	if not self.isAddedToItemSystem then
 		g_currentMission.itemSystem:addItem(self)
@@ -86,24 +96,34 @@ function Dewar:register(position, rotation, animal, quantity)
 	self:updateStrawVisuals()
 	self:updateAnimalVisuals()
 
---if g_server ~= nil then
---g_server:addObject(self, string.format("dewar_%s", self.uniqueId))
---elseif g_client ~= nil then
---g_client:addObject(self, string.format("dewar_%s", self.uniqueId))
---end
-
 end
 
 function Dewar:saveToXMLFile(xmlFile, key)
 
-	local x, y, z = getWorldTranslation(self.shapeNode)
-	local rx, ry, rz = getWorldRotation(self.shapeNode)
+	local x, y, z = getWorldTranslation(self.nodeId)
+	local rx, ry, rz = getWorldRotation(self.nodeId)
 
 	xmlFile:setString(key .. "#uniqueId", self.uniqueId)
-	xmlFile:setVector(key .. "#position", table.pack(x + self.ox, y + self.oy, z + self.oz))
-	xmlFile:setVector(key .. "#rotation", table.pack(rx + self.orx, ry + self.ory, rz + self.orz))
+	xmlFile:setVector(key .. "#position", table.pack(x, y, z))
+	xmlFile:setVector(key .. "#rotation", table.pack(rx, ry, rz))
 	xmlFile:setInt(key .. "#farmId", self:getOwnerFarmId())
 	xmlFile:setInt(key .. "#straws", self.straws)
+
+	-- Save semen type data
+	if self.semenType ~= nil then
+		xmlFile:setInt(key .. "#semenType", self.semenType)
+	end
+	if self.fertilityModifier ~= nil then
+		xmlFile:setFloat(key .. "#fertilityModifier", self.fertilityModifier)
+	end
+
+	-- Save nitrogen data
+	if self.nitrogenLevel ~= nil then
+		xmlFile:setFloat(key .. "#nitrogenLevel", self.nitrogenLevel)
+	end
+	if self.lastUpdateDay ~= nil then
+		xmlFile:setInt(key .. "#lastUpdateDay", self.lastUpdateDay)
+	end
 
 	local animalKey = key .. ".animal"
 	local animal = self.animal
@@ -132,6 +152,14 @@ function Dewar:loadFromXMLFile(xmlFile, key)
 	self.rotation = xmlFile:getVector(key .. "#rotation")
 	self:setOwnerFarmId(xmlFile:getInt(key .. "#farmId"))
 	self.straws = xmlFile:getInt(key .. "#straws")
+
+	-- Load semen type data
+	self.semenType = xmlFile:getInt(key .. "#semenType", SemenType.CONVENTIONAL)
+	self.fertilityModifier = xmlFile:getFloat(key .. "#fertilityModifier", 1.0)
+
+	-- Load nitrogen data
+	self.nitrogenLevel = xmlFile:getFloat(key .. "#nitrogenLevel", 100)
+	self.lastUpdateDay = xmlFile:getInt(key .. "#lastUpdateDay", 0)
 
 	local animalKey = key .. ".animal"
 
@@ -213,21 +241,33 @@ function Dewar:readStream(streamId, connection)
 
 	self.animal = animal
 
+	self.semenType = streamReadUInt8(streamId)
+	self.fertilityModifier = streamReadFloat32(streamId)
+	self.nitrogenLevel = streamReadFloat32(streamId)
+	self.lastUpdateDay = streamReadInt32(streamId)
+
+	if self.nodeId == nil or self.nodeId == 0 then
+		self:createNode(modDirectory .. "objects/dewar/dewar.i3d")
+	end
+
 	Dewar:superClass().readStream(self, streamId, connection)
 
 end
 
 function Dewar:writeStream(streamId, connection)
 
-	streamWriteString(streamId, self.uniqueId)
+	streamWriteString(streamId, self.uniqueId or "")
 
-	streamWriteFloat32(streamId, self.position[1])
-	streamWriteFloat32(streamId, self.position[2])
-	streamWriteFloat32(streamId, self.position[3])
+	local x, y, z = getWorldTranslation(self.nodeId)
+	local rx, ry, rz = getWorldRotation(self.nodeId)
 
-	streamWriteFloat32(streamId, self.rotation[1])
-	streamWriteFloat32(streamId, self.rotation[2])
-	streamWriteFloat32(streamId, self.rotation[3])
+	streamWriteFloat32(streamId, x)
+	streamWriteFloat32(streamId, y)
+	streamWriteFloat32(streamId, z)
+
+	streamWriteFloat32(streamId, rx)
+	streamWriteFloat32(streamId, ry)
+	streamWriteFloat32(streamId, rz)
 
 	streamWriteUInt8(streamId, self:getOwnerFarmId())
 	streamWriteUInt16(streamId, self.straws)
@@ -254,21 +294,28 @@ function Dewar:writeStream(streamId, connection)
 
 	end
 
+	streamWriteUInt8(streamId, self.semenType or SemenType.CONVENTIONAL)
+	streamWriteFloat32(streamId, self.fertilityModifier or 1.0)
+	streamWriteFloat32(streamId, self.nitrogenLevel or 100)
+	streamWriteInt32(streamId, self.lastUpdateDay or 0)
+
 	Dewar:superClass().writeStream(self, streamId, connection)
 
 end
 
 function Dewar:createNode(filename)
 
-	local node, sharedRequestId = g_i3DManager:loadSharedI3DFile(filename, true, true, true)
-	setVisibility(node, true)
+	local root, sharedRequestId = g_i3DManager:loadSharedI3DFile(filename, false, false)
 
 	self.sharedRequestId = sharedRequestId
-	self:setNodeId(node)
 
-	local shapeNode = getChildAt(node, 0)
-	setMass(shapeNode, self.mass)
-	self.shapeNode = shapeNode
+	local node = getChildAt(root, 0)
+	link(getRootNode(), node)
+	delete(root)
+
+	self:setNodeId(node)
+	self.shapeNode = node
+	setMass(node, self.mass)
 
 end
 
@@ -330,6 +377,22 @@ function Dewar:showInfo(box)
 	box:addLine(g_i18n:getText("infohud_name"), animal.name)
 	box:addLine(g_i18n:getText("el_ui_earTag"), string.format("%s %s %s", EnhancedLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId))
 
+	-- Display nitrogen level with color-coding
+	if self.nitrogenLevel ~= nil then
+		local nitrogenText = string.format("%d%%", math.floor(self.nitrogenLevel))
+		local isWarning = self.nitrogenLevel < 20
+
+		if isWarning then
+			box:addLine(g_i18n:getText("el_ui_nitrogenLevel"), nitrogenText, true)
+
+			if self.nitrogenLevel < 5 then
+				box:addLine(g_i18n:getText("el_warning_criticalNitrogen"), "", true)
+			end
+		else
+			box:addLine(g_i18n:getText("el_ui_nitrogenLevel"), nitrogenText)
+		end
+	end
+
 	for type, value in pairs(animal.genetics) do
 
 		local valueText
@@ -352,6 +415,76 @@ function Dewar:showInfo(box)
 
 		box:addLine(g_i18n:getText("el_ui_" .. type), g_i18n:getText("el_ui_genetics_" .. valueText))
 
+	end
+
+end
+
+function Dewar:refillNitrogen()
+
+	local refillCost = 50  -- $50 per refill
+	local farmId = self:getOwnerFarmId()
+
+	-- Check if already full
+	if self.nitrogenLevel >= self.nitrogenCapacity then
+		g_currentMission:addIngameNotification(
+			FSBaseMission.INGAME_NOTIFICATION_INFO,
+			g_i18n:getText("el_info_nitrogenAlreadyFull")
+		)
+		return false
+	end
+
+	-- Check funds
+	local farm = g_farmManager:getFarmById(farmId)
+	if farm == nil or farm:getBalance() < refillCost then
+		g_currentMission:addIngameNotification(
+			FSBaseMission.INGAME_NOTIFICATION_CRITICAL,
+			g_i18n:getText("el_error_insufficientFunds")
+		)
+		return false
+	end
+
+	g_currentMission:addMoney(-refillCost, farmId, MoneyType.SEMEN_PURCHASE, true, false)
+
+	-- Refill nitrogen
+	self.nitrogenLevel = self.nitrogenCapacity
+	self.lastUpdateDay = g_currentMission.environment.currentMonotonicDay
+
+	-- Show confirmation
+	g_currentMission:addIngameNotification(
+		FSBaseMission.INGAME_NOTIFICATION_OK,
+		string.format(
+			g_i18n:getText("el_notification_nitrogenRefilled"),
+			g_i18n:formatMoney(refillCost)
+		)
+	)
+
+	-- Broadcast event for multiplayer
+	if g_server ~= nil then
+		g_server:broadcastEvent(DewarNitrogenRefillEvent.new(self))
+	else
+		g_client:getServerConnection():sendEvent(DewarNitrogenRefillEvent.new(self))
+	end
+
+	return true
+
+end
+
+function Dewar:getInteractionHelp()
+
+	-- Show refill prompt if nitrogen is not full
+	if self.nitrogenLevel ~= nil and self.nitrogenLevel < self.nitrogenCapacity then
+		return g_i18n:getText("el_action_refillNitrogen")
+	end
+
+	return nil
+
+end
+
+function Dewar:onInteraction(player)
+
+	-- Refill nitrogen when player interacts
+	if self.nitrogenLevel ~= nil and self.nitrogenLevel < self.nitrogenCapacity then
+		self:refillNitrogen()
 	end
 
 end

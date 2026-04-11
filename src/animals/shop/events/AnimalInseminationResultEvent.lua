@@ -42,22 +42,4 @@ end
 
 function AnimalInseminationResultEvent:run(connection)
 
-	if g_server ~= nil and not g_server.netIsRunning then
-		return
-	end
-
-	local clusterSystem = self.object:getClusterSystem()
-	local identifiers = self.animal
-
-	for _, animal in pairs(clusterSystem.animals) do
-
-		if animal.farmId == identifiers.farmId and animal.uniqueId == identifiers.uniqueId and animal.birthday.country == (identifiers.country or identifiers.birthday.country) then
-
-			animal:addELMessage(string.format("INSEMINATION_%s", self.success and "SUCCESS" or "FAIL"))
-			return
-
-		end
-
-	end
-
 end

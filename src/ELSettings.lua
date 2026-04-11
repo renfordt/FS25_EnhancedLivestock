@@ -151,7 +151,7 @@ ELSettings.SETTINGS = {
 		["index"] = 5,
 		["type"] = "Button",
 		["ignore"] = true,
-		["callback"] = AnimalSystem.onClickResetDealer
+		["callback"] = ResetDealerEvent.sendEvent
 	},
 
 	["tagColour"] = {
@@ -613,111 +613,39 @@ function ELSettings.getOverrideVanillaAnimals()
 
 end
 
-function ELSettings.detectAnimalPackageMod()
+---Initialize the bridge registry and load bridges
+---This replaces the old detectAnimalPackageMod() and detectHofBergmannMap() functions
+function ELSettings.initializeBridgeRegistry()
+	-- Initialize bridge registry
+	g_bridgeRegistry = BridgeRegistry.new()
 
--- Check if FS25_AnimalPackage_vanillaEdition mod is loaded
-	if g_modIsLoaded == nil or not g_modIsLoaded["FS25_AnimalPackage_vanillaEdition"] then
-		return false
+	-- Detect and load all available bridges
+	g_bridgeRegistry:detectAll()
+
+	-- Load translations BEFORE fill types so that $l10n_ references in fill type
+	-- titles can resolve. Bridge translations go into the global i18n namespace
+	-- via g_i18n:setText(), and bridge fill types use customEnvironment of the
+	-- external mod, so they need the keys available globally.
+	g_bridgeRegistry:loadBridgeTranslations()
+
+	-- Load fill types from all detected bridges
+	g_bridgeRegistry:loadBridgeFillTypes()
+
+	-- Legacy flags for backward compatibility (can be removed in future versions)
+	-- Check if HofBergmann bridge is active
+	local hofBridge = g_bridgeRegistry:getBridge("FS25_HofBergmann")
+	if hofBridge then
+		ELSettings.hofBergmannAnimals = true
 	end
-
-	-- Get the mod directory from Giants Engine (works with zipped mods)
-	local animalPackageDir = g_modNameToDirectory["FS25_AnimalPackage_vanillaEdition"]
-
-	if animalPackageDir == nil then
-		Logging.warning("[EnhancedLivestock] FS25_AnimalPackage_vanillaEdition is loaded but directory could not be determined")
-		return false
-	end
-
-	Logging.info("[EnhancedLivestock] Found FS25_AnimalPackage_vanillaEdition at: %s", animalPackageDir)
-
-	-- Check if the fillTypes.xml exists to verify the mod structure
-	local fillTypesPath = animalPackageDir .. "xmls/fillTypes.xml"
-	local testFile = XMLFile.loadIfExists("testAnimalPackage", fillTypesPath)
-
-	if testFile == nil then
-		Logging.warning("[EnhancedLivestock] FS25_AnimalPackage_vanillaEdition detected but could not find expected files at: %s", fillTypesPath)
-		return false
-	end
-
-	testFile:delete()
-
-	-- The external mod splits animals into individual files
-	local animalFiles = {
-		"xmls/animals/cow.xml",
-		"xmls/animals/pig.xml",
-		"xmls/animals/sheep.xml",
-		"xmls/animals/horse.xml",
-		"xmls/animals/chicken.xml"
-	}
-
-	-- Verify which animal files exist
-	local foundFiles = {}
-	Logging.info("[EnhancedLivestock] Checking for animal files in: %s", animalPackageDir)
-
-	for _, file in ipairs(animalFiles) do
-		local fullPath = animalPackageDir .. file
-		Logging.info("[EnhancedLivestock] Checking: %s", fullPath)
-		local animalTestFile = XMLFile.loadIfExists("testAnimalFile_" .. file, fullPath)
-		if animalTestFile ~= nil then
-			animalTestFile:delete()
-			table.insert(foundFiles, file)
-			Logging.info("[EnhancedLivestock] Found animal file: %s", file)
-		else
-			Logging.info("[EnhancedLivestock] NOT found: %s", file)
-		end
-	end
-
-	Logging.info("[EnhancedLivestock] Found %d animal files", #foundFiles)
-
-	if #foundFiles == 0 then
-		Logging.warning("[EnhancedLivestock] Could not find any animal XML files in FS25_AnimalPackage_vanillaEdition")
-		Logging.warning("[EnhancedLivestock] Will use vanilla animals with external mod's fill types only")
-		-- Still set up customAnimals but without animalFiles - fillTypes will still be used
-		ELSettings.customAnimals = {
-			["basePath"] = nil, -- Don't override basePath when no animal files found
-			["animals"] = nil,
-			["animalFiles"] = nil,
-			["fillTypes"] = "xmls/fillTypes.xml",
-			["translations"] = nil,
-			["override"] = false  -- Don't override vanilla animals
-		}
-		-- Still load fill types even if animal files not found
-		local fillTypesXML = loadXMLFile("animalPackageFillTypes", fillTypesPath)
-		if fillTypesXML ~= nil then
-			g_fillTypeManager:loadFillTypes(fillTypesXML, animalPackageDir, false, "FS25_AnimalPackage_vanillaEdition")
-			Logging.info("[EnhancedLivestock] Successfully loaded fill types from FS25_AnimalPackage_vanillaEdition (fill types only mode)")
-		end
-		return true  -- Return true so we don't fall back to custom animals configuration
-	end
-
-	-- Configure custom animals to use the Animal Package mod with multiple files
-	ELSettings.customAnimals = {
-		["basePath"] = animalPackageDir,
-		["animals"] = nil, -- We use animalFiles instead
-		["animalFiles"] = foundFiles, -- List of individual animal XML files
-		["fillTypes"] = "xmls/fillTypes.xml",
-		["translations"] = nil, -- External mod uses vanilla translations
-		["override"] = true  -- Override vanilla animals with Animal Package animals
-	}
-
-	Logging.info("[EnhancedLivestock] Configured %d animal files: %s", #foundFiles, table.concat(foundFiles, ", "))
-
-	-- Load fill types from the external mod
-	local fillTypesXML = loadXMLFile("animalPackageFillTypes", fillTypesPath)
-	if fillTypesXML ~= nil then
-		g_fillTypeManager:loadFillTypes(fillTypesXML, animalPackageDir, false, "FS25_AnimalPackage_vanillaEdition")
-		Logging.info("[EnhancedLivestock] Successfully loaded fill types from FS25_AnimalPackage_vanillaEdition")
-	end
-
-	Logging.info("[EnhancedLivestock] Using animals from FS25_AnimalPackage_vanillaEdition mod")
-	return true
-
 end
 
 function ELSettings.validateCustomAnimalsConfiguration()
 
--- First check if Animal Package mod should be used
-	if ELSettings.detectAnimalPackageMod() then
+	-- Initialize bridge registry and load all detected bridges
+	ELSettings.initializeBridgeRegistry()
+
+	-- If any bridges were detected, skip custom animals configuration
+	if #g_bridgeRegistry:getBridges() > 0 then
 		return
 	end
 

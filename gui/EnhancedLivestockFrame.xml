@@ -14,7 +14,6 @@
 		</GuiElement>
 
 		<GuiElement profile="el_headerContainer">
-			
 			<Button profile="el_headerButtonLeft" position="5px 0px" width="120px" text="$l10n_infohud_name" onClick="onClickSortButton" id="nameButton"/>
 			<Button profile="el_headerButton" position="125px 0px" width="120px" text="$l10n_contract_details_farmland" onClick="onClickSortButton" id="farmlandButton"/>
 			<Button profile="el_headerButton" position="180px 0px" width="120px" text="$l10n_el_ui_animalType" onClick="onClickSortButton" id="animalTypeButton"/>
@@ -29,7 +28,6 @@
 			<Bitmap profile="fs25_vehiclesHeaderIconSortAscending" position="10px 0px" id="sortingIcon_false"/>
 			<Bitmap profile="fs25_vehiclesHeaderIconSortDescending" position="10px 0px" id="sortingIcon_true"/>
 			<ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp"/>
-			
 		</GuiElement>
 		
 		<SmoothList profile="el_husbandryList" id="husbandryList">
@@ -58,7 +56,7 @@
 
 		<Profile name="el_headerIcon" extends="baseReference" with="anchorMiddleCenter">
 			<size value="50px 50px"/>
-			<imageSliceId value="enhanced_livestock.main_icon"/>
+			<imageSliceId value="el_menu.animal_monitor"/>
 			<imageColor value="$preset_fs25_colorMainDark"/>
 		</Profile>
 		

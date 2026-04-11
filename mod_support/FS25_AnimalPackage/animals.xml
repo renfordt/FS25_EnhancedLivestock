@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bridgeAnimals>
+    <!--
+        FS25_AnimalPackage_vanillaEdition Bridge
+
+        This bridge integrates the Animal Package mod's 66 animal variants with Enhanced Livestock.
+        The Animal Package mod provides high-quality breed variations for all vanilla animal species.
+
+        Strategy: Import animal definitions from the external mod's split XML files.
+        The external mod organizes animals by species in separate files:
+        - xmls/animals/cow.xml (multiple breeds: Holstein, Swiss Brown, Angus, Limousin, Hereford, etc.)
+        - xmls/animals/pig.xml (multiple breeds)
+        - xmls/animals/sheep.xml (multiple breeds)
+        - xmls/animals/horse.xml (multiple breeds)
+        - xmls/animals/chicken.xml (multiple breeds)
+    -->
+
+    <configOverrides>
+        <override type="COW" configFilename="animals/domesticated/cattle/husbandryAnimalsCattle.xml"/>
+        <override type="PIG" configFilename="animals/domesticated/pig/husbandryAnimalsPig.xml"/>
+        <override type="SHEEP" configFilename="animals/domesticated/sheep/husbandryAnimalsSheep.xml"/>
+        <override type="CHICKEN" configFilename="animals/domesticated/chicken/husbandryAnimalsChicken.xml"/>
+    </configOverrides>
+
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/cow.xml" />
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/pig.xml" />
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/sheep.xml" />
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/horse.xml" />
+    <import source="$moddir$FS25_AnimalPackage_vanillaEdition/xmls/animals/chicken.xml" />
+
+    <!--
+        Property overrides for imported subTypes.
+        Sets breed-specific weights, breed groupings, and explicit genders.
+        SubTypes that collide with base EL definitions (same name) are skipped during import
+        but included here for completeness - overrides apply to whichever version was loaded.
+    -->
+    <propertyOverrides>
+        <animal type="COW">
+            <subType subType="COW_HOLSTEIN" gender="female" minWeight="42.0" targetWeight="575.0" maxWeight="1200.0" breed="HOLSTEIN" />
+            <subType subType="BULL_HOLSTEIN" gender="male" minWeight="45.0" targetWeight="650.0" maxWeight="1400.0" breed="HOLSTEIN" />
+            <subType subType="COW_REDHOLSTEIN" gender="female" minWeight="40.0" targetWeight="550.0" maxWeight="1100.0" breed="RED_HOLSTEIN" />
+            <subType subType="BULL_REDHOLSTEIN" gender="male" minWeight="43.0" targetWeight="625.0" maxWeight="1300.0" breed="RED_HOLSTEIN" />
+            <subType subType="COW_BROWNSWISS" gender="female" minWeight="38.0" targetWeight="600.0" maxWeight="1100.0" breed="SWISS_BROWN" />
+            <subType subType="BULL_BROWNSWISS" gender="male" minWeight="42.0" targetWeight="850.0" maxWeight="1400.0" breed="SWISS_BROWN" />
+            <subType subType="COW_LIMOUSIN" gender="female" minWeight="36.0" targetWeight="630.0" maxWeight="1200.0" breed="LIMOUSIN" />
+            <subType subType="BULL_LIMOUSIN" gender="male" minWeight="39.0" targetWeight="675.0" maxWeight="1400.0" breed="LIMOUSIN" />
+            <subType subType="COW_ANGUS" gender="female" minWeight="32.0" targetWeight="700.0" maxWeight="1200.0" breed="ANGUS" />
+            <subType subType="BULL_ANGUS" gender="male" minWeight="35.0" targetWeight="900.0" maxWeight="1400.0" breed="ANGUS" />
+            <subType subType="COW_WATERBUFFALO" gender="female" minWeight="35.0" targetWeight="425.0" maxWeight="1200.0" breed="WATER_BUFFALO" />
+            <subType subType="BULL_WATERBUFFALO" gender="male" minWeight="36.0" targetWeight="500.0" maxWeight="1400.0" breed="WATER_BUFFALO" />
+            <!-- Highland Cattle (no bull variant in AP) -->
+            <subType subType="COW_HIGHLAND_CATTLE" gender="female" minWeight="35.0" targetWeight="725.0" maxWeight="1200.0" breed="HIGHLAND" />
+        </animal>
+
+        <animal type="PIG">
+            <subType subType="SOW_LANDRACE" gender="female" minWeight="1.36" targetWeight="165.0" maxWeight="1050.0" breed="LANDRACE" />
+            <subType subType="BOAR_LANDRACE" gender="male" minWeight="1.4" targetWeight="205.0" maxWeight="1200.0" breed="LANDRACE" />
+            <subType subType="SOW_PIETRAIN" gender="female" minWeight="1.5" targetWeight="175.0" maxWeight="1050.0" breed="PIETRAIN" />
+            <subType subType="BOAR_PIETRAIN" gender="male" minWeight="1.6" targetWeight="220.0" maxWeight="1200.0" breed="PIETRAIN" />
+            <subType subType="SOW_BERKSHIRE" gender="female" minWeight="1.6" targetWeight="140.0" maxWeight="1050.0" breed="BERKSHIRE" />
+            <subType subType="BOAR_BERKSHIRE" gender="male" minWeight="1.7" targetWeight="180.0" maxWeight="1200.0" breed="BERKSHIRE" />
+        </animal>
+
+        <animal type="SHEEP">
+            <subType subType="EWE_MERINO" gender="female" minWeight="4.0" targetWeight="55.0" maxWeight="135.0" breed="MERINO" />
+            <subType subType="RAM_MERINO" gender="male" minWeight="4.5" targetWeight="80.0" maxWeight="150.0" breed="MERINO" />
+            <subType subType="EWE_SUFFOLK" gender="female" minWeight="5.0" targetWeight="70.0" maxWeight="135.0" breed="SUFFOLK" />
+            <subType subType="RAM_SUFFOLK" gender="male" minWeight="5.5" targetWeight="100.0" maxWeight="150.0" breed="SUFFOLK" />
+            <subType subType="EWE_MOUNTAINSHEEP" gender="female" minWeight="4.5" targetWeight="60.0" maxWeight="135.0" breed="MOUNTAIN_SHEEP" />
+            <subType subType="RAM_MOUNTAINSHEEP" gender="male" minWeight="5.0" targetWeight="80.0" maxWeight="150.0" breed="MOUNTAIN_SHEEP" />
+            <subType subType="DOE_THURINGIAN" gender="female" minWeight="3.5" targetWeight="50.0" maxWeight="90.0" breed="THURINGIAN" />
+            <subType subType="BUCK_THURINGIAN" gender="male" minWeight="3.8" targetWeight="65.0" maxWeight="115.0" breed="THURINGIAN" />
+        </animal>
+
+        <!-- HORSE: 8 subTypes (8 coat colors, female only in AP - no stallion variants) -->
+        <animal type="HORSE">
+            <subType subType="HORSE_GRAY" gender="female" minWeight="45.0" targetWeight="500.0" maxWeight="900.0" breed="GRAY" />
+            <subType subType="HORSE_PINTO" gender="female" minWeight="45.0" targetWeight="500.0" maxWeight="900.0" breed="PINTO" />
+            <subType subType="HORSE_PALOMINO" gender="female" minWeight="45.0" targetWeight="500.0" maxWeight="900.0" breed="PALOMINO" />
+            <subType subType="HORSE_CHESTNUT" gender="female" minWeight="45.0" targetWeight="500.0" maxWeight="900.0" breed="CHESTNUT" />
+            <subType subType="HORSE_BAY" gender="female" minWeight="45.0" targetWeight="500.0" maxWeight="900.0" breed="BAY" />
+            <subType subType="HORSE_BLACK" gender="female" minWeight="45.0" targetWeight="500.0" maxWeight="900.0" breed="BLACK" />
+            <subType subType="HORSE_SEAL_BROWN" gender="female" minWeight="45.0" targetWeight="500.0" maxWeight="900.0" breed="SEAL_BROWN" />
+            <subType subType="HORSE_DUN" gender="female" minWeight="45.0" targetWeight="500.0" maxWeight="900.0" breed="DUN" />
+        </animal>
+
+        <animal type="CHICKEN">
+            <subType subType="HEN_LOHMANN" gender="female" minWeight="0.04" targetWeight="2.2" maxWeight="4.5" breed="LOHMANN" />
+            <subType subType="ROOSTER_LOHMANN" gender="male" minWeight="0.04" targetWeight="3.0" maxWeight="5.5" breed="LOHMANN" />
+            <subType subType="HEN_LEGHORN" gender="female" minWeight="0.035" targetWeight="2.0" maxWeight="4.0" breed="LEGHORN" />
+            <subType subType="ROOSTER_LEGHORN" gender="male" minWeight="0.04" targetWeight="2.8" maxWeight="5.0" breed="LEGHORN" />
+            <subType subType="HEN_PLYMOUTHROCK" gender="female" minWeight="0.04" targetWeight="3.0" maxWeight="4.5" breed="PLYMOUTH_ROCK" />
+            <subType subType="ROOSTER_PLYMOUTHROCK" gender="male" minWeight="0.045" targetWeight="4.0" maxWeight="5.5" breed="PLYMOUTH_ROCK" />
+            <subType subType="HEN_BOHUSDAL" gender="female" minWeight="0.035" targetWeight="2.5" maxWeight="4.0" breed="BOHUSDAL" />
+            <subType subType="ROOSTER_BOHUSDAL" gender="male" minWeight="0.04" targetWeight="3.2" maxWeight="5.0" breed="BOHUSDAL" />
+        </animal>
+
+    </propertyOverrides>
+</bridgeAnimals>

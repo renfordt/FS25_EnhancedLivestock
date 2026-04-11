@@ -46,7 +46,7 @@ local function fixInGameMenu(frame, pageName, uvs, position, predicateFunc)
 	inGameMenu.pagingElement:updatePageMapping()
 
 	inGameMenu:registerPage(inGameMenu[pageName], position, predicateFunc)
-	inGameMenu:addPageTab(inGameMenu[pageName], modDirectory .. "gui/icons.dds", GuiUtils.getUVs(uvs))
+	inGameMenu:addPageTab(inGameMenu[pageName], modDirectory .. "gui/menu_icons.dds", GuiUtils.getUVs(uvs))
 
 	for i = 1, #inGameMenu.pageFrames do
 		local child = inGameMenu.pageFrames[i]
@@ -85,28 +85,16 @@ function EnhancedLivestock_FSBaseMission:onStartMission()
 
 	-- Handle migration conflict or pending migration (server only)
 	if self:getIsServer() then
-		print("Enhanced Livestock: Running on server")
+		Logging.info("[Enhanced Livestock] Running on server")
 		if g_elMigrationConflict then
-		-- Show conflict dialog and block mission
-			print("Enhanced Livestock: Showing conflict dialog")
 			if g_ElMigrationManager ~= nil then
 				g_ElMigrationManager:showConflictDialog()
-			else
-				print("Enhanced Livestock: ERROR - g_ElMigrationManager is nil!")
 			end
 		elseif g_elPendingMigration then
-		-- Show migration dialog
-			print("Enhanced Livestock: Showing migration dialog")
 			if g_ElMigrationManager ~= nil then
 				g_ElMigrationManager:showMigrationDialog()
-			else
-				print("Enhanced Livestock: ERROR - g_ElMigrationManager is nil!")
 			end
-		else
-			print("Enhanced Livestock: No migration action needed")
 		end
-	else
-		print("Enhanced Livestock: Not running on server")
 	end
 
 	ELSettings.applyDefaultSettings()
@@ -132,7 +120,7 @@ function EnhancedLivestock_FSBaseMission:onStartMission()
 	local enhancedLivestockFrame = EnhancedLivestockFrame.new()
 	g_gui:loadGui(modDirectory .. "gui/EnhancedLivestockFrame.xml", "EnhancedLivestockFrame", enhancedLivestockFrame, true)
 
-	fixInGameMenu(enhancedLivestockFrame, "enhancedLivestockFrame", { 260, 0, 256, 256 }, 4, function()
+	fixInGameMenu(enhancedLivestockFrame, "enhancedLivestockFrame", { 512, 256, 256, 256, }, 4, function()
 		return true
 	end)
 
@@ -154,7 +142,6 @@ function EnhancedLivestock_FSBaseMission:sendInitialClientState(connection, _, _
 
 	connection:sendEvent(EL_BroadcastSettingsEvent.new())
 	connection:sendEvent(AnimalSystemStateEvent.new(animalSystem.countries, animalSystem.animals, animalSystem.aiAnimals))
-	connection:sendEvent(DewarManagerStateEvent.new())
 	connection:sendEvent(HusbandryMessageStateEvent.new(g_currentMission.husbandrySystem.placeables))
 
 end

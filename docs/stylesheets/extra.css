@@ -1,0 +1,92 @@
+/* =========================================================
+   Enhanced Livestock — Farming Simulator 25 Theme
+   ========================================================= */
+
+/* ── Light mode ──────────────────────────────────────────── */
+[data-md-color-scheme="default"] {
+  /* Primary – agricultural green */
+  --md-primary-fg-color:               #3d6b24;
+  --md-primary-fg-color--light:        #5a9e35;
+  --md-primary-fg-color--dark:         #2c5218;
+  --md-primary-bg-color:               #ffffff;
+  --md-primary-bg-color--light:        rgba(255, 255, 255, 0.7);
+
+  /* Accent – wheat gold */
+  --md-accent-fg-color:                #b8860b;
+  --md-accent-fg-color--transparent:   rgba(184, 134, 11, 0.1);
+  --md-accent-bg-color:                #ffffff;
+  --md-accent-bg-color--light:         rgba(255, 255, 255, 0.7);
+
+  /* Page background – warm off-white */
+  --md-default-bg-color:               #fafaf6;
+  --md-default-bg-color--light:        #f5f5ef;
+
+  /* Links */
+  --md-typeset-a-color:                #3d6b24;
+
+  /* Footer */
+  --md-footer-bg-color:                #2c5218;
+  --md-footer-bg-color--dark:          #1e3a10;
+}
+
+/* ── Dark mode ───────────────────────────────────────────── */
+[data-md-color-scheme="slate"] {
+  /* Hue tuned toward green (default is 225 / blue) */
+  --md-hue: 100;
+
+  /* Primary – brighter green for dark backgrounds */
+  --md-primary-fg-color:               #4a8c2a;
+  --md-primary-fg-color--light:        #6bb344;
+  --md-primary-fg-color--dark:         #3a7020;
+  --md-primary-bg-color:               #ffffff;
+  --md-primary-bg-color--light:        rgba(255, 255, 255, 0.7);
+
+  /* Accent – warm gold */
+  --md-accent-fg-color:                #d4a017;
+  --md-accent-fg-color--transparent:   rgba(212, 160, 23, 0.12);
+  --md-accent-bg-color:                #ffffff;
+  --md-accent-bg-color--light:         rgba(255, 255, 255, 0.7);
+
+  /* Surface – deep green-tinted dark */
+  --md-default-bg-color:               #1a1f16;
+  --md-default-bg-color--light:        #222820;
+  --md-default-bg-color--lighter:      #2a322a;
+  --md-default-bg-color--lightest:     #323c32;
+
+  /* Text */
+  --md-default-fg-color:               rgba(230, 237, 225, 0.87);
+  --md-default-fg-color--light:        rgba(230, 237, 225, 0.54);
+  --md-default-fg-color--lighter:      rgba(230, 237, 225, 0.32);
+  --md-default-fg-color--lightest:     rgba(230, 237, 225, 0.07);
+
+  /* Code blocks */
+  --md-code-bg-color:                  #1e2519;
+  --md-code-fg-color:                  #c8d6bf;
+
+  /* Links */
+  --md-typeset-a-color:                #6bb344;
+
+  /* Footer */
+  --md-footer-bg-color:                #151a12;
+  --md-footer-bg-color--dark:          #0e120b;
+}
+
+/* ── Header & navigation refinements ─────────────────────── */
+.md-header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.md-tabs {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+/* ── Admonition accent overrides ─────────────────────────── */
+[data-md-color-scheme="default"] .md-typeset .admonition,
+[data-md-color-scheme="default"] .md-typeset details {
+  border-color: var(--md-primary-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details {
+  border-color: var(--md-primary-fg-color--light);
+}
